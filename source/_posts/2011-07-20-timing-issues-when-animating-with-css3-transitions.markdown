@@ -13,7 +13,6 @@ tags:
   - javascript
 ---
 
-
 I have been playing around a lot lately with motion graphics created using HTML5 and / or CSS3. One of my favorite new features is [CSS Transitions][1], which makes it super simple to animate element properties between two states.
 
 However, I ran into a gotcha the other day, and wanted to make a quick blog post in case anyone else runs into it in the future. Basically, if you change a property that a CSS Transition is monitoring in the same script loop that you add the element to the DOM, the CSS Transition will not take affect. Instead, the element will be drawn with the new properties, and will not animate to those properties.
@@ -24,57 +23,50 @@ Here is an example that shows the issue, as well as how to fix it.
   
 First the relevant styles for the CSS Transition:
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="css" style="font-family:monospace;"><span style="color: #6666ff;">.box</span>
-<span style="color: #00AA00;">&#123;</span>
-	<span style="color: #808080; font-style: italic;">/*...*/</span>
-	-webkit-transition<span style="color: #00AA00;">:</span> all 0.7s ease<span style="color: #00AA00;">;</span>
-	-moz-transition<span style="color: #00AA00;">:</span> all 0.7s ease<span style="color: #00AA00;">;</span>
-	-o-transition<span style="color: #00AA00;">:</span> all 0.7s ease<span style="color: #00AA00;">;</span>
-	transition<span style="color: #00AA00;">:</span> all 0.7s ease<span style="color: #00AA00;">;</span>
-<span style="color: #00AA00;">&#125;</span></pre>
-  </div>
-</div>
+``` css
+.box
+{
+	/*...*/
+	-webkit-transition: all 0.7s ease;
+	-moz-transition: all 0.7s ease;
+	-o-transition: all 0.7s ease;
+	transition: all 0.7s ease;
+}
+```
 
-<div style="text-align:center;">
-</div>
-
-&nbsp;
+<iframe src="http://mikechambers.com/html5/css/CSS3TransitionsTiming/index.html" width="520" height="300"></iframe>
 
 Notice how when you click the example the cirlce just appears on the right, instead of appearing on the left, and then animating to the right as it should.
 
 Here is the relevant code that creates the div and updates it position:
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">function</span> onMouseClick<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span>box<span style="color: #009900;">&#41;</span>
-	<span style="color: #009900;">&#123;</span>
-		<span style="color: #006600; font-style: italic;">//remove existing box from dom</span>
-		document.<span style="color: #660066;">body</span>.<span style="color: #660066;">removeChild</span><span style="color: #009900;">&#40;</span>box<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	<span style="color: #009900;">&#125;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//create the div</span>
-	box <span style="color: #339933;">=</span> document.<span style="color: #660066;">createElement</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"div"</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	box.<span style="color: #660066;">className</span> <span style="color: #339933;">=</span> <span style="color: #3366CC;">"box"</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//add to dom</span>
-	document.<span style="color: #660066;">body</span>.<span style="color: #660066;">appendChild</span><span style="color: #009900;">&#40;</span>box<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//position in middle / left of screen</span>
-	box.<span style="color: #660066;">style</span>.<span style="color: #660066;">left</span> <span style="color: #339933;">=</span> <span style="color: #3366CC;">"10px"</span><span style="color: #339933;">;</span>
-	box.<span style="color: #660066;">style</span>.<span style="color: #660066;">top</span> <span style="color: #339933;">=</span> <span style="color: #009900;">&#40;</span>window.<span style="color: #660066;">innerHeight</span> <span style="color: #339933;">/</span> <span style="color: #CC0000;">2</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">+</span> <span style="color: #3366CC;">"px"</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//set position we want div to animate to (using the CSS Transition)</span>
-	<span style="color: #006600; font-style: italic;">//NOTE : This will not animate, but will instead just be moved / drawn</span>
-	<span style="color: #006600; font-style: italic;">//in the final position</span>
-	<span style="color: #006600; font-style: italic;">//need to delay this call by 20 ms</span>
-	box.<span style="color: #660066;">style</span>.<span style="color: #660066;">left</span> <span style="color: #339933;">=</span> <span style="color: #009900;">&#40;</span>window.<span style="color: #660066;">innerWidth</span> <span style="color: #339933;">-</span> <span style="color: #CC0000;">100</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">+</span> <span style="color: #3366CC;">"px"</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+``` javascript
+function onMouseClick()
+{
+	if(box)
+	{
+		//remove existing box from dom
+		document.body.removeChild(box);
+	}
+	
+	//create the div
+	box = document.createElement("div");
+	box.className = "box";
+	
+	//add to dom
+	document.body.appendChild(box);
+	
+	//position in middle / left of screen
+	box.style.left = "10px";
+	box.style.top = (window.innerHeight / 2) + "px";
+
+	//set position we want div to animate to (using the CSS Transition)
+	//NOTE : This will not animate, but will instead just be moved / drawn
+	//in the final position
+	//need to delay this call by 20 ms
+	box.style.left = (window.innerWidth - 100) + "px";
+}
+```
 
 [View / Download Code][2]
 
@@ -84,42 +76,37 @@ Setting the delay can be done using setTimeout.
 
 Here is the update example, and code:
 
-<div style="text-align:center;">
-</div>
+<iframe src="http://mikechambers.com/html5/css/CSS3TransitionsTiming/index_b.html" width="520" height="300"></iframe>
 
-&nbsp;
+``` javascript
+function onMouseClick()
+{
+	if(box)
+	{
+		//remove existing div from dom
+		document.body.removeChild(box);
+	}
+	
+	//create the div
+	box = document.createElement("div");
+	box.className = "box";
+	
+	//add to dom
+	document.body.appendChild(box);
+	
+	//position in middle / left of screen
+	box.style.left = "10px";
+	box.style.top = (window.innerHeight / 2) + "px";
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">function</span> onMouseClick<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span>box<span style="color: #009900;">&#41;</span>
-	<span style="color: #009900;">&#123;</span>
-		<span style="color: #006600; font-style: italic;">//remove existing div from dom</span>
-		document.<span style="color: #660066;">body</span>.<span style="color: #660066;">removeChild</span><span style="color: #009900;">&#40;</span>box<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	<span style="color: #009900;">&#125;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//create the div</span>
-	box <span style="color: #339933;">=</span> document.<span style="color: #660066;">createElement</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"div"</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	box.<span style="color: #660066;">className</span> <span style="color: #339933;">=</span> <span style="color: #3366CC;">"box"</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//add to dom</span>
-	document.<span style="color: #660066;">body</span>.<span style="color: #660066;">appendChild</span><span style="color: #009900;">&#40;</span>box<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//position in middle / left of screen</span>
-	box.<span style="color: #660066;">style</span>.<span style="color: #660066;">left</span> <span style="color: #339933;">=</span> <span style="color: #3366CC;">"10px"</span><span style="color: #339933;">;</span>
-	box.<span style="color: #660066;">style</span>.<span style="color: #660066;">top</span> <span style="color: #339933;">=</span> <span style="color: #009900;">&#40;</span>window.<span style="color: #660066;">innerHeight</span> <span style="color: #339933;">/</span> <span style="color: #CC0000;">2</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">+</span> <span style="color: #3366CC;">"px"</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//delay updating position so it will animate correctly</span>
-	setTimeout<span style="color: #009900;">&#40;</span>moveBox<span style="color: #339933;">,</span> <span style="color: #CC0000;">20</span><span style="color: #339933;">,</span> box<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #003366; font-weight: bold;">function</span> moveBox<span style="color: #009900;">&#40;</span>box<span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	box.<span style="color: #660066;">style</span>.<span style="color: #660066;">left</span> <span style="color: #339933;">=</span> <span style="color: #009900;">&#40;</span>window.<span style="color: #660066;">innerWidth</span> <span style="color: #339933;">-</span> <span style="color: #CC0000;">100</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">+</span> <span style="color: #3366CC;">"px"</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+	//delay updating position so it will animate correctly
+	setTimeout(moveBox, 20, box);
+}
+
+function moveBox(box)
+{
+	box.style.left = (window.innerWidth - 100) + "px";
+}
+```
 
 [View / Download Code][2]
 
@@ -127,10 +114,7 @@ The only change, is that we moved the code to update the divs position to its ow
 
 Here is another example that uses setTimeout to animate newly created DIVs.
 
-<div style="text-align:center;">
-</div>
-
-&nbsp;
+<iframe src="http://mikechambers.com/html5/css/CSS3TransitionsAnimation/" width="520" height="400"></iframe>
 
 [View / Download Code][3]
 

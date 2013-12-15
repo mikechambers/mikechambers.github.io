@@ -23,17 +23,10 @@ Since I started playing [Starcraft 2][2], I have become a pretty big fan of e-sp
 So, to solve this problem, I created [JTV Live][4], a Google Chrome extension for helping you track which of your favorite Justin.tv streams are live.  
 <!--more-->
 
-<div style="text-align:center;">
-  <a href="http://www.flickr.com/photos/mikechambers/5909364802/" title="JTV Live by mike.chambers, on Flickr"><img src="http://farm6.static.flickr.com/5152/5909364802_c90fdd7798.jpg" width="400" height="275" alt="JTV Live" style="border:1px solid black; moz-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);-webkit-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);box-shadow: 3px 3px 4px rgba(0,0,0,0.7);" /></a>
-</div>
 
-&nbsp;
+[![title](http://farm6.static.flickr.com/5152/5909364802_c90fdd7798.jpg)](http://www.flickr.com/photos/mikechambers/5909364802/)
 
-<div style="text-align:center; font-weight:bold;">
-  <a href="https://chrome.google.com/webstore/detail/eojkhidnkbolpneigllnelngopamnafa">Download JTV Live from the Chrome Web Store</a>.
-</div>
-
-&nbsp;
+[Download JTV Live from the Chrome Web Store](https://chrome.google.com/webstore/detail/eojkhidnkbolpneigllnelngopamnafa)
 
 Using the extension is pretty simple. Once you install it, a small TV / Monitor icon will be placed in the top right of your browser bar. Right click on the icon, select options, and enter your Justin.tv user name.
 

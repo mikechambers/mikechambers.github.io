@@ -7,7 +7,6 @@ categories:
   - General
 ---
 
-
 Just as we did in Europe a couple of weeks ago, [Lee Brimelow][1] and I are doing a series of Flash get togethers in North America over the next couple of weeks. I will be talking about the [roadmap for the Flash runtimes][2], and leading a discussion around recent development in the Flash world. Lee will be showing off some of the new stuff we are working on around gaming.
 
 Here are the cities and dates:
