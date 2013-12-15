@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Mike Chambers]]></title>
+  <link href="http://mikechambers.com/atom.xml" rel="self"/>
+  <link href="http://mikechambers.com/"/>
+  <updated>2013-12-15T12:37:20-08:00</updated>
+  <id>http://mikechambers.com/</id>
+  <author>
+    <name><![CDATA[Mike Chambers]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Test Post]]></title>
+    <link href="http://mikechambers.com/blog/2013/12/14/test-post/"/>
+    <updated>2013-12-14T21:33:48-08:00</updated>
+    <id>http://mikechambers.com/blog/2013/12/14/test-post</id>
+    <content type="html"><![CDATA[<p>This is a simple test post.</p>
+
+<figure class='code'><figcaption><span>foo.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>List</p>
+
+<ul>
+<li>One</li>
+<li>Two</li>
+<li>Three</li>
+</ul>
+
+
+<blockquote><p>This is a block quote. Lets see how it works out when it wraps. In general, I think it looks pretty good.</p></blockquote>
+
+<p>Just testing.</p>
+]]></content>
+  </entry>
+  
+</feed>
