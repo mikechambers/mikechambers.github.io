@@ -16,20 +16,18 @@ I could probably use an app such as [DoubleCommand][2] to remap one of the funct
   
 Here is the script:
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="applescript" style="font-family:monospace;"><span style="color: #ff0033; font-weight: bold;">set</span> volumeSettings <span style="color: #ff0033; font-weight: bold;">to</span> <span style="color: #ff0033; font-weight: bold;">get</span> volume settings
-<span style="color: #ff0033; font-weight: bold;">if</span> output muted <span style="color: #ff0033; font-weight: bold;">of</span> volumeSettings <span style="color: #ff0033; font-weight: bold;">is</span> <span style="color: #0066ff;">false</span> <span style="color: #ff0033; font-weight: bold;">then</span>
-	<span style="color: #ff0033; font-weight: bold;">set</span> volume <span style="color: #ff0033; font-weight: bold;">with</span> output muted
-<span style="color: #ff0033; font-weight: bold;">else</span>
-	<span style="color: #ff0033; font-weight: bold;">set</span> volume <span style="color: #ff0033; font-weight: bold;">without</span> output muted
-<span style="color: #ff0033; font-weight: bold;">end</span> <span style="color: #ff0033; font-weight: bold;">if</span></pre>
-  </div>
-</div>
+``` applescript
+set volumeSettings to get volume settings
+if output muted of volumeSettings is false then
+    set volume with output muted
+else
+    set volume without output muted
+end if
+```
 
 [Download Source and Application from my GitHub account][5].
 
-To use this, download the application (or compile the script). Save the application in a place where Alfred / Quicksilver can find it. I placed mine in my /Applications folder.
+To use this, download the application (or compile the script). Save the application in a place where Alfred / Quicksilver can find it. I placed mine in my */Applications* folder.
 
 Now, when you want to toggle whether the volume is muted, just launch Alfred / Quicksilver and type mute.
 
