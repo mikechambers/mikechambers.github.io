@@ -1,0 +1,300 @@
+---
+title: Macromedia Central SDK Beta FAQ
+author: mikechambers
+layout: post
+permalink: /2003/10/15/macromedia-central-sdk-beta-faq/
+categories:
+  - Central
+---
+
+
+I have put together a FAQ for the [Central Developer (SDK) Beta][1]. This will eventually be posted on our website, but I am posting this here to get the info out as quickly as possible.
+
+<!--more-->
+
+<p style="margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="3"><strong>General<br /> </strong> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>What<br /> is the Macromedia Central Public Developer Beta? </strong></font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">The<br /> <a href="http://www.macromedia.com/go/central_sdk">Macromedia Central Public<br /> Developer Beta</a> is a public beta of the Macromedia Central Software Development<br /> Kit (SDK). It is intended to give developers a chance to begin learning about<br /> developing applications within Macromedia Central. </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>What<br /> does the SDK contain? </strong></font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">The<br /> SDK contains API and component documentation, sample applications, development<br /> and deployment utilities and other resources to help developers develop and<br /> deploy applications for Macromedia Central. </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Where<br /> are the release notes for the SDK? </strong></font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">The<br /> release notes for the SDK are contained within the SDK download. </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Does<br /> the beta include Macromedia Central? </strong></font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">The<br /> developer beta does not include Macromedia Central. A public beta of Macromedia<br /> Central is available for install from <a href="http://www.macromedia.com/go/central">http://www.macromedia.com/go/install_central<br /> </a></font>
+</p>
+
+<p style="margin-top:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-bottom: 0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>I<br /> found an error in the SDK, where do I report it? </strong></font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">You<br /> can send any errors, feedback or other suggestions about the SDK and Macromedia<br /> Central on the Macromedia Central Feedback Page ( <a href="http://www.macromedia.com/support/email/wishform/?6213=32">http://www.macromedia.com/go/central_feedback</a>);<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Where<br /> can I find more information about Macromedia Central? </strong></font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">You<br /> can find a list of Macromedia Central Resources in the <a href="http://www.macromedia.com/go/central_resources">Macromedia<br /> Central Resources page</a>.</font>
+</p>
+
+<p style="margin-bottom: 0;">
+  &nbsp;
+</p>
+
+<p style="margin-top:0;">
+  <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Are<br /> there non-English versions of the SDK available?</strong></font>
+</p>
+
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">No.<br /> The initial release of Central and the Central SDK will be English only. We<br /> plan to add support for localized versions in 2004.</font>
+
+<p style="margin-bottom: 0;">
+  &nbsp;
+</p>
+
+<p style="margin-top:0;">
+  <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Where<br /> can I talk to other developers about the SDK?</strong></font>
+</p>
+
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">There<br /> are a number of community forums / mailing lists dedicated to Macromedia Central:</font>
+
+*   <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="http://webforums.macromedia.com/central/">Macromedia<br /> Central Webforum</a></font>
+*   <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="http://www.macromedia.com/go/central_maillist">Macromedia<br /> Central Mail List</a></font>
+*   <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="http://www.centralmx.com/centralforums/index.php">CentralMX.com<br /> web forums</a></font>
+*   <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="http://www.markme.com/mesh/archives/003388.cfm">Macromedia<br /> Central Dev Chat Application</a></font>
+
+<p style="margin-bottom: 0;">
+  &nbsp;
+</p>
+
+<p style="margin-top: 0;">
+  <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>If<br /> my client wants to contact Macromedia with a business proposal&nbsp; (co-branding,<br /> etc), who should they contact?</strong></font>
+</p>
+
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">You<br /> can contact Mike Chambers at <a href="mailto:mesh@macromedia.com">mesh@macromedia.com</a>.</font>
+
+<p style="margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="3"><strong>Development<br /> </strong> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;">
+  <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>The<br /> Components documentation discuss an MDialogBox component, but I can&#8217;t find it.<br /> Is this a bug?</strong></font>
+</p>
+
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">The<br /> MDialogBox component is a component for create modal dialog boxes. It is not<br /> included in the SDK but it will be available in the final version of Central<br /> and the SDK.</font>
+
+<p style="margin-bottom: 0;">
+  &nbsp;
+</p>
+
+<p style="margin-top:0; margin-bottom: 0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Why<br /> won&#8217;t the Central components work when I test my application within the Flash<br /> authoring environment?</strong></font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">The<br /> Macromedia Central components are actually contained within a shared library<br /> linked from Macromedia.com (and installed into Central). This leads to smaller<br /> application download sizes, as well as ensure that applications always run with<br /> the latest version of the components. </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">However,<br /> because of how Macromedia Flash handles shared libraries, then cannot be viewed<br /> within the authoring environment&#8217;s player. You must test your application within<br /> Macromedia Central in order to test the components. </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Can<br /> I used Flash MX 2004 to develop applications for Macromedia Central? </strong></font>
+</p>
+
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">Yes.<br /> Flash MX 2004 and Flash MX 2004 Pro can both be used to develop applications<br /> for Macromedia Central. Just be sure to set them to publish as Flash 6 format<br /> in File > Publish Settings.</font>
+
+<p style="margin-bottom: 0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>How<br /> do I test my Macromedia Central Applications? </strong></font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Because<br /> they utilize APIs available within the Macromedia Central environment, Central<br /> applications must be tested within Macromedia Central. You can use the debug<br /> tools included with the SDK to debug the applications as they run within Central.<br /> </font>
+</p>
+
+<p style="margin-bottom: 0;">
+  <font size="2" face="Verdana, Arial, Helvetica, sans-serif">You<br /> can find more information on the development process for Macromedia Central<br /> in chapter 1 of the Developing Applications PDF on the <a href="http://www.macromedia.com/go/central_sdk">SDK</a><br /> and in this <a href="http://www.markme.com/mesh/archives/003546.cfm">quick-start<br /> guide</a>.</font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Do<br /> I need to reinstall my application to test it each time I make a change?</strong><br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">No.<br /> You only need to install your application into Central for testing once. After<br /> that, you can set the Flash Authoring environment to publish directly into the<br /> Central environment. You can find more information on how to set this up in<br /> chapter 1 of the Developing Applications PDF on the <a href="http://www.macromedia.com/go/central_sdk">SDK</a><br /> and in this <a href="http://www.markme.com/mesh/archives/003546.cfm">quick-start<br /> guide</a>. </font>
+</p>
+
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>How<br /> do I debug my application? Can I use trace()?</strong></font>
+
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">Yes.<br /> Central has support for catching trace() calls within an application, and redirecting<br /> them to the Central debug panels included within the SDK. Currently though,<br /> you must include the following link of ActionScript within your application:</font>
+
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">debug.enabled<br /> = true;</font>
+
+<p style="margin-bottom: 0;">
+  <font size="2" face="Verdana, Arial, Helvetica, sans-serif">in<br /> order to enable debugging. This step will not be necessary in the final version<br /> of Central. You can find more information on the testing and debugging process<br /> in chapter 1 of the Developing Applications PDF on the <a href="http://www.macromedia.com/go/central_sdk">SDK</a><br /> and in this <a href="http://www.markme.com/mesh/archives/003546.cfm">quick-start<br /> guide</a>.</font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>The<br /> SDK mentions that I need to get a product id in order to install my application<br /> within Macromedia Central. Where do I get a product id? </strong></font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">You<br /> can get a product ID for your application from <a href="http://www.macromedia.com/go/central_productid">http://www.macromedia.com/go/central_productid</a>.<br /> </font>
+</p>
+
+<p style="margin-top:0;">
+  <font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;<br /> </font>
+</p>
+
+ [1]: http://www.macromedia.com/go/central_sdk

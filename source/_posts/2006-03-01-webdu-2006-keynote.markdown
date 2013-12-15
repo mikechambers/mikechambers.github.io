@@ -1,0 +1,42 @@
+---
+title: WebDU 2006 Keynote
+author: mikechambers
+layout: post
+permalink: /2006/03/01/webdu-2006-keynote/
+categories:
+  - General
+---
+
+
+I am at [WebDU][1] in Sydney all week. This is consistently one of my favorite conferences in the year, and this year&#8217;s conference looks like it might be the best yet.
+
+I gave the opening keynote this morning, which was a lot of fun, and a real honor for me. I spoke about Macromedia and Adobe joining together, and how I am [excited][2] about the opportunities it presents for the Flash Platform.  
+<!--more-->
+
+  
+At Macromedia we always had a clear vision of where we wanted to take the platform, and what we needed to do to get there. We simply did not have all of the resources we needed to act as quickly on the vision as we needed to. 
+
+Joining up with Adobe means that the combined company now has the resources to take the Flash Platform to the next level, and create THE platform for creating next generation, cross platform rich applications and content.
+
+This was the key theme of the keynote, and we covered the following:
+
+*   Flash Player 8 adoption has been the fastest ever. After just 5 months we have had over 500 million successful installs (5 million a day). We are on a path to hit 50% penetration in the next couple of months, and 80% well under a year.
+*   Mobile : Bill Perry shows off some new content for Flash Lite 2 and Flash cast, and announced the [availability][3] of Flash Lite 2 today.
+*   FlashPlayer 8.5 / ActionScript 3 : talked about the fundamental performance increases that the new virtual machine provides, as well as the productivity improvements that AcitonScript 3 and the new APIs (e4x, regular expressions, display list api, etc&#8230;) provide for developers.
+*   Flex Product line : discussed the Flex product line, and broke it down between Flex Framework (which will be released for FREE!), Flex Builder, Flash Player 8.5, and Flex Enterprise Services.
+*   Flex Builder 2 &#8211; discussed the advantages of building Flex Builder on top of Eclipse platform. This gives us a solid platform to build Flex and ActionScript specific functionality on top of (gives us a head start). Gives developers a common platform to develop with across technologies (ActionScript, Flex, ColdFusion, PHP, JavaScript, etc..).
+*   Built an MP3 player within Flex Builder using the Flex framework (took about 5 minutes). (App was originally created by [Sho][4]). I love this demo because it really shows off how easy Flex Builder and the Flex framework makes it to create, layout, style and program applications. I am not sure if this is on [labs][5] yet, but I will post to it once it is.
+*   Announced the new open source [ActionScript 3 libraries][6] that we released. These include APIs for JSON serialization / de-serialization, Flickr, Mappr, RSS / ATOM, Odeo (podcasts), YouTube (video) and a bunch more. These are currently in beta and you can download them from [labs][6]. (I will post more on these later).
+*   Showed a Mashup app that [Christian][7], [Danny][8] and I built over the past couple of days that use the new APIs. The app, named &#8220;flow&#8221; allows you to create stream of conscious flows between different services and media types. We will post the code for this in the next couple of weeks, and we will try to get the app on line soon.
+*   Discussed Apollo. This is a next generation platform we are working on for deploying Flash / HTML based applications to the desktop. Apollo Will provide all of the desktop APIs and functionality you would expect from a desktop application, while allowing developers to leverage the technologies the are already familiar with (Flash / Flex / JavaScript / HTML / Ajax). And yes, it will be cross platform, developers have 100% control over application control (not running in some wrapper / shell), and you will be able to create applications using HTML / JavaScript / Ajax just like you will be able to with ActionScript / Flash / Flex.
+
+Anyways, it was a lot of fun and seemed to go well. I will be here the rest of the week (in a session on User Experience right now) hanging out in sessions or in the xbox room (Halo anyone?). Make sure to say hi.
+
+ [1]: http://www.webdu.com.au/
+ [2]: http://weblogs.macromedia.com/mesh/archives/2005/04/macromedia_adob.cfm
+ [3]: http://www.adobe.com/aboutadobe/pressroom/pressreleases/200601/010306FlashLite.html
+ [4]: http://weblogs.macromedia.com/sho/
+ [5]: http://labs.macromedia.com
+ [6]: http://labs.macromedia.com/wiki/index.php/ActionScript_3:resources:apis:libraries
+ [7]: http://weblogs.macromedia.com/cantrell/
+ [8]: http://www.danieldura.com

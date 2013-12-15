@@ -1,0 +1,16 @@
+---
+title: 360 Flex in Milan
+author: mikechambers
+layout: post
+permalink: /2008/03/24/360-flex-in-milan/
+categories:
+  - General
+---
+
+
+I just posted this on the [on AIR tour blog][1], and wanted to make a quick note here, but the [360 Flex conference is heading to Milan, Italy][2]. I actually attended the first 360 Flex conference, and it is definitely worth it if you are at all interested in Flex development.
+
+I won&#8217;t be able to make the event in Milan this year, but the speaker list is pretty amazing. [Check out the website][2] for a complete list, as well as session and [registration][2] information.
+
+ [1]: http://onair.adobe.com/blogs/tour/2008/03/24/360-flex-conference-in-milan/
+ [2]: http://www.360flex.com/360Flex_Europe/2007/11/about-360flex-europe.html

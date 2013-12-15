@@ -1,0 +1,43 @@
+---
+title: DevCon 2002 Wrapup
+author: mikechambers
+layout: post
+permalink: /2002/11/04/devcon-2002-wrapup/
+categories:
+  - Conferences
+---
+
+
+Well, it took me a couple of days longer than I expected to recover from [DevCon][1], so here are my belated DevCon thoughts. My overall impression was that this was a very successful conference. Just having that many developers together (2300 &#8211; 2500 from different products) meant that I could not only find out what other people were talking about a were excited about, but it also gave me a chance to get a different viewpoint on some of our products and development issues.  
+Biggest surprise? The number of ColdFusion developers who told me that they were most excited about the Flash Communication Server and how easy it was to author content using the components.  
+Biggest disappointment? I only got to attend one session, and that one (Sam Wan&#8217;s on data visualization) was attending sitting outside of the packed conference room and accessing the session through a Flash Communication server app that Sam built (very cool, btw).  
+Video Blogs : These actually went pretty well, with a few techincal hicups. As of the end of DevCon, we had had over 50,000 views of the video reports. You can view them all [here][2]. Thanks to [Jeremy Allaire ][3]for creating the video blog application.  
+Next years DevCon will be in San Diego, and I am defiantly looking forward to it. Below are some link of other DevCon coverage.  
+  
+*   [Macromedia DesDev Coverage][1]  
+    *   [Flazoom.com : DevCon Day 1][4]  
+        *   [Flazoom.com : DevCon Day 2][5]  
+            *   [Flazoom.com : DevCon Day 3][6]  
+                *   [Waxpraxis.org Coverage][7]  
+                    *   [VoodooExtreme Coverage][8]  
+                        *   [List of all Video Blogs][2]  
+                            *   [Video Reports from RhinoFly][9] (some are in dutch)  
+                                *   [John Dowdell&#8217;s coverage of DevCon][10]</UL>
+                                  
+                                Here are some slides that have been posted online:  
+                                  
+                                *   [Bill Perry : Flash for Devices (2 presentations)][11]
+                                  
+                                If you post any pictures or slides, put the link in the comments section and I will update the post.</p>
+
+ [1]: http://www.macromedia.com/desdev/devcon2002/
+ [2]: http://bilbo.macromedia.com/devconblog/blogitems.cfm
+ [3]: http://radio.weblogs.com/0113297/2002/10/31.html#a70
+ [4]: http://www.flazoom.com/cooler/1036089135,75755,.shtml
+ [5]: http://www.flazoom.com/cooler/1036187879,22955,.shtml
+ [6]: http://www.flazoom.com/cooler/1036350932,60393,.shtml
+ [7]: http://www.waxpraxis.org
+ [8]: http://www.flashvoodoo.com/weblog.php
+ [9]: http://mx.rhinofly.nl/devcon2002
+ [10]: http://jdmx.blogspot.com/
+ [11]: http://www.pocketpcflash.net/devcon/

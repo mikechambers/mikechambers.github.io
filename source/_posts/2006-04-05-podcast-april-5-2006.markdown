@@ -1,0 +1,66 @@
+---
+title: 'Podcast : April 5, 2006'
+author: mikechambers
+layout: post
+permalink: /2006/04/05/podcast-april-5-2006/
+categories:
+  - podcast
+---
+
+
+As I [mentioned last week][1], I decided to start up a new podcast. Christian and I had done a couple of [podcasts][2] together last year, but as they took too much time to produce, we ended up not having time to do very many. My podcast will be a little less polished, but hopefully I will be able to do them a little more consistently.
+
+I have just uploaded the first podcast.
+
+[Download April 5, 2006 Podcast][3]
+
+Topic covered in this podcast include:Post any suggestions and questions on the podcast in the comments.  
+<!--more-->
+
+*   Introduction
+*   Open Source ActionScript 3 Libraries
+*   FlexUnit &#8211; ActionScript 3 unit testing framework
+*   RSS / Atom Library
+*   Public Subversion Repository for developer relations
+*   del.icio.us ActionScript 3 API
+*   Flow Mashup Application
+*   Flex 2 Styling
+*   JSON
+*   Ideas for future podcast guests
+*   Podcast license
+
+Here are the links mentioned during the podcasts:
+
+*   [Original Podcasts with Christian Cantrell][2]
+*   [Adobe Labs (download betas of ActionScript 3, Flex 2)][4]
+*   [ActionScript 3 Open Source Libraries][5]
+*   [Darron Schall on unit testing][6]
+*   [E4X Support in ActionScript 3][7]
+*   [Developer Relations Public Subversion Repository][8]
+*   [Flow Mashup Screenshots][9]
+*   [JSON][10]
+*   [JSON / ActionScript Tutorial][11]
+*   [Yahoo APIs with JSON support][12]
+
+You can [subscribe to the podcast via my RSS 2.0 feed][13].
+
+<!-- Creative Commons License -->
+
+  
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a>  
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/">Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License</a>.  
+<!-- /Creative Commons License -->
+
+ [1]: http://weblogs.macromedia.com/mesh/archives/2006/03/starting_podcas.cfm
+ [2]: http://weblogs.macromedia.com/podcast/
+ [3]: http://weblogs.macromedia.com/mesh/files/podcasts/04_05_06_mike_chambers.mp3
+ [4]: http://labs.adobe.com
+ [5]: http://labs.macromedia.com/wiki/index.php/ActionScript_3:resources:apis:libraries
+ [6]: http://www.darronschall.com/weblog/archives/000212.cfm
+ [7]: http://labs.macromedia.com/wiki/index.php/ActionScript_3:overview#ECMAScript_for_XML_.28E4X.29
+ [8]: http://labs.macromedia.com/wiki/index.php/Source:get
+ [9]: http://weblogs.macromedia.com/mesh/archives/2006/03/i_just_posted_s.cfm
+ [10]: http://www.json.org/
+ [11]: http://weblogs.macromedia.com/mesh/archives/2006/03/reminder_flex_2.cfm
+ [12]: http://developer.yahoo.com/
+ [13]: /mesh/index.xml

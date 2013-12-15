@@ -1,0 +1,74 @@
+---
+title: 'Podcast : April 12, 2006'
+author: mikechambers
+layout: post
+permalink: /2006/04/12/podcast-april-12-2006/
+categories:
+  - podcast
+---
+
+
+I just uploaded this weeks podcast.
+
+[Download Podcast for April 12, 2006][1]
+
+This weeks podcast discusses:  
+<!--more-->
+
+*   Open Source ActionScript 3 Libraries Update
+*   Delicious ActionScript 3 Library
+*   Impact of early access to technology through labs
+*   Posting Volume on FlexCoder&#8217;s Mailing List
+*   MXNA update
+*   Flash in The Can Conference
+*   Ajax Experience
+*   Weblog of the Week
+
+Here are the links mentioned in the podcast:
+
+*   [ActionScript 3 Open Source Libraries][2]
+*   [Delicious API][3]
+*   [Flex 2, Flash Player 8.5 and Flex Builder Beta downloads at labs][4]
+*   [FlexUnit][5]
+*   [Flex Framework Docs][6]
+*   [FlexCoders List][7]
+*   [FlexCoders Historical Post Volume Chart][8]
+*   [MXNA][9]
+*   [Flash In The Can][10]
+*   [Ajax Experience][11]
+*   [Ajaxian.com][12]
+*   [Sho Kuwamoto&#8217;s Weblog][13]
+*   [Flex 2 Sliding Drawer Component][14]
+*   [Private / protected constructors in ActionScript 3][15]
+*   [Objects and enums in ActionScript 3][16]
+*   [Flex 2 Autocomplete control][17]
+
+You can [subscribe to the podcast via my RSS 2.0 feed][18].
+
+Post any suggestions or questions in the comments.
+
+<!-- Creative Commons License -->
+
+  
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a>  
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/">Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License</a>.  
+<!-- /Creative Commons License -->
+
+ [1]: http://weblogs.macromedia.com/mesh/files/podcasts/04-12-06_mike_chambers.mp3
+ [2]: http://labs.macromedia.com/wiki/index.php/ActionScript_3:resources:apis:libraries
+ [3]: http://weblogs.macromedia.com/mesh/archives/2006/04/i_am_working_on.cfm
+ [4]: http://www.macromedia.com/go/labs_flex2_downloads
+ [5]: http://labs.macromedia.com/wiki/index.php/ActionScript_3:resources:apis:libraries#FlexUnit
+ [6]: http://labs.macromedia.com/wiki/index.php/Flex_Framework#Documentation
+ [7]: http://groups.yahoo.com/group/flexcoders/
+ [8]: http://weblogs.macromedia.com/mesh/archives/2006/04/chart_flexcoder.cfm
+ [9]: http://weblogs.macromedia.com/mxna/
+ [10]: http://www.fitc.ca/event_detail.cfm?festival_id=5
+ [11]: http://theajaxexperience.com/
+ [12]: http://www.ajaxian.com/
+ [13]: http://weblogs.macromedia.com/sho/
+ [14]: http://weblogs.macromedia.com/sho/archives/2006/04/flex_sliding_dr.cfm
+ [15]: http://weblogs.macromedia.com/sho/archives/2006/04/as3_--_on_the_l.cfm
+ [16]: http://weblogs.macromedia.com/sho/archives/2006/04/as3_technique_-.cfm
+ [17]: http://weblogs.macromedia.com/sho/archives/2006/04/new_version_of.cfm
+ [18]: /mesh/index.xml
