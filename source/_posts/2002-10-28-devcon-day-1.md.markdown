@@ -1,0 +1,21 @@
+---
+title: 'DevCon : Day 1'
+author: mikechambers
+layout: post
+permalink: /2002/10/28/devcon-day-1/
+categories:
+  - Conferences
+---
+
+
+[DevCon][1] got into full swing this morning. I will be blogging all of the sessions I attend, as well as doing some &#8220;Video Blogs&#8221;. Below is a list of entries from today:  
+  
+*   [Day 1 Keynote (Includes Video Blog).][2]
+
+  
+I also noticed that a couple of sites&nbsp;are blogging the conference, including [waxpraxis][3] (Branden Hall) and [FlashVoodoo][4].
+
+ [1]: http://www.macromedia.com/v1/conference/
+ [2]: http://radio.weblogs.com/0106797/2002/10/28.html#a322
+ [3]: http://www.waxpraxis.org
+ [4]: http://www.flashvoodoo.com/weblog.php

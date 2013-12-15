@@ -1,0 +1,20 @@
+---
+title: 'Tweetr : Sweet Apollo Based Twitter Application'
+author: mikechambers
+layout: post
+permalink: /2007/04/27/tweetr-sweet-apollo-based-twitter-application/
+categories:
+  - General
+---
+<div class="tweetmeme_button" style="float: right; margin-left: 10px;"><a class="tm_button" rel="&amp;source=mesh&amp;style=normal&amp;service=bit.ly&amp;b=2" href="http://www.mikechambers.com/blog/2007/04/27/tweetr-sweet-apollo-based-twitter-application/"></a></div>
+<p><a href="http://www.twiter.com">Twitter</a> really began to take off right before we launch the <a href="http://www.adobe.com/go/apollo">Apollo alpha</a>. At the time, it seemed that everyone (myself included), was creating an Apollo based Twitter client. I tried them all out, as well as some non-Apollo clients, but none of them really felt right, and I ended up not using them.</p>
+<p>Yesterday, I stumbled upon <a href="http://www.tweet-r.com/">Tweetr</a> (I think I saw it from one of <a href="http://twitter.com/Scobleizer/statuses/20445301">Scoble&#8217;s tweets</a>), and have been using constantly since I found it. I can&#8217;t really put my finger on why I like this one so much more than all the other Twitter apps, but I think it has something to do with the simple UI, ease of use, and application focus (it just does Twitter and does it well).<br />
+<!--more--><br />
+<a href='/blog/upload_images/tweetr.png' title='Tweetr Screenshot'><img src='/blog/upload_images/tweetr.png' alt='Tweetr Screenshot' /></a></p>
+<p>Btw, Tweetr has the distinction of a couple of firsts for an Apollo application:</p>
+<ol>
+<li><a href="http://digg.com/software/Tweetr_Twitter_client_built_using_Adobe_Apollo">First Apollo Application that made it to the front of digg</a></li>
+<li>First Apollo application that I set to automatically run when my computer starts</li>
+</ol>
+<p>OK, so the second one is not that big of a distinction.</p>
+<p>Anyways, if you use Twitter, make sure to <a href="http://www.tweet-r.com/">check it out</a>.</p>

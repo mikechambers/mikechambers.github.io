@@ -1,0 +1,138 @@
+---
+title: Config.as
+author: mikechambers
+layout: post
+permalink: /2002/05/14/configas/
+categories:
+  - General
+---
+
+
+Simple class that loads config files. You can view the documentation [here][1]. This is provided as is, but please post any errors, corrections or suggestions in the comments below.
+<PRE>#include &#8220;stringUtils.as&#8221;</PRE>
+
+<PRE>/*<BR />&nbsp;Config.as v1.0</PRE>
+
+<PRE>&nbsp;created by mike chambers : <A href="mailto:mesh@macromedia.com">mesh@macromedia.com</A></PRE>
+
+<PRE>&nbsp;requires stringUtils.as which can be downloaded from:<BR />&nbsp;<A href="/mesh/files/stringutils/">/mesh/files/stringutils/</A></PRE>
+
+<PRE>*/</PRE>
+
+<PRE><BR />if(!String.stringUtilsDefined)<BR />{<BR />&nbsp;trace(&#8220;Warning : The stringUtils.as file was not loaded. This library is required &#8221; +<BR />&nbsp;&nbsp;&#8221;by the Config.as file. Please make sure that the stringUtils.as file is &#8221; +<BR />&nbsp;&nbsp;&#8221;either in the same directory as the Config.as file, or is included in the &#8221; +<BR />&nbsp;&nbsp;&#8221;Flash MX include path.&#8221;);<BR />}</PRE>
+
+<PRE>if(String.stringUtilsVersion &lt; 1.5)<BR />{<BR />&nbsp;trace(&#8220;Warning : Config.as requires the stringUtils.as version 1.5 or higher. &#8221; +<BR />&nbsp;&nbsp;&#8221;You are using version : &#8221; + String.stringUtilsVersion +<BR />&nbsp;&nbsp;&#8221; Please upgrade your stringUtils.as file.&#8221;);<BR />}</PRE>
+
+<PRE><BR />/*<BR />&nbsp;Constructor that takes the path to the config file as an argument<BR />&nbsp;<BR />&nbsp;Path can be any valid relative or absolute file or url path. Although if <BR />&nbsp;running from a browser,&nbsp; Flash&#8217;s security restrictions apply.<BR />*/<BR />_global.Config = function(fileName)<BR />{<BR />&nbsp;this.fileName = fileName;<BR />}</PRE>
+
+<PRE>&nbsp;</PRE>
+
+<PRE>/*<BR />&nbsp;Method that allows you to set the path to the config file.</PRE>
+
+<PRE>&nbsp;Path can be any valid relative or absolute file or url path. Although if <BR />&nbsp;running from a browser,&nbsp; Flash&#8217;s security restrictions apply.<BR />*/<BR />Config.prototype.setFileName = function(fileName)<BR />{<BR />&nbsp;this.fileName = fileName;<BR />}</PRE>
+
+<PRE>&nbsp;</PRE>
+
+<PRE>/*<BR />&nbsp;Returns a string of the path to the current config file.</PRE>
+
+<PRE>&nbsp;If a config file has not been specified, then it returns null;<BR />*/<BR />Config.prototype.getFileName = function()<BR />{<BR />&nbsp;return this.fileName;<BR />}</PRE>
+
+<PRE>&nbsp;</PRE>
+
+<PRE>/*<BR />&nbsp;Method which takes a boolean value that indicates whether<BR />&nbsp;or not double quotes surrounding names and values should be removed.</PRE>
+
+<PRE>&nbsp;Default is false.<BR />*/<BR />Config.prototype.setStripQuotes(strip)<BR />{<BR />&nbsp;this.stripQuotes = strip;<BR />}</PRE>
+
+<PRE>&nbsp;</PRE>
+
+<PRE>/*<BR />&nbsp;Method which takes a boolean value that indicates whether<BR />&nbsp;or not values that contain commas should be exploded into<BR />&nbsp;an array of values.</PRE>
+
+<PRE>&nbsp;If set to true, calling get() on the name will return an Array.</PRE>
+
+<PRE>&nbsp;If set to false, calling get() on the name will return a string.</PRE>
+
+<PRE>&nbsp;The default is false.<BR />*/<BR />Config.prototype.setExplodeValues(explode)<BR />{<BR />&nbsp;this.explodeValues = explode;<BR />}</PRE>
+
+<PRE><BR />Config.prototype.onData = function(data)<BR />{<BR />&nbsp;if(this.parse(data))<BR />&nbsp;{<BR />&nbsp;&nbsp;this.onConfigLoad(true);<BR />&nbsp;}<BR />&nbsp;else<BR />&nbsp;{<BR />&nbsp;&nbsp;this.loaded = false;<BR />&nbsp;&nbsp;this.onConfigLoad(false);<BR />&nbsp;}<BR />&nbsp;<BR />}</PRE>
+
+<PRE>&nbsp;</PRE>
+
+<PRE>/*<BR />&nbsp;This is a convenience method that allows you to pass a string<BR />&nbsp;representing a config file to be parsed.</PRE>
+
+<PRE>&nbsp;It returns true if the parsing succeeded, and false if it did not.</PRE>
+
+<PRE>&nbsp;Note, since the method returns immediately, you may access<BR />&nbsp;the data in the object immediately after it has returned true.</PRE>
+
+<PRE>&nbsp;For example: </PRE>
+
+<PRE>&nbsp;var c = new Config();<BR />&nbsp;var s = &#8220;foo=bar\n&#8221;;<BR />&nbsp;s += &#8220;name = mike\n&#8221;;</PRE>
+
+<PRE>&nbsp;if(c.parse(s))<BR />&nbsp;{<BR />&nbsp;&nbsp;trace(c.get(&#8220;foo&#8221;));&nbsp;&nbsp;&nbsp; //traces &#8220;bar&#8221;<BR />&nbsp;}</PRE>
+
+<PRE>&nbsp;If the config object has already parsed data, then the new data will be added <BR />&nbsp;to the config object, overwriting any duplicate values that already exist.<BR />*/<BR />Config.prototype.parse = function(data)<BR />{</PRE>
+
+<PRE>&nbsp;var rows = data.split(&#8220;\n&#8221;);<BR />&nbsp;var rLength = rows.length;<BR />&nbsp;var tArray = new Array();</PRE>
+
+<PRE>&nbsp;var rString;<BR />&nbsp;var tName;<BR />&nbsp;var tString;<BR />&nbsp;var c;</PRE>
+
+<PRE>&nbsp;for(var i = 0; i &lt; rLength; i++)<BR />&nbsp;{<BR />&nbsp;&nbsp;rString = rows[i];</PRE>
+
+<PRE>&nbsp;&nbsp;c = rString.charAt(0);</PRE>
+
+<PRE>&nbsp;&nbsp;if(c == &#8220;;&#8221; || c == &#8220;#&#8221; || <BR />&nbsp;&nbsp;&nbsp;c == &#8220;[" || c == "/")<BR />&nbsp;&nbsp;{<BR />&nbsp;&nbsp;&nbsp;continue;<BR />&nbsp;&nbsp;}</PRE>
+
+<PRE>&nbsp;&nbsp;tArray = rString.split("=");</PRE>
+
+<PRE>&nbsp;&nbsp;if(tArray.length != 2)<BR />&nbsp;&nbsp;{<BR />&nbsp;&nbsp;&nbsp;continue;<BR />&nbsp;&nbsp;}</PRE>
+
+<PRE>&nbsp;&nbsp;tName = tArray[0].trim();<BR />&nbsp;&nbsp;tValue = tArray[1].trim();</PRE>
+
+<PRE>&nbsp;&nbsp;//maybe write custom loop to strip the quotes in one pass.<BR />&nbsp;&nbsp;if(this.stripQuotes)<BR />&nbsp;&nbsp;{<BR />&nbsp;&nbsp;&nbsp;if(tValue.beginsWith(&#8220;\&#8221;"))<BR />&nbsp;&nbsp;&nbsp;{<BR />&nbsp;&nbsp;&nbsp;&nbsp;tValue = tValue.substring(1);</PRE>
+
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;if(tValue.endsWith(&#8220;\&#8221;"))<BR />&nbsp;&nbsp;&nbsp;&nbsp;{<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tValue = tValue.substring(0, tValue.length &#8211; 1);<BR />&nbsp;&nbsp;&nbsp;&nbsp;}<BR />&nbsp;&nbsp;&nbsp;}</PRE>
+
+<PRE>&nbsp;&nbsp;&nbsp;if(tName.beginsWith(&#8220;\&#8221;"))<BR />&nbsp;&nbsp;&nbsp;{<BR />&nbsp;&nbsp;&nbsp;&nbsp;tName = tName.substring(1);</PRE>
+
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp;if(tName.endsWith(&#8220;\&#8221;"))<BR />&nbsp;&nbsp;&nbsp;&nbsp;{<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tName = tName.substring(0, tName.length &#8211; 1);<BR />&nbsp;&nbsp;&nbsp;&nbsp;}<BR />&nbsp;&nbsp;&nbsp;}<BR />&nbsp;&nbsp;}</PRE>
+
+<PRE>&nbsp;&nbsp;if(this.explodeValues)<BR />&nbsp;&nbsp;{<BR />&nbsp;&nbsp;&nbsp;if(tValue.indexOf(&#8220;,&#8221;) &gt; 0)<BR />&nbsp;&nbsp;&nbsp;{<BR />&nbsp;&nbsp;&nbsp;&nbsp;//we jsut changed tValue from a string to array;<BR />&nbsp;&nbsp;&nbsp;&nbsp;tValue = tValue.split(&#8220;,&#8221;);<BR />&nbsp;&nbsp;&nbsp;}<BR />&nbsp;&nbsp;}</PRE>
+
+<PRE>&nbsp;&nbsp;this.configArray[tName] = tValue;</PRE>
+
+<PRE>&nbsp;&nbsp;tValue = null;<BR />&nbsp;&nbsp;tName = null;<BR />&nbsp;}<BR />&nbsp;<BR />&nbsp;this.loaded = true;<BR />&nbsp;return true;<BR />}</PRE>
+
+<PRE>&nbsp;</PRE>
+
+<PRE>/*<BR />&nbsp;Takes a string and returns the value for that name in the config file.</PRE>
+
+<PRE>&nbsp;For example:</PRE>
+
+<PRE>&nbsp;config.ini<BR />&nbsp;foo=bar<BR />&nbsp;name=mike</PRE>
+
+<PRE>&nbsp;var c = new Config(&#8220;config.ini&#8221;);</PRE>
+
+<PRE>&nbsp;c.onConfigLoad = function(success)<BR />&nbsp;{<BR />&nbsp;&nbsp;trace(c.get(&#8220;foo&#8221;));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //traces &#8220;bar&#8221;<BR />&nbsp;&nbsp;trace(c.get(&#8220;name&#8221;));&nbsp;&nbsp;&nbsp;&nbsp; //traces &#8220;mike&#8221;<BR />&nbsp;}<BR />*/<BR />Config.prototype.get = function(hash)<BR />{<BR />&nbsp;return this.configArray[hash];<BR />}</PRE>
+
+<PRE>&nbsp;</PRE>
+
+<PRE>/*<BR />&nbsp;Returns an associative array containing the name value<BR />&nbsp;pairs contained within the object.<BR />*/<BR />Config.prototype.getArray = function()<BR />{<BR />&nbsp;return this.configArray;<BR />}</PRE>
+
+<PRE>/*<BR />&nbsp;This method loads the config file specified in the constructor or<BR />&nbsp;setConfigFile() method, and then parses it.</PRE>
+
+<PRE>&nbsp;Once it has been parsed, the onConfigLoad() method will be<BR />&nbsp;called and passed a boolean value indicating whether the <BR />&nbsp;file was able to be parsed.</PRE>
+
+<PRE>&nbsp;The onConfigLoad method should be over ridden in order to<BR />&nbsp;allow the developer to know when the data has loaded and been parsed.<BR />*/<BR />Config.prototype.loadConfig = function()<BR />{<BR />&nbsp;this.loaded = false;<BR />&nbsp;this.load(this.fileName);<BR />}</PRE>
+
+<PRE>&nbsp;</PRE>
+
+<PRE>/*<BR />&nbsp;Default values for internal variables within the object.<BR />*/<BR />Config.prototype.configArray = new Array();<BR />Config.prototype.stripQuotes = false;<BR />Config.prototype.explodeValues = false;</PRE>
+
+<PRE>/*<BR />&nbsp;this indicates whether or not the data has loaded. you should be<BR />&nbsp;able to register with with a watch method.<BR />*/<BR />Config.prototype.loaded = false;<BR />Config.prototype.fileName = null;</PRE>
+
+<PRE>/* Extending the LoadVars object. */<BR />Config.prototype.__proto__ = LoadVars.prototype;<BR />Config.prototype.superClass = LoadVars.prototype.constructor;</PRE>
+
+<PRE>Config.prototype.constructor.configDefined = true;<BR />Config.prototype.constructor.configVersion = 1.0;<BR /></PRE>
+
+<PRE>&nbsp;</PRE>
+
+ [1]: /mesh/files/config/

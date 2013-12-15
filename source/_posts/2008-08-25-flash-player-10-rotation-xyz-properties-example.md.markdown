@@ -1,0 +1,171 @@
+---
+title: 'Flash Player 10 : rotation (x,y,z) properties example'
+author: mikechambers
+layout: post
+permalink: /2008/08/25/flash-player-10-rotation-xyz-properties-example/
+categories:
+  - General
+---
+
+
+One of the new ActionScript APIs include in [Flash Player 10][1] are the addition of z based proprties (joining the existing x and y). The DisplayObject.z and DisplayObject.rotationZ properties allow you to manipulate your display object on the z axis (relative to the 3D parent container).
+
+Below is a simple example that shows how changing the rotationX, rotationY and rotationZ properties affect a DisplayObject instance.  
+<!--more-->
+
+  
+The UI is in Flex, but of course, the APIs also work in Flash Authoring. The example requires the [Flash Player 10 RC release from labs][1].
+
+
+
+Here is the code for the application (basically just sets the properties for the sprites):
+
+<div class="highlight">
+  <pre><span style="color: #BC7A00">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;mx:Application</span> <span style="color: #7D9029">xmlns:mx=</span><span style="color: #BA2121">"http://www.adobe.com/2006/mxml"</span> <span style="color: #7D9029">layout=</span><span style="color: #BA2121">"absolute"</span>
+	<span style="color: #7D9029">backgroundColor=</span><span style="color: #BA2121">"0xFFFFFF"</span>
+	<span style="color: #7D9029">creationComplete=</span><span style="color: #BA2121">"onCreationComplete()"</span>
+	<span style="color: #008000; font-weight: bold">&gt;</span>
+	
+	<span style="color: #008000; font-weight: bold">&lt;mx:Script&gt;</span>
+		<span style="color: #BC7A00">&lt;![CDATA[</span>
+<span style="color: #BC7A00">			[Embed(source="graphics.swf", symbol="logo")]</span>
+<span style="color: #BC7A00">			[Bindable]</span>
+<span style="color: #BC7A00">			private var logoClass:Class;</span>
+<span style="color: #BC7A00">			</span>
+<span style="color: #BC7A00">			private function onCreationComplete():void</span>
+<span style="color: #BC7A00">			{</span>
+<span style="color: #BC7A00">				frameRateSlider.value = systemManager.stage.frameRate;</span>
+<span style="color: #BC7A00">			}</span>
+<span style="color: #BC7A00">			</span>
+<span style="color: #BC7A00">			private function onValueChange(e:Event):void</span>
+<span style="color: #BC7A00">			{</span>
+<span style="color: #BC7A00">				var slider:HSlider = HSlider(e.target);</span>
+<span style="color: #BC7A00">				switch(slider)</span>
+<span style="color: #BC7A00">				{</span>
+<span style="color: #BC7A00">					case rotationXSlider:</span>
+<span style="color: #BC7A00">					{</span>
+<span style="color: #BC7A00">						logo.rotationX = slider.value;</span>
+<span style="color: #BC7A00">						break;</span>
+<span style="color: #BC7A00">					}</span>
+<span style="color: #BC7A00">					case rotationYSlider:</span>
+<span style="color: #BC7A00">					{</span>
+<span style="color: #BC7A00">						logo.rotationY = slider.value;</span>
+<span style="color: #BC7A00">						break;</span>
+<span style="color: #BC7A00">					}</span>
+<span style="color: #BC7A00">					case rotationZSlider:</span>
+<span style="color: #BC7A00">					{</span>
+<span style="color: #BC7A00">						logo.rotationZ = slider.value;</span>
+<span style="color: #BC7A00">						break;</span>
+<span style="color: #BC7A00">					}</span>
+<span style="color: #BC7A00">				}	</span>
+<span style="color: #BC7A00">			}</span>
+<span style="color: #BC7A00">			</span>
+<span style="color: #BC7A00">			private function onAnimateSelect():void</span>
+<span style="color: #BC7A00">			{</span>
+<span style="color: #BC7A00">				if(animateXCB.selected || animateYCB.selected ||</span>
+<span style="color: #BC7A00">						animateZCB.selected)</span>
+<span style="color: #BC7A00">				{</span>
+<span style="color: #BC7A00">					addEventListener(Event.ENTER_FRAME, onEnterFrame);</span>
+<span style="color: #BC7A00">					return;</span>
+<span style="color: #BC7A00">				}</span>
+<span style="color: #BC7A00">				</span>
+<span style="color: #BC7A00">				if(!animateXCB.selected && !animateYCB.selected &&</span>
+<span style="color: #BC7A00">						!animateZCB.selected)</span>
+<span style="color: #BC7A00">				{</span>
+<span style="color: #BC7A00">					removeEventListener(Event.ENTER_FRAME, onEnterFrame);</span>
+<span style="color: #BC7A00">					return;</span>
+<span style="color: #BC7A00">				}</span>
+<span style="color: #BC7A00">				</span>
+<span style="color: #BC7A00">			}</span>
+<span style="color: #BC7A00">			</span>
+<span style="color: #BC7A00">			private var xDirection:int = 1;</span>
+<span style="color: #BC7A00">			private function onEnterFrame(e:Event):void</span>
+<span style="color: #BC7A00">			{</span>
+<span style="color: #BC7A00">				if(animateXCB.selected)</span>
+<span style="color: #BC7A00">				{</span>
+<span style="color: #BC7A00">					animateSlider(rotationXSlider, "rotationX");</span>
+<span style="color: #BC7A00">				}</span>
+<span style="color: #BC7A00">				</span>
+<span style="color: #BC7A00">				if(animateYCB.selected)</span>
+<span style="color: #BC7A00">				{</span>
+<span style="color: #BC7A00">					animateSlider(rotationYSlider, "rotationY");</span>
+<span style="color: #BC7A00">				}</span>
+<span style="color: #BC7A00">				</span>
+<span style="color: #BC7A00">				if(animateZCB.selected)</span>
+<span style="color: #BC7A00">				{</span>
+<span style="color: #BC7A00">					animateSlider(rotationZSlider, "rotationZ");</span>
+<span style="color: #BC7A00">				}</span>
+<span style="color: #BC7A00">			}</span>
+<span style="color: #BC7A00">			</span>
+<span style="color: #BC7A00">			private function animateSlider(slider:HSlider, property:String):void</span>
+<span style="color: #BC7A00">			{</span>
+<span style="color: #BC7A00">				if(logo[property] == 180)</span>
+<span style="color: #BC7A00">				{</span>
+<span style="color: #BC7A00">					logo[property] = -180;</span>
+<span style="color: #BC7A00">				}</span>
+<span style="color: #BC7A00">				else</span>
+<span style="color: #BC7A00">				{</span>
+<span style="color: #BC7A00">					logo[property] += 2;</span>
+<span style="color: #BC7A00">				}</span>
+<span style="color: #BC7A00">				</span>
+<span style="color: #BC7A00">				slider.value = logo[property];</span>
+<span style="color: #BC7A00">			}</span>
+<span style="color: #BC7A00">				</span>
+<span style="color: #BC7A00">			private function onFrameRateChange():void</span>
+<span style="color: #BC7A00">			{</span>
+<span style="color: #BC7A00">				stage.frameRate = Math.ceil(frameRateSlider.value);</span>
+<span style="color: #BC7A00">			}</span>
+<span style="color: #BC7A00">		]]&gt;</span>
+	<span style="color: #008000; font-weight: bold">&lt;/mx:Script&gt;</span>
+	
+	<span style="color: #008000; font-weight: bold">&lt;mx:Panel</span> <span style="color: #7D9029">layout=</span><span style="color: #BA2121">"absolute"</span> <span style="color: #7D9029">right=</span><span style="color: #BA2121">"10"</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"10"</span> <span style="color: #7D9029">top=</span><span style="color: #BA2121">"10"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"10"</span> 
+										<span style="color: #7D9029">title=</span><span style="color: #BA2121">"DisplayObject Z Properties Example"</span> 
+																<span style="color: #7D9029">color=</span><span style="color: #BA2121">"#000000"</span> <span style="color: #7D9029">height=</span><span style="color: #BA2121">"619"</span><span style="color: #008000; font-weight: bold">&gt;</span>
+
+		<span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"rotationX"</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"10"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"4"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		<span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"rotationY"</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"10"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"30"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		<span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"rotationZ"</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"10"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"56"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		
+		<span style="color: #008000; font-weight: bold">&lt;mx:HSlider</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"73"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"5"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"rotationXSlider"</span> <span style="color: #7D9029">minimum=</span><span style="color: #BA2121">"-180"</span> 
+							<span style="color: #7D9029">maximum=</span><span style="color: #BA2121">"180"</span> <span style="color: #7D9029">allowTrackClick=</span><span style="color: #BA2121">"true"</span>
+							<span style="color: #7D9029">value=</span><span style="color: #BA2121">"0"</span>
+							<span style="color: #7D9029">change=</span><span style="color: #BA2121">"onValueChange(event)"</span> <span style="color: #7D9029">liveDragging=</span><span style="color: #BA2121">"true"</span> <span style="color: #7D9029">snapInterval=</span><span style="color: #BA2121">"1"</span><span style="color: #008000; font-weight: bold">/&gt;</span>		
+		<span style="color: #008000; font-weight: bold">&lt;mx:HSlider</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"73"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"36"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"rotationYSlider"</span> 
+							<span style="color: #7D9029">allowTrackClick=</span><span style="color: #BA2121">"true"</span> <span style="color: #7D9029">minimum=</span><span style="color: #BA2121">"-180"</span> <span style="color: #7D9029">maximum=</span><span style="color: #BA2121">"180"</span>
+							<span style="color: #7D9029">value=</span><span style="color: #BA2121">"0"</span>
+							<span style="color: #7D9029">change=</span><span style="color: #BA2121">"onValueChange(event)"</span> <span style="color: #7D9029">liveDragging=</span><span style="color: #BA2121">"true"</span> <span style="color: #7D9029">snapInterval=</span><span style="color: #BA2121">"1"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		<span style="color: #008000; font-weight: bold">&lt;mx:HSlider</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"73"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"62"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"rotationZSlider"</span> 
+							<span style="color: #7D9029">allowTrackClick=</span><span style="color: #BA2121">"true"</span> <span style="color: #7D9029">minimum=</span><span style="color: #BA2121">"-180"</span> <span style="color: #7D9029">maximum=</span><span style="color: #BA2121">"180"</span>
+							<span style="color: #7D9029">value=</span><span style="color: #BA2121">"0"</span>
+							<span style="color: #7D9029">change=</span><span style="color: #BA2121">"onValueChange(event)"</span> <span style="color: #7D9029">liveDragging=</span><span style="color: #BA2121">"true"</span> <span style="color: #7D9029">snapInterval=</span><span style="color: #BA2121">"1"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		<span style="color: #008000; font-weight: bold">&lt;mx:VRule</span> <span style="color: #7D9029">height=</span><span style="color: #BA2121">"64"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"10"</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"338"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		<span style="color: #008000; font-weight: bold">&lt;mx:HRule</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"82"</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"10"</span> <span style="color: #7D9029">right=</span><span style="color: #BA2121">"10"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		<span style="color: #008000; font-weight: bold">&lt;mx:Image</span> <span style="color: #7D9029">width=</span><span style="color: #BA2121">"200"</span> <span style="color: #7D9029">height=</span><span style="color: #BA2121">"200"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"logo"</span>
+					<span style="color: #7D9029">source=</span><span style="color: #BA2121">"{logoClass}"</span> <span style="color: #7D9029">horizontalCenter=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">top=</span><span style="color: #BA2121">"150"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		<span style="color: #008000; font-weight: bold">&lt;mx:Image</span> <span style="color: #7D9029">width=</span><span style="color: #BA2121">"200"</span> <span style="color: #7D9029">height=</span><span style="color: #BA2121">"200"</span> <span style="color: #7D9029">right=</span><span style="color: #BA2121">"9"</span> <span style="color: #7D9029">horizontalCenter=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">top=</span><span style="color: #BA2121">"150"</span>
+							<span style="color: #7D9029">alpha=</span><span style="color: #BA2121">".05"</span>
+			 				<span style="color: #7D9029">source=</span><span style="color: #BA2121">"{logoClass}"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		<span style="color: #008000; font-weight: bold">&lt;mx:CheckBox</span> <span style="color: #7D9029">label=</span><span style="color: #BA2121">"Animate"</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"239"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"54"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"animateZCB"</span> <span style="color: #7D9029">click=</span><span style="color: #BA2121">"onAnimateSelect()"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		<span style="color: #008000; font-weight: bold">&lt;mx:CheckBox</span> <span style="color: #7D9029">label=</span><span style="color: #BA2121">"Animate"</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"239"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"28"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"animateYCB"</span> <span style="color: #7D9029">click=</span><span style="color: #BA2121">"onAnimateSelect()"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		<span style="color: #008000; font-weight: bold">&lt;mx:CheckBox</span> <span style="color: #7D9029">label=</span><span style="color: #BA2121">"Animate"</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"239"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"2"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"animateXCB"</span> <span style="color: #7D9029">click=</span><span style="color: #BA2121">"onAnimateSelect()"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		<span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Framerate"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"4"</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"348"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+		<span style="color: #008000; font-weight: bold">&lt;mx:HSlider</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"418"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"5"</span>
+							<span style="color: #7D9029">id=</span><span style="color: #BA2121">"frameRateSlider"</span>
+							<span style="color: #7D9029">liveDragging=</span><span style="color: #BA2121">"true"</span>
+							<span style="color: #7D9029">allowTrackClick=</span><span style="color: #BA2121">"true"</span> <span style="color: #7D9029">minimum=</span><span style="color: #BA2121">"1"</span> <span style="color: #7D9029">maximum=</span><span style="color: #BA2121">"70"</span>
+							<span style="color: #7D9029">change=</span><span style="color: #BA2121">"onFrameRateChange()"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+	<span style="color: #008000; font-weight: bold">&lt;/mx:Panel&gt;</span>
+	
+<span style="color: #008000; font-weight: bold">&lt;/mx:Application&gt;</span>
+</pre>
+</div>
+
+&nbsp;
+
+You can find more information on the z and rotationZ properties in the DisplayObject entry in the [Flash Player 10 ActionScript APIs docs][2].
+
+You can find more information on [Flash Player 10 on labs][1].
+
+ [1]: http://labs.adobe.com/technologies/flashplayer10/
+ [2]: http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_as3langref_070208.zip
