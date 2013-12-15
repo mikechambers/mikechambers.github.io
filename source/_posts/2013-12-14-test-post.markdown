@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Test Post"
+date: 2013-12-14 21:33:48 -0800
+comments: true
+categories: 
+---
+
+This is a simple test post.
+
+``` javascript foo.js
+foo.bar();
+var a = "foo";
+for(var i = 0; i < 5; i++){
+	console.log("hi");
+}
+```
+List
+
+* One
+* Two
+* Three
+
+> This is a block quote. Lets see how it works out when it wraps. In general, I think it looks pretty good.
+
+
+Just testing.
