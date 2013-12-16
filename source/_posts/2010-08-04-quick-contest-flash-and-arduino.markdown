@@ -10,10 +10,9 @@ tags:
   - physical computing
 ---
 
-
 I have been working with integrating Flash and [Arduino][1] on a project lately, and really having a blast. It was pretty easy to get started, yet there is a ton of extensibility and flexibility.
 
-Well, I dont want to be the only one having this much fun, so I figured I would put together a quick contest. So, if you are interested in playing around with Flash and Arduino, then tell me why in the comment below. Let me know about what project you have in mind. Bonus points for creativity and visual aids.
+Well, I don't want to be the only one having this much fun, so I figured I would put together a quick contest. So, if you are interested in playing around with Flash and Arduino, then tell me why in the comment below. Let me know about what project you have in mind. Bonus points for creativity and visual aids.
 
 The winner will receive the following:  
 <!--more-->
