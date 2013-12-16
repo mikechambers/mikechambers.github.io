@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Podcast | Mike Chambers]]></title>
-  <link href="http://mikechambers.github.io/blog/categories/podcast/atom.xml" rel="self"/>
-  <link href="http://mikechambers.github.io/"/>
-  <updated>2013-12-15T20:26:44-08:00</updated>
-  <id>http://mikechambers.github.io/</id>
+  <link href="http://www.mikechambers.com/blog/blog/categories/podcast/atom.xml" rel="self"/>
+  <link href="http://www.mikechambers.com/blog/"/>
+  <updated>2013-12-15T20:32:01-08:00</updated>
+  <id>http://www.mikechambers.com/blog/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Podcast : July 7, 2006]]></title>
-    <link href="http://mikechambers.github.io/2006/07/07/podcast-july-7-2006/"/>
+    <link href="http://www.mikechambers.com/blog/2006/07/07/podcast-july-7-2006/"/>
     <updated>2006-07-07T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2006/07/07/podcast-july-7-2006</id>
+    <id>http://www.mikechambers.com/blog/2006/07/07/podcast-july-7-2006</id>
     <content type="html"><![CDATA[<p>I just posted this week&#8217;s podcast</p>
 
 <p><a href="http://weblogs.macromedia.com/mesh/files/podcasts/07-07-06_mike_chambers.mp3">Download Podcast for July 7, 2006</a></p>
@@ -87,9 +87,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   
   <entry>
     <title type="html"><![CDATA[Podcast : May 10, 2006]]></title>
-    <link href="http://mikechambers.github.io/2006/05/10/podcast-may-10-2006/"/>
+    <link href="http://www.mikechambers.com/blog/2006/05/10/podcast-may-10-2006/"/>
     <updated>2006-05-10T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2006/05/10/podcast-may-10-2006</id>
+    <id>http://www.mikechambers.com/blog/2006/05/10/podcast-may-10-2006</id>
     <content type="html"><![CDATA[<p>I just posted this week&#8217;s podcast</p>
 
 <p><a href="http://weblogs.macromedia.com/mesh/files/podcasts/05-10-06_mike_chambers.mp3">Download Podcast for May 10, 2006</a></p>
@@ -159,9 +159,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   
   <entry>
     <title type="html"><![CDATA[Podcast : April 26, 2006]]></title>
-    <link href="http://mikechambers.github.io/2006/04/26/podcast-april-26-2006/"/>
+    <link href="http://www.mikechambers.com/blog/2006/04/26/podcast-april-26-2006/"/>
     <updated>2006-04-26T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2006/04/26/podcast-april-26-2006</id>
+    <id>http://www.mikechambers.com/blog/2006/04/26/podcast-april-26-2006</id>
     <content type="html"><![CDATA[<p>I just posted this week&#8217;s podcast</p>
 
 <p><a href="http://weblogs.macromedia.com/mesh/files/podcasts/04-26-06_mike_chambers.mp3">Download Podcast for April 26, 2006</a></p>
@@ -226,9 +226,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   
   <entry>
     <title type="html"><![CDATA[Podcast : April 12, 2006]]></title>
-    <link href="http://mikechambers.github.io/2006/04/12/podcast-april-12-2006/"/>
+    <link href="http://www.mikechambers.com/blog/2006/04/12/podcast-april-12-2006/"/>
     <updated>2006-04-12T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2006/04/12/podcast-april-12-2006</id>
+    <id>http://www.mikechambers.com/blog/2006/04/12/podcast-april-12-2006</id>
     <content type="html"><![CDATA[<p>I just uploaded this weeks podcast.</p>
 
 <p><a href="http://weblogs.macromedia.com/mesh/files/podcasts/04-12-06_mike_chambers.mp3">Download Podcast for April 12, 2006</a></p>
@@ -291,9 +291,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   
   <entry>
     <title type="html"><![CDATA[Podcast : April 5, 2006]]></title>
-    <link href="http://mikechambers.github.io/2006/04/05/podcast-april-5-2006/"/>
+    <link href="http://www.mikechambers.com/blog/2006/04/05/podcast-april-5-2006/"/>
     <updated>2006-04-05T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2006/04/05/podcast-april-5-2006</id>
+    <id>http://www.mikechambers.com/blog/2006/04/05/podcast-april-5-2006</id>
     <content type="html"><![CDATA[<p>As I <a href="http://weblogs.macromedia.com/mesh/archives/2006/03/starting_podcas.cfm">mentioned last week</a>, I decided to start up a new podcast. Christian and I had done a couple of <a href="http://weblogs.macromedia.com/podcast/">podcasts</a> together last year, but as they took too much time to produce, we ended up not having time to do very many. My podcast will be a little less polished, but hopefully I will be able to do them a little more consistently.</p>
 
 <p>I have just uploaded the first podcast.</p>

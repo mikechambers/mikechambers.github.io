@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: DRK | Mike Chambers]]></title>
-  <link href="http://mikechambers.github.io/blog/categories/drk/atom.xml" rel="self"/>
-  <link href="http://mikechambers.github.io/"/>
-  <updated>2013-12-15T20:26:44-08:00</updated>
-  <id>http://mikechambers.github.io/</id>
+  <link href="http://www.mikechambers.com/blog/blog/categories/drk/atom.xml" rel="self"/>
+  <link href="http://www.mikechambers.com/blog/"/>
+  <updated>2013-12-15T20:32:01-08:00</updated>
+  <id>http://www.mikechambers.com/blog/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[App Ideas for DRK 6?]]></title>
-    <link href="http://mikechambers.github.io/2004/01/14/app-ideas-for-drk-6/"/>
+    <link href="http://www.mikechambers.com/blog/2004/01/14/app-ideas-for-drk-6/"/>
     <updated>2004-01-14T00:00:00-08:00</updated>
-    <id>http://mikechambers.github.io/2004/01/14/app-ideas-for-drk-6</id>
+    <id>http://www.mikechambers.com/blog/2004/01/14/app-ideas-for-drk-6</id>
     <content type="html"><![CDATA[<p>Josh Dura has made a <a href="http://www.joshdura.com/archives/000274.php">post</a> asking what type of apps / content do developers want to see on DRK 6.</p>
 
 <p>Head over to Josh&#8217;s weblog and <a href="http://www.joshdura.com/archives/000274.php">post your suggestions</a>.</p>
@@ -26,9 +26,9 @@
   
   <entry>
     <title type="html"><![CDATA[New Poll : What Is Your Favorite Game System?]]></title>
-    <link href="http://mikechambers.github.io/2003/08/13/new-poll-what-is-your-favorite-game-system/"/>
+    <link href="http://www.mikechambers.com/blog/2003/08/13/new-poll-what-is-your-favorite-game-system/"/>
     <updated>2003-08-13T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2003/08/13/new-poll-what-is-your-favorite-game-system</id>
+    <id>http://www.mikechambers.com/blog/2003/08/13/new-poll-what-is-your-favorite-game-system</id>
     <content type="html"><![CDATA[<p>I have put up a new poll on the right of the page. This weeks question is &#8220;What is your favorite gaming system&#8221;?</p>
 
 <p>The <a href="http://www.markme.com/mesh/archives/002956.cfm">previous poll</a> went well with over 500 responses. According to poll, <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume4/sample_apps.html">Pollster</a> is by far the most popular item on <a href="http://www.macromedia.com/go/drk4/">DRK 4</a>.</p>
@@ -39,9 +39,9 @@
   
   <entry>
     <title type="html"><![CDATA[Retrieving Values for 3D Bar Chart Component]]></title>
-    <link href="http://mikechambers.github.io/2003/08/11/retrieving-values-for-3d-bar-chart-component/"/>
+    <link href="http://www.mikechambers.com/blog/2003/08/11/retrieving-values-for-3d-bar-chart-component/"/>
     <updated>2003-08-11T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2003/08/11/retrieving-values-for-3d-bar-chart-component</id>
+    <id>http://www.mikechambers.com/blog/2003/08/11/retrieving-values-for-3d-bar-chart-component</id>
     <content type="html"><![CDATA[<p>A question was posted to my weblog asking how to retrieve the data for the individual bar chart section selected in the 3D Bar chart included as part of the Flash Charting Components Set 2 on DRK 4.</p>
 
 <p>If you are using a listener to capture the select / press event, it is very simple as all of the data is passed to the listener method.</p>
@@ -82,9 +82,9 @@ myBarChart_abc.addListener ( listener );</pre>
   
   <entry>
     <title type="html"><![CDATA[DRK 4 : 3D Pie Chart Example]]></title>
-    <link href="http://mikechambers.github.io/2003/07/31/drk-4-3d-pie-chart-example/"/>
+    <link href="http://www.mikechambers.com/blog/2003/07/31/drk-4-3d-pie-chart-example/"/>
     <updated>2003-07-31T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2003/07/31/drk-4-3d-pie-chart-example</id>
+    <id>http://www.mikechambers.com/blog/2003/07/31/drk-4-3d-pie-chart-example</id>
     <content type="html"><![CDATA[<p>Peter Hall has put together a very cool <a href="http://www.peterjoel.com/upload/pie.html">example</a> of the 3D Pie Chart component from the <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume4/flashmx.html">Flash Charting Components Set 2</a> on <a href="http://www.macromedia.com/go/drk4/">DRK 4</a>.</p>
 
 <p>He has used the extrude depth of the pie chart to display additional information, and has added some code so that the chart morphs between data sets.</p>
@@ -97,9 +97,9 @@ myBarChart_abc.addListener ( listener );</pre>
   
   <entry>
     <title type="html"><![CDATA[Embedding Flash Player in Windows Applications Using C#]]></title>
-    <link href="http://mikechambers.github.io/2003/07/29/embedding-flash-player-in-windows-applications-using-c/"/>
+    <link href="http://www.mikechambers.com/blog/2003/07/29/embedding-flash-player-in-windows-applications-using-c/"/>
     <updated>2003-07-29T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2003/07/29/embedding-flash-player-in-windows-applications-using-c</id>
+    <id>http://www.mikechambers.com/blog/2003/07/29/embedding-flash-player-in-windows-applications-using-c</id>
     <content type="html"><![CDATA[<p>The Macromedia DevNet center has just published an <a href="http://www.macromedia.com/devnet/mx/flash/articles/stock_history.html">article</a> I wrote that discusses embedding the Flash player within Windows applications using C#.</p>
 
 <p>The article is based on the <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume4/sample_apps.html#stock_chart">Stock Charting Windows application</a> which is included on <a href="http://www.macromedia.com/go/drk4/">DRK 4</a>. The application uses the line chart component from the <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume4/flashmx.html">Flash Charting Component Set 2</a> to chart historical stock data within the windows app.</p>

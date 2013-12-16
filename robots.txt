@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://mikechambers.github.io/sitemap.xml 
+Sitemap: http://www.mikechambers.com/blog/sitemap.xml 

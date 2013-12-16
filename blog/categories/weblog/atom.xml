@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Weblog | Mike Chambers]]></title>
-  <link href="http://mikechambers.github.io/blog/categories/weblog/atom.xml" rel="self"/>
-  <link href="http://mikechambers.github.io/"/>
-  <updated>2013-12-15T20:26:44-08:00</updated>
-  <id>http://mikechambers.github.io/</id>
+  <link href="http://www.mikechambers.com/blog/blog/categories/weblog/atom.xml" rel="self"/>
+  <link href="http://www.mikechambers.com/blog/"/>
+  <updated>2013-12-15T20:32:01-08:00</updated>
+  <id>http://www.mikechambers.com/blog/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[mikechambers.com Now Hosted at MediaTemple.net]]></title>
-    <link href="http://mikechambers.github.io/2007/10/29/weblog-now-hosted-at-mediatemplenet/"/>
+    <link href="http://www.mikechambers.com/blog/2007/10/29/weblog-now-hosted-at-mediatemplenet/"/>
     <updated>2007-10-29T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2007/10/29/weblog-now-hosted-at-mediatemplenet</id>
+    <id>http://www.mikechambers.com/blog/2007/10/29/weblog-now-hosted-at-mediatemplenet</id>
     <content type="html"><![CDATA[<p>Just a quick note, but I have changed hosting providers for my weblog. The transition should be pretty seamless, and if you are reading this, then you are all set. It might take a day or two for the DNS to update.</p>
 
 <p>The weblog is now being hosted by <a href="http://www.mediatemple.net">MediaTemple</a>. They were one of the partners of the <a href="http://onair.adobe.com">on air tour</a>, and hosted the website. They gave us excellent support, and thus when I started to look for a new host, they were the first people I contacted.</p>
@@ -28,9 +28,9 @@
   
   <entry>
     <title type="html"><![CDATA[What Videos Do You Want to See at video.onflex.org]]></title>
-    <link href="http://mikechambers.github.io/2007/04/04/what-videos-do-you-want-to-see-at-videoonflexorg/"/>
+    <link href="http://www.mikechambers.com/blog/2007/04/04/what-videos-do-you-want-to-see-at-videoonflexorg/"/>
     <updated>2007-04-04T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2007/04/04/what-videos-do-you-want-to-see-at-videoonflexorg</id>
+    <id>http://www.mikechambers.com/blog/2007/04/04/what-videos-do-you-want-to-see-at-videoonflexorg</id>
     <content type="html"><![CDATA[<p>Well, <a href="http://www.onflex.org">Ted Patrick</a> and I launched <a href="http://video.onflex.org">video.onflex.org</a> a little over 3 weeks ago, and we are already nearing our twentieth video on the site. If you haven&#8217;t checked it out yet, make sure to <a href="http://video.onflex.org">glance through some of the videos</a>.</p>
 
 <p>Anyways, we are nearing the end of our backlog of videos, and it looks like I have some time this Thursday and Friday to create some more videos, so:</p>
@@ -43,9 +43,9 @@
   
   <entry>
     <title type="html"><![CDATA[Mike Chambers&#8217; Weblog Has Moved]]></title>
-    <link href="http://mikechambers.github.io/2005/05/17/mike-chambers-weblog-has-moved/"/>
+    <link href="http://www.mikechambers.com/blog/2005/05/17/mike-chambers-weblog-has-moved/"/>
     <updated>2005-05-17T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2005/05/17/mike-chambers-weblog-has-moved</id>
+    <id>http://www.mikechambers.com/blog/2005/05/17/mike-chambers-weblog-has-moved</id>
     <content type="html"><![CDATA[<p>As you have probably noticed, my weblog has moved from markme.com to weblogs.macromedia.com.</p>
 
 <p>The new url is:</p>
@@ -68,9 +68,9 @@
   
   <entry>
     <title type="html"><![CDATA[Custom Quickcode Tags for MoveableType]]></title>
-    <link href="http://mikechambers.github.io/2005/05/17/custom-quickcode-tags-for-moveabletype/"/>
+    <link href="http://www.mikechambers.com/blog/2005/05/17/custom-quickcode-tags-for-moveabletype/"/>
     <updated>2005-05-17T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2005/05/17/custom-quickcode-tags-for-moveabletype</id>
+    <id>http://www.mikechambers.com/blog/2005/05/17/custom-quickcode-tags-for-moveabletype</id>
     <content type="html"><![CDATA[<p>One of the new plugins we installed on the new weblog server is the <a href="http://mt-stuff.fanworks.net/plugin/quick_code_version_10.phtml">Quickcode plugin</a> for <a href="http://www.moveabletype.org">Moveabletype</a> This is a simple plugin that uses bracketed tags to make it easy to mark up posts.</p>
 
 <!--more-->
@@ -138,9 +138,9 @@ $s =~ s![url2](.*?)[/url2]!&lt;a href="$1"&gt;$1&lt;/a&gt;!gis;</pre>
   
   <entry>
     <title type="html"><![CDATA[New MXNA Features / Contest Winners]]></title>
-    <link href="http://mikechambers.github.io/2005/05/05/new-mxna-features-contest-winners/"/>
+    <link href="http://www.mikechambers.com/blog/2005/05/05/new-mxna-features-contest-winners/"/>
     <updated>2005-05-05T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2005/05/05/new-mxna-features-contest-winners</id>
+    <id>http://www.mikechambers.com/blog/2005/05/05/new-mxna-features-contest-winners</id>
     <content type="html"><![CDATA[<p>As I mentioned yesterday, we have released an small update to <a href="http://weblogs.macromedia.com/mxna/">MXNA</a> (our Macromedia Community News Aggregator).</p>
 
 <p>In addition to a bunch of tweaks and bugs fixes, there are some cool new features, including:</p>
@@ -171,7 +171,7 @@ $s =~ s![url2](.*?)[/url2]!&lt;a href="$1"&gt;$1&lt;/a&gt;!gis;</pre>
 
 <p>Bonus points to Galileo, who won the most perceptive award by noticing that the clicks icon for each post had been slightly changed to include a fill color.</p>
 
-<p>If you are one of the winners, send me an email (<a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x6d;&#101;&#115;&#x68;&#x40;&#x6d;&#97;&#x63;&#114;&#111;&#109;&#x65;&#x64;&#105;&#97;&#x2e;&#99;&#x6f;&#x6d;">&#x6d;&#x65;&#x73;&#104;&#x40;&#109;&#x61;&#x63;&#x72;&#x6f;&#109;&#x65;&#100;&#105;&#x61;&#46;&#99;&#111;&#109;</a>) with your mailing info, and Ill send out your Flash bags today.</p>
+<p>If you are one of the winners, send me an email (<a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#58;&#x6d;&#x65;&#115;&#104;&#64;&#x6d;&#97;&#x63;&#114;&#111;&#x6d;&#101;&#100;&#105;&#x61;&#46;&#99;&#111;&#109;">&#109;&#101;&#x73;&#104;&#64;&#x6d;&#x61;&#99;&#114;&#111;&#109;&#101;&#x64;&#105;&#x61;&#46;&#99;&#111;&#109;</a>) with your mailing info, and Ill send out your Flash bags today.</p>
 ]]></content>
   </entry>
   

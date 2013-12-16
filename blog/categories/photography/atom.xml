@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Photography | Mike Chambers]]></title>
-  <link href="http://mikechambers.github.io/blog/categories/photography/atom.xml" rel="self"/>
-  <link href="http://mikechambers.github.io/"/>
-  <updated>2013-12-15T20:26:44-08:00</updated>
-  <id>http://mikechambers.github.io/</id>
+  <link href="http://www.mikechambers.com/blog/blog/categories/photography/atom.xml" rel="self"/>
+  <link href="http://www.mikechambers.com/blog/"/>
+  <updated>2013-12-15T20:32:01-08:00</updated>
+  <id>http://www.mikechambers.com/blog/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Converting Nikon D90 Videos to Work With Adobe Premiere Pro CS4]]></title>
-    <link href="http://mikechambers.github.io/2009/08/02/convert-nikon-d90-videos-to-work-with-adobe-premiere-pro-cs4/"/>
+    <link href="http://www.mikechambers.com/blog/2009/08/02/convert-nikon-d90-videos-to-work-with-adobe-premiere-pro-cs4/"/>
     <updated>2009-08-02T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2009/08/02/convert-nikon-d90-videos-to-work-with-adobe-premiere-pro-cs4</id>
+    <id>http://www.mikechambers.com/blog/2009/08/02/convert-nikon-d90-videos-to-work-with-adobe-premiere-pro-cs4</id>
     <content type="html"><![CDATA[<p>I recently bought my first DSLR, the <a href="http://www.nikonusa.com/Find-Your-Nikon/Product/Digital-SLR/25446/D90.html">Nikon D90</a>, which I have been <a href="http://www.flickr.com/photos/mikechambers/collections/72157621787429394/">having a blast with</a>. One of the cool features of the camera, is that it supports creating HD video clips (of up to 5 minutes) (view an example <a href="http://www.flickr.com/photos/mikechambers/3774623194/in/set-72157621777297569/">here</a>). However, the way the clips are created seems to confuse <a href="http://tryit.adobe.com/us/cs4/premiere/p/?sdid=ETRZP">Adobe Premiere Pro CS4</a>, which won&#8217;t open or import the clips without a little work on your part.</p>
 
 <!--more-->

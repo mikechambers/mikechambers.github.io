@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: On AIR Tour | Mike Chambers]]></title>
-  <link href="http://mikechambers.github.io/blog/categories/on-air-tour/atom.xml" rel="self"/>
-  <link href="http://mikechambers.github.io/"/>
-  <updated>2013-12-15T20:26:44-08:00</updated>
-  <id>http://mikechambers.github.io/</id>
+  <link href="http://www.mikechambers.com/blog/blog/categories/on-air-tour/atom.xml" rel="self"/>
+  <link href="http://www.mikechambers.com/blog/"/>
+  <updated>2013-12-15T20:32:01-08:00</updated>
+  <id>http://www.mikechambers.com/blog/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Speaking in Europe on Flex and AIR (on AIR Tour)]]></title>
-    <link href="http://mikechambers.github.io/2008/02/20/speaking-in-europe-on-flex-and-air-on-air-tour/"/>
+    <link href="http://www.mikechambers.com/blog/2008/02/20/speaking-in-europe-on-flex-and-air-on-air-tour/"/>
     <updated>2008-02-20T00:00:00-08:00</updated>
-    <id>http://mikechambers.github.io/2008/02/20/speaking-in-europe-on-flex-and-air-on-air-tour</id>
+    <id>http://www.mikechambers.com/blog/2008/02/20/speaking-in-europe-on-flex-and-air-on-air-tour</id>
     <content type="html"><![CDATA[<p>As I am guessing you have read by now, we just <a href="http://onair.adobe.com/blogs/tour/2008/02/19/on-air-tour-european-cities-and-dates/">announced</a> the <a href="http://onair.adobe.com/schedule/">cities and dates</a> for the European leg of the <a href="http://onair.adobe.com">on AIR Tour</a>. We will be traveling to 12 cities through out Europe (via train) and holding free one day developer events around Adobe AIR. Sessions cover both Flash and Flex, as well as JavaScript and HTML based development.</p>
 
 <p><a href="http://onair.adobe.com"><img src="http://onair.adobe.com/images/branding.gif" alt="logo" border="0" /></a></p>
@@ -43,9 +43,9 @@
   
   <entry>
     <title type="html"><![CDATA[Slides From Deconstructing the Bus FlashForward Session]]></title>
-    <link href="http://mikechambers.github.io/2007/09/19/slides-from-deconstructing-the-bus-flashforward-session/"/>
+    <link href="http://www.mikechambers.com/blog/2007/09/19/slides-from-deconstructing-the-bus-flashforward-session/"/>
     <updated>2007-09-19T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2007/09/19/slides-from-deconstructing-the-bus-flashforward-session</id>
+    <id>http://www.mikechambers.com/blog/2007/09/19/slides-from-deconstructing-the-bus-flashforward-session</id>
     <content type="html"><![CDATA[<p>I just finished up my presentation at FlashForward. It was titled <a href="http://www.flashforwardconference.com/sessions?sid=803">On the Road with Adobe AIR</a> and I took apart some of the AIR applications that we use on the bus to power the <a href="http://onair.adobe.com/api/">online APIs</a>.</p>
 
 <p>I have <a href="http://onairbustour.googlecode.com/svn/trunk/projects/presentations/DeconstructingTheBus/">uploaded all of the slides and files</a> for the presentation to the bus tour&#8217;s subversion repository.</p>
@@ -73,9 +73,9 @@
   
   <entry>
     <title type="html"><![CDATA[Hitting the Road Again]]></title>
-    <link href="http://mikechambers.github.io/2007/09/18/hitting-the-road-again/"/>
+    <link href="http://www.mikechambers.com/blog/2007/09/18/hitting-the-road-again/"/>
     <updated>2007-09-18T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2007/09/18/hitting-the-road-again</id>
+    <id>http://www.mikechambers.com/blog/2007/09/18/hitting-the-road-again</id>
     <content type="html"><![CDATA[<p>Well, now that I have finally recovered from leg two of the <a href="http://onair.adobe.com">on AIR Bus tour</a>, it is time to hit the road again for a marathon tour of the East coast and Midwest.</p>
 
 <p>First up is <a href="http://www.flashforwardconference.com">FlashForward</a> in Boston this week. I am really excited about this conference, as for various reasons, I havent been to the past couple of Flash Forwards. In addition to getting to see and hang out with all of my friends, I am presenting a session titled <a href="http://www.flashforwardconference.com/sessions?sid=803">On the Road with Adobe AIR</a>, in which I will be deconstructing some of the AIR applications that we use to power the bus tour.</p>
@@ -106,9 +106,9 @@
   
   <entry>
     <title type="html"><![CDATA[Offline Most of This Week]]></title>
-    <link href="http://mikechambers.github.io/2007/08/27/offline-most-of-this-week/"/>
+    <link href="http://www.mikechambers.com/blog/2007/08/27/offline-most-of-this-week/"/>
     <updated>2007-08-27T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2007/08/27/offline-most-of-this-week</id>
+    <id>http://www.mikechambers.com/blog/2007/08/27/offline-most-of-this-week</id>
     <content type="html"><![CDATA[<p>Just a quick fyi, but I will be offline most of the week recuperating from the last two weeks on the road with the <a href="http://onair.adobe.com">on AIR Bus tour</a> (<a href="http://onair.adobe.com/schedule/">leg 3 starts up in a couple of weeks</a>).</p>
 
 <p>If you send me an email, it might take me a little while to respond.</p>
@@ -117,9 +117,9 @@
   
   <entry>
     <title type="html"><![CDATA[Speaking in Philadelphia Tonight]]></title>
-    <link href="http://mikechambers.github.io/2007/08/22/speaking-in-philadelphia-tonight/"/>
+    <link href="http://www.mikechambers.com/blog/2007/08/22/speaking-in-philadelphia-tonight/"/>
     <updated>2007-08-22T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2007/08/22/speaking-in-philadelphia-tonight</id>
+    <id>http://www.mikechambers.com/blog/2007/08/22/speaking-in-philadelphia-tonight</id>
     <content type="html"><![CDATA[<p>Just a quick reminder, but the <a href="onair.adobe.com/schedule/cities/philadelphia.php">on AIR Bus</a> has rolled into <a href="onair.adobe.com/schedule/cities/philadelphia.php">Philadelphia</a> today, and we will be holding an AIR Camp event tonight. I will be speaking, along with the rest of the the <a href="http://onair.adobe.com/bus/">bus crew</a>.</p>
 
 <p>We will have plenty of food, beer, code, schwag and other goodness, so <a href="onair.adobe.com/schedule/cities/philadelphia.php">if you are in Philly, make sure to stop by</a>.</p>

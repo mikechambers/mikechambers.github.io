@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Resources | Mike Chambers]]></title>
-  <link href="http://mikechambers.github.io/blog/categories/resources/atom.xml" rel="self"/>
-  <link href="http://mikechambers.github.io/"/>
-  <updated>2013-12-15T20:26:44-08:00</updated>
-  <id>http://mikechambers.github.io/</id>
+  <link href="http://www.mikechambers.com/blog/blog/categories/resources/atom.xml" rel="self"/>
+  <link href="http://www.mikechambers.com/blog/"/>
+  <updated>2013-12-15T20:32:01-08:00</updated>
+  <id>http://www.mikechambers.com/blog/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[New Flash Resources at DevNet Center]]></title>
-    <link href="http://mikechambers.github.io/2003/06/29/new-flash-resources-at-devnet-center/"/>
+    <link href="http://www.mikechambers.com/blog/2003/06/29/new-flash-resources-at-devnet-center/"/>
     <updated>2003-06-29T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2003/06/29/new-flash-resources-at-devnet-center</id>
+    <id>http://www.mikechambers.com/blog/2003/06/29/new-flash-resources-at-devnet-center</id>
     <content type="html"><![CDATA[<p>We have just published some new Flash articles and resources at the <a href="http://www.macromedia.com/devnet/">DevNet Center</a>.</p>
 
 <ul>
@@ -46,9 +46,9 @@ You can visit the DevNet Center <a href="http://www.macromedia.com/devnet/">here
   
   <entry>
     <title type="html"><![CDATA[New Content at DevNet Center]]></title>
-    <link href="http://mikechambers.github.io/2003/06/04/new-content-at-devnet-center/"/>
+    <link href="http://www.mikechambers.com/blog/2003/06/04/new-content-at-devnet-center/"/>
     <updated>2003-06-04T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2003/06/04/new-content-at-devnet-center</id>
+    <id>http://www.mikechambers.com/blog/2003/06/04/new-content-at-devnet-center</id>
     <content type="html"><![CDATA[<p>We have just published some new articles and resources at the <a href="http://www.macromedia.com/devnet/">Macromedia DevNet Center</a>. Some of the highlights include:</p>
 
 <ul>
@@ -65,9 +65,9 @@ You can visit the DevNet Center <a href="http://www.macromedia.com/devnet/">here
   
   <entry>
     <title type="html"><![CDATA[Couple of New Flash Articles at DevNet Center]]></title>
-    <link href="http://mikechambers.github.io/2003/05/27/couple-of-new-flash-articles-at-devnet-center/"/>
+    <link href="http://www.mikechambers.com/blog/2003/05/27/couple-of-new-flash-articles-at-devnet-center/"/>
     <updated>2003-05-27T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2003/05/27/couple-of-new-flash-articles-at-devnet-center</id>
+    <id>http://www.mikechambers.com/blog/2003/05/27/couple-of-new-flash-articles-at-devnet-center</id>
     <content type="html"><![CDATA[<p>The <a href="http://www.macromedia.com/go/weblogs">DevNet Center</a> has a had a mini update with a couple of new Flash articles.</p>
 
 <p>They are:</p>
@@ -86,9 +86,9 @@ You can visit the DevNet Center <a href="http://www.macromedia.com/devnet/">here
   
   <entry>
     <title type="html"><![CDATA[New Flash Content at Macromedia.com]]></title>
-    <link href="http://mikechambers.github.io/2003/05/16/new-flash-content-at-macromediacom/"/>
+    <link href="http://www.mikechambers.com/blog/2003/05/16/new-flash-content-at-macromediacom/"/>
     <updated>2003-05-16T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2003/05/16/new-flash-content-at-macromediacom</id>
+    <id>http://www.mikechambers.com/blog/2003/05/16/new-flash-content-at-macromediacom</id>
     <content type="html"><![CDATA[<p>We have released some new Flash content and resources at the Macromedia <a href="http://www.macromedia.com/devnet/">DevNet Center</a>. This release has a couple of articles on the Data Connection Kit and the new Flash Detection Kit.</p>
 
 <p>As usual, you can view a complete list of the new articles at <a href="http://www.markme.com/mxna/blogview.cfm?blogid=8">MXNA</a>.</p>
@@ -97,9 +97,9 @@ You can visit the DevNet Center <a href="http://www.macromedia.com/devnet/">here
   
   <entry>
     <title type="html"><![CDATA[PHP Content and Resources on Macromedia.com]]></title>
-    <link href="http://mikechambers.github.io/2003/04/29/php-content-and-resources-on-macromediacom/"/>
+    <link href="http://www.mikechambers.com/blog/2003/04/29/php-content-and-resources-on-macromediacom/"/>
     <updated>2003-04-29T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io/2003/04/29/php-content-and-resources-on-macromediacom</id>
+    <id>http://www.mikechambers.com/blog/2003/04/29/php-content-and-resources-on-macromediacom</id>
     <content type="html"><![CDATA[<p>Just a quick reminder. We have a ton of PHP content and Resources at the <a href="http://www.macromedia.com/devnet/topics/php.html">DevNet PHP Topic Center</a>.</p>
 
 <p>You can view the center <a href="http://www.macromedia.com/devnet/topics/php.html">here</a>.</p>
