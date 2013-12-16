@@ -9,7 +9,6 @@ tags:
   - flashcamp
 ---
 
-
 I have just posted information about [FlashCamp San Francisco][1], a free developer / designers event that we will be holding in the [Adobe San Francisco Office on Friday night, April 16th][1]. This will be similar to the other [world wide FlashCamps][2] going on this spring, with this event focusing on Flash Player 10.1, Flash CS5, Flash Builder and Flash mobile development.
 
 [Register for FlashCamp San Francisco][1]
@@ -20,26 +19,25 @@ From the event page:
 
 <!--more-->
 
-  
-Doors open at 5, and we will have plenty of food and drinks (beer is being provided by [City Beer Store][3]!). Kevin Lynch is launching the event with a keynote around 5:45, and then we will move into sessions on Flash Player 10.1, Flash CS5, Flash Builder, etc&#8230; (all presented by members of the respective teams). Speakers include Richard Galvan, Jim Corbet of the player team, Trevor McCauley, aka [senocular][4], also of the player team, Arno Gourdol from the AIR team, Heidi Williams and more&#8230;.
+Doors open at 5, and we will have plenty of food and drinks (beer is being provided by [City Beer Store][3]!). Kevin Lynch is launching the event with a keynote around 5:45, and then we will move into sessions on Flash Player 10.1, Flash CS5, Flash Builder, etc... (all presented by members of the respective teams). Speakers include Richard Galvan, Jim Corbet of the player team, Trevor McCauley, aka [senocular][4], also of the player team, Arno Gourdol from the AIR team, Heidi Williams and more...
 
 We will also have a dedicated space setup if you want to chat with any of the engineers or team members of the product teams (this has been really popular in the past).
 
 Here is the current agenda:
 
-
+<iframe src="http://www.google.com/calendar/embed?src=cr2qc03av09ci25pgnltea1a9o%40group.calendar.google.com&dates=20100416%2F20100417&mode=AGENDA" style=" border-width:0 " width="640" frameborder="0" height="650"></iframe>
 
 You can find more information on the event, as well as register on the event page at:
 
-<http://flashcampsf.eventbrite.com/>
+[http://flashcampsf.eventbrite.com/](http://flashcampsf.eventbrite.com/)
 
 The event is free, but please register as soon as possible as the FlashCamps have been filling up fast (Tokyo and Seoul sold out in two hours!).
 
-We don&#8217;t have a huge marketing budget (we spent it all on the [beer][3] and swag for the event), so I would appreciate any help in getting the word out about the event (blogging, twitter, facebook, etc&#8230;).
+We don't have a huge marketing budget (we spent it all on the [beer][3] and swag for the event), so I would appreciate any help in getting the word out about the event (blogging, twitter, facebook, etc...).
 
 You can follow the latest news and information on the event via twitter at:
 
-<http://www.twitter.com/flashcamp>
+[http://www.twitter.com/flashcamp](http://www.twitter.com/flashcamp)
 
 Btw, if you are on the east coast, make sure to check out [FlashCamp Boston][5], being held in a couple of weeks.
 
