@@ -131,11 +131,11 @@
 <p>Regarding #4, here are some of the rule clarifications:</p>
 
 <ul>
-<li>For the purposes of the contest, you should use the x, y coordinates of the display objects to determine which cell they are contained within (i.e. you don&#8217;t have to worry about a display object straddling two cells).</li>
+<li>For the purposes of the contest, you should use the x, y coordinates of the display objects to determine which cell they are contained within (i.e. you don&rsquo;t have to worry about a display object straddling two cells).</li>
 <li>Basically, the only information your class has access to is that which is passed to its constructors and methods. Your code cannot make assumptions based on information in the test which is not passed to the ProximityManager class (i.e., how many items there are on the stage, or the fact that the items are not moving, etc…). If I change the parameters of the test that your code does not know about, then your class should still work correctly.</li>
 <li>The bounds argument is now required in ProximityManager constructor. This specifies the bounds of the collision detection / grid area.</li>
 <li>If the positions of the DisplayObjects change, update will be called again. Thus, when update is called, the code should treat it as new data.</li>
-<li>You must return a new Vector from getNeighbors. (You can&#8217;t re-use the same Vector instance).</li>
+<li>You must return a new Vector from getNeighbors. (You can&rsquo;t re-use the same Vector instance).</li>
 </ul>
 
 
@@ -147,56 +147,71 @@
 
 <p>To run it, uncomment the runTests() method in onStageAdded, and and the add this code:</p>
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onStageAdded(e<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
-{
-    ...
-    
-    <span style="color: #408080; font-style: italic">//runTests();</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='actionscript'><span class='line'><span class="kd">private</span> <span class="kd">function</span> <span class="nx">onStageAdded</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//runTests();</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">proximityManager</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">items</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">checkResults</span><span class="p">(</span><span class="nx">checkSprite_3</span><span class="o">,</span> <span class="nx">proximityManager</span><span class="p">.</span><span class="nx">getNeighbors</span><span class="p">(</span><span class="nx">checkSprite_3</span><span class="p">));</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    proximityManager.update(items);
-    checkResults(checkSprite_3<span style="color: #666666">,</span> proximityManager.getNeighbors(checkSprite_3));
-}
-</pre>
-</div>
-
-
-<p>&nbsp;</p>
 
 <p>This will return something that should similar to this:</p>
 
-<p><img src="/blog/files/as3dtc/test_results_example.png" width="546" height="506" /></p>
+<p><img src="blog/files/as3dtc/test_results_example.png" alt="title" /></p>
 
 <p>This test ensures that you are not missing any DisplayObjects which you should return.</p>
 
 <p>To ensure you are not including any DisplayObjects which you should not be, change the for each loop in checkResults to:</p>
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkResults(checkSprite<span style="color: #666666">:</span>Sprite<span style="color: #666666">,</span> items<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span>DisplayObject<span style="color: #666666">&gt;</span>)<span style="color: #666666">:</span><span style="color: #008000">Boolean</span>
-{
-    ...
-    
-    <span style="color: #008000; font-weight: bold">for</span> each(<span style="color: #008000; font-weight: bold">var</span> disp<span style="color: #666666">:</span>Sprite <span style="color: #008000; font-weight: bold">in</span> items)
-    {
-        disp.graphics.beginFill( <span style="color: #666666">0x0000</span>FF <span style="color: #666666">,</span> <span style="color: #666666">1</span> );
-        disp.graphics.drawCircle( <span style="color: #666666">5</span> <span style="color: #666666">,</span> <span style="color: #666666">5</span> <span style="color: #666666">,</span> <span style="color: #666666">5</span> );
-        disp.graphics.endFill();
-        disp.alpha <span style="color: #666666">=</span> <span style="color: #666666">1;</span>
-    }
-    
-    ...
-}
-</pre>
-</div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='actionscript'><span class='line'><span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkResults</span><span class="p">(</span><span class="nx">checkSprite</span><span class="o">:</span><span class="nb">Sprite</span><span class="o">,</span> <span class="nx">items</span><span class="o">:</span><span class="nx">Vector</span><span class="p">.</span><span class="o">&lt;</span><span class="nb">DisplayObject</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span><span class="nb">Boolean</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="p">...</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="k">for</span> <span class="k">each</span><span class="p">(</span><span class="k">var</span> <span class="nx">disp</span><span class="o">:</span><span class="nb">Sprite</span> <span class="k">in</span> <span class="nx">items</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nx">disp</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">beginFill</span><span class="p">(</span> <span class="mh">0x0000</span><span class="nx">FF</span> <span class="o">,</span> <span class="mi">1</span> <span class="p">);</span>
+</span><span class='line'>      <span class="nx">disp</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">drawCircle</span><span class="p">(</span> <span class="mi">5</span> <span class="o">,</span> <span class="mi">5</span> <span class="o">,</span> <span class="mi">5</span> <span class="p">);</span>
+</span><span class='line'>      <span class="nx">disp</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">endFill</span><span class="p">();</span>
+</span><span class='line'>      <span class="nx">disp</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="p">...</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-<p>&nbsp;</p>
 
 <p>You should not see any dark spots appear.</p>
 
 <p>I have gone through and done an initial validation all of the submissions thus far. There were a couple of entries which were not returning the correct results, and I have emailed those developers. I also did a quick test run on my Mac Book Pro (2.4 Ghz Intel Core 2 Duo), and in general, right now, the bar to reach is an average of 2 &#8211; 3 ms per test run. Most submissions use take the same basic approach, but some have some interesting twists. I think there is still a opportunity for someone to take a novel approach and maybe jump ahead.</p>
 
-<p>Remember, contest entries have to be received by me (<a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#109;&#x65;&#115;&#x68;&#x40;&#x61;&#100;&#111;&#x62;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#109;&#101;&#x73;&#104;&#x40;&#x61;&#100;&#x6f;&#x62;&#101;&#x2e;&#99;&#x6f;&#x6d;</a>) by 12 Noon, PST, Friday, November 13.</p>
+<p>Remember, contest entries have to be received by me (<a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x6d;&#101;&#115;&#104;&#x40;&#97;&#x64;&#111;&#98;&#101;&#x2e;&#99;&#111;&#x6d;">&#109;&#101;&#x73;&#x68;&#64;&#97;&#x64;&#111;&#x62;&#x65;&#46;&#99;&#x6f;&#x6d;</a>) by 12 Noon, PST, Friday, November 13.</p>
 </div>
 
 

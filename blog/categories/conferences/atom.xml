@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Conferences | Mike Chambers]]></title>
   <link href="http://mikechambers.github.io/blog/categories/conferences/atom.xml" rel="self"/>
   <link href="http://mikechambers.github.io/"/>
-  <updated>2013-12-15T16:15:00-08:00</updated>
+  <updated>2013-12-15T20:26:44-08:00</updated>
   <id>http://mikechambers.github.io/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
@@ -25,9 +25,9 @@
 <!--more-->
 
 
-<p>Anyways, the conference season is about to be in full swing, and the first talk I am doing this year, will be at <a href="http://www.fitc.ca/events/about/?event=101">FITC Amsterdam</a> next month on Flash and iPhone. The talk is titled &#8220;<a href="http://www.fitc.ca/events/presentations/presentation.cfm?event=101&amp;presentation_id=1130">Building High Performance iPhone Applications with ActionScript 3</a>&#8221; and will discuss how to get the best performance from your Flash content, as well as what type of Flash content is best suited for the device. In addition to talking about some general tips and tricks, I will also be discussing some of the new hardware accelerated APIs, and showing some games I have been working on (including my new game <a href="http://www.twitpic.com/q00ox">Unicorn Bacon Adventure!</a>).</p>
+<p>Anyways, the conference season is about to be in full swing, and the first talk I am doing this year, will be at <a href="http://www.fitc.ca/events/about/?event=101">FITC Amsterdam</a> next month on Flash and iPhone. The talk is titled &ldquo;<a href="http://www.fitc.ca/events/presentations/presentation.cfm?event=101&amp;presentation_id=1130">Building High Performance iPhone Applications with ActionScript 3</a>&rdquo; and will discuss how to get the best performance from your Flash content, as well as what type of Flash content is best suited for the device. In addition to talking about some general tips and tricks, I will also be discussing some of the new hardware accelerated APIs, and showing some games I have been working on (including my new game <a href="http://www.twitpic.com/q00ox">Unicorn Bacon Adventure!</a>).</p>
 
-<p>If you are in Europe, and haven&#8217;t signed up for FITC yet, then what are you waiting for?!?!? This is one of the best conferences in the world, and the <a href="http://www.fitc.ca/events/speakers/?event=101">speaker line up for Amsterdam</a> is simply amazing.</p>
+<p>If you are in Europe, and haven&rsquo;t signed up for FITC yet, then what are you waiting for?!?!? This is one of the best conferences in the world, and the <a href="http://www.fitc.ca/events/speakers/?event=101">speaker line up for Amsterdam</a> is simply amazing.</p>
 ]]></content>
   </entry>
   
@@ -59,7 +59,7 @@
 
 <p>The event is free, but please register as soon as possible as these event have sold out / filled up in the past.</p>
 
-<p>We don&#8217;t have a huge marketing budget (we spent it all on the <a href="http://www.citybeerstore.com/">beer</a> and <a href="http://hello.eboy.com/eboy/">swag</a> for the event), so I would appreciate any help in getting the word out about the event (blogging, twitter, facebook, etc&#8230;).</p>
+<p>We don&#8217;t have a huge marketing budget (we spent it all on the <a href="http://www.citybeerstore.com/">beer</a> and <a href="http://hello.eboy.com/eboy/">swag</a> for the event), so I would appreciate any help in getting the word out about the event (blogging, twitter, facebook, etc&hellip;).</p>
 
 <p>You can follow the latest news and information on the event via twitter at:</p>
 
@@ -283,7 +283,7 @@ over 15,000 regression tests</p>
 
 <p>Blackstone can take data outside the realm of the web. Goes into Admin and starts an SMS tester to test SMS functionality. Launches built in cellphone emulator so he can test sending SMS messages to CF app. Sends an SMS and immediately gets results back on phone.</p>
 
-<p>SMS feature is part of a bigger feature called gateways, that allows you to tie into other systems, SMS, JMS, etc&#8230; You can go to cyber cafe, enter you mobile number and you will get alerts via SMS. or you can send an SMS to a number and get information about your sessions.</p>
+<p>SMS feature is part of a bigger feature called gateways, that allows you to tie into other systems, SMS, JMS, etc&hellip; You can go to cyber cafe, enter you mobile number and you will get alerts via SMS. or you can send an SMS to a number and get information about your sessions.</p>
 
 <p>Beta of Blackstone is included in your Max bag. (Applause)</p>
 

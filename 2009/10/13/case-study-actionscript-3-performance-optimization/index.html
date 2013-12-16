@@ -119,132 +119,240 @@
 <!--more-->
 
 
-<p>The task that I will focus on is grabbing a palette of 16 colors from an image, created by averaging the colors within that image. Upon searching on google, I found a <a href="http://blog.soulwire.co.uk/flash/actionscript-3/extract-average-colours-from-bitmapdata/">very good solution over at soulwire.co.uk</a>, which I will use as the base for creating the palette. I want to point out that the original code targeted Flash Player 9 (and thus couldn&#8217;t take advantage of some things such as Vectors), and already ran pretty blazingly fast.</p>
+<p>The task that I will focus on is grabbing a palette of 16 colors from an image, created by averaging the colors within that image. Upon searching on google, I found a <a href="http://blog.soulwire.co.uk/flash/actionscript-3/extract-average-colours-from-bitmapdata/">very good solution over at soulwire.co.uk</a>, which I will use as the base for creating the palette. I want to point out that the original code targeted Flash Player 9 (and thus couldn&rsquo;t take advantage of some things such as Vectors), and already ran pretty blazingly fast.</p>
 
-<p>I am using Grant Skinner&#8217;s <a href="http://www.gskinner.com/blog/archives/2009/04/as3_performance.html">performance test harness</a> to profile performance. Each test is run 50 times, and is tested in Flash Player MAC 10,0,32,18 (debug) in the browser.</p>
+<p>I am using Grant Skinner&rsquo;s <a href="http://www.gskinner.com/blog/archives/2009/04/as3_performance.html">performance test harness</a> to profile performance. Each test is run 50 times, and is tested in Flash Player MAC 10,0,32,18 (debug) in the browser.</p>
 
 <p>You can download all of the code from <a href="/blog/files/examples/PixelSort.zip">here</a>.</p>
 
-<p>First, here is the original test case, based on soulwire&#8217;s code:</p>
+<p>First, here is the original test case, based on soulwire&rsquo;s code:</p>
 
-<div class="highlight">
-  <pre><span style="color: #408080; font-style: italic">/*</span>
-<span style="color: #408080; font-style: italic">   Code adapted from:</span>
-<span style="color: #408080; font-style: italic">   http://blog.soulwire.co.uk/flash/actionscript-3/colourutils-bitmapdata-extract-colour-palette/</span>
-<span style="color: #408080; font-style: italic">*/</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+</pre></td><td class='code'><pre><code class='actionscript'><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm"> Code adapted from:</span>
+</span><span class='line'><span class="cm"> http://blog.soulwire.co.uk/flash/actionscript-3/colourutils-bitmapdata-extract-colour-palette/</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">package</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Bitmap</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">BitmapData</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Sprite</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">Event</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">geom</span><span class="p">.</span><span class="nb">Rectangle</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">geom</span><span class="p">.</span><span class="nb">Point</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">gskinner</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">PerformanceTest</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">class</span> <span class="nx">PixelSort</span> <span class="kd">extends</span> <span class="nb">Sprite</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="p">[</span><span class="nx">Embed</span><span class="p">(</span><span class="nx">source</span><span class="o">=</span><span class="s2">&quot;../graphics/image.jpg&quot;</span><span class="p">)]</span>
+</span><span class='line'>      <span class="kd">public</span> <span class="k">var</span> <span class="nx">TestImage</span><span class="o">:</span><span class="nb">Class</span><span class="o">;</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="kd">public</span> <span class="kd">function</span> <span class="nx">PixelSort</span><span class="p">()</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="nx">addEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ADDED_TO_STAGE</span><span class="o">,</span> <span class="nx">onAddedToStage</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="kd">private</span> <span class="k">var</span> <span class="nx">d</span><span class="o">:</span><span class="nb">BitmapData</span><span class="o">;</span>
+</span><span class='line'>      <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onAddedToStage</span><span class="p">(</span><span class="nx">evet</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="nx">removeEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ADDED_TO_STAGE</span><span class="o">,</span> <span class="nx">onAddedToStage</span><span class="p">);</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="k">var</span> <span class="nx">b</span><span class="o">:</span><span class="nb">Bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TestImage</span><span class="p">();</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="nx">d</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">bitmapData</span><span class="o">;</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="k">var</span> <span class="nx">perfTest</span><span class="o">:</span><span class="nx">PerformanceTest</span> <span class="o">=</span> <span class="nx">PerformanceTest</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">();</span>
+</span><span class='line'>          <span class="nx">perfTest</span><span class="p">.</span><span class="nx">out</span> <span class="o">=</span> <span class="nf">trace</span><span class="o">;</span>
+</span><span class='line'>          <span class="nx">perfTest</span><span class="p">.</span><span class="nx">testFunction</span><span class="p">(</span><span class="nx">run</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="s2">&quot;averagecolors&quot;</span><span class="o">,</span> <span class="s2">&quot;averagecolors&quot;</span><span class="p">);</span>         
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="kd">private</span> <span class="kd">function</span> <span class="nx">run</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">out</span><span class="o">:</span><span class="nb">Array</span> <span class="o">=</span> <span class="nx">averagecolors</span><span class="p">(</span><span class="nx">d</span><span class="o">,</span> <span class="mi">16</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="kd">public</span> <span class="kd">function</span> <span class="nx">averageColour</span><span class="p">(</span> <span class="nx">source</span><span class="o">:</span><span class="nb">BitmapData</span> <span class="p">)</span><span class="o">:</span><span class="nb">uint</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">red</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">green</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">blue</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">count</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">pixel</span><span class="o">:</span><span class="nb">Number</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">for</span> <span class="p">(</span><span class="k">var</span> <span class="nx">x</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="nx">x</span> <span class="o">&lt;</span> <span class="nx">source</span><span class="p">.</span><span class="nx">width</span><span class="o">;</span> <span class="nx">x</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>              <span class="k">for</span> <span class="p">(</span><span class="k">var</span> <span class="nx">y</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="nx">y</span> <span class="o">&lt;</span> <span class="nx">source</span><span class="p">.</span><span class="nx">height</span><span class="o">;</span> <span class="nx">y</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'>              <span class="p">{</span>
+</span><span class='line'>                  <span class="nx">pixel</span> <span class="o">=</span> <span class="nx">source</span><span class="p">.</span><span class="nx">getPixel</span><span class="p">(</span><span class="nx">x</span><span class="o">,</span> <span class="nx">y</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>                  <span class="nx">red</span> <span class="o">+=</span> <span class="nx">pixel</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="nx">xFF</span><span class="o">;</span>
+</span><span class='line'>                  <span class="nx">green</span> <span class="o">+=</span> <span class="nx">pixel</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="nx">xFF</span><span class="o">;</span>
+</span><span class='line'>                  <span class="nx">blue</span> <span class="o">+=</span> <span class="nx">pixel</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="nx">xFF</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>                  <span class="nx">count</span><span class="o">++</span>
+</span><span class='line'>              <span class="p">}</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="nx">red</span> <span class="o">/=</span> <span class="nx">count</span><span class="o">;</span>
+</span><span class='line'>          <span class="nx">green</span> <span class="o">/=</span> <span class="nx">count</span><span class="o">;</span>
+</span><span class='line'>          <span class="nx">blue</span> <span class="o">/=</span> <span class="nx">count</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">return</span> <span class="nx">red</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span> <span class="o">|</span> <span class="nx">green</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span> <span class="o">|</span> <span class="nx">blue</span><span class="o">;</span>
+</span><span class='line'>      <span class="p">}</span>        
+</span><span class='line'>      
+</span><span class='line'>      <span class="kd">public</span> <span class="kd">function</span> <span class="nx">averagecolors</span><span class="p">(</span> <span class="nx">source</span><span class="o">:</span><span class="nb">BitmapData</span><span class="o">,</span> <span class="nx">colors</span><span class="o">:</span><span class="nb">int</span> <span class="p">)</span><span class="o">:</span><span class="nb">Array</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">averages</span><span class="o">:</span><span class="nb">Array</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">columns</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span> <span class="nx">colors</span> <span class="p">)</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">row</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">col</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">x</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">y</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">w</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span> <span class="nx">source</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="nx">columns</span> <span class="p">);</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">h</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span> <span class="nx">source</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="nx">columns</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">for</span> <span class="p">(</span><span class="k">var</span> <span class="nx">i</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">colors</span><span class="o">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>              <span class="k">var</span> <span class="nx">rect</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Rectangle</span><span class="p">(</span> <span class="nx">x</span><span class="o">,</span> <span class="nx">y</span><span class="o">,</span> <span class="nx">w</span><span class="o">,</span> <span class="nx">h</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>              <span class="k">var</span> <span class="nx">box</span><span class="o">:</span><span class="nb">BitmapData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span> <span class="nx">w</span><span class="o">,</span> <span class="nx">h</span><span class="o">,</span> <span class="kc">false</span> <span class="p">);</span>
+</span><span class='line'>              <span class="nx">box</span><span class="p">.</span><span class="nx">copyPixels</span><span class="p">(</span> <span class="nx">source</span><span class="o">,</span> <span class="nx">rect</span><span class="o">,</span> <span class="k">new</span> <span class="nb">Point</span><span class="p">()</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>              <span class="nx">averages</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">averageColour</span><span class="p">(</span> <span class="nx">box</span> <span class="p">)</span> <span class="p">);</span>
+</span><span class='line'>              <span class="nx">box</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>              <span class="nx">col</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">%</span> <span class="nx">columns</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>              <span class="nx">x</span> <span class="o">=</span> <span class="nx">w</span> <span class="o">*</span> <span class="nx">col</span><span class="o">;</span>
+</span><span class='line'>              <span class="nx">y</span> <span class="o">=</span> <span class="nx">h</span> <span class="o">*</span> <span class="nx">row</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>              <span class="k">if</span> <span class="p">(</span> <span class="nx">col</span> <span class="o">==</span> <span class="nx">columns</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="nx">row</span><span class="o">++;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">return</span> <span class="nx">averages</span><span class="o">;</span>
+</span><span class='line'>      <span class="p">}</span>        
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-package
-{
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.Bitmap<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.<span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.Sprite<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.events.Event<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.geom.<span style="color: #008000">Rectangle</span><span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.geom.<span style="color: #008000">Point</span><span style="color: #666666">;</span>
-    
-    <span style="color: #008000; font-weight: bold">import</span> com.gskinner.utils.PerformanceTest<span style="color: #666666">;</span>
-    
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> PixelSort <span style="color: #008000; font-weight: bold">extends</span> Sprite
-    {
-        
-        [Embed(source<span style="color: #666666">=</span><span style="color: #BA2121">"../graphics/image.jpg"</span>)]
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">var</span> TestImage<span style="color: #666666">:</span>Class<span style="color: #666666">;</span>
-        
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> PixelSort()
-        {
-            addEventListener(Event.ADDED_TO_STAGE<span style="color: #666666">,</span> onAddedToStage);
-        }
-        
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> d<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onAddedToStage(evet<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
-        {
-            removeEventListener(Event.ADDED_TO_STAGE<span style="color: #666666">,</span> onAddedToStage);
-            
-            <span style="color: #008000; font-weight: bold">var</span> b<span style="color: #666666">:</span>Bitmap <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> TestImage();
-            
-            d <span style="color: #666666">=</span> b.bitmapData<span style="color: #666666">;</span>
-            
-            <span style="color: #008000; font-weight: bold">var</span> perfTest<span style="color: #666666">:</span>PerformanceTest <span style="color: #666666">=</span> PerformanceTest.getInstance();
-            perfTest.out <span style="color: #666666">=</span> <span style="color: #0000FF">trace</span><span style="color: #666666">;</span>
-            perfTest.testFunction(run<span style="color: #666666">,</span> <span style="color: #666666">50,</span> <span style="color: #BA2121">"averagecolors"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"averagecolors"</span>);           
-        }
-        
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> run()<span style="color: #666666">:</span>void
-        {
-            <span style="color: #008000; font-weight: bold">var</span> out<span style="color: #666666">:</span><span style="color: #008000">Array</span> <span style="color: #666666">=</span> averagecolors(d<span style="color: #666666">,</span> <span style="color: #666666">16</span>);
-        }
-        
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> averageColour( source<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> )<span style="color: #666666">:</span>uint
-        {
-            <span style="color: #008000; font-weight: bold">var</span> red<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> green<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> blue<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-
-            <span style="color: #008000; font-weight: bold">var</span> count<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> pixel<span style="color: #666666">:</span><span style="color: #008000">Number</span><span style="color: #666666">;</span>
-
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">var</span> x<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span> x <span style="color: #666666">&lt;</span> source.width<span style="color: #666666">;</span> x<span style="color: #666666">++</span>)
-            {
-                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">var</span> y<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span> y <span style="color: #666666">&lt;</span> source.height<span style="color: #666666">;</span> y<span style="color: #666666">++</span>)
-                {
-                    pixel <span style="color: #666666">=</span> source.getPixel(x<span style="color: #666666">,</span> y);
-
-                    red <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">16</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-                    green <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">8</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-                    blue <span style="color: #666666">+=</span> pixel <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-
-                    count<span style="color: #666666">++</span>
-                }
-            }
-
-            red <span style="color: #666666">/=</span> count<span style="color: #666666">;</span>
-            green <span style="color: #666666">/=</span> count<span style="color: #666666">;</span>
-            blue <span style="color: #666666">/=</span> count<span style="color: #666666">;</span>
-
-            <span style="color: #008000; font-weight: bold">return</span> red <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">16</span> <span style="color: #666666">|</span> green <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">8</span> <span style="color: #666666">|</span> blue<span style="color: #666666">;</span>
-        }       
-        
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> averagecolors( source<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span><span style="color: #666666">,</span> colors<span style="color: #666666">:</span>int )<span style="color: #666666">:</span><span style="color: #008000">Array</span>
-        {
-            <span style="color: #008000; font-weight: bold">var</span> averages<span style="color: #666666">:</span><span style="color: #008000">Array</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Array</span>();
-            <span style="color: #008000; font-weight: bold">var</span> columns<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.round( <span style="color: #008000">Math</span>.sqrt( colors ) );
-
-            <span style="color: #008000; font-weight: bold">var</span> row<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> col<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-
-            <span style="color: #008000; font-weight: bold">var</span> x<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> y<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-
-            <span style="color: #008000; font-weight: bold">var</span> w<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.round( source.width <span style="color: #666666">/</span> columns );
-            <span style="color: #008000; font-weight: bold">var</span> h<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.round( source.height <span style="color: #666666">/</span> columns );
-
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">var</span> i<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span> i <span style="color: #666666">&lt;</span> colors<span style="color: #666666">;</span> i<span style="color: #666666">++</span>)
-            {
-                <span style="color: #008000; font-weight: bold">var</span> rect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Rectangle</span>( x<span style="color: #666666">,</span> y<span style="color: #666666">,</span> w<span style="color: #666666">,</span> h );
-
-                <span style="color: #008000; font-weight: bold">var</span> box<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>( w<span style="color: #666666">,</span> h<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">false</span> );
-                box.copyPixels( source<span style="color: #666666">,</span> rect<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Point</span>() );
-
-                averages.push( averageColour( box ) );
-                box.dispose();
-
-                col <span style="color: #666666">=</span> i <span style="color: #666666">%</span> columns<span style="color: #666666">;</span>
-
-                x <span style="color: #666666">=</span> w <span style="color: #666666">*</span> col<span style="color: #666666">;</span>
-                y <span style="color: #666666">=</span> h <span style="color: #666666">*</span> row<span style="color: #666666">;</span>
-
-                <span style="color: #008000; font-weight: bold">if</span> ( col <span style="color: #666666">==</span> columns <span style="color: #666666">-</span> <span style="color: #666666">1</span> ) row<span style="color: #666666">++;</span>
-            }
-
-            <span style="color: #008000; font-weight: bold">return</span> averages<span style="color: #666666">;</span>
-        }       
-    }
-}
-</pre>
-</div>
-
-
-<p>&nbsp;</p>
 
 <p>And here is the initial performance test:</p>
 
@@ -258,17 +366,13 @@ averagecolors                                              1264    25.28
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
 
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
 <p>First, considering what the code is doing, it is already pretty fast, taking only 25 ms to split the image into a grid, and loop through all of the pixels and averaging the values. However, there is probably some room for improvement, especially given that the original code targets Flash Player 9 and thus cant take care of Flash Player 10 optimizations such as using Vectors.</p>
 
 <p>Now, the first thing I would normally do is to profile the SWF using the profiler in Flash Builder to find out where the most time is being sent. However, in this case, there are only two methods that do anything, <em>averageColors</em> and <em>averageColor</em>. <em>averageColors</em> is called once, while <em>averageColor</em> is called once for each swatch we want to create (in this case 16), and ends up looping over each pixel in the image (over those 16 calls). So these are the two areas we will focus on, with particular attention directed to <em>averageColor</em>.</p>
 
 <p>The first thing I did was look at updating the content to Flash Player 10 by converting all of the Arrays to Vectors. I expected to get a decent boost from this, but the improvement was minimal.</p>
 
-<p>Within the <em>averageColors</em> method, I looked at reusing the <em>Point</em>, <em>Rectangle</em> and <em>BitmapData</em> instances, instead of creating new ones on each iteration of the loop. Again, on the desktop this didn&#8217;t really make any difference. However, one thing to consider is that on a mobile device where memory allocation can be more expensive (and there is less RAM altogether), this change may have had a bigger impact (which I didnt test). This leads to an important point. It is important to test performance on the platforms which you are targeting, as some optimizations can have a different impact depending on where the content is running.</p>
+<p>Within the <em>averageColors</em> method, I looked at reusing the <em>Point</em>, <em>Rectangle</em> and <em>BitmapData</em> instances, instead of creating new ones on each iteration of the loop. Again, on the desktop this didn&rsquo;t really make any difference. However, one thing to consider is that on a mobile device where memory allocation can be more expensive (and there is less RAM altogether), this change may have had a bigger impact (which I didnt test). This leads to an important point. It is important to test performance on the platforms which you are targeting, as some optimizations can have a different impact depending on where the content is running.</p>
 
 <p>Next, I set the <em>averageColor</em> and <em>averageColors</em> methods as <em>final</em>, which allows them too be looked up at compile time (as opposed to runtime), this led to small improvement in performance, but again, not really anything significant.</p>
 
@@ -284,8 +388,6 @@ averagecolors                                              1224    24.48
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
 
-<p>&nbsp;</p>
-
 <p>Next, I moved on to the <em>averageColor</em> method, where I expected (and hoped) to have better results, as this is where the bulk of the work occurs.</p>
 
 <p>First I converter some of the Numbers to ints and uints in places where Numbers were not needed. This led to a small improvement.</p>
@@ -299,8 +401,6 @@ method...................................................ttl ms...avg ms
 averagecolors                                              1190    23.80
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
-
-<p>&nbsp;</p>
 
 <p>Next, I changed the <code>bitmapData.getPixel</code> call to use <code>bitmapData.getVector</code>. Doing this then allowed me to loop through the pixels using a single loop, instead of a nested double loop, and also eliminated a <em>getPixel</em> call for each pixel. I used a <em>for each</em> loop to loop through the pixel color values.</p>
 
@@ -316,8 +416,6 @@ averagecolors                                              1137    22.74
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
 
-<p>&nbsp;</p>
-
 <p>Next, I decided to try a <em>for</em> loop, instead of a <em>for each</em> loop.</p>
 
 <pre>––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -329,8 +427,6 @@ method...................................................ttl ms...avg ms
 averagecolors                                               282     5.64
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
-
-<p>&nbsp;</p>
 
 <p>Wow! As you can see, that makes a huge difference.</p>
 
@@ -346,34 +442,31 @@ averagecolors                                               268     5.36
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
 
-<p>&nbsp;</p>
-
 <p>I tried a couple of more optimizations in the method, around converting division operations to multiplication operation, and replacing <code>Math.round</code> calls but in this case it didnt make any difference.</p>
 
 <p>I also looked at caching some constants used in some of the bitwise operations, changing</p>
 
-<div class="highlight">
-  <pre>red <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">16</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-green <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">8</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-</pre>
-</div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='actionscript'><span class='line'><span class="nx">red</span> <span class="o">+=</span> <span class="nx">pixel</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="nx">xFF</span><span class="o">;</span>
+</span><span class='line'><span class="nx">green</span> <span class="o">+=</span> <span class="nx">pixel</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="nx">xFF</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>&nbsp;</p>
+<p>to:</p>
 
-<p>to</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='actionscript'><span class='line'><span class="kd">private</span> <span class="k">var</span> <span class="nx">s16</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="mi">16</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="nx">xFF</span><span class="o">;</span>
+</span><span class='line'><span class="kd">private</span> <span class="k">var</span> <span class="nx">s8</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="nx">xFF</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">red</span> <span class="o">+=</span> <span class="nx">pixel</span> <span class="o">&gt;&gt;</span> <span class="nx">s16</span><span class="o">;</span>
+</span><span class='line'><span class="nx">green</span> <span class="o">+=</span> <span class="nx">pixel</span> <span class="o">&gt;&gt;</span> <span class="nx">s8</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> s16<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">16</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> s8<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">8</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-
-red <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> s16<span style="color: #666666">;</span>
-green <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> s8<span style="color: #666666">;</span>
-</pre>
-</div>
-
-
-<p>&nbsp;</p>
 
 <p>First, that optimization actually produces the wrong result (I had my operator precedence backwards). Second, it was actually slower:</p>
 
@@ -387,141 +480,256 @@ averagecolors                                               349     6.98
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
 
-<p>&nbsp;</p>
-
 <p>There are two lessons from this. First, make sure your optimizations produce the same results (ideally by creating and using unit tests). Second, bitwise operations are really, really fast. In this case, they are even faster than doing a variable lookup.</p>
 
 <p>So, after going through the code, and applying a number of different optimizations, I was able to improve performance from an average of 25.28 ms, to 5.36 ms, an improvement of about 470%.</p>
 
 <p>Here is the final code:</p>
 
-<div class="highlight">
-  <pre><span style="color: #408080; font-style: italic">/*</span>
-<span style="color: #408080; font-style: italic">   Code adapted from:</span>
-<span style="color: #408080; font-style: italic">   http://blog.soulwire.co.uk/flash/actionscript-3/colourutils-bitmapdata-extract-colour-palette/</span>
-<span style="color: #408080; font-style: italic">*/</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+</pre></td><td class='code'><pre><code class='actionscript'><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm"> Code adapted from:</span>
+</span><span class='line'><span class="cm"> http://blog.soulwire.co.uk/flash/actionscript-3/colourutils-bitmapdata-extract-colour-palette/</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">package</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Bitmap</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">BitmapData</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Sprite</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">Event</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">geom</span><span class="p">.</span><span class="nb">Rectangle</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">geom</span><span class="p">.</span><span class="nb">Point</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="kd">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">gskinner</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">PerformanceTest</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">class</span> <span class="nx">PixelSort</span> <span class="kd">extends</span> <span class="nb">Sprite</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="p">[</span><span class="nx">Embed</span><span class="p">(</span><span class="nx">source</span><span class="o">=</span><span class="s2">&quot;../graphics/image.jpg&quot;</span><span class="p">)]</span>
+</span><span class='line'>      <span class="kd">public</span> <span class="k">var</span> <span class="nx">TestImage</span><span class="o">:</span><span class="nb">Class</span><span class="o">;</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="kd">public</span> <span class="kd">function</span> <span class="nx">PixelSort</span><span class="p">()</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="nx">addEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ADDED_TO_STAGE</span><span class="o">,</span> <span class="nx">onAddedToStage</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="kd">private</span> <span class="k">var</span> <span class="nx">d</span><span class="o">:</span><span class="nb">BitmapData</span><span class="o">;</span>
+</span><span class='line'>      <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onAddedToStage</span><span class="p">(</span><span class="nx">evet</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="nx">removeEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ADDED_TO_STAGE</span><span class="o">,</span> <span class="nx">onAddedToStage</span><span class="p">);</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="k">var</span> <span class="nx">b</span><span class="o">:</span><span class="nb">Bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TestImage</span><span class="p">();</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="nx">d</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">bitmapData</span><span class="o">;</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="k">var</span> <span class="nx">perfTest</span><span class="o">:</span><span class="nx">PerformanceTest</span> <span class="o">=</span> <span class="nx">PerformanceTest</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">();</span>
+</span><span class='line'>          <span class="nx">perfTest</span><span class="p">.</span><span class="nx">out</span> <span class="o">=</span> <span class="nf">trace</span><span class="o">;</span>
+</span><span class='line'>          <span class="nx">perfTest</span><span class="p">.</span><span class="nx">testFunction</span><span class="p">(</span><span class="nx">run</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="s2">&quot;averagecolors&quot;</span><span class="o">,</span> <span class="s2">&quot;averagecolors&quot;</span><span class="p">);</span>         
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="kd">private</span> <span class="kd">function</span> <span class="nx">run</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">out</span><span class="o">:</span><span class="nx">Vector</span><span class="p">.</span><span class="o">&lt;</span><span class="nb">uint</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">averagecolors</span><span class="p">(</span><span class="nx">d</span><span class="o">,</span> <span class="mi">16</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>        
+</span><span class='line'>      
+</span><span class='line'>      <span class="kd">public</span> <span class="kd">final</span> <span class="kd">function</span> <span class="nx">averageColour</span><span class="p">(</span> <span class="nx">source</span><span class="o">:</span><span class="nb">BitmapData</span> <span class="p">)</span><span class="o">:</span><span class="nb">uint</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">red</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">green</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">blue</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">count</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">pixel</span><span class="o">:</span><span class="nb">uint</span><span class="o">;</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="k">var</span> <span class="nx">pixels</span><span class="o">:</span><span class="nx">Vector</span><span class="p">.</span><span class="o">&lt;</span><span class="nb">uint</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">source</span><span class="p">.</span><span class="nx">getVector</span><span class="p">(</span><span class="k">new</span> <span class="nb">Rectangle</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span> <span class="nx">source</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> <span class="nx">source</span><span class="p">.</span><span class="nx">height</span><span class="p">));</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">len</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="nx">pixels</span><span class="p">.</span><span class="nx">length</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">for</span><span class="p">(</span><span class="k">var</span> <span class="nx">i</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="o">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'>          <span class="p">{</span>    
+</span><span class='line'>              <span class="nx">pixel</span> <span class="o">=</span> <span class="nx">pixels</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="nx">i</span><span class="p">)];</span>
+</span><span class='line'>
+</span><span class='line'>              <span class="nx">red</span> <span class="o">+=</span> <span class="nx">pixel</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="nx">xFF</span><span class="o">;</span>
+</span><span class='line'>              <span class="nx">green</span> <span class="o">+=</span> <span class="nx">pixel</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="nx">xFF</span><span class="o">;</span>
+</span><span class='line'>              <span class="nx">blue</span> <span class="o">+=</span> <span class="nx">pixel</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="nx">xFF</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>              <span class="nx">count</span><span class="o">++;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="nx">red</span> <span class="o">/=</span> <span class="nx">count</span><span class="o">;</span>
+</span><span class='line'>          <span class="nx">green</span> <span class="o">/=</span> <span class="nx">count</span><span class="o">;</span>
+</span><span class='line'>          <span class="nx">blue</span> <span class="o">/=</span> <span class="nx">count</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">return</span> <span class="nx">red</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span> <span class="o">|</span> <span class="nx">green</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span> <span class="o">|</span> <span class="nx">blue</span><span class="o">;</span>
+</span><span class='line'>      <span class="p">}</span>        
+</span><span class='line'>      
+</span><span class='line'>      <span class="kd">public</span> <span class="kd">final</span> <span class="kd">function</span> <span class="nx">averagecolors</span><span class="p">(</span> <span class="nx">source</span><span class="o">:</span><span class="nb">BitmapData</span><span class="o">,</span> <span class="nx">colors</span><span class="o">:</span><span class="nb">int</span> <span class="p">)</span><span class="o">:</span><span class="nx">Vector</span><span class="p">.</span><span class="o">&lt;</span><span class="nb">uint</span><span class="o">&gt;</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">averages</span><span class="o">:</span><span class="nx">Vector</span><span class="p">.</span><span class="o">&lt;</span><span class="nb">uint</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vector</span><span class="p">.</span><span class="o">&lt;</span><span class="nb">uint</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">colors</span><span class="o">,</span> <span class="kc">false</span><span class="p">);</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">columns</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span> <span class="nx">colors</span> <span class="p">)</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">row</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">col</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">x</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">y</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="k">var</span> <span class="nx">w</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span> <span class="nx">source</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="nx">columns</span> <span class="p">);</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">h</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span> <span class="nx">source</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="nx">columns</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">p</span><span class="o">:</span><span class="nb">Point</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Point</span><span class="p">();</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">rect</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Rectangle</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>          <span class="k">var</span> <span class="nx">box</span><span class="o">:</span><span class="nb">BitmapData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span> <span class="nx">w</span><span class="o">,</span> <span class="nx">h</span><span class="o">,</span> <span class="kc">false</span> <span class="p">);</span>
+</span><span class='line'>              
+</span><span class='line'>          <span class="k">for</span> <span class="p">(</span><span class="k">var</span> <span class="nx">i</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">colors</span><span class="o">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>              <span class="nx">rect</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="o">;</span>
+</span><span class='line'>              <span class="nx">rect</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="o">;</span>
+</span><span class='line'>              <span class="nx">rect</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">w</span><span class="o">;</span>
+</span><span class='line'>              <span class="nx">rect</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">h</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>              <span class="nx">box</span><span class="p">.</span><span class="nx">copyPixels</span><span class="p">(</span> <span class="nx">source</span><span class="o">,</span> <span class="nx">rect</span><span class="o">,</span> <span class="nx">p</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>              <span class="nx">averages</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span>  <span class="nx">averageColour</span><span class="p">(</span> <span class="nx">box</span> <span class="p">);</span>
+</span><span class='line'>              
+</span><span class='line'>              <span class="nx">col</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">%</span> <span class="nx">columns</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>              <span class="nx">x</span> <span class="o">=</span> <span class="nx">w</span> <span class="o">*</span> <span class="nx">col</span><span class="o">;</span>
+</span><span class='line'>              <span class="nx">y</span> <span class="o">=</span> <span class="nx">h</span> <span class="o">*</span> <span class="nx">row</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>              <span class="k">if</span> <span class="p">(</span> <span class="nx">col</span> <span class="o">==</span> <span class="nx">columns</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span>
+</span><span class='line'>              <span class="p">{</span>
+</span><span class='line'>                  <span class="nx">row</span><span class="o">++;</span>
+</span><span class='line'>              <span class="p">}</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>          <span class="nx">box</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>
+</span><span class='line'>          <span class="k">return</span> <span class="nx">averages</span><span class="o">;</span>
+</span><span class='line'>      <span class="p">}</span>        
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-package
-{
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.Bitmap<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.<span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.Sprite<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.events.Event<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.geom.<span style="color: #008000">Rectangle</span><span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.geom.<span style="color: #008000">Point</span><span style="color: #666666">;</span>
-    
-    <span style="color: #008000; font-weight: bold">import</span> com.gskinner.utils.PerformanceTest<span style="color: #666666">;</span>
-    
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> PixelSort <span style="color: #008000; font-weight: bold">extends</span> Sprite
-    {
-        
-        [Embed(source<span style="color: #666666">=</span><span style="color: #BA2121">"../graphics/image.jpg"</span>)]
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">var</span> TestImage<span style="color: #666666">:</span>Class<span style="color: #666666">;</span>
-        
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> PixelSort()
-        {
-            addEventListener(Event.ADDED_TO_STAGE<span style="color: #666666">,</span> onAddedToStage);
-        }
-        
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> d<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onAddedToStage(evet<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
-        {
-            removeEventListener(Event.ADDED_TO_STAGE<span style="color: #666666">,</span> onAddedToStage);
-            
-            <span style="color: #008000; font-weight: bold">var</span> b<span style="color: #666666">:</span>Bitmap <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> TestImage();
-            
-            d <span style="color: #666666">=</span> b.bitmapData<span style="color: #666666">;</span>
-            
-            <span style="color: #008000; font-weight: bold">var</span> perfTest<span style="color: #666666">:</span>PerformanceTest <span style="color: #666666">=</span> PerformanceTest.getInstance();
-            perfTest.out <span style="color: #666666">=</span> <span style="color: #0000FF">trace</span><span style="color: #666666">;</span>
-            perfTest.testFunction(run<span style="color: #666666">,</span> <span style="color: #666666">50,</span> <span style="color: #BA2121">"averagecolors"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"averagecolors"</span>);           
-        }
-        
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> run()<span style="color: #666666">:</span>void
-        {
-            <span style="color: #008000; font-weight: bold">var</span> out<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span>uint<span style="color: #666666">&gt;</span> <span style="color: #666666">=</span> averagecolors(d<span style="color: #666666">,</span> <span style="color: #666666">16</span>);
-        }       
-        
-        <span style="color: #008000; font-weight: bold">public</span> final <span style="color: #008000; font-weight: bold">function</span> averageColour( source<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> )<span style="color: #666666">:</span>uint
-        {
-            <span style="color: #008000; font-weight: bold">var</span> red<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> green<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> blue<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-
-            <span style="color: #008000; font-weight: bold">var</span> count<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> pixel<span style="color: #666666">:</span>uint<span style="color: #666666">;</span>
-            
-            <span style="color: #008000; font-weight: bold">var</span> pixels<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span>uint<span style="color: #666666">&gt;</span> <span style="color: #666666">=</span> source.getVector(<span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Rectangle</span>(<span style="color: #666666">0,0,</span> source.width<span style="color: #666666">,</span> source.height));
-            <span style="color: #008000; font-weight: bold">var</span> len<span style="color: #666666">:</span>int <span style="color: #666666">=</span> pixels.length<span style="color: #666666">;</span>
-
-            <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #008000; font-weight: bold">var</span> i<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span> i <span style="color: #666666">&lt;</span> len<span style="color: #666666">;</span> i<span style="color: #666666">++</span>)
-            {   
-                pixel <span style="color: #666666">=</span> pixels[int(i)];
-
-                red <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">16</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-                green <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">8</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-                blue <span style="color: #666666">+=</span> pixel <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-
-                count<span style="color: #666666">++;</span>
-            }
-
-            red <span style="color: #666666">/=</span> count<span style="color: #666666">;</span>
-            green <span style="color: #666666">/=</span> count<span style="color: #666666">;</span>
-            blue <span style="color: #666666">/=</span> count<span style="color: #666666">;</span>
-
-            <span style="color: #008000; font-weight: bold">return</span> red <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">16</span> <span style="color: #666666">|</span> green <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">8</span> <span style="color: #666666">|</span> blue<span style="color: #666666">;</span>
-        }       
-        
-        <span style="color: #008000; font-weight: bold">public</span> final <span style="color: #008000; font-weight: bold">function</span> averagecolors( source<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span><span style="color: #666666">,</span> colors<span style="color: #666666">:</span>int )<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span>uint<span style="color: #666666">&gt;</span>
-        {
-
-            <span style="color: #008000; font-weight: bold">var</span> averages<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span>uint<span style="color: #666666">&gt;</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Vector.<span style="color: #666666">&lt;</span>uint<span style="color: #666666">&gt;</span>(colors<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">false</span>);
-            <span style="color: #008000; font-weight: bold">var</span> columns<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.round( <span style="color: #008000">Math</span>.sqrt( colors ) );
-
-            <span style="color: #008000; font-weight: bold">var</span> row<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> col<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-
-            <span style="color: #008000; font-weight: bold">var</span> x<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> y<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            
-            <span style="color: #008000; font-weight: bold">var</span> w<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.round( source.width <span style="color: #666666">/</span> columns );
-            <span style="color: #008000; font-weight: bold">var</span> h<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.round( source.height <span style="color: #666666">/</span> columns );
-
-            <span style="color: #008000; font-weight: bold">var</span> p<span style="color: #666666">:</span><span style="color: #008000">Point</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Point</span>();
-            <span style="color: #008000; font-weight: bold">var</span> rect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Rectangle</span>(<span style="color: #666666">0,0,0,0</span>);
-            <span style="color: #008000; font-weight: bold">var</span> box<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>( w<span style="color: #666666">,</span> h<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">false</span> );
-                
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">var</span> i<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span> i <span style="color: #666666">&lt;</span> colors<span style="color: #666666">;</span> i<span style="color: #666666">++</span>)
-            {
-                rect.x <span style="color: #666666">=</span> x<span style="color: #666666">;</span>
-                rect.y <span style="color: #666666">=</span> y<span style="color: #666666">;</span>
-                rect.width <span style="color: #666666">=</span> w<span style="color: #666666">;</span>
-                rect.height <span style="color: #666666">=</span> h<span style="color: #666666">;</span>
-
-                box.copyPixels( source<span style="color: #666666">,</span> rect<span style="color: #666666">,</span> p );
-
-                averages[i] <span style="color: #666666">=</span>  averageColour( box );
-                
-                col <span style="color: #666666">=</span> i <span style="color: #666666">%</span> columns<span style="color: #666666">;</span>
-
-                x <span style="color: #666666">=</span> w <span style="color: #666666">*</span> col<span style="color: #666666">;</span>
-                y <span style="color: #666666">=</span> h <span style="color: #666666">*</span> row<span style="color: #666666">;</span>
-
-                <span style="color: #008000; font-weight: bold">if</span> ( col <span style="color: #666666">==</span> columns <span style="color: #666666">-</span> <span style="color: #666666">1</span> ) 
-                {
-                    row<span style="color: #666666">++;</span>
-                }
-            }
-            box.dispose();
-            <span style="color: #008000; font-weight: bold">return</span> averages<span style="color: #666666">;</span>
-        }       
-    }
-}
-</pre>
-</div>
-
-
-<p>&nbsp;</p>
 
 <p><strong>Lessons learned</strong></p>
 
@@ -537,7 +745,7 @@ package
 
 <p>If you have any additional optimizations, questions or suggestions, post them in the comments.</p>
 
-<p>Also, make sure to check out <a href="http://blog.soulwire.co.uk/">soulwire&#8217;s blog</a>, as he is doing some very cool stuff with ActionScript 3 and Flash.</p>
+<p>Also, make sure to check out <a href="http://blog.soulwire.co.uk/">soulwire&rsquo;s blog</a>, as he is doing some very cool stuff with ActionScript 3 and Flash.</p>
 </div>
 
 

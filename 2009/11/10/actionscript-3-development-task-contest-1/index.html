@@ -118,7 +118,7 @@
 
 
 <p><strong>What</strong>: ActionScript 3 Development Task Contest (AS3DTC)<br/>
-<strong>When</strong>: Submissions must be received by Mike Chambers (<a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#58;&#109;&#x65;&#115;&#104;&#x40;&#x61;&#x64;&#x6f;&#98;&#x65;&#x2e;&#99;&#111;&#109;">&#x6d;&#101;&#115;&#x68;&#64;&#x61;&#100;&#111;&#x62;&#x65;&#46;&#x63;&#111;&#109;</a>) by 12 Noon, PST, Friday, November 13th.<br/>
+<strong>When</strong>: Submissions must be received by Mike Chambers (<a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#58;&#x6d;&#101;&#x73;&#104;&#64;&#x61;&#100;&#x6f;&#98;&#101;&#46;&#x63;&#x6f;&#x6d;">&#109;&#101;&#115;&#104;&#64;&#97;&#100;&#x6f;&#98;&#x65;&#46;&#99;&#111;&#109;</a>) by 12 Noon, PST, Friday, November 13th.<br/>
 <strong>Who</strong>: Anyone is eligible (see details below)<br/>
 <strong>Prizes</strong> : Copy of Flex Builder 3, choice of a T-shirt from <a href="http://www.threadless.com/">threadless.org</a>, lots of random swag, and the admiration and adulation of your ActionScript developer peers.</p>
 
@@ -145,24 +145,28 @@
 
 <p>The test that will be run is:</p>
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> testProximityManager()<span style="color: #666666">:</span>void
-{
-    proximityManager.update(items);
-    proximityManager.getNeighbors(checkSprite_1);
-    proximityManager.getNeighbors(checkSprite_2);
-    proximityManager.getNeighbors(checkSprite_3);
-    proximityManager.getNeighbors(checkSprite_4);
-}
-</pre>
-</div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='actionscript'><span class='line'><span class="kd">private</span> <span class="kd">function</span> <span class="nx">testProximityManager</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nx">proximityManager</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">items</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">proximityManager</span><span class="p">.</span><span class="nx">getNeighbors</span><span class="p">(</span><span class="nx">checkSprite_1</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">proximityManager</span><span class="p">.</span><span class="nx">getNeighbors</span><span class="p">(</span><span class="nx">checkSprite_2</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">proximityManager</span><span class="p">.</span><span class="nx">getNeighbors</span><span class="p">(</span><span class="nx">checkSprite_3</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">proximityManager</span><span class="p">.</span><span class="nx">getNeighbors</span><span class="p">(</span><span class="nx">checkSprite_4</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-<p>&nbsp;</p>
 
 <p>Where items is a Vector of all DisplayObjects to be checked against, and checkSprite is the target Sprite, whose neighbors must be found and returned in a Vector of DisplayObjects.</p>
 
-<p>Tests will be run and results determined using Grant Skinner&#8217;s <a href="http://www.gskinner.com/blog/archives/2009/04/as3_performance.html">ActionScript 3 Performance Test Harness</a>.</p>
+<p>Tests will be run and results determined using Grant Skinner&rsquo;s <a href="http://www.gskinner.com/blog/archives/2009/04/as3_performance.html">ActionScript 3 Performance Test Harness</a>.</p>
 
 <p><a href="http://github.com/mikechambers/ActionScript-3-Development-Task-Contests/tree/master/AS3DTC_1/p">Download Contest Files</a></p>
 
@@ -187,9 +191,9 @@
 
 <p>Note, that the rules and TestRunner may be tweaked after I post them, but I will try and make any changes or clarifications within 1 day. Please make sure to check back to this post for any changes.</p>
 
-<p>Don&#8217;t try to game the contest. If you are not sure if you are, then ping me. This is a community contest for fun and learning. I will make the final call on all disputes and entries. If I think an entry doesn&#8217;t abide by the rules, or is trying to game the contest then I may reject the entry. I am very serious about this, so dont mess around.</p>
+<p>Don&rsquo;t try to game the contest. If you are not sure if you are, then ping me. This is a community contest for fun and learning. I will make the final call on all disputes and entries. If I think an entry doesn&rsquo;t abide by the rules, or is trying to game the contest then I may reject the entry. I am very serious about this, so dont mess around.</p>
 
-<p><strong>Update</strong> (November 10, 2009) : Basically, the only information your class has access to is that which is passed to its constructors and methods. Your code cannot make assumptions based on information in the test which is not passed to the ProximityManager class (i.e., how many items there are on the stage, or the fact that the items are not moving, etc&#8230;). If I change the parameters of the test that your code does not know about, then your class should still work correctly.</p>
+<p><strong>Update</strong> (November 10, 2009) : Basically, the only information your class has access to is that which is passed to its constructors and methods. Your code cannot make assumptions based on information in the test which is not passed to the ProximityManager class (i.e., how many items there are on the stage, or the fact that the items are not moving, etc&hellip;). If I change the parameters of the test that your code does not know about, then your class should still work correctly.</p>
 
 <p>The winning entry will be determined by compiling the TestRunner.as (included) and submission class with the latest public release of the mxmlc compiler. The TestRunner SWF will be run 5 times and total times will be combined. The submission with the lowest total time over the test iterations will be the winner. The return values from the getNeighbors API will be validated (an example validation test is included in the TestRunner).</p>
 

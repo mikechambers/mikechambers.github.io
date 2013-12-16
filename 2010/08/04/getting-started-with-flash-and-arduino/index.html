@@ -119,7 +119,7 @@
 <!--more-->
 
 
-<blockquote><p>Arduino is an open-source electronics prototyping platform based on flexible, easy-to-use hardware and software. It&#8217;s intended for artists, designers, hobbyists, and anyone interested in creating interactive objects or environments.</p></blockquote>
+<blockquote><p>Arduino is an open-source electronics prototyping platform based on flexible, easy-to-use hardware and software. It&rsquo;s intended for artists, designers, hobbyists, and anyone interested in creating interactive objects or environments.</p></blockquote>
 
 <p>Basically, the Arduino can be a bridge from the computer to the physical world, allowing developers and artist to both read input from sensors, as well as output from the computer to the physical world.</p>
 
@@ -139,11 +139,11 @@
 <p><strong>What you will need</strong></p>
 
 <ol>
-<li>An Arduino Main Board: These are pretty cheap ($20 &#8211; $30) and you can pick them up tons of places (I recommend <a href="http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=17&amp;products_id=50">AdaFruit</a> and <a href="http://www.sparkfun.com/commerce/product_info.php?products_id=666">Sparkfun</a>). If you are just getting started with basic electronics, you may want to consider picking up a starter kit (<a href="http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=17&amp;products_id=68">AdaFruit</a>, <a href="http://www.sparkfun.com/commerce/product_info.php?products_id=9284">SparkFun</a>). The most current version is the <a href="http://arduino.cc/en/Main/ArduinoBoardDuemilanove">Arduino Duemilanove with Atmega328</a> which I will be using. Make sure that you get the appropriate USB cable if it is not included with your Arduino.</li>
+<li>An Arduino Main Board: These are pretty cheap ($20 &ndash; $30) and you can pick them up tons of places (I recommend <a href="http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=17&amp;products_id=50">AdaFruit</a> and <a href="http://www.sparkfun.com/commerce/product_info.php?products_id=666">Sparkfun</a>). If you are just getting started with basic electronics, you may want to consider picking up a starter kit (<a href="http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=17&amp;products_id=68">AdaFruit</a>, <a href="http://www.sparkfun.com/commerce/product_info.php?products_id=9284">SparkFun</a>). The most current version is the <a href="http://arduino.cc/en/Main/ArduinoBoardDuemilanove">Arduino Duemilanove with Atmega328</a> which I will be using. Make sure that you get the appropriate USB cable if it is not included with your Arduino.</li>
 <li>Arduino software and drivers for your platform: You can grab these from the <a href="http://arduino.cc/en/Main/Software">Arduino downloads page</a>. I will be using the Arduino 0018 download on Mac.</li>
 <li>TinkerProxy. <a href="http://code.google.com/p/tinkerit/wiki/TinkerProxy">TinkerProxy</a> is a small local proxy that acts as a bridge between the serial port and Flash (via a socket server). This allows Flash to communicate with the Arduino.</li>
-<li>Editor for writing ActionScript code. You can use any editor such as Flash Authoring, Flash Builder, FDT, etc&#8230;</li>
-<li>Flash / ActionScript compiler. Finally, you will need a way to compile your ActionScript. Again, this could be anything that can compile ActionScript 3, such as Flash Builder, Flash Authoring, etc&#8230; I will be using the MXMLC command line compiler from the open source Flex 4 SDK.</li>
+<li>Editor for writing ActionScript code. You can use any editor such as Flash Authoring, Flash Builder, FDT, etc&hellip;</li>
+<li>Flash / ActionScript compiler. Finally, you will need a way to compile your ActionScript. Again, this could be anything that can compile ActionScript 3, such as Flash Builder, Flash Authoring, etc&hellip; I will be using the MXMLC command line compiler from the open source Flex 4 SDK.</li>
 </ol>
 
 
@@ -166,11 +166,11 @@
 
 <p><strong>Setting up TinkerProxy</strong></p>
 
-<p>Now that you have your Arduino set up and working, we are ready to install a local proxy application that will bridge the communication between Flash and the Arduino. There are a <a href="http://www.arduino.cc/playground/Interfacing/SerialNet">number of possible proxies</a> for this, but for this article, we will be using <a href="">TinkerProxy</a>. This is an open source port of serproxy and has good support for Flash.</p>
+<p>Now that you have your Arduino set up and working, we are ready to install a local proxy application that will bridge the communication between Flash and the Arduino. There are a <a href="http://www.arduino.cc/playground/Interfacing/SerialNet">number of possible proxies</a> for this, but for this article, we will be using <a href="">TinkerProxy</a>. This is an open source port of <em>serproxy</em> and has good support for Flash.</p>
 
-<p>Download the most recent version of TinkerProxy from the project&#8217;s <a href="http://code.google.com/p/tinkerit/downloads/list">download page</a>. I am using the 2.0 release from March 2009.</p>
+<p>Download the most recent version of TinkerProxy from the project&rsquo;s <a href="http://code.google.com/p/tinkerit/downloads/list">download page</a>. I am using the 2.0 release from March 2009.</p>
 
-<p>Once you have downloaded it, unzip the file. This will create a directory named <em>tinkerproxy-2_0</em>. Move this directory to where you want to keep it. On my system, I put it at <em>~/bin/tinkerproxy</em>. If you like, you can add this directory to your system&#8217;s path, which will allow you to start TinkerProxy from anywhere.</p>
+<p>Once you have downloaded it, unzip the file. This will create a directory named <em>tinkerproxy-2_0</em>. Move this directory to where you want to keep it. On my system, I put it at <em>~/bin/tinkerproxy</em>. If you like, you can add this directory to your system&rsquo;s path, which will allow you to start TinkerProxy from anywhere.</p>
 
 <p>Open up the tinkerproxy directory in your file manager. You should see 3 files:</p>
 
@@ -215,42 +215,74 @@
 
 <p>Here is what my entire <em>serproxy.osx.cfg</em> proxy looks like:</p>
 
-<pre><code># Config file for serproxy
-# See serproxy's README file for documentation
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Config file for serproxy</span>
+</span><span class='line'><span class="c"># See serproxy&#39;s README file for documentation</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Transform newlines coming from the serial port into nils</span>
+</span><span class='line'><span class="c"># true (e.g. if using Flash) or false</span>
+</span><span class='line'><span class="nv">newlines_to_nils</span><span class="o">=</span><span class="nb">false</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># on a mac you will need to add this</span>
+</span><span class='line'><span class="nv">serial_device1</span><span class="o">=</span>/dev/cu.usbserial-A700dZgM
+</span><span class='line'>
+</span><span class='line'><span class="c"># Comm ports used</span>
+</span><span class='line'><span class="nv">comm_ports</span><span class="o">=</span>1
+</span><span class='line'>
+</span><span class='line'><span class="c"># Default settings</span>
+</span><span class='line'><span class="nv">comm_baud</span><span class="o">=</span>9600
+</span><span class='line'><span class="nv">comm_databits</span><span class="o">=</span>8
+</span><span class='line'><span class="nv">comm_stopbits</span><span class="o">=</span>1
+</span><span class='line'><span class="nv">comm_parity</span><span class="o">=</span>none
+</span><span class='line'>
+</span><span class='line'><span class="c"># Idle time out in seconds</span>
+</span><span class='line'><span class="nv">timeout</span><span class="o">=</span>300
+</span><span class='line'>
+</span><span class='line'><span class="c"># Port 1 settings (ttyS0)</span>
+</span><span class='line'><span class="nv">net_port1</span><span class="o">=</span>5331
+</span><span class='line'>
+</span><span class='line'><span class="c"># Port 2 settings (ttyS1)</span>
+</span><span class='line'><span class="c">#net_port2=5332</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Port 3 settings (ttyS2)</span>
+</span><span class='line'><span class="c">#net_port3=5333</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Port 4 settings (ttyS3)</span>
+</span><span class='line'><span class="c">#net_port4=5334</span>
+</span></code></pre></td></tr></table></div></figure>
 
-# Transform newlines coming from the serial port into nils
-# true (e.g. if using Flash) or false
-newlines_to_nils=false
-
-# on a mac you will need to add this
-serial_device1=/dev/cu.usbserial-A700dZgM
-
-# Comm ports used
-comm_ports=1
-
-# Default settings
-comm_baud=9600
-comm_databits=8
-comm_stopbits=1
-comm_parity=none
-
-# Idle time out in seconds
-timeout=300
-
-# Port 1 settings (ttyS0)
-net_port1=5331
-
-# Port 2 settings (ttyS1)
-#net_port2=5332
-
-# Port 3 settings (ttyS2)
-#net_port3=5333
-
-# Port 4 settings (ttyS3)
-#net_port4=5334
-</code></pre>
-
-<p>&nbsp;</p>
 
 <p>Once you have made the changes, save the file and close it.</p>
 
@@ -262,13 +294,16 @@ net_port1=5331
 
 <p>You should see the following output:</p>
 
-<pre><code>Serproxy 0.2.0 - Tinker.it 
-Based on code by (C)1999 Stefano Busti, (C)2005 David A. Mellis
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Serproxy 0.2.0 - Tinker.it
+</span><span class='line'>Based on code by <span class="o">(</span>C<span class="o">)</span>1999 Stefano Busti, <span class="o">(</span>C<span class="o">)</span>2005 David A. Mellis
+</span><span class='line'>
+</span><span class='line'>Waiting <span class="k">for </span>clients
+</span></code></pre></td></tr></table></div></figure>
 
-Waiting for clients
-</code></pre>
-
-<p>&nbsp;</p>
 
 <p>If you see this, then you are all set. If you get an error, double check your configuration file, and make sure you are in the directory where <a href="">serproxy.osx</a> is located.</p>
 
@@ -284,184 +319,344 @@ Waiting for clients
 
 <p>Open up the Arduino application, and create a new file called <em>FlashBlink.pde</em>. Type the code below into the editor:</p>
 
-<pre><code>/*
-    Simple example that controls the blinking of the LED
-    connected to digital PIN 13.
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm"> Simple example that controls the blinking of the LED</span>
+</span><span class='line'><span class="cm"> connected to digital PIN 13.</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> Created by Mike Chambers</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> http://www.mikechambers.com</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> You can hook up an external LED by connecting an LED</span>
+</span><span class='line'><span class="cm"> to PIN 13 and GND (make sure that the anode (long leg) is</span>
+</span><span class='line'><span class="cm"> connected to PING 13 and the cathode (short leg) is connected</span>
+</span><span class='line'><span class="cm"> to GND.</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> The on board LED is also connected to PIN 13, and will</span>
+</span><span class='line'><span class="cm"> be controlled by this program.</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> Example is released under the following license:</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> The MIT License</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> Copyright (c) 2010 Mike Chambers</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+</span><span class='line'><span class="cm"> of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+</span><span class='line'><span class="cm"> in the Software without restriction, including without limitation the rights</span>
+</span><span class='line'><span class="cm"> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+</span><span class='line'><span class="cm"> copies of the Software, and to permit persons to whom the Software is</span>
+</span><span class='line'><span class="cm"> furnished to do so, subject to the following conditions:</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> The above copyright notice and this permission notice shall be included in</span>
+</span><span class='line'><span class="cm"> all copies or substantial portions of the Software.</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm"> THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+</span><span class='line'><span class="cm"> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+</span><span class='line'><span class="cm"> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+</span><span class='line'><span class="cm"> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+</span><span class='line'><span class="cm"> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+</span><span class='line'><span class="cm"> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
+</span><span class='line'><span class="cm"> THE SOFTWARE.</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//The digital pin that the LED is connected to</span>
+</span><span class='line'><span class="err">#</span><span class="nx">define</span> <span class="nx">LED_PIN</span> <span class="mi">13</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//incoming command to toggle LED blinking state</span>
+</span><span class='line'><span class="err">#</span><span class="nx">define</span> <span class="nx">TOGGLE_LED_STATE</span> <span class="s1">&#39;t&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">#</span><span class="nx">define</span> <span class="nx">EOL_DELIMITER</span> <span class="s2">&quot;\n&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//int to hold incoming byte when we read it</span>
+</span><span class='line'><span class="kr">int</span> <span class="nx">incoming</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//whether the led should blink</span>
+</span><span class='line'><span class="kr">boolean</span> <span class="nx">shouldBlinkLED</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//setup function. called when the program first runs</span>
+</span><span class='line'><span class="k">void</span> <span class="nx">setup</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//start listening for incoming messages on the serial port</span>
+</span><span class='line'>  <span class="c1">//at 9600 baud</span>
+</span><span class='line'>  <span class="nx">Serial</span><span class="p">.</span><span class="nx">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Send a message out that the program is initializing</span>
+</span><span class='line'>    <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;INITIALIZING&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Flash looks for this to know when the message is done</span>
+</span><span class='line'>    <span class="c1">//See the comments in the Flash file for more info.</span>
+</span><span class='line'>    <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">EOL_DELIMITER</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//set the pin more for the digital ping that</span>
+</span><span class='line'>  <span class="c1">//the LED is connected to (can be INPUT or OUTPUT)</span>
+</span><span class='line'>  <span class="nx">pinMode</span><span class="p">(</span><span class="nx">LED_PIN</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//blink the LED 5 times so we can visually see that the</span>
+</span><span class='line'>  <span class="c1">//program is running</span>
+</span><span class='line'>  <span class="nx">blinkLED</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Send out a message that initialization is complete.</span>
+</span><span class='line'>    <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;READY&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">EOL_DELIMITER</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//program loop. Called each timer tick (really fast)</span>
+</span><span class='line'><span class="k">void</span> <span class="nx">loop</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//check if we should blink the LED</span>
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="nx">shouldBlinkLED</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="c1">//if so, blink the LED</span>
+</span><span class='line'>      <span class="nx">blinkLED</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//check if there are any bytes available</span>
+</span><span class='line'>  <span class="c1">//on the Serial port</span>
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="nx">Serial</span><span class="p">.</span><span class="nx">available</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="c1">//read a single byte.</span>
+</span><span class='line'>      <span class="nx">incoming</span> <span class="o">=</span> <span class="nx">Serial</span><span class="p">.</span><span class="nx">read</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//Calling Serial.read() remove the byte from the Serial</span>
+</span><span class='line'>      <span class="c1">//buffer. In this case, if there are multiple bytes that</span>
+</span><span class='line'>      <span class="c1">//were sent, the next one will be handled on the next loop.</span>
+</span><span class='line'>      <span class="c1">//You could also grab it by calling Serial.read() again</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//check if the incoming byte was a command to toggle</span>
+</span><span class='line'>      <span class="c1">//the state of the LED blinking</span>
+</span><span class='line'>      <span class="k">if</span><span class="p">(</span><span class="nx">incoming</span> <span class="o">==</span> <span class="nx">TOGGLE_LED_STATE</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="c1">//it was a command</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="c1">//toggle the state of the LED Blinking</span>
+</span><span class='line'>              <span class="nx">shouldBlinkLED</span> <span class="o">=</span> <span class="o">!</span><span class="nx">shouldBlinkLED</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="c1">//send a message to the Serial port with the </span>
+</span><span class='line'>          <span class="c1">//new LED Blink state</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;LED BLINK STATE: &quot;</span><span class="p">);</span>
+</span><span class='line'>          <span class="k">if</span><span class="p">(</span><span class="nx">shouldBlinkLED</span><span class="p">)</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>              <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;ON&quot;</span><span class="p">);</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>          <span class="k">else</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>                  <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;OFF&quot;</span><span class="p">);</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">EOL_DELIMITER</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="c1">//note, if you are using XMLSocket in Flash to read</span>
+</span><span class='line'>          <span class="c1">//the string data over the socket then we also have to send </span>
+</span><span class='line'>          <span class="c1">//a null byte with the following command:</span>
+</span><span class='line'>          <span class="c1">//</span>
+</span><span class='line'>          <span class="c1">//Serial.print(0, BYTE);</span>
+</span><span class='line'>          <span class="c1">//</span>
+</span><span class='line'>          <span class="c1">//However, in general, it is going to be easier, and more flexible</span>
+</span><span class='line'>          <span class="c1">//to use the Socket class (and not the XMLSocket class).</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//function to blink the LED</span>
+</span><span class='line'><span class="k">void</span> <span class="nx">blinkLED</span><span class="p">(</span><span class="kr">int</span> <span class="nx">count</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//loop through</span>
+</span><span class='line'>  <span class="k">for</span><span class="p">(</span><span class="kr">int</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="c1">//turn LED on</span>
+</span><span class='line'>      <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">LED_PIN</span><span class="p">,</span> <span class="nx">HIGH</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//wait 500 ms</span>
+</span><span class='line'>      <span class="nx">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+</span><span class='line'>  
+</span><span class='line'>      <span class="c1">//turn LED off</span>
+</span><span class='line'>      <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">LED_PIN</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//wait 500 ms</span>
+</span><span class='line'>      <span class="nx">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    Created by Mike Chambers
-
-http://www.mikechambers.com
-
-    You can hook up an external LED by connecting an LED
-    to PIN 13 and GND (make sure that the anode (long leg) is
-    connected to PING 13 and the cathode (short leg) is connected
-    to GND.
-
-    The on board LED is also connected to PIN 13, and will
-    be controlled by this program.
-
-    Example is released under the following license:
-
-    The MIT License
-
-    Copyright (c) 2010 Mike Chambers
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-    THE SOFTWARE.
-*/
-
-
-//The digital pin that the LED is connected to
-#define LED_PIN 13
-
-//incoming command to toggle LED blinking state
-#define TOGGLE_LED_STATE 't'
-
-#define EOL_DELIMITER "\n"
-
-//int to hold incoming byte when we read it
-int incoming = 0;
-
-//whether the led should blink
-boolean shouldBlinkLED = false;
-
-//setup function. called when the program first runs
-void setup()
-{
-    //start listening for incoming messages on the serial port
-    //at 9600 baud
-    Serial.begin(9600);
-
-    //Send a message out that the program is initializing
-    Serial.print("INITIALIZING");
-
-    //Flash looks for this to know when the message is done
-    //See the comments in the Flash file for more info.
-    Serial.print(EOL_DELIMITER);
-
-    //set the pin more for the digital ping that
-    //the LED is connected to (can be INPUT or OUTPUT)
-    pinMode(LED_PIN, OUTPUT);
-
-    //blink the LED 5 times so we can visually see that the
-    //program is running
-    blinkLED(5);
-
-    //Send out a message that initialization is complete.
-    Serial.print("READY");
-    Serial.print(EOL_DELIMITER);
-}
-
-//program loop. Called each timer tick (really fast)
-void loop()
-{
-    //check if we should blink the LED
-    if(shouldBlinkLED)
-    {
-        //if so, blink the LED
-        blinkLED(1);
-    }
-
-    //check if there are any bytes available
-    //on the Serial port
-    if(Serial.available() &gt; 0)
-    {
-        //read a single byte.
-        incoming = Serial.read();
-
-
-        //Calling Serial.read() remove the byte from the Serial
-        //buffer. In this case, if there are multiple bytes that
-        //were sent, the next one will be handled on the next loop.
-        //You could also grab it by calling Serial.read() again
-
-        //check if the incoming byte was a command to toggle
-        //the state of the LED blinking
-        if(incoming == TOGGLE_LED_STATE)
-        {
-            //it was a command
-
-            //toggle the state of the LED Blinking
-            shouldBlinkLED = !shouldBlinkLED;
-
-            //send a message to the Serial port with the 
-            //new LED Blink state
-
-            Serial.print("LED BLINK STATE: "); 
-            if(shouldBlinkLED)
-            {
-                Serial.print("ON");
-            }
-            else
-            {
-                Serial.print("OFF");
-            }
-
-            Serial.print(EOL_DELIMITER);
-
-            //note, if you are using XMLSocket in Flash to read
-            //the string data over the socket then we also have to send 
-            //a null byte with the following command:
-            //
-            //Serial.print(0, BYTE);
-            //
-            //However, in general, it is going to be easier, and more flexible
-            //to use the Socket class (and not the XMLSocket class).
-        }
-    }
-}
-
-//function to blink the LED
-void blinkLED(int count)
-{
-    //loop through
-    for(int i = 0; i &lt; count; i++)
-    {
-        //turn LED on
-        digitalWrite(LED_PIN, HIGH);
-
-        //wait 500 ms
-        delay(500);
-
-        //turn LED off
-        digitalWrite(LED_PIN, LOW);
-
-        //wait 500 ms
-        delay(500);
-    }
-}
-</code></pre>
-
-<p>&nbsp;</p>
 
 <p>The code is extensively commented and explains what is going on. Make sure that you read through them.</p>
 
-<p>Basically, the code just listens for a single character (&#8220;t&#8221;) to be sent over the Serial port. When it receives a &#8220;t&#8221; then it toggles the blinking of the LED (from ON to OFF or vice versa). When the LED is toggled, the Arduino will send a message back to Flash with the current LED state. Finally, the code blinks the LED 5 times when it starts so you can see that it is loaded and is running correctly.</p>
+<p>Basically, the code just listens for a single character (&ldquo;t&rdquo;) to be sent over the Serial port. When it receives a &ldquo;t&rdquo; then it toggles the blinking of the LED (from ON to OFF or vice versa). When the LED is toggled, the Arduino will send a message back to Flash with the current LED state. Finally, the code blinks the LED 5 times when it starts so you can see that it is loaded and is running correctly.</p>
 
-<p>Once you have the code typed in, press the &#8220;Verify&#8221; button (looks like a Play button) (<em>Sketch > Verify / Compile</em>) in order to ensure that you don&#8217;t have any compilation errors. Once it compiles, then we are ready to upload it to the Arduino.</p>
+<p>Once you have the code typed in, press the &ldquo;Verify&rdquo; button (looks like a Play button) (<em>Sketch > Verify / Compile</em>) in order to ensure that you don&rsquo;t have any compilation errors. Once it compiles, then we are ready to upload it to the Arduino.</p>
 
-<p>Make sure that the Arduino is connected, and then press the &#8220;Upload&#8221; button in the Arduino editor (<em>File > Upload to I/O Board</em>). This will upload the code to the Arduino. Note that even if you disconnect the Arduino, the code will still be on there, and begin running when the Arduino is connected (you dont have to re-upload it every time).</p>
+<p>Make sure that the Arduino is connected, and then press the &ldquo;Upload&rdquo; button in the Arduino editor (<em>File > Upload to I/O Board</em>). This will upload the code to the Arduino. Note that even if you disconnect the Arduino, the code will still be on there, and begin running when the Arduino is connected (you don&rsquo;t have to re-upload it every time).</p>
 
 <p>Before we write the ActionScript code, lets test the Arduino code we just wrote to ensure everything is working. We can do this by opening the Arduino Serial Monitor and send a message.</p>
 
-<p>Open the Serial Monitor (<em>Tools > Serial Monitor</em>) and make sure that the baud rate is set to 9600 (in the bottom right of the window). Wait until you see the &#8220;INITIALIZING&#8221; and &#8220;READY&#8221; messages printed from the Arduino (we send these from our code). At the top, type in the letter &#8220;t&#8221; and click &#8220;Send&#8221;. This sends the message to the Arduino. You should see the LED blinking toggle state, and also see a message in the console from the Arduino with the LED blink status.</p>
+<p>Open the Serial Monitor (<em>Tools > Serial Monitor</em>) and make sure that the baud rate is set to 9600 (in the bottom right of the window). Wait until you see the &ldquo;INITIALIZING&rdquo; and &ldquo;READY&rdquo; messages printed from the Arduino (we send these from our code). At the top, type in the letter &ldquo;t&rdquo; and click &ldquo;Send&rdquo;. This sends the message to the Arduino. You should see the LED blinking toggle state, and also see a message in the console from the Arduino with the LED blink status.</p>
 
-<p>If something doesn&#8217;t work, then go back and check your code. Make sure you have set the baud rate correctly in your code and in the Serial Monitor. Once everything is working, then we are ready to move on to the final step, which is to write some Flash code to control and communicate with the Arduino.</p>
+<p>If something doesn&rsquo;t work, then go back and check your code. Make sure you have set the baud rate correctly in your code and in the Serial Monitor. Once everything is working, then we are ready to move on to the final step, which is to write some Flash code to control and communicate with the Arduino.</p>
 
 <p><strong>Flash / ActionScript Code</strong></p>
 
@@ -469,245 +664,480 @@ void blinkLED(int count)
 
 <p>Here is our ActionScript code for interacting with the Arduino:</p>
 
-<pre><code>/*
-    Simple Example that connects to an Arduino (via TinkerProxy) and controls
-    the blinking of an LED.
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+<span class='line-number'>164</span>
+<span class='line-number'>165</span>
+<span class='line-number'>166</span>
+<span class='line-number'>167</span>
+<span class='line-number'>168</span>
+<span class='line-number'>169</span>
+<span class='line-number'>170</span>
+<span class='line-number'>171</span>
+<span class='line-number'>172</span>
+<span class='line-number'>173</span>
+<span class='line-number'>174</span>
+<span class='line-number'>175</span>
+<span class='line-number'>176</span>
+<span class='line-number'>177</span>
+<span class='line-number'>178</span>
+<span class='line-number'>179</span>
+<span class='line-number'>180</span>
+<span class='line-number'>181</span>
+<span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
+<span class='line-number'>187</span>
+<span class='line-number'>188</span>
+<span class='line-number'>189</span>
+<span class='line-number'>190</span>
+<span class='line-number'>191</span>
+<span class='line-number'>192</span>
+<span class='line-number'>193</span>
+<span class='line-number'>194</span>
+<span class='line-number'>195</span>
+<span class='line-number'>196</span>
+<span class='line-number'>197</span>
+<span class='line-number'>198</span>
+<span class='line-number'>199</span>
+<span class='line-number'>200</span>
+<span class='line-number'>201</span>
+<span class='line-number'>202</span>
+<span class='line-number'>203</span>
+<span class='line-number'>204</span>
+<span class='line-number'>205</span>
+<span class='line-number'>206</span>
+<span class='line-number'>207</span>
+<span class='line-number'>208</span>
+<span class='line-number'>209</span>
+<span class='line-number'>210</span>
+<span class='line-number'>211</span>
+<span class='line-number'>212</span>
+<span class='line-number'>213</span>
+<span class='line-number'>214</span>
+<span class='line-number'>215</span>
+<span class='line-number'>216</span>
+<span class='line-number'>217</span>
+<span class='line-number'>218</span>
+<span class='line-number'>219</span>
+<span class='line-number'>220</span>
+<span class='line-number'>221</span>
+<span class='line-number'>222</span>
+<span class='line-number'>223</span>
+<span class='line-number'>224</span>
+<span class='line-number'>225</span>
+<span class='line-number'>226</span>
+<span class='line-number'>227</span>
+<span class='line-number'>228</span>
+<span class='line-number'>229</span>
+<span class='line-number'>230</span>
+<span class='line-number'>231</span>
+<span class='line-number'>232</span>
+<span class='line-number'>233</span>
+<span class='line-number'>234</span>
+<span class='line-number'>235</span>
+<span class='line-number'>236</span>
+</pre></td><td class='code'><pre><code class='actionscript'><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">Simple Example that connects to an Arduino (via TinkerProxy) and controls</span>
+</span><span class='line'><span class="cm">the blinking of an LED.</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">Created by Mike Chambers</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">http://www.mikechambers.com</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">The MIT License</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">Copyright (c) 2010 Mike Chambers</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+</span><span class='line'><span class="cm">of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+</span><span class='line'><span class="cm">in the Software without restriction, including without limitation the rights</span>
+</span><span class='line'><span class="cm">to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+</span><span class='line'><span class="cm">copies of the Software, and to permit persons to whom the Software is</span>
+</span><span class='line'><span class="cm">furnished to do so, subject to the following conditions:</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">The above copyright notice and this permission notice shall be included in</span>
+</span><span class='line'><span class="cm">all copies or substantial portions of the Software.</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+</span><span class='line'><span class="cm">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+</span><span class='line'><span class="cm">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+</span><span class='line'><span class="cm">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+</span><span class='line'><span class="cm">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+</span><span class='line'><span class="cm">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
+</span><span class='line'><span class="cm">THE SOFTWARE.</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">package</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">Event</span><span class="o">;</span>
+</span><span class='line'><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Sprite</span><span class="o">;</span>
+</span><span class='line'><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nb">Socket</span><span class="o">;</span>
+</span><span class='line'><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">IOErrorEvent</span><span class="o">;</span>
+</span><span class='line'><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">ProgressEvent</span><span class="o">;</span>
+</span><span class='line'><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">SecurityErrorEvent</span><span class="o">;</span>
+</span><span class='line'><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nb">Endian</span><span class="o">;</span>
+</span><span class='line'><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">MouseEvent</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nx">FlashBlink</span> <span class="kd">extends</span> <span class="nb">Sprite</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//command sent to the Arduino to toggle LED blinking state</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">const</span> <span class="nx">TOGGLE_LED_STATE</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;t&quot;</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//Character that delineates the end of a message received</span>
+</span><span class='line'>  <span class="c1">//from the Arduino</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">const</span> <span class="nx">EOL_DELIMITER</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;\n&quot;</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//socket we will use to connect to TinkerProxy</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="k">var</span> <span class="nx">_socket</span><span class="o">:</span><span class="nb">Socket</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//Address where TinkerProxy is located. Will usually be</span>
+</span><span class='line'>  <span class="c1">//localhost / 127.0.0.1</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="k">var</span> <span class="nx">_proxyAddress</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//port TinkerProxy is listening on</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="k">var</span> <span class="nx">_proxyPort</span><span class="o">:</span><span class="nb">uint</span> <span class="o">=</span> <span class="mi">5331</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//constructor</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">function</span> <span class="nx">FlashBlink</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="c1">//listen for when we are added to the stage</span>
+</span><span class='line'>      <span class="nx">addEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ADDED_TO_STAGE</span><span class="o">,</span> <span class="nx">onAddedToStage</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onAddedToStage</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nx">removeEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ADDED_TO_STAGE</span><span class="o">,</span> <span class="nx">onAddedToStage</span><span class="p">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//create a Sprite to add to the stage.</span>
+</span><span class='line'>      <span class="c1">//This will be a simple button</span>
+</span><span class='line'>      <span class="k">var</span> <span class="nx">s</span><span class="o">:</span><span class="nb">Sprite</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Sprite</span><span class="p">();</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//draw a green square in the Sprite</span>
+</span><span class='line'>      <span class="nx">s</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">beginFill</span><span class="p">(</span><span class="mh">0x00</span><span class="nx">FF00</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">s</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">drawRect</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span> <span class="mi">200</span><span class="o">,</span><span class="mi">100</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">s</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">endFill</span><span class="p">();</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//Add Sprite to the display list</span>
+</span><span class='line'>      <span class="nx">addChild</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//position it</span>
+</span><span class='line'>      <span class="nx">s</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
+</span><span class='line'>      <span class="nx">s</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//listen for when the user clicks the Sprite</span>
+</span><span class='line'>      <span class="nx">s</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nb">MouseEvent</span><span class="p">.</span><span class="nx">CLICK</span><span class="o">,</span> <span class="nx">onClick</span><span class="p">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="nx">_socket</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Socket</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//Register for socket events</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//socket connected</span>
+</span><span class='line'>      <span class="nx">_socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">Event</span><span class="p">.</span><span class="nx">CONNECT</span><span class="o">,</span> <span class="nx">onConnect</span> <span class="p">);</span>            
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//socket closed</span>
+</span><span class='line'>      <span class="nx">_socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">Event</span><span class="p">.</span><span class="nx">CLOSE</span><span class="o">,</span> <span class="nx">onClose</span> <span class="p">);</span>            
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//data received from socket</span>
+</span><span class='line'>      <span class="nx">_socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">ProgressEvent</span><span class="p">.</span><span class="nx">SOCKET_DATA</span><span class="o">,</span> <span class="nx">onSocketData</span> <span class="p">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//Error connecting</span>
+</span><span class='line'>      <span class="nx">_socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">IOErrorEvent</span><span class="p">.</span><span class="nx">IO_ERROR</span><span class="o">,</span> <span class="nx">onIOError</span> <span class="p">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//Security Error</span>
+</span><span class='line'>      <span class="nx">_socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">SecurityErrorEvent</span><span class="p">.</span><span class="nx">SECURITY_ERROR</span><span class="o">,</span> <span class="nx">onSecurityError</span> <span class="p">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//need to set Endianness for Socket. THIS IS IMPORTANT</span>
+</span><span class='line'>      <span class="c1">//If this is set incorrectly, the Arduino will not be able to understand</span>
+</span><span class='line'>      <span class="c1">//all of the data sent from Flash. </span>
+</span><span class='line'>      <span class="c1">//</span>
+</span><span class='line'>      <span class="c1">//See:</span>
+</span><span class='line'>      <span class="c1">//http://www.mikechambers.com/blog/2010/08/01/sending-multibyte-numbers-from-actionscript-to-arduino/</span>
+</span><span class='line'>      <span class="nx">_socket</span><span class="p">.</span><span class="nx">endian</span> <span class="o">=</span> <span class="nb">Endian</span><span class="p">.</span><span class="nx">LITTLE_ENDIAN</span><span class="o">;</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//connect</span>
+</span><span class='line'>      <span class="nx">_socket</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">_proxyAddress</span><span class="o">,</span> <span class="nx">_proxyPort</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//called when we connect to the proxy server</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onConnect</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="cm">/*</span>
+</span><span class='line'><span class="cm">         note, you cannot reliably write data to the socket here.</span>
+</span><span class='line'><span class="cm">         </span>
+</span><span class='line'><span class="cm">         Im not sure if this is a Flash player issue, or a timing issue</span>
+</span><span class='line'><span class="cm">         with the proxy.</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>      <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;Socket Connected&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="cm">/*</span>
+</span><span class='line'><span class="cm">     This function / event handler is called when data is received</span>
+</span><span class='line'><span class="cm">     on the socket. </span>
+</span><span class='line'><span class="cm">     </span>
+</span><span class='line'><span class="cm">     However, it is important to remember that the event is called as</span>
+</span><span class='line'><span class="cm">     data is received, which means that not all of the data may be available</span>
+</span><span class='line'><span class="cm">     when it is called.</span>
+</span><span class='line'><span class="cm">     </span>
+</span><span class='line'><span class="cm">     For example, if you sent the string &quot;Hello World&quot; from Arduino,</span>
+</span><span class='line'><span class="cm">     then the event handler might be called twice. Once with &quot;Hello Wo&quot; and</span>
+</span><span class='line'><span class="cm">     a second time with &quot;rld&quot;.</span>
+</span><span class='line'><span class="cm">     </span>
+</span><span class='line'><span class="cm">     &quot;Because of this, in most cases, you need to buffer the data, and parse</span>
+</span><span class='line'><span class="cm">     out messages, looking for a character (that you specify) that delineates the</span>
+</span><span class='line'><span class="cm">     end of a message.</span>
+</span><span class='line'><span class="cm">     </span>
+</span><span class='line'><span class="cm">     If you just want to send a single character back from Arduino, then this</span>
+</span><span class='line'><span class="cm">     is not necessary. However, the handler below is generic, and already does all</span>
+</span><span class='line'><span class="cm">     of the buffering, so you can just use it.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//string to hold data as it comes in.</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="k">var</span> <span class="nx">buffer</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//event called when data arrives on the socket from the</span>
+</span><span class='line'>  <span class="c1">//arduino</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onSocketData</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">ProgressEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="c1">//get the string sent from the Arduino. This could be any binary data</span>
+</span><span class='line'>      <span class="c1">//but in our case, we are sending strings.</span>
+</span><span class='line'>      <span class="c1">//In general, it is much easier to just always send strings from </span>
+</span><span class='line'>      <span class="c1">//Arduino, and then parse then in ActionScript</span>
+</span><span class='line'>      <span class="k">var</span> <span class="nx">data</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="nx">_socket</span><span class="p">.</span><span class="nx">readUTFBytes</span><span class="p">(</span> <span class="nx">_socket</span><span class="p">.</span><span class="nx">bytesAvailable</span> <span class="p">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//copy the newly arrived data into the buffer string.</span>
+</span><span class='line'>      <span class="nx">buffer</span> <span class="o">+=</span> <span class="nx">data</span><span class="o">;</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//completed message from the server</span>
+</span><span class='line'>      <span class="k">var</span> <span class="nx">msg</span><span class="o">:</span><span class="nb">String</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">var</span> <span class="nx">index</span><span class="o">:</span><span class="nb">int</span><span class="o">;</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//loop through the buffer until it contains no more</span>
+</span><span class='line'>      <span class="c1">//end of message delimiter</span>
+</span><span class='line'>      <span class="k">while</span><span class="p">((</span><span class="nx">index</span> <span class="o">=</span> <span class="nx">buffer</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">EOL_DELIMITER</span><span class="p">))</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="c1">//extract the message from the beginning to where the delimiter is</span>
+</span><span class='line'>          <span class="c1">//we don&#39;t include the delimiter</span>
+</span><span class='line'>          <span class="nx">msg</span> <span class="o">=</span> <span class="nx">buffer</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="nx">index</span><span class="p">);</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="c1">//remove the message from the buffer</span>
+</span><span class='line'>          <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">buffer</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="c1">//trace out the message (or do whatever you want with it)</span>
+</span><span class='line'>          <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;Message Received from Arduino : &quot;</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>                
+</span><span class='line'>      
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//called when the user clicks the button on stage</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onClick</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">MouseEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;onClick&quot;</span><span class="p">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//make sure we are connected to the socket</span>
+</span><span class='line'>      <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">_socket</span><span class="p">.</span><span class="nx">connected</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="c1">//if not, don&#39;t do anything</span>
+</span><span class='line'>          <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;You must be connected to send a command to the Arduino.&quot;</span><span class="p">);</span>
+</span><span class='line'>          <span class="k">return</span><span class="o">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//write the command to the server</span>
+</span><span class='line'>      <span class="nx">_socket</span><span class="p">.</span><span class="nx">writeUTFBytes</span><span class="p">(</span><span class="nx">TOGGLE_LED_STATE</span><span class="p">);</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//flush the socket. Not really necessary, but here for forward compatibility.</span>
+</span><span class='line'>      <span class="nx">_socket</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//called when the socket is closed</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;Socket Closed&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//called if an error occurs while connecting to the socket.</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onIOError</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">IOErrorEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;IOErrorEvent : &quot;</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//called when there is a security error. Usually if you try to connect to a socket</span>
+</span><span class='line'>  <span class="c1">//when the SWF doesn&#39;t have permission. </span>
+</span><span class='line'>  <span class="c1">//See:</span>
+</span><span class='line'>  <span class="c1">//http://www.adobe.com/devnet/flashplayer/articles/fplayer9_security_04.html</span>
+</span><span class='line'>  <span class="c1">//In most cases, when testing locally, this will not be an issue.</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onSecurityError</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">SecurityErrorEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;SecurityErrorEvent : &quot;</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    Created by Mike Chambers
-
-http://www.mikechambers.com
-
-    The MIT License
-
-    Copyright (c) 2010 Mike Chambers
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-    THE SOFTWARE.
-*/
-
-package
-{
-    import flash.events.Event;
-    import flash.display.Sprite;
-    import flash.net.Socket;
-    import flash.events.IOErrorEvent;
-    import flash.events.ProgressEvent;
-    import flash.events.SecurityErrorEvent;
-    import flash.utils.Endian;
-    import flash.events.MouseEvent;
-
-    public class FlashBlink extends Sprite
-    {
-
-        //command sent to the Arduino to toggle LED blinking state
-        private static const TOGGLE_LED_STATE:String = "t";
-
-        //Character that delineates the end of a message received
-        //from the Arduino
-        private static const EOL_DELIMITER:String = "\n";
-
-        //socket we will use to connect to TinkerProxy
-        private var _socket:Socket;
-
-        //Address where TinkerProxy is located. Will usually be
-        //localhost / 127.0.0.1
-        private var _proxyAddress:String = "127.0.0.1";
-
-        //port TinkerProxy is listening on
-        private var _proxyPort:uint = 5331;
-
-        //constructor
-        public function FlashBlink()
-        {
-            //listen for when we are added to the stage
-            addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-        }
-
-        private function onAddedToStage(event:Event):void
-        {
-            removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-
-            //create a Sprite to add to the stage.
-            //This will be a simple button
-            var s:Sprite = new Sprite();
-
-            //draw a green square in the Sprite
-            s.graphics.beginFill(0x00FF00);
-            s.graphics.drawRect(0,0, 200,100);
-            s.graphics.endFill();
-
-            //Add Sprite to the display list
-            addChild(s);
-
-            //position it
-            s.x = 50;
-            s.y = 50;
-
-            //listen for when the user clicks the Sprite
-            s.addEventListener(MouseEvent.CLICK, onClick);
-
-            _socket = new Socket();
-
-            //Register for socket events
-
-            //socket connected
-            _socket.addEventListener( Event.CONNECT, onConnect );           
-
-            //socket closed
-            _socket.addEventListener( Event.CLOSE, onClose );           
-
-            //data received from socket
-            _socket.addEventListener( ProgressEvent.SOCKET_DATA, onSocketData );
-
-            //Error connecting
-            _socket.addEventListener( IOErrorEvent.IO_ERROR, onIOError );
-
-            //Security Error
-            _socket.addEventListener( SecurityErrorEvent.SECURITY_ERROR, onSecurityError );
-
-            //need to set Endianness for Socket. THIS IS IMPORTANT
-            //If this is set incorrectly, the Arduino will not be able to understand
-            //all of the data sent from Flash. 
-            //
-            //See:
-            //http://www.mikechambers.com/blog/2010/08/01/sending-multibyte-numbers-from-actionscript-to-arduino/
-            _socket.endian = Endian.LITTLE_ENDIAN;
-
-            //connect
-            _socket.connect(_proxyAddress, _proxyPort);
-        }
-
-        //called when we connect to the proxy server
-        private function onConnect(event:Event):void
-        {
-            /*
-                note, you cannot reliably write data to the socket here.
-
-                Im not sure if this is a Flash player issue, or a timing issue
-                with the proxy.
-            */
-            trace("Socket Connected");
-        }
-
-        /*
-            This function / event handler is called when data is received
-            on the socket. 
-
-            However, it is important to remember that the event is called as
-            data is received, which means that not all of the data may be available
-            when it is called.
-
-            For example, if you sent the string "Hello World" from Arduino,
-            then the event handler might be called twice. Once with "Hello Wo" and
-            a second time with "rld".
-
-            "Because of this, in most cases, you need to buffer the data, and parse
-            out messages, looking for a character (that you specify) that delineates the
-            end of a message.
-
-            If you just want to send a single character back from Arduino, then this
-            is not necessary. However, the handler below is generic, and already does all
-            of the buffering, so you can just use it.
-        */
-
-        //string to hold data as it comes in.
-        private var buffer:String = "";
-
-        //event called when data arrives on the socket from the
-        //arduino
-        private function onSocketData(event:ProgressEvent):void
-        {
-            //get the string sent from the Arduino. This could be any binary data
-            //but in our case, we are sending strings.
-            //In general, it is much easier to just always send strings from 
-            //Arduino, and then parse then in ActionScript
-            var data:String = _socket.readUTFBytes( _socket.bytesAvailable );
-
-            //copy the newly arrived data into the buffer string.
-            buffer += data;
-
-            //completed message from the server
-            var msg:String;
-            var index:int;
-
-            //loop through the buffer until it contains no more
-            //end of message delimiter
-            while((index = buffer.indexOf(EOL_DELIMITER)) &gt; -1)
-            {
-                //extract the message from the beginning to where the delimiter is
-                //we don't include the delimiter
-                msg = buffer.substring(0, index);
-
-                //remove the message from the buffer
-                buffer = buffer.substring(index + 1);
-
-                //trace out the message (or do whatever you want with it)
-                trace("Message Received from Arduino : " + msg);
-            }               
-
-        }
-
-        //called when the user clicks the button on stage
-        private function onClick(event:MouseEvent):void
-        {
-            trace("onClick");
-
-            //make sure we are connected to the socket
-            if(!_socket.connected)
-            {
-                //if not, don't do anything
-                trace("You must be connected to send a command to the Arduino.");
-                return;
-            }
-
-            //write the command to the server
-            _socket.writeUTFBytes(TOGGLE_LED_STATE);
-
-            //flush the socket. Not really necessary, but here for forward compatibility.
-            _socket.flush();
-        }
-
-        //called when the socket is closed
-        private function onClose(event:Event):void
-        {
-            trace("Socket Closed");
-        }
-
-        //called if an error occurs while connecting to the socket.
-        private function onIOError(event:IOErrorEvent):void
-        {
-            trace("IOErrorEvent : " + event.text);
-        }
-
-        //called when there is a security error. Usually if you try to connect to a socket
-        //when the SWF doesn't have permission. 
-        //See:
-        //http://www.adobe.com/devnet/flashplayer/articles/fplayer9_security_04.html
-        //In most cases, when testing locally, this will not be an issue.
-        private function onSecurityError(event:SecurityErrorEvent):void
-        {
-            trace("SecurityErrorEvent : " + event.text);
-        }
-    }
-}
-</code></pre>
-
-<p>&nbsp;</p>
 
 <p>Now, that looks like a lot of code for a simple example, but remember that it is mostly comments.</p>
 
@@ -725,6 +1155,9 @@ package
 
 <p>I have uploaded a short video showing the Arduino running the code (click through the view the HD version).</p>
 
+<object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/QtpuxLu4WmU&amp;hl=en_US&amp;fs=1?rel=0&amp;hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/QtpuxLu4WmU&amp;hl=en_US&amp;fs=1?rel=0&amp;hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
+
+
 <p>At this point, you should have your system setup for Flash / Arduino development, and have a basic understanding of how to send and receive data between Flash content and the Arduino. Of course, the real fun comes when you begin to hook up sensors and motors and real world data. Check out some of the pre-made shields created for the Arduino at <a href="http://www.adafruit.com/index.php?main_page=index&amp;cPath=17_21">Adafruit</a> and <a href="http://www.sparkfun.com/commerce/categories.php?c=103">SparkFun.com</a> to get an idea of what is out there.</p>
 
 <p><strong>Addition Resources</strong></p>
@@ -735,7 +1168,7 @@ package
 <li><a href="http://arduino.cc/en/Reference/HomePage">Arduino Reference</a></li>
 <li><a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?board=interfacing">Arduino / Flash Forum</a></li>
 <li><a href="http://www.arduino.cc/playground/Interfacing/Flash">Arduino / Flash Playground</a></li>
-<li><a href="http://blog.kevinhoyt.org/?cat=29">Kevin Hoyt&#8217;s Blog Posts on Flash / Arduino</a> (Really great resource)</li>
+<li><a href="http://blog.kevinhoyt.org/?cat=29">Kevin Hoyt&rsquo;s Blog Posts on Flash / Arduino</a> (Really great resource)</li>
 <li><a href="http://www.amazon.com/Getting-Started-Electronics-Forrest-Mims/dp/0945053282/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1280982691&amp;sr=8-1">Getting Started in Electronics</a> (Classic book, very approachable)</li>
 <li><a href="http://www.amazon.com/MAKE-Electronics-Learning-Through-Discovery/dp/0596153740/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1280982679&amp;sr=8-1">MAKE: Electronics: Learning Through Discovery</a></li>
 </ul>

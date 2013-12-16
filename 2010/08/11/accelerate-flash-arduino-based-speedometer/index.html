@@ -112,26 +112,31 @@
   </header>
 
 
-<div class="entry-content"><p>Well, as you may have noticed from my <a href="http://www.mikechambers.com/blog/tag/arduino/">blog posts the past week or two</a>, I have been playing around with Flash and <a href="http://www.arduino.cc">Arduino</a>. I have a ton of ideas and projects in mind, but wanted to start on something that wouldn&#8217;t be too overwhelming, and would give me a good opportunity to learn the basics. Well, I have finished my first project, and wanted to share it with everyone. It is a Flash / Arduino based speed detector with clients for Mac, Windows and Android based devices (via <a href="https://prerelease.adobe.com/callout/default.html?callid={AEF64EB4-A977-4317-909A-14AD8014BA21}">Adobe AIR 2.5 beta</a>).</p>
+<div class="entry-content"><p>Well, as you may have noticed from my <a href="http://www.mikechambers.com/blog/tag/arduino/">blog posts the past week or two</a>, I have been playing around with Flash and <a href="http://www.arduino.cc">Arduino</a>. I have a ton of ideas and projects in mind, but wanted to start on something that wouldn&rsquo;t be too overwhelming, and would give me a good opportunity to learn the basics. Well, I have finished my first project, and wanted to share it with everyone. It is a Flash / Arduino based speed detector with clients for Mac, Windows and Android based devices (via <a href="https://prerelease.adobe.com/callout/default.html?callid={AEF64EB4-A977-4317-909A-14AD8014BA21}">Adobe AIR 2.5 beta</a>).</p>
 
 <p>I have put together a quick video that shows the app in action:</p>
 
 <!--more-->
 
 
+
+
+<object width="400" height="300"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=14053460&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=1&amp;color=&amp;fullscreen=1&amp;autoplay=0&amp;loop=0" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=14053460&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=1&amp;color=&amp;fullscreen=1&amp;autoplay=0&amp;loop=0" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="300"></embed></object>
+
+
 <p>View HD version <a href="http://vimeo.com/14053460?hd=1">here</a>.</p>
 
 <p>Here is how it works. I have an Arduino Duemilanove with ATMega328 which has two photo-resistors connected (with a 10k pull down resistor). I set up two laser pointers to shine a laser directly onto the photo-resistor (which is enclosed within a dark box). The Arduino monitors the values returned from the light sensor, and watches for any changes that indicate that the laser bean has been broken. When both laser beams are broken, the Arduino calculates the amount of time between when each sensor was tripped. It then sends that value to the Adobe AIR based client, which is connected to the Arduino via USB / Serial port and a serial port proxy (in the case, TinkerProxy).</p>
 
-<p><a href="http://www.flickr.com/photos/mikechambers/4884468886/" title="Untitled by mike.chambers, on Flickr"><img src="http://farm5.static.flickr.com/4143/4884468886_c93a9daae1.jpg" width="500" height="291" alt="" /></a></p>
+<p><a href="http://www.flickr.com/photos/mikechambers/4884468886/"><img src="http://farm5.static.flickr.com/4143/4884468886_c93a9daae1.jpg" alt="title" /></a></p>
 
-<p>You can download <a href="http://github.com/mikechambers/Accelerate/tree/master/src/arduino/eagle/">the schematic from the project&#8217;s repository</a>.</p>
+<p>You can download <a href="http://github.com/mikechambers/Accelerate/tree/master/src/arduino/eagle/">the schematic from the project&rsquo;s repository</a>.</p>
 
 <p>Once the AIR application (running on the desktop, or an Android based device) gets the message from the Arduino that both sensors have been tripped, the AIR app takes the time that it took for each sensor to be tripped, and combines it with the distance between the sensors (in inches), and uses that data to determine the speed.</p>
 
-<p><a href="http://www.flickr.com/photos/mikechambers/4884434876/" title="Accelerate Screenshot by mike.chambers, on Flickr"><img src="http://farm5.static.flickr.com/4134/4884434876_ae2fa2dc45.jpg" width="500" height="306" alt="Accelerate Screenshot" /></a></p>
+<p><a href="http://www.flickr.com/photos/mikechambers/4884434876/"><img src="http://farm5.static.flickr.com/4134/4884434876_ae2fa2dc45.jpg" alt="title" /></a></p>
 
-<p>While I put this together mostly for fun, it is actually useful for tweaking RC car gears and setup. You can use it to help tweak both maximum speed, as well as acceleration / starting speed. Unfortunately, I dont know enough about working on RC cars yet to actually take advantage of the data, but it is fun to hack around with regardless.</p>
+<p>While I put this together mostly for fun, it is actually useful for tweaking RC car gears and setup. You can use it to help tweak both maximum speed, as well as acceleration / starting speed. Unfortunately, I don&rsquo;t know enough about working on RC cars yet to actually take advantage of the data, but it is fun to hack around with regardless.</p>
 
 <p>I have <a href="http://github.com/mikechambers/Accelerate">posted all of the Flash and Arduino code on GitHub</a>, and released it under an open source <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>. The AIR application is built using Flex 4, and although Flex 4 is not optimized for mobile, it performs really well on my Nexus One.</p>
 

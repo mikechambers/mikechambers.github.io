@@ -155,17 +155,17 @@
 
 <p>It is pretty clear that there is no problem with creating new Flash content designed to work on touch devices.</p>
 
-<p>Next, we need to look at existing Flash content created for the desktop in order to see if it can work on devices with touch input. Again, the assertion is that &#8220;Current Flash sites could never be made work well on any touchscreen device&#8221;. Lets get the absolutes (&#8220;never&#8221; and &#8220;any&#8221;) out of the way first.</p>
+<p>Next, we need to look at existing Flash content created for the desktop in order to see if it can work on devices with touch input. Again, the assertion is that &ldquo;Current Flash sites could never be made work well on any touchscreen device&rdquo;. Lets get the absolutes (&ldquo;never&rdquo; and &ldquo;any&rdquo;) out of the way first.</p>
 
 <p>Lets look at some examples. Ryan Stewart has a posted a <a href="http://blog.digitalbackcountry.com/2010/05/examples-of-flash-content-running-on-android/">video showing existing Flash content running in the browser on a Google Nexus One</a>, and Lee Brimelow has posted <a href="http://theflashblog.com/?p=2027">a video showing existing content running on a touch based tablet</a>. As you can see from the videos, the Flash content works just fine even though it was created with mouse input in mind.</p>
 
-<p>The myth specifically mentions hover events as the reason that Flash content will not be able to work on touch devices. However, as shown in <a href="http://www.youtube.com/watch?v=tj1hiLnIp_g">this video</a>, hover events (MouseEvent.MOUSE_OVER and MouseEvent.MOUSE_OUT) are broadcast in Flash content on touch devices. This is discussed in more detail on my <a href="http://www.mikechambers.com/blog/2010/02/22/flash-player-content-mouse-events-and-touch-input/">original blog post on this topic</a>. Lee&#8217;s <a href="http://theflashblog.com/?p=2027">video</a> also shows a number of sites with Flash content that rely on hover events (all of which work fine).</p>
+<p>The myth specifically mentions hover events as the reason that Flash content will not be able to work on touch devices. However, as shown in <a href="http://www.youtube.com/watch?v=tj1hiLnIp_g">this video</a>, hover events (<em>MouseEvent.MOUSE_OVER</em> and <em>MouseEvent.MOUSE_OUT</em>) are broadcast in Flash content on touch devices. This is discussed in more detail on my <a href="http://www.mikechambers.com/blog/2010/02/22/flash-player-content-mouse-events-and-touch-input/">original blog post on this topic</a>. Lee&rsquo;s <a href="http://theflashblog.com/?p=2027">video</a> also shows a number of sites with Flash content that rely on hover events (all of which work fine).</p>
 
 <p>It is possible for a developer to write code that creates mouse based interactions that would not work well (or at all on a touch device). For example:</p>
 
 <ul>
-<li>MouseEvent.MOUSE_OVER then MouseEvent.CLICK without a MouseEvent.MOUSE_UP being broadcast first</li>
-<li>MouseEvent.MOUSE_OVER without first receiving a MouseEvent.CLICK event</li>
+<li><em>MouseEvent.MOUSE_OVER</em> then <em>MouseEvent.CLICK</em> without a <em>MouseEvent.MOUSE_UP</em> being broadcast first</li>
+<li><em>MouseEvent.MOUSE_OVER</em> without first receiving a <em>MouseEvent.CLICK</em> event</li>
 </ul>
 
 

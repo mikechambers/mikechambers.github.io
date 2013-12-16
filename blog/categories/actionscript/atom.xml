@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ActionScript | Mike Chambers]]></title>
   <link href="http://mikechambers.github.io/blog/categories/actionscript/atom.xml" rel="self"/>
   <link href="http://mikechambers.github.io/"/>
-  <updated>2013-12-15T16:15:00-08:00</updated>
+  <updated>2013-12-15T20:26:44-08:00</updated>
   <id>http://mikechambers.github.io/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
@@ -33,7 +33,7 @@
 
 <p>This speaks to another goal of the whitepapers. We understand that we have damaged our trust and credibility with the community over how we have communicated some of the recent changes around the Flash platform and that trying to regain that trust is a long term process. We have to be clear and open around our plans around the Flash runtimes, and then demonstrate that we can follow up those plans with actions. This whitepaper lays the foundation of the first part of that, and hopefully our actions and runtime releases over the next 6 to 12 months will demonstrate the second part.</p>
 
-<p>Finally, as part of the release of the whitepaper, I and some other members of the Flash and evangelist teams will be visiting user groups world wide. This will be an opportunity to go over the roadmap in more detail, have a frank and open discussion around recent changes around Flash, as well as discuss Flash&rsquo;s role on the web and how it related to HTML5. The first set of meetings are over the <a href="http://www.mikechambers.com/blog/2012/02/13/in-europe-to-discuss-flash-roadmap/">next two weeks in Europe</a>, and we will announce more for North and South America, and Asia over the next couple of weeks. If you would be interested in hosting a meeting, just shoot me an email at <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#109;&#x65;&#115;&#104;&#x40;&#x61;&#100;&#x6f;&#98;&#x65;&#x2e;&#x63;&#x6f;&#109;&#46;">&#x6d;&#x65;&#115;&#104;&#64;&#97;&#x64;&#x6f;&#x62;&#101;&#46;&#99;&#x6f;&#109;&#x2e;</a></p>
+<p>Finally, as part of the release of the whitepaper, I and some other members of the Flash and evangelist teams will be visiting user groups world wide. This will be an opportunity to go over the roadmap in more detail, have a frank and open discussion around recent changes around Flash, as well as discuss Flash&rsquo;s role on the web and how it related to HTML5. The first set of meetings are over the <a href="http://www.mikechambers.com/blog/2012/02/13/in-europe-to-discuss-flash-roadmap/">next two weeks in Europe</a>, and we will announce more for North and South America, and Asia over the next couple of weeks. If you would be interested in hosting a meeting, just shoot me an email at <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#x6d;&#x65;&#x73;&#104;&#64;&#97;&#100;&#x6f;&#98;&#x65;&#x2e;&#x63;&#111;&#x6d;&#46;">&#x6d;&#101;&#x73;&#x68;&#x40;&#x61;&#x64;&#x6f;&#x62;&#101;&#x2e;&#x63;&#x6f;&#109;&#x2e;</a></p>
 
 <p>We are already planning an update for the whitepaper in a couple of weeks, so if you find anything is not clear, or would like it to cover other topics, please post them in the comments, or shoot me an email.</p>
 ]]></content>
@@ -51,9 +51,9 @@
 <!--more-->
 
 
-<p>Anyways, the conference season is about to be in full swing, and the first talk I am doing this year, will be at <a href="http://www.fitc.ca/events/about/?event=101">FITC Amsterdam</a> next month on Flash and iPhone. The talk is titled &#8220;<a href="http://www.fitc.ca/events/presentations/presentation.cfm?event=101&amp;presentation_id=1130">Building High Performance iPhone Applications with ActionScript 3</a>&#8221; and will discuss how to get the best performance from your Flash content, as well as what type of Flash content is best suited for the device. In addition to talking about some general tips and tricks, I will also be discussing some of the new hardware accelerated APIs, and showing some games I have been working on (including my new game <a href="http://www.twitpic.com/q00ox">Unicorn Bacon Adventure!</a>).</p>
+<p>Anyways, the conference season is about to be in full swing, and the first talk I am doing this year, will be at <a href="http://www.fitc.ca/events/about/?event=101">FITC Amsterdam</a> next month on Flash and iPhone. The talk is titled &ldquo;<a href="http://www.fitc.ca/events/presentations/presentation.cfm?event=101&amp;presentation_id=1130">Building High Performance iPhone Applications with ActionScript 3</a>&rdquo; and will discuss how to get the best performance from your Flash content, as well as what type of Flash content is best suited for the device. In addition to talking about some general tips and tricks, I will also be discussing some of the new hardware accelerated APIs, and showing some games I have been working on (including my new game <a href="http://www.twitpic.com/q00ox">Unicorn Bacon Adventure!</a>).</p>
 
-<p>If you are in Europe, and haven&#8217;t signed up for FITC yet, then what are you waiting for?!?!? This is one of the best conferences in the world, and the <a href="http://www.fitc.ca/events/speakers/?event=101">speaker line up for Amsterdam</a> is simply amazing.</p>
+<p>If you are in Europe, and haven&rsquo;t signed up for FITC yet, then what are you waiting for?!?!? This is one of the best conferences in the world, and the <a href="http://www.fitc.ca/events/speakers/?event=101">speaker line up for Amsterdam</a> is simply amazing.</p>
 ]]></content>
   </entry>
   
@@ -69,132 +69,134 @@
 <!--more-->
 
 
-<p>The task that I will focus on is grabbing a palette of 16 colors from an image, created by averaging the colors within that image. Upon searching on google, I found a <a href="http://blog.soulwire.co.uk/flash/actionscript-3/extract-average-colours-from-bitmapdata/">very good solution over at soulwire.co.uk</a>, which I will use as the base for creating the palette. I want to point out that the original code targeted Flash Player 9 (and thus couldn&#8217;t take advantage of some things such as Vectors), and already ran pretty blazingly fast.</p>
+<p>The task that I will focus on is grabbing a palette of 16 colors from an image, created by averaging the colors within that image. Upon searching on google, I found a <a href="http://blog.soulwire.co.uk/flash/actionscript-3/extract-average-colours-from-bitmapdata/">very good solution over at soulwire.co.uk</a>, which I will use as the base for creating the palette. I want to point out that the original code targeted Flash Player 9 (and thus couldn&rsquo;t take advantage of some things such as Vectors), and already ran pretty blazingly fast.</p>
 
-<p>I am using Grant Skinner&#8217;s <a href="http://www.gskinner.com/blog/archives/2009/04/as3_performance.html">performance test harness</a> to profile performance. Each test is run 50 times, and is tested in Flash Player MAC 10,0,32,18 (debug) in the browser.</p>
+<p>I am using Grant Skinner&rsquo;s <a href="http://www.gskinner.com/blog/archives/2009/04/as3_performance.html">performance test harness</a> to profile performance. Each test is run 50 times, and is tested in Flash Player MAC 10,0,32,18 (debug) in the browser.</p>
 
 <p>You can download all of the code from <a href="/blog/files/examples/PixelSort.zip">here</a>.</p>
 
-<p>First, here is the original test case, based on soulwire&#8217;s code:</p>
+<p>First, here is the original test case, based on soulwire&rsquo;s code:</p>
 
-<div class="highlight">
-  <pre><span style="color: #408080; font-style: italic">/*</span>
-<span style="color: #408080; font-style: italic">   Code adapted from:</span>
-<span style="color: #408080; font-style: italic">   http://blog.soulwire.co.uk/flash/actionscript-3/colourutils-bitmapdata-extract-colour-palette/</span>
-<span style="color: #408080; font-style: italic">*/</span>
+<p>``` actionscript
+/*</p>
 
-package
+<pre><code>Code adapted from:
+http://blog.soulwire.co.uk/flash/actionscript-3/colourutils-bitmapdata-extract-colour-palette/
+</code></pre>
+
+<p>*/</p>
+
+<p>package
+{</p>
+
+<pre><code>import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.display.Sprite;
+import flash.events.Event;
+import flash.geom.Rectangle;
+import flash.geom.Point;
+
+import com.gskinner.utils.PerformanceTest;
+
+public class PixelSort extends Sprite
 {
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.Bitmap<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.<span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.Sprite<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.events.Event<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.geom.<span style="color: #008000">Rectangle</span><span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.geom.<span style="color: #008000">Point</span><span style="color: #666666">;</span>
-    
-    <span style="color: #008000; font-weight: bold">import</span> com.gskinner.utils.PerformanceTest<span style="color: #666666">;</span>
-    
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> PixelSort <span style="color: #008000; font-weight: bold">extends</span> Sprite
+
+    [Embed(source="../graphics/image.jpg")]
+    public var TestImage:Class;
+
+    public function PixelSort()
     {
-        
-        [Embed(source<span style="color: #666666">=</span><span style="color: #BA2121">"../graphics/image.jpg"</span>)]
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">var</span> TestImage<span style="color: #666666">:</span>Class<span style="color: #666666">;</span>
-        
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> PixelSort()
-        {
-            addEventListener(Event.ADDED_TO_STAGE<span style="color: #666666">,</span> onAddedToStage);
-        }
-        
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> d<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onAddedToStage(evet<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
-        {
-            removeEventListener(Event.ADDED_TO_STAGE<span style="color: #666666">,</span> onAddedToStage);
-            
-            <span style="color: #008000; font-weight: bold">var</span> b<span style="color: #666666">:</span>Bitmap <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> TestImage();
-            
-            d <span style="color: #666666">=</span> b.bitmapData<span style="color: #666666">;</span>
-            
-            <span style="color: #008000; font-weight: bold">var</span> perfTest<span style="color: #666666">:</span>PerformanceTest <span style="color: #666666">=</span> PerformanceTest.getInstance();
-            perfTest.out <span style="color: #666666">=</span> <span style="color: #0000FF">trace</span><span style="color: #666666">;</span>
-            perfTest.testFunction(run<span style="color: #666666">,</span> <span style="color: #666666">50,</span> <span style="color: #BA2121">"averagecolors"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"averagecolors"</span>);           
-        }
-        
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> run()<span style="color: #666666">:</span>void
-        {
-            <span style="color: #008000; font-weight: bold">var</span> out<span style="color: #666666">:</span><span style="color: #008000">Array</span> <span style="color: #666666">=</span> averagecolors(d<span style="color: #666666">,</span> <span style="color: #666666">16</span>);
-        }
-        
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> averageColour( source<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> )<span style="color: #666666">:</span>uint
-        {
-            <span style="color: #008000; font-weight: bold">var</span> red<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> green<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> blue<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-
-            <span style="color: #008000; font-weight: bold">var</span> count<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> pixel<span style="color: #666666">:</span><span style="color: #008000">Number</span><span style="color: #666666">;</span>
-
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">var</span> x<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span> x <span style="color: #666666">&lt;</span> source.width<span style="color: #666666">;</span> x<span style="color: #666666">++</span>)
-            {
-                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">var</span> y<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span> y <span style="color: #666666">&lt;</span> source.height<span style="color: #666666">;</span> y<span style="color: #666666">++</span>)
-                {
-                    pixel <span style="color: #666666">=</span> source.getPixel(x<span style="color: #666666">,</span> y);
-
-                    red <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">16</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-                    green <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">8</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-                    blue <span style="color: #666666">+=</span> pixel <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-
-                    count<span style="color: #666666">++</span>
-                }
-            }
-
-            red <span style="color: #666666">/=</span> count<span style="color: #666666">;</span>
-            green <span style="color: #666666">/=</span> count<span style="color: #666666">;</span>
-            blue <span style="color: #666666">/=</span> count<span style="color: #666666">;</span>
-
-            <span style="color: #008000; font-weight: bold">return</span> red <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">16</span> <span style="color: #666666">|</span> green <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">8</span> <span style="color: #666666">|</span> blue<span style="color: #666666">;</span>
-        }       
-        
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> averagecolors( source<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span><span style="color: #666666">,</span> colors<span style="color: #666666">:</span>int )<span style="color: #666666">:</span><span style="color: #008000">Array</span>
-        {
-            <span style="color: #008000; font-weight: bold">var</span> averages<span style="color: #666666">:</span><span style="color: #008000">Array</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Array</span>();
-            <span style="color: #008000; font-weight: bold">var</span> columns<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.round( <span style="color: #008000">Math</span>.sqrt( colors ) );
-
-            <span style="color: #008000; font-weight: bold">var</span> row<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> col<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-
-            <span style="color: #008000; font-weight: bold">var</span> x<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> y<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-
-            <span style="color: #008000; font-weight: bold">var</span> w<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.round( source.width <span style="color: #666666">/</span> columns );
-            <span style="color: #008000; font-weight: bold">var</span> h<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.round( source.height <span style="color: #666666">/</span> columns );
-
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">var</span> i<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span> i <span style="color: #666666">&lt;</span> colors<span style="color: #666666">;</span> i<span style="color: #666666">++</span>)
-            {
-                <span style="color: #008000; font-weight: bold">var</span> rect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Rectangle</span>( x<span style="color: #666666">,</span> y<span style="color: #666666">,</span> w<span style="color: #666666">,</span> h );
-
-                <span style="color: #008000; font-weight: bold">var</span> box<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>( w<span style="color: #666666">,</span> h<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">false</span> );
-                box.copyPixels( source<span style="color: #666666">,</span> rect<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Point</span>() );
-
-                averages.push( averageColour( box ) );
-                box.dispose();
-
-                col <span style="color: #666666">=</span> i <span style="color: #666666">%</span> columns<span style="color: #666666">;</span>
-
-                x <span style="color: #666666">=</span> w <span style="color: #666666">*</span> col<span style="color: #666666">;</span>
-                y <span style="color: #666666">=</span> h <span style="color: #666666">*</span> row<span style="color: #666666">;</span>
-
-                <span style="color: #008000; font-weight: bold">if</span> ( col <span style="color: #666666">==</span> columns <span style="color: #666666">-</span> <span style="color: #666666">1</span> ) row<span style="color: #666666">++;</span>
-            }
-
-            <span style="color: #008000; font-weight: bold">return</span> averages<span style="color: #666666">;</span>
-        }       
+        addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
     }
+
+    private var d:BitmapData;
+    private function onAddedToStage(evet:Event):void
+    {
+        removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+
+        var b:Bitmap = new TestImage();
+
+        d = b.bitmapData;
+
+        var perfTest:PerformanceTest = PerformanceTest.getInstance();
+        perfTest.out = trace;
+        perfTest.testFunction(run, 50, "averagecolors", "averagecolors");           
+    }
+
+    private function run():void
+    {
+        var out:Array = averagecolors(d, 16);
+    }
+
+    public function averageColour( source:BitmapData ):uint
+    {
+        var red:Number = 0;
+        var green:Number = 0;
+        var blue:Number = 0;
+
+        var count:Number = 0;
+        var pixel:Number;
+
+        for (var x:int = 0; x &lt; source.width; x++)
+        {
+            for (var y:int = 0; y &lt; source.height; y++)
+            {
+                pixel = source.getPixel(x, y);
+
+                red += pixel &gt;&gt; 16 &amp; 0xFF;
+                green += pixel &gt;&gt; 8 &amp; 0xFF;
+                blue += pixel &amp; 0xFF;
+
+                count++
+            }
+        }
+
+        red /= count;
+        green /= count;
+        blue /= count;
+
+        return red &lt;&lt; 16 | green &lt;&lt; 8 | blue;
+    }       
+
+    public function averagecolors( source:BitmapData, colors:int ):Array
+    {
+        var averages:Array = new Array();
+        var columns:int = Math.round( Math.sqrt( colors ) );
+
+        var row:int = 0;
+        var col:int = 0;
+
+        var x:int = 0;
+        var y:int = 0;
+
+        var w:int = Math.round( source.width / columns );
+        var h:int = Math.round( source.height / columns );
+
+        for (var i:int = 0; i &lt; colors; i++)
+        {
+            var rect:Rectangle = new Rectangle( x, y, w, h );
+
+            var box:BitmapData = new BitmapData( w, h, false );
+            box.copyPixels( source, rect, new Point() );
+
+            averages.push( averageColour( box ) );
+            box.dispose();
+
+            col = i % columns;
+
+            x = w * col;
+            y = h * row;
+
+            if ( col == columns - 1 ) row++;
+        }
+
+        return averages;
+    }       
 }
-</pre>
-</div>
+</code></pre>
 
-
-<p>&nbsp;</p>
+<p>}
+```</p>
 
 <p>And here is the initial performance test:</p>
 
@@ -208,17 +210,13 @@ averagecolors                                              1264    25.28
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
 
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
 <p>First, considering what the code is doing, it is already pretty fast, taking only 25 ms to split the image into a grid, and loop through all of the pixels and averaging the values. However, there is probably some room for improvement, especially given that the original code targets Flash Player 9 and thus cant take care of Flash Player 10 optimizations such as using Vectors.</p>
 
 <p>Now, the first thing I would normally do is to profile the SWF using the profiler in Flash Builder to find out where the most time is being sent. However, in this case, there are only two methods that do anything, <em>averageColors</em> and <em>averageColor</em>. <em>averageColors</em> is called once, while <em>averageColor</em> is called once for each swatch we want to create (in this case 16), and ends up looping over each pixel in the image (over those 16 calls). So these are the two areas we will focus on, with particular attention directed to <em>averageColor</em>.</p>
 
 <p>The first thing I did was look at updating the content to Flash Player 10 by converting all of the Arrays to Vectors. I expected to get a decent boost from this, but the improvement was minimal.</p>
 
-<p>Within the <em>averageColors</em> method, I looked at reusing the <em>Point</em>, <em>Rectangle</em> and <em>BitmapData</em> instances, instead of creating new ones on each iteration of the loop. Again, on the desktop this didn&#8217;t really make any difference. However, one thing to consider is that on a mobile device where memory allocation can be more expensive (and there is less RAM altogether), this change may have had a bigger impact (which I didnt test). This leads to an important point. It is important to test performance on the platforms which you are targeting, as some optimizations can have a different impact depending on where the content is running.</p>
+<p>Within the <em>averageColors</em> method, I looked at reusing the <em>Point</em>, <em>Rectangle</em> and <em>BitmapData</em> instances, instead of creating new ones on each iteration of the loop. Again, on the desktop this didn&rsquo;t really make any difference. However, one thing to consider is that on a mobile device where memory allocation can be more expensive (and there is less RAM altogether), this change may have had a bigger impact (which I didnt test). This leads to an important point. It is important to test performance on the platforms which you are targeting, as some optimizations can have a different impact depending on where the content is running.</p>
 
 <p>Next, I set the <em>averageColor</em> and <em>averageColors</em> methods as <em>final</em>, which allows them too be looked up at compile time (as opposed to runtime), this led to small improvement in performance, but again, not really anything significant.</p>
 
@@ -234,8 +232,6 @@ averagecolors                                              1224    24.48
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
 
-<p>&nbsp;</p>
-
 <p>Next, I moved on to the <em>averageColor</em> method, where I expected (and hoped) to have better results, as this is where the bulk of the work occurs.</p>
 
 <p>First I converter some of the Numbers to ints and uints in places where Numbers were not needed. This led to a small improvement.</p>
@@ -249,8 +245,6 @@ method...................................................ttl ms...avg ms
 averagecolors                                              1190    23.80
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
-
-<p>&nbsp;</p>
 
 <p>Next, I changed the <code>bitmapData.getPixel</code> call to use <code>bitmapData.getVector</code>. Doing this then allowed me to loop through the pixels using a single loop, instead of a nested double loop, and also eliminated a <em>getPixel</em> call for each pixel. I used a <em>for each</em> loop to loop through the pixel color values.</p>
 
@@ -266,8 +260,6 @@ averagecolors                                              1137    22.74
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
 
-<p>&nbsp;</p>
-
 <p>Next, I decided to try a <em>for</em> loop, instead of a <em>for each</em> loop.</p>
 
 <pre>––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -279,8 +271,6 @@ method...................................................ttl ms...avg ms
 averagecolors                                               282     5.64
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
-
-<p>&nbsp;</p>
 
 <p>Wow! As you can see, that makes a huge difference.</p>
 
@@ -296,34 +286,24 @@ averagecolors                                               268     5.36
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
 
-<p>&nbsp;</p>
-
 <p>I tried a couple of more optimizations in the method, around converting division operations to multiplication operation, and replacing <code>Math.round</code> calls but in this case it didnt make any difference.</p>
 
 <p>I also looked at caching some constants used in some of the bitwise operations, changing</p>
 
-<div class="highlight">
-  <pre>red <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">16</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-green <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">8</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-</pre>
-</div>
+<p><code>actionscript
+red += pixel &gt;&gt; 16 &amp; 0xFF;
+green += pixel &gt;&gt; 8 &amp; 0xFF;
+</code></p>
 
+<p>to:</p>
 
-<p>&nbsp;</p>
+<p>``` actionscript
+private var s16:Number = 16 &amp; 0xFF;
+private var s8:Number = 8 &amp; 0xFF;</p>
 
-<p>to</p>
-
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> s16<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">16</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> s8<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">8</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-
-red <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> s16<span style="color: #666666">;</span>
-green <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> s8<span style="color: #666666">;</span>
-</pre>
-</div>
-
-
-<p>&nbsp;</p>
+<p>red += pixel >> s16;
+green += pixel >> s8;
+```</p>
 
 <p>First, that optimization actually produces the wrong result (I had my operator precedence backwards). Second, it was actually slower:</p>
 
@@ -337,141 +317,141 @@ averagecolors                                               349     6.98
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
 
-<p>&nbsp;</p>
-
 <p>There are two lessons from this. First, make sure your optimizations produce the same results (ideally by creating and using unit tests). Second, bitwise operations are really, really fast. In this case, they are even faster than doing a variable lookup.</p>
 
 <p>So, after going through the code, and applying a number of different optimizations, I was able to improve performance from an average of 25.28 ms, to 5.36 ms, an improvement of about 470%.</p>
 
 <p>Here is the final code:</p>
 
-<div class="highlight">
-  <pre><span style="color: #408080; font-style: italic">/*</span>
-<span style="color: #408080; font-style: italic">   Code adapted from:</span>
-<span style="color: #408080; font-style: italic">   http://blog.soulwire.co.uk/flash/actionscript-3/colourutils-bitmapdata-extract-colour-palette/</span>
-<span style="color: #408080; font-style: italic">*/</span>
+<p>``` actionscript
+/*</p>
 
-package
+<pre><code>Code adapted from:
+http://blog.soulwire.co.uk/flash/actionscript-3/colourutils-bitmapdata-extract-colour-palette/
+</code></pre>
+
+<p>*/</p>
+
+<p>package
+{</p>
+
+<pre><code>import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.display.Sprite;
+import flash.events.Event;
+import flash.geom.Rectangle;
+import flash.geom.Point;
+
+import com.gskinner.utils.PerformanceTest;
+
+public class PixelSort extends Sprite
 {
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.Bitmap<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.<span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.Sprite<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.events.Event<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.geom.<span style="color: #008000">Rectangle</span><span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.geom.<span style="color: #008000">Point</span><span style="color: #666666">;</span>
-    
-    <span style="color: #008000; font-weight: bold">import</span> com.gskinner.utils.PerformanceTest<span style="color: #666666">;</span>
-    
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> PixelSort <span style="color: #008000; font-weight: bold">extends</span> Sprite
+
+    [Embed(source="../graphics/image.jpg")]
+    public var TestImage:Class;
+
+    public function PixelSort()
     {
-        
-        [Embed(source<span style="color: #666666">=</span><span style="color: #BA2121">"../graphics/image.jpg"</span>)]
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">var</span> TestImage<span style="color: #666666">:</span>Class<span style="color: #666666">;</span>
-        
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> PixelSort()
-        {
-            addEventListener(Event.ADDED_TO_STAGE<span style="color: #666666">,</span> onAddedToStage);
-        }
-        
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> d<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onAddedToStage(evet<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
-        {
-            removeEventListener(Event.ADDED_TO_STAGE<span style="color: #666666">,</span> onAddedToStage);
-            
-            <span style="color: #008000; font-weight: bold">var</span> b<span style="color: #666666">:</span>Bitmap <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> TestImage();
-            
-            d <span style="color: #666666">=</span> b.bitmapData<span style="color: #666666">;</span>
-            
-            <span style="color: #008000; font-weight: bold">var</span> perfTest<span style="color: #666666">:</span>PerformanceTest <span style="color: #666666">=</span> PerformanceTest.getInstance();
-            perfTest.out <span style="color: #666666">=</span> <span style="color: #0000FF">trace</span><span style="color: #666666">;</span>
-            perfTest.testFunction(run<span style="color: #666666">,</span> <span style="color: #666666">50,</span> <span style="color: #BA2121">"averagecolors"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"averagecolors"</span>);           
-        }
-        
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> run()<span style="color: #666666">:</span>void
-        {
-            <span style="color: #008000; font-weight: bold">var</span> out<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span>uint<span style="color: #666666">&gt;</span> <span style="color: #666666">=</span> averagecolors(d<span style="color: #666666">,</span> <span style="color: #666666">16</span>);
-        }       
-        
-        <span style="color: #008000; font-weight: bold">public</span> final <span style="color: #008000; font-weight: bold">function</span> averageColour( source<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> )<span style="color: #666666">:</span>uint
-        {
-            <span style="color: #008000; font-weight: bold">var</span> red<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> green<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> blue<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-
-            <span style="color: #008000; font-weight: bold">var</span> count<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> pixel<span style="color: #666666">:</span>uint<span style="color: #666666">;</span>
-            
-            <span style="color: #008000; font-weight: bold">var</span> pixels<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span>uint<span style="color: #666666">&gt;</span> <span style="color: #666666">=</span> source.getVector(<span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Rectangle</span>(<span style="color: #666666">0,0,</span> source.width<span style="color: #666666">,</span> source.height));
-            <span style="color: #008000; font-weight: bold">var</span> len<span style="color: #666666">:</span>int <span style="color: #666666">=</span> pixels.length<span style="color: #666666">;</span>
-
-            <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #008000; font-weight: bold">var</span> i<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span> i <span style="color: #666666">&lt;</span> len<span style="color: #666666">;</span> i<span style="color: #666666">++</span>)
-            {   
-                pixel <span style="color: #666666">=</span> pixels[int(i)];
-
-                red <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">16</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-                green <span style="color: #666666">+=</span> pixel <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">8</span> <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-                blue <span style="color: #666666">+=</span> pixel <span style="color: #666666">&</span> <span style="color: #666666"></span>xFF<span style="color: #666666">;</span>
-
-                count<span style="color: #666666">++;</span>
-            }
-
-            red <span style="color: #666666">/=</span> count<span style="color: #666666">;</span>
-            green <span style="color: #666666">/=</span> count<span style="color: #666666">;</span>
-            blue <span style="color: #666666">/=</span> count<span style="color: #666666">;</span>
-
-            <span style="color: #008000; font-weight: bold">return</span> red <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">16</span> <span style="color: #666666">|</span> green <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">8</span> <span style="color: #666666">|</span> blue<span style="color: #666666">;</span>
-        }       
-        
-        <span style="color: #008000; font-weight: bold">public</span> final <span style="color: #008000; font-weight: bold">function</span> averagecolors( source<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span><span style="color: #666666">,</span> colors<span style="color: #666666">:</span>int )<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span>uint<span style="color: #666666">&gt;</span>
-        {
-
-            <span style="color: #008000; font-weight: bold">var</span> averages<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span>uint<span style="color: #666666">&gt;</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Vector.<span style="color: #666666">&lt;</span>uint<span style="color: #666666">&gt;</span>(colors<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">false</span>);
-            <span style="color: #008000; font-weight: bold">var</span> columns<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.round( <span style="color: #008000">Math</span>.sqrt( colors ) );
-
-            <span style="color: #008000; font-weight: bold">var</span> row<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> col<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-
-            <span style="color: #008000; font-weight: bold">var</span> x<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> y<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            
-            <span style="color: #008000; font-weight: bold">var</span> w<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.round( source.width <span style="color: #666666">/</span> columns );
-            <span style="color: #008000; font-weight: bold">var</span> h<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.round( source.height <span style="color: #666666">/</span> columns );
-
-            <span style="color: #008000; font-weight: bold">var</span> p<span style="color: #666666">:</span><span style="color: #008000">Point</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Point</span>();
-            <span style="color: #008000; font-weight: bold">var</span> rect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Rectangle</span>(<span style="color: #666666">0,0,0,0</span>);
-            <span style="color: #008000; font-weight: bold">var</span> box<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>( w<span style="color: #666666">,</span> h<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">false</span> );
-                
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">var</span> i<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span> i <span style="color: #666666">&lt;</span> colors<span style="color: #666666">;</span> i<span style="color: #666666">++</span>)
-            {
-                rect.x <span style="color: #666666">=</span> x<span style="color: #666666">;</span>
-                rect.y <span style="color: #666666">=</span> y<span style="color: #666666">;</span>
-                rect.width <span style="color: #666666">=</span> w<span style="color: #666666">;</span>
-                rect.height <span style="color: #666666">=</span> h<span style="color: #666666">;</span>
-
-                box.copyPixels( source<span style="color: #666666">,</span> rect<span style="color: #666666">,</span> p );
-
-                averages[i] <span style="color: #666666">=</span>  averageColour( box );
-                
-                col <span style="color: #666666">=</span> i <span style="color: #666666">%</span> columns<span style="color: #666666">;</span>
-
-                x <span style="color: #666666">=</span> w <span style="color: #666666">*</span> col<span style="color: #666666">;</span>
-                y <span style="color: #666666">=</span> h <span style="color: #666666">*</span> row<span style="color: #666666">;</span>
-
-                <span style="color: #008000; font-weight: bold">if</span> ( col <span style="color: #666666">==</span> columns <span style="color: #666666">-</span> <span style="color: #666666">1</span> ) 
-                {
-                    row<span style="color: #666666">++;</span>
-                }
-            }
-            box.dispose();
-            <span style="color: #008000; font-weight: bold">return</span> averages<span style="color: #666666">;</span>
-        }       
+        addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
     }
+
+    private var d:BitmapData;
+    private function onAddedToStage(evet:Event):void
+    {
+        removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+
+        var b:Bitmap = new TestImage();
+
+        d = b.bitmapData;
+
+        var perfTest:PerformanceTest = PerformanceTest.getInstance();
+        perfTest.out = trace;
+        perfTest.testFunction(run, 50, "averagecolors", "averagecolors");           
+    }
+
+    private function run():void
+    {
+        var out:Vector.&lt;uint&gt; = averagecolors(d, 16);
+    }       
+
+    public final function averageColour( source:BitmapData ):uint
+    {
+        var red:Number = 0;
+        var green:Number = 0;
+        var blue:Number = 0;
+
+        var count:int = 0;
+        var pixel:uint;
+
+        var pixels:Vector.&lt;uint&gt; = source.getVector(new Rectangle(0,0, source.width, source.height));
+        var len:int = pixels.length;
+
+        for(var i:int = 0; i &lt; len; i++)
+        {   
+            pixel = pixels[int(i)];
+
+            red += pixel &gt;&gt; 16 &amp; 0xFF;
+            green += pixel &gt;&gt; 8 &amp; 0xFF;
+            blue += pixel &amp; 0xFF;
+
+            count++;
+        }
+
+        red /= count;
+        green /= count;
+        blue /= count;
+
+        return red &lt;&lt; 16 | green &lt;&lt; 8 | blue;
+    }       
+
+    public final function averagecolors( source:BitmapData, colors:int ):Vector.&lt;uint&gt;
+    {
+
+        var averages:Vector.&lt;uint&gt; = new Vector.&lt;uint&gt;(colors, false);
+        var columns:int = Math.round( Math.sqrt( colors ) );
+
+        var row:int = 0;
+        var col:int = 0;
+
+        var x:int = 0;
+        var y:int = 0;
+
+        var w:int = Math.round( source.width / columns );
+        var h:int = Math.round( source.height / columns );
+
+        var p:Point = new Point();
+        var rect:Rectangle = new Rectangle(0,0,0,0);
+        var box:BitmapData = new BitmapData( w, h, false );
+
+        for (var i:int = 0; i &lt; colors; i++)
+        {
+            rect.x = x;
+            rect.y = y;
+            rect.width = w;
+            rect.height = h;
+
+            box.copyPixels( source, rect, p );
+
+            averages[i] =  averageColour( box );
+
+            col = i % columns;
+
+            x = w * col;
+            y = h * row;
+
+            if ( col == columns - 1 ) 
+            {
+                row++;
+            }
+        }
+        box.dispose();
+        return averages;
+    }       
 }
-</pre>
-</div>
+</code></pre>
 
-
-<p>&nbsp;</p>
+<p>}
+```</p>
 
 <p><strong>Lessons learned</strong></p>
 
@@ -487,7 +467,7 @@ package
 
 <p>If you have any additional optimizations, questions or suggestions, post them in the comments.</p>
 
-<p>Also, make sure to check out <a href="http://blog.soulwire.co.uk/">soulwire&#8217;s blog</a>, as he is doing some very cool stuff with ActionScript 3 and Flash.</p>
+<p>Also, make sure to check out <a href="http://blog.soulwire.co.uk/">soulwire&rsquo;s blog</a>, as he is doing some very cool stuff with ActionScript 3 and Flash.</p>
 ]]></content>
   </entry>
   

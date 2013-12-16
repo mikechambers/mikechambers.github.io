@@ -9,7 +9,7 @@
   <meta name="author" content="Mike Chambers">
 
   
-  <meta name="description" content="So, the Interwebs is all a buzz again around the latest article that &#8220;proves&#8221; that Flash will not be useful on mobile devices (much less &hellip;">
+  <meta name="description" content="So, the Interwebs is all a buzz again around the latest article that &ldquo;proves&rdquo; that Flash will not be useful on mobile devices (much less &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -112,13 +112,13 @@
   </header>
 
 
-<div class="entry-content"><p>So, the Interwebs is all a buzz again around the latest <a href="http://www.roughlydrafted.com/2010/02/20/an-adobe-flash-developer-on-why-the-ipad-cant-use-flash/">article</a> that &#8220;proves&#8221; that Flash will not be useful on mobile devices (much less the iPad). From the article:</p>
+<div class="entry-content"><p>So, the Interwebs is all a buzz again around the latest <a href="http://www.roughlydrafted.com/2010/02/20/an-adobe-flash-developer-on-why-the-ipad-cant-use-flash/">article</a> that &ldquo;proves&rdquo; that Flash will not be useful on mobile devices (much less the iPad). From the article:</p>
 
 <blockquote><p>Current Flash sites could never be made work well on any touchscreen device, and this cannot be solved by Apple, Adobe, or magical new hardware.</p>
 
 <p>That’s not because of slow mobile performance, battery drain or crashes. It’s because of the hover or mouseover problem.</p></blockquote>
 
-<p>Basically, the writer is arguing that because some Flash content uses Mouse over / hover events (MouseEvent.MOUSE_OVER), and because there is no such event as a hover on a touch devices, then apparently, most Flash content just flat out wont work on touch devices.</p>
+<p>Basically, the writer is arguing that because some Flash content uses Mouse over / hover events (<em>MouseEvent.MOUSE_OVER</em>), and because there is no such event as a hover on a touch devices, then apparently, most Flash content just flat out wont work on touch devices.</p>
 
 <p>I wanted to make a quick post that corrects some of the false assumptions and conclusions presented in the article, which include:</p>
 
@@ -128,7 +128,7 @@
 <ol>
 <li>Hover events do not work in Flash content on devices with touch screens. That is false, they do work.</li>
 <li>Any issue with hover or any other mouse events on a touch screen device, are specific to Flash. They are not. They affect HTML and any other web content as much as Flash.</li>
-<li>Most Flash content relies on hover events. Wrong. I dont have a scientific breakdown on how much Flash content RELIES on hover events, but at least in my experience with the Nexus one, almost all content I have come across has worked well with touch screen input, including those that use hover events.</li>
+<li>Most Flash content relies on hover events. Wrong. I don&rsquo;t have a scientific breakdown on how much Flash content RELIES on hover events, but at least in my experience with the Nexus one, almost all content I have come across has worked well with touch screen input, including those that use hover events.</li>
 </ol>
 
 
@@ -167,11 +167,14 @@
 </ul>
 
 
-<p>As you can see that list doesn&#8217;t include the MOUSE_OVER and ROLL_OVER events. It only includes middle and right mouse button events, as well as mouse wheel events, which in general, are used as a secondary means of user input / interaction.</p>
+<p>As you can see that list doesn&rsquo;t include the <em>MOUSE_OVER</em> and <em>ROLL_OVER</em> events. It only includes middle and right mouse button events, as well as mouse wheel events, which in general, are used as a secondary means of user input / interaction.</p>
 
-<p>Basically, hover events do work in Flash content on touch screen devices. The main difference is that on a touch device, you will get also get a MouseEvent.MOUSE_DOWN event prior to the MouseEvent.MOUSE_OVER event, where as on a desktop machine, you MAY only get the MouseEvent.MOUSE_OVER event.</p>
+<p>Basically, hover events do work in Flash content on touch screen devices. The main difference is that on a touch device, you will get also get a <em>MouseEvent.MOUSE_DOWN</em> event prior to the <em>MouseEvent.MOUSE_OVER</em> event, where as on a desktop machine, you MAY only get the <em>MouseEvent.MOUSE_OVER</em> event.</p>
 
 <p>I put together a very simple Flash example for the iphone, that shows all of the MouseEvents being generated. You can view the video here:</p>
+
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/tj1hiLnIp_g&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/tj1hiLnIp_g&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
 
 <p><a href="http://www.youtube.com/watch?v=tj1hiLnIp_g">View Video on YouTube</a></p>
 
@@ -207,7 +210,7 @@
 </ol>
 
 
-<p>Now, this doesn&#8217;t mean that all Flash content designed and developed for mouse input on a desktop computer will run well on a mobile device with touch input. Indeed, some content will not run well due to differences in input (such as keyboard input), user interface, or performance. However, again, those are all issues that affect HTML content as much as they affect Flash content.</p>
+<p>Now, this doesn&rsquo;t mean that all Flash content designed and developed for mouse input on a desktop computer will run well on a mobile device with touch input. Indeed, some content will not run well due to differences in input (such as keyboard input), user interface, or performance. However, again, those are all issues that affect HTML content as much as they affect Flash content.</p>
 
 <p>Again, any potential input issues apply as much to HTML as they do to Flash, and as browsing the web on the iPhone has demonstrated, these have not been a major barrier to consuming content on a touch device.</p>
 
@@ -216,7 +219,7 @@
 <p>Here are some links to videos of existing Flash content running on mobile devices. A lot of this content is content never designed to be run on a device with touch input.</p>
 
 <ul>
-<li><a href="http://www.adobe.com/devnet/devices/demos/">Demos of Flash Player 10.1 on various mobile devices</a> (iPhone, Palm Pre, Nexus One, Droid, and more&#8230;)</li>
+<li><a href="http://www.adobe.com/devnet/devices/demos/">Demos of Flash Player 10.1 on various mobile devices</a> (iPhone, Palm Pre, Nexus One, Droid, and more&hellip;)</li>
 <li><a href="http://vimeo.com/9596010">Flash Player content on Nexus One</a></li>
 <li><a href="http://theflashblog.com/?p=1781">Unofficial Nexus One Flash Demos</a></li>
 </ul>

@@ -136,55 +136,86 @@
 
 <p>Lets look at the code. First, here is the HTML markup for the example:</p>
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="html4strict" style="font-family:monospace;"><span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">body</span>&gt;</span>
-    <span style="color: #009900;">&lt;canvas <span style="color: #000066;">id</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"mainCanvas"</span> <span style="color: #000066;">width</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"600"</span> <span style="color: #000066;">height</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"400"</span>&gt;&lt;<span style="color: #66cc66;">/</span>canvas&gt;</span>
-<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">body</span>&gt;</span></pre>
-  </div>
-</div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;mainCanvas&quot;</span> <span class="na">width=</span><span class="s">&quot;600&quot;</span> <span class="na">height=</span><span class="s">&quot;400&quot;</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Notice that there is only a single canvas element. At runtime, we detect the environment in which we are running, and then then dynamically add the second canvas only if it is needed (Note that the content uses <a href="http://jquery.com/">jQuery</a>).</p>
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span> <span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/iPad/i</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">!=</span> <span style="color: #003366; font-weight: bold;">null</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">||</span>
-    <span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/iPhone/i</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">||</span> 
-    <span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/iPod/i</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">||</span>
-    <span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/Android/i</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
-    <span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span> 
-    <span style="color: #006600; font-style: italic;">//...</span>
-<span style="color: #009900;">&#125;</span>
-<span style="color: #000066; font-weight: bold;">else</span>
-<span style="color: #009900;">&#123;</span>
-    <span style="color: #006600; font-style: italic;">//assume we are on a device with a mouse / pointer</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//we have to dynamically add the overlay canvas, because if we do it</span>
-    <span style="color: #006600; font-style: italic;">//in HTML, and then remove it for mobile devices, it causes all of</span>
-    <span style="color: #006600; font-style: italic;">//the drawing on the mobile devices to no be anti-aliased</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//create the overlayCanvas, and add it to the DOM after the main</span>
-    <span style="color: #006600; font-style: italic;">//canvas (which is specified in the HTML)</span>
-    <span style="color: #006600; font-style: italic;">//canvasWrapper is a jQUery object that wraps the main canvas element</span>
-     canvasWrapper.<span style="color: #660066;">after</span><span style="color: #009900;">&#40;</span>
-        <span style="color: #3366CC;">'&lt;canvas id="overlayCanvas" width="600" height="400"&gt;&lt;/canvas&gt;'</span>
-        <span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//overlay canvas used to draw target and line</span>
-    canvasOverlayWrapper <span style="color: #339933;">=</span> $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"#overlayCanvas"</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//...</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//stage to manage the overlay canvas. Need to get the actual</span>
-    <span style="color: #006600; font-style: italic;">//element from the JQuery object.</span>
-    overlayStage <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">new</span> Stage<span style="color: #009900;">&#40;</span>canvasOverlayWrapper.<span style="color: #660066;">get</span><span style="color: #009900;">&#40;</span><span style="color: #CC0000;"></span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>       
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//..</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">if</span><span class="p">((</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPad/i</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="o">||</span>
+</span><span class='line'>  <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPhone/i</span><span class="p">))</span> <span class="o">||</span>
+</span><span class='line'>  <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPod/i</span><span class="p">))</span> <span class="o">||</span>
+</span><span class='line'>  <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/Android/i</span><span class="p">))</span>
+</span><span class='line'>  <span class="p">)</span>
+</span><span class='line'><span class="p">{</span>  
+</span><span class='line'>  <span class="c1">//...</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//assume we are on a device with a mouse / pointer</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//we have to dynamically add the overlay canvas, because if we do it</span>
+</span><span class='line'>  <span class="c1">//in HTML, and then remove it for mobile devices, it causes all of</span>
+</span><span class='line'>  <span class="c1">//the drawing on the mobile devices to no be anti-aliased</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//create the overlayCanvas, and add it to the DOM after the main</span>
+</span><span class='line'>  <span class="c1">//canvas (which is specified in the HTML)</span>
+</span><span class='line'>  <span class="c1">//canvasWrapper is a jQUery object that wraps the main canvas element</span>
+</span><span class='line'>   <span class="nx">canvasWrapper</span><span class="p">.</span><span class="nx">after</span><span class="p">(</span>
+</span><span class='line'>      <span class="s1">&#39;&lt;canvas id=&quot;overlayCanvas&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;&lt;/canvas&gt;&#39;</span>
+</span><span class='line'>      <span class="p">);</span>
+</span><span class='line'>      
+</span><span class='line'>  <span class="c1">//overlay canvas used to draw target and line</span>
+</span><span class='line'>  <span class="nx">canvasOverlayWrapper</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#overlayCanvas&quot;</span><span class="p">);</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//...</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//stage to manage the overlay canvas. Need to get the actual</span>
+</span><span class='line'>  <span class="c1">//element from the JQuery object.</span>
+</span><span class='line'>  <span class="nx">overlayStage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stage</span><span class="p">(</span><span class="nx">canvasOverlayWrapper</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>        
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//..</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Note, that I am testing for specific devices instead of general capabilities, as in general I am branching based on known CPU performance. However, a more robust solution would probably be to quickly profile the performance of the current environment and then use the overlay only in environments that met a certain performance threshold.</p>
@@ -201,56 +232,88 @@
 
 <p>First, I had to add a simple CSS rule to overlay the overlay canvas on top of the main canvas, and position it at 0,0 in the document:</p>
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="css" style="font-family:monospace;"><span style="color: #cc00cc;">#overlayCanvas</span>
-<span style="color: #00AA00;">&#123;</span>
-    <span style="color: #000000; font-weight: bold;">position</span><span style="color: #00AA00;">:</span><span style="color: #993333;">absolute</span><span style="color: #00AA00;">;</span>
-    <span style="color: #000000; font-weight: bold;">left</span><span style="color: #00AA00;">:</span><span style="color: #cc66cc;"></span><span style="color: #00AA00;">;</span>
-    <span style="color: #000000; font-weight: bold;">top</span><span style="color: #00AA00;">:</span><span style="color: #cc66cc;"></span><span style="color: #00AA00;">;</span>
-<span style="color: #00AA00;">&#125;</span></pre>
-  </div>
-</div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nf">#overlayCanvas</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">left</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">top</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>As far as sizing, I already had code to handle resizing the main canvas based on the window resizing, so I only had to add code to also resize the overlay canvas.</p>
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">//called when the browser window is resized</span>
-<span style="color: #003366; font-weight: bold;">function</span> onWindowResize<span style="color: #009900;">&#40;</span>e<span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-    <span style="color: #006600; font-style: italic;">//..</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//update the canvas dimensions since the window</span>
-    <span style="color: #006600; font-style: italic;">//has resized. Note that changing canvas dimensions, </span>
-    <span style="color: #006600; font-style: italic;">//will cause it to be cleared</span>
-    updateCanvasDimensions<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//..</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #006600; font-style: italic;">//function that updates the size of the canvas based on the window size</span>
-<span style="color: #003366; font-weight: bold;">function</span> updateCanvasDimensions<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-    <span style="color: #006600; font-style: italic;">//note that changing the canvas dimensions clears the canvas.</span>
-    canvasWrapper.<span style="color: #660066;">attr</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"height"</span><span style="color: #339933;">,</span> $<span style="color: #009900;">&#40;</span>window<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">height</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    canvasWrapper.<span style="color: #660066;">attr</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"width"</span><span style="color: #339933;">,</span> $<span style="color: #009900;">&#40;</span>window<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">width</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//save the canvas offset</span>
-    canvasOffset <span style="color: #339933;">=</span> canvasWrapper.<span style="color: #660066;">offset</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> 
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//if we have an overlay canvas</span>
-    <span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span>canvasOverlayWrapper<span style="color: #009900;">&#41;</span>
-    <span style="color: #009900;">&#123;</span>
-        <span style="color: #006600; font-style: italic;">//resize it</span>
-        canvasOverlayWrapper.<span style="color: #660066;">attr</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"height"</span><span style="color: #339933;">,</span> $<span style="color: #009900;">&#40;</span>window<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">height</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-        canvasOverlayWrapper.<span style="color: #660066;">attr</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"width"</span><span style="color: #339933;">,</span> $<span style="color: #009900;">&#40;</span>window<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">width</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-        canvasOverlayOffset <span style="color: #339933;">=</span> canvasOverlayWrapper.<span style="color: #660066;">offset</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    <span style="color: #009900;">&#125;</span> 
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">//called when the browser window is resized</span>
+</span><span class='line'><span class="kd">function</span> <span class="nx">onWindowResize</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//..</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//update the canvas dimensions since the window</span>
+</span><span class='line'>  <span class="c1">//has resized. Note that changing canvas dimensions, </span>
+</span><span class='line'>  <span class="c1">//will cause it to be cleared</span>
+</span><span class='line'>  <span class="nx">updateCanvasDimensions</span><span class="p">();</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//..</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//function that updates the size of the canvas based on the window size</span>
+</span><span class='line'><span class="kd">function</span> <span class="nx">updateCanvasDimensions</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//note that changing the canvas dimensions clears the canvas.</span>
+</span><span class='line'>  <span class="nx">canvasWrapper</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">height</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
+</span><span class='line'>  <span class="nx">canvasWrapper</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">width</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//save the canvas offset</span>
+</span><span class='line'>  <span class="nx">canvasOffset</span> <span class="o">=</span> <span class="nx">canvasWrapper</span><span class="p">.</span><span class="nx">offset</span><span class="p">();</span> 
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//if we have an overlay canvas</span>
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="nx">canvasOverlayWrapper</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="c1">//resize it</span>
+</span><span class='line'>      <span class="nx">canvasOverlayWrapper</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">height</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
+</span><span class='line'>      <span class="nx">canvasOverlayWrapper</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">width</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
+</span><span class='line'>      <span class="nx">canvasOverlayOffset</span> <span class="o">=</span> <span class="nx">canvasOverlayWrapper</span><span class="p">.</span><span class="nx">offset</span><span class="p">();</span>
+</span><span class='line'>  <span class="p">}</span>    
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>So, now both canvases are aligned, and when the window is resized they are both resized to the same dimensions.</p>
@@ -263,56 +326,86 @@
 
 <p>The main change this required was changing which canvas listened for the events based on whether there was an overlay canvas or not. If there is an overlay canvas, then the overlay canvas will capture the mouse events (since it is at a higher z-order). If there is no overlay, then the main canvas will capture the mouse events.</p>
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span> <span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/iPad/i</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">!=</span> <span style="color: #003366; font-weight: bold;">null</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">||</span>
-    <span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/iPhone/i</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">||</span> 
-    <span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/iPod/i</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">||</span>
-    <span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/Android/i</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
-    <span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span> 
-    mainCanvas.<span style="color: #660066;">ontouchstart</span> <span style="color: #339933;">=</span> onTouchStart<span style="color: #339933;">;</span>
-    mainCanvas.<span style="color: #660066;">ontouchend</span> <span style="color: #339933;">=</span> onTouchEnd<span style="color: #339933;">;</span>
-    <span style="color: #006600; font-style: italic;">//...</span>
-<span style="color: #009900;">&#125;</span>
-<span style="color: #000066; font-weight: bold;">else</span>
-<span style="color: #009900;">&#123;</span>
-    <span style="color: #006600; font-style: italic;">//..</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//listen for when the mouse moves</span>
-    canvasOverlayWrapper.<span style="color: #660066;">mousemove</span><span style="color: #009900;">&#40;</span>onMouseMove<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//listen for a click event</span>
-    canvasOverlayWrapper.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span>onMouseClick<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//..</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">if</span><span class="p">(</span>  <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPad/i</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="o">||</span>
+</span><span class='line'>  <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPhone/i</span><span class="p">))</span> <span class="o">||</span>
+</span><span class='line'>  <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPod/i</span><span class="p">))</span> <span class="o">||</span>
+</span><span class='line'>  <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/Android/i</span><span class="p">))</span>
+</span><span class='line'>  <span class="p">)</span>
+</span><span class='line'><span class="p">{</span>  
+</span><span class='line'>  <span class="nx">mainCanvas</span><span class="p">.</span><span class="nx">ontouchstart</span> <span class="o">=</span> <span class="nx">onTouchStart</span><span class="p">;</span>
+</span><span class='line'>  <span class="nx">mainCanvas</span><span class="p">.</span><span class="nx">ontouchend</span> <span class="o">=</span> <span class="nx">onTouchEnd</span><span class="p">;</span>
+</span><span class='line'>  <span class="c1">//...</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//..</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//listen for when the mouse moves</span>
+</span><span class='line'>  <span class="nx">canvasOverlayWrapper</span><span class="p">.</span><span class="nx">mousemove</span><span class="p">(</span><span class="nx">onMouseMove</span><span class="p">);</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//listen for a click event</span>
+</span><span class='line'>  <span class="nx">canvasOverlayWrapper</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">onMouseClick</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//..</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>At this point, both canvases are aligned and in the same coordinate space, and I am receiving the relevant mouse events that I need. All I need to do now is listen for the relevant mouse events, and re-draw both canvases when the mouse position changes.</p>
 
 <p>First, I listen for when the mouse moves:</p>
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">function</span> onMouseMove<span style="color: #009900;">&#40;</span>e<span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-    <span style="color: #006600; font-style: italic;">//update the Mouse position coordinates</span>
-    updateMouseCoordinates<span style="color: #009900;">&#40;</span>e<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #006600; font-style: italic;">//update the mouse coordinates</span>
-<span style="color: #003366; font-weight: bold;">function</span> updateMouseCoordinates<span style="color: #009900;">&#40;</span>e<span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-    <span style="color: #006600; font-style: italic;">//we store these in a global object so they can be easily accessed</span>
-    <span style="color: #006600; font-style: italic;">//from anywhere (other classes)</span>
-    Mouse.<span style="color: #660066;">x</span> <span style="color: #339933;">=</span> e.<span style="color: #660066;">pageX</span> <span style="color: #339933;">-</span> canvasOffset.<span style="color: #660066;">left</span><span style="color: #339933;">;</span>
-    Mouse.<span style="color: #660066;">y</span> <span style="color: #339933;">=</span> e.<span style="color: #660066;">pageY</span> <span style="color: #339933;">-</span> canvasOffset.<span style="color: #660066;">top</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">onMouseMove</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//update the Mouse position coordinates</span>
+</span><span class='line'>  <span class="nx">updateMouseCoordinates</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//update the mouse coordinates</span>
+</span><span class='line'><span class="kd">function</span> <span class="nx">updateMouseCoordinates</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//we store these in a global object so they can be easily accessed</span>
+</span><span class='line'>  <span class="c1">//from anywhere (other classes)</span>
+</span><span class='line'>  <span class="nx">Mouse</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageX</span> <span class="o">-</span> <span class="nx">canvasOffset</span><span class="p">.</span><span class="nx">left</span><span class="p">;</span>
+</span><span class='line'>  <span class="nx">Mouse</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageY</span> <span class="o">-</span> <span class="nx">canvasOffset</span><span class="p">.</span><span class="nx">top</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>When the mouse moves, I copy the canvas relative mouse cursor coordinates into a global object. Given that hundreds of mouse events can fire a second, I try to minimize code being executed here, and don&#8217;t do any rendering updates.</p>
@@ -321,53 +414,80 @@
 
 <p>Here is the tick listener for the main page:</p>
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">//called at each time interval. This is essentially the listener</span>
-<span style="color: #006600; font-style: italic;">//for Tick.addListener</span>
-<span style="color: #003366; font-weight: bold;">function</span> tick<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-    <span style="color: #006600; font-style: italic;">//update the main stage / canvas</span>
-    stage.<span style="color: #660066;">tick</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//check if we have an overlay stage</span>
-    <span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span>overlayStage<span style="color: #009900;">&#41;</span>
-    <span style="color: #009900;">&#123;</span>
-        <span style="color: #006600; font-style: italic;">//update the overlay line</span>
-        updateLine<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-        <span style="color: #006600; font-style: italic;">//re-render the overlay stage / canvas</span>
-        overlayStage.<span style="color: #660066;">tick</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    <span style="color: #009900;">&#125;</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">//called at each time interval. This is essentially the listener</span>
+</span><span class='line'><span class="c1">//for Tick.addListener</span>
+</span><span class='line'><span class="kd">function</span> <span class="nx">tick</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//update the main stage / canvas</span>
+</span><span class='line'>  <span class="nx">stage</span><span class="p">.</span><span class="nx">tick</span><span class="p">();</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//check if we have an overlay stage</span>
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="nx">overlayStage</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="c1">//update the overlay line</span>
+</span><span class='line'>      <span class="nx">updateLine</span><span class="p">();</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="c1">//re-render the overlay stage / canvas</span>
+</span><span class='line'>      <span class="nx">overlayStage</span><span class="p">.</span><span class="nx">tick</span><span class="p">();</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Note that the order of the stage.tick() calls is important. We need to update / tick the main stage first, as the overlay stage relies on properties from DisplayObjects on the main stage (and we want to make sure they have been updated before we render the overlay stage).</p>
 
 <p>Basically, it renders the main canvas (with the new position of the drone shape), and if there is an overlayStage, re-renders the ui:</p>
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">//redraws the overlay line based on Mouse and Drone position</span>
-<span style="color: #003366; font-weight: bold;">function</span> updateLine<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-    <span style="color: #006600; font-style: italic;">//clear previous line</span>
-    lineGraphics.<span style="color: #660066;">clear</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//stroke style</span>
-    lineGraphics.<span style="color: #660066;">setStrokeStyle</span><span style="color: #009900;">&#40;</span><span style="color: #CC0000;">1</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//stroke color</span>
-    lineGraphics.<span style="color: #660066;">beginStroke</span><span style="color: #009900;">&#40;</span>targetColor<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #006600; font-style: italic;">//draw line from Mouse position to Drone position</span>
-    lineGraphics.<span style="color: #660066;">moveTo</span><span style="color: #009900;">&#40;</span>Mouse.<span style="color: #660066;">x</span><span style="color: #339933;">,</span> Mouse.<span style="color: #660066;">y</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    lineGraphics.<span style="color: #660066;">lineTo</span><span style="color: #009900;">&#40;</span>drone.<span style="color: #660066;">x</span><span style="color: #339933;">,</span> drone.<span style="color: #660066;">y</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">//redraws the overlay line based on Mouse and Drone position</span>
+</span><span class='line'><span class="kd">function</span> <span class="nx">updateLine</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//clear previous line</span>
+</span><span class='line'>  <span class="nx">lineGraphics</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//stroke style</span>
+</span><span class='line'>  <span class="nx">lineGraphics</span><span class="p">.</span><span class="nx">setStrokeStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//stroke color</span>
+</span><span class='line'>  <span class="nx">lineGraphics</span><span class="p">.</span><span class="nx">beginStroke</span><span class="p">(</span><span class="nx">targetColor</span><span class="p">);</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c1">//draw line from Mouse position to Drone position</span>
+</span><span class='line'>  <span class="nx">lineGraphics</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">Mouse</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">lineGraphics</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">drone</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">drone</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>lineGraphics is a EaselJS <a href="http://easeljs.com/docs/symbols/Graphics.html">Graphics</a> instance attached to a Shape instance on the overlay stage.</p>
@@ -376,7 +496,7 @@
 
 <p>Here we can see how nice it is to be able to share coordinates between canvases. First, we move the drawing point on the overlay canvas to the current mouse position. We then draw a line from that point, to the coordinates for the drone, which is attached the the main canvas.</p>
 
-<p>You may be thinking that using multiple canvases and stages like this would be any easy way to manage the z-order between graphics rendered to the canvas. You can do this, but keep in mind that changing the z-order of the canvas elements in the DOM may cause page reflows, and thus could potentially be expensive. EaselJS allows you to manage the z-order of your display list using stage.addChildAt and stage.addChild (the same as in ActionScript 3). Which technique you should use will depend on your particular project, and how often individual &#8220;layers&#8221; need to be updated.</p>
+<p>You may be thinking that using multiple canvases and stages like this would be any easy way to manage the z-order between graphics rendered to the canvas. You can do this, but keep in mind that changing the z-order of the canvas elements in the DOM may cause page reflows, and thus could potentially be expensive. EaselJS allows you to manage the z-order of your display list using stage.addChildAt and stage.addChild (the same as in ActionScript 3). Which technique you should use will depend on your particular project, and how often individual &ldquo;layers&rdquo; need to be updated.</p>
 
 <p>Of course, this is a simple example. Where this could really shine is in games with complex layers of graphics, where each layer may need to be updated at differing intervals.</p>
 

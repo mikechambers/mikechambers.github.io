@@ -112,15 +112,14 @@
   </header>
 
 
-<div class="entry-content"><p>This is a ongoing post where I will post tips, tricks and gotchas that I learn while developing with Flash and the Arduino. I will update this from time to time with more information.<!--more--></p>
+<div class="entry-content"><p>This is a ongoing post where I will post tips, tricks and gotchas that I learn while developing with Flash and the Arduino. I will update this from time to time with more information.</p>
 
-<p>&nbsp;</p>
+<!--more-->
+
 
 <h3>Make sure you are using the correct BAUD Rate</h3>
 
 <p>If your Flash / Arduino communication does not seem to be working, then make sure that you have set the BAUD rate to the same rate in both your Arduino code, and the configuration file for your Serial Proxy (such as TinkerProxy).</p>
-
-<p>&nbsp;</p>
 
 <h3>Slow down the BAUD Rate</h3>
 
@@ -128,67 +127,82 @@
 
 <p>If it does, you can then try and debug and figure out if any particular thing in your code was causing the problem.</p>
 
-<p>&nbsp;</p>
-
 <h3>Sending NULL Bytes from Arduino</h3>
 
 <p>If you are using XMLSocket for your communication between Flash and Arduino, then you need to send a NULL Byte from Arduino when you are done writing a message to the serial port.</p>
 
-<pre><code>Serial.println("Hello From Arduino");
-Serial.print(0, BYTE);
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">Serial</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello From Arduino&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">BYTE</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>&nbsp;</p>
 
 <p>However, I have run into issues where if you send multiple NULL Bytes too fast, then some of the messages will get dropped (not sure if this is an Arduino, TinkerProxy or Flash issue).</p>
 
 <p>So, if you are using XMLSocket, and seem to be losing messages from Arduino, then try reducing some of NULL Bytes being sent and see if that fixes the issues.</p>
 
-<p>&nbsp;</p>
-
 <h3>Sending data in Socket connect handler</h3>
 
-<p>Be careful when sending data from Flash in the Socket class&#8217;s Event.CONNECT handler. For example:</p>
+<p>Be careful when sending data from Flash in the Socket class&rsquo;s <em>Event.CONNECT</em> handler. For example:</p>
 
-<pre><code>private function onConnect(event:Event):void
-{
-    _socket.writeUTFBytes("Hello from Flash");
-    _socket.flush();
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='actionscript'><span class='line'><span class="kd">private</span> <span class="kd">function</span> <span class="nx">onConnect</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nx">_socket</span><span class="p">.</span><span class="nx">writeUTFBytes</span><span class="p">(</span><span class="s2">&quot;Hello from Flash&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">_socket</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>&nbsp;</p>
 
 <p>My experience is that this message will be lost. Remember that the Arduino does not run its code until something connects to it. TinkerProxy appears to not connect to the Arduino until the Flash content connects to TinkerProxy.</p>
 
-<p>Thus, the Event.CONNECT event handler may be broadcast before TinkerProxy has connected to the Arduino or before the Arduino has finished running its setup function.</p>
+<p>Thus, the <em>Event.CONNECT</em> event handler may be broadcast before TinkerProxy has connected to the Arduino or before the Arduino has finished running its setup function.</p>
 
 <p>I have found that you have to wait about 2 seconds (2000 ms) before you can reliably send data to the Arduino after you connect to TinkerProxy. So, just start a two second timer in the connect event handler, and send your data once that fires (then clean up the timer).</p>
 
 <p>Here is an example:</p>
 
-<pre><code>var connectTimer:Timer;
-private function onConnectTimer(event:TimerEvent):void
-{
-    connectTimer.stop();
-    connectTimer.removeEventListener(TimerEvent.TIMER, onConnectTimer);
-    connectTimer = null;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='actionscript'><span class='line'><span class="k">var</span> <span class="nx">connectTimer</span><span class="o">:</span><span class="nb">Timer</span><span class="o">;</span>
+</span><span class='line'><span class="kd">private</span> <span class="kd">function</span> <span class="nx">onConnectTimer</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">TimerEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nx">connectTimer</span><span class="p">.</span><span class="nx">stop</span><span class="p">();</span>
+</span><span class='line'>  <span class="nx">connectTimer</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="nb">TimerEvent</span><span class="p">.</span><span class="nx">TIMER</span><span class="o">,</span> <span class="nx">onConnectTimer</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">connectTimer</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">_socket</span><span class="p">.</span><span class="nx">writeUTFBytes</span><span class="p">(</span><span class="s2">&quot;Hello from Flash&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">private</span> <span class="kd">function</span> <span class="nx">onConnect</span><span class="p">(</span> <span class="nx">event</span><span class="o">:</span><span class="nb">Event</span> <span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nx">connectTimer</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Timer</span><span class="p">(</span><span class="nx">PING_INTERVAL</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">connectTimer</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nb">TimerEvent</span><span class="p">.</span><span class="nx">TIMER</span><span class="o">,</span> <span class="nx">onConnectTimer</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">connectTimer</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    _socket.writeUTFBytes("Hello from Flash");
-}
-
-private function onConnect( event:Event ):void
-{
-    connectTimer = new Timer(PING_INTERVAL);
-    connectTimer.addEventListener(TimerEvent.TIMER, onConnectTimer);
-
-    connectTimer.start();
-}
-</code></pre>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
 
 <h3>Socket verses XMLSocket</h3>
 
@@ -207,61 +221,99 @@ private function onConnect( event:Event ):void
 
 <p>Here is how to send a String with the Socket class:</p>
 
-<p><code>_socket.writeUTFBytes("Hi, im a String!");</code></p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='actionscript'><span class='line'><span class="nx">_socket</span><span class="p">.</span><span class="nx">writeUTFBytes</span><span class="p">(</span><span class="s2">&quot;Hi, im a String!&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>The one disadvantage to using Socket verses XMLSocket, is that you have to buffer the input yourself, since all of the data may not arrive at once. However, that is pretty simple:</p>
 
-<pre><code>//Character that delineates the end of a message received
-//from the Arduino
-private static const EOL_DELIMITER:String = "\n";
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class='actionscript'><span class='line'><span class="c1">//Character that delineates the end of a message received</span>
+</span><span class='line'><span class="c1">//from the Arduino</span>
+</span><span class='line'><span class="kd">private</span> <span class="kd">static</span> <span class="kd">const</span> <span class="nx">EOL_DELIMITER</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;\n&quot;</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//string to hold data as it comes in.</span>
+</span><span class='line'><span class="kd">private</span> <span class="k">var</span> <span class="nx">buffer</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//event called when data arrives on the socket from the</span>
+</span><span class='line'><span class="c1">//arduino</span>
+</span><span class='line'><span class="kd">private</span> <span class="kd">function</span> <span class="nx">onSocketData</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">ProgressEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//get the string sent from the Arduino. This could be any binary data</span>
+</span><span class='line'>  <span class="c1">//but in our case, we are sending strings.</span>
+</span><span class='line'>  <span class="c1">//In general, it is much easier to just always send strings from</span>
+</span><span class='line'>  <span class="c1">//Arduino, and then parse then in ActionScript</span>
+</span><span class='line'>  <span class="k">var</span> <span class="nx">data</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="nx">_socket</span><span class="p">.</span><span class="nx">readUTFBytes</span><span class="p">(</span> <span class="nx">_socket</span><span class="p">.</span><span class="nx">bytesAvailable</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//copy the newly arrived data into the buffer string.</span>
+</span><span class='line'>  <span class="nx">buffer</span> <span class="o">+=</span> <span class="nx">data</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//completed message from the server</span>
+</span><span class='line'>  <span class="k">var</span> <span class="nx">msg</span><span class="o">:</span><span class="nb">String</span><span class="o">;</span>
+</span><span class='line'>  <span class="k">var</span> <span class="nx">index</span><span class="o">:</span><span class="nb">int</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//loop through the buffer until it contains no more</span>
+</span><span class='line'>  <span class="c1">//end of message delimiter</span>
+</span><span class='line'>  <span class="k">while</span><span class="p">((</span><span class="nx">index</span> <span class="o">=</span> <span class="nx">buffer</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">EOL_DELIMITER</span><span class="p">))</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="c1">//extract the message from the beginning to where the delimiter is</span>
+</span><span class='line'>      <span class="c1">//we don&#39;t include the delimiter</span>
+</span><span class='line'>      <span class="nx">msg</span> <span class="o">=</span> <span class="nx">buffer</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="nx">index</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//remove the message from the buffer</span>
+</span><span class='line'>      <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">buffer</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//trace out the message (or do whatever you want with it)</span>
+</span><span class='line'>      <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;Message Received from Arduino : &quot;</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>                
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-//string to hold data as it comes in.
-private var buffer:String = "";
-
-//event called when data arrives on the socket from the
-//arduino
-private function onSocketData(event:ProgressEvent):void
-{
-    //get the string sent from the Arduino. This could be any binary data
-    //but in our case, we are sending strings.
-    //In general, it is much easier to just always send strings from
-    //Arduino, and then parse then in ActionScript
-    var data:String = _socket.readUTFBytes( _socket.bytesAvailable );
-
-    //copy the newly arrived data into the buffer string.
-    buffer += data;
-
-    //completed message from the server
-    var msg:String;
-    var index:int;
-
-    //loop through the buffer until it contains no more
-    //end of message delimiter
-    while((index = buffer.indexOf(EOL_DELIMITER)) &gt; -1)
-    {
-        //extract the message from the beginning to where the delimiter is
-        //we don't include the delimiter
-        msg = buffer.substring(0, index);
-
-        //remove the message from the buffer
-        buffer = buffer.substring(index + 1);
-
-        //trace out the message (or do whatever you want with it)
-        trace("Message Received from Arduino : " + msg);
-    }               
-
-}
-</code></pre>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
 
 <h3>Client / Server Development</h3>
 
 <p>It can be useful to think of Flash / Arduino development as regular client / server development. Most of the communication techniques you would use when developing on the web also apply when developing with the Arduino.</p>
-
-<p>&nbsp;</p>
 
 <h3>Integer Division</h3>
 
@@ -275,25 +327,19 @@ private function onSocketData(event:ProgressEvent):void
 
 <p>In general, you should try and work with ints, as working with floats on the Arduino is relatively slow.</p>
 
-<p>&nbsp;</p>
-
 <h3>Dont Upload Arduino code while Flash content is connected</h3>
 
 <p>You can upload new Arduino / sketch programs while TinkerProxy is connected to the Arduino. However, if you try and upload a new program while your Flash content is connected to the TinkerProy (and thus the Arduino), the upload will fail.</p>
 
-<p>Try closing the Flash content and uploading again, and if that doesn&#8217;t work, stop TinkerProxy, press the reset button on the Arduino, and try and upload it again.</p>
-
-<p>&nbsp;</p>
+<p>Try closing the Flash content and uploading again, and if that doesn&rsquo;t work, stop TinkerProxy, press the reset button on the Arduino, and try and upload it again.</p>
 
 <h3>Serial Monitor is your friend</h3>
 
 <p>Before hooking up your Flash content to the Arduino, try and confirm as much of the Arduino code is working well as possible.</p>
 
-<p>This can often be done by monitoring output (regular and debug) from the Arduino App&#8217;s Serial Monitor (<em>Arduino App > Tools > Serial Monitor</em>). (Make sure to set the correct BAUD rate in the Serial Monitor.</p>
+<p>This can often be done by monitoring output (regular and debug) from the Arduino App&rsquo;s Serial Monitor (<em>Arduino App > Tools > Serial Monitor</em>). (Make sure to set the correct BAUD rate in the Serial Monitor.</p>
 
 <p>You can put in extra <code>Serial.println()</code> statements in your code, and they will be traced out to the monitor. Once you are sure things are working, then you can remove the statements.</p>
-
-<p>&nbsp;</p>
 
 <h3>Dont forget to blink</h3>
 
@@ -301,28 +347,46 @@ private function onSocketData(event:ProgressEvent):void
 
 <p>Here is a simple function to blink the onboard LED:</p>
 
-<pre><code>//function to blink the LED
-void blinkLED(int count)
-{
-    //loop through
-    for(int i = 0; i &lt; count; i++)
-    {
-        //turn LED on
-        digitalWrite(LED_PIN, HIGH);
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">//function to blink the LED</span>
+</span><span class='line'><span class="k">void</span> <span class="nx">blinkLED</span><span class="p">(</span><span class="kr">int</span> <span class="nx">count</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//loop through</span>
+</span><span class='line'>  <span class="k">for</span><span class="p">(</span><span class="kr">int</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>      <span class="c1">//turn LED on</span>
+</span><span class='line'>      <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">LED_PIN</span><span class="p">,</span> <span class="nx">HIGH</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//wait 500 ms</span>
+</span><span class='line'>      <span class="nx">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//turn LED off</span>
+</span><span class='line'>      <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">LED_PIN</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//wait 500 ms</span>
+</span><span class='line'>      <span class="nx">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-        //wait 500 ms
-        delay(500);
-
-        //turn LED off
-        digitalWrite(LED_PIN, LOW);
-
-        //wait 500 ms
-        delay(500);
-    }
-}
-</code></pre>
-
-<p>&nbsp;</p>
 
 <p>Which you can call in your code like so:</p>
 
