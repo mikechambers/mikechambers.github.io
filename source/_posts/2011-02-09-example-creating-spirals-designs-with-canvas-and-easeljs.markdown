@@ -16,41 +16,20 @@ tags:
 
 I have been having fun playing around with JavaScript, the HTML5 Canvas element and [EaselJS][1] lately, and have been building a lot of small experiments. I wanted to share a simple one I created, which creates spiral designs.
 
-&nbsp;
-
-<div style="text-align:center;">
-  <a href="http://www.flickr.com/photos/mikechambers/5429181578/" title="Untitled by mike.chambers, on Flickr"><img src="http://farm6.static.flickr.com/5299/5429181578_ce3395c4e2_m.jpg" width="240" height="150" alt="" style="border:1px solid black; moz-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);-webkit-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);box-shadow: 3px 3px 4px rgba(0,0,0,0.7);" /></a>
-</div>
-
-&nbsp;
+[![title](http://farm6.static.flickr.com/5299/5429181578_ce3395c4e2_m.jpg)](http://www.flickr.com/photos/mikechambers/5429181578/)
 
 The example was pretty simple to put together, but is fun to play with, and can make some pretty nice patterns / spirals. I have uploaded a couple of images that I have created using the example:  
 <!--more-->
 
-<div style="text-align:center;">
-  <a href="http://www.flickr.com/photos/mikechambers/5428579683/" title="Untitled by mike.chambers, on Flickr"><img src="http://farm6.static.flickr.com/5258/5428579683_82a6c9c317_m.jpg" width="240" height="150" alt="" style="border:1px solid black; moz-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);-webkit-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);box-shadow: 3px 3px 4px rgba(0,0,0,0.7);" /></a>
-</div>
+[![title](http://farm6.static.flickr.com/5258/5428579683_82a6c9c317_m.jpg)](http://www.flickr.com/photos/mikechambers/5428579683/)
 
-&nbsp;
+[![title](http://farm6.static.flickr.com/5098/5428784263_a6b3eafced_m.jpg)](http://www.flickr.com/photos/mikechambers/5428784263/)
 
-<div style="text-align:center;">
-  <a href="http://www.flickr.com/photos/mikechambers/5428784263/" title="Untitled by mike.chambers, on Flickr"><img src="http://farm6.static.flickr.com/5098/5428784263_a6b3eafced_m.jpg" width="240" height="150" alt="" style="border:1px solid black; moz-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);-webkit-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);box-shadow: 3px 3px 4px rgba(0,0,0,0.7);" /></a>
-</div>
-
-&nbsp;
-
-<div style="text-align:center;">
-  <a href="http://www.flickr.com/photos/mikechambers/5429181324/" title="Untitled by mike.chambers, on Flickr"><img src="http://farm6.static.flickr.com/5098/5429181324_5eac51ae97_m.jpg" width="240" height="150" alt="" style="border:1px solid black; moz-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);-webkit-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);box-shadow: 3px 3px 4px rgba(0,0,0,0.7);" /></a>
-</div>
-
-&nbsp;
+[![title](http://farm6.static.flickr.com/5098/5429181324_5eac51ae97_m.jpg)](http://www.flickr.com/photos/mikechambers/5429181324/)
 
 and put together a time lapse video showing a spiral being created:
 
-<div style="text-align:center;">
-</div>
-
-&nbsp;
+<div style="text-align:center;"><object type="application/x-shockwave-flash" width="400" height="225" data="http://www.flickr.com/apps/video/stewart.swf?v=71377" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"> <param name="flashvars" value="intl_lang=en-us&photo_secret=8e3c1c5b4c&photo_id=5430459320"></param> <param name="movie" value="http://www.flickr.com/apps/video/stewart.swf?v=71377"></param> <param name="bgcolor" value="#000000"></param> <param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/video/stewart.swf?v=71377" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=en-us&photo_secret=8e3c1c5b4c&photo_id=5430459320" height="225" width="400"></embed></object></div>
 
 You can view the example at:  
 <http://www.mikechambers.com/html5/easeljs/Spirals/index.html>

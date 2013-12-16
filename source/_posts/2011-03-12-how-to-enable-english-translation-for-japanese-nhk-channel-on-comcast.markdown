@@ -6,17 +6,15 @@ permalink: /2011/03/12/how-to-enable-english-translation-for-japanese-nhk-channe
 categories:
   - General
 ---
-
-
 Comcast has [made the Japanese NHK channel available for the next week][1]. It can be accessed via channel 330 on Comcast. The broadcast is in Japanese, but if you have an [SAP][2] enabled TV or set top box, you can listen to a translation of the broadcast.
 
-It took me a while to figure out how to enable secondary broadcast on my Comcast box, and I didnt find much info online, so I wanted to post it here in case anyone else was interested.
+It took me a while to figure out how to enable secondary broadcast on my Comcast box, and I didn't find much info online, so I wanted to post it here in case anyone else was interested.
 
 Using your remote, click the Menu Button, then go to:
 
 *Menu > Setup > Audio > Audio Setup > Default Audio Track*
 
-Set the Audio Track to &#8220;*Espanol*&#8220;.
+Set the Audio Track to "*Espanol*"
 
 Right now, they are rotating between multiple languages (including English), and repeating tsunami warnings.
 
