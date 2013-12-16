@@ -14,7 +14,6 @@ tags:
 I was working on some code over the weekend and was spending a lot of time trying to figure out the best way to approach a problem, and how to get the best performance from the solution. I thought it would be useful and interesting to see how other developers would approach the problem. This gave me an idea for an ActionScript 3 contest, which I am announcing today.  
 <!--more-->
 
-  
 **What**: ActionScript 3 Development Task Contest (AS3DTC)  
 **When**: Submissions must be received by Mike Chambers (<mesh@adobe.com>) by 12 Noon, PST, Friday, November 13th.  
 **Who**: Anyone is eligible (see details below)  
@@ -40,8 +39,8 @@ The TestRunner will randomly place 10,000 display objects on the stage. It will 
 
 The test that will be run is:
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> testProximityManager()<span style="color: #666666">:</span>void
+``` actionscript
+private function testProximityManager():void
 {
 	proximityManager.update(items);
 	proximityManager.getNeighbors(checkSprite_1);
@@ -49,14 +48,11 @@ The test that will be run is:
 	proximityManager.getNeighbors(checkSprite_3);
 	proximityManager.getNeighbors(checkSprite_4);
 }
-</pre>
-</div>
-
-&nbsp;
+```
 
 Where items is a Vector of all DisplayObjects to be checked against, and checkSprite is the target Sprite, whose neighbors must be found and returned in a Vector of DisplayObjects.
 
-Tests will be run and results determined using Grant Skinner&#8217;s [ActionScript 3 Performance Test Harness][2].
+Tests will be run and results determined using Grant Skinner's [ActionScript 3 Performance Test Harness][2].
 
 [Download Contest Files][3]
 
@@ -78,7 +74,7 @@ All test files and entries will be posted to the [ActionScript 3 Development Tas
 
 Note, that the rules and TestRunner may be tweaked after I post them, but I will try and make any changes or clarifications within 1 day. Please make sure to check back to this post for any changes.
 
-Don&#8217;t try to game the contest. If you are not sure if you are, then ping me. This is a community contest for fun and learning. I will make the final call on all disputes and entries. If I think an entry doesn&#8217;t abide by the rules, or is trying to game the contest then I may reject the entry. I am very serious about this, so dont mess around.
+Don't try to game the contest. If you are not sure if you are, then ping me. This is a community contest for fun and learning. I will make the final call on all disputes and entries. If I think an entry doesn't abide by the rules, or is trying to game the contest then I may reject the entry. I am very serious about this, so dont mess around.
 
 **Update** (November 10, 2009) : Basically, the only information your class has access to is that which is passed to its constructors and methods. Your code cannot make assumptions based on information in the test which is not passed to the ProximityManager class (i.e., how many items there are on the stage, or the fact that the items are not moving, etc...). If I change the parameters of the test that your code does not know about, then your class should still work correctly.
 
