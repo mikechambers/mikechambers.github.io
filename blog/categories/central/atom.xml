@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Central | Mike Chambers]]></title>
-  <link href="http://www.mikechambers.com/blog/blog/categories/central/atom.xml" rel="self"/>
-  <link href="http://www.mikechambers.com/blog/"/>
-  <updated>2013-12-15T20:32:01-08:00</updated>
-  <id>http://www.mikechambers.com/blog/</id>
+  <link href="http://mikechambers.github.io//blog/blog/categories/central/atom.xml" rel="self"/>
+  <link href="http://mikechambers.github.io//blog/"/>
+  <updated>2013-12-15T20:49:44-08:00</updated>
+  <id>http://mikechambers.github.io//blog/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Point to Point File Transfer With Central]]></title>
-    <link href="http://www.mikechambers.com/blog/2004/10/27/point-to-point-file-transfer-with-central/"/>
+    <link href="http://mikechambers.github.io//blog/2004/10/27/point-to-point-file-transfer-with-central/"/>
     <updated>2004-10-27T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2004/10/27/point-to-point-file-transfer-with-central</id>
+    <id>http://mikechambers.github.io//blog/2004/10/27/point-to-point-file-transfer-with-central</id>
     <content type="html"><![CDATA[<p>Kenny Bunch figured out <a href="http://www.kennybunch.com/index.php?p=13">how to send binary files</a> from one machine to another using the new File I/O capabilities in <a href="http://www.macromedia.com/devnet/central/">Macromedia Central</a> and the Flash Communication server.</p>
 
 <p>You can see a description and the code <a href="http://www.kennybunch.com/index.php?p=13">here</a>.</p>
@@ -26,18 +26,18 @@
   
   <entry>
     <title type="html"><![CDATA[Beta Test Next Version of Central and AIM/ICQ Integration]]></title>
-    <link href="http://www.mikechambers.com/blog/2004/06/11/beta-test-next-version-of-central-and-aimicq-integration/"/>
+    <link href="http://mikechambers.github.io//blog/2004/06/11/beta-test-next-version-of-central-and-aimicq-integration/"/>
     <updated>2004-06-11T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2004/06/11/beta-test-next-version-of-central-and-aimicq-integration</id>
+    <id>http://mikechambers.github.io//blog/2004/06/11/beta-test-next-version-of-central-and-aimicq-integration</id>
     <content type="html"><![CDATA[<p>Update : Thanks for all of the offers to help test the beta. We are closing the beta for the current round, and will post again when we expand it.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Central Licensing Survey]]></title>
-    <link href="http://www.mikechambers.com/blog/2004/04/26/central-licensing-survey/"/>
+    <link href="http://mikechambers.github.io//blog/2004/04/26/central-licensing-survey/"/>
     <updated>2004-04-26T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2004/04/26/central-licensing-survey</id>
+    <id>http://mikechambers.github.io//blog/2004/04/26/central-licensing-survey</id>
     <content type="html"><![CDATA[<p>The Central Team is doing a survey on the Central Licensing model. Please take a couple of minutes to give us your input, as it will help us determine how Central is licensed.</p>
 
 <p>You can take the survey <a href="http://v2.decipherinc.com/survey/macromedia/sl404">here</a>.</p>
@@ -46,9 +46,9 @@
   
   <entry>
     <title type="html"><![CDATA[Certifiable Certification Central Application]]></title>
-    <link href="http://www.mikechambers.com/blog/2004/04/19/certifiable-certification-central-application/"/>
+    <link href="http://mikechambers.github.io//blog/2004/04/19/certifiable-certification-central-application/"/>
     <updated>2004-04-19T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2004/04/19/certifiable-certification-central-application</id>
+    <id>http://mikechambers.github.io//blog/2004/04/19/certifiable-certification-central-application</id>
     <content type="html"><![CDATA[<p><a href="http://www.daemon.com.au/">Daemon</a> has posted a <a href="http://blog.daemon.com.au/archives/000262.html">preview release</a> of their very cool certification exam application named <a href="http://certifiable.daemon.com.au/">Certifiable</a>.</p>
 
 <p>I saw a sneak peak of this at MXDU, and it is easily one of the coolest, and most useful Central applications available.</p>
@@ -59,9 +59,9 @@
   
   <entry>
     <title type="html"><![CDATA[Central Presence API / SDK Beta]]></title>
-    <link href="http://www.mikechambers.com/blog/2004/03/24/central-presence-api-sdk-beta/"/>
+    <link href="http://mikechambers.github.io//blog/2004/03/24/central-presence-api-sdk-beta/"/>
     <updated>2004-03-24T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2004/03/24/central-presence-api-sdk-beta</id>
+    <id>http://mikechambers.github.io//blog/2004/03/24/central-presence-api-sdk-beta</id>
     <content type="html"><![CDATA[<p>Hi. We are now looking for developers who are interested in beta testing the Central Presence API / SDK for Macromedia Central. The API provides access to AOL AIM and ICQ networks for applications running within Macromedia Central.</p>
 
 <p>If you are interested, please send the following information to:</p>

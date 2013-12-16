@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Flex | Mike Chambers]]></title>
-  <link href="http://www.mikechambers.com/blog/blog/categories/flex/atom.xml" rel="self"/>
-  <link href="http://www.mikechambers.com/blog/"/>
-  <updated>2013-12-15T20:32:01-08:00</updated>
-  <id>http://www.mikechambers.com/blog/</id>
+  <link href="http://mikechambers.github.io//blog/blog/categories/flex/atom.xml" rel="self"/>
+  <link href="http://mikechambers.github.io//blog/"/>
+  <updated>2013-12-15T20:49:44-08:00</updated>
+  <id>http://mikechambers.github.io//blog/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Defining and Reusing Symbols in Flex 4 FXG]]></title>
-    <link href="http://www.mikechambers.com/blog/2008/08/29/defining-and-reusing-symbols-in-flex-4-fxg/"/>
+    <link href="http://mikechambers.github.io//blog/2008/08/29/defining-and-reusing-symbols-in-flex-4-fxg/"/>
     <updated>2008-08-29T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2008/08/29/defining-and-reusing-symbols-in-flex-4-fxg</id>
+    <id>http://mikechambers.github.io//blog/2008/08/29/defining-and-reusing-symbols-in-flex-4-fxg</id>
     <content type="html"><![CDATA[<p>If you have done Flash development using the Flash Authoring tool, or have done any low level work with the SWF format, then you should be familiar with the concept of symbols. Basically a symbol is a reusable object (graphics, buttons, MovieClip) that can be included in the SWF once, but referenced and used many times.</p>
 
 <p>Flex 4 <a href="http://opensource.adobe.com/wiki/display/flexsdk/FXG+1.0+Specification">FXG</a> has a similar concept of symbol, although the actual underlying implimentation is different. Using the <code>Library</code> and <code>Definition</code> elements, you can define a graphic symbol, which can then be reused multiple times within the FXG or MXML document.</p>
@@ -76,9 +76,9 @@
   
   <entry>
     <title type="html"><![CDATA[Data Binding With FXG in Flex 4]]></title>
-    <link href="http://www.mikechambers.com/blog/2008/08/29/data-binding-with-fxg-in-flex-4/"/>
+    <link href="http://mikechambers.github.io//blog/2008/08/29/data-binding-with-fxg-in-flex-4/"/>
     <updated>2008-08-29T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2008/08/29/data-binding-with-fxg-in-flex-4</id>
+    <id>http://mikechambers.github.io//blog/2008/08/29/data-binding-with-fxg-in-flex-4</id>
     <content type="html"><![CDATA[<p>One of the cool things about <a href="http://opensource.adobe.com/wiki/display/flexsdk/FXG+1.0+Specification">FXG</a> is that it works with Flex data-binding just as your would expect it to.</p>
 
 <p>Below is a simple example (which requires <a href="http://labs.adobe.com/technologies/flashplayer10/">Flash Player 10 RC</a>), followed the code, that shows data-binding with FXG and <a href="http://www.mikechambers.com/blog/2008/08/27/everything-there-is-to-know-about-flex-4-gumbo/">Flex 4</a>:</p>
@@ -134,9 +134,9 @@
   
   <entry>
     <title type="html"><![CDATA[Everything There Is to Know About Flex 4 / Gumbo]]></title>
-    <link href="http://www.mikechambers.com/blog/2008/08/27/everything-there-is-to-know-about-flex-4-gumbo/"/>
+    <link href="http://mikechambers.github.io//blog/2008/08/27/everything-there-is-to-know-about-flex-4-gumbo/"/>
     <updated>2008-08-27T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2008/08/27/everything-there-is-to-know-about-flex-4-gumbo</id>
+    <id>http://mikechambers.github.io//blog/2008/08/27/everything-there-is-to-know-about-flex-4-gumbo</id>
     <content type="html"><![CDATA[<p>About a month ago, the Flex team <a href="http://blogs.adobe.com/flex/archives/2008/07/more_information_on_next_versi.html">announced</a> that nightly builds of the next version of Flex (code named Gumbo) were now available on the <a href="http://opensource.adobe.com/wiki/display/flexsdk/Gumbo">opensource Flex site</a>. Along with early versions of the SDK, the team also posted a ton of other information, including specs and API docs.</p>
 
 <p>Below is a listing of links and resources about Gumbo / Flex 4. Going through these will quickly get your up to speed on what is being worked on in Flex 4, and get your ready for playing around with the new builds.</p>
@@ -213,9 +213,9 @@ Flex Developer Forums<br/>
   
   <entry>
     <title type="html"><![CDATA[Flex Builder 2 Free for Students and Educators]]></title>
-    <link href="http://www.mikechambers.com/blog/2007/10/24/flex-builder-2-free-for-students-and-educators/"/>
+    <link href="http://mikechambers.github.io//blog/2007/10/24/flex-builder-2-free-for-students-and-educators/"/>
     <updated>2007-10-24T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2007/10/24/flex-builder-2-free-for-students-and-educators</id>
+    <id>http://mikechambers.github.io//blog/2007/10/24/flex-builder-2-free-for-students-and-educators</id>
     <content type="html"><![CDATA[<p>From the press release:</p>
 
 <blockquote><p>Adobe Systems Incorporated (Nasdaq:ADBE) today announced that it is offering AdobeÂ® Flexâ„¢ Builderâ„¢ 2 software at no cost to students and faculty at educational institutions worldwide&hellip;. Adobe Flex 2 will be available to qualified education end-users for free download on Adobe.com in early November.</p></blockquote>
@@ -226,9 +226,9 @@ Flex Developer Forums<br/>
   
   <entry>
     <title type="html"><![CDATA[Sorting Date Fields in a DataGrid in the Flex Framework]]></title>
-    <link href="http://www.mikechambers.com/blog/2005/04/27/sorting-date-fields-in-a-datagrid-in-the-flex-framework/"/>
+    <link href="http://mikechambers.github.io//blog/2005/04/27/sorting-date-fields-in-a-datagrid-in-the-flex-framework/"/>
     <updated>2005-04-27T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2005/04/27/sorting-date-fields-in-a-datagrid-in-the-flex-framework</id>
+    <id>http://mikechambers.github.io//blog/2005/04/27/sorting-date-fields-in-a-datagrid-in-the-flex-framework</id>
     <content type="html"><![CDATA[<p>I was working on some new mini chart apps over the weekend for the [MXNA reports section][1], and had a DataGrid that contained dates. I wanted to allow the user to sort the datagrid by the DateField, but by default the DataGrid sorts dates with a string compare (calling toString on the Date instance).</p>
 
 <p>I tried to set up a custom sort function for the DataGridColumn instance that contained the dates, but because I was using a custom label format function for the column, Flex passed the labels to me, and not the data items (which would allow me to get access to the Date instance). Because of this, I couldn&#8217;t sort on the date.</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Mike Chambers]]></title>
-  <link href="http://www.mikechambers.com/blog/atom.xml" rel="self"/>
-  <link href="http://www.mikechambers.com/blog/"/>
-  <updated>2013-12-15T20:32:01-08:00</updated>
-  <id>http://www.mikechambers.com/blog/</id>
+  <link href="http://mikechambers.github.io//blog/atom.xml" rel="self"/>
+  <link href="http://mikechambers.github.io//blog/"/>
+  <updated>2013-12-15T20:49:44-08:00</updated>
+  <id>http://mikechambers.github.io//blog/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Test Post]]></title>
-    <link href="http://www.mikechambers.com/blog/blog/2013/12/14/test-post/"/>
+    <link href="http://mikechambers.github.io//blog/blog/2013/12/14/test-post/"/>
     <updated>2013-12-14T21:33:48-08:00</updated>
-    <id>http://www.mikechambers.com/blog/blog/2013/12/14/test-post</id>
+    <id>http://mikechambers.github.io//blog/blog/2013/12/14/test-post</id>
     <content type="html"><![CDATA[<p>This is a simple test post.</p>
 
 <figure class='code'><figcaption><span>foo.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -50,9 +50,9 @@
   
   <entry>
     <title type="html"><![CDATA[Simple HTTP Server for Local Testing]]></title>
-    <link href="http://www.mikechambers.com/blog/2012/04/08/simple-http-server-for-local-testing/"/>
+    <link href="http://mikechambers.github.io//blog/2012/04/08/simple-http-server-for-local-testing/"/>
     <updated>2012-04-08T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2012/04/08/simple-http-server-for-local-testing</id>
+    <id>http://mikechambers.github.io//blog/2012/04/08/simple-http-server-for-local-testing</id>
     <content type="html"><![CDATA[<p>I am currently playing around with the <a href="http://www.html5rocks.com/en/tutorials/file/filesystem/">HTML5 FileSystem API</a>, and have a need to test my files served via a web server. I could setup a virtual director for my local apache server, but given the number of simple tests and experiments I do, I wanted something easier that required little to no configuration and setup.</p>
 
 <p>So, I put together a super simple script that uses <a href="http://docs.python.org/library/simplehttpserver.html">python&rsquo;s SimpleHTTPServer class</a>.</p>
@@ -104,9 +104,9 @@
   
   <entry>
     <title type="html"><![CDATA[North American Flash Community Tour]]></title>
-    <link href="http://www.mikechambers.com/blog/2012/04/02/north-american-flash-community-tour/"/>
+    <link href="http://mikechambers.github.io//blog/2012/04/02/north-american-flash-community-tour/"/>
     <updated>2012-04-02T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2012/04/02/north-american-flash-community-tour</id>
+    <id>http://mikechambers.github.io//blog/2012/04/02/north-american-flash-community-tour</id>
     <content type="html"><![CDATA[<p>Just as we did in Europe a couple of weeks ago, <a href="http://www.leebrimelow.com">Lee Brimelow</a> and I are doing a series of Flash get togethers in North America over the next couple of weeks. I will be talking about the <a href="http://www.adobe.com/go/flashplayer_whitepaper">roadmap for the Flash runtimes</a>, and leading a discussion around recent development in the Flash world. Lee will be showing off some of the new stuff we are working on around gaming.</p>
 
 <p>Here are the cities and dates:</p>
@@ -128,9 +128,9 @@
   
   <entry>
     <title type="html"><![CDATA[Flash Roadmap Whitepaper Published]]></title>
-    <link href="http://www.mikechambers.com/blog/2012/02/22/flash-roadmap-whitepaper-published/"/>
+    <link href="http://mikechambers.github.io//blog/2012/02/22/flash-roadmap-whitepaper-published/"/>
     <updated>2012-02-22T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2012/02/22/flash-roadmap-whitepaper-published</id>
+    <id>http://mikechambers.github.io//blog/2012/02/22/flash-roadmap-whitepaper-published</id>
     <content type="html"><![CDATA[<p>We have just posted a new whitepaper on Adobe.com. The whitepaper, titled <a href="http://www.adobe.com/go/flashplayer_whitepaper">Adobe roadmap for the Flash runtimes</a> lays out the 1 to 2 year roadmap for the Flash runtimes (primarily Adobe AIR and Flash Player). This includes information on specific planned releases, longer term player work, and supported platforms.</p>
 
 <!--more-->
@@ -146,7 +146,7 @@
 
 <p>This speaks to another goal of the whitepapers. We understand that we have damaged our trust and credibility with the community over how we have communicated some of the recent changes around the Flash platform and that trying to regain that trust is a long term process. We have to be clear and open around our plans around the Flash runtimes, and then demonstrate that we can follow up those plans with actions. This whitepaper lays the foundation of the first part of that, and hopefully our actions and runtime releases over the next 6 to 12 months will demonstrate the second part.</p>
 
-<p>Finally, as part of the release of the whitepaper, I and some other members of the Flash and evangelist teams will be visiting user groups world wide. This will be an opportunity to go over the roadmap in more detail, have a frank and open discussion around recent changes around Flash, as well as discuss Flash&rsquo;s role on the web and how it related to HTML5. The first set of meetings are over the <a href="http://www.mikechambers.com/blog/2012/02/13/in-europe-to-discuss-flash-roadmap/">next two weeks in Europe</a>, and we will announce more for North and South America, and Asia over the next couple of weeks. If you would be interested in hosting a meeting, just shoot me an email at <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#x6d;&#101;&#115;&#x68;&#64;&#x61;&#x64;&#111;&#x62;&#101;&#46;&#x63;&#x6f;&#x6d;&#46;">&#x6d;&#101;&#115;&#104;&#x40;&#x61;&#100;&#x6f;&#98;&#x65;&#46;&#x63;&#111;&#x6d;&#x2e;</a></p>
+<p>Finally, as part of the release of the whitepaper, I and some other members of the Flash and evangelist teams will be visiting user groups world wide. This will be an opportunity to go over the roadmap in more detail, have a frank and open discussion around recent changes around Flash, as well as discuss Flash&rsquo;s role on the web and how it related to HTML5. The first set of meetings are over the <a href="http://www.mikechambers.com/blog/2012/02/13/in-europe-to-discuss-flash-roadmap/">next two weeks in Europe</a>, and we will announce more for North and South America, and Asia over the next couple of weeks. If you would be interested in hosting a meeting, just shoot me an email at <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#109;&#101;&#115;&#x68;&#64;&#x61;&#x64;&#111;&#x62;&#x65;&#x2e;&#x63;&#x6f;&#109;&#x2e;">&#x6d;&#x65;&#x73;&#104;&#x40;&#97;&#x64;&#x6f;&#x62;&#101;&#x2e;&#x63;&#111;&#x6d;&#46;</a></p>
 
 <p>We are already planning an update for the whitepaper in a couple of weeks, so if you find anything is not clear, or would like it to cover other topics, please post them in the comments, or shoot me an email.</p>
 ]]></content>
@@ -154,9 +154,9 @@
   
   <entry>
     <title type="html"><![CDATA[In Europe to Discuss Flash Roadmap]]></title>
-    <link href="http://www.mikechambers.com/blog/2012/02/13/in-europe-to-discuss-flash-roadmap/"/>
+    <link href="http://mikechambers.github.io//blog/2012/02/13/in-europe-to-discuss-flash-roadmap/"/>
     <updated>2012-02-13T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2012/02/13/in-europe-to-discuss-flash-roadmap</id>
+    <id>http://mikechambers.github.io//blog/2012/02/13/in-europe-to-discuss-flash-roadmap</id>
     <content type="html"><![CDATA[<p>If you follow me on <a href="http://www.twitter.com/mesh/">twitter</a>, then you may have noticed that I have been working on a white-paper laying out the roadmap and strategy for the Flash runtimes (Flash Player and Adobe AIR). The white-paper is going through internal review now, and should be available in the next 7 to 10 days.</p>
 
 <p>As part of the release of the white-paper, I, along with <a href="http://www.leebrimelow.com/?p=3261">Lee Brimelow</a>, and <a href="http://www.bytearray.org/">Thibault Imbert</a> will be spending two weeks in Europe meeting with the Flash community and laying out Adobe&rsquo;s vision and strategy for the Flash runtimes. This will be a good opportunity to speak directly with Adobe, ask questions, and general discuss recent changes around the Flash Player.</p>
@@ -182,9 +182,9 @@
   
   <entry>
     <title type="html"><![CDATA[Clarifications on Flash Player for Mobile Browsers, the Flash Platform, and the Future of Flash]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/11/11/clarifications-on-flash-player-for-mobile-browsers-the-flash-platform-and-the-future-of-flash/"/>
+    <link href="http://mikechambers.github.io//blog/2011/11/11/clarifications-on-flash-player-for-mobile-browsers-the-flash-platform-and-the-future-of-flash/"/>
     <updated>2011-11-11T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/11/11/clarifications-on-flash-player-for-mobile-browsers-the-flash-platform-and-the-future-of-flash</id>
+    <id>http://mikechambers.github.io//blog/2011/11/11/clarifications-on-flash-player-for-mobile-browsers-the-flash-platform-and-the-future-of-flash</id>
     <content type="html"><![CDATA[<p>I have worked with Flash and been part of the Flash community for about 12 or 13 years (over 10 of those with Macromedia and Adobe). Over that time there have been a lot of ups and down, but I think that the past couple of days have been some of the most difficult of my career. I wanted to make a post which will hopefully clarify some of the news from the past couple of days, and provide some more context around what is going on.</p>
 
 <!--more-->
@@ -345,9 +345,9 @@
   
   <entry>
     <title type="html"><![CDATA[Flash Professional and the Future]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/11/10/flash-professional-and-the-future/"/>
+    <link href="http://mikechambers.github.io//blog/2011/11/10/flash-professional-and-the-future/"/>
     <updated>2011-11-10T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/11/10/flash-professional-and-the-future</id>
+    <id>http://mikechambers.github.io//blog/2011/11/10/flash-professional-and-the-future</id>
     <content type="html"><![CDATA[<p>Yesterday was probably one of the most overwhelming days of my entire career. First, Adobe <a href="http://blogs.adobe.com/conversations/2011/11/flash-focus.html">informed</a> developers that we are going to stop developing the Flash Player for mobile browsers, then news came out that there were layoffs at Adobe, and finally, Adobe held a financial analyst meeting where we spelled out the <a href="http://blogs.adobe.com/conversations/2011/11/adobe-creative-cloud-and-adobe-creative-suite-new-choices-for-customers.html">Creative Cloud</a>, and the fundamental strategic shift Adobe is making.</p>
 
 <p>All of this news is a lot to digest at once, and I know that there are a lot of questions and concerns from the community about what all of this means. I am working on another blog post which will address this from the Flash community&rsquo;s standpoint, but I wanted to make a quick post and debunk a rumor that has been going around about the future of Flash Professional.</p>
@@ -388,14 +388,14 @@
   
   <entry>
     <title type="html"><![CDATA[HTML5 Camp Tokyo : State of the Web Slides]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/08/02/html5-camp-tokyo-state-of-the-web-slides/"/>
+    <link href="http://mikechambers.github.io//blog/2011/08/02/html5-camp-tokyo-state-of-the-web-slides/"/>
     <updated>2011-08-02T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/08/02/html5-camp-tokyo-state-of-the-web-slides</id>
+    <id>http://mikechambers.github.io//blog/2011/08/02/html5-camp-tokyo-state-of-the-web-slides</id>
     <content type="html"><![CDATA[<p>I am in Tokyo for the week and just spoke at the <a href="http://www.adobe.com/jp/joc/adc/meetup/round02/">Tokyo HTML5 Camp</a>, giving a talk on some of the lessons learned from working on <a href="theexpressiveweb.com">theexpressiveweb.com</a>, and talking about Adobe and HTML. I have posted the slides with notes online.</p>
 
-<p><a href="http://www.mikechambers.com/blog/html5/presentations/state_of_the_web.pdf"><img src="http://www.mikechambers.com/blog/html5/presentations/state_of_the_web_title.png" alt="title" /></a></p>
+<p><a href="http://mikechambers.github.io//blog/html5/presentations/state_of_the_web.pdf"><img src="http://mikechambers.github.io//blog/html5/presentations/state_of_the_web_title.png" alt="title" /></a></p>
 
-<p><a href="http://www.mikechambers.com/blog/html5/presentations/state_of_the_web.pdf">Download Slides</a> (26mb pdf).</p>
+<p><a href="http://mikechambers.github.io//blog/html5/presentations/state_of_the_web.pdf">Download Slides</a> (26mb pdf).</p>
 
 <p>If you have any questions or suggestions please post them in the comments.</p>
 ]]></content>
@@ -403,9 +403,9 @@
   
   <entry>
     <title type="html"><![CDATA[Timing Issues When Animating With CSS3 Transitions]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/07/20/timing-issues-when-animating-with-css3-transitions/"/>
+    <link href="http://mikechambers.github.io//blog/2011/07/20/timing-issues-when-animating-with-css3-transitions/"/>
     <updated>2011-07-20T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/07/20/timing-issues-when-animating-with-css3-transitions</id>
+    <id>http://mikechambers.github.io//blog/2011/07/20/timing-issues-when-animating-with-css3-transitions</id>
     <content type="html"><![CDATA[<p>I have been playing around a lot lately with motion graphics created using HTML5 and / or CSS3. One of my favorite new features is <a href="http://www.w3.org/TR/css3-transitions/">CSS Transitions</a>, which makes it super simple to animate element properties between two states.</p>
 
 <p>However, I ran into a gotcha the other day, and wanted to make a quick blog post in case anyone else runs into it in the future. Basically, if you change a property that a CSS Transition is monitoring in the same script loop that you add the element to the DOM, the CSS Transition will not take affect. Instead, the element will be drawn with the new properties, and will not animate to those properties.</p>
@@ -585,9 +585,9 @@
   
   <entry>
     <title type="html"><![CDATA[JTV Live : A Google Chrome Extension for Justin.tv]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/07/06/jtv-live-a-google-chrome-extension-for-justin-tv/"/>
+    <link href="http://mikechambers.github.io//blog/2011/07/06/jtv-live-a-google-chrome-extension-for-justin-tv/"/>
     <updated>2011-07-06T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/07/06/jtv-live-a-google-chrome-extension-for-justin-tv</id>
+    <id>http://mikechambers.github.io//blog/2011/07/06/jtv-live-a-google-chrome-extension-for-justin-tv</id>
     <content type="html"><![CDATA[<p>UPDATE : June 6, 2012 : Due to a change in the Justin.tv APIs, this extension no longer works with Twitch.tv accounts. I have created a new extension, called <a href="http://bit.ly/12y53wj">Twitch Live</a> which works with Twitch.tv accounts. Sorry about the hassle.</p>
 
 <p>Since I started playing <a href="http://us.battle.net/sc2/en/">Starcraft 2</a>, I have become a pretty big fan of e-sports, and in particular, of watching streams of games. The most popular site for streaming is <a href="http://justin.tv">Justin.tv</a>, where you can find tons of high level gamers streaming their gameplay. However, Justin.tv&#8217;s site does not make it easy to find out which of your favorite streams are live at any particular time.</p>
@@ -613,9 +613,9 @@
   
   <entry>
     <title type="html"><![CDATA[Streaming Your Desktop on Mac OS X]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/05/29/setting-up-desktop-streaming-on-mac-os-x/"/>
+    <link href="http://mikechambers.github.io//blog/2011/05/29/setting-up-desktop-streaming-on-mac-os-x/"/>
     <updated>2011-05-29T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/05/29/setting-up-desktop-streaming-on-mac-os-x</id>
+    <id>http://mikechambers.github.io//blog/2011/05/29/setting-up-desktop-streaming-on-mac-os-x</id>
     <content type="html"><![CDATA[<p>I have been playing a lot of <a href="http://us.battle.net/sc2/en/">Starcaft 2</a> lately, and really getting into the entire <a href="http://www.reddit.com/r/starcraft">community</a>. One part of the community that I recently discovered has been live streams of games (some from pros) via sites like <a href="http://justin.tv">justin.tv</a> and <a href="http://www.ustream.tv/">ustream.com</a>. There are plenty of articles online talking about how to stream your desktop on Windows based machines, but virtually none on how to do it from a Mac. This article will show how to use Adobe Flash Media Live Encoder (and a couple of other tools) to live stream your desktop to justin.tv (although the setup would also work for other streaming sites).</p>
 
 <!--more-->
@@ -655,13 +655,13 @@
 
 <p>Once you have set all of these settings, you can save them by clicking the &ldquo;Save Setup&rdquo; button.</p>
 
-<p><img src="http://www.mikechambers.com/blog/blog/images/mac_screen_broadcast/camtwist_main.png" alt="title" /></p>
+<p><img src="http://mikechambers.github.io//blog/blog/images/mac_screen_broadcast/camtwist_main.png" alt="title" /></p>
 
 <p>Now, open the preferences (<em>CamTwist > Preferences</em>), and select the &ldquo;General Tab&rdquo;. Set the frame rate to the same frame rate you plan to encode at. I am using 24 FPS. The higher the FPS, the smoother the video, but the more bandwidth and CPU required to encode and transmit it.</p>
 
 <p>Set video size to &ldquo;Custom&rdquo; and set it to your desktop resolution. In my case, I have it set to 1920 x 1200, which is my native desktop resolution. Set it to the native resolution even if you are going to broadcast at a lower resolution. We will have Adobe Flash Media Live Encoder scale the video down, as my experience has been that it does it much more efficiently than CamTwist.</p>
 
-<p><img src="http://www.mikechambers.com/blog/blog/images/mac_screen_broadcast/camtwist_preferences.png" alt="title" /></p>
+<p><img src="http://mikechambers.github.io//blog/blog/images/mac_screen_broadcast/camtwist_preferences.png" alt="title" /></p>
 
 <p>Once you have set the preferences, close the window and restart CamTwist. Make sure the &ldquo;Desktop&rdquo; section is selected. You can test that everything is working by selecting <em>Tools > Preview</em>, which will give you a small preview of the video being captured.</p>
 
@@ -675,13 +675,13 @@
 
 <p>We need to tell OS X to direct system audio output to Soundflower. Open Sound preferences (<em>System Preferences > Sound > Output</em>) and select &ldquo;Soundflower (2ch)&rdquo;.</p>
 
-<p><img src="http://www.mikechambers.com/blog/blog/images/mac_screen_broadcast/sound_settings_basic.png" alt="title" /></p>
+<p><img src="http://mikechambers.github.io//blog/blog/images/mac_screen_broadcast/sound_settings_basic.png" alt="title" /></p>
 
 <p>Basically, anything that you would hear through your speakers will now be directed first through Soundflower.</p>
 
 <p>Next, click the Soundflower icon on the menu bar, and for &ldquo;Soundflower (2ch)&rdquo; select what you would normally have set as your system output (such as headphone, or Line-Out). This will redirect the audio through Soundflower, and pass it through your normal output so you can still hear it. However, because it is first directed through Soundflower, we can now also use that as an input source in FMLE.</p>
 
-<p><img src="http://www.mikechambers.com/blog/blog/images/mac_screen_broadcast/soundflower_basic.png" alt="title" /></p>
+<p><img src="http://mikechambers.github.io//blog/blog/images/mac_screen_broadcast/soundflower_basic.png" alt="title" /></p>
 
 <p>There is a lot more advanced stuff we can do with Soundflower, which we will cover later in the article.</p>
 
@@ -721,7 +721,7 @@
 
 <p>Finally, we need to set the Keyframe Frequency. This determines how frequently keyframes (complete captures of the image) are inserted into the stream. We will use the default of &ldquo;5&rdquo;.</p>
 
-<p><img src="http://www.mikechambers.com/blog/blog/images/mac_screen_broadcast/advanced_encoder_settings.png" alt="title" /></p>
+<p><img src="http://mikechambers.github.io//blog/blog/images/mac_screen_broadcast/advanced_encoder_settings.png" alt="title" /></p>
 
 <p>Once you have set the codec settings, click the &ldquo;OK&rdquo; button.</p>
 
@@ -759,7 +759,7 @@
 
 <p>Turn the volume all the way up.</p>
 
-<p><img src="http://www.mikechambers.com/blog/blog/images/mac_screen_broadcast/flme_settings.png" alt="title" /></p>
+<p><img src="http://mikechambers.github.io//blog/blog/images/mac_screen_broadcast/flme_settings.png" alt="title" /></p>
 
 <p>At this point, look at the bandwidth required estimate under the Volume setting. Make sure this is not too high in relation to your upstream bandwidth. You want to ensure there is some padding for data spikes, or if your available bandwidth goes down a bit. If the bandwidth required is too high, then go through and tweak the settings (see above) until you get the bandwidth to an acceptable level. You may need to do some live testing to find the best compromise between audio / video quality and required bandwidth.</p>
 
@@ -854,23 +854,23 @@
 
 <p>Next, click the &ldquo;Pass Thru&rdquo; button to enable the changes we just made.</p>
 
-<p><img src="http://www.mikechambers.com/blog/blog/images/mac_screen_broadcast/linein1.png" alt="title" /></p>
+<p><img src="http://mikechambers.github.io//blog/blog/images/mac_screen_broadcast/linein1.png" alt="title" /></p>
 
 <p>At this point, if you have configured your streaming according the the instructions above, your microphone input will now be included in the audio for your stream. However, if you test this, you will also notice that the microphone input is also output to your system audio (since system Sound output is set to Soundflower (2ch)). Hearing yourself in your speakers / headphone as you speak can be very confusing and distracting (not to mention annoying), so we need to configure things so microphone input is not output locally.</p>
 
 <p>This is where the second instance of LineIn comes in. If you havent already, launch LineIn2. Set the &ldquo;Input from&rdquo; to &ldquo;Soundflower (16ch)&rdquo; and set the &ldquo;Output to&rdquo; to &ldquo;Soundflower (2ch)&rdquo;. Once you have done this, click the &ldquo;Pass Thru&rdquo; button to enable the changes.</p>
 
-<p><img src="http://www.mikechambers.com/blog/blog/images/mac_screen_broadcast/linein2.png" alt="title" /></p>
+<p><img src="http://mikechambers.github.io//blog/blog/images/mac_screen_broadcast/linein2.png" alt="title" /></p>
 
 <p>Next, we need to set all system audio output to go to &ldquo;Soundflower (16ch)&rdquo;. Open system Sound Output settings (<em>System Preferences > Sound > Output</em>) and set output to &ldquo;Soundflower (16ch)&rdquo;. Now, all system audio output will go to &ldquo;Soundflower (16ch)&rdquo;, which is then being redirected (by LineIn) to &ldquo;Sunflower (2ch)&rdquo;.</p>
 
-<p><img src="http://www.mikechambers.com/blog/blog/images/mac_screen_broadcast/sound_settings_advanced.png" alt="title" /></p>
+<p><img src="http://mikechambers.github.io//blog/blog/images/mac_screen_broadcast/sound_settings_advanced.png" alt="title" /></p>
 
 <p>At this point, we now have two separate Soundflower channels. One (&ldquo;Soundflower (2ch)&rdquo;) includes both system audio and microphone input, and one (&ldquo;Soundflower 16ch&rdquo;) includes all system audio, minus the microphone input.</p>
 
 <p>We don’t need to change anything in FMLE, since it is already set to use Soundflower (2ch) as its audio input. However, in order to hear the correct audio locally, we need to change the Soundflower local output. Click the Soundflower icon on the menu bar. Set &ldquo;Soundflower (2ch)&rdquo; to &ldquo;None (Off)&rdquo;, and set &ldquo;Soundflower (16ch)&rdquo; to the local output you want to use (which ever output your speakers / headphone is connected to).</p>
 
-<p><img src="http://www.mikechambers.com/blog/blog/images/mac_screen_broadcast/soundflower_advanced.png" alt="title" /></p>
+<p><img src="http://mikechambers.github.io//blog/blog/images/mac_screen_broadcast/soundflower_advanced.png" alt="title" /></p>
 
 <p>You should now be able to hear all system audio locally without hearing the microphone. However, the stream includes the audio from both the local system and microphone.</p>
 
@@ -878,7 +878,7 @@
 
 <p>Configuring this in <a href="http://www.skype.com">Skype</a> is easy. Just open Skype, and launch the Audio / Video preferences (<em>Skype > Preferences > Audio / Video</em>). Set the &ldquo;Speakers&rdquo; to &ldquo;Soundflower (16ch)&rdquo; and close the preferences. Now any audio that comes through Skype, will be included in the stream.</p>
 
-<p><img src="http://www.mikechambers.com/blog/blog/images/mac_screen_broadcast/skype_settings.png" alt="title" /></p>
+<p><img src="http://mikechambers.github.io//blog/blog/images/mac_screen_broadcast/skype_settings.png" alt="title" /></p>
 
 <p>You can do this with any application that allows you to specify sound output. You just need to keep in mind that you only have 16 channels total (which should be plenty).</p>
 
@@ -919,9 +919,9 @@
   
   <entry>
     <title type="html"><![CDATA[Toggling Mute on Mac OS X With non-Mac Keyboards and Alfred]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/05/23/toggling-mute-on-mac-os-x-with-non-mac-keyboards-and-alfred/"/>
+    <link href="http://mikechambers.github.io//blog/2011/05/23/toggling-mute-on-mac-os-x-with-non-mac-keyboards-and-alfred/"/>
     <updated>2011-05-23T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/05/23/toggling-mute-on-mac-os-x-with-non-mac-keyboards-and-alfred</id>
+    <id>http://mikechambers.github.io//blog/2011/05/23/toggling-mute-on-mac-os-x-with-non-mac-keyboards-and-alfred</id>
     <content type="html"><![CDATA[<p>I recently switched keyboards and picked up a <a href="http://www.daskeyboard.com/model-s-professional/">daskeyboard professional (model-s)</a>. This is a really nice (and satisfying) mechanical keyboard, which I really like. However, das only makes a Windows version of the keyboard, and I am running Mac OS X. In general, this isn&#8217;t an issue, as I was able to remap control keys to be in the right position, but I really missed being able to quickly toggle whether the system volume is muted.</p>
 
 <p>I could probably use an app such as <a href="http://doublecommand.sourceforge.net/">DoubleCommand</a> to remap one of the function keys to the mute key, but I didn&#8217;t want to rely on on a third-party piece of software that I would have to configure each time I wanted to set up a new system. So, I decided to create a simple AppleScript Application that I could call from <a href="http://www.alfredapp.com/">Alfred</a> (or <a href="http://www.blacktree.com/">Quicksilver</a>) that would toggle whether the volume was muted.</p>
@@ -958,9 +958,9 @@
   
   <entry>
     <title type="html"><![CDATA[JavaScript Voronoi Port]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/03/24/javascript-voronoi-port/"/>
+    <link href="http://mikechambers.github.io//blog/2011/03/24/javascript-voronoi-port/"/>
     <updated>2011-03-24T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/03/24/javascript-voronoi-port</id>
+    <id>http://mikechambers.github.io//blog/2011/03/24/javascript-voronoi-port</id>
     <content type="html"><![CDATA[<p>I have always been amazed by some of the <a href="http://www.flickr.com/photos/quasimondo/tags/voronoi/">digital art work</a> that <a href="http://www.quasimondo.com/">Mario Klingemann</a> (aka <a href="http://twitter.com/Quasimondo">@Quasimondo</a> has created using with <a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronois</a>. After doing some searching, I found an early <a href="http://www.quasimondo.com/archives/000110.php">ActionScript 1 Voronoi implementation</a> that Mario did, and I ported it to JavaScript.</p>
 
 <p>I wanted to share the results:</p>
@@ -985,9 +985,9 @@
   
   <entry>
     <title type="html"><![CDATA[JavaScript QuadTree Implementation]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/03/21/javascript-quadtree-implementation/"/>
+    <link href="http://mikechambers.github.io//blog/2011/03/21/javascript-quadtree-implementation/"/>
     <updated>2011-03-21T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/03/21/javascript-quadtree-implementation</id>
+    <id>http://mikechambers.github.io//blog/2011/03/21/javascript-quadtree-implementation</id>
     <content type="html"><![CDATA[<p>Last week I was playing around with a little <a href="http://www.easeljs.com">EaselJS</a> experiment which required me to do collision detection against all items on the screen. This worked fine with a small number of items, but of course, the more items I added, the slower everything became.</p>
 
 <p>I knew that I needed to optimize the code, and pare down the number of collision checks. I have done this before with a grid (even held a <a href="http://www.mikechambers.com/blog/tag/as3dtc1/">contest</a> for it) and was going to port that AS3 code to JavaScript. However, <a href="http://unitzeroone.com/blog/">Ralph Hauwert</a> suggested I look at implemented a QuadTree, which should be more efficient.</p>
@@ -1005,7 +1005,7 @@
 
 <p>Here is an example of the tree in action:</p>
 
-<iframe src="http://www.mikechambers.com/blog/html5/javascript/QuadTree/examples/collision.html" width="520" height="600"></iframe>
+<iframe src="http://mikechambers.github.io//blog/html5/javascript/QuadTree/examples/collision.html" width="520" height="600"></iframe>
 
 
 <p>This example shows how to use the QuadTree to pare down the number of items that need to be tested for collision detection.</p>
@@ -1013,11 +1013,11 @@
 <p>I have created a couple of other simple examples:</p>
 
 <ul>
-<li><a href="http://www.mikechambers.com/blog/html5/javascript/QuadTree/examples/collision.html">Collision Detection (shown above)</a></li>
-<li><a href="http://www.mikechambers.com/blog/html5/javascript/QuadTree/examples/insert.html">Inserting points</a></li>
-<li><a href="http://www.mikechambers.com/blog/html5/javascript/QuadTree/examples/insert_bounds.html">Inserting items with bounds</a></li>
-<li><a href="http://www.mikechambers.com/blog/html5/javascript/QuadTree/examples/retrieve.html">Retrieving points</a></li>
-<li><a href="http://www.mikechambers.com/blog/html5/javascript/QuadTree/examples/retrieve_bounds.html">Retrieving items with bounds</a></li>
+<li><a href="http://mikechambers.github.io//blog/html5/javascript/QuadTree/examples/collision.html">Collision Detection (shown above)</a></li>
+<li><a href="http://mikechambers.github.io//blog/html5/javascript/QuadTree/examples/insert.html">Inserting points</a></li>
+<li><a href="http://mikechambers.github.io//blog/html5/javascript/QuadTree/examples/insert_bounds.html">Inserting items with bounds</a></li>
+<li><a href="http://mikechambers.github.io//blog/html5/javascript/QuadTree/examples/retrieve.html">Retrieving points</a></li>
+<li><a href="http://mikechambers.github.io//blog/html5/javascript/QuadTree/examples/retrieve_bounds.html">Retrieving items with bounds</a></li>
 </ul>
 
 
@@ -1105,9 +1105,9 @@
   
   <entry>
     <title type="html"><![CDATA[How to Enable English Translation for Japanese NHK Channel on Comcast]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/03/12/how-to-enable-english-translation-for-japanese-nhk-channel-on-comcast/"/>
+    <link href="http://mikechambers.github.io//blog/2011/03/12/how-to-enable-english-translation-for-japanese-nhk-channel-on-comcast/"/>
     <updated>2011-03-12T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/03/12/how-to-enable-english-translation-for-japanese-nhk-channel-on-comcast</id>
+    <id>http://mikechambers.github.io//blog/2011/03/12/how-to-enable-english-translation-for-japanese-nhk-channel-on-comcast</id>
     <content type="html"><![CDATA[<p>Comcast has <a href="http://www.sfgate.com/cgi-bin/blogs/techchron/detail?entry_id=84840">made the Japanese NHK channel available for the next week</a>. It can be accessed via channel 330 on Comcast. The broadcast is in Japanese, but if you have an <a href="http://en.wikipedia.org/wiki/Second_audio_program">SAP</a> enabled TV or set top box, you can listen to a translation of the broadcast.</p>
 
 <p>It took me a while to figure out how to enable secondary broadcast on my Comcast box, and I didn&rsquo;t find much info online, so I wanted to post it here in case anyone else was interested.</p>
@@ -1126,9 +1126,9 @@
   
   <entry>
     <title type="html"><![CDATA[Example : Creating Spiral Designs With Canvas, JavaScript and EaselJS]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/02/09/example-creating-spirals-designs-with-canvas-and-easeljs/"/>
+    <link href="http://mikechambers.github.io//blog/2011/02/09/example-creating-spirals-designs-with-canvas-and-easeljs/"/>
     <updated>2011-02-09T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/02/09/example-creating-spirals-designs-with-canvas-and-easeljs</id>
+    <id>http://mikechambers.github.io//blog/2011/02/09/example-creating-spirals-designs-with-canvas-and-easeljs</id>
     <content type="html"><![CDATA[<p>I have been having fun playing around with JavaScript, the HTML5 Canvas element and <a href="http://www.easeljs.com">EaselJS</a> lately, and have been building a lot of small experiments. I wanted to share a simple one I created, which creates spiral designs.</p>
 
 <p><a href="http://www.flickr.com/photos/mikechambers/5429181578/"><img src="http://farm6.static.flickr.com/5299/5429181578_ce3395c4e2_m.jpg" alt="title" /></a></p>
@@ -1174,9 +1174,9 @@
   
   <entry>
     <title type="html"><![CDATA[PixelFlow : EaselJS / Canvas Dynamic Graphics Example]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/02/02/pixelflow-easeljs-canvas-dynamic-graphics-example/"/>
+    <link href="http://mikechambers.github.io//blog/2011/02/02/pixelflow-easeljs-canvas-dynamic-graphics-example/"/>
     <updated>2011-02-02T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/02/02/pixelflow-easeljs-canvas-dynamic-graphics-example</id>
+    <id>http://mikechambers.github.io//blog/2011/02/02/pixelflow-easeljs-canvas-dynamic-graphics-example</id>
     <content type="html"><![CDATA[<p>If you have happen to have been <a href="http://www.flickr.com/photos/mikechambers/sets/72157625744699667/">watching my Flickr feed</a> for the past week or two, you have probably noticed that I have been playing around with creating some graphics using Canvas and <a href="http://www.easeljs.com">EaselJS</a>. What started as a simple EaselJS experiment, quickly morphed into an excuse to build a mini app / example and play around with some of the new HTML5 and CSS3 features.</p>
 
 <p><a href="http://www.mikechambers.com/html5/easeljs/PixelFlow/"><img src="http://farm6.static.flickr.com/5298/5411954907_6b2c4f902d.jpg" alt="title" /></a></p>
@@ -1326,9 +1326,9 @@
   
   <entry>
     <title type="html"><![CDATA[Detecting Canvas.toDataURL Support in Browsers]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/02/01/detecting-canvas-todataurl-support-in-browsers/"/>
+    <link href="http://mikechambers.github.io//blog/2011/02/01/detecting-canvas-todataurl-support-in-browsers/"/>
     <updated>2011-02-01T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/02/01/detecting-canvas-todataurl-support-in-browsers</id>
+    <id>http://mikechambers.github.io//blog/2011/02/01/detecting-canvas-todataurl-support-in-browsers</id>
     <content type="html"><![CDATA[<p>I am wrapping up a code example that uses the <a href="http://www.w3.org/TR/html5/the-canvas-element.html">Canvas.toDataURL</a> API to save canvas data to an image. I am almost done, and was doing a final round of browser testing when I noticed that my example wasnt working on my Android based Google Nexus One Device (2.2.2). After some debugging, and then Googling, I discovered that the Canvas.toDataURL API is not implemented on Android (you can view the bug report <a href="http://code.google.com/p/android/issues/detail?id=7901">here</a>).</p>
 
 <p>Well, after some cursing, I put together a simple method for detecting whether the API is supported on any particular device. I wanted to share it in case anyone else might run into a need for it. So, here it is:</p>
@@ -1427,9 +1427,9 @@
   
   <entry>
     <title type="html"><![CDATA[Setting the Background Color When Generating Images From Canvas.toDataURL]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/01/31/setting-the-background-color-when-generating-images-from-canvas-todataurl/"/>
+    <link href="http://mikechambers.github.io//blog/2011/01/31/setting-the-background-color-when-generating-images-from-canvas-todataurl/"/>
     <updated>2011-01-31T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/01/31/setting-the-background-color-when-generating-images-from-canvas-todataurl</id>
+    <id>http://mikechambers.github.io//blog/2011/01/31/setting-the-background-color-when-generating-images-from-canvas-todataurl</id>
     <content type="html"><![CDATA[<p>One of the cool features of the HTML5 canvas element is the <a href="http://www.w3.org/TR/html5/the-canvas-element.html">toDataURL</a> method. This returns a Base64 encoded image in the form of a data url string. Among other things, this can be displayed directly within an IMG element on the page, or sent to the server so the image can be saved.</p>
 
 <p>However, one thing that I found out this weekend is that there is no background color for the image returned from toDataURL. Looking at the actual canvas draft specification, I found this:</p>
@@ -1445,7 +1445,7 @@
 
 <p>First, here is a simple demo:</p>
 
-<iframe src="http://www.mikechambers.com/blog/html5/canvas/exportWithBackgroundColor/" width="500" height="280"></iframe>
+<iframe src="http://mikechambers.github.io//blog/html5/canvas/exportWithBackgroundColor/" width="500" height="280"></iframe>
 
 
 <p>Basically, click in the canvas on the left to draw some rectangles. When you click on one of the links, a PNG is generated from the canvas and displayed in the IMG element on the right. Each link creates an image with a different background color (none, solid red, red with 50% alpha).</p>
@@ -1572,9 +1572,9 @@
   
   <entry>
     <title type="html"><![CDATA[EaselJS / Canvas Generative Graphics Flickr Set]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/01/26/easeljs-canvas-generative-graphics-flickr-set/"/>
+    <link href="http://mikechambers.github.io//blog/2011/01/26/easeljs-canvas-generative-graphics-flickr-set/"/>
     <updated>2011-01-26T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/01/26/easeljs-canvas-generative-graphics-flickr-set</id>
+    <id>http://mikechambers.github.io//blog/2011/01/26/easeljs-canvas-generative-graphics-flickr-set</id>
     <content type="html"><![CDATA[<p>Just a quick note, but I have created a <a href="http://www.flickr.com/photos/mikechambers/sets/72157625744699667/">Flickr set which contains some of the generative graphics</a> I have been creating using <a href="http://www.mikechambers.com/blog/tag/easeljs/">canvas, JavaScript and EaselJS</a>.</p>
 
 <p><a href="http://www.flickr.com/photos/mikechambers/sets/72157625744699667/with/5390791220/"><img src="http://farm6.static.flickr.com/5092/5390791220_c17fc5dabb_m.jpg" alt="title" /></a></p>

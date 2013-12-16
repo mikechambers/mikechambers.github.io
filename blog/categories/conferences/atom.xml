@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Conferences | Mike Chambers]]></title>
-  <link href="http://www.mikechambers.com/blog/blog/categories/conferences/atom.xml" rel="self"/>
-  <link href="http://www.mikechambers.com/blog/"/>
-  <updated>2013-12-15T20:32:01-08:00</updated>
-  <id>http://www.mikechambers.com/blog/</id>
+  <link href="http://mikechambers.github.io//blog/blog/categories/conferences/atom.xml" rel="self"/>
+  <link href="http://mikechambers.github.io//blog/"/>
+  <updated>2013-12-15T20:49:44-08:00</updated>
+  <id>http://mikechambers.github.io//blog/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[FITC Amsterdam : Building High Performance iPhone Applications With ActionScript 3]]></title>
-    <link href="http://www.mikechambers.com/blog/2010/01/25/fitc-amsterdam-building-high-performance-iphone-applications-with-actionscript-3/"/>
+    <link href="http://mikechambers.github.io//blog/2010/01/25/fitc-amsterdam-building-high-performance-iphone-applications-with-actionscript-3/"/>
     <updated>2010-01-25T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2010/01/25/fitc-amsterdam-building-high-performance-iphone-applications-with-actionscript-3</id>
+    <id>http://mikechambers.github.io//blog/2010/01/25/fitc-amsterdam-building-high-performance-iphone-applications-with-actionscript-3</id>
     <content type="html"><![CDATA[<p>Sorry for the two month hiatus on posting. I was on a sabbatical and vacation from work for the last 6 weeks of 2009, and have spent the first couple of weeks of 2010 busy working on code, and preparing some events for the spring (more on that in another post).</p>
 
 <p>Some of the stuff I have continued to spend a lot of time working on, has been <a href="http://labs.adobe.com/technologies/flashcs5/appsfor_iphone/">building iPhone content using the Flash CS5 private beta</a>. I have been doing a lot of work on trying to figure out how to get the best performance, and understand the limits of Flash content on the device. I plan to make a separate post on that in the next couple of days.</p>
@@ -33,9 +33,9 @@
   
   <entry>
     <title type="html"><![CDATA[FlashCamp San Francisco, May 29th : Flex 4, Flash Catalyst, Flex Builder 4]]></title>
-    <link href="http://www.mikechambers.com/blog/2009/05/05/flashcamp-san-francisco-may-29th-flex-4-flash-catalyst-flex-builder-4/"/>
+    <link href="http://mikechambers.github.io//blog/2009/05/05/flashcamp-san-francisco-may-29th-flex-4-flash-catalyst-flex-builder-4/"/>
     <updated>2009-05-05T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2009/05/05/flashcamp-san-francisco-may-29th-flex-4-flash-catalyst-flex-builder-4</id>
+    <id>http://mikechambers.github.io//blog/2009/05/05/flashcamp-san-francisco-may-29th-flex-4-flash-catalyst-flex-builder-4</id>
     <content type="html"><![CDATA[<p><img src="http://www.mikechambers.com/mesh/files/flashcamp/flash_camp_sm.png" alt="" align="right" width="58" height="58" />We have just posted information about <a href="http://flashcampsf.eventbrite.com/">FlashCamp San Francisco</a>, a free developer event that we will be holding in the <a href="http://flashcampsf.eventbrite.com/">Adobe San Francisco Office on Friday night, May 29th</a>. This will be similar to the <a href="http://www.mikechambers.com/blog/2007/02/20/announcing-apollo-camp-san-francisco/">ApolloCamp</a> event that we held for the Apollo Beta launch a couple of years ago, although this event will be focused on the next generation of Flex, including <a href="http://opensource.adobe.com/wiki/display/flexsdk/Gumbo">Flex 4</a>, <a href="http://labs.adobe.com/technologies/flashcatalyst/">Flash Catalyst</a>, and Flex Builder 4.</p>
 
 <p><a href="http://flashcampsf.eventbrite.com/">Register for FlashCamp San Francisco</a></p>
@@ -69,9 +69,9 @@
   
   <entry>
     <title type="html"><![CDATA[MAX 2007 Early Bird Registration Ends Friday]]></title>
-    <link href="http://www.mikechambers.com/blog/2007/08/08/max-2007-early-bird-registration-ends-friday/"/>
+    <link href="http://mikechambers.github.io//blog/2007/08/08/max-2007-early-bird-registration-ends-friday/"/>
     <updated>2007-08-08T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2007/08/08/max-2007-early-bird-registration-ends-friday</id>
+    <id>http://mikechambers.github.io//blog/2007/08/08/max-2007-early-bird-registration-ends-friday</id>
     <content type="html"><![CDATA[<p>Just a quick fyi, but the <a href="http://www.adobemax2007.com/na/">MAX 2007 early bird registration</a> ends on Friday. If you have been thinking about attending, now is the time to do so, in order to get the best rate.</p>
 
 <p>I havent had a chance to blog to much (i.e. any) about MAX this year (because of the <a href="http://onair.adobe.com">bus tour</a>), but I think this is going to (hands down) the best MAX ever. <a href="http://www.onflex.org">Ted Patrick</a> has been put in charge of the conference, and I have been really impressed with the change in focus on the conference.</p>
@@ -82,9 +82,9 @@
   
   <entry>
     <title type="html"><![CDATA[Max Wrap-up / Sneak Peaks Video]]></title>
-    <link href="http://www.mikechambers.com/blog/2004/11/09/max-wrap-up-sneak-peaks-video/"/>
+    <link href="http://mikechambers.github.io//blog/2004/11/09/max-wrap-up-sneak-peaks-video/"/>
     <updated>2004-11-09T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2004/11/09/max-wrap-up-sneak-peaks-video</id>
+    <id>http://mikechambers.github.io//blog/2004/11/09/max-wrap-up-sneak-peaks-video</id>
     <content type="html"><![CDATA[<p>Well, Max is over and it was a blast as usual. I didn&#8217;t get to blog as much as I wanted, although I did <a href="/mesh/archives/006253.cfm">blog the keynote live</a>.</p>
 
 <p>The highlight of the conference for me was the sneaks session, which I organized and MC&#8217;ed. I was blown away by some of the stuff we showed (Captivate made my jaw drop!). I was also blown away by about 800 saxophone whistles that we passed out (note to self, high-pitched noise makers, and 800 excited designer / developers are not a good mix).</p>
@@ -111,9 +111,9 @@
   
   <entry>
     <title type="html"><![CDATA[MAX Keynote]]></title>
-    <link href="http://www.mikechambers.com/blog/2004/11/02/max-keynote/"/>
+    <link href="http://mikechambers.github.io//blog/2004/11/02/max-keynote/"/>
     <updated>2004-11-02T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2004/11/02/max-keynote</id>
+    <id>http://mikechambers.github.io//blog/2004/11/02/max-keynote</id>
     <content type="html"><![CDATA[<p>Note : Here are my raw notes from the keynote. They have not been edited or spell checked. I wanted to get them online as soon as possible. I will update them in the next hours and polish them a little better.</p>
 
 <!--more-->

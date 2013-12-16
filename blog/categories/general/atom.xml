@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: General | Mike Chambers]]></title>
-  <link href="http://www.mikechambers.com/blog/blog/categories/general/atom.xml" rel="self"/>
-  <link href="http://www.mikechambers.com/blog/"/>
-  <updated>2013-12-15T20:32:01-08:00</updated>
-  <id>http://www.mikechambers.com/blog/</id>
+  <link href="http://mikechambers.github.io//blog/blog/categories/general/atom.xml" rel="self"/>
+  <link href="http://mikechambers.github.io//blog/"/>
+  <updated>2013-12-15T20:49:44-08:00</updated>
+  <id>http://mikechambers.github.io//blog/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Simple HTTP Server for Local Testing]]></title>
-    <link href="http://www.mikechambers.com/blog/2012/04/08/simple-http-server-for-local-testing/"/>
+    <link href="http://mikechambers.github.io//blog/2012/04/08/simple-http-server-for-local-testing/"/>
     <updated>2012-04-08T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2012/04/08/simple-http-server-for-local-testing</id>
+    <id>http://mikechambers.github.io//blog/2012/04/08/simple-http-server-for-local-testing</id>
     <content type="html"><![CDATA[<p>I am currently playing around with the <a href="http://www.html5rocks.com/en/tutorials/file/filesystem/">HTML5 FileSystem API</a>, and have a need to test my files served via a web server. I could setup a virtual director for my local apache server, but given the number of simple tests and experiments I do, I wanted something easier that required little to no configuration and setup.</p>
 
 <p>So, I put together a super simple script that uses <a href="http://docs.python.org/library/simplehttpserver.html">python&rsquo;s SimpleHTTPServer class</a>.</p>
@@ -64,9 +64,9 @@ http 2030
   
   <entry>
     <title type="html"><![CDATA[North American Flash Community Tour]]></title>
-    <link href="http://www.mikechambers.com/blog/2012/04/02/north-american-flash-community-tour/"/>
+    <link href="http://mikechambers.github.io//blog/2012/04/02/north-american-flash-community-tour/"/>
     <updated>2012-04-02T00:00:00-07:00</updated>
-    <id>http://www.mikechambers.com/blog/2012/04/02/north-american-flash-community-tour</id>
+    <id>http://mikechambers.github.io//blog/2012/04/02/north-american-flash-community-tour</id>
     <content type="html"><![CDATA[<p>Just as we did in Europe a couple of weeks ago, <a href="http://www.leebrimelow.com">Lee Brimelow</a> and I are doing a series of Flash get togethers in North America over the next couple of weeks. I will be talking about the <a href="http://www.adobe.com/go/flashplayer_whitepaper">roadmap for the Flash runtimes</a>, and leading a discussion around recent development in the Flash world. Lee will be showing off some of the new stuff we are working on around gaming.</p>
 
 <p>Here are the cities and dates:</p>
@@ -88,9 +88,9 @@ http 2030
   
   <entry>
     <title type="html"><![CDATA[In Europe to Discuss Flash Roadmap]]></title>
-    <link href="http://www.mikechambers.com/blog/2012/02/13/in-europe-to-discuss-flash-roadmap/"/>
+    <link href="http://mikechambers.github.io//blog/2012/02/13/in-europe-to-discuss-flash-roadmap/"/>
     <updated>2012-02-13T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2012/02/13/in-europe-to-discuss-flash-roadmap</id>
+    <id>http://mikechambers.github.io//blog/2012/02/13/in-europe-to-discuss-flash-roadmap</id>
     <content type="html"><![CDATA[<p>If you follow me on <a href="http://www.twitter.com/mesh/">twitter</a>, then you may have noticed that I have been working on a white-paper laying out the roadmap and strategy for the Flash runtimes (Flash Player and Adobe AIR). The white-paper is going through internal review now, and should be available in the next 7 to 10 days.</p>
 
 <p>As part of the release of the white-paper, I, along with <a href="http://www.leebrimelow.com/?p=3261">Lee Brimelow</a>, and <a href="http://www.bytearray.org/">Thibault Imbert</a> will be spending two weeks in Europe meeting with the Flash community and laying out Adobe&rsquo;s vision and strategy for the Flash runtimes. This will be a good opportunity to speak directly with Adobe, ask questions, and general discuss recent changes around the Flash Player.</p>
@@ -116,9 +116,9 @@ http 2030
   
   <entry>
     <title type="html"><![CDATA[Clarifications on Flash Player for Mobile Browsers, the Flash Platform, and the Future of Flash]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/11/11/clarifications-on-flash-player-for-mobile-browsers-the-flash-platform-and-the-future-of-flash/"/>
+    <link href="http://mikechambers.github.io//blog/2011/11/11/clarifications-on-flash-player-for-mobile-browsers-the-flash-platform-and-the-future-of-flash/"/>
     <updated>2011-11-11T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/11/11/clarifications-on-flash-player-for-mobile-browsers-the-flash-platform-and-the-future-of-flash</id>
+    <id>http://mikechambers.github.io//blog/2011/11/11/clarifications-on-flash-player-for-mobile-browsers-the-flash-platform-and-the-future-of-flash</id>
     <content type="html"><![CDATA[<p>I have worked with Flash and been part of the Flash community for about 12 or 13 years (over 10 of those with Macromedia and Adobe). Over that time there have been a lot of ups and down, but I think that the past couple of days have been some of the most difficult of my career. I wanted to make a post which will hopefully clarify some of the news from the past couple of days, and provide some more context around what is going on.</p>
 
 <!--more-->
@@ -279,9 +279,9 @@ http 2030
   
   <entry>
     <title type="html"><![CDATA[Flash Professional and the Future]]></title>
-    <link href="http://www.mikechambers.com/blog/2011/11/10/flash-professional-and-the-future/"/>
+    <link href="http://mikechambers.github.io//blog/2011/11/10/flash-professional-and-the-future/"/>
     <updated>2011-11-10T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2011/11/10/flash-professional-and-the-future</id>
+    <id>http://mikechambers.github.io//blog/2011/11/10/flash-professional-and-the-future</id>
     <content type="html"><![CDATA[<p>Yesterday was probably one of the most overwhelming days of my entire career. First, Adobe <a href="http://blogs.adobe.com/conversations/2011/11/flash-focus.html">informed</a> developers that we are going to stop developing the Flash Player for mobile browsers, then news came out that there were layoffs at Adobe, and finally, Adobe held a financial analyst meeting where we spelled out the <a href="http://blogs.adobe.com/conversations/2011/11/adobe-creative-cloud-and-adobe-creative-suite-new-choices-for-customers.html">Creative Cloud</a>, and the fundamental strategic shift Adobe is making.</p>
 
 <p>All of this news is a lot to digest at once, and I know that there are a lot of questions and concerns from the community about what all of this means. I am working on another blog post which will address this from the Flash community&rsquo;s standpoint, but I wanted to make a quick post and debunk a rumor that has been going around about the future of Flash Professional.</p>

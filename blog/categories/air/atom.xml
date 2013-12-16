@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Air | Mike Chambers]]></title>
-  <link href="http://www.mikechambers.com/blog/blog/categories/air/atom.xml" rel="self"/>
-  <link href="http://www.mikechambers.com/blog/"/>
-  <updated>2013-12-15T20:32:01-08:00</updated>
-  <id>http://www.mikechambers.com/blog/</id>
+  <link href="http://mikechambers.github.io//blog/blog/categories/air/atom.xml" rel="self"/>
+  <link href="http://mikechambers.github.io//blog/"/>
+  <updated>2013-12-15T20:49:44-08:00</updated>
+  <id>http://mikechambers.github.io//blog/</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,18 +15,18 @@
   
   <entry>
     <title type="html"><![CDATA[Adobe AIR 1.5 for Linux Is Out]]></title>
-    <link href="http://www.mikechambers.com/blog/2008/12/18/adobe-air-15-for-linux-is-out/"/>
+    <link href="http://mikechambers.github.io//blog/2008/12/18/adobe-air-15-for-linux-is-out/"/>
     <updated>2008-12-18T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2008/12/18/adobe-air-15-for-linux-is-out</id>
+    <id>http://mikechambers.github.io//blog/2008/12/18/adobe-air-15-for-linux-is-out</id>
     <content type="html"><![CDATA[<p>You can read more about it <a href="http://blogs.adobe.com/air/2008/12/adobe_air_15_now_available_for.html">here</a>, and download it <a href="http://get.adobe.com/air/otherversions/">here</a>.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[CommandProxy : .NET / AIR Integration Proof of Concept]]></title>
-    <link href="http://www.mikechambers.com/blog/2008/01/17/commandproxy-net-air-integration-proof-of-concept/"/>
+    <link href="http://mikechambers.github.io//blog/2008/01/17/commandproxy-net-air-integration-proof-of-concept/"/>
     <updated>2008-01-17T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2008/01/17/commandproxy-net-air-integration-proof-of-concept</id>
+    <id>http://mikechambers.github.io//blog/2008/01/17/commandproxy-net-air-integration-proof-of-concept</id>
     <content type="html"><![CDATA[<p>Two of the most requested features for <a href="http://www.adobe.com/go/air">Adobe AIR</a> have been the ability to launch native executables from an AIR application, and the ability to integrate native libraries into an AIR application. Unfortunately, neither feature will be included in Adobe AIR 1.0.</p>
 
 <p>However, this does not mean that you cannot build an AIR application that has closer / tighter integration with the underlying operating system. This lower level of integration is possible, but it requires some work on your part. I have put together a proof of concept project, which shows how to integrate Adobe AIR applications with c# / .NET code on any operating system that Adobe AIR currently runs on (Mac and Windows). The project is called <a href="http://code.google.com/p/commandproxy/">CommandProxy</a>. It provides a communication proxy between an AIR application and the underlying operating system and could theoretically work with other web based desktop runtimes (such as <a href="http://wiki.mozilla.org/Prism">Mozilla Prism</a>).</p>
@@ -92,9 +92,9 @@
   
   <entry>
     <title type="html"><![CDATA[Adobe AIR for JavaScript Developers Translated to Thai]]></title>
-    <link href="http://www.mikechambers.com/blog/2007/11/26/adobe-air-for-javascript-developers-translated-to-thai/"/>
+    <link href="http://mikechambers.github.io//blog/2007/11/26/adobe-air-for-javascript-developers-translated-to-thai/"/>
     <updated>2007-11-26T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2007/11/26/adobe-air-for-javascript-developers-translated-to-thai</id>
+    <id>http://mikechambers.github.io//blog/2007/11/26/adobe-air-for-javascript-developers-translated-to-thai</id>
     <content type="html"><![CDATA[<p>I just noticed over on the <a href="http://labs.adobe.com/wiki/index.php/AIR:Books:Adobe_Integrated_Runtime_for_JavaScript_Developers">labs wiki</a> that the Adobe AIR For JavaScript Developers Pocket Guide has been <a href="http://lib.blognone.com/Adobe_Integrated_Runtime_(AIR)_for_JavaScript_Developers">translated to Thai</a>.</p>
 
 <p>You can view the full translation <a href="http://lib.blognone.com/Adobe_Integrated_Runtime_(AIR)_for_JavaScript_Developers">here</a>.</p>
@@ -105,9 +105,9 @@
   
   <entry>
     <title type="html"><![CDATA[Introducing the Adobe AIR Logo]]></title>
-    <link href="http://www.mikechambers.com/blog/2007/11/15/introducing-the-adobe-air-logo/"/>
+    <link href="http://mikechambers.github.io//blog/2007/11/15/introducing-the-adobe-air-logo/"/>
     <updated>2007-11-15T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2007/11/15/introducing-the-adobe-air-logo</id>
+    <id>http://mikechambers.github.io//blog/2007/11/15/introducing-the-adobe-air-logo</id>
     <content type="html"><![CDATA[<p>If you have been following <a href="http://www.adobe.com/go/air">Adobe AIR</a> during its young lifetime, then you have probably noticed that it has been pretty inconsistent as far as branding goes. It has had a number of logos and graphics associated with it, including the rocket-ship, and the current &#8220;AIR&#8221; branding.</p>
 
 <p>Part of this was due to the surprisingly complex process of designing and settling on a logo in the technology world. There have been quite a few times during the past year where we felt that we were close to having the final logo, only to then find out that it was just a bit too familiar to some other logo in the computer / internet / tech world.</p>
@@ -133,9 +133,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using the HTMLControl Class in Adobe AIR to Parse HTML as a Data Source]]></title>
-    <link href="http://www.mikechambers.com/blog/2007/11/09/using-the-htmlcontrol-in-adobe-air-to-parse-html-as-a-data-source/"/>
+    <link href="http://mikechambers.github.io//blog/2007/11/09/using-the-htmlcontrol-in-adobe-air-to-parse-html-as-a-data-source/"/>
     <updated>2007-11-09T00:00:00-08:00</updated>
-    <id>http://www.mikechambers.com/blog/2007/11/09/using-the-htmlcontrol-in-adobe-air-to-parse-html-as-a-data-source</id>
+    <id>http://mikechambers.github.io//blog/2007/11/09/using-the-htmlcontrol-in-adobe-air-to-parse-html-as-a-data-source</id>
     <content type="html"><![CDATA[<p>One of the cool features of Adobe AIR (especially for Flash developers) is its ability to render full featured HTML within Flash content. The rendering is handled by the WebKit core, and the HTML content can be from both local and remote URLs as well as from a string of HTML text.</p>
 
 <p>HTML rendering within Flash content is handled by the ActionScript HTMLControl class (which is wrapped by the HTML component in Flex). The HTMLControl class is a DisplayObject instance (it directly inherits from Sprite) and thus renders its HTML directly to the display list.</p>
