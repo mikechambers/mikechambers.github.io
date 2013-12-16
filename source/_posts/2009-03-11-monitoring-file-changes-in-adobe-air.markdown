@@ -14,56 +14,53 @@ I have just uploaded a new class to the [as3corelib library][1] that makes it ea
 The class is called [FileMonitor][2], and is in the com.adobe.air.filesystem package. Here is a simple example of it in use:  
 <!--more-->
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">import</span> com.adobe.air.filesystem.FileMonitor<span style="color: #666666">;</span>
-<span style="color: #008000; font-weight: bold">import</span> flash.filesystem.File<span style="color: #666666">;</span>
-<span style="color: #008000; font-weight: bold">import</span> flash.events.Event<span style="color: #666666">;</span>
-<span style="color: #008000; font-weight: bold">import</span> com.adobe.air.filesystem.events.FileMonitorEvent<span style="color: #666666">;</span>
+``` actionscript
+import com.adobe.air.filesystem.FileMonitor;
+import flash.filesystem.File;
+import flash.events.Event;
+import com.adobe.air.filesystem.events.FileMonitorEvent;
 
 
-<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> monitor<span style="color: #666666">:</span>FileMonitor<span style="color: #666666">;</span>
+private var monitor:FileMonitor;
 
-<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onSelectButtonClick()<span style="color: #666666">:</span>void
+private function onSelectButtonClick():void
 {
-	<span style="color: #008000; font-weight: bold">var</span> f<span style="color: #666666">:</span>File <span style="color: #666666">=</span> File.desktopDirectory<span style="color: #666666">;</span>
-	f.addEventListener(Event.SELECT<span style="color: #666666">,</span> onFileSelect);
-	f.browseForOpen(<span style="color: #BA2121">"Select a File to Watch."</span>);
+	var f:File = File.desktopDirectory;
+	f.addEventListener(Event.SELECT, onFileSelect);
+	f.browseForOpen("Select a File to Watch.");
 }
 
-<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onFileSelect(e<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
+private function onFileSelect(e:Event):void
 {
-	<span style="color: #008000; font-weight: bold">var</span> file<span style="color: #666666">:</span>File <span style="color: #666666">=</span> File(e.target);
+	var file:File = File(e.target);
 	
-	<span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">!</span>monitor)
+	if(!monitor)
 	{
-		monitor <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> FileMonitor();
-		monitor.addEventListener(FileMonitorEvent.CHANGE<span style="color: #666666">,</span> onFileChange);
-		monitor.addEventListener(FileMonitorEvent.MOVE<span style="color: #666666">,</span> onFileMove);
-		monitor.addEventListener(FileMonitorEvent.CREATE<span style="color: #666666">,</span> onFileCreate);
+		monitor = new FileMonitor();
+		monitor.addEventListener(FileMonitorEvent.CHANGE, onFileChange);
+		monitor.addEventListener(FileMonitorEvent.MOVE, onFileMove);
+		monitor.addEventListener(FileMonitorEvent.CREATE, onFileCreate);
 	}
 	
-	monitor.file <span style="color: #666666">=</span> file<span style="color: #666666">;</span>
+	monitor.file = file;
 	monitor.watch();
 }
 
-<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onFileChange(e<span style="color: #666666">:</span>FileMonitorEvent)<span style="color: #666666">:</span>void
+private function onFileChange(e:FileMonitorEvent):void
 {
-	<span style="color: #0000FF">trace</span>(<span style="color: #BA2121">"file was changed"</span>);
+	trace("file was changed");
 }
 
-<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onFileMove(e<span style="color: #666666">:</span>FileMonitorEvent)<span style="color: #666666">:</span>void
+private function onFileMove(e:FileMonitorEvent):void
 {
-	<span style="color: #0000FF">trace</span>(<span style="color: #BA2121">"file was moved"</span>);	
+	trace("file was moved");	
 }
 
-<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onFileCreate(e<span style="color: #666666">:</span>FileMonitorEvent)<span style="color: #666666">:</span>void
+private function onFileCreate(e:FileMonitorEvent):void
 {
-	<span style="color: #0000FF">trace</span>(<span style="color: #BA2121">"file was created"</span>);
+	trace("file was created");
 }
-</pre>
-</div>
-
-&nbsp;
+```
 
 Note that the class broadcasts three events:
 

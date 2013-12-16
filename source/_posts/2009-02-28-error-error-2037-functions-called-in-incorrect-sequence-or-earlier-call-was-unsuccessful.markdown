@@ -8,12 +8,10 @@ categories:
   - General
 ---
 
-
 I am doing some work on writing [FlexUnit][1] test cases for the [FileMonitor][2] class which I have added to [as3corelib][3]. Once I wrote the test, I got the following error, which didnt make a lot of sense to me at first:  
 <!--more-->
 
-<div class="highlight">
-  <pre>[SWF] FileWatcher2.swf - 1,040,015 bytes after decompression
+<pre>[SWF] FileWatcher2.swf - 1,040,015 bytes after decompression
 Error: Error #2037: Functions called in incorrect sequence, or earlier  
 call was unsuccessful.
 	at flash.filesystem::File/_exists()
@@ -24,31 +22,22 @@ as3corelib/src/com/adobe/air/filesystem/FileMonitor.as:138]
 src/com/adobe/air/filesystem/FileMonitor.as:94]
 	at FileWatcher2/onFileSelect()[/Users/mesh/Documents/Flex Builder 3/ 
 FileWatcher2/src/FileWatcher2Class.as:32]&lt;/code></pre>
-</div>
-
-&nbsp;
 
 The error is thrown when trying to access a property of the File class (as well as FileReference) before the class has been initialized with a file path. Specifically, the File and FileReference classes must be initialized to reference a file path, before their properties can be accessed. 
 
 For example, this will cause the error:
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">var</span> f<span style="color: #666666">:</span>File <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> File();
-<span style="color: #0000FF">trace</span>(f.exists());
-</pre>
-</div>
-
-&nbsp;
+``` actionscript
+var f:File = new File();
+trace(f.exists());
+```
 
 This will not cause an error:
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">var</span> f<span style="color: #666666">:</span>File <span style="color: #666666">=</span> File.desktopDirectory<span style="color: #666666">;</span>
-<span style="color: #0000FF">trace</span>(f.exists());
-</pre>
-</div>
-
-&nbsp;
+``` actionscript
+var f:File = File.desktopDirectory;
+trace(f.exists());
+```
 
 Anyway, just wanted to post it here in case anyone else runs into the issue.
 

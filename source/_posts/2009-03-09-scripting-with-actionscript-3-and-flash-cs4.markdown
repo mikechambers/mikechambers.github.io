@@ -10,12 +10,10 @@ tags:
   - as3
 ---
 
-
 I have just uploaded my slides from my [FlashCamp London][1] presentation on [migrating from ActionScript 2 to ActionScript 3 using Flash Authoring][2].  
 <!--more-->
 
-  
-[<img src="http://twitpic.com/show/thumb/1p96k.jpg" width="150" height="150" alt="The timeline is not evil! on TwitPic" />][3]
+![](http://twitpic.com/show/thumb/1p96k.jpg)
 
 You can view and download the slides from [here][2].
 
