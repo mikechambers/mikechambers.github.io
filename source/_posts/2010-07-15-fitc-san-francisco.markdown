@@ -7,7 +7,6 @@ categories:
   - General
 ---
 
-
 I am really excited about the [FITC San Francisco][1] Flash conference, coming up in about a month. First, it is a FITC conference which means all of the top Flash designers and developers in the world will be speaking and hanging out. But more significantly, it is FITC in SAN FRANCISCO, the first major Flash conference in San Francisco in quite a while. As you probably know San Francisco is the [home][2] to the Flash authoring and player teams, as well as some of the top creative agencies and developers in the world. This makes it an amazing opportunity to not only see some of the coolest stuff going on in Flash today, but also hang out with all of the people making it happen.
 
 I am doing a [session][3] talking about some of the lessons I learned around mobile optimizations while working on my [PewPew][4] game and other mobile projects over the past year or so. This will focus primarily on Android development, but is relevant for other Flash Player 10.1 mobile platforms, as well as desktop development.
@@ -15,7 +14,6 @@ I am doing a [session][3] talking about some of the lessons I learned around mob
 So, what sessions and speakers am I most looking forward to?  
 <!--more-->
 
-  
 **Adobe Keynote** : Kevin Lynch, CTO of Adobe, is driving the keynote this year, which means that we will get some deep insight to how Adobe views Flash&#8217;s role on the web, both today, and in the future.
 
 **Mario Klingemann** : [Welcome to the Sideshow][5] : Mario is doing some of the most [amazing stuff][6] on the web today, and I think he has been giving the best talks of anyone else in 2010. This is a must see session.
