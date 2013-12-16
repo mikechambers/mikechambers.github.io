@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Flash Resource Manager | Mike Chambers]]></title>
-  <link href="http://mikechambers.github.io//blog/blog/categories/flash-resource-manager/atom.xml" rel="self"/>
-  <link href="http://mikechambers.github.io//blog/"/>
-  <updated>2013-12-15T20:49:44-08:00</updated>
-  <id>http://mikechambers.github.io//blog/</id>
+  <link href="http://mikechambers.github.io//blog/categories/flash-resource-manager/atom.xml" rel="self"/>
+  <link href="http://mikechambers.github.io//"/>
+  <updated>2013-12-16T12:31:18-08:00</updated>
+  <id>http://mikechambers.github.io//</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Flash Resource Manager and Flash 8]]></title>
-    <link href="http://mikechambers.github.io//blog/2005/09/14/flash-resource-manager-and-flash-8/"/>
-    <updated>2005-09-14T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2005/09/14/flash-resource-manager-and-flash-8</id>
+    <link href="http://mikechambers.github.io//2005/09/14/flash-resource-manager-and-flash-8/"/>
+    <updated>2005-09-14T13:03:01-07:00</updated>
+    <id>http://mikechambers.github.io//2005/09/14/flash-resource-manager-and-flash-8</id>
     <content type="html"><![CDATA[<p>As many of you have noticed, <a href="http://weblogs.macromedia.com/mesh/archives/2004/07/new_version_of_4.cfm">Flash Resource Manager</a> does not work with Flash 8. This is because the path to the help files is hardcoded (at least for the first load) for Flash MX 2004.</p>
 
 <p>I just played around with the source, and it was pretty easy for me to fix, so once I get the correct version of Visual Studio installed, I am going to try and update it so it will work with both Flash MX 2004 and Flash 8.</p>
@@ -32,9 +32,9 @@
   
   <entry>
     <title type="html"><![CDATA[New Version of Flash Resource Manager : Adds Support for Flash 7.2]]></title>
-    <link href="http://mikechambers.github.io//blog/2004/07/27/new-version-of-flash-resource-manager-adds-support-for-flash-72/"/>
-    <updated>2004-07-27T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2004/07/27/new-version-of-flash-resource-manager-adds-support-for-flash-72</id>
+    <link href="http://mikechambers.github.io//2004/07/27/new-version-of-flash-resource-manager-adds-support-for-flash-72/"/>
+    <updated>2004-07-27T13:45:01-07:00</updated>
+    <id>http://mikechambers.github.io//2004/07/27/new-version-of-flash-resource-manager-adds-support-for-flash-72</id>
     <content type="html"><![CDATA[<p>I have released a new version of my <a href="/mesh/archives/004700.cfm">Flash Resource Manager</a> for Windows. Among other things, this release adds support for <a href="http://www.macromedia.com/software/flash/special/7_2updater/">Flash MX 7.2 (Ellipsis)</a>.</p>
 
 <p>Here is a complete list of changes:</p>
@@ -55,9 +55,9 @@
   
   <entry>
     <title type="html"><![CDATA[Flash Resource Manager Video Tutorials]]></title>
-    <link href="http://mikechambers.github.io//blog/2004/06/17/flash-resource-manager-video-tutorials/"/>
-    <updated>2004-06-17T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2004/06/17/flash-resource-manager-video-tutorials</id>
+    <link href="http://mikechambers.github.io//2004/06/17/flash-resource-manager-video-tutorials/"/>
+    <updated>2004-06-17T13:20:01-07:00</updated>
+    <id>http://mikechambers.github.io//2004/06/17/flash-resource-manager-video-tutorials</id>
     <content type="html"><![CDATA[<p>CommunityMX.com has posted a couple of <a href="http://www.communitymx.com/content/article.cfm?cid=B613C">video tutorials</a> on my <a href="/mesh/archives/004700.cfm">Flash Resource Manager</a> application.</p>
 
 <p>The tutorials show:</p>
@@ -79,9 +79,9 @@
   
   <entry>
     <title type="html"><![CDATA[Tutorial : Using Flash Resource Manager With Flex Docs]]></title>
-    <link href="http://mikechambers.github.io//blog/2004/05/31/tutorial-using-flash-resource-manager-with-flex-docs/"/>
-    <updated>2004-05-31T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2004/05/31/tutorial-using-flash-resource-manager-with-flex-docs</id>
+    <link href="http://mikechambers.github.io//2004/05/31/tutorial-using-flash-resource-manager-with-flex-docs/"/>
+    <updated>2004-05-31T13:32:01-07:00</updated>
+    <id>http://mikechambers.github.io//2004/05/31/tutorial-using-flash-resource-manager-with-flex-docs</id>
     <content type="html"><![CDATA[<p>Owen Van Dijk has put together a <a href="http://ohwhen.typepad.com/mx_traveller/2004/05/flex_trick_usin.html">step by step tutorial</a> showing how to use the <a href="/mesh/archives/004700.cfm">Flash Resource Manager</a> to read the Flex docs.</p>
 
 <p>This will also work with other HTML based docs, such as ColdFusion.</p>
@@ -94,9 +94,9 @@
   
   <entry>
     <title type="html"><![CDATA[Flash Resource Manager Updated / Flex and ColdFusion Support]]></title>
-    <link href="http://mikechambers.github.io//blog/2004/04/15/flash-resource-manager-updated-flex-and-coldfusion-support/"/>
-    <updated>2004-04-15T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2004/04/15/flash-resource-manager-updated-flex-and-coldfusion-support</id>
+    <link href="http://mikechambers.github.io//2004/04/15/flash-resource-manager-updated-flex-and-coldfusion-support/"/>
+    <updated>2004-04-15T13:15:01-07:00</updated>
+    <id>http://mikechambers.github.io//2004/04/15/flash-resource-manager-updated-flex-and-coldfusion-support</id>
     <content type="html"><![CDATA[<p>I have released a new version of my <a href="/mesh/archives/004700.cfm">Flash Resource Manager application</a>. It includes a bunch of bug fixes, as well as the ability to highlight the search term in search results, and support for Livedoc based HTML docs (Flex, CF and Central have been tested).</p>
 
 <p>Here is the change Log</p>

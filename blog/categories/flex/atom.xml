@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Flex | Mike Chambers]]></title>
-  <link href="http://mikechambers.github.io//blog/blog/categories/flex/atom.xml" rel="self"/>
-  <link href="http://mikechambers.github.io//blog/"/>
-  <updated>2013-12-15T20:49:44-08:00</updated>
-  <id>http://mikechambers.github.io//blog/</id>
+  <link href="http://mikechambers.github.io//blog/categories/flex/atom.xml" rel="self"/>
+  <link href="http://mikechambers.github.io//"/>
+  <updated>2013-12-16T12:31:18-08:00</updated>
+  <id>http://mikechambers.github.io//</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -14,10 +14,68 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Data Binding With FXG in Flex 4]]></title>
+    <link href="http://mikechambers.github.io//2008/08/29/data-binding-with-fxg-in-flex-4/"/>
+    <updated>2008-08-29T13:42:01-07:00</updated>
+    <id>http://mikechambers.github.io//2008/08/29/data-binding-with-fxg-in-flex-4</id>
+    <content type="html"><![CDATA[<p>One of the cool things about <a href="http://opensource.adobe.com/wiki/display/flexsdk/FXG+1.0+Specification">FXG</a> is that it works with Flex data-binding just as your would expect it to.</p>
+
+<p>Below is a simple example (which requires <a href="http://labs.adobe.com/technologies/flashplayer10/">Flash Player 10 RC</a>), followed the code, that shows data-binding with FXG and <a href="http://www.mikechambers.com/blog/2008/08/27/everything-there-is-to-know-about-flex-4-gumbo/">Flex 4</a>:</p>
+
+<!--more-->
+
+
+<p>As you can see, there are still some bugs in the rendering, but that is to be expected as these are very early Flex 4 builds.</p>
+
+<p>Source</p>
+
+<div class="highlight">
+  <pre><span style="color: #BC7A00">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;mx:Application</span> 
+    <span style="color: #7D9029">xmlns:mx=</span><span style="color: #BA2121">"library:adobe/flex/halo"</span>
+    <span style="color: #7D9029">xmlns=</span><span style="color: #BA2121">"http://ns.adobe.com/mxml/2009"</span>
+    <span style="color: #7D9029">xmlns:gumbo=</span><span style="color: #BA2121">"library:adobe/flex/gumbo"</span> 
+    <span style="color: #7D9029">verticalCenter=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">horizontalCenter=</span><span style="color: #BA2121">"0"</span>
+    <span style="color: #7D9029">layout=</span><span style="color: #BA2121">"vertical"</span><span style="color: #008000; font-weight: bold">&gt;</span>
+
+    <span style="color: #008000; font-weight: bold">&lt;gumbo:Group</span> <span style="color: #7D9029">verticalCenter=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">horizontalCenter=</span><span style="color: #BA2121">"0"</span><span style="color: #008000; font-weight: bold">&gt;</span>
+        <span style="color: #008000; font-weight: bold">&lt;Rect</span> <span style="color: #7D9029">width=</span><span style="color: #BA2121">"300"</span> <span style="color: #7D9029">height=</span><span style="color: #BA2121">"200"</span> <span style="color: #7D9029">radiusX=</span><span style="color: #BA2121">"{radiusSlider.value}"</span> 
+            <span style="color: #7D9029">radiusY=</span><span style="color: #BA2121">"{radiusSlider.value}"</span><span style="color: #008000; font-weight: bold">&gt;</span>
+            <span style="color: #008000; font-weight: bold">&lt;fill&gt;</span>
+                <span style="color: #008000; font-weight: bold">&lt;SolidColor</span> <span style="color: #7D9029">color=</span><span style="color: #BA2121">"{fillColor.selectedColor}"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+            <span style="color: #008000; font-weight: bold">&lt;/fill&gt;</span>
+            <span style="color: #008000; font-weight: bold">&lt;stroke&gt;</span>
+                <span style="color: #008000; font-weight: bold">&lt;SolidColorStroke</span> <span style="color: #7D9029">weight=</span><span style="color: #BA2121">"{strokeSlider.value}"</span> 
+                    <span style="color: #7D9029">color=</span><span style="color: #BA2121">"{strokeColor.selectedColor}"</span> <span style="color: #7D9029">alpha=</span><span style="color: #BA2121">"1"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+            <span style="color: #008000; font-weight: bold">&lt;/stroke&gt;</span>
+        <span style="color: #008000; font-weight: bold">&lt;/Rect&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;/gumbo:Group&gt;</span>
+    
+    <span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Corner Radius"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:HSlider</span> <span style="color: #7D9029">minimum=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">maximum=</span><span style="color: #BA2121">"100"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"radiusSlider"</span> <span style="color: #7D9029">liveDragging=</span><span style="color: #BA2121">"true"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Stroke Weight"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:HSlider</span> <span style="color: #7D9029">minimum=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">maximum=</span><span style="color: #BA2121">"20"</span> <span style="color: #7D9029">value=</span><span style="color: #BA2121">"5"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"strokeSlider"</span> <span style="color: #7D9029">liveDragging=</span><span style="color: #BA2121">"true"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Stroke Color"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:ColorPicker</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"strokeColor"</span> <span style="color: #7D9029">selectedColor=</span><span style="color: #BA2121">"0x333333"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Fill Color"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:ColorPicker</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"fillColor"</span> <span style="color: #7D9029">selectedColor=</span><span style="color: #BA2121">"0x999999"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+
+<span style="color: #008000; font-weight: bold">&lt;/mx:Application&gt;</span>
+</pre>
+</div>
+
+
+<p>You can of course, read more details on this in the <a href="http://opensource.adobe.com/wiki/display/flexsdk/FXG+1.0+Specification">FXG 1.0 Specification</a>.</p>
+
+<p>I also have a post on how to <a href="http://www.mikechambers.com/blog/2008/08/28/getting-started-with-flex-4-fxg-and-flex-builder-3/">get started with Flex 4 FXG in Flex Builder 3</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Defining and Reusing Symbols in Flex 4 FXG]]></title>
-    <link href="http://mikechambers.github.io//blog/2008/08/29/defining-and-reusing-symbols-in-flex-4-fxg/"/>
-    <updated>2008-08-29T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2008/08/29/defining-and-reusing-symbols-in-flex-4-fxg</id>
+    <link href="http://mikechambers.github.io//2008/08/29/defining-and-reusing-symbols-in-flex-4-fxg/"/>
+    <updated>2008-08-29T13:02:01-07:00</updated>
+    <id>http://mikechambers.github.io//2008/08/29/defining-and-reusing-symbols-in-flex-4-fxg</id>
     <content type="html"><![CDATA[<p>If you have done Flash development using the Flash Authoring tool, or have done any low level work with the SWF format, then you should be familiar with the concept of symbols. Basically a symbol is a reusable object (graphics, buttons, MovieClip) that can be included in the SWF once, but referenced and used many times.</p>
 
 <p>Flex 4 <a href="http://opensource.adobe.com/wiki/display/flexsdk/FXG+1.0+Specification">FXG</a> has a similar concept of symbol, although the actual underlying implimentation is different. Using the <code>Library</code> and <code>Definition</code> elements, you can define a graphic symbol, which can then be reused multiple times within the FXG or MXML document.</p>
@@ -75,68 +133,10 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Data Binding With FXG in Flex 4]]></title>
-    <link href="http://mikechambers.github.io//blog/2008/08/29/data-binding-with-fxg-in-flex-4/"/>
-    <updated>2008-08-29T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2008/08/29/data-binding-with-fxg-in-flex-4</id>
-    <content type="html"><![CDATA[<p>One of the cool things about <a href="http://opensource.adobe.com/wiki/display/flexsdk/FXG+1.0+Specification">FXG</a> is that it works with Flex data-binding just as your would expect it to.</p>
-
-<p>Below is a simple example (which requires <a href="http://labs.adobe.com/technologies/flashplayer10/">Flash Player 10 RC</a>), followed the code, that shows data-binding with FXG and <a href="http://www.mikechambers.com/blog/2008/08/27/everything-there-is-to-know-about-flex-4-gumbo/">Flex 4</a>:</p>
-
-<!--more-->
-
-
-<p>As you can see, there are still some bugs in the rendering, but that is to be expected as these are very early Flex 4 builds.</p>
-
-<p>Source</p>
-
-<div class="highlight">
-  <pre><span style="color: #BC7A00">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
-<span style="color: #008000; font-weight: bold">&lt;mx:Application</span> 
-    <span style="color: #7D9029">xmlns:mx=</span><span style="color: #BA2121">"library:adobe/flex/halo"</span>
-    <span style="color: #7D9029">xmlns=</span><span style="color: #BA2121">"http://ns.adobe.com/mxml/2009"</span>
-    <span style="color: #7D9029">xmlns:gumbo=</span><span style="color: #BA2121">"library:adobe/flex/gumbo"</span> 
-    <span style="color: #7D9029">verticalCenter=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">horizontalCenter=</span><span style="color: #BA2121">"0"</span>
-    <span style="color: #7D9029">layout=</span><span style="color: #BA2121">"vertical"</span><span style="color: #008000; font-weight: bold">&gt;</span>
-
-    <span style="color: #008000; font-weight: bold">&lt;gumbo:Group</span> <span style="color: #7D9029">verticalCenter=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">horizontalCenter=</span><span style="color: #BA2121">"0"</span><span style="color: #008000; font-weight: bold">&gt;</span>
-        <span style="color: #008000; font-weight: bold">&lt;Rect</span> <span style="color: #7D9029">width=</span><span style="color: #BA2121">"300"</span> <span style="color: #7D9029">height=</span><span style="color: #BA2121">"200"</span> <span style="color: #7D9029">radiusX=</span><span style="color: #BA2121">"{radiusSlider.value}"</span> 
-            <span style="color: #7D9029">radiusY=</span><span style="color: #BA2121">"{radiusSlider.value}"</span><span style="color: #008000; font-weight: bold">&gt;</span>
-            <span style="color: #008000; font-weight: bold">&lt;fill&gt;</span>
-                <span style="color: #008000; font-weight: bold">&lt;SolidColor</span> <span style="color: #7D9029">color=</span><span style="color: #BA2121">"{fillColor.selectedColor}"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
-            <span style="color: #008000; font-weight: bold">&lt;/fill&gt;</span>
-            <span style="color: #008000; font-weight: bold">&lt;stroke&gt;</span>
-                <span style="color: #008000; font-weight: bold">&lt;SolidColorStroke</span> <span style="color: #7D9029">weight=</span><span style="color: #BA2121">"{strokeSlider.value}"</span> 
-                    <span style="color: #7D9029">color=</span><span style="color: #BA2121">"{strokeColor.selectedColor}"</span> <span style="color: #7D9029">alpha=</span><span style="color: #BA2121">"1"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
-            <span style="color: #008000; font-weight: bold">&lt;/stroke&gt;</span>
-        <span style="color: #008000; font-weight: bold">&lt;/Rect&gt;</span>
-    <span style="color: #008000; font-weight: bold">&lt;/gumbo:Group&gt;</span>
-    
-    <span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Corner Radius"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
-    <span style="color: #008000; font-weight: bold">&lt;mx:HSlider</span> <span style="color: #7D9029">minimum=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">maximum=</span><span style="color: #BA2121">"100"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"radiusSlider"</span> <span style="color: #7D9029">liveDragging=</span><span style="color: #BA2121">"true"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
-    <span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Stroke Weight"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
-    <span style="color: #008000; font-weight: bold">&lt;mx:HSlider</span> <span style="color: #7D9029">minimum=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">maximum=</span><span style="color: #BA2121">"20"</span> <span style="color: #7D9029">value=</span><span style="color: #BA2121">"5"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"strokeSlider"</span> <span style="color: #7D9029">liveDragging=</span><span style="color: #BA2121">"true"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
-    <span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Stroke Color"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
-    <span style="color: #008000; font-weight: bold">&lt;mx:ColorPicker</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"strokeColor"</span> <span style="color: #7D9029">selectedColor=</span><span style="color: #BA2121">"0x333333"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
-    <span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Fill Color"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
-    <span style="color: #008000; font-weight: bold">&lt;mx:ColorPicker</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"fillColor"</span> <span style="color: #7D9029">selectedColor=</span><span style="color: #BA2121">"0x999999"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
-
-<span style="color: #008000; font-weight: bold">&lt;/mx:Application&gt;</span>
-</pre>
-</div>
-
-
-<p>You can of course, read more details on this in the <a href="http://opensource.adobe.com/wiki/display/flexsdk/FXG+1.0+Specification">FXG 1.0 Specification</a>.</p>
-
-<p>I also have a post on how to <a href="http://www.mikechambers.com/blog/2008/08/28/getting-started-with-flex-4-fxg-and-flex-builder-3/">get started with Flex 4 FXG in Flex Builder 3</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[Everything There Is to Know About Flex 4 / Gumbo]]></title>
-    <link href="http://mikechambers.github.io//blog/2008/08/27/everything-there-is-to-know-about-flex-4-gumbo/"/>
-    <updated>2008-08-27T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2008/08/27/everything-there-is-to-know-about-flex-4-gumbo</id>
+    <link href="http://mikechambers.github.io//2008/08/27/everything-there-is-to-know-about-flex-4-gumbo/"/>
+    <updated>2008-08-27T13:31:01-07:00</updated>
+    <id>http://mikechambers.github.io//2008/08/27/everything-there-is-to-know-about-flex-4-gumbo</id>
     <content type="html"><![CDATA[<p>About a month ago, the Flex team <a href="http://blogs.adobe.com/flex/archives/2008/07/more_information_on_next_versi.html">announced</a> that nightly builds of the next version of Flex (code named Gumbo) were now available on the <a href="http://opensource.adobe.com/wiki/display/flexsdk/Gumbo">opensource Flex site</a>. Along with early versions of the SDK, the team also posted a ton of other information, including specs and API docs.</p>
 
 <p>Below is a listing of links and resources about Gumbo / Flex 4. Going through these will quickly get your up to speed on what is being worked on in Flex 4, and get your ready for playing around with the new builds.</p>
@@ -213,9 +213,9 @@ Flex Developer Forums<br/>
   
   <entry>
     <title type="html"><![CDATA[Flex Builder 2 Free for Students and Educators]]></title>
-    <link href="http://mikechambers.github.io//blog/2007/10/24/flex-builder-2-free-for-students-and-educators/"/>
-    <updated>2007-10-24T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2007/10/24/flex-builder-2-free-for-students-and-educators</id>
+    <link href="http://mikechambers.github.io//2007/10/24/flex-builder-2-free-for-students-and-educators/"/>
+    <updated>2007-10-24T13:45:01-07:00</updated>
+    <id>http://mikechambers.github.io//2007/10/24/flex-builder-2-free-for-students-and-educators</id>
     <content type="html"><![CDATA[<p>From the press release:</p>
 
 <blockquote><p>Adobe Systems Incorporated (Nasdaq:ADBE) today announced that it is offering AdobeÂ® Flexâ„¢ Builderâ„¢ 2 software at no cost to students and faculty at educational institutions worldwide&hellip;. Adobe Flex 2 will be available to qualified education end-users for free download on Adobe.com in early November.</p></blockquote>
@@ -226,9 +226,9 @@ Flex Developer Forums<br/>
   
   <entry>
     <title type="html"><![CDATA[Sorting Date Fields in a DataGrid in the Flex Framework]]></title>
-    <link href="http://mikechambers.github.io//blog/2005/04/27/sorting-date-fields-in-a-datagrid-in-the-flex-framework/"/>
-    <updated>2005-04-27T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2005/04/27/sorting-date-fields-in-a-datagrid-in-the-flex-framework</id>
+    <link href="http://mikechambers.github.io//2005/04/27/sorting-date-fields-in-a-datagrid-in-the-flex-framework/"/>
+    <updated>2005-04-27T13:54:01-07:00</updated>
+    <id>http://mikechambers.github.io//2005/04/27/sorting-date-fields-in-a-datagrid-in-the-flex-framework</id>
     <content type="html"><![CDATA[<p>I was working on some new mini chart apps over the weekend for the [MXNA reports section][1], and had a DataGrid that contained dates. I wanted to allow the user to sort the datagrid by the DateField, but by default the DataGrid sorts dates with a string compare (calling toString on the Date instance).</p>
 
 <p>I tried to set up a custom sort function for the DataGridColumn instance that contained the dates, but because I was using a custom label format function for the column, Flex passed the labels to me, and not the data items (which would allow me to get access to the Date instance). Because of this, I couldn&#8217;t sort on the date.</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ActionScript | Mike Chambers]]></title>
-  <link href="http://mikechambers.github.io//blog/blog/categories/actionscript/atom.xml" rel="self"/>
-  <link href="http://mikechambers.github.io//blog/"/>
-  <updated>2013-12-15T20:49:44-08:00</updated>
-  <id>http://mikechambers.github.io//blog/</id>
+  <link href="http://mikechambers.github.io//blog/categories/actionscript/atom.xml" rel="self"/>
+  <link href="http://mikechambers.github.io//"/>
+  <updated>2013-12-16T12:31:18-08:00</updated>
+  <id>http://mikechambers.github.io//</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Flash Roadmap Whitepaper Published]]></title>
-    <link href="http://mikechambers.github.io//blog/2012/02/22/flash-roadmap-whitepaper-published/"/>
-    <updated>2012-02-22T00:00:00-08:00</updated>
-    <id>http://mikechambers.github.io//blog/2012/02/22/flash-roadmap-whitepaper-published</id>
+    <link href="http://mikechambers.github.io//2012/02/22/flash-roadmap-whitepaper-published/"/>
+    <updated>2012-02-22T12:49:01-08:00</updated>
+    <id>http://mikechambers.github.io//2012/02/22/flash-roadmap-whitepaper-published</id>
     <content type="html"><![CDATA[<p>We have just posted a new whitepaper on Adobe.com. The whitepaper, titled <a href="http://www.adobe.com/go/flashplayer_whitepaper">Adobe roadmap for the Flash runtimes</a> lays out the 1 to 2 year roadmap for the Flash runtimes (primarily Adobe AIR and Flash Player). This includes information on specific planned releases, longer term player work, and supported platforms.</p>
 
 <!--more-->
@@ -33,7 +33,7 @@
 
 <p>This speaks to another goal of the whitepapers. We understand that we have damaged our trust and credibility with the community over how we have communicated some of the recent changes around the Flash platform and that trying to regain that trust is a long term process. We have to be clear and open around our plans around the Flash runtimes, and then demonstrate that we can follow up those plans with actions. This whitepaper lays the foundation of the first part of that, and hopefully our actions and runtime releases over the next 6 to 12 months will demonstrate the second part.</p>
 
-<p>Finally, as part of the release of the whitepaper, I and some other members of the Flash and evangelist teams will be visiting user groups world wide. This will be an opportunity to go over the roadmap in more detail, have a frank and open discussion around recent changes around Flash, as well as discuss Flash&rsquo;s role on the web and how it related to HTML5. The first set of meetings are over the <a href="http://www.mikechambers.com/blog/2012/02/13/in-europe-to-discuss-flash-roadmap/">next two weeks in Europe</a>, and we will announce more for North and South America, and Asia over the next couple of weeks. If you would be interested in hosting a meeting, just shoot me an email at <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#109;&#x65;&#x73;&#x68;&#64;&#x61;&#100;&#111;&#x62;&#101;&#x2e;&#99;&#x6f;&#x6d;&#46;">&#x6d;&#x65;&#115;&#x68;&#x40;&#x61;&#x64;&#x6f;&#98;&#101;&#46;&#99;&#x6f;&#109;&#x2e;</a></p>
+<p>Finally, as part of the release of the whitepaper, I and some other members of the Flash and evangelist teams will be visiting user groups world wide. This will be an opportunity to go over the roadmap in more detail, have a frank and open discussion around recent changes around Flash, as well as discuss Flash&rsquo;s role on the web and how it related to HTML5. The first set of meetings are over the <a href="http://www.mikechambers.com/blog/2012/02/13/in-europe-to-discuss-flash-roadmap/">next two weeks in Europe</a>, and we will announce more for North and South America, and Asia over the next couple of weeks. If you would be interested in hosting a meeting, just shoot me an email at <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#109;&#x65;&#115;&#104;&#x40;&#x61;&#100;&#x6f;&#x62;&#101;&#x2e;&#x63;&#x6f;&#x6d;&#x2e;">&#109;&#x65;&#115;&#104;&#x40;&#x61;&#100;&#111;&#x62;&#x65;&#x2e;&#x63;&#x6f;&#x6d;&#46;</a></p>
 
 <p>We are already planning an update for the whitepaper in a couple of weeks, so if you find anything is not clear, or would like it to cover other topics, please post them in the comments, or shoot me an email.</p>
 ]]></content>
@@ -41,9 +41,9 @@
   
   <entry>
     <title type="html"><![CDATA[FITC Amsterdam : Building High Performance iPhone Applications With ActionScript 3]]></title>
-    <link href="http://mikechambers.github.io//blog/2010/01/25/fitc-amsterdam-building-high-performance-iphone-applications-with-actionscript-3/"/>
-    <updated>2010-01-25T00:00:00-08:00</updated>
-    <id>http://mikechambers.github.io//blog/2010/01/25/fitc-amsterdam-building-high-performance-iphone-applications-with-actionscript-3</id>
+    <link href="http://mikechambers.github.io//2010/01/25/fitc-amsterdam-building-high-performance-iphone-applications-with-actionscript-3/"/>
+    <updated>2010-01-25T12:13:01-08:00</updated>
+    <id>http://mikechambers.github.io//2010/01/25/fitc-amsterdam-building-high-performance-iphone-applications-with-actionscript-3</id>
     <content type="html"><![CDATA[<p>Sorry for the two month hiatus on posting. I was on a sabbatical and vacation from work for the last 6 weeks of 2009, and have spent the first couple of weeks of 2010 busy working on code, and preparing some events for the spring (more on that in another post).</p>
 
 <p>Some of the stuff I have continued to spend a lot of time working on, has been <a href="http://labs.adobe.com/technologies/flashcs5/appsfor_iphone/">building iPhone content using the Flash CS5 private beta</a>. I have been doing a lot of work on trying to figure out how to get the best performance, and understand the limits of Flash content on the device. I plan to make a separate post on that in the next couple of days.</p>
@@ -59,9 +59,9 @@
   
   <entry>
     <title type="html"><![CDATA[Case Study : ActionScript 3 Performance Optimization]]></title>
-    <link href="http://mikechambers.github.io//blog/2009/10/13/case-study-actionscript-3-performance-optimization/"/>
-    <updated>2009-10-13T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2009/10/13/case-study-actionscript-3-performance-optimization</id>
+    <link href="http://mikechambers.github.io//2009/10/13/case-study-actionscript-3-performance-optimization/"/>
+    <updated>2009-10-13T13:57:01-07:00</updated>
+    <id>http://mikechambers.github.io//2009/10/13/case-study-actionscript-3-performance-optimization</id>
     <content type="html"><![CDATA[<p>Prompted by some of the work from <a href="http://www.gskinner.com/blog/">Grant Skinner</a> (in particular his <a href="http://gskinner.com/blog/archives/2004/06/conference_sess.html">FOTB 2009 session</a>) and <a href="http://www.bytearray.org/">Thibault Imbert</a>, I have been doing a lot of research lately into optimizing ActionScript 3 content. Not just how to make it run faster, but how to approach the process of optimization.</p>
 
 <p>I am also starting to work on a small project which works with pixel data from images, and on which I anticipate performance might be an issue when working with larger images. I figured this would be a good opportunity to use some of the early code as a case study. I wanted to post the process and results here.</p>
@@ -473,14 +473,14 @@ public class PixelSort extends Sprite
   
   <entry>
     <title type="html"><![CDATA[Parsing and Displaying BMP Files via ActionScript]]></title>
-    <link href="http://mikechambers.github.io//blog/2009/09/17/parsing-and-displaying-bmp-files-via-actionscript/"/>
-    <updated>2009-09-17T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2009/09/17/parsing-and-displaying-bmp-files-via-actionscript</id>
+    <link href="http://mikechambers.github.io//2009/09/17/parsing-and-displaying-bmp-files-via-actionscript/"/>
+    <updated>2009-09-17T13:29:01-07:00</updated>
+    <id>http://mikechambers.github.io//2009/09/17/parsing-and-displaying-bmp-files-via-actionscript</id>
     <content type="html"><![CDATA[<p>I dont have a formal computer science training / education, so I never got the chance to learn about working with low level data structures (bits and bytes). I have wanted to learn this for some time, but had difficulty finding resources for it which didnt assume I had a computer science degree.</p>
 
-<p>Well, yesterday, FITC posted <a href="http://www.fitc.ca/media/">all of the video sessions from FITC Toronto</a>, and I spent some time watching Lee Brimelow&#8217;s presentation on working with ByteArrays. It is a really great session, that provides a clear and solid foundation and understanding of working with ByteArrays and bits and bytes.</p>
+<p>Well, yesterday, FITC posted <a href="http://www.fitc.ca/media/">all of the video sessions from FITC Toronto</a>, and I spent some time watching Lee Brimelow&rsquo;s presentation on working with ByteArrays. It is a really great session, that provides a clear and solid foundation and understanding of working with ByteArrays and bits and bytes.</p>
 
-<p>Anyways, after watching Lee&#8217;s session, it all finally clicked for me, and I spent some time last night putting together a simple parser that would dynamically load and display a <a href="http://en.wikipedia.org/wiki/BMP%5Ffile%5Fformat">24Bit BMP image file</a> within Flash.</p>
+<p>Anyways, after watching Lee&rsquo;s session, it all finally clicked for me, and I spent some time last night putting together a simple parser that would dynamically load and display a <a href="http://en.wikipedia.org/wiki/BMP%5Ffile%5Fformat">24Bit BMP image file</a> within Flash.</p>
 
 <!--more-->
 
@@ -489,213 +489,212 @@ public class PixelSort extends Sprite
 
 <p>The code requires Adobe AIR (so I can load the BMP directly). In order to convert to the Flash Player in the browser, just replace the File loading with FileReference.browse.</p>
 
-<div class="highlight">
-  <pre>package
+<p>``` actionscript
+package
+{</p>
+
+<pre><code>import flash.filesystem.File;
+import flash.filesystem.FileStream;
+import flash.filesystem.FileMode;
+
+import flash.display.Sprite;
+import flash.display.BitmapData;
+import flash.display.Bitmap;
+import flash.utils.Endian;
+
+import flash.geom.Rectangle;
+
+[SWF(width='550', height='400', backgroundColor='#FFFFFF', frameRate='12')]
+public class BMPViewer extends Sprite
 {
-    <span style="color: #008000; font-weight: bold">import</span> flash.filesystem.File<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.filesystem.FileStream<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.filesystem.FileMode<span style="color: #666666">;</span>
-    
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.Sprite<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.<span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.display.Bitmap<span style="color: #666666">;</span>
-    <span style="color: #008000; font-weight: bold">import</span> flash.utils.Endian<span style="color: #666666">;</span>
-    
-    <span style="color: #008000; font-weight: bold">import</span> flash.geom.<span style="color: #008000">Rectangle</span><span style="color: #666666">;</span>
-    
-    [SWF(width<span style="color: #666666">=</span><span style="color: #BA2121">&#39;550&#39;</span><span style="color: #666666">,</span> height<span style="color: #666666">=</span><span style="color: #BA2121">&#39;400&#39;</span><span style="color: #666666">,</span> backgroundColor<span style="color: #666666">=</span><span style="color: #BA2121">&#39;#FFFFFF&#39;</span><span style="color: #666666">,</span> frameRate<span style="color: #666666">=</span><span style="color: #BA2121">&#39;12&#39;</span>)]
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> BMPViewer <span style="color: #008000; font-weight: bold">extends</span> Sprite
+    private static const MAGIC_NUMBER:String = "BM";
+    private static const BMP_DATA_OFFSET_POSITION:int = 0xA;
+    private static const WIDTH_POSITION:int = 0x12;
+    private static const HEIGHT_POSITION:int = 0x16;
+
+    public function BMPViewer()
     {
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">static</span> const MAGIC_NUMBER<span style="color: #666666">:</span><span style="color: #008000">String</span> <span style="color: #666666">=</span> <span style="color: #BA2121">"BM"</span><span style="color: #666666">;</span>
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">static</span> const BMP_DATA_OFFSET_POSITION<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666"></span>xA<span style="color: #666666">;</span>
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">static</span> const WIDTH_POSITION<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0x12;</span>
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">static</span> const HEIGHT_POSITION<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0x16;</span>
-        
-        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> BMPViewer()
+        loadBMP();
+        super();
+    }
+
+    /*
+        Loads and reads a 24 Bit bitmap file.
+
+        Based on BMP info from:
+        http://en.wikipedia.org/wiki/BMP%5Ffile%5Fformat
+    */
+    private function loadBMP():void
+    {
+        //Load BMP. This requires AIR.
+        //Use FileReference.browse for
+        //Flash Player
+        var bmpFile:File = new File("app:/image.bmp");
+        var fs:FileStream = new FileStream();
+
+        //BMP files are Little Endian, which means their
+        //least significant byte is first (right to left)
+        fs.endian = Endian.LITTLE_ENDIAN;
+
+        //open the file in READ mode
+        fs.open(bmpFile, FileMode.READ);
+
+        //check the first two bytes to make sure
+        //it is a valid BMP file
+        if(fs.readUTFBytes(2) != MAGIC_NUMBER)
         {
-            loadBMP();
-            <span style="color: #008000; font-weight: bold">super</span>();
-        }
-        
-        <span style="color: #408080; font-style: italic">/*</span>
-<span style="color: #408080; font-style: italic">           Loads and reads a 24 Bit bitmap file.</span>
-<span style="color: #408080; font-style: italic">           </span>
-<span style="color: #408080; font-style: italic">           Based on BMP info from:</span>
-<span style="color: #408080; font-style: italic">           http://en.wikipedia.org/wiki/BMP%5Ffile%5Fformat</span>
-<span style="color: #408080; font-style: italic">       */</span>
-        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> loadBMP()<span style="color: #666666">:</span>void
-        {
-            <span style="color: #408080; font-style: italic">//Load BMP. This requires AIR.</span>
-            <span style="color: #408080; font-style: italic">//Use FileReference.browse for</span>
-            <span style="color: #408080; font-style: italic">//Flash Player</span>
-            <span style="color: #008000; font-weight: bold">var</span> bmpFile<span style="color: #666666">:</span>File <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> File(<span style="color: #BA2121">"app:/image.bmp"</span>);
-            <span style="color: #008000; font-weight: bold">var</span> fs<span style="color: #666666">:</span>FileStream <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> FileStream();
-            
-            <span style="color: #408080; font-style: italic">//BMP files are Little Endian, which means their</span>
-            <span style="color: #408080; font-style: italic">//least significant byte is first (right to left)</span>
-            fs.endian <span style="color: #666666">=</span> Endian.LITTLE_ENDIAN<span style="color: #666666">;</span>
-            
-            <span style="color: #408080; font-style: italic">//open the file in READ mode</span>
-            fs.open(bmpFile<span style="color: #666666">,</span> FileMode.READ);
-            
-            <span style="color: #408080; font-style: italic">//check the first two bytes to make sure</span>
-            <span style="color: #408080; font-style: italic">//it is a valid BMP file</span>
-            <span style="color: #008000; font-weight: bold">if</span>(fs.readUTFBytes(<span style="color: #666666">2</span>) <span style="color: #666666">!=</span> MAGIC_NUMBER)
-            {
-                <span style="color: #0000FF">trace</span>(<span style="color: #BA2121">"FAIL : NOT A BMP FILE"</span>);
-                
-                <span style="color: #408080; font-style: italic">//not a BMP file, close steam</span>
-                <span style="color: #408080; font-style: italic">//and exit</span>
-                fs.close();
-                <span style="color: #008000; font-weight: bold">return</span><span style="color: #666666">;</span>
-            }
-            
-            <span style="color: #408080; font-style: italic">//note, we could also grab the length from the </span>
-            <span style="color: #408080; font-style: italic">//header and make sure the file was the correct</span>
-            <span style="color: #408080; font-style: italic">//length</span>
-            
-            <span style="color: #408080; font-style: italic">//change the cursors position to the point</span>
-            <span style="color: #408080; font-style: italic">//in the header that contains the value / offset</span>
-            <span style="color: #408080; font-style: italic">//of where the actual bitmap data begins</span>
-            <span style="color: #408080; font-style: italic">//read in the 4 Bytes that contain the value</span>
-            fs.position <span style="color: #666666">=</span> BMP_DATA_OFFSET_POSITION<span style="color: #666666">;</span>
-            <span style="color: #008000; font-weight: bold">var</span> dataPosition<span style="color: #666666">:</span>int <span style="color: #666666">=</span> fs.readInt();
+            trace("FAIL : NOT A BMP FILE");
 
-            <span style="color: #408080; font-style: italic">//set cursor position to where the BMP</span>
-            <span style="color: #408080; font-style: italic">//width is stored</span>
-            fs.position <span style="color: #666666">=</span> WIDTH_POSITION<span style="color: #666666">;</span>
-            
-            <span style="color: #408080; font-style: italic">//read in the 4 Bytes that contain the width</span>
-            <span style="color: #008000; font-weight: bold">var</span> bmpWidth<span style="color: #666666">:</span>int <span style="color: #666666">=</span> fs.readInt();
-            
-            <span style="color: #408080; font-style: italic">//read in the 4 Bytes that contain the height</span>
-            <span style="color: #008000; font-weight: bold">var</span> bmpHeight<span style="color: #666666">:</span>int <span style="color: #666666">=</span> fs.readInt();
-            
-            <span style="color: #408080; font-style: italic">//set cursor to where the BMP pixel data begins</span>
-            fs.position <span style="color: #666666">=</span> dataPosition<span style="color: #666666">;</span>
-            
-            <span style="color: #008000; font-weight: bold">var</span> row<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">var</span> column<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            
-            <span style="color: #408080; font-style: italic">//every row length in a BMP file must bee a multiple</span>
-            <span style="color: #408080; font-style: italic">//of 4 (see the spec). So, we need to determine how much</span>
-            <span style="color: #408080; font-style: italic">//padding we need to add at the end of each line. </span>
-            <span style="color: #008000; font-weight: bold">var</span> padding<span style="color: #666666">:</span>int <span style="color: #666666">=</span> (bmpWidth <span style="color: #666666">%</span> <span style="color: #666666">4</span>);
-                
-            <span style="color: #408080; font-style: italic">//create a fixed length Vector to store the pixel</span>
-            <span style="color: #408080; font-style: italic">//values as we read them.</span>
-            <span style="color: #008000; font-weight: bold">var</span> pixels<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span>uint<span style="color: #666666">&gt;</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Vector.<span style="color: #666666">&lt;</span>uint<span style="color: #666666">&gt;</span>(bmpWidth <span style="color: #666666">*</span> bmpHeight<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span>);
-
-            <span style="color: #408080; font-style: italic">//loop through data (rows and columns)</span>
-            <span style="color: #408080; font-style: italic">//note that data stored in BMP is backwards to Flash and is</span>
-            <span style="color: #408080; font-style: italic">//stored from bottom row up, not top row down.</span>
-            <span style="color: #408080; font-style: italic">//So we have to loop backwards</span>
-            <span style="color: #008000; font-weight: bold">var</span> counter<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
-            <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #008000; font-weight: bold">var</span> i<span style="color: #666666">:</span>int <span style="color: #666666">=</span> bmpHeight<span style="color: #666666">;</span> i <span style="color: #666666">&gt;</span> <span style="color: #666666">0;</span> i<span style="color: #666666">--</span>)
-            {
-                <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #008000; font-weight: bold">var</span> k<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span> k <span style="color: #666666">&lt;</span> bmpWidth<span style="color: #666666">;</span> k<span style="color: #666666">++</span>)
-                {
-                    
-                    
-                    <span style="color: #008000; font-weight: bold">var</span> position<span style="color: #666666">:</span>int <span style="color: #666666">=</span> ((i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">*</span> bmpWidth) <span style="color: #666666">+</span> k<span style="color: #666666">;</span>
-                    <span style="color: #408080; font-style: italic">/*</span>
-<span style="color: #408080; font-style: italic">                       This is the original code that I had which works fine</span>
-<span style="color: #408080; font-style: italic">                       but is not as effecient as what I have now.</span>
-<span style="color: #408080; font-style: italic">                       </span>
-<span style="color: #408080; font-style: italic">                       Basically, Pixels are stored within 3 sucessive Bytes</span>
-<span style="color: #408080; font-style: italic">                       in a BMP file, with one Byte each for Blue, Green and</span>
-<span style="color: #408080; font-style: italic">                       Red values (in that order).</span>
-<span style="color: #408080; font-style: italic">                       </span>
-<span style="color: #408080; font-style: italic">                       So, this reads the Bytes for each pixel, one at a time</span>
-<span style="color: #408080; font-style: italic">                       and then combines them into a single value which is</span>
-<span style="color: #408080; font-style: italic">                       the combined RGB pixel value.</span>
-<span style="color: #408080; font-style: italic">                       </span>
-<span style="color: #408080; font-style: italic">                       I left the code as I think it make it a little easier to</span>
-<span style="color: #408080; font-style: italic">                       understand what is going on, as well as how some of these</span>
-<span style="color: #408080; font-style: italic">                       calls can be optimized.</span>
-<span style="color: #408080; font-style: italic">                   */</span>
-                    
-                    <span style="color: #408080; font-style: italic">/*</span>
-<span style="color: #408080; font-style: italic">                   var blue:int = fs.readUnsignedByte();</span>
-<span style="color: #408080; font-style: italic">                   var green:int = fs.readUnsignedByte();</span>
-<span style="color: #408080; font-style: italic">                   var red:int = fs.readUnsignedByte();</span>
-<span style="color: #408080; font-style: italic">                   </span>
-<span style="color: #408080; font-style: italic">                   pixels[position] = (red &lt;&lt; 16 ^ green &lt;&lt; 8 ^ blue);</span>
-<span style="color: #408080; font-style: italic">                   */</span>
-
-                    
-                    <span style="color: #408080; font-style: italic">/*</span>
-<span style="color: #408080; font-style: italic">                       Here is the final code which is more efficient, as it only</span>
-<span style="color: #408080; font-style: italic">                       needs to make 2 read calls in order to get the values.</span>
-<span style="color: #408080; font-style: italic">                       </span>
-<span style="color: #408080; font-style: italic">                       Thanks to Thibault Imbert (bytearray.org) for pointing out</span>
-<span style="color: #408080; font-style: italic">                       and helping me understand the optimization.</span>
-<span style="color: #408080; font-style: italic">                   */</span>
-                    
-                    <span style="color: #408080; font-style: italic">//bytes in file are in Blue, Green, Red order</span>
-                    <span style="color: #408080; font-style: italic">//int is 32 bits (8 bytes). So, we store the first two bytes of the pixel</span>
-                    <span style="color: #408080; font-style: italic">// (which contain the Red value), and</span>
-                    <span style="color: #408080; font-style: italic">//then shift everything over 1 byte (8bits) to make room for</span>
-                    <span style="color: #408080; font-style: italic">//the green and blue values (remember the file is little endian), which we</span>
-                    <span style="color: #408080; font-style: italic">// then write into the int in the right position</span>
-                    <span style="color: #408080; font-style: italic">//The final value has the colors in the correct order (Red, Green, Blue)</span>
-                                        
-                    <span style="color: #008000; font-weight: bold">var</span> pixelValue<span style="color: #666666">:</span>uint <span style="color: #666666">=</span> fs.readUnsignedByte() <span style="color: #666666">|</span> fs.readUnsignedShort() <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">8;</span>
-                    pixels[position] <span style="color: #666666">=</span> pixelValue<span style="color: #666666">;</span>
-                }
-                
-                <span style="color: #408080; font-style: italic">//we are at the end of the row, so now we have to move the cursor</span>
-                <span style="color: #408080; font-style: italic">//forward so it ends on a multiple of 4</span>
-                <span style="color: #008000; font-weight: bold">if</span>(padding)
-                {
-                    fs.position <span style="color: #666666">+=</span> padding<span style="color: #666666">;</span>
-                }
-            }
-            
-            <span style="color: #408080; font-style: italic">//done reading file, close stream.</span>
+            //not a BMP file, close steam
+            //and exit
             fs.close();
-            
-            <span style="color: #408080; font-style: italic">//create a Rectangle with width / height of Bitmap</span>
-            <span style="color: #008000; font-weight: bold">var</span> rect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Rectangle</span>(<span style="color: #666666">0,</span> <span style="color: #666666">0,</span> bmpWidth<span style="color: #666666">,</span> bmpHeight);
-            
-            <span style="color: #408080; font-style: italic">//create the BitmapData object to hold hold the BMP data.</span>
-            <span style="color: #408080; font-style: italic">//we do a red fill here so it is easier to see if we have any errors</span>
-            <span style="color: #408080; font-style: italic">//in our code</span>
-            <span style="color: #008000; font-weight: bold">var</span> bmpData<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(bmpWidth<span style="color: #666666">,</span> bmpHeight<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">,</span> <span style="color: #666666"></span>xFF0000);
-            
-            <span style="color: #408080; font-style: italic">//copy the BMP pixel data into the BitmapData</span>
-            bmpData.setVector(rect<span style="color: #666666">,</span> pixels);
-            
-            <span style="color: #408080; font-style: italic">//create a new Bitmap instance using the BitmapData</span>
-            <span style="color: #008000; font-weight: bold">var</span> bitmap<span style="color: #666666">:</span>Bitmap <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Bitmap(bmpData);
-            bitmap.x <span style="color: #666666">=</span> <span style="color: #666666">10;</span>
-            bitmap.y <span style="color: #666666">=</span> <span style="color: #666666">10;</span>
-                    
-            <span style="color: #408080; font-style: italic">//add Bitmap to the display list</span>
-            addChild(bitmap);
+            return;
         }
+
+        //note, we could also grab the length from the 
+        //header and make sure the file was the correct
+        //length
+
+        //change the cursors position to the point
+        //in the header that contains the value / offset
+        //of where the actual bitmap data begins
+        //read in the 4 Bytes that contain the value
+        fs.position = BMP_DATA_OFFSET_POSITION;
+        var dataPosition:int = fs.readInt();
+
+        //set cursor position to where the BMP
+        //width is stored
+        fs.position = WIDTH_POSITION;
+
+        //read in the 4 Bytes that contain the width
+        var bmpWidth:int = fs.readInt();
+
+        //read in the 4 Bytes that contain the height
+        var bmpHeight:int = fs.readInt();
+
+        //set cursor to where the BMP pixel data begins
+        fs.position = dataPosition;
+
+        var row:int = 0;
+        var column:int = 0;
+
+        //every row length in a BMP file must bee a multiple
+        //of 4 (see the spec). So, we need to determine how much
+        //padding we need to add at the end of each line. 
+        var padding:int = (bmpWidth % 4);
+
+        //create a fixed length Vector to store the pixel
+        //values as we read them.
+        var pixels:Vector.&lt;uint&gt; = new Vector.&lt;uint&gt;(bmpWidth * bmpHeight, true);
+
+        //loop through data (rows and columns)
+        //note that data stored in BMP is backwards to Flash and is
+        //stored from bottom row up, not top row down.
+        //So we have to loop backwards
+        var counter:int = 0;
+        for(var i:int = bmpHeight; i &gt; 0; i--)
+        {
+            for(var k:int = 0; k &lt; bmpWidth; k++)
+            {
+
+
+                var position:int = ((i - 1) * bmpWidth) + k;
+                /*
+                    This is the original code that I had which works fine
+                    but is not as effecient as what I have now.
+
+                    Basically, Pixels are stored within 3 sucessive Bytes
+                    in a BMP file, with one Byte each for Blue, Green and
+                    Red values (in that order).
+
+                    So, this reads the Bytes for each pixel, one at a time
+                    and then combines them into a single value which is
+                    the combined RGB pixel value.
+
+                    I left the code as I think it make it a little easier to
+                    understand what is going on, as well as how some of these
+                    calls can be optimized.
+                */
+
+                /*
+                var blue:int = fs.readUnsignedByte();
+                var green:int = fs.readUnsignedByte();
+                var red:int = fs.readUnsignedByte();
+
+                pixels[position] = (red &lt;&lt; 16 ^ green &lt;&lt; 8 ^ blue);
+                */
+
+
+                /*
+                    Here is the final code which is more efficient, as it only
+                    needs to make 2 read calls in order to get the values.
+
+                    Thanks to Thibault Imbert (bytearray.org) for pointing out
+                    and helping me understand the optimization.
+                */
+
+                //bytes in file are in Blue, Green, Red order
+                //int is 32 bits (8 bytes). So, we store the first two bytes of the pixel
+                // (which contain the Red value), and
+                //then shift everything over 1 byte (8bits) to make room for
+                //the green and blue values (remember the file is little endian), which we
+                // then write into the int in the right position
+                //The final value has the colors in the correct order (Red, Green, Blue)
+
+                var pixelValue:uint = fs.readUnsignedByte() | fs.readUnsignedShort() &lt;&lt; 8;
+                pixels[position] = pixelValue;
+            }
+
+            //we are at the end of the row, so now we have to move the cursor
+            //forward so it ends on a multiple of 4
+            if(padding)
+            {
+                fs.position += padding;
+            }
+        }
+
+        //done reading file, close stream.
+        fs.close();
+
+        //create a Rectangle with width / height of Bitmap
+        var rect:Rectangle = new Rectangle(0, 0, bmpWidth, bmpHeight);
+
+        //create the BitmapData object to hold hold the BMP data.
+        //we do a red fill here so it is easier to see if we have any errors
+        //in our code
+        var bmpData:BitmapData = new BitmapData(bmpWidth, bmpHeight, false, 0xFF0000);
+
+        //copy the BMP pixel data into the BitmapData
+        bmpData.setVector(rect, pixels);
+
+        //create a new Bitmap instance using the BitmapData
+        var bitmap:Bitmap = new Bitmap(bmpData);
+        bitmap.x = 10;
+        bitmap.y = 10;
+
+        //add Bitmap to the display list
+        addChild(bitmap);
     }
 }
-</pre>
-</div>
+</code></pre>
 
-
-<p>&nbsp;</p>
+<p>}
+```</p>
 
 <p>You can download the example from <a href="/blog/files/examples/BMPViewer.zip">here</a>.</p>
 
 <p>Thanks to <a href="http://www.theflashblog.com">Lee</a> for his presentation, and <a href="http://www.bytearray.org">Thibault Imber</a>t who helped me understand some of the details around endianes, as well as made some suggestions for optimizations.</p>
 
-<p>If you are interested in learning more, I strong suggest watching L<a href="http://www.fitc.ca/media/">ee&#8217;s FITC Presentation</a>.</p>
+<p>If you are interested in learning more, I strong suggest watching <a href="http://www.fitc.ca/media/">Lee&rsquo;s FITC Presentation</a>.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Converting From Matrix3D to Matrix in ActionScript 3]]></title>
-    <link href="http://mikechambers.github.io//blog/2009/09/09/converting-from-a-matrix3d-to-matrix-in-actionscript-3/"/>
-    <updated>2009-09-09T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2009/09/09/converting-from-a-matrix3d-to-matrix-in-actionscript-3</id>
-    <content type="html"><![CDATA[<p>For the past month or two, I have been spending time building a game (something I havent done since my Flash 4 days). This has really been a lot of fun, as it has allowed me to use some of the Flash Player APIs which I really haven&#8217;t had a chance or need to use before.</p>
+    <link href="http://mikechambers.github.io//2009/09/09/converting-from-a-matrix3d-to-matrix-in-actionscript-3/"/>
+    <updated>2009-09-09T13:37:01-07:00</updated>
+    <id>http://mikechambers.github.io//2009/09/09/converting-from-a-matrix3d-to-matrix-in-actionscript-3</id>
+    <content type="html"><![CDATA[<p>For the past month or two, I have been spending time building a game (something I havent done since my Flash 4 days). This has really been a lot of fun, as it has allowed me to use some of the Flash Player APIs which I really haven&rsquo;t had a chance or need to use before.</p>
 
 <p>One thing which I have been (slowly) learning about are using Matrix transformations on DisplayObjects. I made a post earlier showing how (with much, much help from <a href="http://www.senocular.com/">Senocular</a>), I was able to <a href="http://www.mikechambers.com/blog/2009/06/24/using-bitmapdata-hittest-for-collision-detection/">use Matrix to do hit tests using BitmapData.hitTest on DisplayObjects</a> which have had transformations applied to them (in this case, rotation).</p>
 
@@ -708,20 +707,18 @@ public class PixelSort extends Sprite
 
 <p>First, lets look at my original code:</p>
 
-<div class="highlight">
-  <pre>shipBmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(shipBounds.width<span style="color: #666666">,</span> 
-                shipBounds.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+<p>``` actionscript
+shipBmpData = new BitmapData(shipBounds.width,</p>
 
-<span style="color: #008000; font-weight: bold">var</span> shipOffset<span style="color: #666666">:</span><span style="color: #008000">Matrix</span> <span style="color: #666666">=</span> ship.transform.matrix<span style="color: #666666">;</span>
-shipOffset.tx <span style="color: #666666">=</span> ship.x <span style="color: #666666">-</span> shipBounds.x<span style="color: #666666">;</span>
-shipOffset.ty <span style="color: #666666">=</span> ship.y <span style="color: #666666">-</span> shipBounds.y<span style="color: #666666">;</span>          
+<pre><code>            shipBounds.height, true, 0);
+</code></pre>
 
-shipBmpData.draw(ship<span style="color: #666666">,</span> shipOffset);
-</pre>
-</div>
+<p>var shipOffset:Matrix = ship.transform.matrix;
+shipOffset.tx = ship.x &ndash; shipBounds.x;
+shipOffset.ty = ship.y &ndash; shipBounds.y;</p>
 
-
-<p>&nbsp;</p>
+<p>shipBmpData.draw(ship, shipOffset);
+```</p>
 
 <p>Basically, this draws the bitmap data for my ship into a <code>BitmapData</code> instance, taking into account any transformations which have been applied to the ship (in this case rotation). In my code, this bitmap data is cached, and then later used with <code>BitmapData.hitTest</code> for collision detection (not shown here).</p>
 
@@ -729,13 +726,9 @@ shipBmpData.draw(ship<span style="color: #666666">,</span> shipOffset);
 
 <p>At first, I figured I would just change my code to access the Matrix3D instance like so:</p>
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">var</span> shipOffset<span style="color: #666666">:</span>Matrix3D <span style="color: #666666">=</span> ship.transform.matrix3D<span style="color: #666666">;</span>
-</pre>
-</div>
-
-
-<p>&nbsp;</p>
+<p><code>actionscript
+var shipOffset:Matrix3D = ship.transform.matrix3D;
+</code></p>
 
 <p>and then pass this to the <code>BitmapData.draw</code> API. However, I was quickly reminded (by the compiler) that <code>Matrix3D</code> does not inherit from <code>Matrix</code>, and thus cannot be passed to <code>BitmapData.draw</code>.</p>
 
@@ -743,97 +736,85 @@ shipBmpData.draw(ship<span style="color: #666666">,</span> shipOffset);
 
 <p>Before I show the code, it will be useful to look at which values <code>Matrix</code> and <code>Matrix3D</code> contain. First, here are the values held by a <code>Matrix</code> instance:</p>
 
-<pre><code>a  c  tx
+<pre>
+a  c  tx
 b  d  ty
 u  v  w
-</code></pre>
+</pre>
 
-<p>&nbsp;</p>
 
 <p>You can find a description of the properties in the <a href="http://livedocs.adobe.com/flex/3/langref/flash/geom/Matrix.html#propertySummary">Matrix docs</a>.</p>
 
 <p>Here are the values held by a Matrix3D instance:</p>
 
-<pre><code>scaleX  0         0          tx
+<pre>
+scaleX    0       0          tx
 0         scaleY  0          ty
-0         0           scaleZ  tz
-0         0          0          tw
-</code></pre>
+0         0       scaleZ     tz
+0         0       0          tw
+</pre>
 
-<p>&nbsp;</p>
 
 <p>From the <a href="http://help.adobe.com/en_US/AS3LCR/Flash_10.0/flash/geom/Matrix3D.html">Matrix3D docs</a>:</p>
 
-<blockquote><p>The Matrix3D class uses a 4&#215;4 square matrix: a table of four rows and columns of numbers that hold the data for the transformation. The first three rows of the matrix hold data for each 3D axis (x,y,z). The translation information is in the last column. The orientation and scaling data are in the first three columns. The scaling factors are the diagonal numbers in the first three columns</p></blockquote>
+<blockquote><p>The Matrix3D class uses a 4x4 square matrix: a table of four rows and columns of numbers that hold the data for the transformation. The first three rows of the matrix hold data for each 3D axis (x,y,z). The translation information is in the last column. The orientation and scaling data are in the first three columns. The scaling factors are the diagonal numbers in the first three columns</p></blockquote>
 
-<p>Basically, in addition to holding values for x and y, the <code>Matrix3D</code> class also has slots for z properties. Because the <code>Matrix</code> is a 3&#215;3 matrix, and the <code>Matrix3D</code> is a 4&#215;4 matrix converting from <code>Matrix3d</code> to <code>Matrix</code> means that we will have to discard some information. Luckily, in my case, I didnt need the z information, so i was able to discard it and map the related x, y values to the <code>Matrix</code> instance. We can then pass this new <code>Matrix</code> instance to the <code>BitmapData.draw</code> class.</p>
+<p>Basically, in addition to holding values for x and y, the <code>Matrix3D</code> class also has slots for z properties. Because the <code>Matrix</code> is a 3x3 matrix, and the <code>Matrix3D</code> is a 4x4 matrix converting from <code>Matrix3d</code> to <code>Matrix</code> means that we will have to discard some information. Luckily, in my case, I didnt need the z information, so i was able to discard it and map the related x, y values to the <code>Matrix</code> instance. We can then pass this new <code>Matrix</code> instance to the <code>BitmapData.draw</code> class.</p>
 
 <p>For our purposes, the <code>Matrix3D</code> mapping to <code>Matrix</code> is:</p>
 
-<pre><code>a  c   0          tx
+<pre>
+a  c  0          tx
 b  d  0          ty
-0  0  scaleZ  tz
+0  0  scaleZ     tz
 0  0  0          tw
-</code></pre>
+</pre>
+
 
 <p>Here is the code that maps between the two:</p>
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">var</span> shipOffset<span style="color: #666666">:</span>Matrix3D <span style="color: #666666">=</span> ship.transform.matrix3D<span style="color: #666666">;</span>
+<p>``` actionscript
+var shipOffset:Matrix3D = ship.transform.matrix3D;</p>
 
-<span style="color: #008000; font-weight: bold">var</span> rawMatrixData<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span><span style="color: #008000">Number</span><span style="color: #666666">&gt;</span> <span style="color: #666666">=</span> shipOffset.rawData<span style="color: #666666">;</span>
+<p>var rawMatrixData:Vector.<Number> = shipOffset.rawData;</p>
 
-<span style="color: #008000; font-weight: bold">var</span> matrix<span style="color: #666666">:</span><span style="color: #008000">Matrix</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Matrix</span>();
-matrix.a <span style="color: #666666">=</span> rawMatrixData[<span style="color: #666666"></span>];
-matrix.c <span style="color: #666666">=</span> rawMatrixData[<span style="color: #666666">1</span>];
-matrix.tx <span style="color: #666666">=</span> ship.x <span style="color: #666666">-</span> shipBounds.x<span style="color: #666666">;</span>
+<p>var matrix:Matrix = new Matrix();
+matrix.a = rawMatrixData[0];
+matrix.c = rawMatrixData<a href="http://www.senocular.com/">1</a>;
+matrix.tx = ship.x &ndash; shipBounds.x;</p>
 
-matrix.b <span style="color: #666666">=</span> rawMatrixData[<span style="color: #666666">4</span>];
-matrix.d <span style="color: #666666">=</span> rawMatrixData[<span style="color: #666666">5</span>];
-matrix.ty <span style="color: #666666">=</span> ship.y <span style="color: #666666">-</span> shipBounds.y<span style="color: #666666">;</span>
+<p>matrix.b = rawMatrixData<a href="http://livedocs.adobe.com/flex/3/langref/flash/geom/Matrix.html#propertySummary">4</a>;
+matrix.d = rawMatrixData<a href="http://help.adobe.com/en_US/AS3LCR/Flash_10.0/flash/geom/Matrix3D.html">5</a>;
+matrix.ty = ship.y &ndash; shipBounds.y;</p>
 
-ship.transform.matrix3D <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
-shipBmpData.draw(ship<span style="color: #666666">,</span> matrix);
-ship.transform.matrix3D <span style="color: #666666">=</span> shipOffset<span style="color: #666666">;</span>
-</pre>
-</div>
-
-
-<p>&nbsp;</p>
+<p>ship.transform.matrix3D = null;
+shipBmpData.draw(ship, matrix);
+ship.transform.matrix3D = shipOffset;
+```</p>
 
 <p>Basically, we get an instance of the <code>Matrix3D</code> class for the <code>DisplayObject</code>. We then access the raw data of the <code>Matrix3D</code> instance, and copy it into a new <code>Matrix</code> instance (ignoring and dropping the z values), and apply the transformation corrections in the process.</p>
 
 <p>We can then pass this new <code>Matrix</code> instance to the <code>BitmapData.draw</code> API. However, as you probably noticed in the code, I had to first do an additional step. Specifically:</strike ></p>
 
-<div class="highlight">
-  <pre>ship.transform.matrix3D <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
-shipBmpData.draw(ship<span style="color: #666666">,</span> matrix);
-ship.transform.matrix3D <span style="color: #666666">=</span> shipOffset<span style="color: #666666">;</span>
-</pre>
-</div>
-
-
-<p>&nbsp;</p>
+<p><code>actionscript
+ship.transform.matrix3D = null;
+shipBmpData.draw(ship, matrix);
+ship.transform.matrix3D = shipOffset;
+</code></p>
 
 <p>Before we draw the data to the <code>BitmapData</code> instance, we have to clear out the existing <code>Matrix3D</code> applied to the <code>DisplayObject</code>. This is to work around a bug discovered by <a href="http://www.unitzeroone.com/blog/">Ralph Hauwert</a>. When passing a <code>DisplayObject</code> which does not have a <code>Matrix3D</code> transformation (as in our first example) to <code>BitmapData.draw</code>, any transformations on the <code>DisplayObject</code> ARE NOT taken into account when drawing. However, when the the <code>DisplayObject</code> does have a <code>Matrix3D</code> transformation applied to it (such as when the z property has been set to a value), then any transformations ARE applied when drawing to <code>BitmapData.draw</code>. Because of this, we have to first store the <code>Matrix3D</code> associated with the DisplayObject, set it to null, draw the <code>DisplayObject</code> to the <code>BitmapData</code> instance, and then reapply the <code>Matrix3D</code> to the <code>DisplayObject</code>.</p>
 
 <p><strike><strong>Update</strong>: as <a href="http://www.mikechambers.com/blog/2009/09/09/converting-from-a-matrix3d-to-matrix-in-actionscript-3/#comment-16700">Ben Garney points out in the comments</a>, since the transformation is applied to <code>BitmapData.draw</code> when <code>Matrix3D</code> is set, all we need to do is pass in either an identiy matrix, or null to the second argument of the API. So, in my case, this solves my problems, and removes the need to convert bewteen the matrix types.</strike></p>
 
-<p><strike>The updated code is simply:</strike></p>
+<p><strike>The updated code is simply:</strike>
+``` actionscript
+shipBmpData = new BitmapData(shipBounds.width,</p>
 
-<p><strike> <div class="highlight">
-  <pre>shipBmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(shipBounds.width<span style="color: #666666">,</span></p>
-
-<pre><code>            shipBounds.height&lt;span style="color: #666666"&gt;,&lt;/span&gt; &lt;span style="color: #008000; font-weight: bold"&gt;true&lt;/span&gt;&lt;span style="color: #666666"&gt;,&lt;/span&gt; &lt;span style="color: #666666"&gt;&lt;/span&gt;);
+<pre><code>            shipBounds.height, true, 0);
 </code></pre>
 
-<p>shipBmpData.draw(ship<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">null</span>);  <br/>
-</pre>
-</div></p>
-
-<p></strike></p>
-
-<p>&nbsp;</p>
+<p>shipBmpData.draw(ship, null);
+```</p>
 
 <p><strike>which turns out to be much less complex than when you use the 2D APIs. However, the technique above for converting between matrix types is still valid.</strike></p>
 
@@ -841,7 +822,7 @@ ship.transform.matrix3D <span style="color: #666666">=</span> shipOffset<span st
 
 <p>Of course, this is not always necessary when converting from a <code>Matrix</code> instance to a <code>Matrix3D</code> instance, but in my case it was. As you can imagine, this can have some significant performance implications, both because of memory allocation and deallocation, as well as the fact that removing the <code>Matrix3D</code>, even temporarily, changes how the <code>DisplayObject</code> is rendered.</p>
 
-<p>Right now, this trade off is ok in my case, although I am not sure if it will be for the long term. Again, in my case, I may need to look at some re-architecting so I don&#8217;t have to work around this issue (such as nesting clips and cacheing the parent <code>BitmapData</code>, so I don&#8217;t have to apply the transformations).</p>
+<p>Right now, this trade off is ok in my case, although I am not sure if it will be for the long term. Again, in my case, I may need to look at some re-architecting so I don&rsquo;t have to work around this issue (such as nesting clips and cacheing the parent <code>BitmapData</code>, so I don&rsquo;t have to apply the transformations).</p>
 
 <p>Anyways, I am just learning the implications of using the 2.5D APIs in the Flash Player. This is an area where there is not currently a lot of information or documentation, especially information on the implications of moving from 2D to 2.5D APIs. Hopefully this will be useful.</p>
 
@@ -849,7 +830,7 @@ ship.transform.matrix3D <span style="color: #666666">=</span> shipOffset<span st
 
 <p><a href="http://adobe.com/go/AS3LR">API docs for Matrix, Matrix3D, Transformation and DisplayObject</a>.</p>
 
-<p><a href="http://www.bytearray.org/wp-content/projects/fp10-session/">Thibault Imbert&#8217;s Flash Player 10 Presentation</a>, which has some good info on the 2.5D APIS.</p>
+<p><a href="http://www.bytearray.org/wp-content/projects/fp10-session/">Thibault Imbert&rsquo;s Flash Player 10 Presentation</a>, which has some good info on the 2.5D APIS.</p>
 
 <p><a href="http://help.adobe.com/en_US/ActionScript/3.0_ProgrammingAS3/WSF24A5A75-38D6-4a44-BDC6-927A2B123E90.html">Flash CS4 Docs : Working in three dimensions</a></p>
 

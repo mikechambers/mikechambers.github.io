@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Photography | Mike Chambers]]></title>
-  <link href="http://mikechambers.github.io//blog/blog/categories/photography/atom.xml" rel="self"/>
-  <link href="http://mikechambers.github.io//blog/"/>
-  <updated>2013-12-15T20:49:44-08:00</updated>
-  <id>http://mikechambers.github.io//blog/</id>
+  <link href="http://mikechambers.github.io//blog/categories/photography/atom.xml" rel="self"/>
+  <link href="http://mikechambers.github.io//"/>
+  <updated>2013-12-16T12:31:18-08:00</updated>
+  <id>http://mikechambers.github.io//</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,93 +15,109 @@
   
   <entry>
     <title type="html"><![CDATA[Converting Nikon D90 Videos to Work With Adobe Premiere Pro CS4]]></title>
-    <link href="http://mikechambers.github.io//blog/2009/08/02/convert-nikon-d90-videos-to-work-with-adobe-premiere-pro-cs4/"/>
-    <updated>2009-08-02T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2009/08/02/convert-nikon-d90-videos-to-work-with-adobe-premiere-pro-cs4</id>
-    <content type="html"><![CDATA[<p>I recently bought my first DSLR, the <a href="http://www.nikonusa.com/Find-Your-Nikon/Product/Digital-SLR/25446/D90.html">Nikon D90</a>, which I have been <a href="http://www.flickr.com/photos/mikechambers/collections/72157621787429394/">having a blast with</a>. One of the cool features of the camera, is that it supports creating HD video clips (of up to 5 minutes) (view an example <a href="http://www.flickr.com/photos/mikechambers/3774623194/in/set-72157621777297569/">here</a>). However, the way the clips are created seems to confuse <a href="http://tryit.adobe.com/us/cs4/premiere/p/?sdid=ETRZP">Adobe Premiere Pro CS4</a>, which won&#8217;t open or import the clips without a little work on your part.</p>
+    <link href="http://mikechambers.github.io//2009/08/02/convert-nikon-d90-videos-to-work-with-adobe-premiere-pro-cs4/"/>
+    <updated>2009-08-02T13:24:01-07:00</updated>
+    <id>http://mikechambers.github.io//2009/08/02/convert-nikon-d90-videos-to-work-with-adobe-premiere-pro-cs4</id>
+    <content type="html"><![CDATA[<p>I recently bought my first DSLR, the <a href="http://www.nikonusa.com/Find-Your-Nikon/Product/Digital-SLR/25446/D90.html">Nikon D90</a>, which I have been <a href="http://www.flickr.com/photos/mikechambers/collections/72157621787429394/">having a blast with</a>. One of the cool features of the camera, is that it supports creating HD video clips (of up to 5 minutes) (view an example <a href="http://www.flickr.com/photos/mikechambers/3774623194/in/set-72157621777297569/">here</a>). However, the way the clips are created seems to confuse <a href="http://tryit.adobe.com/us/cs4/premiere/p/?sdid=ETRZP">Adobe Premiere Pro CS4</a>, which won&rsquo;t open or import the clips without a little work on your part.</p>
 
 <!--more-->
 
 
-<p>I found instructions <a href="http://www.alexbeckett.co.uk/blog/2009/07/02/techie-importing-d90-dmovie-video-into-premiere-pro/">here</a> on how to use the terminal to get Premiere to understand the clips, and based on that (with some tweaks and fixes), I have put together a bash script that will &#8220;fix&#8221; all of the Nikon D90 AVI clips in a directory so that Premiere Pro will recognize them.</p>
+<p>I found instructions <a href="http://www.alexbeckett.co.uk/blog/2009/07/02/techie-importing-d90-dmovie-video-into-premiere-pro/">here</a> on how to use the terminal to get Premiere to understand the clips, and based on that (with some tweaks and fixes), I have put together a bash script that will &ldquo;fix&rdquo; all of the Nikon D90 AVI clips in a directory so that Premiere Pro will recognize them.</p>
 
 <p><strong>Usage:</strong></p>
 
 <p><code>d90topremier [dirWithClips]</code></p>
 
-<p>The &#8220;dirWithClips&#8221; argument is optional, and if not specified will assume the clips are in the current working director.</p>
+<p>The <em>dirWithClips</em> argument is optional, and if not specified will assume the clips are in the current working director.</p>
 
 <p>The output will look something like this:</p>
 
-<pre><code>./DSC_0002.AVI --&gt; ./DSC_0002.mov
-./DSC_0003.AVI --&gt; ./DSC_0003.mov
-./DSC_0004.AVI --&gt; ./DSC_0004.mov
-./DSC_0005.AVI --&gt; ./DSC_0005.mov
-./DSC_0007.AVI --&gt; ./DSC_0007.mov
-./DSC_0008.AVI --&gt; ./DSC_0008.mov
-./DSC_0009.AVI --&gt; ./DSC_0009.mov
-./DSC_0010.AVI --&gt; ./DSC_0010.mov
-./DSC_0011.AVI --&gt; ./DSC_0011.mov
-./DSC_0014.AVI --&gt; ./DSC_0014.mov
-</code></pre>
+<pre>
+./DSC_0002.AVI --> ./DSC_0002.mov
+./DSC_0003.AVI --> ./DSC_0003.mov
+./DSC_0004.AVI --> ./DSC_0004.mov
+./DSC_0005.AVI --> ./DSC_0005.mov
+./DSC_0007.AVI --> ./DSC_0007.mov
+./DSC_0008.AVI --> ./DSC_0008.mov
+./DSC_0009.AVI --> ./DSC_0009.mov
+./DSC_0010.AVI --> ./DSC_0010.mov
+./DSC_0011.AVI --> ./DSC_0011.mov
+./DSC_0014.AVI --> ./DSC_0014.mov
+</pre>
 
-<p>&nbsp;</p>
 
 <p><strong>Requirements</strong></p>
 
-<p>The script requires the &#8220;setfile&#8221; command, which is available in the free <a href="https://connect.apple.com/cgi-bin/WebObjects/MemberSite.woa/wa/getSoftware?bundleID=20414">Mac OS X Developer SDK</a>.</p>
+<p>The script requires the <em>setfile</em> command, which is available in the free <a href="https://connect.apple.com/cgi-bin/WebObjects/MemberSite.woa/wa/getSoftware?bundleID=20414">Mac OS X Developer SDK</a>.</p>
 
 <p><strong>Script</strong></p>
 
-<div class="highlight">
-  <pre><span style="color: #408080; font-style: italic">#/bin/bash</span>
+<p>``` bash</p>
 
-<span style="color: #408080; font-style: italic">#################################################</span>
-<span style="color: #408080; font-style: italic">#</span>
-<span style="color: #408080; font-style: italic"># Bash script that modifies Nikon D90 AVI Video</span>
-<span style="color: #408080; font-style: italic"># file so they are reconized by Adobe Preiere Pro CS4</span>
-<span style="color: #408080; font-style: italic">#</span>
-<span style="color: #408080; font-style: italic"># Created by Mike Chambers</span>
-<span style="color: #408080; font-style: italic"># http://www.mikechambers.com</span>
-<span style="color: #408080; font-style: italic"># Based on original script at:</span>
-<span style="color: #408080; font-style: italic"># http://www.alexbeckett.co.uk/blog/2009/07/02/techie-importing-d90-dmovie-video-into-premiere-pro/</span>
-<span style="color: #408080; font-style: italic">#</span>
-<span style="color: #408080; font-style: italic">#################################################i</span>
+<h6>#</h6>
 
-<span style="color: #19177C">oldExt</span><span style="color: #666666">=</span>mov
-<span style="color: #19177C">newExt</span><span style="color: #666666">=</span>AVI
+<p>#</p>
 
-<span style="color: #19177C">d</span><span style="color: #666666">=</span><span style="color: #BA2121">"./"</span>
+<h1>Bash script that modifies Nikon D90 AVI Video</h1>
 
-<span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">[</span> -n <span style="color: #BA2121">"$1"</span> <span style="color: #666666">]</span>;then
-        <span style="color: #19177C">d</span><span style="color: #666666">=</span><span style="color: #BA2121">"$1"</span>
-<span style="color: #008000; font-weight: bold">fi</span>
+<h1>file so they are reconized by Adobe Preiere Pro CS4</h1>
 
-<span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">[</span> ! -e <span style="color: #BA2121">"$d"</span> <span style="color: #666666">]</span>; <span style="color: #008000; font-weight: bold">then</span>
-<span style="color: #008000; font-weight: bold">        </span><span style="color: #008000">echo</span> <span style="color: #BA2121">"$d does not exist"</span>
-        <span style="color: #008000">exit </span>0;
-<span style="color: #008000; font-weight: bold">fi</span>
+<p>#</p>
 
+<h1>Created by Mike Chambers</h1>
 
-<span style="color: #008000; font-weight: bold">for </span>filename in <span style="color: #BA2121">"$d"</span>*.<span style="color: #19177C">$oldExt</span>
-  <span style="color: #008000; font-weight: bold">do</span>
-<span style="color: #008000; font-weight: bold">        if</span> <span style="color: #666666">[</span> ! -e <span style="color: #BA2121">"$filename"</span> <span style="color: #666666">]</span>; <span style="color: #008000; font-weight: bold">then</span>
-<span style="color: #008000; font-weight: bold">                continue</span>;
-        <span style="color: #008000; font-weight: bold">fi</span>
+<h1><a href="http://www.mikechambers.com">http://www.mikechambers.com</a></h1>
 
-<span style="color: #008000; font-weight: bold">        </span>setfile -t <span style="color: #BA2121">"VfW "</span> <span style="color: #BA2121">"$filename"</span>
+<p>#</p>
 
-        <span style="color: #19177C">newFileName</span><span style="color: #666666">=</span><span style="color: #BA2121">"${filename%$oldExt}$newExt"</span>
-        mv <span style="color: #BA2121">"$filename"</span> <span style="color: #BA2121">"$newFileName"</span>
+<h1>Based on original script at:</h1>
 
-        <span style="color: #008000">echo</span> <span style="color: #BA2121">"$filename --&gt; $newFileName"</span>
-  <span style="color: #008000; font-weight: bold">done</span>
-</pre>
-</div>
+<h1><a href="http://www.alexbeckett.co.uk/blog/2009/07/02/techie-importing-d90-dmovie-video-into-premiere-pro/">http://www.alexbeckett.co.uk/blog/2009/07/02/techie-importing-d90-dmovie-video-into-premiere-pro/</a></h1>
 
+<p>#</p>
 
-<p>&nbsp;<br/>
-Just place this into a file called &#8220;d90topremier&#8221;, place it in your path, and make sure to chmod it like so:</p>
+<h6>###########################################i</h6>
+
+<p>oldExt=mov
+newExt=AVI</p>
+
+<p>d=&ldquo;./&rdquo;</p>
+
+<p>if [ -n &ldquo;$1&rdquo; ];then</p>
+
+<pre><code>    d="$1"
+</code></pre>
+
+<p>fi</p>
+
+<p>if [ ! -e &ldquo;$d&rdquo; ]; then</p>
+
+<pre><code>    echo "$d does not exist"
+    exit 0;
+</code></pre>
+
+<p>fi</p>
+
+<p>for filename in &ldquo;$d&rdquo;*.$oldExt
+  do</p>
+
+<pre><code>    if [ ! -e "$filename" ]; then
+            continue;
+    fi
+
+    setfile -t "VfW " "$filename"
+
+    newFileName="${filename%$oldExt}$newExt"
+    mv "$filename" "$newFileName"
+
+    echo "$filename --&gt; $newFileName"
+</code></pre>
+
+<p>  done
+```</p>
+
+<p>Just place this into a file called <em>d90topremier</em>, place it in your path, and make sure to chmod it like so:</p>
 
 <p><code>chmod 755 d90topremier</code></p>
 

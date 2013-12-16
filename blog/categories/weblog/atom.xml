@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Weblog | Mike Chambers]]></title>
-  <link href="http://mikechambers.github.io//blog/blog/categories/weblog/atom.xml" rel="self"/>
-  <link href="http://mikechambers.github.io//blog/"/>
-  <updated>2013-12-15T20:49:44-08:00</updated>
-  <id>http://mikechambers.github.io//blog/</id>
+  <link href="http://mikechambers.github.io//blog/categories/weblog/atom.xml" rel="self"/>
+  <link href="http://mikechambers.github.io//"/>
+  <updated>2013-12-16T12:31:18-08:00</updated>
+  <id>http://mikechambers.github.io//</id>
   <author>
     <name><![CDATA[Mike Chambers]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[mikechambers.com Now Hosted at MediaTemple.net]]></title>
-    <link href="http://mikechambers.github.io//blog/2007/10/29/weblog-now-hosted-at-mediatemplenet/"/>
-    <updated>2007-10-29T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2007/10/29/weblog-now-hosted-at-mediatemplenet</id>
+    <link href="http://mikechambers.github.io//2007/10/29/weblog-now-hosted-at-mediatemplenet/"/>
+    <updated>2007-10-29T13:38:01-07:00</updated>
+    <id>http://mikechambers.github.io//2007/10/29/weblog-now-hosted-at-mediatemplenet</id>
     <content type="html"><![CDATA[<p>Just a quick note, but I have changed hosting providers for my weblog. The transition should be pretty seamless, and if you are reading this, then you are all set. It might take a day or two for the DNS to update.</p>
 
 <p>The weblog is now being hosted by <a href="http://www.mediatemple.net">MediaTemple</a>. They were one of the partners of the <a href="http://onair.adobe.com">on air tour</a>, and hosted the website. They gave us excellent support, and thus when I started to look for a new host, they were the first people I contacted.</p>
@@ -28,9 +28,9 @@
   
   <entry>
     <title type="html"><![CDATA[What Videos Do You Want to See at video.onflex.org]]></title>
-    <link href="http://mikechambers.github.io//blog/2007/04/04/what-videos-do-you-want-to-see-at-videoonflexorg/"/>
-    <updated>2007-04-04T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2007/04/04/what-videos-do-you-want-to-see-at-videoonflexorg</id>
+    <link href="http://mikechambers.github.io//2007/04/04/what-videos-do-you-want-to-see-at-videoonflexorg/"/>
+    <updated>2007-04-04T13:42:01-07:00</updated>
+    <id>http://mikechambers.github.io//2007/04/04/what-videos-do-you-want-to-see-at-videoonflexorg</id>
     <content type="html"><![CDATA[<p>Well, <a href="http://www.onflex.org">Ted Patrick</a> and I launched <a href="http://video.onflex.org">video.onflex.org</a> a little over 3 weeks ago, and we are already nearing our twentieth video on the site. If you haven&#8217;t checked it out yet, make sure to <a href="http://video.onflex.org">glance through some of the videos</a>.</p>
 
 <p>Anyways, we are nearing the end of our backlog of videos, and it looks like I have some time this Thursday and Friday to create some more videos, so:</p>
@@ -42,35 +42,10 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Mike Chambers&#8217; Weblog Has Moved]]></title>
-    <link href="http://mikechambers.github.io//blog/2005/05/17/mike-chambers-weblog-has-moved/"/>
-    <updated>2005-05-17T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2005/05/17/mike-chambers-weblog-has-moved</id>
-    <content type="html"><![CDATA[<p>As you have probably noticed, my weblog has moved from markme.com to weblogs.macromedia.com.</p>
-
-<p>The new url is:</p>
-
-<p><a href="http://www.mikechambers.com/mesh/">http://www.mikechambers.com/mesh/</a></p>
-
-<p>Make sure to update your urls for the site and the <a href="http://feeds.feedburner.com/MikeChambers">rss</a> feeds.</p>
-
-<p>Christian Cantrell&#8217;s weblog has also moved, and eventually all of the weblogs on markme.com will be transitioned over.</p>
-
-<p>The biggest changes are that the site has a new look (although not necessarily good). I tweaked the default templates, so they don&#8217;t look so hot, but I am going to try to spiff it up some over the coming weeks.</p>
-
-<p>The other big change is that we are using a new spam controll system, which should hopefully reduce or eliminate weblog spam.</p>
-
-<p>Finally, we have tried to redirect everything from markme.com, but there are probably quite a few links and posts still broken. So, if you find any errors, you can just post them in the comments here.</p>
-
-<p>Updated : April 23, 2007 to point to new domain.</p>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[Custom Quickcode Tags for MoveableType]]></title>
-    <link href="http://mikechambers.github.io//blog/2005/05/17/custom-quickcode-tags-for-moveabletype/"/>
-    <updated>2005-05-17T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2005/05/17/custom-quickcode-tags-for-moveabletype</id>
+    <link href="http://mikechambers.github.io//2005/05/17/custom-quickcode-tags-for-moveabletype/"/>
+    <updated>2005-05-17T13:17:01-07:00</updated>
+    <id>http://mikechambers.github.io//2005/05/17/custom-quickcode-tags-for-moveabletype</id>
     <content type="html"><![CDATA[<p>One of the new plugins we installed on the new weblog server is the <a href="http://mt-stuff.fanworks.net/plugin/quick_code_version_10.phtml">Quickcode plugin</a> for <a href="http://www.moveabletype.org">Moveabletype</a> This is a simple plugin that uses bracketed tags to make it easy to mark up posts.</p>
 
 <!--more-->
@@ -137,10 +112,35 @@ $s =~ s![url2](.*?)[/url2]!&lt;a href="$1"&gt;$1&lt;/a&gt;!gis;</pre>
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[Mike Chambers&#8217; Weblog Has Moved]]></title>
+    <link href="http://mikechambers.github.io//2005/05/17/mike-chambers-weblog-has-moved/"/>
+    <updated>2005-05-17T13:01:01-07:00</updated>
+    <id>http://mikechambers.github.io//2005/05/17/mike-chambers-weblog-has-moved</id>
+    <content type="html"><![CDATA[<p>As you have probably noticed, my weblog has moved from markme.com to weblogs.macromedia.com.</p>
+
+<p>The new url is:</p>
+
+<p><a href="http://www.mikechambers.com/mesh/">http://www.mikechambers.com/mesh/</a></p>
+
+<p>Make sure to update your urls for the site and the <a href="http://feeds.feedburner.com/MikeChambers">rss</a> feeds.</p>
+
+<p>Christian Cantrell&#8217;s weblog has also moved, and eventually all of the weblogs on markme.com will be transitioned over.</p>
+
+<p>The biggest changes are that the site has a new look (although not necessarily good). I tweaked the default templates, so they don&#8217;t look so hot, but I am going to try to spiff it up some over the coming weeks.</p>
+
+<p>The other big change is that we are using a new spam controll system, which should hopefully reduce or eliminate weblog spam.</p>
+
+<p>Finally, we have tried to redirect everything from markme.com, but there are probably quite a few links and posts still broken. So, if you find any errors, you can just post them in the comments here.</p>
+
+<p>Updated : April 23, 2007 to point to new domain.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[New MXNA Features / Contest Winners]]></title>
-    <link href="http://mikechambers.github.io//blog/2005/05/05/new-mxna-features-contest-winners/"/>
-    <updated>2005-05-05T00:00:00-07:00</updated>
-    <id>http://mikechambers.github.io//blog/2005/05/05/new-mxna-features-contest-winners</id>
+    <link href="http://mikechambers.github.io//2005/05/05/new-mxna-features-contest-winners/"/>
+    <updated>2005-05-05T13:37:01-07:00</updated>
+    <id>http://mikechambers.github.io//2005/05/05/new-mxna-features-contest-winners</id>
     <content type="html"><![CDATA[<p>As I mentioned yesterday, we have released an small update to <a href="http://weblogs.macromedia.com/mxna/">MXNA</a> (our Macromedia Community News Aggregator).</p>
 
 <p>In addition to a bunch of tweaks and bugs fixes, there are some cool new features, including:</p>
@@ -171,7 +171,7 @@ $s =~ s![url2](.*?)[/url2]!&lt;a href="$1"&gt;$1&lt;/a&gt;!gis;</pre>
 
 <p>Bonus points to Galileo, who won the most perceptive award by noticing that the clicks icon for each post had been slightly changed to include a fill color.</p>
 
-<p>If you are one of the winners, send me an email (<a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x6d;&#x65;&#115;&#104;&#x40;&#x6d;&#x61;&#x63;&#114;&#111;&#109;&#101;&#100;&#105;&#x61;&#46;&#x63;&#111;&#x6d;">&#109;&#x65;&#x73;&#104;&#x40;&#x6d;&#x61;&#x63;&#114;&#x6f;&#109;&#101;&#100;&#105;&#97;&#x2e;&#x63;&#x6f;&#109;</a>) with your mailing info, and Ill send out your Flash bags today.</p>
+<p>If you are one of the winners, send me an email (<a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#109;&#101;&#x73;&#x68;&#64;&#109;&#x61;&#x63;&#x72;&#111;&#x6d;&#x65;&#100;&#105;&#97;&#46;&#x63;&#111;&#109;">&#109;&#x65;&#115;&#104;&#64;&#109;&#97;&#99;&#114;&#x6f;&#x6d;&#101;&#x64;&#x69;&#x61;&#x2e;&#99;&#x6f;&#109;</a>) with your mailing info, and Ill send out your Flash bags today.</p>
 ]]></content>
   </entry>
   
