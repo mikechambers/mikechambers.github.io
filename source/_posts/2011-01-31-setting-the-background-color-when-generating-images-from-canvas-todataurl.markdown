@@ -26,65 +26,60 @@ After some Googling failed turn up any solutions, I came up with my own solution
 
 First, here is a simple demo:
 
-<div style="text-align:center;">
-</div>
-
-&nbsp;
+<iframe src="/html5/canvas/exportWithBackgroundColor/" width="500" height="280"></iframe>
 
 Basically, click in the canvas on the left to draw some rectangles. When you click on one of the links, a PNG is generated from the canvas and displayed in the IMG element on the right. Each link creates an image with a different background color (none, solid red, red with 50% alpha).
 
 You can [view all of the code for the example][2] in my GitHub repository, but here is the relevant snippet:
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">//Returns contents of a canvas as a png based data url, with the specified</span>
-<span style="color: #006600; font-style: italic;">//background color</span>
-<span style="color: #003366; font-weight: bold;">function</span> canvasToImage<span style="color: #009900;">&#40;</span>backgroundColor<span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #006600; font-style: italic;">//cache height and width		</span>
-	<span style="color: #003366; font-weight: bold;">var</span> w <span style="color: #339933;">=</span> canvas.<span style="color: #660066;">width</span><span style="color: #339933;">;</span>
-	<span style="color: #003366; font-weight: bold;">var</span> h <span style="color: #339933;">=</span> canvas.<span style="color: #660066;">height</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #003366; font-weight: bold;">var</span> data<span style="color: #339933;">;</span>		
-&nbsp;
-	<span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span>backgroundColor<span style="color: #009900;">&#41;</span>
-	<span style="color: #009900;">&#123;</span>
-		<span style="color: #006600; font-style: italic;">//get the current ImageData for the canvas.</span>
-		data <span style="color: #339933;">=</span> context.<span style="color: #660066;">getImageData</span><span style="color: #009900;">&#40;</span><span style="color: #CC0000;"></span><span style="color: #339933;">,</span> <span style="color: #CC0000;"></span><span style="color: #339933;">,</span> w<span style="color: #339933;">,</span> h<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-		<span style="color: #006600; font-style: italic;">//store the current globalCompositeOperation</span>
-		<span style="color: #003366; font-weight: bold;">var</span> compositeOperation <span style="color: #339933;">=</span> context.<span style="color: #660066;">globalCompositeOperation</span><span style="color: #339933;">;</span>
-&nbsp;
-		<span style="color: #006600; font-style: italic;">//set to draw behind current content</span>
-		context.<span style="color: #660066;">globalCompositeOperation</span> <span style="color: #339933;">=</span> <span style="color: #3366CC;">"destination-over"</span><span style="color: #339933;">;</span>
-&nbsp;
-		<span style="color: #006600; font-style: italic;">//set background color</span>
-		context.<span style="color: #660066;">fillStyle</span> <span style="color: #339933;">=</span> backgroundColor<span style="color: #339933;">;</span>
-&nbsp;
-		<span style="color: #006600; font-style: italic;">//draw background / rect on entire canvas</span>
-		context.<span style="color: #660066;">fillRect</span><span style="color: #009900;">&#40;</span><span style="color: #CC0000;"></span><span style="color: #339933;">,</span><span style="color: #CC0000;"></span><span style="color: #339933;">,</span>w<span style="color: #339933;">,</span>h<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	<span style="color: #009900;">&#125;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//get the image data from the canvas</span>
-	<span style="color: #003366; font-weight: bold;">var</span> imageData <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">canvas</span>.<span style="color: #660066;">toDataURL</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"image/png"</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span>backgroundColor<span style="color: #009900;">&#41;</span>
-	<span style="color: #009900;">&#123;</span>
-		<span style="color: #006600; font-style: italic;">//clear the canvas</span>
-		context.<span style="color: #660066;">clearRect</span> <span style="color: #009900;">&#40;</span><span style="color: #CC0000;"></span><span style="color: #339933;">,</span><span style="color: #CC0000;"></span><span style="color: #339933;">,</span>w<span style="color: #339933;">,</span>h<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-		<span style="color: #006600; font-style: italic;">//restore it with original / cached ImageData</span>
-		context.<span style="color: #660066;">putImageData</span><span style="color: #009900;">&#40;</span>data<span style="color: #339933;">,</span> <span style="color: #CC0000;"></span><span style="color: #339933;">,</span><span style="color: #CC0000;"></span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>		
-&nbsp;
-		<span style="color: #006600; font-style: italic;">//reset the globalCompositeOperation to what it was</span>
-		context.<span style="color: #660066;">globalCompositeOperation</span> <span style="color: #339933;">=</span> compositeOperation<span style="color: #339933;">;</span>
-	<span style="color: #009900;">&#125;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//return the Base64 encoded data url string</span>
-	<span style="color: #000066; font-weight: bold;">return</span> imageData<span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+``` javascript
+//Returns contents of a canvas as a png based data url, with the specified
+//background color
+function canvasToImage(backgroundColor)
+{
+	//cache height and width		
+	var w = canvas.width;
+	var h = canvas.height;
+
+	var data;		
+
+	if(backgroundColor)
+	{
+		//get the current ImageData for the canvas.
+		data = context.getImageData(0, 0, w, h);
+		
+		//store the current globalCompositeOperation
+		var compositeOperation = context.globalCompositeOperation;
+
+		//set to draw behind current content
+		context.globalCompositeOperation = "destination-over";
+
+		//set background color
+		context.fillStyle = backgroundColor;
+
+		//draw background / rect on entire canvas
+		context.fillRect(0,0,w,h);
+	}
+
+	//get the image data from the canvas
+	var imageData = this.canvas.toDataURL("image/png");
+
+	if(backgroundColor)
+	{
+		//clear the canvas
+		context.clearRect (0,0,w,h);
+
+		//restore it with original / cached ImageData
+		context.putImageData(data, 0,0);		
+
+		//reset the globalCompositeOperation to what it was
+		context.globalCompositeOperation = compositeOperation;
+	}
+
+	//return the Base64 encoded data url string
+	return imageData;
+}
+```
 
 Basically, here is what is going on:
 
