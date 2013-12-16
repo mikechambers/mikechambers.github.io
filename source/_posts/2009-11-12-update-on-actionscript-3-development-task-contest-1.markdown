@@ -10,7 +10,6 @@ tags:
   - AS3DTC1
 ---
 
-
 Well, there is just a little over a day before the deadline for entries to the [ActionScript Development Task Contes][1]t (AS3DTC) are due. I wanted to make a quick post with a couple of reminders to ensure everyone has their correctly working submissions in on time.
 
 First, a couple items:  
@@ -24,11 +23,11 @@ First, a couple items:
 
 Regarding #4, here are some of the rule clarifications:
 
-*   For the purposes of the contest, you should use the x, y coordinates of the display objects to determine which cell they are contained within (i.e. you don&#8217;t have to worry about a display object straddling two cells).
+*   For the purposes of the contest, you should use the x, y coordinates of the display objects to determine which cell they are contained within (i.e. you don't have to worry about a display object straddling two cells).
 *   Basically, the only information your class has access to is that which is passed to its constructors and methods. Your code cannot make assumptions based on information in the test which is not passed to the ProximityManager class (i.e., how many items there are on the stage, or the fact that the items are not moving, etc…). If I change the parameters of the test that your code does not know about, then your class should still work correctly.
 *   The bounds argument is now required in ProximityManager constructor. This specifies the bounds of the collision detection / grid area.
 *   If the positions of the DisplayObjects change, update will be called again. Thus, when update is called, the code should treat it as new data.
-*   You must return a new Vector from getNeighbors. (You can&#8217;t re-use the same Vector instance).
+*   You must return a new Vector from getNeighbors. (You can't re-use the same Vector instance).
 
 If you have any additional questions about the rules, then please post them on the original post.
 
@@ -38,48 +37,42 @@ Inside of TestRunner.as, there is a checkResults method, which you can use to va
 
 To run it, uncomment the runTests() method in onStageAdded, and and the add this code:
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onStageAdded(e<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
+``` actionscript
+private function onStageAdded(e:Event):void
 {
 	...
-	
-	<span style="color: #408080; font-style: italic">//runTests();</span>
+
+	//runTests();
 
 	proximityManager.update(items);
-	checkResults(checkSprite_3<span style="color: #666666">,</span> proximityManager.getNeighbors(checkSprite_3));
+	checkResults(checkSprite_3, proximityManager.getNeighbors(checkSprite_3));
 }
-</pre>
-</div>
-
-&nbsp;
+```
 
 This will return something that should similar to this:
 
-<img src="/blog/files/as3dtc/test_results_example.png" width="546" height="506" />
+![title](blog/files/as3dtc/test_results_example.png)
 
 This test ensures that you are not missing any DisplayObjects which you should return.
 
 To ensure you are not including any DisplayObjects which you should not be, change the for each loop in checkResults to:
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkResults(checkSprite<span style="color: #666666">:</span>Sprite<span style="color: #666666">,</span> items<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span>DisplayObject<span style="color: #666666">&gt;</span>)<span style="color: #666666">:</span><span style="color: #008000">Boolean</span>
+``` actionscript
+private function checkResults(checkSprite:Sprite, items:Vector.<DisplayObject>):Boolean
 {
 	...
 	
-	<span style="color: #008000; font-weight: bold">for</span> each(<span style="color: #008000; font-weight: bold">var</span> disp<span style="color: #666666">:</span>Sprite <span style="color: #008000; font-weight: bold">in</span> items)
+	for each(var disp:Sprite in items)
 	{
-		disp.graphics.beginFill( <span style="color: #666666">0x0000</span>FF <span style="color: #666666">,</span> <span style="color: #666666">1</span> );
-		disp.graphics.drawCircle( <span style="color: #666666">5</span> <span style="color: #666666">,</span> <span style="color: #666666">5</span> <span style="color: #666666">,</span> <span style="color: #666666">5</span> );
+		disp.graphics.beginFill( 0x0000FF , 1 );
+		disp.graphics.drawCircle( 5 , 5 , 5 );
 		disp.graphics.endFill();
-		disp.alpha <span style="color: #666666">=</span> <span style="color: #666666">1;</span>
+		disp.alpha = 1;
 	}
 	
 	...
 }
-</pre>
-</div>
-
-&nbsp;
+```
 
 You should not see any dark spots appear.
 
