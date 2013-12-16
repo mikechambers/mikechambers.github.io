@@ -1,6 +1,7 @@
 ---
 title: Data Binding with FXG in Flex 4
 author: mikechambers
+date: 2008-08-29 12:42:01 -0800
 layout: post
 permalink: /2008/08/29/data-binding-with-fxg-in-flex-4/
 categories:

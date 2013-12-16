@@ -1,6 +1,7 @@
 ---
 title: Central Wallpaper Contest Winners
 author: mikechambers
+date: 2004-02-19 12:40:01 -0800
 layout: post
 permalink: /2004/02/19/central-wallpaper-contest-winners/
 categories:

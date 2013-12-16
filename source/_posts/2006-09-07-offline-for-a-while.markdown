@@ -1,6 +1,7 @@
 ---
 title: Offline for a while
 author: mikechambers
+date: 2006-09-07 12:21:01 -0800
 layout: post
 permalink: /2006/09/07/offline-for-a-while/
 categories:

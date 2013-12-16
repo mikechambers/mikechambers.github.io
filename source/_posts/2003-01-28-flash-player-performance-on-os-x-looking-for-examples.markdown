@@ -1,6 +1,7 @@
 ---
 title: 'Flash Player Performance on OS X : Looking for Examples'
 author: mikechambers
+date: 2003-01-28 12:21:01 -0800
 layout: post
 permalink: /2003/01/28/flash-player-performance-on-os-x-looking-for-examples/
 categories:

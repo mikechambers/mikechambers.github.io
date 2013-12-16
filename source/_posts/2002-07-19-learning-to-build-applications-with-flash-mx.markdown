@@ -1,6 +1,7 @@
 ---
 title: Learning to build Applications with Flash MX
 author: mikechambers
+date: 2002-07-19 12:56:01 -0800
 layout: post
 permalink: /2002/07/19/learning-to-build-applications-with-flash-mx/
 categories:

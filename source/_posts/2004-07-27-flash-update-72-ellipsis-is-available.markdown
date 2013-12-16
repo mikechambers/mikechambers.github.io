@@ -1,6 +1,7 @@
 ---
 title: Flash Update (7.2 / Ellipsis) is Available
 author: mikechambers
+date: 2004-07-27 12:55:01 -0800
 layout: post
 permalink: /2004/07/27/flash-update-72-ellipsis-is-available/
 categories:

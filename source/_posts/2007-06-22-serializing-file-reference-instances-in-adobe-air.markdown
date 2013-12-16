@@ -1,6 +1,7 @@
 ---
 title: Serializing File Reference Instances in Adobe AIR
 author: mikechambers
+date: 2007-06-22 12:33:01 -0800
 layout: post
 permalink: /2007/06/22/serializing-file-reference-instances-in-adobe-air/
 categories:

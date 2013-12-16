@@ -1,6 +1,7 @@
 ---
 title: Keep up with Macromedia Product Updates
 author: mikechambers
+date: 2003-04-20 12:57:01 -0800
 layout: post
 permalink: /2003/04/20/keep-up-with-macromedia-product-updates/
 categories:

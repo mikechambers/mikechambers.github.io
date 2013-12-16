@@ -1,6 +1,7 @@
 ---
 title: Flex is Pimp
 author: mikechambers
+date: 2005-06-10 12:56:01 -0800
 layout: post
 permalink: /2005/06/10/flex-is-pimp/
 categories:

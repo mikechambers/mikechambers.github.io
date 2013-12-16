@@ -1,6 +1,7 @@
 ---
 title: Encapsulating Ajax Calls in an XHTML Friendly Way
 author: mikechambers
+date: 2006-02-07 12:08:01 -0800
 layout: post
 permalink: /2006/02/07/encapsulating-ajax-calls-in-an-xhtml-friendly-way/
 categories:

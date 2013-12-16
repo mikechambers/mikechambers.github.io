@@ -1,6 +1,7 @@
 ---
 title: 'Reminder : Apollo Online Seminar tomorrow'
 author: mikechambers
+date: 2006-11-01 12:48:01 -0800
 layout: post
 permalink: /2006/11/01/reminder-apollo-online-seminar-tomorrow/
 categories:

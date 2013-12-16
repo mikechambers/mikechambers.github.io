@@ -1,6 +1,7 @@
 ---
 title: Developer Chat this morning
 author: mikechambers
+date: 2004-03-04 12:00:01 -0800
 layout: post
 permalink: /2004/03/04/developer-chat-this-morning/
 categories:

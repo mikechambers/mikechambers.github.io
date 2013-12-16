@@ -1,6 +1,7 @@
 ---
 title: 'Special Podcast : History of Flash'
 author: mikechambers
+date: 2006-08-10 12:06:01 -0800
 layout: post
 permalink: /2006/08/10/special-podcast-history-of-flash/
 categories:

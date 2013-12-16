@@ -1,6 +1,7 @@
 ---
 title: New Thermo Video Posted
 author: mikechambers
+date: 2007-12-04 12:41:01 -0800
 layout: post
 permalink: /2007/12/04/new-thermo-video-posted/
 categories:

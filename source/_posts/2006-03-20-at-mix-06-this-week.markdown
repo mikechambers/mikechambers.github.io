@@ -1,6 +1,7 @@
 ---
 title: At Mix 06 this week
 author: mikechambers
+date: 2006-03-20 12:33:01 -0800
 layout: post
 permalink: /2006/03/20/at-mix-06-this-week/
 categories:

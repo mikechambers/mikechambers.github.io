@@ -1,6 +1,7 @@
 ---
 title: DevNet Resource Kit Volume 3 is Available
 author: mikechambers
+date: 2003-04-22 12:36:01 -0800
 layout: post
 permalink: /2003/04/22/devnet-resource-kit-volume-3-is-available/
 categories:

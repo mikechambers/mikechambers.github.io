@@ -1,6 +1,7 @@
 ---
 title: Using Eclipse for ActionScript Development
 author: mikechambers
+date: 2004-11-19 12:36:01 -0800
 layout: post
 permalink: /2004/11/19/using-eclipse-for-actionscript-development/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Macromedia News FireFox Extension
 author: mikechambers
+date: 2004-12-07 12:59:01 -0800
 layout: post
 permalink: /2004/12/07/macromedia-news-firefox-extension/
 categories:

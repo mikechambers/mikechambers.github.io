@@ -1,6 +1,7 @@
 ---
 title: 'Case Study : ActionScript 3 Performance Optimization'
 author: mikechambers
+date: 2009-10-13 12:57:01 -0800
 layout: post
 permalink: /2009/10/13/case-study-actionscript-3-performance-optimization/
 categories:

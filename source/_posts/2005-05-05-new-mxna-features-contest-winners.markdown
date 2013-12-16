@@ -1,6 +1,7 @@
 ---
 title: New MXNA Features / Contest Winners
 author: mikechambers
+date: 2005-05-05 12:37:01 -0800
 layout: post
 permalink: /2005/05/05/new-mxna-features-contest-winners/
 categories:

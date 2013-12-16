@@ -1,6 +1,7 @@
 ---
 title: 'Flex 2 Component : FishEye Menu'
 author: mikechambers
+date: 2006-04-14 12:24:01 -0800
 layout: post
 permalink: /2006/04/14/flex-2-component-fisheye-menu/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Getting Started with Flash and Arduino
 author: mikechambers
+date: 2010-08-04 12:01:01 -0800
 layout: post
 permalink: /2010/08/04/getting-started-with-flash-and-arduino/
 categories:

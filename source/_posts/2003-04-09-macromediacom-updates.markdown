@@ -1,6 +1,7 @@
 ---
 title: Macromedia.com Updates
 author: mikechambers
+date: 2003-04-09 12:30:01 -0800
 layout: post
 permalink: /2003/04/09/macromediacom-updates/
 categories:

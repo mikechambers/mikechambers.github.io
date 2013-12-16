@@ -1,6 +1,7 @@
 ---
 title: Apollo FAQ Translated to Polish
 author: mikechambers
+date: 2007-02-21 12:23:01 -0800
 layout: post
 permalink: /2007/02/21/apollo-faq-translated-to-polish/
 categories:

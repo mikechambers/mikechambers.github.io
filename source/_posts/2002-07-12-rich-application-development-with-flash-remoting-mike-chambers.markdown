@@ -1,6 +1,7 @@
 ---
 title: 'Rich Application Development with Flash Remoting : Mike Chambers'
 author: mikechambers
+date: 2002-07-12 12:45:01 -0800
 layout: post
 permalink: /2002/07/12/rich-application-development-with-flash-remoting-mike-chambers/
 categories:

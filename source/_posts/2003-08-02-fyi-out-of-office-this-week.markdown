@@ -1,6 +1,7 @@
 ---
 title: 'FYI : Out of office this Week'
 author: mikechambers
+date: 2003-08-02 12:47:01 -0800
 layout: post
 permalink: /2003/08/02/fyi-out-of-office-this-week/
 categories:

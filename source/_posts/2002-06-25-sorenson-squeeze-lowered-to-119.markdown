@@ -1,6 +1,7 @@
 ---
 title: Sorenson Squeeze lowered to $119
 author: mikechambers
+date: 2002-06-25 12:28:01 -0800
 layout: post
 permalink: /2002/06/25/sorenson-squeeze-lowered-to-119/
 categories:

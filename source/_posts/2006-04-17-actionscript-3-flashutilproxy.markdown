@@ -1,6 +1,7 @@
 ---
 title: 'ActionScript 3 : flash.util.Proxy'
 author: mikechambers
+date: 2006-04-17 12:54:01 -0800
 layout: post
 permalink: /2006/04/17/actionscript-3-flashutilproxy/
 categories:

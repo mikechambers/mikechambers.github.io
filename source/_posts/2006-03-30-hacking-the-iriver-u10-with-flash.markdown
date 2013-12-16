@@ -1,6 +1,7 @@
 ---
 title: Hacking the iriver U10 with Flash
 author: mikechambers
+date: 2006-03-30 12:47:01 -0800
 layout: post
 permalink: /2006/03/30/hacking-the-iriver-u10-with-flash/
 categories:

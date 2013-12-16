@@ -1,6 +1,7 @@
 ---
 title: Streaming XBox through Flash via the Flash Communication Server
 author: mikechambers
+date: 2002-07-15 12:20:01 -0800
 layout: post
 permalink: /2002/07/15/streaming-xbox-through-flash-via-the-flash-communication-server/
 categories:

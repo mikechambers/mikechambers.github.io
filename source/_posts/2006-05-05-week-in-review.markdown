@@ -1,6 +1,7 @@
 ---
 title: Week in Review
 author: mikechambers
+date: 2006-05-05 12:27:01 -0800
 layout: post
 permalink: /2006/05/05/week-in-review/
 categories:

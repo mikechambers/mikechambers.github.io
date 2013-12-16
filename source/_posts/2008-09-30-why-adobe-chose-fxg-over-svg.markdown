@@ -1,6 +1,7 @@
 ---
 title: Why Adobe chose FXG over SVG
 author: mikechambers
+date: 2008-09-30 12:30:01 -0800
 layout: post
 permalink: /2008/09/30/why-adobe-chose-fxg-over-svg/
 categories:

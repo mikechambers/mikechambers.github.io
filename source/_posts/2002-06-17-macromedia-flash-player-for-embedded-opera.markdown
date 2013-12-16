@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash Player for Embedded Opera
 author: mikechambers
+date: 2002-06-17 12:08:01 -0800
 layout: post
 permalink: /2002/06/17/macromedia-flash-player-for-embedded-opera/
 categories:

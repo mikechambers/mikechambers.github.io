@@ -1,6 +1,7 @@
 ---
 title: Tons of CS3 Videos and Tutorials
 author: mikechambers
+date: 2007-10-31 12:46:01 -0800
 layout: post
 permalink: /2007/10/31/tons-of-cs3-videos-and-tutorials/
 categories:

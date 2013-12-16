@@ -1,6 +1,7 @@
 ---
 title: Help me test a Flash Communication Server App
 author: mikechambers
+date: 2002-07-23 12:10:01 -0800
 layout: post
 permalink: /2002/07/23/help-me-test-a-flash-communication-server-app/
 categories:

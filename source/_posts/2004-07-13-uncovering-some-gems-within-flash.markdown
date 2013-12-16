@@ -1,6 +1,7 @@
 ---
 title: Uncovering some Gems within Flash
 author: mikechambers
+date: 2004-07-13 12:49:01 -0800
 layout: post
 permalink: /2004/07/13/uncovering-some-gems-within-flash/
 categories:

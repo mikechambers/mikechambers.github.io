@@ -1,6 +1,7 @@
 ---
 title: Macromedia Does Weblogs
 author: mikechambers
+date: 2002-04-29 12:06:01 -0800
 layout: post
 permalink: /2002/04/29/macromedia-does-weblogs/
 categories:

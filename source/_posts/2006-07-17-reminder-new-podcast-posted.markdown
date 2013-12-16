@@ -1,6 +1,7 @@
 ---
 title: 'Reminder : New Podcast Posted'
 author: mikechambers
+date: 2006-07-17 12:16:01 -0800
 layout: post
 permalink: /2006/07/17/reminder-new-podcast-posted/
 categories:

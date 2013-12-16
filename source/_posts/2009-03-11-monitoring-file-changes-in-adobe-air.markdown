@@ -1,6 +1,7 @@
 ---
 title: Monitoring File Changes in Adobe AIR
 author: mikechambers
+date: 2009-03-11 12:04:01 -0800
 layout: post
 permalink: /2009/03/11/monitoring-file-changes-in-adobe-air/
 categories:

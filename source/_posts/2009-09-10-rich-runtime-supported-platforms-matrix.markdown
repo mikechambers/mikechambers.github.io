@@ -1,6 +1,7 @@
 ---
 title: Rich Runtime Supported Platforms Matrix
 author: mikechambers
+date: 2009-09-10 12:43:01 -0800
 layout: post
 permalink: /2009/09/10/rich-runtime-supported-platforms-matrix/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Anyone using ActionScript 2 to build AIR applications?
 author: mikechambers
+date: 2008-08-18 12:27:01 -0800
 layout: post
 permalink: /2008/08/18/anyone-using-actionscript-2-to-build-air-applications/
 categories:

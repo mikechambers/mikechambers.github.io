@@ -1,6 +1,7 @@
 ---
 title: 'Guest Post : Tony Lopez : Executive Producer Macromedia.com'
 author: mikechambers
+date: 2003-03-07 12:06:01 -0800
 layout: post
 permalink: /2003/03/07/guest-post-tony-lopez-executive-producer-macromediacom/
 categories:

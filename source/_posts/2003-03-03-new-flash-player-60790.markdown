@@ -1,6 +1,7 @@
 ---
 title: 'New Flash Player : 6.0.79.0'
 author: mikechambers
+date: 2003-03-03 12:02:01 -0800
 layout: post
 permalink: /2003/03/03/new-flash-player-60790/
 categories:

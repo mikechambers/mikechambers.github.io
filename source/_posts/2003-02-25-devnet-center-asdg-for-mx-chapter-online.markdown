@@ -1,6 +1,7 @@
 ---
 title: 'DevNet Center : ASDG for MX Chapter online'
 author: mikechambers
+date: 2003-02-25 12:17:01 -0800
 layout: post
 permalink: /2003/02/25/devnet-center-asdg-for-mx-chapter-online/
 categories:

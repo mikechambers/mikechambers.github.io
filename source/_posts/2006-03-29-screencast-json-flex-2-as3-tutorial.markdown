@@ -1,6 +1,7 @@
 ---
 title: 'Screencast : JSON / Flex 2 / AS3 Tutorial'
 author: mikechambers
+date: 2006-03-29 12:36:01 -0800
 layout: post
 permalink: /2006/03/29/screencast-json-flex-2-as3-tutorial/
 categories:

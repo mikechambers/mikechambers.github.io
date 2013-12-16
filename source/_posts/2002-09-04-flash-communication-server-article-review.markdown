@@ -1,6 +1,7 @@
 ---
 title: Flash Communication Server Article / Review
 author: mikechambers
+date: 2002-09-04 12:19:01 -0800
 layout: post
 permalink: /2002/09/04/flash-communication-server-article-review/
 categories:

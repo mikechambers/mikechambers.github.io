@@ -1,6 +1,7 @@
 ---
 title: 'fyi : My FlashForward Apollo Session has moved'
 author: mikechambers
+date: 2006-08-29 12:21:01 -0800
 layout: post
 permalink: /2006/08/29/fyi-my-flashforward-apollo-session-has-moved/
 categories:

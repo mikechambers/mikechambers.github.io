@@ -1,6 +1,7 @@
 ---
 title: New Version of flump (Flickr Image Downloader)
 author: mikechambers
+date: 2008-08-07 12:57:01 -0800
 layout: post
 permalink: /2008/08/07/new-version-of-flump-flickr-image-downloader/
 categories:

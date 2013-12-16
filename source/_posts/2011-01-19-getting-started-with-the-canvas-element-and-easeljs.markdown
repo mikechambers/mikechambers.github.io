@@ -1,6 +1,7 @@
 ---
 title: Getting Started with the Canvas Element and EaselJS
 author: mikechambers
+date: 2011-01-19 12:03:01 -0800
 layout: post
 permalink: /2011/01/19/getting-started-with-the-canvas-element-and-easeljs/
 categories:

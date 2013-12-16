@@ -1,6 +1,7 @@
 ---
 title: 'DRK 4 : 3D Pie Chart Example'
 author: mikechambers
+date: 2003-07-31 12:33:01 -0800
 layout: post
 permalink: /2003/07/31/drk-4-3d-pie-chart-example/
 categories:

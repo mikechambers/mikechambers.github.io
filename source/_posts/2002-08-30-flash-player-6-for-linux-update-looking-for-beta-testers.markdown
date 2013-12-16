@@ -1,6 +1,7 @@
 ---
 title: 'Flash Player 6 for Linux Update : Looking for Beta testers'
 author: mikechambers
+date: 2002-08-30 12:04:01 -0800
 layout: post
 permalink: /2002/08/30/flash-player-6-for-linux-update-looking-for-beta-testers/
 categories:

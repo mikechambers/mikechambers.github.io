@@ -1,6 +1,7 @@
 ---
 title: 'Flash Enabled : Phone Dialer App source'
 author: mikechambers
+date: 2002-05-30 12:35:01 -0800
 layout: post
 permalink: /2002/05/30/flash-enabled-phone-dialer-app-source/
 categories:

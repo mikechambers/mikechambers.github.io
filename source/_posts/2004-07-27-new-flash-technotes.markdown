@@ -1,6 +1,7 @@
 ---
 title: New Flash Technotes
 author: mikechambers
+date: 2004-07-27 12:48:01 -0800
 layout: post
 permalink: /2004/07/27/new-flash-technotes/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'FlashCamp San Francisco, May 29th : Flex 4, Flash Catalyst, Flex Builder 4'
 author: mikechambers
+date: 2009-05-05 12:08:01 -0800
 layout: post
 permalink: /2009/05/05/flashcamp-san-francisco-may-29th-flex-4-flash-catalyst-flex-builder-4/
 categories:

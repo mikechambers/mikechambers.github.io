@@ -1,6 +1,7 @@
 ---
 title: Welcome to the new home of mesh on mx
 author: mikechambers
+date: 2003-01-16 12:31:01 -0800
 layout: post
 permalink: /2003/01/16/welcome-to-the-new-home-of-mesh-on-mx/
 categories:

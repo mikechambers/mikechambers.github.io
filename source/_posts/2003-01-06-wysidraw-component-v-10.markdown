@@ -1,6 +1,7 @@
 ---
 title: WysiDraw Component v. 1.0
 author: mikechambers
+date: 2003-01-06 12:12:01 -0800
 layout: post
 permalink: /2003/01/06/wysidraw-component-v-10/
 categories:

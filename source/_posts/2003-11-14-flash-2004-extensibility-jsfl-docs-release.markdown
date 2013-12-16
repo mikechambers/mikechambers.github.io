@@ -1,6 +1,7 @@
 ---
 title: Flash 2004 Extensibility / JSFL Docs release
 author: mikechambers
+date: 2003-11-14 12:58:01 -0800
 layout: post
 permalink: /2003/11/14/flash-2004-extensibility-jsfl-docs-release/
 categories:

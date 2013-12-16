@@ -1,6 +1,7 @@
 ---
 title: FlashForward Update
 author: mikechambers
+date: 2003-03-28 12:00:01 -0800
 layout: post
 permalink: /2003/03/28/flashforward-update/
 categories:

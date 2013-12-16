@@ -1,6 +1,7 @@
 ---
 title: Flash and Interactive TV (ITV)
 author: mikechambers
+date: 2002-05-24 12:16:01 -0800
 layout: post
 permalink: /2002/05/24/flash-and-interactive-tv-itv/
 categories:

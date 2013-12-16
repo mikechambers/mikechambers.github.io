@@ -1,6 +1,7 @@
 ---
 title: Flash and the World Cup
 author: mikechambers
+date: 2002-06-10 12:55:01 -0800
 layout: post
 permalink: /2002/06/10/flash-and-the-world-cup/
 categories:

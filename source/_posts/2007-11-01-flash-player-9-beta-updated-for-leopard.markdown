@@ -1,6 +1,7 @@
 ---
 title: Flash Player 9 Beta Updated for Leopard
 author: mikechambers
+date: 2007-11-01 12:15:01 -0800
 layout: post
 permalink: /2007/11/01/flash-player-9-beta-updated-for-leopard/
 categories:

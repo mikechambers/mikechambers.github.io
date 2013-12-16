@@ -1,6 +1,7 @@
 ---
 title: Yahoo Releases ActionScript 3 Maps API
 author: mikechambers
+date: 2008-02-11 12:23:01 -0800
 layout: post
 permalink: /2008/02/11/yahoo-releases-actionscript-3-maps-api/
 categories:

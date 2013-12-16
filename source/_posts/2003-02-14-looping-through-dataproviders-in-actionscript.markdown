@@ -1,6 +1,7 @@
 ---
 title: Looping Through DataProviders in ActionScript
 author: mikechambers
+date: 2003-02-14 12:37:01 -0800
 layout: post
 permalink: /2003/02/14/looping-through-dataproviders-in-actionscript/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Russian Flash Web Log?
 author: mikechambers
+date: 2002-10-04 12:59:01 -0800
 layout: post
 permalink: /2002/10/04/russian-flash-web-log/
 categories:

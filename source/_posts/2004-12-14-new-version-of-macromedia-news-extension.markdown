@@ -1,6 +1,7 @@
 ---
 title: New Version of Macromedia News Extension
 author: mikechambers
+date: 2004-12-14 12:51:01 -0800
 layout: post
 permalink: /2004/12/14/new-version-of-macromedia-news-extension/
 categories:

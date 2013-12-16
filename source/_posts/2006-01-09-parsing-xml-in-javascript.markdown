@@ -1,6 +1,7 @@
 ---
 title: Parsing XML in JavaScript?
 author: mikechambers
+date: 2006-01-09 12:11:01 -0800
 layout: post
 permalink: /2006/01/09/parsing-xml-in-javascript/
 categories:

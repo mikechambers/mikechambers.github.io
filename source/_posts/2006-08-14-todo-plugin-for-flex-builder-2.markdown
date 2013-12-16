@@ -1,6 +1,7 @@
 ---
 title: todo plugin for Flex Builder 2
 author: mikechambers
+date: 2006-08-14 12:05:01 -0800
 layout: post
 permalink: /2006/08/14/todo-plugin-for-flex-builder-2/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: I am Back (Finally)
 author: mikechambers
+date: 2003-09-08 12:16:01 -0800
 layout: post
 permalink: /2003/09/08/i-am-back-finally/
 categories:

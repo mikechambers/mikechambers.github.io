@@ -1,6 +1,7 @@
 ---
 title: Early Pictures from Northern European User Group Tour
 author: mikechambers
+date: 2004-05-22 12:08:01 -0800
 layout: post
 permalink: /2004/05/22/early-pictures-from-northern-european-user-group-tour/
 categories:

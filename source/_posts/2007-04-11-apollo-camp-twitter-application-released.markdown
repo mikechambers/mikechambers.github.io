@@ -1,6 +1,7 @@
 ---
 title: Apollo Camp Twitter Application Released
 author: mikechambers
+date: 2007-04-11 12:29:01 -0800
 layout: post
 permalink: /2007/04/11/apollo-camp-twitter-application-released/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: What do you think of Flash 2004?
 author: mikechambers
+date: 2003-09-24 12:33:01 -0800
 layout: post
 permalink: /2003/09/24/what-do-you-think-of-flash-2004/
 categories:

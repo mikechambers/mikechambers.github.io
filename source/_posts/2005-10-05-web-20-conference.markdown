@@ -1,6 +1,7 @@
 ---
 title: Web 2.0 Conference
 author: mikechambers
+date: 2005-10-05 12:44:01 -0800
 layout: post
 permalink: /2005/10/05/web-20-conference/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Video : Christian Cantrell Showing some Apollo Apps'
 author: mikechambers
+date: 2006-12-15 12:55:01 -0800
 layout: post
 permalink: /2006/12/15/video-christian-cantrell-showing-some-apollo-apps/
 categories:

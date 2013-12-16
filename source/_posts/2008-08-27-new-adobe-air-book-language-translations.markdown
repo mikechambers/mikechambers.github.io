@@ -1,6 +1,7 @@
 ---
 title: New Adobe AIR Book Language Translations
 author: mikechambers
+date: 2008-08-27 12:32:01 -0800
 layout: post
 permalink: /2008/08/27/new-adobe-air-book-language-translations/
 categories:

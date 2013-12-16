@@ -1,6 +1,7 @@
 ---
 title: Getting started with Flex 4 FXG and Flex Builder 3
 author: mikechambers
+date: 2008-08-28 12:18:01 -0800
 layout: post
 permalink: /2008/08/28/getting-started-with-flex-4-fxg-and-flex-builder-3/
 categories:

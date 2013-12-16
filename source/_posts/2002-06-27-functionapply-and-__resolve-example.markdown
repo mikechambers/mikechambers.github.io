@@ -1,6 +1,7 @@
 ---
 title: Function.apply and __resolve example
 author: mikechambers
+date: 2002-06-27 12:42:01 -0800
 layout: post
 permalink: /2002/06/27/functionapply-and-__resolve-example/
 categories:

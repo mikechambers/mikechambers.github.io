@@ -1,6 +1,7 @@
 ---
 title: 'MXNA Reports : Flex / Flash / AJAX Integration'
 author: mikechambers
+date: 2005-04-26 12:30:01 -0800
 layout: post
 permalink: /2005/04/26/mxna-reports-flex-flash-ajax-integration/
 categories:

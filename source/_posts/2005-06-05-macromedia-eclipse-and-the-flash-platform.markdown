@@ -1,6 +1,7 @@
 ---
 title: Macromedia, Eclipse and the Flash Platform
 author: mikechambers
+date: 2005-06-05 12:12:01 -0800
 layout: post
 permalink: /2005/06/05/macromedia-eclipse-and-the-flash-platform/
 categories:

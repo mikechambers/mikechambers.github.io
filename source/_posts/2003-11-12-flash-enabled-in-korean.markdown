@@ -1,6 +1,7 @@
 ---
 title: 'Flash Enabled : In Korean'
 author: mikechambers
+date: 2003-11-12 12:22:01 -0800
 layout: post
 permalink: /2003/11/12/flash-enabled-in-korean/
 categories:

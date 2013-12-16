@@ -1,6 +1,7 @@
 ---
 title: Thinking about Subscriptions
 author: mikechambers
+date: 2003-01-28 12:42:01 -0800
 layout: post
 permalink: /2003/01/28/thinking-about-subscriptions/
 categories:

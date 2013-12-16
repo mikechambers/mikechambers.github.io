@@ -1,6 +1,7 @@
 ---
 title: Central Application Article and Source Files
 author: mikechambers
+date: 2004-02-17 12:25:01 -0800
 layout: post
 permalink: /2004/02/17/central-application-article-and-source-files/
 categories:

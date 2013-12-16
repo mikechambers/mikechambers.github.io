@@ -1,6 +1,7 @@
 ---
 title: Article on New Features in Flex 2 Beta 2 release
 author: mikechambers
+date: 2006-03-26 12:09:01 -0800
 layout: post
 permalink: /2006/03/26/article-on-new-features-in-flex-2-beta-2-release/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Lynda.com Intro to Apollo Videos posted online
 author: mikechambers
+date: 2007-03-19 12:01:01 -0800
 layout: post
 permalink: /2007/03/19/lyndacom-intro-to-apollo-videos-posted-online/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: ActionScript.com on Macromedia Central
 author: mikechambers
+date: 2003-08-25 12:48:01 -0800
 layout: post
 permalink: /2003/08/25/actionscriptcom-on-macromedia-central/
 categories:

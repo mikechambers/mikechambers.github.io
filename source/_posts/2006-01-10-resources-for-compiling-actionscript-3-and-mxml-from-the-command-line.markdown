@@ -1,6 +1,7 @@
 ---
 title: Resources for Compiling ActionScript 3 and MXML from the command line
 author: mikechambers
+date: 2006-01-10 12:27:01 -0800
 layout: post
 permalink: /2006/01/10/resources-for-compiling-actionscript-3-and-mxml-from-the-command-line/
 categories:

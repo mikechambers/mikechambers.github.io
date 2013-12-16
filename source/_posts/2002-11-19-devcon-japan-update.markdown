@@ -1,6 +1,7 @@
 ---
 title: DevCon Japan Update
 author: mikechambers
+date: 2002-11-19 12:19:01 -0800
 layout: post
 permalink: /2002/11/19/devcon-japan-update/
 categories:

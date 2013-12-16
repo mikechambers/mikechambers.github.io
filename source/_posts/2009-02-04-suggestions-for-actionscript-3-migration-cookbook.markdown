@@ -1,6 +1,7 @@
 ---
 title: Suggestions for ActionScript 3 Migration Cookbook?
 author: mikechambers
+date: 2009-02-04 12:54:01 -0800
 layout: post
 permalink: /2009/02/04/suggestions-for-actionscript-3-migration-cookbook/
 categories:

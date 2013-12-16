@@ -1,6 +1,7 @@
 ---
 title: Sorensen Squeeze Update 2.02
 author: mikechambers
+date: 2002-08-26 12:23:01 -0800
 layout: post
 permalink: /2002/08/26/sorensen-squeeze-update-202/
 categories:

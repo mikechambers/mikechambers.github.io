@@ -1,6 +1,7 @@
 ---
 title: 'Flash Communication Server : the Community Builder'
 author: mikechambers
+date: 2002-12-06 12:23:01 -0800
 layout: post
 permalink: /2002/12/06/flash-communication-server-the-community-builder/
 categories:

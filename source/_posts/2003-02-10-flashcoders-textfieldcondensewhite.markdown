@@ -1,6 +1,7 @@
 ---
 title: 'FlashCoders : TextField.condenseWhite'
 author: mikechambers
+date: 2003-02-10 12:22:01 -0800
 layout: post
 permalink: /2003/02/10/flashcoders-textfieldcondensewhite/
 categories:

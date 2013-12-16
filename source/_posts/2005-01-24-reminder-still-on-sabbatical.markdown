@@ -1,6 +1,7 @@
 ---
 title: 'Reminder : Still on Sabbatical'
 author: mikechambers
+date: 2005-01-24 12:06:01 -0800
 layout: post
 permalink: /2005/01/24/reminder-still-on-sabbatical/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Apollo Beta will include SQLite Embedded Database
 author: mikechambers
+date: 2007-05-30 12:46:01 -0800
 layout: post
 permalink: /2007/05/30/apollo-beta-will-include-sqlite-embedded-database/
 categories:

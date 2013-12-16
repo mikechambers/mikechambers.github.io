@@ -1,6 +1,7 @@
 ---
 title: 'ActionScript 3 : Get a Class Reference by Class Name'
 author: mikechambers
+date: 2006-06-22 12:46:01 -0800
 layout: post
 permalink: /2006/06/22/actionscript-3-get-a-class-reference-by-class-name/
 categories:

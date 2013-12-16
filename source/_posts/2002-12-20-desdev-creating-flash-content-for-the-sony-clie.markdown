@@ -1,6 +1,7 @@
 ---
 title: 'DesDev : Creating Flash Content for the Sony Clie'
 author: mikechambers
+date: 2002-12-20 12:30:01 -0800
 layout: post
 permalink: /2002/12/20/desdev-creating-flash-content-for-the-sony-clie/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: New Flash Player 8 Beta Build
 author: mikechambers
+date: 2005-08-05 12:51:01 -0800
 layout: post
 permalink: /2005/08/05/new-flash-player-8-beta-build/
 categories:

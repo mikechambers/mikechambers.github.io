@@ -1,6 +1,7 @@
 ---
 title: Creating Re-distributable ActionScript Libraries of Pixel Bender Filters
 author: mikechambers
+date: 2008-09-17 12:28:01 -0800
 layout: post
 permalink: /2008/09/17/creating-re-distributable-actionscript-libraries-of-pixel-bender-filters/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Simple HTML Based Apollo Example
 author: mikechambers
+date: 2007-03-28 12:00:01 -0800
 layout: post
 permalink: /2007/03/28/simple-html-based-apollo-example/
 categories:

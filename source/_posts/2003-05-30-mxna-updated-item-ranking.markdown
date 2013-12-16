@@ -1,6 +1,7 @@
 ---
 title: 'MXNA Updated : Item Ranking'
 author: mikechambers
+date: 2003-05-30 12:34:01 -0800
 layout: post
 permalink: /2003/05/30/mxna-updated-item-ranking/
 categories:

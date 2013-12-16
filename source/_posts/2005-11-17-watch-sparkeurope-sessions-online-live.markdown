@@ -1,6 +1,7 @@
 ---
 title: Watch SparkEurope Sessions online Live
 author: mikechambers
+date: 2005-11-17 12:07:01 -0800
 layout: post
 permalink: /2005/11/17/watch-sparkeurope-sessions-online-live/
 categories:

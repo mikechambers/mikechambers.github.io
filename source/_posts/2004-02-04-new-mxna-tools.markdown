@@ -1,6 +1,7 @@
 ---
 title: New MXNA Tools
 author: mikechambers
+date: 2004-02-04 12:37:01 -0800
 layout: post
 permalink: /2004/02/04/new-mxna-tools/
 categories:

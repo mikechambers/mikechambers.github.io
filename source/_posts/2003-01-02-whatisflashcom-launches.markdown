@@ -1,6 +1,7 @@
 ---
 title: WhatIsFlash.com Launches
 author: mikechambers
+date: 2003-01-02 12:14:01 -0800
 layout: post
 permalink: /2003/01/02/whatisflashcom-launches/
 categories:

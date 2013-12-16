@@ -1,6 +1,7 @@
 ---
 title: 'What do  you want to know about Macromedia Central?'
 author: mikechambers
+date: 2003-07-29 12:24:01 -0800
 layout: post
 permalink: /2003/07/29/what-do-you-want-to-know-about-macromedia-central/
 categories:

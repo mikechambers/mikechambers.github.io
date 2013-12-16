@@ -1,6 +1,7 @@
 ---
 title: Extending Components in Flash MX
 author: mikechambers
+date: 2002-06-21 12:33:01 -0800
 layout: post
 permalink: /2002/06/21/extending-components-in-flash-mx/
 categories:

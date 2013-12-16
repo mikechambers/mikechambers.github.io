@@ -1,6 +1,7 @@
 ---
 title: How not to get help
 author: mikechambers
+date: 2002-05-15 12:26:01 -0800
 layout: post
 permalink: /2002/05/15/how-not-to-get-help/
 categories:

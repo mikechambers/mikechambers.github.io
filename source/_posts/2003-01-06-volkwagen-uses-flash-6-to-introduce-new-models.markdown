@@ -1,6 +1,7 @@
 ---
 title: Volkwagen uses Flash 6 to introduce new models
 author: mikechambers
+date: 2003-01-06 12:40:01 -0800
 layout: post
 permalink: /2003/01/06/volkwagen-uses-flash-6-to-introduce-new-models/
 categories:

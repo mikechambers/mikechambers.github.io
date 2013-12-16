@@ -1,6 +1,7 @@
 ---
 title: VR Glove with Flash
 author: mikechambers
+date: 2002-11-27 12:47:01 -0800
 layout: post
 permalink: /2002/11/27/vr-glove-with-flash/
 categories:

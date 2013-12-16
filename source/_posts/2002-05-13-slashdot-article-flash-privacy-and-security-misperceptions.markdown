@@ -1,6 +1,7 @@
 ---
 title: 'Slashdot Article : Flash Privacy and Security misperceptions'
 author: mikechambers
+date: 2002-05-13 12:54:01 -0800
 layout: post
 permalink: /2002/05/13/slashdot-article-flash-privacy-and-security-misperceptions/
 categories:

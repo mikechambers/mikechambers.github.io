@@ -1,6 +1,7 @@
 ---
 title: ANT Integrates Macromedia Flash Player with ANT Fresco Browser to Enable a New Generation of Interactive DTV and Consumer Electronics Appliances.
 author: mikechambers
+date: 2002-05-23 12:36:01 -0800
 layout: post
 permalink: /2002/05/23/ant-integrates-macromedia-flash-player-with-ant-fresco-browser-to-enable-a-new-generation-of-interactive-dtv-and-consumer-electronics-appliances/
 categories:

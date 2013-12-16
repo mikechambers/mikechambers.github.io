@@ -1,6 +1,7 @@
 ---
 title: 'Central  Desktop Wallpaper Contest'
 author: mikechambers
+date: 2004-02-05 12:11:01 -0800
 layout: post
 permalink: /2004/02/05/central-desktop-wallpaper-contest/
 categories:

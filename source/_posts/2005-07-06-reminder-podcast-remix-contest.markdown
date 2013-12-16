@@ -1,6 +1,7 @@
 ---
 title: 'Reminder : Podcast Remix Contest'
 author: mikechambers
+date: 2005-07-06 12:19:01 -0800
 layout: post
 permalink: /2005/07/06/reminder-podcast-remix-contest/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash Wallpaper Contest Reminder
 author: mikechambers
+date: 2004-04-01 12:55:01 -0800
 layout: post
 permalink: /2004/04/01/flash-wallpaper-contest-reminder/
 categories:

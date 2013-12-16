@@ -1,6 +1,7 @@
 ---
 title: Some thoughts on the Yahoo! Toolbar offer on the Macromedia website
 author: mikechambers
+date: 2005-03-10 12:55:01 -0800
 layout: post
 permalink: /2005/03/10/some-thoughts-on-the-yahoo-toolbar-offer-on-the-macromedia-website/
 categories:

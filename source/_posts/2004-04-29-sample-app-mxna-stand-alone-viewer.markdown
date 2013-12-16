@@ -1,6 +1,7 @@
 ---
 title: 'Sample App : MXNA Stand-alone viewer'
 author: mikechambers
+date: 2004-04-29 12:30:01 -0800
 layout: post
 permalink: /2004/04/29/sample-app-mxna-stand-alone-viewer/
 categories:

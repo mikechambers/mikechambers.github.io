@@ -1,6 +1,7 @@
 ---
 title: Speaking in Cincinnati Tonight
 author: mikechambers
+date: 2007-08-16 12:17:01 -0800
 layout: post
 permalink: /2007/08/16/speaking-in-cincinnati-tonight/
 categories:

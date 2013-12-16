@@ -1,6 +1,7 @@
 ---
 title: Using Bitwise XOR to exchange variable values in ActionScript
 author: mikechambers
+date: 2007-10-22 12:22:01 -0800
 layout: post
 permalink: /2007/10/22/using-bitwise-xor-to-exchange-variable-values-in-actionscript/
 categories:

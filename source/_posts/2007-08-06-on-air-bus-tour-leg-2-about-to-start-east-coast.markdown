@@ -1,6 +1,7 @@
 ---
 title: on AIR Bus Tour Leg 2 About to Start (East Coast)
 author: mikechambers
+date: 2007-08-06 12:14:01 -0800
 layout: post
 permalink: /2007/08/06/on-air-bus-tour-leg-2-about-to-start-east-coast/
 categories:

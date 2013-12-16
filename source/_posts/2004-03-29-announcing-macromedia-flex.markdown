@@ -1,6 +1,7 @@
 ---
 title: Announcing Macromedia Flex
 author: mikechambers
+date: 2004-03-29 12:03:01 -0800
 layout: post
 permalink: /2004/03/29/announcing-macromedia-flex/
 categories:

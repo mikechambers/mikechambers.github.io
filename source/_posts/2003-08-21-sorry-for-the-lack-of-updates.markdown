@@ -1,6 +1,7 @@
 ---
 title: Sorry for the lack of updates
 author: mikechambers
+date: 2003-08-21 12:30:01 -0800
 layout: post
 permalink: /2003/08/21/sorry-for-the-lack-of-updates/
 categories:

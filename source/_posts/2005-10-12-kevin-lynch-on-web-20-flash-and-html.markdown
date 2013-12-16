@@ -1,6 +1,7 @@
 ---
 title: Kevin Lynch on Web 2.0, Flash and HTML
 author: mikechambers
+date: 2005-10-12 12:46:01 -0800
 layout: post
 permalink: /2005/10/12/kevin-lynch-on-web-20-flash-and-html/
 categories:

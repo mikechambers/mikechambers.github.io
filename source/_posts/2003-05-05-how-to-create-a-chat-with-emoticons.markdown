@@ -1,6 +1,7 @@
 ---
 title: How to create a chat with Emoticons
 author: mikechambers
+date: 2003-05-05 12:32:01 -0800
 layout: post
 permalink: /2003/05/05/how-to-create-a-chat-with-emoticons/
 categories:

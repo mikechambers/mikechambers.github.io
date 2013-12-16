@@ -1,6 +1,7 @@
 ---
 title: Macromedia FreeHand Reader for Flash MX
 author: mikechambers
+date: 2003-02-19 12:57:01 -0800
 layout: post
 permalink: /2003/02/19/macromedia-freehand-reader-for-flash-mx/
 categories:

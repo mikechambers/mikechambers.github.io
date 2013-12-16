@@ -1,6 +1,7 @@
 ---
 title: 'New Macromedia Weblog : Christian Cantrell'
 author: mikechambers
+date: 2003-01-06 12:48:01 -0800
 layout: post
 permalink: /2003/01/06/new-macromedia-weblog-christian-cantrell/
 categories:

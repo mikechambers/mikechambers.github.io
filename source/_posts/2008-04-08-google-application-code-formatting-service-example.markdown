@@ -1,6 +1,7 @@
 ---
 title: 'Google Application : Code Formatting Service Example'
 author: mikechambers
+date: 2008-04-08 12:48:01 -0800
 layout: post
 permalink: /2008/04/08/google-application-code-formatting-service-example/
 categories:

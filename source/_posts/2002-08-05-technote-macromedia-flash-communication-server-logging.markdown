@@ -1,6 +1,7 @@
 ---
 title: 'Technote : Macromedia Flash Communication Server Logging'
 author: mikechambers
+date: 2002-08-05 12:53:01 -0800
 layout: post
 permalink: /2002/08/05/technote-macromedia-flash-communication-server-logging/
 categories:

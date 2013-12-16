@@ -1,6 +1,7 @@
 ---
 title: Detecting misspelled variable names in ActionScript
 author: mikechambers
+date: 2003-06-03 12:42:01 -0800
 layout: post
 permalink: /2003/06/03/detecting-misspelled-variable-names-in-actionscript/
 categories:

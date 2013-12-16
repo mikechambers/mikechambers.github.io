@@ -1,6 +1,7 @@
 ---
 title: How can Adobe make learning ActionScript 3 easier?
 author: mikechambers
+date: 2009-01-05 12:18:01 -0800
 layout: post
 permalink: /2009/01/05/how-can-adobe-make-learning-actionscript-3-easier/
 categories:

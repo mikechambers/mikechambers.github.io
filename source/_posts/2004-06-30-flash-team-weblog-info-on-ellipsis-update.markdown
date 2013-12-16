@@ -1,6 +1,7 @@
 ---
 title: Flash Team Weblog / Info on Ellipsis Update
 author: mikechambers
+date: 2004-06-30 12:26:01 -0800
 layout: post
 permalink: /2004/06/30/flash-team-weblog-info-on-ellipsis-update/
 categories:

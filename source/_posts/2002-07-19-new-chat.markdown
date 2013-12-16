@@ -1,6 +1,7 @@
 ---
 title: New Chat
 author: mikechambers
+date: 2002-07-19 12:35:01 -0800
 layout: post
 permalink: /2002/07/19/new-chat/
 categories:

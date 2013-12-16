@@ -1,6 +1,7 @@
 ---
 title: 'Pocket PC Summit : Pictures, Video Clips and Event Guide'
 author: mikechambers
+date: 2002-06-02 12:10:01 -0800
 layout: post
 permalink: /2002/06/02/pocket-pc-summit-pictures-video-clips-and-event-guide/
 categories:

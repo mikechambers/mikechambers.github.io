@@ -1,6 +1,7 @@
 ---
 title: SubEthaEdit Central Syntax file
 author: mikechambers
+date: 2004-01-30 12:46:01 -0800
 layout: post
 permalink: /2004/01/30/subethaedit-central-syntax-file/
 categories:

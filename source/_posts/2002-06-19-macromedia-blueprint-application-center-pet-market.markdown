@@ -1,6 +1,7 @@
 ---
 title: 'Macromedia Blueprint Application Center : Pet Market'
 author: mikechambers
+date: 2002-06-19 12:51:01 -0800
 layout: post
 permalink: /2002/06/19/macromedia-blueprint-application-center-pet-market/
 categories:

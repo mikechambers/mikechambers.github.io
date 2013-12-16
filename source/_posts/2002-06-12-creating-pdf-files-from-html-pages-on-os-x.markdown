@@ -1,6 +1,7 @@
 ---
 title: Creating PDF files from HTML Pages on OS X
 author: mikechambers
+date: 2002-06-12 12:49:01 -0800
 layout: post
 permalink: /2002/06/12/creating-pdf-files-from-html-pages-on-os-x/
 categories:

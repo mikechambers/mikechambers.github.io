@@ -1,6 +1,7 @@
 ---
 title: Data Connection Kit available for DevNet Pro Subscribers
 author: mikechambers
+date: 2003-04-28 12:36:01 -0800
 layout: post
 permalink: /2003/04/28/data-connection-kit-available-for-devnet-pro-subscribers/
 categories:

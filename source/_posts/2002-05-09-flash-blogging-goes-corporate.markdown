@@ -1,6 +1,7 @@
 ---
 title: 'Flash: Blogging Goes Corporate'
 author: mikechambers
+date: 2002-05-09 12:40:01 -0800
 layout: post
 permalink: /2002/05/09/flash-blogging-goes-corporate/
 categories:

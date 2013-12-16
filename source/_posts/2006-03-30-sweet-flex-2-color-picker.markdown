@@ -1,6 +1,7 @@
 ---
 title: Sweet Flex 2 Color Picker
 author: mikechambers
+date: 2006-03-30 12:15:01 -0800
 layout: post
 permalink: /2006/03/30/sweet-flex-2-color-picker/
 categories:

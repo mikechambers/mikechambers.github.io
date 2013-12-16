@@ -1,6 +1,7 @@
 ---
 title: Use a Mac? Want to beta test Central?
 author: mikechambers
+date: 2003-09-18 12:00:01 -0800
 layout: post
 permalink: /2003/09/18/use-a-mac-want-to-beta-test-central/
 categories:

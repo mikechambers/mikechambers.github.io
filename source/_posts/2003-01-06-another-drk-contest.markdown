@@ -1,6 +1,7 @@
 ---
 title: Another DRK Contest
 author: mikechambers
+date: 2003-01-06 12:30:01 -0800
 layout: post
 permalink: /2003/01/06/another-drk-contest/
 categories:

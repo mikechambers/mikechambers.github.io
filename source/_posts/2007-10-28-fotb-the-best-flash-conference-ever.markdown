@@ -1,6 +1,7 @@
 ---
 title: 'FOTB &#8211; The best flash conference ever?'
 author: mikechambers
+date: 2007-10-28 12:10:01 -0800
 layout: post
 permalink: /2007/10/28/fotb-the-best-flash-conference-ever/
 categories:

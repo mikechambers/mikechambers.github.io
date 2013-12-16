@@ -1,6 +1,7 @@
 ---
 title: New Content at DevNet Center
 author: mikechambers
+date: 2003-06-04 12:47:01 -0800
 layout: post
 permalink: /2003/06/04/new-content-at-devnet-center/
 categories:

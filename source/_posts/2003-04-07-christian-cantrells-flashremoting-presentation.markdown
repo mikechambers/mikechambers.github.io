@@ -1,6 +1,7 @@
 ---
 title: 'Christian Cantrell&#8217;s FlashRemoting Presentation'
 author: mikechambers
+date: 2003-04-07 12:21:01 -0800
 layout: post
 permalink: /2003/04/07/christian-cantrells-flashremoting-presentation/
 categories:

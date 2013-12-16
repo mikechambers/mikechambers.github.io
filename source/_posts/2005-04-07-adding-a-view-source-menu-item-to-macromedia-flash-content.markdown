@@ -1,6 +1,7 @@
 ---
 title: Adding a View Source Menu item to Macromedia Flash Content
 author: mikechambers
+date: 2005-04-07 12:06:01 -0800
 layout: post
 permalink: /2005/04/07/adding-a-view-source-menu-item-to-macromedia-flash-content/
 categories:

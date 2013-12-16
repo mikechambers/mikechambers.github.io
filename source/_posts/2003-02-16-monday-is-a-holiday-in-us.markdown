@@ -1,6 +1,7 @@
 ---
 title: Monday is a Holiday in U.S.
 author: mikechambers
+date: 2003-02-16 12:53:01 -0800
 layout: post
 permalink: /2003/02/16/monday-is-a-holiday-in-us/
 categories:

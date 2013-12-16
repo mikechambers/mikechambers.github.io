@@ -1,6 +1,7 @@
 ---
 title: Data Validation Functions in ActionScript
 author: mikechambers
+date: 2003-02-14 12:15:01 -0800
 layout: post
 permalink: /2003/02/14/data-validation-functions-in-actionscript/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash Player 8.5 Public Compatibility Release
 author: mikechambers
+date: 2006-03-27 12:31:01 -0800
 layout: post
 permalink: /2006/03/27/flash-player-85-public-compatibility-release/
 categories:

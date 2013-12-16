@@ -1,6 +1,7 @@
 ---
 title: FlashBlog is Back
 author: mikechambers
+date: 2002-05-06 12:24:01 -0800
 layout: post
 permalink: /2002/05/06/flashblog-is-back/
 categories:

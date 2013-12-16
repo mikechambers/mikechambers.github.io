@@ -1,6 +1,7 @@
 ---
 title: ActionScript 3 Reference for iPhone
 author: mikechambers
+date: 2009-01-26 12:30:01 -0800
 layout: post
 permalink: /2009/01/26/actionscript-3-reference-for-iphone/
 categories:

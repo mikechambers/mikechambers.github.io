@@ -1,6 +1,7 @@
 ---
 title: Flash Content Development Kit (CDK) for DoCoMo is available
 author: mikechambers
+date: 2003-05-13 12:17:01 -0800
 layout: post
 permalink: /2003/05/13/flash-content-development-kit-cdk-for-docomo-is-available/
 categories:

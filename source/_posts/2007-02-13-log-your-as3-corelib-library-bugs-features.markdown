@@ -1,6 +1,7 @@
 ---
 title: Log your AS3 corelib Library bugs / features
 author: mikechambers
+date: 2007-02-13 12:53:01 -0800
 layout: post
 permalink: /2007/02/13/log-your-as3-corelib-library-bugs-features/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Only 5 more days
 author: mikechambers
+date: 2005-10-12 12:14:01 -0800
 layout: post
 permalink: /2005/10/12/only-5-more-days/
 categories:

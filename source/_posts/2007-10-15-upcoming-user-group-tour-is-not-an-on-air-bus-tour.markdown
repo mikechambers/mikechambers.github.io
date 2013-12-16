@@ -1,6 +1,7 @@
 ---
 title: Upcoming User Group tour is not an on AIR Bus Tour
 author: mikechambers
+date: 2007-10-15 12:23:01 -0800
 layout: post
 permalink: /2007/10/15/upcoming-user-group-tour-is-not-an-on-air-bus-tour/
 categories:

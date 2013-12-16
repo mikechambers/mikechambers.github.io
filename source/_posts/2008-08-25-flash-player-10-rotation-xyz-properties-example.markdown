@@ -1,6 +1,7 @@
 ---
 title: 'Flash Player 10 : rotation (x,y,z) properties example'
 author: mikechambers
+date: 2008-08-25 12:41:01 -0800
 layout: post
 permalink: /2008/08/25/flash-player-10-rotation-xyz-properties-example/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Adobe / Macromedia Lawsuit Settled
 author: mikechambers
+date: 2002-07-29 12:21:01 -0800
 layout: post
 permalink: /2002/07/29/adobe-macromedia-lawsuit-settled/
 categories:

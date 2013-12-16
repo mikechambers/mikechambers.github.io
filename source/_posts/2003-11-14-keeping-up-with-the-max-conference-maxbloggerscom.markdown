@@ -1,6 +1,7 @@
 ---
 title: 'Keeping up with the MAX Conference &#8211; MaxBloggers.com'
 author: mikechambers
+date: 2003-11-14 12:55:01 -0800
 layout: post
 permalink: /2003/11/14/keeping-up-with-the-max-conference-maxbloggerscom/
 categories:

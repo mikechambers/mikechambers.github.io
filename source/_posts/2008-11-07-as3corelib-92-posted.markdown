@@ -1,6 +1,7 @@
 ---
 title: As3CoreLib .92 Posted
 author: mikechambers
+date: 2008-11-07 12:39:01 -0800
 layout: post
 permalink: /2008/11/07/as3corelib-92-posted/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: MXNA is back up
 author: mikechambers
+date: 2008-05-05 12:25:01 -0800
 layout: post
 permalink: /2008/05/05/mxna-is-back-up/
 categories:

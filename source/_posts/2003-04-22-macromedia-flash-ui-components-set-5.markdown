@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash UI Components Set 5
 author: mikechambers
+date: 2003-04-22 12:48:01 -0800
 layout: post
 permalink: /2003/04/22/macromedia-flash-ui-components-set-5/
 categories:

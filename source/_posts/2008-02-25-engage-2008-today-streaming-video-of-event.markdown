@@ -1,6 +1,7 @@
 ---
 title: 'Engage 2008 Today : Streaming Video of event'
 author: mikechambers
+date: 2008-02-25 12:57:01 -0800
 layout: post
 permalink: /2008/02/25/engage-2008-today-streaming-video-of-event/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Computer Crash
 author: mikechambers
+date: 2003-10-03 12:14:01 -0800
 layout: post
 permalink: /2003/10/03/computer-crash/
 categories:

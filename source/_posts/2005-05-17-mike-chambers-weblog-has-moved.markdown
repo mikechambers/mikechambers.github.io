@@ -1,6 +1,7 @@
 ---
 title: 'Mike Chambers&#8217; Weblog Has Moved'
 author: mikechambers
+date: 2005-05-17 12:01:01 -0800
 layout: post
 permalink: /2005/05/17/mike-chambers-weblog-has-moved/
 categories:

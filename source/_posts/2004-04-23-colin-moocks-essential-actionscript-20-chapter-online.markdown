@@ -1,6 +1,7 @@
 ---
 title: 'Colin Moock&#8217;s Essential ActionScript 2.0 Chapter Online'
 author: mikechambers
+date: 2004-04-23 12:05:01 -0800
 layout: post
 permalink: /2004/04/23/colin-moocks-essential-actionscript-20-chapter-online/
 categories:

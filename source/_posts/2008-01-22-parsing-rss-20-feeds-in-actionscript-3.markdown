@@ -1,6 +1,7 @@
 ---
 title: Parsing RSS 2.0 Feeds in ActionScript 3
 author: mikechambers
+date: 2008-01-22 12:53:01 -0800
 layout: post
 permalink: /2008/01/22/parsing-rss-20-feeds-in-actionscript-3/
 categories:

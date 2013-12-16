@@ -1,6 +1,7 @@
 ---
 title: 'Flash Player Detection : Moock FPI'
 author: mikechambers
+date: 2002-04-30 12:09:01 -0800
 layout: post
 permalink: /2002/04/30/flash-player-detection-moock-fpi/
 categories:

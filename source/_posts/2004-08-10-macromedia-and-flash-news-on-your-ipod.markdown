@@ -1,6 +1,7 @@
 ---
 title: Macromedia and Flash news on your iPod
 author: mikechambers
+date: 2004-08-10 12:54:01 -0800
 layout: post
 permalink: /2004/08/10/macromedia-and-flash-news-on-your-ipod/
 categories:

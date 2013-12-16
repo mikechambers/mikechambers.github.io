@@ -1,6 +1,7 @@
 ---
 title: Apollo FAQ Translated to Swedish
 author: mikechambers
+date: 2007-01-22 12:13:01 -0800
 layout: post
 permalink: /2007/01/22/apollo-faq-translated-to-swedish/
 categories:

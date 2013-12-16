@@ -1,6 +1,7 @@
 ---
 title: Flash MX 2004 Data Binding Tutorial
 author: mikechambers
+date: 2003-10-11 12:54:01 -0800
 layout: post
 permalink: /2003/10/11/flash-mx-2004-data-binding-tutorial/
 categories:

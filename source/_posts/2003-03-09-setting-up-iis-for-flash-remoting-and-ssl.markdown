@@ -1,6 +1,7 @@
 ---
 title: Setting up IIS for Flash Remoting and SSL
 author: mikechambers
+date: 2003-03-09 12:33:01 -0800
 layout: post
 permalink: /2003/03/09/setting-up-iis-for-flash-remoting-and-ssl/
 categories:

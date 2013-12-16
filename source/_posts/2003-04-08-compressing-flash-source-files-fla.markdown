@@ -1,6 +1,7 @@
 ---
 title: Compressing Flash Source Files (FLA)
 author: mikechambers
+date: 2003-04-08 12:35:01 -0800
 layout: post
 permalink: /2003/04/08/compressing-flash-source-files-fla/
 categories:

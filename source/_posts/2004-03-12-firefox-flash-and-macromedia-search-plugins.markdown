@@ -1,6 +1,7 @@
 ---
 title: FireFox Flash and Macromedia Search Plugins
 author: mikechambers
+date: 2004-03-12 12:46:01 -0800
 layout: post
 permalink: /2004/03/12/firefox-flash-and-macromedia-search-plugins/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Help ScaleNine Design an Apollo T-Shirt
 author: mikechambers
+date: 2007-03-05 12:12:01 -0800
 layout: post
 permalink: /2007/03/05/help-scalenine-design-an-apollo-t-shirt/
 categories:

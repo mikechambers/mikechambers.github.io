@@ -1,6 +1,7 @@
 ---
 title: Using FlashVars to pass variables to a SWF
 author: mikechambers
+date: 2002-06-14 12:01:01 -0800
 layout: post
 permalink: /2002/06/14/using-flashvars-to-pass-variables-to-a-swf/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Flex 2 : Clearing the content of an Image Component'
 author: mikechambers
+date: 2006-04-18 12:40:01 -0800
 layout: post
 permalink: /2006/04/18/flex-2-clearing-the-content-of-an-image-component/
 categories:

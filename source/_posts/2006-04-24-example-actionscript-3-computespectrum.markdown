@@ -1,6 +1,7 @@
 ---
 title: 'Example : ActionScript 3 ComputeSpectrum'
 author: mikechambers
+date: 2006-04-24 12:56:01 -0800
 layout: post
 permalink: /2006/04/24/example-actionscript-3-computespectrum/
 categories:

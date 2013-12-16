@@ -1,6 +1,7 @@
 ---
 title: Point to Point File Transfer with Central
 author: mikechambers
+date: 2004-10-27 12:03:01 -0800
 layout: post
 permalink: /2004/10/27/point-to-point-file-transfer-with-central/
 categories:

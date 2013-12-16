@@ -1,6 +1,7 @@
 ---
 title: On Adobe, Flash CS5 and iPhone Applications
 author: mikechambers
+date: 2010-04-20 12:01:01 -0800
 layout: post
 permalink: /2010/04/20/on-adobe-flash-cs5-and-iphone-applications/
 categories:

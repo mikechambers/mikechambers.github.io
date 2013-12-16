@@ -1,6 +1,7 @@
 ---
 title: Flex beta 1 to beta 2 Migration
 author: mikechambers
+date: 2006-03-24 12:13:01 -0800
 layout: post
 permalink: /2006/03/24/flex-beta-1-to-beta-2-migration/
 categories:

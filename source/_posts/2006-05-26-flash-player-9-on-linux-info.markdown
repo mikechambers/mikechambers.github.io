@@ -1,6 +1,7 @@
 ---
 title: Flash Player 9 on Linux Info
 author: mikechambers
+date: 2006-05-26 12:52:01 -0800
 layout: post
 permalink: /2006/05/26/flash-player-9-on-linux-info/
 categories:

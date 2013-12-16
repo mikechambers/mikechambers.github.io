@@ -1,6 +1,7 @@
 ---
 title: Subscribe to mesh on MX
 author: mikechambers
+date: 2002-05-03 12:34:01 -0800
 layout: post
 permalink: /2002/05/03/subscribe-to-mesh-on-mx/
 categories:

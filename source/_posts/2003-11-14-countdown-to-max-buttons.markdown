@@ -1,6 +1,7 @@
 ---
 title: 'Countdown to MAX : Buttons!'
 author: mikechambers
+date: 2003-11-14 12:10:01 -0800
 layout: post
 permalink: /2003/11/14/countdown-to-max-buttons/
 categories:

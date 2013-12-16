@@ -1,6 +1,7 @@
 ---
 title: New Flash Player 6 Beta Build
 author: mikechambers
+date: 2002-11-07 12:15:01 -0800
 layout: post
 permalink: /2002/11/07/new-flash-player-6-beta-build/
 categories:

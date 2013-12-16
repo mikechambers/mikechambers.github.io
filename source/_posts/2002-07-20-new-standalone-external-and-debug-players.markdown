@@ -1,6 +1,7 @@
 ---
 title: New Standalone, External and Debug Players
 author: mikechambers
+date: 2002-07-20 12:50:01 -0800
 layout: post
 permalink: /2002/07/20/new-standalone-external-and-debug-players/
 categories:

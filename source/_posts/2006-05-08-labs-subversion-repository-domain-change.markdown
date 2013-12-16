@@ -1,6 +1,7 @@
 ---
 title: Labs Subversion Repository Domain Change
 author: mikechambers
+date: 2006-05-08 12:37:01 -0800
 layout: post
 permalink: /2006/05/08/labs-subversion-repository-domain-change/
 categories:

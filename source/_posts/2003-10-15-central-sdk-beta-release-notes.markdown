@@ -1,6 +1,7 @@
 ---
 title: Central SDK Beta Release Notes
 author: mikechambers
+date: 2003-10-15 12:10:01 -0800
 layout: post
 permalink: /2003/10/15/central-sdk-beta-release-notes/
 categories:

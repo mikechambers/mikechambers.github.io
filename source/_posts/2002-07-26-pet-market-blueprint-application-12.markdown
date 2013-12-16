@@ -1,6 +1,7 @@
 ---
 title: Pet Market Blueprint Application 1.2
 author: mikechambers
+date: 2002-07-26 12:27:01 -0800
 layout: post
 permalink: /2002/07/26/pet-market-blueprint-application-12/
 categories:

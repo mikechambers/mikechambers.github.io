@@ -1,6 +1,7 @@
 ---
 title: Everything there is to know about Flex 4 / Gumbo
 author: mikechambers
+date: 2008-08-27 12:31:01 -0800
 layout: post
 permalink: /2008/08/27/everything-there-is-to-know-about-flex-4-gumbo/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Tons of new Macromedia XML Feeds
 author: mikechambers
+date: 2004-06-28 12:56:01 -0800
 layout: post
 permalink: /2004/06/28/tons-of-new-macromedia-xml-feeds/
 categories:

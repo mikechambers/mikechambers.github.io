@@ -1,6 +1,7 @@
 ---
 title: Developer Centers at Macromedia.com.
 author: mikechambers
+date: 2002-06-18 12:36:01 -0800
 layout: post
 permalink: /2002/06/18/developer-centers-at-macromediacom/
 categories:

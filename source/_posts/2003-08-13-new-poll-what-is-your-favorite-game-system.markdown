@@ -1,6 +1,7 @@
 ---
 title: 'New Poll : What is your favorite game system?'
 author: mikechambers
+date: 2003-08-13 12:34:01 -0800
 layout: post
 permalink: /2003/08/13/new-poll-what-is-your-favorite-game-system/
 categories:

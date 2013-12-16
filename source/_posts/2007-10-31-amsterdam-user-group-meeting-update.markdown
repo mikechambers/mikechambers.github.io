@@ -1,6 +1,7 @@
 ---
 title: Amsterdam User Group Meeting Update
 author: mikechambers
+date: 2007-10-31 12:32:01 -0800
 layout: post
 permalink: /2007/10/31/amsterdam-user-group-meeting-update/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'flump : Flickr Dump'
 author: mikechambers
+date: 2007-08-09 12:17:01 -0800
 layout: post
 permalink: /2007/08/09/flump-flickr-dump/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Running the SE|PY ActionScript editor on OS X
 author: mikechambers
+date: 2004-02-14 12:38:01 -0800
 layout: post
 permalink: /2004/02/14/running-the-sepy-actionscript-editor-on-os-x/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Atom Feed ActionScript 2 Class Alpha
 author: mikechambers
+date: 2004-02-05 12:34:01 -0800
 layout: post
 permalink: /2004/02/05/atom-feed-actionscript-2-class-alpha/
 categories:

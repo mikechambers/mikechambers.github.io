@@ -1,6 +1,7 @@
 ---
 title: Adobe publishing RTMP spec
 author: mikechambers
+date: 2009-01-20 12:59:01 -0800
 layout: post
 permalink: /2009/01/20/adobe-publishing-rtmp-spec/
 categories:

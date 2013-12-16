@@ -1,6 +1,7 @@
 ---
 title: First Apollo Digg
 author: mikechambers
+date: 2006-09-16 12:17:01 -0800
 layout: post
 permalink: /2006/09/16/first-apollo-digg/
 categories:

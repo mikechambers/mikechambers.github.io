@@ -1,6 +1,7 @@
 ---
 title: Beta test next version of Central and AIM/ICQ Integration
 author: mikechambers
+date: 2004-06-11 12:31:01 -0800
 layout: post
 permalink: /2004/06/11/beta-test-next-version-of-central-and-aimicq-integration/
 categories:

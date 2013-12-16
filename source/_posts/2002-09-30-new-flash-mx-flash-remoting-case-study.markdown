@@ -1,6 +1,7 @@
 ---
 title: New Flash MX / Flash Remoting Case Study
 author: mikechambers
+date: 2002-09-30 12:50:01 -0800
 layout: post
 permalink: /2002/09/30/new-flash-mx-flash-remoting-case-study/
 categories:

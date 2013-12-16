@@ -1,6 +1,7 @@
 ---
 title: 'CommunityMX : Your First Central App Part 2'
 author: mikechambers
+date: 2004-01-27 12:22:01 -0800
 layout: post
 permalink: /2004/01/27/communitymx-your-first-central-app-part-2/
 categories:

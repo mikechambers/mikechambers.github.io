@@ -1,6 +1,7 @@
 ---
 title: Flex / ActionScript 3 Development SDK for Mac / Linux
 author: mikechambers
+date: 2006-03-23 12:28:01 -0800
 layout: post
 permalink: /2006/03/23/flex-actionscript-3-development-sdk-for-mac-linux/
 categories:

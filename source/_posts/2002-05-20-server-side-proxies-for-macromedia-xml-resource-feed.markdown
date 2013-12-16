@@ -1,6 +1,7 @@
 ---
 title: Server Side Proxies for Macromedia XML Resource Feed
 author: mikechambers
+date: 2002-05-20 12:54:01 -0800
 layout: post
 permalink: /2002/05/20/server-side-proxies-for-macromedia-xml-resource-feed/
 categories:

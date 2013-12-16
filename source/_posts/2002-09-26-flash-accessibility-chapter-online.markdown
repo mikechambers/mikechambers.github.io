@@ -1,6 +1,7 @@
 ---
 title: Flash accessibility chapter online
 author: mikechambers
+date: 2002-09-26 12:15:01 -0800
 layout: post
 permalink: /2002/09/26/flash-accessibility-chapter-online/
 categories:

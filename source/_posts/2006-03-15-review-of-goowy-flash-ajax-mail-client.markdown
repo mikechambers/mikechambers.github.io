@@ -1,6 +1,7 @@
 ---
 title: 'Review of Goowy : Flash / Ajax Mail Client'
 author: mikechambers
+date: 2006-03-15 12:22:01 -0800
 layout: post
 permalink: /2006/03/15/review-of-goowy-flash-ajax-mail-client/
 categories:

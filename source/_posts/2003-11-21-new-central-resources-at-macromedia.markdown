@@ -1,6 +1,7 @@
 ---
 title: New Central Resources at Macromedia
 author: mikechambers
+date: 2003-11-21 12:18:01 -0800
 layout: post
 permalink: /2003/11/21/new-central-resources-at-macromedia/
 categories:

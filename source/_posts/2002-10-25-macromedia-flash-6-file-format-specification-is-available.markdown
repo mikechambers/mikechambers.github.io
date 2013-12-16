@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash 6 File Format Specification is Available
 author: mikechambers
+date: 2002-10-25 12:59:01 -0800
 layout: post
 permalink: /2002/10/25/macromedia-flash-6-file-format-specification-is-available/
 categories:

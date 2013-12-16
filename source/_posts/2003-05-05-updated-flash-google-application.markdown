@@ -1,6 +1,7 @@
 ---
 title: Updated Flash Google Application
 author: mikechambers
+date: 2003-05-05 12:21:01 -0800
 layout: post
 permalink: /2003/05/05/updated-flash-google-application/
 categories:

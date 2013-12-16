@@ -1,6 +1,7 @@
 ---
 title: New Flash MX Content at Macromedia.com / Integrating Flash and Visual Basic
 author: mikechambers
+date: 2003-03-18 12:36:01 -0800
 layout: post
 permalink: /2003/03/18/new-flash-mx-content-at-macromediacom-integrating-flash-and-visual-basic/
 categories:

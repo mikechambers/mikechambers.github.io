@@ -1,6 +1,7 @@
 ---
 title: New Flash / Flex Spell Checking Component
 author: mikechambers
+date: 2008-01-11 12:58:01 -0800
 layout: post
 permalink: /2008/01/11/new-flash-flex-spell-checking-component/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Tutorial : PHP and Flex 2'
 author: mikechambers
+date: 2006-04-08 12:12:01 -0800
 layout: post
 permalink: /2006/04/08/tutorial-php-and-flex-2/
 categories:

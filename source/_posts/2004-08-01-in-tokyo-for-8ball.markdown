@@ -1,6 +1,7 @@
 ---
 title: In Tokyo for 8Ball
 author: mikechambers
+date: 2004-08-01 12:22:01 -0800
 layout: post
 permalink: /2004/08/01/in-tokyo-for-8ball/
 categories:

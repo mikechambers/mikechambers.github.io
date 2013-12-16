@@ -1,6 +1,7 @@
 ---
 title: DevChat Today
 author: mikechambers
+date: 2004-09-21 12:35:01 -0800
 layout: post
 permalink: /2004/09/21/devchat-today/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash Shell Extension
 author: mikechambers
+date: 2004-03-19 12:15:01 -0800
 layout: post
 permalink: /2004/03/19/flash-shell-extension/
 categories:

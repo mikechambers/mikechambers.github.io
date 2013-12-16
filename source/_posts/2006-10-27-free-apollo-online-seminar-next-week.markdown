@@ -1,6 +1,7 @@
 ---
 title: Free Apollo Online Seminar Next Week
 author: mikechambers
+date: 2006-10-27 12:37:01 -0800
 layout: post
 permalink: /2006/10/27/free-apollo-online-seminar-next-week/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Apollo Cheat Sheets
 author: mikechambers
+date: 2007-04-10 12:07:01 -0800
 layout: post
 permalink: /2007/04/10/apollo-cheat-sheets/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'DRK 3 : Tab Component Example 1'
 author: mikechambers
+date: 2003-04-23 12:50:01 -0800
 layout: post
 permalink: /2003/04/23/drk-3-tab-component-example-1/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Why you should NOT care about building apps for the iPhone with Flash
 author: mikechambers
+date: 2009-10-12 12:05:01 -0800
 layout: post
 permalink: /2009/10/12/why-you-should-not-care-about-building-apps-for-the-iphone-with-flash/
 categories:

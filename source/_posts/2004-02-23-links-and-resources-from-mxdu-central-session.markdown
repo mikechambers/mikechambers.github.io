@@ -1,6 +1,7 @@
 ---
 title: Links and Resources from MXDU Central Session
 author: mikechambers
+date: 2004-02-23 12:37:01 -0800
 layout: post
 permalink: /2004/02/23/links-and-resources-from-mxdu-central-session/
 categories:

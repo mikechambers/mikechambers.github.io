@@ -1,6 +1,7 @@
 ---
 title: 'Reminder : Flex 2  Public Beta 2 is available'
 author: mikechambers
+date: 2006-03-29 12:03:01 -0800
 layout: post
 permalink: /2006/03/29/reminder-flex-2-public-beta-2-is-available/
 categories:

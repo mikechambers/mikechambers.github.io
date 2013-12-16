@@ -1,6 +1,7 @@
 ---
 title: 'Countdown to MAX : Win an Tablet PC'
 author: mikechambers
+date: 2003-11-11 12:10:01 -0800
 layout: post
 permalink: /2003/11/11/countdown-to-max-win-an-tablet-pc/
 categories:

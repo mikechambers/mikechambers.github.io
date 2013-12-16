@@ -1,6 +1,7 @@
 ---
 title: 'New Flash Weblog : Colin Moock'
 author: mikechambers
+date: 2003-04-13 12:41:01 -0800
 layout: post
 permalink: /2003/04/13/new-flash-weblog-colin-moock/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Macromedia Tools and Apple&#8217;s Tiger'
 author: mikechambers
+date: 2005-04-29 12:29:01 -0800
 layout: post
 permalink: /2005/04/29/macromedia-tools-and-apples-tiger/
 categories:

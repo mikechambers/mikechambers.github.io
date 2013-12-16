@@ -1,6 +1,7 @@
 ---
 title: Flash / Arduino Tips, Tricks and Gotchas
 author: mikechambers
+date: 2010-08-06 12:00:01 -0800
 layout: post
 permalink: /2010/08/06/flash-arduino-tips-tricks-and-gotchas/
 categories:

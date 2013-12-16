@@ -1,6 +1,7 @@
 ---
 title: Paying for Components
 author: mikechambers
+date: 2002-08-02 12:38:01 -0800
 layout: post
 permalink: /2002/08/02/paying-for-components/
 categories:

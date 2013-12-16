@@ -1,6 +1,7 @@
 ---
 title: 'Starting podcast : What would you like to hear?'
 author: mikechambers
+date: 2006-03-28 12:34:01 -0800
 layout: post
 permalink: /2006/03/28/starting-podcast-what-would-you-like-to-hear/
 categories:

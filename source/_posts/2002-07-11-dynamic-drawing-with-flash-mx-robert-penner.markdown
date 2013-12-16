@@ -1,6 +1,7 @@
 ---
 title: 'Dynamic Drawing with Flash MX : Robert Penner'
 author: mikechambers
+date: 2002-07-11 12:11:01 -0800
 layout: post
 permalink: /2002/07/11/dynamic-drawing-with-flash-mx-robert-penner/
 categories:

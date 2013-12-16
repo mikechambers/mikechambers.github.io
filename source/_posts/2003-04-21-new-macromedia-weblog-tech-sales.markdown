@@ -1,6 +1,7 @@
 ---
 title: 'New Macromedia Weblog : Tech Sales'
 author: mikechambers
+date: 2003-04-21 12:47:01 -0800
 layout: post
 permalink: /2003/04/21/new-macromedia-weblog-tech-sales/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Download Flash 8 Today
 author: mikechambers
+date: 2005-09-13 12:08:01 -0800
 layout: post
 permalink: /2005/09/13/download-flash-8-today/
 categories:

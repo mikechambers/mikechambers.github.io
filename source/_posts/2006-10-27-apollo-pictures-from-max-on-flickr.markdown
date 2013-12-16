@@ -1,6 +1,7 @@
 ---
 title: Apollo Pictures from Max on Flickr
 author: mikechambers
+date: 2006-10-27 12:40:01 -0800
 layout: post
 permalink: /2006/10/27/apollo-pictures-from-max-on-flickr/
 categories:

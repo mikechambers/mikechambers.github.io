@@ -1,6 +1,7 @@
 ---
 title: 'Flash Distracted Facelift : Chat Application'
 author: mikechambers
+date: 2002-12-01 12:22:01 -0800
 layout: post
 permalink: /2002/12/01/flash-distracted-facelift-chat-application/
 categories:

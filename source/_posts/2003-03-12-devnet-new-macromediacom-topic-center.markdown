@@ -1,6 +1,7 @@
 ---
 title: 'DevNet : New Macromedia.com Topic Center'
 author: mikechambers
+date: 2003-03-12 12:44:01 -0800
 layout: post
 permalink: /2003/03/12/devnet-new-macromediacom-topic-center/
 categories:

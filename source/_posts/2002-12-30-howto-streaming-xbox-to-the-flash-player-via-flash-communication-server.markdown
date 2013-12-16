@@ -1,6 +1,7 @@
 ---
 title: 'HOWTO : Streaming XBOX to the Flash Player via Flash Communication Server'
 author: mikechambers
+date: 2002-12-30 12:41:01 -0800
 layout: post
 permalink: /2002/12/30/howto-streaming-xbox-to-the-flash-player-via-flash-communication-server/
 categories:

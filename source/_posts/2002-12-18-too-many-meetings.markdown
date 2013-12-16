@@ -1,6 +1,7 @@
 ---
 title: Too many Meetings!
 author: mikechambers
+date: 2002-12-18 12:56:01 -0800
 layout: post
 permalink: /2002/12/18/too-many-meetings/
 categories:

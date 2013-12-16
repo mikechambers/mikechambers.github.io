@@ -1,6 +1,7 @@
 ---
 title: Windows may require reboot after Flash Player is installed
 author: mikechambers
+date: 2002-05-03 12:56:01 -0800
 layout: post
 permalink: /2002/05/03/windows-may-require-reboot-after-flash-player-is-installed/
 categories:

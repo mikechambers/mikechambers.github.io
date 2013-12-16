@@ -1,6 +1,7 @@
 ---
 title: Things that Inspire me
 author: mikechambers
+date: 2003-02-06 12:32:01 -0800
 layout: post
 permalink: /2003/02/06/things-that-inspire-me/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Updated ActionScript 3 RIA API Guide
 author: mikechambers
+date: 2008-11-18 12:39:01 -0800
 layout: post
 permalink: /2008/11/18/updated-actionscript-3-ria-api-guide/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Setting up a namespace on the Client object on the Flash Communication Server
 author: mikechambers
+date: 2002-08-02 12:42:01 -0800
 layout: post
 permalink: /2002/08/02/setting-up-a-namespace-on-the-client-object-on-the-flash-communication-server/
 categories:

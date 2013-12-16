@@ -1,6 +1,7 @@
 ---
 title: Have you had any issues with Adobe AIR 1.5?
 author: mikechambers
+date: 2008-12-03 12:07:01 -0800
 layout: post
 permalink: /2008/12/03/have-you-had-any-issues-with-adobe-air-15/
 categories:

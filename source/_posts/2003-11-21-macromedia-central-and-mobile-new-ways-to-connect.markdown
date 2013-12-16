@@ -1,6 +1,7 @@
 ---
 title: 'Macromedia Central and Mobile: New Ways to Connect'
 author: mikechambers
+date: 2003-11-21 12:26:01 -0800
 layout: post
 permalink: /2003/11/21/macromedia-central-and-mobile-new-ways-to-connect/
 categories:

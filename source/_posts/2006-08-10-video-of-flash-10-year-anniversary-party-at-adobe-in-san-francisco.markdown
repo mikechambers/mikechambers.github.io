@@ -1,6 +1,7 @@
 ---
 title: Video of Flash 10 Year Anniversary Party at Adobe in San Francisco
 author: mikechambers
+date: 2006-08-10 12:47:01 -0800
 layout: post
 permalink: /2006/08/10/video-of-flash-10-year-anniversary-party-at-adobe-in-san-francisco/
 categories:

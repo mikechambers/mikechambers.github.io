@@ -1,6 +1,7 @@
 ---
 title: Video of Flash Forward Keynote?
 author: mikechambers
+date: 2002-07-12 12:02:01 -0800
 layout: post
 permalink: /2002/07/12/video-of-flash-forward-keynote/
 categories:

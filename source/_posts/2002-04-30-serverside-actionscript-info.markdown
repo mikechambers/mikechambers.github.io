@@ -1,6 +1,7 @@
 ---
 title: ServerSide ActionScript Info
 author: mikechambers
+date: 2002-04-30 12:59:01 -0800
 layout: post
 permalink: /2002/04/30/serverside-actionscript-info/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Macromedia JRun 4 announced with Flash Remoting support
 author: mikechambers
+date: 2002-05-13 12:34:01 -0800
 layout: post
 permalink: /2002/05/13/macromedia-jrun-4-announced-with-flash-remoting-support/
 categories:

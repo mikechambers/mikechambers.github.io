@@ -1,6 +1,7 @@
 ---
 title: Relative performance for collision detection techniques in ActionScript 3
 author: mikechambers
+date: 2009-06-26 12:20:01 -0800
 layout: post
 permalink: /2009/06/26/relative-performance-for-collision-detection-techniques-in-actionscript-3/
 categories:

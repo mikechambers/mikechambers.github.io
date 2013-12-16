@@ -1,6 +1,7 @@
 ---
 title: DRK 3 Sneak Peak?
 author: mikechambers
+date: 2003-03-24 12:36:01 -0800
 layout: post
 permalink: /2003/03/24/drk-3-sneak-peak/
 categories:

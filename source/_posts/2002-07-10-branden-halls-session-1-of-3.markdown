@@ -1,6 +1,7 @@
 ---
 title: 'Branden Hall&#8217;s Session 1 of 3.'
 author: mikechambers
+date: 2002-07-10 12:19:01 -0800
 layout: post
 permalink: /2002/07/10/branden-halls-session-1-of-3/
 categories:

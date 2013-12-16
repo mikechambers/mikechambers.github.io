@@ -1,6 +1,7 @@
 ---
 title: 'Accessing a File&#8217;s Icon in the Apollo Beta'
 author: mikechambers
+date: 2007-06-04 12:47:01 -0800
 layout: post
 permalink: /2007/06/04/accessing-a-files-icon-in-the-apollo-beta/
 categories:

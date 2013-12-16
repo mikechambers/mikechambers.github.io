@@ -1,6 +1,7 @@
 ---
 title: 'New Version of Flash Resource Manager : Adds support for Flash 7.2'
 author: mikechambers
+date: 2004-07-27 12:45:01 -0800
 layout: post
 permalink: /2004/07/27/new-version-of-flash-resource-manager-adds-support-for-flash-72/
 categories:

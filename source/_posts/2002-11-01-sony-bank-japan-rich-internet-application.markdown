@@ -1,6 +1,7 @@
 ---
 title: 'Sony Bank Japan : Rich Internet Application'
 author: mikechambers
+date: 2002-11-01 12:08:01 -0800
 layout: post
 permalink: /2002/11/01/sony-bank-japan-rich-internet-application/
 categories:

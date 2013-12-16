@@ -1,6 +1,7 @@
 ---
 title: MXNA Sample Application Source Code Released
 author: mikechambers
+date: 2004-03-29 12:46:01 -0800
 layout: post
 permalink: /2004/03/29/mxna-sample-application-source-code-released/
 categories:

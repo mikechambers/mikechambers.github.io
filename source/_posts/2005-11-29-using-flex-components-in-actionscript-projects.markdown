@@ -1,6 +1,7 @@
 ---
 title: Using Flex Components in ActionScript Projects
 author: mikechambers
+date: 2005-11-29 12:53:01 -0800
 layout: post
 permalink: /2005/11/29/using-flex-components-in-actionscript-projects/
 categories:

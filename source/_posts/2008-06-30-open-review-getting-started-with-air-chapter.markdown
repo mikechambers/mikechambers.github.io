@@ -1,6 +1,7 @@
 ---
 title: 'Open Review : Getting Started with AIR Chapter'
 author: mikechambers
+date: 2008-06-30 12:19:01 -0800
 layout: post
 permalink: /2008/06/30/open-review-getting-started-with-air-chapter/
 categories:

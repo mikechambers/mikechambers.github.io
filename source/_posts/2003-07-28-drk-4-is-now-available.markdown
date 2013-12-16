@@ -1,6 +1,7 @@
 ---
 title: DRK 4 is Now Available
 author: mikechambers
+date: 2003-07-28 12:34:01 -0800
 layout: post
 permalink: /2003/07/28/drk-4-is-now-available/
 categories:

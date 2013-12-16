@@ -1,6 +1,7 @@
 ---
 title: Java Application Development Center
 author: mikechambers
+date: 2002-05-16 12:30:01 -0800
 layout: post
 permalink: /2002/05/16/java-application-development-center/
 categories:

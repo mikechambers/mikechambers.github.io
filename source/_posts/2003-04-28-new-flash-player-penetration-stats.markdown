@@ -1,6 +1,7 @@
 ---
 title: New Flash Player Penetration Stats
 author: mikechambers
+date: 2003-04-28 12:28:01 -0800
 layout: post
 permalink: /2003/04/28/new-flash-player-penetration-stats/
 categories:

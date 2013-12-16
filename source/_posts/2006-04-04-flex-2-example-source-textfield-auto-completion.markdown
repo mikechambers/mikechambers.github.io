@@ -1,6 +1,7 @@
 ---
 title: 'Flex 2 Example / Source : Textfield auto-completion'
 author: mikechambers
+date: 2006-04-04 12:04:01 -0800
 layout: post
 permalink: /2006/04/04/flex-2-example-source-textfield-auto-completion/
 categories:

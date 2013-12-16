@@ -1,6 +1,7 @@
 ---
 title: Apollo Section on Labs
 author: mikechambers
+date: 2006-07-11 12:48:01 -0800
 layout: post
 permalink: /2006/07/11/apollo-section-on-labs/
 categories:

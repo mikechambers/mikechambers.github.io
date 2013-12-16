@@ -1,6 +1,7 @@
 ---
 title: 'Getting the File URI of a File in an AIR app&#8217;s install directory'
 author: mikechambers
+date: 2008-11-06 12:12:01 -0800
 layout: post
 permalink: /2008/11/06/getting-the-file-uri-of-a-file-in-an-air-apps-install-directory/
 categories:

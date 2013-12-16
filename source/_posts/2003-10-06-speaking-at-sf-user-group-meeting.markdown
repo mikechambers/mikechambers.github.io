@@ -1,6 +1,7 @@
 ---
 title: Speaking at SF User Group Meeting
 author: mikechambers
+date: 2003-10-06 12:09:01 -0800
 layout: post
 permalink: /2003/10/06/speaking-at-sf-user-group-meeting/
 categories:

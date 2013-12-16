@@ -1,6 +1,7 @@
 ---
 title: 'Apollo Pocketguide from O&#8217;Reilly now on Amazon'
 author: mikechambers
+date: 2007-02-15 12:34:01 -0800
 layout: post
 permalink: /2007/02/15/apollo-pocketguide-from-oreilly-now-on-amazon/
 categories:

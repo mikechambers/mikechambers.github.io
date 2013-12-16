@@ -1,6 +1,7 @@
 ---
 title: Tons of new Flex / AIR articles and videos online
 author: mikechambers
+date: 2007-10-18 12:37:01 -0800
 layout: post
 permalink: /2007/10/18/tons-of-new-flex-air-articles-and-videos-online/
 categories:

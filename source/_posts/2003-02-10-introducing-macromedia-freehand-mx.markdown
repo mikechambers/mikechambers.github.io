@@ -1,6 +1,7 @@
 ---
 title: Introducing Macromedia FreeHand MX
 author: mikechambers
+date: 2003-02-10 12:14:01 -0800
 layout: post
 permalink: /2003/02/10/introducing-macromedia-freehand-mx/
 categories:

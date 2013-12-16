@@ -1,6 +1,7 @@
 ---
 title: Apollo FAQ Translated to Italian
 author: mikechambers
+date: 2007-01-15 12:41:01 -0800
 layout: post
 permalink: /2007/01/15/apollo-faq-translated-to-italian/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: MXNAFeedView.as
 author: mikechambers
+date: 2004-01-27 12:33:01 -0800
 layout: post
 permalink: /2004/01/27/mxnafeedviewas/
 categories:

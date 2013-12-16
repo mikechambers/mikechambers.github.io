@@ -1,6 +1,7 @@
 ---
 title: 'DRK : Save 10% : Last Day'
 author: mikechambers
+date: 2002-12-11 12:56:01 -0800
 layout: post
 permalink: /2002/12/11/drk-save-10-last-day/
 categories:

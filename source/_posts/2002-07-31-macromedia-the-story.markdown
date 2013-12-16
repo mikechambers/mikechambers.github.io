@@ -1,6 +1,7 @@
 ---
 title: 'Macromedia : The Story'
 author: mikechambers
+date: 2002-07-31 12:26:01 -0800
 layout: post
 permalink: /2002/07/31/macromedia-the-story/
 categories:

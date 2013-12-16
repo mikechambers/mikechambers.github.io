@@ -1,6 +1,7 @@
 ---
 title: Flash Player Public Beta is Available
 author: mikechambers
+date: 2005-07-12 12:35:01 -0800
 layout: post
 permalink: /2005/07/12/flash-player-public-beta-is-available/
 categories:

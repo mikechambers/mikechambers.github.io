@@ -1,6 +1,7 @@
 ---
 title: Macromedia XML Feed Contest Winners
 author: mikechambers
+date: 2002-06-05 12:00:01 -0800
 layout: post
 permalink: /2002/06/05/macromedia-xml-feed-contest-winners/
 categories:

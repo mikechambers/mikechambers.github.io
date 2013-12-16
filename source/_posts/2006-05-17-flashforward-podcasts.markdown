@@ -1,6 +1,7 @@
 ---
 title: FlashForward Podcasts
 author: mikechambers
+date: 2006-05-17 12:56:01 -0800
 layout: post
 permalink: /2006/05/17/flashforward-podcasts/
 categories:

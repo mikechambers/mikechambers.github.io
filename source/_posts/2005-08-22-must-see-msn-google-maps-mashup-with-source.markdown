@@ -1,6 +1,7 @@
 ---
 title: 'Must See: MSN / Google Maps mashup with Source'
 author: mikechambers
+date: 2005-08-22 12:56:01 -0800
 layout: post
 permalink: /2005/08/22/must-see-msn-google-maps-mashup-with-source/
 categories:

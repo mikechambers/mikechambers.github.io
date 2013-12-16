@@ -1,6 +1,7 @@
 ---
 title: Redistributing the Adobe AIR Runtime Installer
 author: mikechambers
+date: 2008-04-07 12:55:01 -0800
 layout: post
 permalink: /2008/04/07/redistributing-the-adobe-air-runtime-installer/
 categories:

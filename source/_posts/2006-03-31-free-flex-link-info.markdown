@@ -1,6 +1,7 @@
 ---
 title: Free Flex Link / Info
 author: mikechambers
+date: 2006-03-31 12:35:01 -0800
 layout: post
 permalink: /2006/03/31/free-flex-link-info/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash Camp this weekend in San Francisco
 author: mikechambers
+date: 2008-10-06 12:43:01 -0800
 layout: post
 permalink: /2008/10/06/flash-camp-this-weekend-in-san-francisco/
 categories:

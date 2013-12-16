@@ -1,6 +1,7 @@
 ---
 title: Technorati Results for Apollo
 author: mikechambers
+date: 2006-11-03 12:25:01 -0800
 layout: post
 permalink: /2006/11/03/technorati-results-for-apollo/
 categories:

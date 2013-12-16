@@ -1,6 +1,7 @@
 ---
 title: 'DevCon Day 1 : Pre-Keynote'
 author: mikechambers
+date: 2002-10-28 12:09:01 -0800
 layout: post
 permalink: /2002/10/28/devcon-day-1-pre-keynote/
 categories:

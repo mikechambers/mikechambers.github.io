@@ -1,6 +1,7 @@
 ---
 title: Create Invisible Button Command
 author: mikechambers
+date: 2004-07-20 12:29:01 -0800
 layout: post
 permalink: /2004/07/20/create-invisible-button-command/
 categories:

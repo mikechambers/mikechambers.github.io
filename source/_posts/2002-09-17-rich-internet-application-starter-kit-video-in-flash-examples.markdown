@@ -1,6 +1,7 @@
 ---
 title: Rich Internet Application Starter Kit / Video in Flash Examples
 author: mikechambers
+date: 2002-09-17 12:36:01 -0800
 layout: post
 permalink: /2002/09/17/rich-internet-application-starter-kit-video-in-flash-examples/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Quick Contest : Flash and Arduino'
 author: mikechambers
+date: 2010-08-04 12:47:01 -0800
 layout: post
 permalink: /2010/08/04/quick-contest-flash-and-arduino/
 categories:

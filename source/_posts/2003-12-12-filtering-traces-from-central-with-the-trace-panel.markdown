@@ -1,6 +1,7 @@
 ---
 title: Filtering Traces from Central with the Trace Panel
 author: mikechambers
+date: 2003-12-12 12:03:01 -0800
 layout: post
 permalink: /2003/12/12/filtering-traces-from-central-with-the-trace-panel/
 categories:

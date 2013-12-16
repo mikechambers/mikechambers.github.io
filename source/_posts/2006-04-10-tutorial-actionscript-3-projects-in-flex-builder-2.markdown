@@ -1,6 +1,7 @@
 ---
 title: 'Tutorial : ActionScript 3 Projects in Flex Builder 2'
 author: mikechambers
+date: 2006-04-10 12:07:01 -0800
 layout: post
 permalink: /2006/04/10/tutorial-actionscript-3-projects-in-flex-builder-2/
 categories:

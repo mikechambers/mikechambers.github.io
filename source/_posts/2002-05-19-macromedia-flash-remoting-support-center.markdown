@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash Remoting Support Center
 author: mikechambers
+date: 2002-05-19 12:38:01 -0800
 layout: post
 permalink: /2002/05/19/macromedia-flash-remoting-support-center/
 categories:

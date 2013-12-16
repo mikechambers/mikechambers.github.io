@@ -1,6 +1,7 @@
 ---
 title: Flash Community Non-Flash Mailing List?
 author: mikechambers
+date: 2003-08-14 12:05:01 -0800
 layout: post
 permalink: /2003/08/14/flash-community-non-flash-mailing-list/
 categories:

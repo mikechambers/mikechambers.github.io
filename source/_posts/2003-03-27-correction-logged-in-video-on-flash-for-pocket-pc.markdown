@@ -1,6 +1,7 @@
 ---
 title: 'Correction : Logged In : Video on Flash for Pocket PC'
 author: mikechambers
+date: 2003-03-27 12:52:01 -0800
 layout: post
 permalink: /2003/03/27/correction-logged-in-video-on-flash-for-pocket-pc/
 categories:

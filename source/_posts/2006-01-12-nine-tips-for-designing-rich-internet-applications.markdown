@@ -1,6 +1,7 @@
 ---
 title: Nine Tips for Designing Rich Internet Applications
 author: mikechambers
+date: 2006-01-12 12:59:01 -0800
 layout: post
 permalink: /2006/01/12/nine-tips-for-designing-rich-internet-applications/
 categories:

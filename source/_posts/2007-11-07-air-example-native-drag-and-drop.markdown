@@ -1,6 +1,7 @@
 ---
 title: 'AIR Example : Native Drag and Drop'
 author: mikechambers
+date: 2007-11-07 12:16:01 -0800
 layout: post
 permalink: /2007/11/07/air-example-native-drag-and-drop/
 categories:

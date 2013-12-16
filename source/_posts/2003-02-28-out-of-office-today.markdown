@@ -1,6 +1,7 @@
 ---
 title: Out of Office today
 author: mikechambers
+date: 2003-02-28 12:11:01 -0800
 layout: post
 permalink: /2003/02/28/out-of-office-today/
 categories:

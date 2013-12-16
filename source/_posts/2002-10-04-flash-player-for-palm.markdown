@@ -1,6 +1,7 @@
 ---
 title: Flash Player for Palm
 author: mikechambers
+date: 2002-10-04 12:14:01 -0800
 layout: post
 permalink: /2002/10/04/flash-player-for-palm/
 categories:

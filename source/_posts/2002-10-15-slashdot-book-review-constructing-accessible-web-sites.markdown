@@ -1,6 +1,7 @@
 ---
 title: 'Slashdot Book Review : Constructing Accessible Web Sites'
 author: mikechambers
+date: 2002-10-15 12:24:01 -0800
 layout: post
 permalink: /2002/10/15/slashdot-book-review-constructing-accessible-web-sites/
 categories:

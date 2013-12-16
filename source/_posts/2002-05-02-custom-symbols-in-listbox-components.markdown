@@ -1,6 +1,7 @@
 ---
 title: Custom Symbols in ListBox Components
 author: mikechambers
+date: 2002-05-02 12:31:01 -0800
 layout: post
 permalink: /2002/05/02/custom-symbols-in-listbox-components/
 categories:

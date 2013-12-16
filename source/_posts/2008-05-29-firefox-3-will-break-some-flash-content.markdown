@@ -1,6 +1,7 @@
 ---
 title: Firefox 3 Will Break some Flash content
 author: mikechambers
+date: 2008-05-29 12:44:01 -0800
 layout: post
 permalink: /2008/05/29/firefox-3-will-break-some-flash-content/
 categories:

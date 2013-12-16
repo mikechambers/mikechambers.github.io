@@ -1,6 +1,7 @@
 ---
 title: DevCon 2002 Orlando KeyNotes online
 author: mikechambers
+date: 2003-01-06 12:46:01 -0800
 layout: post
 permalink: /2003/01/06/devcon-2002-orlando-keynotes-online/
 categories:

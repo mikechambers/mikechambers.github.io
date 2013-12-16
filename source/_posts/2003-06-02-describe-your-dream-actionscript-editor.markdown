@@ -1,6 +1,7 @@
 ---
 title: Describe your dream ActionScript Editor
 author: mikechambers
+date: 2003-06-02 12:58:01 -0800
 layout: post
 permalink: /2003/06/02/describe-your-dream-actionscript-editor/
 categories:

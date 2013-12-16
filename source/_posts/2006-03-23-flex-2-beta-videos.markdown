@@ -1,6 +1,7 @@
 ---
 title: Flex 2 beta videos
 author: mikechambers
+date: 2006-03-23 12:19:01 -0800
 layout: post
 permalink: /2006/03/23/flex-2-beta-videos/
 categories:

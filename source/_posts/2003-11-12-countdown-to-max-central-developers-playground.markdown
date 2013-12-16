@@ -1,6 +1,7 @@
 ---
 title: 'Countdown to MAX : Central Developer&#8217;s Playground'
 author: mikechambers
+date: 2003-11-12 12:14:01 -0800
 layout: post
 permalink: /2003/11/12/countdown-to-max-central-developers-playground/
 categories:

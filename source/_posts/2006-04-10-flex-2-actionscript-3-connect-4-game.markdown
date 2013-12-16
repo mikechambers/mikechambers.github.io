@@ -1,6 +1,7 @@
 ---
 title: Flex 2 / ActionScript 3 Connect 4 Game
 author: mikechambers
+date: 2006-04-10 12:21:01 -0800
 layout: post
 permalink: /2006/04/10/flex-2-actionscript-3-connect-4-game/
 categories:

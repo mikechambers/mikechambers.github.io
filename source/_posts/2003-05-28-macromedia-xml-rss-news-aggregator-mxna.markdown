@@ -1,6 +1,7 @@
 ---
 title: Macromedia XML / RSS News Aggregator (MXNA)
 author: mikechambers
+date: 2003-05-28 12:25:01 -0800
 layout: post
 permalink: /2003/05/28/macromedia-xml-rss-news-aggregator-mxna/
 categories:

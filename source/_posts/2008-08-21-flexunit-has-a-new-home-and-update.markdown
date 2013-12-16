@@ -1,6 +1,7 @@
 ---
 title: FlexUnit has a new home (and update)
 author: mikechambers
+date: 2008-08-21 12:17:01 -0800
 layout: post
 permalink: /2008/08/21/flexunit-has-a-new-home-and-update/
 categories:

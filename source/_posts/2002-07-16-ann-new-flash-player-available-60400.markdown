@@ -1,6 +1,7 @@
 ---
 title: 'ANN : New Flash Player Available : 6,0,40,0'
 author: mikechambers
+date: 2002-07-16 12:03:01 -0800
 layout: post
 permalink: /2002/07/16/ann-new-flash-player-available-60400/
 categories:

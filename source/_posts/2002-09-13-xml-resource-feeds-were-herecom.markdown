@@ -1,6 +1,7 @@
 ---
 title: 'XML Resource Feeds : were-here.com'
 author: mikechambers
+date: 2002-09-13 12:16:01 -0800
 layout: post
 permalink: /2002/09/13/xml-resource-feeds-were-herecom/
 categories:

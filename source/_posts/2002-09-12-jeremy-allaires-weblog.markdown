@@ -1,6 +1,7 @@
 ---
 title: 'Jeremy Allaire&#8217;s Weblog'
 author: mikechambers
+date: 2002-09-12 12:20:01 -0800
 layout: post
 permalink: /2002/09/12/jeremy-allaires-weblog/
 categories:

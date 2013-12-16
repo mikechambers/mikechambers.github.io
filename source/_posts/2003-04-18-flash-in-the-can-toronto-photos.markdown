@@ -1,6 +1,7 @@
 ---
 title: Flash in the Can Toronto Photos
 author: mikechambers
+date: 2003-04-18 12:51:01 -0800
 layout: post
 permalink: /2003/04/18/flash-in-the-can-toronto-photos/
 categories:

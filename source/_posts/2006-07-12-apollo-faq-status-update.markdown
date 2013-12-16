@@ -1,6 +1,7 @@
 ---
 title: Apollo FAQ Status Update
 author: mikechambers
+date: 2006-07-12 12:02:01 -0800
 layout: post
 permalink: /2006/07/12/apollo-faq-status-update/
 categories:

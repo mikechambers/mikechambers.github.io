@@ -1,6 +1,7 @@
 ---
 title: Regular Expression and mDialog Component Articles at DevNet Center
 author: mikechambers
+date: 2004-01-16 12:24:01 -0800
 layout: post
 permalink: /2004/01/16/regular-expression-and-mdialog-component-articles-at-devnet-center/
 categories:

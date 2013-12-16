@@ -1,6 +1,7 @@
 ---
 title: 'List of  discussions / comments about Central'
 author: mikechambers
+date: 2003-09-25 12:26:01 -0800
 layout: post
 permalink: /2003/09/25/list-of-discussions-comments-about-central/
 categories:

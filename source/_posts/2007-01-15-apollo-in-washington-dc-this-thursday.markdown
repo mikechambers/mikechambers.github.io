@@ -1,6 +1,7 @@
 ---
 title: Apollo in Washington DC this Thursday
 author: mikechambers
+date: 2007-01-15 12:20:01 -0800
 layout: post
 permalink: /2007/01/15/apollo-in-washington-dc-this-thursday/
 categories:

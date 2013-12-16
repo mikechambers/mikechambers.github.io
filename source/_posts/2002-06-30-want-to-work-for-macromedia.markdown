@@ -1,6 +1,7 @@
 ---
 title: Want to work for Macromedia?
 author: mikechambers
+date: 2002-06-30 12:20:01 -0800
 layout: post
 permalink: /2002/06/30/want-to-work-for-macromedia/
 categories:

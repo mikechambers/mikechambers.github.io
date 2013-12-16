@@ -1,6 +1,7 @@
 ---
 title: Playing a Sound from JavaScript in the Apollo Beta
 author: mikechambers
+date: 2007-06-06 12:54:01 -0800
 layout: post
 permalink: /2007/06/06/playing-a-sound-from-javascript-in-the-apollo-beta/
 categories:

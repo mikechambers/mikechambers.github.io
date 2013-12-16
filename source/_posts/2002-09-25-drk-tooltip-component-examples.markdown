@@ -1,6 +1,7 @@
 ---
 title: 'DRK : ToolTip Component Examples'
 author: mikechambers
+date: 2002-09-25 12:33:01 -0800
 layout: post
 permalink: /2002/09/25/drk-tooltip-component-examples/
 categories:

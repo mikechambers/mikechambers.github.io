@@ -1,6 +1,7 @@
 ---
 title: Using the Google web service in Macromedia Flash MX
 author: mikechambers
+date: 2002-07-26 12:33:01 -0800
 layout: post
 permalink: /2002/07/26/using-the-google-web-service-in-macromedia-flash-mx/
 categories:

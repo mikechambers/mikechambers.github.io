@@ -1,6 +1,7 @@
 ---
 title: Beta Macromedia Resource RSS Feed Update
 author: mikechambers
+date: 2003-02-12 12:37:01 -0800
 layout: post
 permalink: /2003/02/12/beta-macromedia-resource-rss-feed-update/
 categories:

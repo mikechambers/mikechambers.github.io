@@ -1,6 +1,7 @@
 ---
 title: Command Line Compilation with ANT
 author: mikechambers
+date: 2003-11-27 12:32:01 -0800
 layout: post
 permalink: /2003/11/27/command-line-compilation-with-ant/
 categories:

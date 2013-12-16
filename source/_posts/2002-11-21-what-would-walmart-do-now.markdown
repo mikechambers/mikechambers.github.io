@@ -1,6 +1,7 @@
 ---
 title: What would Walmart do now?
 author: mikechambers
+date: 2002-11-21 12:43:01 -0800
 layout: post
 permalink: /2002/11/21/what-would-walmart-do-now/
 categories:

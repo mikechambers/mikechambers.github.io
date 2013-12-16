@@ -1,6 +1,7 @@
 ---
 title: Macromedia News Firefox Extension for 1.5 Beta / Update
 author: mikechambers
+date: 2005-12-05 12:59:01 -0800
 layout: post
 permalink: /2005/12/05/macromedia-news-firefox-extension-for-15-beta-update/
 categories:

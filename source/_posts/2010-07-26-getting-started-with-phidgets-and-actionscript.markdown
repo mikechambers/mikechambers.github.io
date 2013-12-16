@@ -1,6 +1,7 @@
 ---
 title: Getting Started with Phidgets and ActionScript 3
 author: mikechambers
+date: 2010-07-26 12:03:01 -0800
 layout: post
 permalink: /2010/07/26/getting-started-with-phidgets-and-actionscript/
 categories:

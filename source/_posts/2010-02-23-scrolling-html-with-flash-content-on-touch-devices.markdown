@@ -1,6 +1,7 @@
 ---
 title: Scrolling HTML with Flash Content on Touch Devices
 author: mikechambers
+date: 2010-02-23 12:06:01 -0800
 layout: post
 permalink: /2010/02/23/scrolling-html-with-flash-content-on-touch-devices/
 categories:

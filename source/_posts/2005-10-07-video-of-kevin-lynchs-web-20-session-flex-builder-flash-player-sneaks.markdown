@@ -1,6 +1,7 @@
 ---
 title: 'Video of Kevin Lynch&#8217;s Web 2.0 Session (Flex Builder / Flash Player sneaks)'
 author: mikechambers
+date: 2005-10-07 12:36:01 -0800
 layout: post
 permalink: /2005/10/07/video-of-kevin-lynchs-web-20-session-flex-builder-flash-player-sneaks/
 categories:

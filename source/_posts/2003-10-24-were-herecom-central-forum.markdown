@@ -1,6 +1,7 @@
 ---
 title: Were-Here.com Central Forum
 author: mikechambers
+date: 2003-10-24 12:24:01 -0800
 layout: post
 permalink: /2003/10/24/were-herecom-central-forum/
 categories:

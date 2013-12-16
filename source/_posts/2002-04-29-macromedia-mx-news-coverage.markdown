@@ -1,6 +1,7 @@
 ---
 title: Macromedia MX News coverage
 author: mikechambers
+date: 2002-04-29 12:29:01 -0800
 layout: post
 permalink: /2002/04/29/macromedia-mx-news-coverage/
 categories:

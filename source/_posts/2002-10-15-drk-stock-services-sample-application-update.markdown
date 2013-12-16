@@ -1,6 +1,7 @@
 ---
 title: 'DRK : Stock Services Sample Application Update'
 author: mikechambers
+date: 2002-10-15 12:06:01 -0800
 layout: post
 permalink: /2002/10/15/drk-stock-services-sample-application-update/
 categories:

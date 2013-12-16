@@ -1,6 +1,7 @@
 ---
 title: 'DevCon : Day 1'
 author: mikechambers
+date: 2002-10-28 12:39:01 -0800
 layout: post
 permalink: /2002/10/28/devcon-day-1/
 categories:

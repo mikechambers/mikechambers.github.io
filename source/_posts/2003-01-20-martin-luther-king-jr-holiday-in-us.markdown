@@ -1,6 +1,7 @@
 ---
 title: Martin Luther King Jr Holiday in US
 author: mikechambers
+date: 2003-01-20 12:46:01 -0800
 layout: post
 permalink: /2003/01/20/martin-luther-king-jr-holiday-in-us/
 categories:

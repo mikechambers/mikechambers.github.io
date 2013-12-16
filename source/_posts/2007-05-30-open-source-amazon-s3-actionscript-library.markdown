@@ -1,6 +1,7 @@
 ---
 title: Open Source Amazon S3 ActionScript Library
 author: mikechambers
+date: 2007-05-30 12:44:01 -0800
 layout: post
 permalink: /2007/05/30/open-source-amazon-s3-actionscript-library/
 categories:

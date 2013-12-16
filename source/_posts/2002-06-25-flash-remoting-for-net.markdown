@@ -1,6 +1,7 @@
 ---
 title: Flash Remoting for .NET
 author: mikechambers
+date: 2002-06-25 12:31:01 -0800
 layout: post
 permalink: /2002/06/25/flash-remoting-for-net/
 categories:

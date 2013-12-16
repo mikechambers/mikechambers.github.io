@@ -1,6 +1,7 @@
 ---
 title: 'Oreilly Network : Colin Moock on Flash MX'
 author: mikechambers
+date: 2002-06-19 12:32:01 -0800
 layout: post
 permalink: /2002/06/19/oreilly-network-colin-moock-on-flash-mx/
 categories:

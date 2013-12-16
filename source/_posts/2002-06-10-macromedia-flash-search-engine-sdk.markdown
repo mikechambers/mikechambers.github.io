@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash Search Engine SDK
 author: mikechambers
+date: 2002-06-10 12:29:01 -0800
 layout: post
 permalink: /2002/06/10/macromedia-flash-search-engine-sdk/
 categories:

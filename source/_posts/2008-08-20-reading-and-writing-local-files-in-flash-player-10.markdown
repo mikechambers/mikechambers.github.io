@@ -1,6 +1,7 @@
 ---
 title: Reading and Writing Local Files in Flash Player 10
 author: mikechambers
+date: 2008-08-20 12:29:01 -0800
 layout: post
 permalink: /2008/08/20/reading-and-writing-local-files-in-flash-player-10/
 categories:

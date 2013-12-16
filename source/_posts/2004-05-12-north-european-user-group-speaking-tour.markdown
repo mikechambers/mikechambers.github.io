@@ -1,6 +1,7 @@
 ---
 title: North-European User Group Speaking Tour
 author: mikechambers
+date: 2004-05-12 12:01:01 -0800
 layout: post
 permalink: /2004/05/12/north-european-user-group-speaking-tour/
 categories:

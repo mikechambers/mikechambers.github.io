@@ -1,6 +1,7 @@
 ---
 title: Hardware Accelerated SSL
 author: mikechambers
+date: 2002-09-11 12:16:01 -0800
 layout: post
 permalink: /2002/09/11/hardware-accelerated-ssl/
 categories:

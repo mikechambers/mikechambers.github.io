@@ -1,6 +1,7 @@
 ---
 title: Heading to Europe to Speak on AIR and Flex
 author: mikechambers
+date: 2008-05-06 12:02:01 -0800
 layout: post
 permalink: /2008/05/06/heading-to-europe-to-speak-on-air-and-flex/
 categories:

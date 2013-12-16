@@ -1,6 +1,7 @@
 ---
 title: Pixel Bender Grayscale Filter
 author: mikechambers
+date: 2008-09-18 12:13:01 -0800
 layout: post
 permalink: /2008/09/18/pixel-bender-grayscale-filter/
 categories:

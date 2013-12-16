@@ -1,6 +1,7 @@
 ---
 title: New Macromedia.com Beta Report
 author: mikechambers
+date: 2003-04-24 12:53:01 -0800
 layout: post
 permalink: /2003/04/24/new-macromediacom-beta-report/
 categories:

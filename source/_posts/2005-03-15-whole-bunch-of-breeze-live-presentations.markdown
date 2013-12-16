@@ -1,6 +1,7 @@
 ---
 title: Whole bunch of Breeze Live Presentations
 author: mikechambers
+date: 2005-03-15 12:55:01 -0800
 layout: post
 permalink: /2005/03/15/whole-bunch-of-breeze-live-presentations/
 categories:

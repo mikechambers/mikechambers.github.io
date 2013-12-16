@@ -1,6 +1,7 @@
 ---
 title: See Flash 8 / Studio 8 Sneaks in Person
 author: mikechambers
+date: 2005-08-17 12:51:01 -0800
 layout: post
 permalink: /2005/08/17/see-flash-8-studio-8-sneaks-in-person/
 categories:

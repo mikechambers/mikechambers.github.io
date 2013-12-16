@@ -1,6 +1,7 @@
 ---
 title: Sean Neville (Macromedia) on Rich Internet Applications
 author: mikechambers
+date: 2003-05-12 12:45:01 -0800
 layout: post
 permalink: /2003/05/12/sean-neville-macromedia-on-rich-internet-applications/
 categories:

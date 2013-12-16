@@ -1,6 +1,7 @@
 ---
 title: JAWS Screen Reader Adds Support for Flash Player 6 Content
 author: mikechambers
+date: 2002-09-02 12:21:01 -0800
 layout: post
 permalink: /2002/09/02/jaws-screen-reader-adds-support-for-flash-player-6-content/
 categories:

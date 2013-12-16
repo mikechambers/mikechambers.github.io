@@ -1,6 +1,7 @@
 ---
 title: 'DRK : Week View Example 2'
 author: mikechambers
+date: 2003-04-28 12:14:01 -0800
 layout: post
 permalink: /2003/04/28/drk-week-view-example-2/
 categories:

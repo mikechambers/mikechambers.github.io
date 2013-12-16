@@ -1,6 +1,7 @@
 ---
 title: Connecting to an XMPP / Jabber Server with the XIFF AS3 Library
 author: mikechambers
+date: 2008-08-14 12:09:01 -0800
 layout: post
 permalink: /2008/08/14/connecting-to-an-xmpp-jabber-server-with-the-xiff-as3-library/
 categories:

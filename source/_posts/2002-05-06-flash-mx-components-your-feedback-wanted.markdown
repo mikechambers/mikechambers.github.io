@@ -1,6 +1,7 @@
 ---
 title: 'Flash MX Components &#8211; Your feedback wanted!'
 author: mikechambers
+date: 2002-05-06 12:57:01 -0800
 layout: post
 permalink: /2002/05/06/flash-mx-components-your-feedback-wanted/
 categories:

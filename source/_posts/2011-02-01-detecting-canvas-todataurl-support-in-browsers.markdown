@@ -1,6 +1,7 @@
 ---
 title: Detecting Canvas.toDataURL Support in Browsers
 author: mikechambers
+date: 2011-02-01 12:55:01 -0800
 layout: post
 permalink: /2011/02/01/detecting-canvas-todataurl-support-in-browsers/
 categories:

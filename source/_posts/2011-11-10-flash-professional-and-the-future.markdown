@@ -1,6 +1,7 @@
 ---
 title: Flash Professional and the Future
 author: mikechambers
+date: 2011-11-10 12:01:01 -0800
 layout: post
 permalink: /2011/11/10/flash-professional-and-the-future/
 categories:

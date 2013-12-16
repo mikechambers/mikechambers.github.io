@@ -1,6 +1,7 @@
 ---
 title: Community MXtra Central Application
 author: mikechambers
+date: 2003-10-30 12:03:01 -0800
 layout: post
 permalink: /2003/10/30/community-mxtra-central-application/
 categories:

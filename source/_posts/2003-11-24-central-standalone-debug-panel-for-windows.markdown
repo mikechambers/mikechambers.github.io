@@ -1,6 +1,7 @@
 ---
 title: Central Standalone Debug Panel for Windows
 author: mikechambers
+date: 2003-11-24 12:17:01 -0800
 layout: post
 permalink: /2003/11/24/central-standalone-debug-panel-for-windows/
 categories:

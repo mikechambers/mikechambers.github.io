@@ -1,6 +1,7 @@
 ---
 title: Search Added at DesDev
 author: mikechambers
+date: 2002-10-11 12:11:01 -0800
 layout: post
 permalink: /2002/10/11/search-added-at-desdev/
 categories:

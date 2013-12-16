@@ -1,6 +1,7 @@
 ---
 title: More info on ActionScript Optimizations in Beta Player
 author: mikechambers
+date: 2002-10-21 12:52:01 -0800
 layout: post
 permalink: /2002/10/21/more-info-on-actionscript-optimizations-in-beta-player/
 categories:

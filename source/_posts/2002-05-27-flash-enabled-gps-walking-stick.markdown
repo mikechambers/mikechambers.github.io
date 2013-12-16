@@ -1,6 +1,7 @@
 ---
 title: Flash Enabled GPS Walking Stick
 author: mikechambers
+date: 2002-05-27 12:09:01 -0800
 layout: post
 permalink: /2002/05/27/flash-enabled-gps-walking-stick/
 categories:

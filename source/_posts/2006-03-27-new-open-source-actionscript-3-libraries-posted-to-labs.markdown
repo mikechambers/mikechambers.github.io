@@ -1,6 +1,7 @@
 ---
 title: New Open Source ActionScript 3 Libraries Posted to Labs
 author: mikechambers
+date: 2006-03-27 12:02:01 -0800
 layout: post
 permalink: /2006/03/27/new-open-source-actionscript-3-libraries-posted-to-labs/
 categories:

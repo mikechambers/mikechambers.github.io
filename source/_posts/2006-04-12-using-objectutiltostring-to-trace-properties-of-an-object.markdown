@@ -1,6 +1,7 @@
 ---
 title: Using ObjectUtil.toString() to trace properties of an Object
 author: mikechambers
+date: 2006-04-12 12:40:01 -0800
 layout: post
 permalink: /2006/04/12/using-objectutiltostring-to-trace-properties-of-an-object/
 categories:

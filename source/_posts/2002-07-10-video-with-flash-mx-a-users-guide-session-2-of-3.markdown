@@ -1,6 +1,7 @@
 ---
 title: 'Video with Flash MX : A Users Guide : Session 2 of 3'
 author: mikechambers
+date: 2002-07-10 12:17:01 -0800
 layout: post
 permalink: /2002/07/10/video-with-flash-mx-a-users-guide-session-2-of-3/
 categories:

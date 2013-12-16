@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash Video Gallery Source Code Release
 author: mikechambers
+date: 2004-03-03 12:49:01 -0800
 layout: post
 permalink: /2004/03/03/macromedia-flash-video-gallery-source-code-release/
 categories:

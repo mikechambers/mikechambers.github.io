@@ -1,6 +1,7 @@
 ---
 title: Apollo FAQ Translated to Serbian
 author: mikechambers
+date: 2007-02-16 12:41:01 -0800
 layout: post
 permalink: /2007/02/16/apollo-faq-translated-to-serbian/
 categories:

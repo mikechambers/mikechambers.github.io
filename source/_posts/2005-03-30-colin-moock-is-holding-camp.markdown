@@ -1,6 +1,7 @@
 ---
 title: Colin Moock is holding camp
 author: mikechambers
+date: 2005-03-30 12:13:01 -0800
 layout: post
 permalink: /2005/03/30/colin-moock-is-holding-camp/
 categories:

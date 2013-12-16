@@ -1,6 +1,7 @@
 ---
 title: 'I&#8217;m off to FlashForward NYC'
 author: mikechambers
+date: 2002-07-09 12:24:01 -0800
 layout: post
 permalink: /2002/07/09/im-off-to-flashforward-nyc/
 categories:

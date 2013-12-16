@@ -1,6 +1,7 @@
 ---
 title: 'Sneak Peak : New Flash Player Penetration Stats'
 author: mikechambers
+date: 2003-01-10 12:54:01 -0800
 layout: post
 permalink: /2003/01/10/sneak-peak-new-flash-player-penetration-stats/
 categories:

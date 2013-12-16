@@ -1,6 +1,7 @@
 ---
 title: studiowhiz.com Update
 author: mikechambers
+date: 2003-07-15 12:05:01 -0800
 layout: post
 permalink: /2003/07/15/studiowhizcom-update/
 categories:

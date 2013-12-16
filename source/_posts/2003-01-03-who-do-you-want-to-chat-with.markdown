@@ -1,6 +1,7 @@
 ---
 title: Who do you want to chat with?
 author: mikechambers
+date: 2003-01-03 12:36:01 -0800
 layout: post
 permalink: /2003/01/03/who-do-you-want-to-chat-with/
 categories:

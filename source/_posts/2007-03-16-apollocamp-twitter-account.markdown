@@ -1,6 +1,7 @@
 ---
 title: ApolloCamp Twitter Account
 author: mikechambers
+date: 2007-03-16 12:45:01 -0800
 layout: post
 permalink: /2007/03/16/apollocamp-twitter-account/
 categories:

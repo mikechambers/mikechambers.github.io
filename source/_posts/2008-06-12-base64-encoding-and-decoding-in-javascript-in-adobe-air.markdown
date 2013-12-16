@@ -1,6 +1,7 @@
 ---
 title: Base64 Encoding and Decoding in JavaScript in Adobe AIR
 author: mikechambers
+date: 2008-06-12 12:16:01 -0800
 layout: post
 permalink: /2008/06/12/base64-encoding-and-decoding-in-javascript-in-adobe-air/
 categories:

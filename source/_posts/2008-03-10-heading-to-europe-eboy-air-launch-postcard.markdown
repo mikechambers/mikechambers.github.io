@@ -1,6 +1,7 @@
 ---
 title: Heading to Europe / eboy AIR Launch postcard
 author: mikechambers
+date: 2008-03-10 12:33:01 -0800
 layout: post
 permalink: /2008/03/10/heading-to-europe-eboy-air-launch-postcard/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: ColdFusion MX and Macromedia.com
 author: mikechambers
+date: 2003-03-06 12:18:01 -0800
 layout: post
 permalink: /2003/03/06/coldfusion-mx-and-macromediacom/
 categories:

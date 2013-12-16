@@ -1,6 +1,7 @@
 ---
 title: DataGrid Component Tutorial
 author: mikechambers
+date: 2002-11-25 12:19:01 -0800
 layout: post
 permalink: /2002/11/25/datagrid-component-tutorial/
 categories:

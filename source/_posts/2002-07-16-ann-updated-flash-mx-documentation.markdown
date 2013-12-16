@@ -1,6 +1,7 @@
 ---
 title: 'ANN : Updated Flash MX Documentation'
 author: mikechambers
+date: 2002-07-16 12:21:01 -0800
 layout: post
 permalink: /2002/07/16/ann-updated-flash-mx-documentation/
 categories:

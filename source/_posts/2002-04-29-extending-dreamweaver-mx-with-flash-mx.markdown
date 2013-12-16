@@ -1,6 +1,7 @@
 ---
 title: Extending Dreamweaver MX with Flash MX
 author: mikechambers
+date: 2002-04-29 12:51:01 -0800
 layout: post
 permalink: /2002/04/29/extending-dreamweaver-mx-with-flash-mx/
 categories:

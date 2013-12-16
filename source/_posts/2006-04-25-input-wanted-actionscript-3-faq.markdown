@@ -1,6 +1,7 @@
 ---
 title: 'Input wanted : ActionScript 3 FAQ'
 author: mikechambers
+date: 2006-04-25 12:24:01 -0800
 layout: post
 permalink: /2006/04/25/input-wanted-actionscript-3-faq/
 categories:

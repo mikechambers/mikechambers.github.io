@@ -1,6 +1,7 @@
 ---
 title: 'FlashCommand Flash 2004  Command Line Compiler'
 author: mikechambers
+date: 2003-11-01 12:00:01 -0800
 layout: post
 permalink: /2003/11/01/flashcommand-flash-2004-command-line-compiler/
 categories:

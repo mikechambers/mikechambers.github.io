@@ -1,6 +1,7 @@
 ---
 title: 'New Editor for OSX : Smultron'
 author: mikechambers
+date: 2004-07-25 12:06:01 -0800
 layout: post
 permalink: /2004/07/25/new-editor-for-osx-smultron/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: FlashForward and FlashInTheCan Smart Categories at MXNA
 author: mikechambers
+date: 2005-04-06 12:28:01 -0800
 layout: post
 permalink: /2005/04/06/flashforward-and-flashinthecan-smart-categories-at-mxna/
 categories:

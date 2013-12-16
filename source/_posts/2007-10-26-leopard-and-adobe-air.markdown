@@ -1,6 +1,7 @@
 ---
 title: Leopard and Adobe AIR
 author: mikechambers
+date: 2007-10-26 12:23:01 -0800
 layout: post
 permalink: /2007/10/26/leopard-and-adobe-air/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: ActionScript 2.0 Cheatsheet
 author: mikechambers
+date: 2006-01-28 12:30:01 -0800
 layout: post
 permalink: /2006/01/28/actionscript-20-cheatsheet/
 categories:

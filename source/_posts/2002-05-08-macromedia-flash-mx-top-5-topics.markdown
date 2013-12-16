@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash MX Top 5 Topics
 author: mikechambers
+date: 2002-05-08 12:53:01 -0800
 layout: post
 permalink: /2002/05/08/macromedia-flash-mx-top-5-topics/
 categories:

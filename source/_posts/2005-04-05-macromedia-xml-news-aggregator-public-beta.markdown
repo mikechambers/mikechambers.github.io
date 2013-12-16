@@ -1,6 +1,7 @@
 ---
 title: Macromedia XML News Aggregator Public Beta
 author: mikechambers
+date: 2005-04-05 12:53:01 -0800
 layout: post
 permalink: /2005/04/05/macromedia-xml-news-aggregator-public-beta/
 categories:

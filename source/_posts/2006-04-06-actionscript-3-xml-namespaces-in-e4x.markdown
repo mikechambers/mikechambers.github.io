@@ -1,6 +1,7 @@
 ---
 title: 'ActionScript 3 : XML Namespaces in E4X'
 author: mikechambers
+date: 2006-04-06 12:24:01 -0800
 layout: post
 permalink: /2006/04/06/actionscript-3-xml-namespaces-in-e4x/
 categories:

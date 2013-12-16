@@ -1,6 +1,7 @@
 ---
 title: 'Valentine&#8217;s Day Flash Promotion'
 author: mikechambers
+date: 2003-01-29 12:10:01 -0800
 layout: post
 permalink: /2003/01/29/valentines-day-flash-promotion/
 categories:

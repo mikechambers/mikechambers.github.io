@@ -1,6 +1,7 @@
 ---
 title: Strategies for optimizing collision detection with BitmapData.hitTest
 author: mikechambers
+date: 2009-06-25 12:17:01 -0800
 layout: post
 permalink: /2009/06/25/strategies-for-optimizing-collision-detection-with-bitmapdata-hittest/
 categories:

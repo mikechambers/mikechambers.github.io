@@ -1,6 +1,7 @@
 ---
 title: Adobe AIR 1.1 Release Notes in HTML
 author: mikechambers
+date: 2008-06-30 12:25:01 -0800
 layout: post
 permalink: /2008/06/30/adobe-air-11-release-note-in-html/
 categories:

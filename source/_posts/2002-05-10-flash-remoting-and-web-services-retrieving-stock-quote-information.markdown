@@ -1,6 +1,7 @@
 ---
 title: 'Flash Remoting and Web Services : Retrieving Stock Quote Information'
 author: mikechambers
+date: 2002-05-10 12:51:01 -0800
 layout: post
 permalink: /2002/05/10/flash-remoting-and-web-services-retrieving-stock-quote-information/
 categories:

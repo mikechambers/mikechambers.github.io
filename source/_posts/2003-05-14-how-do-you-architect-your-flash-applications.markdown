@@ -1,6 +1,7 @@
 ---
 title: How do you Architect your Flash Applications?
 author: mikechambers
+date: 2003-05-14 12:11:01 -0800
 layout: post
 permalink: /2003/05/14/how-do-you-architect-your-flash-applications/
 categories:

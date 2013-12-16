@@ -1,6 +1,7 @@
 ---
 title: Rendering SVG within the Flash Player
 author: mikechambers
+date: 2003-04-28 12:11:01 -0800
 layout: post
 permalink: /2003/04/28/rendering-svg-within-the-flash-player/
 categories:

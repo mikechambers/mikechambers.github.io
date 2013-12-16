@@ -1,6 +1,7 @@
 ---
 title: SHA1 Secure Hash for Flash MX
 author: mikechambers
+date: 2002-06-08 12:40:01 -0800
 layout: post
 permalink: /2002/06/08/sha1-secure-hash-for-flash-mx/
 categories:

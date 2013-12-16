@@ -1,6 +1,7 @@
 ---
 title: Macromedia Reports Fourth Quarter and Fiscal Year 2003 Results
 author: mikechambers
+date: 2003-04-30 12:01:01 -0800
 layout: post
 permalink: /2003/04/30/macromedia-reports-fourth-quarter-and-fiscal-year-2003-results/
 categories:

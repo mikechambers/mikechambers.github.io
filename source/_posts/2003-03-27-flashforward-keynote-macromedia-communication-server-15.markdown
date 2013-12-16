@@ -1,6 +1,7 @@
 ---
 title: 'FlashForward KeyNote : Macromedia Communication Server 1.5'
 author: mikechambers
+date: 2003-03-27 12:26:01 -0800
 layout: post
 permalink: /2003/03/27/flashforward-keynote-macromedia-communication-server-15/
 categories:

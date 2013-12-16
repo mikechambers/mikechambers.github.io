@@ -1,6 +1,7 @@
 ---
 title: 'Flash Communication Server : Wow!'
 author: mikechambers
+date: 2002-07-14 12:46:01 -0800
 layout: post
 permalink: /2002/07/14/flash-communication-server-wow/
 categories:

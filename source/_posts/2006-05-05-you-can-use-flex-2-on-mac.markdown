@@ -1,6 +1,7 @@
 ---
 title: You can use Flex 2 on Mac!
 author: mikechambers
+date: 2006-05-05 12:34:01 -0800
 layout: post
 permalink: /2006/05/05/you-can-use-flex-2-on-mac/
 categories:

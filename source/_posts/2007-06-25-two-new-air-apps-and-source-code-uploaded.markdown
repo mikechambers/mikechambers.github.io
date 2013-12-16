@@ -1,6 +1,7 @@
 ---
 title: Two New AIR Apps and Source code Uploaded
 author: mikechambers
+date: 2007-06-25 12:14:01 -0800
 layout: post
 permalink: /2007/06/25/two-new-air-apps-and-source-code-uploaded/
 categories:

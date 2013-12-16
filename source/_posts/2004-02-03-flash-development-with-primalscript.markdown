@@ -1,6 +1,7 @@
 ---
 title: Flash Development with PrimalScript
 author: mikechambers
+date: 2004-02-03 12:33:01 -0800
 layout: post
 permalink: /2004/02/03/flash-development-with-primalscript/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Introducing Director MX
 author: mikechambers
+date: 2002-11-25 12:12:01 -0800
 layout: post
 permalink: /2002/11/25/introducing-director-mx/
 categories:

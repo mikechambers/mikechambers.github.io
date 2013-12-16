@@ -1,6 +1,7 @@
 ---
 title: 'DevCon spaces, Going, Going...'
 author: mikechambers
+date: 2002-10-17 12:02:01 -0800
 layout: post
 permalink: /2002/10/17/devcon-spaces-going-going/
 categories:

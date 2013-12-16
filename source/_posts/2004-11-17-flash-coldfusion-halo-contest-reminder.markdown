@@ -1,6 +1,7 @@
 ---
 title: Flash / ColdFusion Halo Contest Reminder
 author: mikechambers
+date: 2004-11-17 12:24:01 -0800
 layout: post
 permalink: /2004/11/17/flash-coldfusion-halo-contest-reminder/
 categories:

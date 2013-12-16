@@ -1,6 +1,7 @@
 ---
 title: Flog, weblog aggregator updated with Email support.
 author: mikechambers
+date: 2002-08-22 12:45:01 -0800
 layout: post
 permalink: /2002/08/22/flog-weblog-aggregator-updated-with-email-support/
 categories:

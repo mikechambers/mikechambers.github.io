@@ -1,6 +1,7 @@
 ---
 title: Pictures from MAX
 author: mikechambers
+date: 2003-11-18 12:17:01 -0800
 layout: post
 permalink: /2003/11/18/pictures-from-max/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'DRK 3 : TextField / DataValidation Example 1'
 author: mikechambers
+date: 2003-04-23 12:19:01 -0800
 layout: post
 permalink: /2003/04/23/drk-3-textfield-datavalidation-example-1/
 categories:

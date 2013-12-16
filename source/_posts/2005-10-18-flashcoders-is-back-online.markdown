@@ -1,6 +1,7 @@
 ---
 title: FlashCoders is back online
 author: mikechambers
+date: 2005-10-18 12:07:01 -0800
 layout: post
 permalink: /2005/10/18/flashcoders-is-back-online/
 categories:

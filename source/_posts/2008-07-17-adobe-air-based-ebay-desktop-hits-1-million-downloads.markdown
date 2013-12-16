@@ -1,6 +1,7 @@
 ---
 title: Adobe AIR based eBay Desktop hits 1 Million downloads
 author: mikechambers
+date: 2008-07-17 12:50:01 -0800
 layout: post
 permalink: /2008/07/17/adobe-air-based-ebay-desktop-hits-1-million-downloads/
 categories:

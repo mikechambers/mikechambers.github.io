@@ -1,6 +1,7 @@
 ---
 title: Ellipsis Chat Today
 author: mikechambers
+date: 2004-07-27 12:59:01 -0800
 layout: post
 permalink: /2004/07/27/ellipsis-chat-today/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: FlashForward / Strong Bad
 author: mikechambers
+date: 2003-03-28 12:44:01 -0800
 layout: post
 permalink: /2003/03/28/flashforward-strong-bad/
 categories:

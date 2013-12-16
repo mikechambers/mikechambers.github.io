@@ -1,6 +1,7 @@
 ---
 title: Data Connection Kit now Available
 author: mikechambers
+date: 2003-05-01 12:24:01 -0800
 layout: post
 permalink: /2003/05/01/data-connection-kit-now-available/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Printed Copy of Adobe RIA AS3 Reference Guide
 author: mikechambers
+date: 2008-06-01 12:14:01 -0800
 layout: post
 permalink: /2008/06/01/printed-copy-of-adobe-ria-as3-reference-guide/
 categories:

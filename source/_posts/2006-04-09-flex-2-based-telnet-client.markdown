@@ -1,6 +1,7 @@
 ---
 title: Flex 2 Based Telnet Client
 author: mikechambers
+date: 2006-04-09 12:29:01 -0800
 layout: post
 permalink: /2006/04/09/flex-2-based-telnet-client/
 categories:

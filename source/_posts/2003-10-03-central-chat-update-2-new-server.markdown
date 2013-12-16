@@ -1,6 +1,7 @@
 ---
 title: Central Chat Update 2 / New Server
 author: mikechambers
+date: 2003-10-03 12:03:01 -0800
 layout: post
 permalink: /2003/10/03/central-chat-update-2-new-server/
 categories:

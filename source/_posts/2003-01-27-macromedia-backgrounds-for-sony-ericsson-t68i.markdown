@@ -1,6 +1,7 @@
 ---
 title: Macromedia Backgrounds for Sony / Ericsson t68i
 author: mikechambers
+date: 2003-01-27 12:48:01 -0800
 layout: post
 permalink: /2003/01/27/macromedia-backgrounds-for-sony-ericsson-t68i/
 categories:

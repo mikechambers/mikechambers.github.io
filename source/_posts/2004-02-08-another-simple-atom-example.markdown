@@ -1,6 +1,7 @@
 ---
 title: Another Simple Atom Example
 author: mikechambers
+date: 2004-02-08 12:13:01 -0800
 layout: post
 permalink: /2004/02/08/another-simple-atom-example/
 categories:

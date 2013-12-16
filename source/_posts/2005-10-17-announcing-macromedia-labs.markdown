@@ -1,6 +1,7 @@
 ---
 title: Announcing Macromedia Labs
 author: mikechambers
+date: 2005-10-17 12:38:01 -0800
 layout: post
 permalink: /2005/10/17/announcing-macromedia-labs/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'ActionScript for Flash MX : The Definitive Guide : Sample Chapter'
 author: mikechambers
+date: 2002-12-04 12:53:01 -0800
 layout: post
 permalink: /2002/12/04/actionscript-for-flash-mx-the-definitive-guide-sample-chapter/
 categories:

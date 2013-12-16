@@ -1,6 +1,7 @@
 ---
 title: 'Halo 2  Flash / CF Contest Extended'
 author: mikechambers
+date: 2004-11-18 12:57:01 -0800
 layout: post
 permalink: /2004/11/18/halo-2-flash-cf-contest-extended/
 categories:

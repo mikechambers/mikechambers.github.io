@@ -1,6 +1,7 @@
 ---
 title: Sneak Peak of Central Chat App
 author: mikechambers
+date: 2003-09-29 12:29:01 -0800
 layout: post
 permalink: /2003/09/29/sneak-peak-of-central-chat-app/
 categories:

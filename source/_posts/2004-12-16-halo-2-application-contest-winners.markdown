@@ -1,6 +1,7 @@
 ---
 title: Halo 2 Application Contest Winners
 author: mikechambers
+date: 2004-12-16 12:31:01 -0800
 layout: post
 permalink: /2004/12/16/halo-2-application-contest-winners/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash Communication Server Pricing
 author: mikechambers
+date: 2002-07-09 12:39:01 -0800
 layout: post
 permalink: /2002/07/09/flash-communication-server-pricing/
 categories:

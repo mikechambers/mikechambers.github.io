@@ -1,6 +1,7 @@
 ---
 title: What Content do you want to see on the next DRK?
 author: mikechambers
+date: 2003-02-11 12:39:01 -0800
 layout: post
 permalink: /2003/02/11/what-content-do-you-want-to-see-on-the-next-drk/
 categories:

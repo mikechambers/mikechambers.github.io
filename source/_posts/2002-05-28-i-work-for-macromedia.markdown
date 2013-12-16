@@ -1,6 +1,7 @@
 ---
 title: I work for Macromedia
 author: mikechambers
+date: 2002-05-28 12:05:01 -0800
 layout: post
 permalink: /2002/05/28/i-work-for-macromedia/
 categories:

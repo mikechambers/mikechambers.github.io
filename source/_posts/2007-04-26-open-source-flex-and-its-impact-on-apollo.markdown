@@ -1,6 +1,7 @@
 ---
 title: Open Source Flex and its impact on Apollo
 author: mikechambers
+date: 2007-04-26 12:18:01 -0800
 layout: post
 permalink: /2007/04/26/open-source-flex-and-its-impact-on-apollo/
 categories:

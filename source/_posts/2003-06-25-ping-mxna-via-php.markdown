@@ -1,6 +1,7 @@
 ---
 title: Ping MXNA via PHP
 author: mikechambers
+date: 2003-06-25 12:13:01 -0800
 layout: post
 permalink: /2003/06/25/ping-mxna-via-php/
 categories:

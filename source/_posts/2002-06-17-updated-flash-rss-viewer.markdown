@@ -1,6 +1,7 @@
 ---
 title: Updated Flash RSS Viewer
 author: mikechambers
+date: 2002-06-17 12:32:01 -0800
 layout: post
 permalink: /2002/06/17/updated-flash-rss-viewer/
 categories:

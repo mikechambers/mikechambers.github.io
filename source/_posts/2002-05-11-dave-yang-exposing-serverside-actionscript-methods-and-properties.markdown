@@ -1,6 +1,7 @@
 ---
 title: 'Dave Yang : Exposing ServerSide ActionScript methods and properties'
 author: mikechambers
+date: 2002-05-11 12:56:01 -0800
 layout: post
 permalink: /2002/05/11/dave-yang-exposing-serverside-actionscript-methods-and-properties/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: FITC Amsterdam / FlashCamp London
 author: mikechambers
+date: 2009-02-10 12:24:01 -0800
 layout: post
 permalink: /2009/02/10/fitc-amsterdam-flashcamp-london/
 categories:

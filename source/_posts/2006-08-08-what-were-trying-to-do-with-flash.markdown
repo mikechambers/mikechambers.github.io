@@ -1,6 +1,7 @@
 ---
 title: 'What we&#8217;re trying to do with Flash'
 author: mikechambers
+date: 2006-08-08 12:58:01 -0800
 layout: post
 permalink: /2006/08/08/what-were-trying-to-do-with-flash/
 categories:

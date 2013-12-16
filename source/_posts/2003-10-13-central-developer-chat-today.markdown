@@ -1,6 +1,7 @@
 ---
 title: Central Developer Chat Today
 author: mikechambers
+date: 2003-10-13 12:51:01 -0800
 layout: post
 permalink: /2003/10/13/central-developer-chat-today/
 categories:

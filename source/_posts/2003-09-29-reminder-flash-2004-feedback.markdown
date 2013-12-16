@@ -1,6 +1,7 @@
 ---
 title: 'Reminder : Flash 2004 Feedback'
 author: mikechambers
+date: 2003-09-29 12:14:01 -0800
 layout: post
 permalink: /2003/09/29/reminder-flash-2004-feedback/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash Remoting and Java Example
 author: mikechambers
+date: 2002-05-05 12:53:01 -0800
 layout: post
 permalink: /2002/05/05/flash-remoting-and-java-example/
 categories:

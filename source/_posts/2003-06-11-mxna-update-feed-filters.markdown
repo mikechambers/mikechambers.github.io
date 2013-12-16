@@ -1,6 +1,7 @@
 ---
 title: 'MXNA Update : Feed Filters'
 author: mikechambers
+date: 2003-06-11 12:47:01 -0800
 layout: post
 permalink: /2003/06/11/mxna-update-feed-filters/
 categories:

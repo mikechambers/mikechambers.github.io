@@ -1,6 +1,7 @@
 ---
 title: Will Zorn require a Flex server?
 author: mikechambers
+date: 2005-08-03 12:23:01 -0800
 layout: post
 permalink: /2005/08/03/will-zorn-require-a-flex-server/
 categories:

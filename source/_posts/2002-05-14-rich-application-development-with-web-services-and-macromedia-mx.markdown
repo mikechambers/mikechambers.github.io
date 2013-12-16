@@ -1,6 +1,7 @@
 ---
 title: Rich application development with web services and Macromedia MX
 author: mikechambers
+date: 2002-05-14 12:57:01 -0800
 layout: post
 permalink: /2002/05/14/rich-application-development-with-web-services-and-macromedia-mx/
 categories:

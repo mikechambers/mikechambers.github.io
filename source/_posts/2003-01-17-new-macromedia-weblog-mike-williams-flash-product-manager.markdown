@@ -1,6 +1,7 @@
 ---
 title: 'New Macromedia Weblog : Mike Williams : Flash Product Manager'
 author: mikechambers
+date: 2003-01-17 12:12:01 -0800
 layout: post
 permalink: /2003/01/17/new-macromedia-weblog-mike-williams-flash-product-manager/
 categories:

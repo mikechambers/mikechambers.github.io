@@ -1,6 +1,7 @@
 ---
 title: Example Code for 360Flex Apollo Session
 author: mikechambers
+date: 2007-03-09 12:05:01 -0800
 layout: post
 permalink: /2007/03/09/example-code-for-360flex-apollo-session/
 categories:

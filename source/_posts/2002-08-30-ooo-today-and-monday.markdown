@@ -1,6 +1,7 @@
 ---
 title: OOO Today and Monday
 author: mikechambers
+date: 2002-08-30 12:47:01 -0800
 layout: post
 permalink: /2002/08/30/ooo-today-and-monday/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Looking for Input on Flash Security Topics
 author: mikechambers
+date: 2002-10-14 12:11:01 -0800
 layout: post
 permalink: /2002/10/14/looking-for-input-on-flash-security-topics/
 categories:

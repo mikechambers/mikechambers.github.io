@@ -1,6 +1,7 @@
 ---
 title: Adding SHIFT / CTRL Click support to links in Flash
 author: mikechambers
+date: 2003-05-05 12:48:01 -0800
 layout: post
 permalink: /2003/05/05/adding-shift-ctrl-click-support-to-links-in-flash/
 categories:

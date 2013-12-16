@@ -1,6 +1,7 @@
 ---
 title: Hitting the Road Again
 author: mikechambers
+date: 2007-09-18 12:48:01 -0800
 layout: post
 permalink: /2007/09/18/hitting-the-road-again/
 categories:

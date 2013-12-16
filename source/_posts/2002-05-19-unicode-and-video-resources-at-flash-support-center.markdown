@@ -1,6 +1,7 @@
 ---
 title: Unicode and Video resources at Flash Support Center
 author: mikechambers
+date: 2002-05-19 12:19:01 -0800
 layout: post
 permalink: /2002/05/19/unicode-and-video-resources-at-flash-support-center/
 categories:

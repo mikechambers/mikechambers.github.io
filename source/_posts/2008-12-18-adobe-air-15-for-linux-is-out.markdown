@@ -1,6 +1,7 @@
 ---
 title: Adobe AIR 1.5 for Linux is out
 author: mikechambers
+date: 2008-12-18 12:38:01 -0800
 layout: post
 permalink: /2008/12/18/adobe-air-15-for-linux-is-out/
 categories:

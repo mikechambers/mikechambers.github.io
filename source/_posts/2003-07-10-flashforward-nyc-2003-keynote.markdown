@@ -1,6 +1,7 @@
 ---
 title: FlashForward NYC 2003 Keynote
 author: mikechambers
+date: 2003-07-10 12:40:01 -0800
 layout: post
 permalink: /2003/07/10/flashforward-nyc-2003-keynote/
 categories:

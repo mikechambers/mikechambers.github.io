@@ -1,6 +1,7 @@
 ---
 title: Spam Attacks? Here is my blacklist
 author: mikechambers
+date: 2004-01-19 12:49:01 -0800
 layout: post
 permalink: /2004/01/19/spam-attacks-here-is-my-blacklist/
 categories:

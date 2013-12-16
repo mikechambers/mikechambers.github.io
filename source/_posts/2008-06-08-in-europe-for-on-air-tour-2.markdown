@@ -1,6 +1,7 @@
 ---
 title: In Europe for on AIR Tour
 author: mikechambers
+date: 2008-06-08 12:59:01 -0800
 layout: post
 permalink: /2008/06/08/in-europe-for-on-air-tour-2/
 categories:

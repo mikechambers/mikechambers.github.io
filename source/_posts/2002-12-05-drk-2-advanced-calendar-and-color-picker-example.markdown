@@ -1,6 +1,7 @@
 ---
 title: 'DRK 2 : Advanced Calendar and Color Picker Example'
 author: mikechambers
+date: 2002-12-05 12:08:01 -0800
 layout: post
 permalink: /2002/12/05/drk-2-advanced-calendar-and-color-picker-example/
 categories:

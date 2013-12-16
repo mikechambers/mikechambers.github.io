@@ -1,6 +1,7 @@
 ---
 title: 'New Tutorial : Creating a Slideshow'
 author: mikechambers
+date: 2002-06-26 12:06:01 -0800
 layout: post
 permalink: /2002/06/26/new-tutorial-creating-a-slideshow/
 categories:

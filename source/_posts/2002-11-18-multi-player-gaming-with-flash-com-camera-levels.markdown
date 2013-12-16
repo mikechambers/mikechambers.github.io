@@ -1,6 +1,7 @@
 ---
 title: Multi-player Gaming with Flash Com / Camera Levels
 author: mikechambers
+date: 2002-11-18 12:06:01 -0800
 layout: post
 permalink: /2002/11/18/multi-player-gaming-with-flash-com-camera-levels/
 categories:

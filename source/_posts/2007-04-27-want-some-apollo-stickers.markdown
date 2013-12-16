@@ -1,6 +1,7 @@
 ---
 title: Want some Apollo Stickers?
 author: mikechambers
+date: 2007-04-27 12:44:01 -0800
 layout: post
 permalink: /2007/04/27/want-some-apollo-stickers/
 categories:

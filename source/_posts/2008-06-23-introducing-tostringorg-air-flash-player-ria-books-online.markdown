@@ -1,6 +1,7 @@
 ---
 title: 'Introducing tostring.org : AIR / Flash Player / RIA books online'
 author: mikechambers
+date: 2008-06-23 12:55:01 -0800
 layout: post
 permalink: /2008/06/23/introducing-tostringorg-air-flash-player-ria-books-online/
 categories:

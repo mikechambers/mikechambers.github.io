@@ -1,6 +1,7 @@
 ---
 title: Macromedia DevCon Demo Flash Applications Online
 author: mikechambers
+date: 2002-08-21 12:23:01 -0800
 layout: post
 permalink: /2002/08/21/macromedia-devcon-demo-flash-applications-online/
 categories:

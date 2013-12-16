@@ -1,6 +1,7 @@
 ---
 title: 'ActionScript for Flash MX : The Definitive Guide Review'
 author: mikechambers
+date: 2003-01-08 12:38:01 -0800
 layout: post
 permalink: /2003/01/08/actionscript-for-flash-mx-the-definitive-guide-review/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash Platform Community Chat XMPP / Jabber Server
 author: mikechambers
+date: 2008-08-14 12:10:01 -0800
 layout: post
 permalink: /2008/08/14/flash-platform-community-chat-xmpp-jabber-server/
 categories:

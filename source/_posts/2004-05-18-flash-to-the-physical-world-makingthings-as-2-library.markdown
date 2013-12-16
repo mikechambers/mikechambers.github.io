@@ -1,6 +1,7 @@
 ---
 title: 'Flash to the Physical World : MakingThings AS 2 Library'
 author: mikechambers
+date: 2004-05-18 12:39:01 -0800
 layout: post
 permalink: /2004/05/18/flash-to-the-physical-world-makingthings-as-2-library/
 categories:

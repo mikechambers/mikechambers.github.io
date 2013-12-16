@@ -1,6 +1,7 @@
 ---
 title: Intel Hotspot Finder Central Application
 author: mikechambers
+date: 2003-10-30 12:06:01 -0800
 layout: post
 permalink: /2003/10/30/intel-hotspot-finder-central-application/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Brainstorming : Standard XML format to list resources?'
 author: mikechambers
+date: 2003-01-17 12:17:01 -0800
 layout: post
 permalink: /2003/01/17/brainstorming-standard-xml-format-to-list-resources/
 categories:

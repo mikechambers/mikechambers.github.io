@@ -1,6 +1,7 @@
 ---
 title: stringUtils.as
 author: mikechambers
+date: 2002-05-14 12:18:01 -0800
 layout: post
 permalink: /2002/05/14/stringutilsas/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Keeping up to speed with mesh on mx
 author: mikechambers
+date: 2003-01-21 12:08:01 -0800
 layout: post
 permalink: /2003/01/21/keeping-up-to-speed-with-mesh-on-mx/
 categories:

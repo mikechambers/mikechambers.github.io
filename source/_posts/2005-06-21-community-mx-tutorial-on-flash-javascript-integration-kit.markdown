@@ -1,6 +1,7 @@
 ---
 title: Community MX Tutorial on Flash / JavaScript Integration Kit
 author: mikechambers
+date: 2005-06-21 12:28:01 -0800
 layout: post
 permalink: /2005/06/21/community-mx-tutorial-on-flash-javascript-integration-kit/
 categories:

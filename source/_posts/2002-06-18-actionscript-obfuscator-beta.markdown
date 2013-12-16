@@ -1,6 +1,7 @@
 ---
 title: ActionScript Obfuscator Beta
 author: mikechambers
+date: 2002-06-18 12:43:01 -0800
 layout: post
 permalink: /2002/06/18/actionscript-obfuscator-beta/
 categories:

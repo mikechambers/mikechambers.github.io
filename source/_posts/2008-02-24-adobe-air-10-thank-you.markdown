@@ -1,6 +1,7 @@
 ---
 title: 'Adobe AIR 1.0 : Thank You'
 author: mikechambers
+date: 2008-02-24 12:38:01 -0800
 layout: post
 permalink: /2008/02/24/adobe-air-10-thank-you/
 categories:

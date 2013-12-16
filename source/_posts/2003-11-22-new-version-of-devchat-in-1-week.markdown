@@ -1,6 +1,7 @@
 ---
 title: New Version of DevChat in 1 Week
 author: mikechambers
+date: 2003-11-22 12:24:01 -0800
 layout: post
 permalink: /2003/11/22/new-version-of-devchat-in-1-week/
 categories:

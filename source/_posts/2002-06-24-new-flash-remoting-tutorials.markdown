@@ -1,6 +1,7 @@
 ---
 title: New Flash Remoting Tutorials
 author: mikechambers
+date: 2002-06-24 12:24:01 -0800
 layout: post
 permalink: /2002/06/24/new-flash-remoting-tutorials/
 categories:

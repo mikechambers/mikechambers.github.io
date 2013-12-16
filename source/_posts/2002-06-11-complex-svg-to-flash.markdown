@@ -1,6 +1,7 @@
 ---
 title: Complex SVG to Flash
 author: mikechambers
+date: 2002-06-11 12:50:01 -0800
 layout: post
 permalink: /2002/06/11/complex-svg-to-flash/
 categories:

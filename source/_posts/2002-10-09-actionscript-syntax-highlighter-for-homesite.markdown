@@ -1,6 +1,7 @@
 ---
 title: ActionScript Syntax Highlighter for Homesite
 author: mikechambers
+date: 2002-10-09 12:12:01 -0800
 layout: post
 permalink: /2002/10/09/actionscript-syntax-highlighter-for-homesite/
 categories:

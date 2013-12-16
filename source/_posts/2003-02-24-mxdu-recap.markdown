@@ -1,6 +1,7 @@
 ---
 title: MXDU Recap
 author: mikechambers
+date: 2003-02-24 12:02:01 -0800
 layout: post
 permalink: /2003/02/24/mxdu-recap/
 categories:

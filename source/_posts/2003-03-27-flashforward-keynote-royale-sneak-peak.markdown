@@ -1,6 +1,7 @@
 ---
 title: 'FlashForward Keynote : Royale Sneak Peak'
 author: mikechambers
+date: 2003-03-27 12:23:01 -0800
 layout: post
 permalink: /2003/03/27/flashforward-keynote-royale-sneak-peak/
 categories:

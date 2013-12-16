@@ -1,6 +1,7 @@
 ---
 title: Excluding Classes from being Compiled into SWF
 author: mikechambers
+date: 2004-05-25 12:24:01 -0800
 layout: post
 permalink: /2004/05/25/excluding-classes-from-being-compiled-into-swf/
 categories:

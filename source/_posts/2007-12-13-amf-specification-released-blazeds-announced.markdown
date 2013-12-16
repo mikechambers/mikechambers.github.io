@@ -1,6 +1,7 @@
 ---
 title: AMF Specification Released / BlazeDS Announced
 author: mikechambers
+date: 2007-12-13 12:18:01 -0800
 layout: post
 permalink: /2007/12/13/amf-specification-released-blazeds-announced/
 categories:

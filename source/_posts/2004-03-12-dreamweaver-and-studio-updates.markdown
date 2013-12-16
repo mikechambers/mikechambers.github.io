@@ -1,6 +1,7 @@
 ---
 title: Dreamweaver and Studio Updates
 author: mikechambers
+date: 2004-03-12 12:59:01 -0800
 layout: post
 permalink: /2004/03/12/dreamweaver-and-studio-updates/
 categories:

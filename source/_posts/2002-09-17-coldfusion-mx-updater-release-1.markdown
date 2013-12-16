@@ -1,6 +1,7 @@
 ---
 title: ColdFusion MX Updater Release 1
 author: mikechambers
+date: 2002-09-17 12:50:01 -0800
 layout: post
 permalink: /2002/09/17/coldfusion-mx-updater-release-1/
 categories:

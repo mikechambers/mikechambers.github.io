@@ -1,6 +1,7 @@
 ---
 title: Branden Hall and Sam Wan at SIGGRAPH
 author: mikechambers
+date: 2002-07-24 12:05:01 -0800
 layout: post
 permalink: /2002/07/24/branden-hall-and-sam-wan-at-siggraph/
 categories:

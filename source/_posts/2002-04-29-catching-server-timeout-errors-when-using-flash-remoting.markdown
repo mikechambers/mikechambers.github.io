@@ -1,6 +1,7 @@
 ---
 title: Catching server timeout errors when using Flash Remoting
 author: mikechambers
+date: 2002-04-29 12:22:01 -0800
 layout: post
 permalink: /2002/04/29/catching-server-timeout-errors-when-using-flash-remoting/
 categories:

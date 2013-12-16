@@ -1,6 +1,7 @@
 ---
 title: North American Flash Community Tour
 author: mikechambers
+date: 2012-04-02 12:51:01 -0800
 layout: post
 permalink: /2012/04/02/north-american-flash-community-tour/
 categories:

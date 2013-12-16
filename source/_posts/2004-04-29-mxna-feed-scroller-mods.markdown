@@ -1,6 +1,7 @@
 ---
 title: MXNA Feed Scroller Mods
 author: mikechambers
+date: 2004-04-29 12:55:01 -0800
 layout: post
 permalink: /2004/04/29/mxna-feed-scroller-mods/
 categories:

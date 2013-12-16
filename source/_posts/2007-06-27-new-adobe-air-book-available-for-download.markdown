@@ -1,6 +1,7 @@
 ---
 title: New Adobe AIR Book Available for Download
 author: mikechambers
+date: 2007-06-27 12:50:01 -0800
 layout: post
 permalink: /2007/06/27/new-adobe-air-book-available-for-download/
 categories:

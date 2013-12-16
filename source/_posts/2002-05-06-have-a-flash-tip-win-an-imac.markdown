@@ -1,6 +1,7 @@
 ---
 title: Have a Flash Tip? Win an Imac
 author: mikechambers
+date: 2002-05-06 12:44:01 -0800
 layout: post
 permalink: /2002/05/06/have-a-flash-tip-win-an-imac/
 categories:

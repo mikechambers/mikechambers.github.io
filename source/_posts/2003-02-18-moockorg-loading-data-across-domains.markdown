@@ -1,6 +1,7 @@
 ---
 title: 'Moock.org : Loading Data Across Domains'
 author: mikechambers
+date: 2003-02-18 12:32:01 -0800
 layout: post
 permalink: /2003/02/18/moockorg-loading-data-across-domains/
 categories:

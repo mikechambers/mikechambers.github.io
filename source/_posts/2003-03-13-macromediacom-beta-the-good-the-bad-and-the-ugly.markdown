@@ -1,6 +1,7 @@
 ---
 title: 'Macromedia.com Beta : The Good, the Bad and the Ugly'
 author: mikechambers
+date: 2003-03-13 12:54:01 -0800
 layout: post
 permalink: /2003/03/13/macromediacom-beta-the-good-the-bad-and-the-ugly/
 categories:

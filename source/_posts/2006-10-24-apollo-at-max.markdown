@@ -1,6 +1,7 @@
 ---
 title: Apollo at Max
 author: mikechambers
+date: 2006-10-24 12:00:01 -0800
 layout: post
 permalink: /2006/10/24/apollo-at-max/
 categories:

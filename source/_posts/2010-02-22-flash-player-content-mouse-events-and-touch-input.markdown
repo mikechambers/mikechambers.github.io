@@ -1,6 +1,7 @@
 ---
 title: Flash Player content, Mouse Events, and Touch input
 author: mikechambers
+date: 2010-02-22 12:11:01 -0800
 layout: post
 permalink: /2010/02/22/flash-player-content-mouse-events-and-touch-input/
 categories:

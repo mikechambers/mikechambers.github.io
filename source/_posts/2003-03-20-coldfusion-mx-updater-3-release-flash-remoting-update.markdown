@@ -1,6 +1,7 @@
 ---
 title: ColdFusion MX Updater 3 Release / Flash Remoting Update
 author: mikechambers
+date: 2003-03-20 12:48:01 -0800
 layout: post
 permalink: /2003/03/20/coldfusion-mx-updater-3-release-flash-remoting-update/
 categories:

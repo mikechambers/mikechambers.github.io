@@ -1,6 +1,7 @@
 ---
 title: Creating MXP Files
 author: mikechambers
+date: 2003-05-30 12:09:01 -0800
 layout: post
 permalink: /2003/05/30/creating-mxp-files/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'DevCon Video Blog : What is this? Getting ready.'
 author: mikechambers
+date: 2002-10-27 12:21:01 -0800
 layout: post
 permalink: /2002/10/27/devcon-video-blog-what-is-this-getting-ready/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: PHP Content and Resources on Macromedia.com
 author: mikechambers
+date: 2003-04-29 12:49:01 -0800
 layout: post
 permalink: /2003/04/29/php-content-and-resources-on-macromediacom/
 categories:

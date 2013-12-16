@@ -1,6 +1,7 @@
 ---
 title: Flash Communication Server Component Information
 author: mikechambers
+date: 2002-07-11 12:35:01 -0800
 layout: post
 permalink: /2002/07/11/flash-communication-server-component-information/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Implementing Offline Web Content with Gears LocalServer API
 author: mikechambers
+date: 2008-09-05 12:11:01 -0800
 layout: post
 permalink: /2008/09/05/implimenting-offline-web-content-with-gears-localserver-api/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Flash MX Discussion : Application development and the Timeline'
 author: mikechambers
+date: 2003-01-18 12:13:01 -0800
 layout: post
 permalink: /2003/01/18/flash-mx-discussion-application-development-and-the-timeline/
 categories:

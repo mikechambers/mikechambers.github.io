@@ -1,6 +1,7 @@
 ---
 title: Branden is Blogging
 author: mikechambers
+date: 2002-05-02 12:46:01 -0800
 layout: post
 permalink: /2002/05/02/branden-is-blogging/
 categories:

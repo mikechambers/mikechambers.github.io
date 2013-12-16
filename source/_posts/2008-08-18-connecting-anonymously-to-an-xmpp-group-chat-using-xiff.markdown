@@ -1,6 +1,7 @@
 ---
 title: Connecting Anonymously to an XMPP Group Chat using XIFF
 author: mikechambers
+date: 2008-08-18 12:11:01 -0800
 layout: post
 permalink: /2008/08/18/connecting-anonymously-to-an-xmpp-group-chat-using-xiff/
 categories:

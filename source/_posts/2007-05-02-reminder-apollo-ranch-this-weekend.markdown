@@ -1,6 +1,7 @@
 ---
 title: 'Reminder : Apollo Ranch this Weekend'
 author: mikechambers
+date: 2007-05-02 12:48:01 -0800
 layout: post
 permalink: /2007/05/02/reminder-apollo-ranch-this-weekend/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Creating a default DATETIME_FORMAT filter for django
 author: mikechambers
+date: 2008-05-02 12:32:01 -0800
 layout: post
 permalink: /2008/05/02/creating-a-default-datetime_format-filter-for-django/
 categories:

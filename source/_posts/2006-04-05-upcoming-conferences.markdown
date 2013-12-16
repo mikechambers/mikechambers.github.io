@@ -1,6 +1,7 @@
 ---
 title: Upcoming Conferences
 author: mikechambers
+date: 2006-04-05 12:42:01 -0800
 layout: post
 permalink: /2006/04/05/upcoming-conferences/
 categories:

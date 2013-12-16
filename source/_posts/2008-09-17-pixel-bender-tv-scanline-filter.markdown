@@ -1,6 +1,7 @@
 ---
 title: Pixel Bender TV Scanline Filter
 author: mikechambers
+date: 2008-09-17 12:17:01 -0800
 layout: post
 permalink: /2008/09/17/pixel-bender-tv-scanline-filter/
 categories:

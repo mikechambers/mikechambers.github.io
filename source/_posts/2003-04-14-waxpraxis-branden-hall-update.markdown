@@ -1,6 +1,7 @@
 ---
 title: Waxpraxis / Branden Hall Update
 author: mikechambers
+date: 2003-04-14 12:45:01 -0800
 layout: post
 permalink: /2003/04/14/waxpraxis-branden-hall-update/
 categories:

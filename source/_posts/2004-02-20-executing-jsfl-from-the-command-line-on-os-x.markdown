@@ -1,6 +1,7 @@
 ---
 title: Executing JSFL from the Command Line on OS X
 author: mikechambers
+date: 2004-02-20 12:24:01 -0800
 layout: post
 permalink: /2004/02/20/executing-jsfl-from-the-command-line-on-os-x/
 categories:

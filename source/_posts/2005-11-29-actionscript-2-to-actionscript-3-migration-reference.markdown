@@ -1,6 +1,7 @@
 ---
 title: ActionScript 2 to ActionScript 3 Migration Reference
 author: mikechambers
+date: 2005-11-29 12:24:01 -0800
 layout: post
 permalink: /2005/11/29/actionscript-2-to-actionscript-3-migration-reference/
 categories:

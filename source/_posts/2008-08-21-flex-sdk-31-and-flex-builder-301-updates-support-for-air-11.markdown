@@ -1,6 +1,7 @@
 ---
 title: 'Flex SDK 3.1 and Flex Builder 3.0.1 Updates : Support for AIR 1.1'
 author: mikechambers
+date: 2008-08-21 12:59:01 -0800
 layout: post
 permalink: /2008/08/21/flex-sdk-31-and-flex-builder-301-updates-support-for-air-11/
 categories:

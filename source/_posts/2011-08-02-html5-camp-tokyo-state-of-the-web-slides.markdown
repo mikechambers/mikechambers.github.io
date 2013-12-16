@@ -1,6 +1,7 @@
 ---
 title: 'HTML5 Camp Tokyo : State of the Web Slides'
 author: mikechambers
+date: 2011-08-02 12:04:01 -0800
 layout: post
 permalink: /2011/08/02/html5-camp-tokyo-state-of-the-web-slides/
 categories:

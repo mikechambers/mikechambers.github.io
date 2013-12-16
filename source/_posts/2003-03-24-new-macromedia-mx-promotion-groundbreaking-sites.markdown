@@ -1,6 +1,7 @@
 ---
 title: New Macromedia MX Promotion / Groundbreaking Sites
 author: mikechambers
+date: 2003-03-24 12:39:01 -0800
 layout: post
 permalink: /2003/03/24/new-macromedia-mx-promotion-groundbreaking-sites/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Opera and the Macromedia.com Beta
 author: mikechambers
+date: 2003-03-05 12:06:01 -0800
 layout: post
 permalink: /2003/03/05/opera-and-the-macromediacom-beta/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Speaking in Philadelphia Tonight
 author: mikechambers
+date: 2007-08-22 12:35:01 -0800
 layout: post
 permalink: /2007/08/22/speaking-in-philadelphia-tonight/
 categories:

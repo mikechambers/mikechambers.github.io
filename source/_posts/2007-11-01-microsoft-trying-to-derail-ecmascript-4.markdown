@@ -1,6 +1,7 @@
 ---
 title: Microsoft trying to derail ECMAScript 4?
 author: mikechambers
+date: 2007-11-01 12:14:01 -0800
 layout: post
 permalink: /2007/11/01/microsoft-trying-to-derail-ecmascript-4/
 categories:

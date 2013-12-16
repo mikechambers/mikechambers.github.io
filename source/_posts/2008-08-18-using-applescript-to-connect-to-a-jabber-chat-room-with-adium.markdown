@@ -1,6 +1,7 @@
 ---
 title: Using AppleScript to connect to a Jabber Chat Room with Adium
 author: mikechambers
+date: 2008-08-18 12:56:01 -0800
 layout: post
 permalink: /2008/08/18/using-applescript-to-connect-to-a-jabber-chat-room-with-adium/
 categories:

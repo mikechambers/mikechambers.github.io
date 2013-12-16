@@ -1,6 +1,7 @@
 ---
 title: 'Flash Resource Manager : Flex / CF support'
 author: mikechambers
+date: 2004-04-11 12:12:01 -0800
 layout: post
 permalink: /2004/04/11/flash-resource-manager-flex-cf-support/
 categories:

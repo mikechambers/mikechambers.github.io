@@ -1,6 +1,7 @@
 ---
 title: FlashInTheCan Presentation / Notes online
 author: mikechambers
+date: 2003-05-04 12:54:01 -0800
 layout: post
 permalink: /2003/05/04/flashinthecan-presentation-notes-online/
 categories:

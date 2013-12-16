@@ -1,6 +1,7 @@
 ---
 title: San Francisco Flex User Group (woot!)
 author: mikechambers
+date: 2006-04-07 12:05:01 -0800
 layout: post
 permalink: /2006/04/07/san-francisco-flex-user-group-woot/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Yahoo Releases Sweet Flex Component Skin
 author: mikechambers
+date: 2007-12-13 12:24:01 -0800
 layout: post
 permalink: /2007/12/13/yahoo-releases-sweet-flex-component-skin/
 categories:

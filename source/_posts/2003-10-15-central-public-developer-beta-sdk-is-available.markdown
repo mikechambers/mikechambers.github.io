@@ -1,6 +1,7 @@
 ---
 title: Central Public Developer Beta (SDK) is Available
 author: mikechambers
+date: 2003-10-15 12:13:01 -0800
 layout: post
 permalink: /2003/10/15/central-public-developer-beta-sdk-is-available/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash Player Beta for Linux Update
 author: mikechambers
+date: 2002-10-23 12:22:01 -0800
 layout: post
 permalink: /2002/10/23/flash-player-beta-for-linux-update/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Macromedia Central Category added to MXNA
 author: mikechambers
+date: 2003-10-15 12:40:01 -0800
 layout: post
 permalink: /2003/10/15/macromedia-central-category-added-to-mxna/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Whats in your headphones?
 author: mikechambers
+date: 2003-06-10 12:37:01 -0800
 layout: post
 permalink: /2003/06/10/whats-in-your-headphones/
 categories:

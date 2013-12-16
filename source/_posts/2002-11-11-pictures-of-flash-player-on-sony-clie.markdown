@@ -1,6 +1,7 @@
 ---
 title: Pictures of Flash Player on Sony Clie
 author: mikechambers
+date: 2002-11-11 12:57:01 -0800
 layout: post
 permalink: /2002/11/11/pictures-of-flash-player-on-sony-clie/
 categories:

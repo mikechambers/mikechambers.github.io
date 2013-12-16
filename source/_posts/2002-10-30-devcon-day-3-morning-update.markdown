@@ -1,6 +1,7 @@
 ---
 title: 'DevCon : Day 3 morning update'
 author: mikechambers
+date: 2002-10-30 12:37:01 -0800
 layout: post
 permalink: /2002/10/30/devcon-day-3-morning-update/
 categories:

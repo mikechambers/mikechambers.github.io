@@ -1,6 +1,7 @@
 ---
 title: MovableType and ColdFusion MX
 author: mikechambers
+date: 2003-01-19 12:29:01 -0800
 layout: post
 permalink: /2003/01/19/movabletype-and-coldfusion-mx/
 categories:

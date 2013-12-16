@@ -1,6 +1,7 @@
 ---
 title: AIR package added to as3corelib library
 author: mikechambers
+date: 2008-08-14 12:12:01 -0800
 layout: post
 permalink: /2008/08/14/air-package-added-to-as3corelib-library/
 categories:

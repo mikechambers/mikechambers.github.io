@@ -1,6 +1,7 @@
 ---
 title: MAX Keynote
 author: mikechambers
+date: 2004-11-02 12:18:01 -0800
 layout: post
 permalink: /2004/11/02/max-keynote/
 categories:

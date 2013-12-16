@@ -1,6 +1,7 @@
 ---
 title: Public Apollo Conference Session Calendar
 author: mikechambers
+date: 2006-09-18 12:06:01 -0800
 layout: post
 permalink: /2006/09/18/public-apollo-conference-session-calendar/
 categories:

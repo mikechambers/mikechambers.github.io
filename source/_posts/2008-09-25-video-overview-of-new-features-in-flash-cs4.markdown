@@ -1,6 +1,7 @@
 ---
 title: Video overview of new features in Flash CS4
 author: mikechambers
+date: 2008-09-25 12:16:01 -0800
 layout: post
 permalink: /2008/09/25/video-overview-of-new-features-in-flash-cs4/
 categories:

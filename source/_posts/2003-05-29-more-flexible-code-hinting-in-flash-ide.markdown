@@ -1,6 +1,7 @@
 ---
 title: More Flexible Code hinting in Flash IDE
 author: mikechambers
+date: 2003-05-29 12:34:01 -0800
 layout: post
 permalink: /2003/05/29/more-flexible-code-hinting-in-flash-ide/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Kevin Lynch Interview at Web 2.0
 author: mikechambers
+date: 2010-05-06 12:04:01 -0800
 layout: post
 permalink: /2010/05/06/kevin-lynch-interview-at-web-2-0/
 categories:

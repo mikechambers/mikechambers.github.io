@@ -1,6 +1,7 @@
 ---
 title: 'FITC Amsterdam : Building High Performance iPhone Applications with ActionScript 3'
 author: mikechambers
+date: 2010-01-25 12:13:01 -0800
 layout: post
 permalink: /2010/01/25/fitc-amsterdam-building-high-performance-iphone-applications-with-actionscript-3/
 categories:

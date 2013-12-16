@@ -1,6 +1,7 @@
 ---
 title: Creating a Central Specific Feed for your weblog
 author: mikechambers
+date: 2003-10-22 12:52:01 -0800
 layout: post
 permalink: /2003/10/22/creating-a-central-specific-feed-for-your-weblog/
 categories:

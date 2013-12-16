@@ -1,6 +1,7 @@
 ---
 title: New Macromedia DevNet RSS Feed
 author: mikechambers
+date: 2003-03-27 12:32:01 -0800
 layout: post
 permalink: /2003/03/27/new-macromedia-devnet-rss-feed/
 categories:

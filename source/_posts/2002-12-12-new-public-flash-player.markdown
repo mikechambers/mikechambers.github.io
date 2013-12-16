@@ -1,6 +1,7 @@
 ---
 title: New Public Flash Player
 author: mikechambers
+date: 2002-12-12 12:06:01 -0800
 layout: post
 permalink: /2002/12/12/new-public-flash-player/
 categories:

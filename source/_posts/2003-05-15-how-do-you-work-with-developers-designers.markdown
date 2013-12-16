@@ -1,6 +1,7 @@
 ---
 title: How do you work with Developers / Designers
 author: mikechambers
+date: 2003-05-15 12:01:01 -0800
 layout: post
 permalink: /2003/05/15/how-do-you-work-with-developers-designers/
 categories:

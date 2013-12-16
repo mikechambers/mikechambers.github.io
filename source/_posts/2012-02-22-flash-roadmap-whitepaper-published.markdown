@@ -1,6 +1,7 @@
 ---
 title: Flash Roadmap Whitepaper Published
 author: mikechambers
+date: 2012-02-22 12:49:01 -0800
 layout: post
 permalink: /2012/02/22/flash-roadmap-whitepaper-published/
 categories:

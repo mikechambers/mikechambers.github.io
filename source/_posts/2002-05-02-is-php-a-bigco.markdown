@@ -1,6 +1,7 @@
 ---
 title: Is PHP a BigCo?
 author: mikechambers
+date: 2002-05-02 12:50:01 -0800
 layout: post
 permalink: /2002/05/02/is-php-a-bigco/
 categories:

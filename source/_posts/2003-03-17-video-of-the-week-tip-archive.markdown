@@ -1,6 +1,7 @@
 ---
 title: Video of the Week Tip Archive
 author: mikechambers
+date: 2003-03-17 12:54:01 -0800
 layout: post
 permalink: /2003/03/17/video-of-the-week-tip-archive/
 categories:

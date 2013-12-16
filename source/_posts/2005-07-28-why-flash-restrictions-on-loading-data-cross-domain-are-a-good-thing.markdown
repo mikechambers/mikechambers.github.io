@@ -1,6 +1,7 @@
 ---
 title: Why Flash restrictions on loading data cross domain are a good thing
 author: mikechambers
+date: 2005-07-28 12:01:01 -0800
 layout: post
 permalink: /2005/07/28/why-flash-restrictions-on-loading-data-cross-domain-are-a-good-thing/
 categories:

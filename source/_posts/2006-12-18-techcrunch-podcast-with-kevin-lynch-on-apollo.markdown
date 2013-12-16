@@ -1,6 +1,7 @@
 ---
 title: TechCrunch Podcast with Kevin Lynch on Apollo
 author: mikechambers
+date: 2006-12-18 12:57:01 -0800
 layout: post
 permalink: /2006/12/18/techcrunch-podcast-with-kevin-lynch-on-apollo/
 categories:

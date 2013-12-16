@@ -1,6 +1,7 @@
 ---
 title: Joe Clark on Accessibility, Flash
 author: mikechambers
+date: 2002-12-09 12:24:01 -0800
 layout: post
 permalink: /2002/12/09/joe-clark-on-accessibility-flash/
 categories:

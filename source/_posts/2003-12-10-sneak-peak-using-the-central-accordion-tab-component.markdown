@@ -1,6 +1,7 @@
 ---
 title: 'Sneak Peak : Using the Central Accordion Tab Component'
 author: mikechambers
+date: 2003-12-10 12:14:01 -0800
 layout: post
 permalink: /2003/12/10/sneak-peak-using-the-central-accordion-tab-component/
 categories:

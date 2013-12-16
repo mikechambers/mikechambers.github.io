@@ -1,6 +1,7 @@
 ---
 title: New Flash MX resource at Macromedia
 author: mikechambers
+date: 2002-08-02 12:28:01 -0800
 layout: post
 permalink: /2002/08/02/new-flash-mx-resource-at-macromedia/
 categories:

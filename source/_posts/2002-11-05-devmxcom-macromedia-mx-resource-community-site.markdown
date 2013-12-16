@@ -1,6 +1,7 @@
 ---
 title: 'DevMX.com : Macromedia MX Resource / Community Site'
 author: mikechambers
+date: 2002-11-05 12:34:01 -0800
 layout: post
 permalink: /2002/11/05/devmxcom-macromedia-mx-resource-community-site/
 categories:

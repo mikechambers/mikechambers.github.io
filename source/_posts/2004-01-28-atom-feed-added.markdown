@@ -1,6 +1,7 @@
 ---
 title: Atom Feed Added
 author: mikechambers
+date: 2004-01-28 12:36:01 -0800
 layout: post
 permalink: /2004/01/28/atom-feed-added/
 categories:

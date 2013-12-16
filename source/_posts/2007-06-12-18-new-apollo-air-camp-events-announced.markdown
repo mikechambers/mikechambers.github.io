@@ -1,6 +1,7 @@
 ---
 title: 18 New Apollo / AIR Camp Events Announced
 author: mikechambers
+date: 2007-06-12 12:52:01 -0800
 layout: post
 permalink: /2007/06/12/18-new-apollo-air-camp-events-announced/
 categories:

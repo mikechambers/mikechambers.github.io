@@ -1,6 +1,7 @@
 ---
 title: What new features / changes do you want for MXNA?
 author: mikechambers
+date: 2006-05-15 12:08:01 -0800
 layout: post
 permalink: /2006/05/15/what-new-features-changes-do-you-want-for-mxna/
 categories:

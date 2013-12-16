@@ -1,6 +1,7 @@
 ---
 title: New Flash Player Penetration Numbers
 author: mikechambers
+date: 2002-10-16 12:00:01 -0800
 layout: post
 permalink: /2002/10/16/new-flash-player-penetration-numbers/
 categories:

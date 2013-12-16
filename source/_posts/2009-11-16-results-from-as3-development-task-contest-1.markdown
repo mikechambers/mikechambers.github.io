@@ -1,6 +1,7 @@
 ---
 title: 'Results from AS3 Development Task Contest #1'
 author: mikechambers
+date: 2009-11-16 12:57:01 -0800
 layout: post
 permalink: /2009/11/16/results-from-as3-development-task-contest-1/
 categories:

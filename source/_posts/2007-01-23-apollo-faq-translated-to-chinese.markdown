@@ -1,6 +1,7 @@
 ---
 title: Apollo FAQ Translated to Chinese
 author: mikechambers
+date: 2007-01-23 12:05:01 -0800
 layout: post
 permalink: /2007/01/23/apollo-faq-translated-to-chinese/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Conversation with Jeremy Allaire
 author: mikechambers
+date: 2003-05-08 12:48:01 -0800
 layout: post
 permalink: /2003/05/08/conversation-with-jeremy-allaire/
 categories:

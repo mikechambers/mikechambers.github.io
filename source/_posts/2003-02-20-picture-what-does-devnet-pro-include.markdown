@@ -1,6 +1,7 @@
 ---
 title: 'Picture : What does DevNet Pro include?'
 author: mikechambers
+date: 2003-02-20 12:38:01 -0800
 layout: post
 permalink: /2003/02/20/picture-what-does-devnet-pro-include/
 categories:

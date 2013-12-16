@@ -1,6 +1,7 @@
 ---
 title: New Adobe AIR T-shirt created by eboy
 author: mikechambers
+date: 2008-09-22 12:05:01 -0800
 layout: post
 permalink: /2008/09/22/new-adobe-air-t-shirt-created-by-eboy/
 categories:

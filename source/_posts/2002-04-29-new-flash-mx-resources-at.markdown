@@ -1,6 +1,7 @@
 ---
 title: 'New Flash MX Resources at...'
 author: mikechambers
+date: 2002-04-29 12:27:01 -0800
 layout: post
 permalink: /2002/04/29/new-flash-mx-resources-at/
 categories:

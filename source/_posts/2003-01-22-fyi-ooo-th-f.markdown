@@ -1,6 +1,7 @@
 ---
 title: 'FYI : OOO : TH-F'
 author: mikechambers
+date: 2003-01-22 12:45:01 -0800
 layout: post
 permalink: /2003/01/22/fyi-ooo-th-f/
 categories:

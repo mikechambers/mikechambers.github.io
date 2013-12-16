@@ -1,6 +1,7 @@
 ---
 title: Macromedia Central Chat Application (beta)
 author: mikechambers
+date: 2003-09-30 12:58:01 -0800
 layout: post
 permalink: /2003/09/30/macromedia-central-chat-application-beta/
 categories:

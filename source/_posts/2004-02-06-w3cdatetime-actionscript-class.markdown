@@ -1,6 +1,7 @@
 ---
 title: W3CDateTime ActionScript Class
 author: mikechambers
+date: 2004-02-06 12:47:01 -0800
 layout: post
 permalink: /2004/02/06/w3cdatetime-actionscript-class/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'ANN : Macromedia MX Developer Resource Kit'
 author: mikechambers
+date: 2002-09-08 12:05:01 -0800
 layout: post
 permalink: /2002/09/08/ann-macromedia-mx-developer-resource-kit/
 categories:

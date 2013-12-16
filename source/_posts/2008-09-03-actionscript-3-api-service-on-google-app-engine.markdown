@@ -1,6 +1,7 @@
 ---
 title: ActionScript 3 API Service on Google App Engine
 author: mikechambers
+date: 2008-09-03 12:05:01 -0800
 layout: post
 permalink: /2008/09/03/actionscript-3-api-service-on-google-app-engine/
 categories:

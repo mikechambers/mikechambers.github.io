@@ -1,6 +1,7 @@
 ---
 title: I am a back! Finally!
 author: mikechambers
+date: 2002-05-02 12:53:01 -0800
 layout: post
 permalink: /2002/05/02/i-am-a-back-finally/
 categories:

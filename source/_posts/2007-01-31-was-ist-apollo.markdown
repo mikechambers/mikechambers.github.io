@@ -1,6 +1,7 @@
 ---
 title: Was ist Apollo?
 author: mikechambers
+date: 2007-01-31 12:55:01 -0800
 layout: post
 permalink: /2007/01/31/was-ist-apollo/
 categories:

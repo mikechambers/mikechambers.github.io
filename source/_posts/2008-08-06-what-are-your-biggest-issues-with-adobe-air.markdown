@@ -1,6 +1,7 @@
 ---
 title: What are your biggest issues with Adobe AIR?
 author: mikechambers
+date: 2008-08-06 12:10:01 -0800
 layout: post
 permalink: /2008/08/06/what-are-your-biggest-issues-with-adobe-air/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Storing references to _root for Central Applications
 author: mikechambers
+date: 2003-12-18 12:34:01 -0800
 layout: post
 permalink: /2003/12/18/storing-references-to-_root-for-central-applications/
 categories:

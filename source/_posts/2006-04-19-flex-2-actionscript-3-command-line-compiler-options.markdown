@@ -1,6 +1,7 @@
 ---
 title: Flex 2 / ActionScript 3 Command Line Compiler Options
 author: mikechambers
+date: 2006-04-19 12:07:01 -0800
 layout: post
 permalink: /2006/04/19/flex-2-actionscript-3-command-line-compiler-options/
 categories:

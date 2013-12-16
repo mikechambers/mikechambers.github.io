@@ -1,6 +1,7 @@
 ---
 title: 'Contest : Macromedia Podcast Remix / Mashup'
 author: mikechambers
+date: 2005-06-29 12:32:01 -0800
 layout: post
 permalink: /2005/06/29/contest-macromedia-podcast-remix-mashup/
 categories:

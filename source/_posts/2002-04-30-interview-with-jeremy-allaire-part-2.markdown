@@ -1,6 +1,7 @@
 ---
 title: 'Interview with Jeremy Allaire : Part 2'
 author: mikechambers
+date: 2002-04-30 12:56:01 -0800
 layout: post
 permalink: /2002/04/30/interview-with-jeremy-allaire-part-2/
 categories:

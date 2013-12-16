@@ -1,6 +1,7 @@
 ---
 title: Apollo Ranch Conference Next week in Boulder / Denver
 author: mikechambers
+date: 2007-04-25 12:01:01 -0800
 layout: post
 permalink: /2007/04/25/apollo-ranch-conference-next-week-in-boulder-denver/
 categories:

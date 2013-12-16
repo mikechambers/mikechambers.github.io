@@ -1,6 +1,7 @@
 ---
 title: Updated Macromedia News FireFox Extension Soon
 author: mikechambers
+date: 2004-12-10 12:26:01 -0800
 layout: post
 permalink: /2004/12/10/updated-macromedia-news-firefox-extension-soon/
 categories:

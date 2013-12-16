@@ -1,6 +1,7 @@
 ---
 title: DevNet Pro / Essentials iPod Contest
 author: mikechambers
+date: 2003-06-09 12:14:01 -0800
 layout: post
 permalink: /2003/06/09/devnet-pro-essentials-ipod-contest/
 categories:

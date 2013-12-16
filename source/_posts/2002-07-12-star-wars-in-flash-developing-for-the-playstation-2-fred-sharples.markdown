@@ -1,6 +1,7 @@
 ---
 title: 'Star Wars in Flash: Developing for the Playstation 2 : Fred Sharples'
 author: mikechambers
+date: 2002-07-12 12:44:01 -0800
 layout: post
 permalink: /2002/07/12/star-wars-in-flash-developing-for-the-playstation-2-fred-sharples/
 categories:

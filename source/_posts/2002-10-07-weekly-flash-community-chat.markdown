@@ -1,6 +1,7 @@
 ---
 title: Weekly Flash Community Chat
 author: mikechambers
+date: 2002-10-07 12:39:01 -0800
 layout: post
 permalink: /2002/10/07/weekly-flash-community-chat/
 categories:

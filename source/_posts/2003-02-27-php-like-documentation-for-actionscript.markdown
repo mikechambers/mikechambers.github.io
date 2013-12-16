@@ -1,6 +1,7 @@
 ---
 title: PHP Like Documentation for ActionScript
 author: mikechambers
+date: 2003-02-27 12:50:01 -0800
 layout: post
 permalink: /2003/02/27/php-like-documentation-for-actionscript/
 categories:

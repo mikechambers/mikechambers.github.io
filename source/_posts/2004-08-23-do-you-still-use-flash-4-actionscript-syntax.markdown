@@ -1,6 +1,7 @@
 ---
 title: Do you still use Flash 4 ActionScript Syntax?
 author: mikechambers
+date: 2004-08-23 12:20:01 -0800
 layout: post
 permalink: /2004/08/23/do-you-still-use-flash-4-actionscript-syntax/
 categories:

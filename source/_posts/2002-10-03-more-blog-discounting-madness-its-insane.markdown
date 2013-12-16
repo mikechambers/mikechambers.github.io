@@ -1,6 +1,7 @@
 ---
 title: More Blog Discounting Madness!!! Its Insane!!!
 author: mikechambers
+date: 2002-10-03 12:10:01 -0800
 layout: post
 permalink: /2002/10/03/more-blog-discounting-madness-its-insane/
 categories:

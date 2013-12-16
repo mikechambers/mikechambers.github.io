@@ -1,6 +1,7 @@
 ---
 title: Where is Mike Chambers?
 author: mikechambers
+date: 2003-07-01 12:44:01 -0800
 layout: post
 permalink: /2003/07/01/where-is-mike-chambers/
 categories:

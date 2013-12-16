@@ -1,6 +1,7 @@
 ---
 title: Top 5 New Features in Flash CS3
 author: mikechambers
+date: 2007-04-09 12:46:01 -0800
 layout: post
 permalink: /2007/04/09/top-5-new-features-in-flash-cs3/
 categories:

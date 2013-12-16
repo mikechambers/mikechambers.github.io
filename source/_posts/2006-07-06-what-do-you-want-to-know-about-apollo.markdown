@@ -1,6 +1,7 @@
 ---
 title: What do you want to know about Apollo?
 author: mikechambers
+date: 2006-07-06 12:38:01 -0800
 layout: post
 permalink: /2006/07/06/what-do-you-want-to-know-about-apollo/
 categories:

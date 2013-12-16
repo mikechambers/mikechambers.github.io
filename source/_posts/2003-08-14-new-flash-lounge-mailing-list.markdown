@@ -1,6 +1,7 @@
 ---
 title: New Flash-Lounge Mailing List
 author: mikechambers
+date: 2003-08-14 12:55:01 -0800
 layout: post
 permalink: /2003/08/14/new-flash-lounge-mailing-list/
 categories:

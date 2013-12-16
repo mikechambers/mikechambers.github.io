@@ -1,6 +1,7 @@
 ---
 title: DesDev center is now the DevNet Center
 author: mikechambers
+date: 2003-02-10 12:45:01 -0800
 layout: post
 permalink: /2003/02/10/desdev-center-is-now-the-devnet-center/
 categories:

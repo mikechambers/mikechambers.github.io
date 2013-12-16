@@ -1,6 +1,7 @@
 ---
 title: New StrongBad Email
 author: mikechambers
+date: 2003-05-27 12:44:01 -0800
 layout: post
 permalink: /2003/05/27/new-strongbad-email/
 categories:

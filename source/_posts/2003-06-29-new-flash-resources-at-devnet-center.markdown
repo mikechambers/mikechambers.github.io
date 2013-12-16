@@ -1,6 +1,7 @@
 ---
 title: New Flash Resources at DevNet Center
 author: mikechambers
+date: 2003-06-29 12:04:01 -0800
 layout: post
 permalink: /2003/06/29/new-flash-resources-at-devnet-center/
 categories:

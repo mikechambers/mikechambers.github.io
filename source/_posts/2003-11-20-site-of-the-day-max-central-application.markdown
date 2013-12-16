@@ -1,6 +1,7 @@
 ---
 title: 'Site of the Day : Max Central Application'
 author: mikechambers
+date: 2003-11-20 12:21:01 -0800
 layout: post
 permalink: /2003/11/20/site-of-the-day-max-central-application/
 categories:

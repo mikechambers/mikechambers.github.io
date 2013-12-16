@@ -1,6 +1,7 @@
 ---
 title: Flash and Unicode Resources
 author: mikechambers
+date: 2002-10-03 12:48:01 -0800
 layout: post
 permalink: /2002/10/03/flash-and-unicode-resources/
 categories:

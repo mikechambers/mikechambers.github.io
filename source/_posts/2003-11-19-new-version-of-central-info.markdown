@@ -1,6 +1,7 @@
 ---
 title: New Version of Central Info
 author: mikechambers
+date: 2003-11-19 12:59:01 -0800
 layout: post
 permalink: /2003/11/19/new-version-of-central-info/
 categories:

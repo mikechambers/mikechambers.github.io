@@ -1,6 +1,7 @@
 ---
 title: Macromedia and RSS
 author: mikechambers
+date: 2003-06-03 12:46:01 -0800
 layout: post
 permalink: /2003/06/03/macromedia-and-rss/
 categories:

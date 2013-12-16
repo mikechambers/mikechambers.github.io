@@ -1,6 +1,7 @@
 ---
 title: Public Bugbase?
 author: mikechambers
+date: 2003-02-26 12:27:01 -0800
 layout: post
 permalink: /2003/02/26/public-bugbase/
 categories:

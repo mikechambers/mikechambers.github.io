@@ -1,6 +1,7 @@
 ---
 title: 'Podcast : August 28, 2006'
 author: mikechambers
+date: 2006-08-28 12:42:01 -0800
 layout: post
 permalink: /2006/08/28/podcast-august-28-2006/
 categories:

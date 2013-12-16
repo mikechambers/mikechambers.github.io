@@ -1,6 +1,7 @@
 ---
 title: Desktop Activity Monitor
 author: mikechambers
+date: 2003-05-16 12:15:01 -0800
 layout: post
 permalink: /2003/05/16/desktop-activity-monitor/
 categories:

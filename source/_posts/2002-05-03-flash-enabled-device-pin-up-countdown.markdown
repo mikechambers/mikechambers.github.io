@@ -1,6 +1,7 @@
 ---
 title: Flash Enabled Device Pin-up countdown
 author: mikechambers
+date: 2002-05-03 12:36:01 -0800
 layout: post
 permalink: /2002/05/03/flash-enabled-device-pin-up-countdown/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'File I/O in Central : What do you want?'
 author: mikechambers
+date: 2004-01-05 12:08:01 -0800
 layout: post
 permalink: /2004/01/05/file-io-in-central-what-do-you-want/
 categories:

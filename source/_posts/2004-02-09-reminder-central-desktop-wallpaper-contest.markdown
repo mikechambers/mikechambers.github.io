@@ -1,6 +1,7 @@
 ---
 title: 'Reminder : Central Desktop Wallpaper Contest'
 author: mikechambers
+date: 2004-02-09 12:14:01 -0800
 layout: post
 permalink: /2004/02/09/reminder-central-desktop-wallpaper-contest/
 categories:

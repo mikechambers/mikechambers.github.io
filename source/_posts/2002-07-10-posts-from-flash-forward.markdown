@@ -1,6 +1,7 @@
 ---
 title: Posts from Flash Forward
 author: mikechambers
+date: 2002-07-10 12:52:01 -0800
 layout: post
 permalink: /2002/07/10/posts-from-flash-forward/
 categories:

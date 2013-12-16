@@ -1,6 +1,7 @@
 ---
 title: Flash Communication Server Resource / Articles
 author: mikechambers
+date: 2002-12-02 12:34:01 -0800
 layout: post
 permalink: /2002/12/02/flash-communication-server-resource-articles/
 categories:

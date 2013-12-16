@@ -1,6 +1,7 @@
 ---
 title: Config.as / stringUtils.as
 author: mikechambers
+date: 2002-05-14 12:34:01 -0800
 layout: post
 permalink: /2002/05/14/configas-stringutilsas/
 categories:

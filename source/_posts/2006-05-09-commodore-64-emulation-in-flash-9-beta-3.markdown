@@ -1,6 +1,7 @@
 ---
 title: Commodore 64 Emulation in Flash 9 Beta 3
 author: mikechambers
+date: 2006-05-09 12:25:01 -0800
 layout: post
 permalink: /2006/05/09/commodore-64-emulation-in-flash-9-beta-3/
 categories:

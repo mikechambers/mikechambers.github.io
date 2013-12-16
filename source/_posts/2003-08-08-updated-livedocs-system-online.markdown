@@ -1,6 +1,7 @@
 ---
 title: Updated LiveDocs System Online
 author: mikechambers
+date: 2003-08-08 12:27:01 -0800
 layout: post
 permalink: /2003/08/08/updated-livedocs-system-online/
 categories:

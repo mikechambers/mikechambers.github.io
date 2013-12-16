@@ -1,6 +1,7 @@
 ---
 title: mikechambers.com now hosted at MediaTemple.net
 author: mikechambers
+date: 2007-10-29 12:38:01 -0800
 layout: post
 permalink: /2007/10/29/weblog-now-hosted-at-mediatemplenet/
 categories:

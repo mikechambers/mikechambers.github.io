@@ -1,6 +1,7 @@
 ---
 title: FITC San Francisco
 author: mikechambers
+date: 2010-07-15 12:13:01 -0800
 layout: post
 permalink: /2010/07/15/fitc-san-francisco/
 categories:

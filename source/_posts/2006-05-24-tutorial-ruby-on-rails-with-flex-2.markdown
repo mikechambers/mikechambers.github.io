@@ -1,6 +1,7 @@
 ---
 title: 'Tutorial : Ruby on Rails with Flex 2'
 author: mikechambers
+date: 2006-05-24 12:42:01 -0800
 layout: post
 permalink: /2006/05/24/tutorial-ruby-on-rails-with-flex-2/
 categories:

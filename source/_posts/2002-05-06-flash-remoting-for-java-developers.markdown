@@ -1,6 +1,7 @@
 ---
 title: Flash Remoting for Java Developers
 author: mikechambers
+date: 2002-05-06 12:08:01 -0800
 layout: post
 permalink: /2002/05/06/flash-remoting-for-java-developers/
 categories:

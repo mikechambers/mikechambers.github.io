@@ -1,6 +1,7 @@
 ---
 title: Max Wrap-up / Sneak Peaks Video
 author: mikechambers
+date: 2004-11-09 12:03:01 -0800
 layout: post
 permalink: /2004/11/09/max-wrap-up-sneak-peaks-video/
 categories:

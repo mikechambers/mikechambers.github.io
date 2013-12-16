@@ -1,6 +1,7 @@
 ---
 title: 'Quick Reminder : DRK Promotion (few more days)'
 author: mikechambers
+date: 2003-01-22 12:55:01 -0800
 layout: post
 permalink: /2003/01/22/quick-reminder-drk-promotion-few-more-days/
 categories:

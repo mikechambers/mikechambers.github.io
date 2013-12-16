@@ -1,6 +1,7 @@
 ---
 title: Great Flash / MX Magazine (MX Magazine)
 author: mikechambers
+date: 2004-05-28 12:32:01 -0800
 layout: post
 permalink: /2004/05/28/great-flash-mx-magazine-mx-magazine/
 categories:

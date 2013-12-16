@@ -1,6 +1,7 @@
 ---
 title: Certified Macromedia Flash MX Developer exam available
 author: mikechambers
+date: 2002-08-20 12:32:01 -0800
 layout: post
 permalink: /2002/08/20/certified-macromedia-flash-mx-developer-exam-available/
 categories:

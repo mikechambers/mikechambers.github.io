@@ -1,6 +1,7 @@
 ---
 title: 'Video : Adobe AIR Running on Linux'
 author: mikechambers
+date: 2008-02-25 12:41:01 -0800
 layout: post
 permalink: /2008/02/25/video-adobe-air-running-on-linux/
 categories:

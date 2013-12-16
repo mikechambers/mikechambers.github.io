@@ -1,6 +1,7 @@
 ---
 title: Using the HTMLControl Class in Adobe AIR to parse HTML as a data source
 author: mikechambers
+date: 2007-11-09 12:57:01 -0800
 layout: post
 permalink: /2007/11/09/using-the-htmlcontrol-in-adobe-air-to-parse-html-as-a-data-source/
 categories:

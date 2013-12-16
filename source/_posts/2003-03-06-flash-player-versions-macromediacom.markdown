@@ -1,6 +1,7 @@
 ---
 title: 'Flash Player Versions &#038; macromedia.com'
 author: mikechambers
+date: 2003-03-06 12:36:01 -0800
 layout: post
 permalink: /2003/03/06/flash-player-versions-macromediacom/
 categories:

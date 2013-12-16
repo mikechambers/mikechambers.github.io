@@ -1,6 +1,7 @@
 ---
 title: Pre-Processing ActionScript files / classes
 author: mikechambers
+date: 2005-03-30 12:22:01 -0800
 layout: post
 permalink: /2005/03/30/pre-processing-actionscript-files-classes/
 categories:

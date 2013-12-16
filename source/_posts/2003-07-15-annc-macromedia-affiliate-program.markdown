@@ -1,6 +1,7 @@
 ---
 title: 'ANNC : Macromedia Affiliate Program'
 author: mikechambers
+date: 2003-07-15 12:26:01 -0800
 layout: post
 permalink: /2003/07/15/annc-macromedia-affiliate-program/
 categories:

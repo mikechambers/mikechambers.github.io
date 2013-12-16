@@ -1,6 +1,7 @@
 ---
 title: MXDU Keynote Intro Movies Online
 author: mikechambers
+date: 2005-03-16 12:05:01 -0800
 layout: post
 permalink: /2005/03/16/mxdu-keynote-intro-movies-online/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Regular Expression Library
 author: mikechambers
+date: 2003-12-31 12:46:01 -0800
 layout: post
 permalink: /2003/12/31/regular-expression-library/
 categories:

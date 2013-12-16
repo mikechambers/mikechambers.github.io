@@ -1,6 +1,7 @@
 ---
 title: 'What does &#8220;8Ball is focused on designers&#8221; mean?'
 author: mikechambers
+date: 2004-09-15 12:20:01 -0800
 layout: post
 permalink: /2004/09/15/what-does-8ball-is-focused-on-designers-mean/
 categories:

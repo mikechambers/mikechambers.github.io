@@ -1,6 +1,7 @@
 ---
 title: Tumblr Account
 author: mikechambers
+date: 2008-02-20 12:32:01 -0800
 layout: post
 permalink: /2008/02/20/tumblr-account/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Flash, Lies and Videotape: Broadcast Flash Techniques Pete Barr-Watson, Pixelfury'
 author: mikechambers
+date: 2002-07-11 12:08:01 -0800
 layout: post
 permalink: /2002/07/11/flash-lies-and-videotape-broadcast-flash-techniques-pete-barr-watson-pixelfury/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Incremental Search in Flex Builder 2
 author: mikechambers
+date: 2006-04-12 12:59:01 -0800
 layout: post
 permalink: /2006/04/12/incremental-search-in-flex-builder-2/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'And the winners are...'
 author: mikechambers
+date: 2003-05-02 12:11:01 -0800
 layout: post
 permalink: /2003/05/02/and-the-winners-are/
 categories:

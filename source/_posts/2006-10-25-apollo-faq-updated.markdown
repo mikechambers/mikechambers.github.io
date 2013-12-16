@@ -1,6 +1,7 @@
 ---
 title: Apollo FAQ Updated
 author: mikechambers
+date: 2006-10-25 12:41:01 -0800
 layout: post
 permalink: /2006/10/25/apollo-faq-updated/
 categories:

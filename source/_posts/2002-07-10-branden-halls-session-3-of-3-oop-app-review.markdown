@@ -1,6 +1,7 @@
 ---
 title: 'Branden Hall&#8217;s Session : 3 of 3 : OOP App Review'
 author: mikechambers
+date: 2002-07-10 12:05:01 -0800
 layout: post
 permalink: /2002/07/10/branden-halls-session-3-of-3-oop-app-review/
 categories:

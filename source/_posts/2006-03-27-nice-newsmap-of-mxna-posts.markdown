@@ -1,6 +1,7 @@
 ---
 title: Nice Newsmap of MXNA posts
 author: mikechambers
+date: 2006-03-27 12:18:01 -0800
 layout: post
 permalink: /2006/03/27/nice-newsmap-of-mxna-posts/
 categories:

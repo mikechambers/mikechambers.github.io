@@ -1,6 +1,7 @@
 ---
 title: 'Flash Video Test (#3) : Multiple Live Streams : Xbox / PS2'
 author: mikechambers
+date: 2004-10-05 12:51:01 -0800
 layout: post
 permalink: /2004/10/05/flash-video-test-3-multiple-live-streams-xbox-ps2/
 categories:

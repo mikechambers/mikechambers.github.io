@@ -1,6 +1,7 @@
 ---
 title: FullAsAGoog FireFox Plugin
 author: mikechambers
+date: 2004-03-23 12:18:01 -0800
 layout: post
 permalink: /2004/03/23/fullasagoog-firefox-plugin/
 categories:

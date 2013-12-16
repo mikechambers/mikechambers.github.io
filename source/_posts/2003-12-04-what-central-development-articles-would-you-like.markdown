@@ -1,6 +1,7 @@
 ---
 title: What Central Development Articles would you like?
 author: mikechambers
+date: 2003-12-04 12:38:01 -0800
 layout: post
 permalink: /2003/12/04/what-central-development-articles-would-you-like/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash MX / ColdFusion MX Integration and Rich Internet Applications
 author: mikechambers
+date: 2002-08-07 12:35:01 -0800
 layout: post
 permalink: /2002/08/07/flash-mx-coldfusion-mx-integration-and-rich-internet-applications/
 categories:

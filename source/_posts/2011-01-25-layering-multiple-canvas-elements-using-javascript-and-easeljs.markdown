@@ -1,6 +1,7 @@
 ---
 title: Layering Multiple Canvas Elements using JavaScript and EaselJS
 author: mikechambers
+date: 2011-01-25 12:17:01 -0800
 layout: post
 permalink: /2011/01/25/layering-multiple-canvas-elements-using-javascript-and-easeljs/
 categories:

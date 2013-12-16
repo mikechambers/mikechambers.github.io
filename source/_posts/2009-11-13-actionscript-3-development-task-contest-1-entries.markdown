@@ -1,6 +1,7 @@
 ---
 title: 'ActionScript 3 Development Task Contest #1 Entries'
 author: mikechambers
+date: 2009-11-13 12:15:01 -0800
 layout: post
 permalink: /2009/11/13/actionscript-3-development-task-contest-1-entries/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Macromedia Reports Third Quarter Fiscal Year 2003 Financial Results
 author: mikechambers
+date: 2003-01-22 12:18:01 -0800
 layout: post
 permalink: /2003/01/22/macromedia-reports-third-quarter-fiscal-year-2003-financial-results/
 categories:

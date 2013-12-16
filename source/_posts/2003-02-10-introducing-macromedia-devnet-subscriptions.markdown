@@ -1,6 +1,7 @@
 ---
 title: Introducing Macromedia DevNet Subscriptions
 author: mikechambers
+date: 2003-02-10 12:06:01 -0800
 layout: post
 permalink: /2003/02/10/introducing-macromedia-devnet-subscriptions/
 categories:

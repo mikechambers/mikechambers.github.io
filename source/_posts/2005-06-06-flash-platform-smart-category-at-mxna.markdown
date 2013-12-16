@@ -1,6 +1,7 @@
 ---
 title: Flash Platform Smart Category at MXNA
 author: mikechambers
+date: 2005-06-06 12:39:01 -0800
 layout: post
 permalink: /2005/06/06/flash-platform-smart-category-at-mxna/
 categories:

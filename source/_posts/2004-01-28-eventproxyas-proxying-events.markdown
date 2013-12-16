@@ -1,6 +1,7 @@
 ---
 title: 'EventProxy.as : Proxying Events'
 author: mikechambers
+date: 2004-01-28 12:42:01 -0800
 layout: post
 permalink: /2004/01/28/eventproxyas-proxying-events/
 categories:

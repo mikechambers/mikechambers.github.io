@@ -1,6 +1,7 @@
 ---
 title: 'fyi : Taking Next Week Off'
 author: mikechambers
+date: 2006-07-21 12:45:01 -0800
 layout: post
 permalink: /2006/07/21/fyi-taking-next-week-off/
 categories:

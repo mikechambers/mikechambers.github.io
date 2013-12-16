@@ -1,6 +1,7 @@
 ---
 title: Flash Remoting for Java Beta 3
 author: mikechambers
+date: 2002-08-06 12:28:01 -0800
 layout: post
 permalink: /2002/08/06/flash-remoting-for-java-beta-3/
 categories:

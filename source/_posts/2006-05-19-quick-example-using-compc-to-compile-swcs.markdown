@@ -1,6 +1,7 @@
 ---
 title: 'Quick Example : Using COMPC to compile SWCs'
 author: mikechambers
+date: 2006-05-19 12:21:01 -0800
 layout: post
 permalink: /2006/05/19/quick-example-using-compc-to-compile-swcs/
 categories:

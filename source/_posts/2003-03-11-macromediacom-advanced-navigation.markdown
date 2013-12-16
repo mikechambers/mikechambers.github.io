@@ -1,6 +1,7 @@
 ---
 title: 'Macromedia.com : Advanced Navigation'
 author: mikechambers
+date: 2003-03-11 12:26:01 -0800
 layout: post
 permalink: /2003/03/11/macromediacom-advanced-navigation/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: New Flash Remoting Mailing List
 author: mikechambers
+date: 2002-05-03 12:21:01 -0800
 layout: post
 permalink: /2002/05/03/new-flash-remoting-mailing-list/
 categories:

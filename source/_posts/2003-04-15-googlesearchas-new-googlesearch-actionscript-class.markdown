@@ -1,6 +1,7 @@
 ---
 title: 'GoogleSearch.as : new GoogleSearch ActionScript Class'
 author: mikechambers
+date: 2003-04-15 12:08:01 -0800
 layout: post
 permalink: /2003/04/15/googlesearchas-new-googlesearch-actionscript-class/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: FlashCommand for OS X updated to work with Flash CS3
 author: mikechambers
+date: 2008-05-02 12:57:01 -0800
 layout: post
 permalink: /2008/05/02/flashcommand-for-os-x-updated-to-work-with-flash-cs3/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Macromedia News Firefox Extension Fixed!
 author: mikechambers
+date: 2006-01-24 12:28:01 -0800
 layout: post
 permalink: /2006/01/24/macromedia-news-firefox-extension-fixed/
 categories:

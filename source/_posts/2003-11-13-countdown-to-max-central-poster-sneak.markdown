@@ -1,6 +1,7 @@
 ---
 title: 'Countdown to MAX : Central Poster (sneak)'
 author: mikechambers
+date: 2003-11-13 12:36:01 -0800
 layout: post
 permalink: /2003/11/13/countdown-to-max-central-poster-sneak/
 categories:

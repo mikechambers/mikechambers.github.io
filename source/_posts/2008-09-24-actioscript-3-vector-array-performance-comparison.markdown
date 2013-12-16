@@ -1,6 +1,7 @@
 ---
 title: ActionScript 3 Vector / Array Performance Comparison
 author: mikechambers
+date: 2008-09-24 12:19:01 -0800
 layout: post
 permalink: /2008/09/24/actioscript-3-vector-array-performance-comparison/
 categories:

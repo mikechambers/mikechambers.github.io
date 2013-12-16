@@ -1,6 +1,7 @@
 ---
 title: Flash / JavaScript Integration Kit (with Open License)
 author: mikechambers
+date: 2005-06-14 12:36:01 -0800
 layout: post
 permalink: /2005/06/14/flash-javascript-integration-kit-with-open-license/
 categories:

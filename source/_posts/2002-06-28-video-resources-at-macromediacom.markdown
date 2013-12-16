@@ -1,6 +1,7 @@
 ---
 title: Video Resources at Macromedia.com
 author: mikechambers
+date: 2002-06-28 12:28:01 -0800
 layout: post
 permalink: /2002/06/28/video-resources-at-macromediacom/
 categories:

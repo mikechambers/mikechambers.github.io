@@ -1,6 +1,7 @@
 ---
 title: 'Kevin Lynch&#8217;s Web 2.0 Presentation now on Google Video'
 author: mikechambers
+date: 2005-10-10 12:55:01 -0800
 layout: post
 permalink: /2005/10/10/kevin-lynchs-web-20-presentation-now-on-google-video/
 categories:

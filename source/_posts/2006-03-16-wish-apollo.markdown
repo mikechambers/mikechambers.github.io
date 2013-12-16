@@ -1,6 +1,7 @@
 ---
 title: wish-apollo
 author: mikechambers
+date: 2006-03-16 12:13:01 -0800
 layout: post
 permalink: /2006/03/16/wish-apollo/
 categories:

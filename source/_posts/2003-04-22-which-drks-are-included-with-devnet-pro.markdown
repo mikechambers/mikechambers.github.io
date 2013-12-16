@@ -1,6 +1,7 @@
 ---
 title: Which DRKs are included with DevNet Pro
 author: mikechambers
+date: 2003-04-22 12:09:01 -0800
 layout: post
 permalink: /2003/04/22/which-drks-are-included-with-devnet-pro/
 categories:

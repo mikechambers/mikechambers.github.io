@@ -1,6 +1,7 @@
 ---
 title: New Flash Platform Stickers (designed by eboy)
 author: mikechambers
+date: 2008-11-17 12:03:01 -0800
 layout: post
 permalink: /2008/11/17/new-flash-platform-stickers-designed-by-eboy/
 categories:

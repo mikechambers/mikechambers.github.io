@@ -1,6 +1,7 @@
 ---
 title: Moock Reviews Flash 8
 author: mikechambers
+date: 2005-09-13 12:30:01 -0800
 layout: post
 permalink: /2005/09/13/moock-reviews-flash-8/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Example : Iterating through Attributes using E4X in ActionScript 3'
 author: mikechambers
+date: 2006-04-11 12:44:01 -0800
 layout: post
 permalink: /2006/04/11/example-iterating-through-attributes-using-e4x-in-actionscript-3/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Builder.com : Introduction to Flash Remoting'
 author: mikechambers
+date: 2002-12-14 12:25:01 -0800
 layout: post
 permalink: /2002/12/14/buildercom-introduction-to-flash-remoting/
 categories:

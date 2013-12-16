@@ -1,6 +1,7 @@
 ---
 title: Apollo Screenshots
 author: mikechambers
+date: 2006-06-13 12:43:01 -0800
 layout: post
 permalink: /2006/06/13/apollo-screenshots/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'CommandProxy : .NET / AIR Integration Proof of Concept'
 author: mikechambers
+date: 2008-01-17 12:34:01 -0800
 layout: post
 permalink: /2008/01/17/commandproxy-net-air-integration-proof-of-concept/
 categories:

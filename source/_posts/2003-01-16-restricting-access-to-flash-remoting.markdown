@@ -1,6 +1,7 @@
 ---
 title: Restricting Access to Flash Remoting
 author: mikechambers
+date: 2003-01-16 12:22:01 -0800
 layout: post
 permalink: /2003/01/16/restricting-access-to-flash-remoting/
 categories:

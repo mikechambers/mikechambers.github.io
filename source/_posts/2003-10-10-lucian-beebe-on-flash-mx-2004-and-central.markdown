@@ -1,6 +1,7 @@
 ---
 title: Lucian Beebe on Flash MX 2004 and Central
 author: mikechambers
+date: 2003-10-10 12:31:01 -0800
 layout: post
 permalink: /2003/10/10/lucian-beebe-on-flash-mx-2004-and-central/
 categories:

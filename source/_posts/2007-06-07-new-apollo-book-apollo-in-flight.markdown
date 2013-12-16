@@ -1,6 +1,7 @@
 ---
 title: 'New Apollo Book : Apollo in Flight'
 author: mikechambers
+date: 2007-06-07 12:11:01 -0800
 layout: post
 permalink: /2007/06/07/new-apollo-book-apollo-in-flight/
 categories:

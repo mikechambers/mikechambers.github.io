@@ -1,6 +1,7 @@
 ---
 title: Flash Based Google Search App
 author: mikechambers
+date: 2003-04-30 12:32:01 -0800
 layout: post
 permalink: /2003/04/30/flash-based-google-search-app/
 categories:

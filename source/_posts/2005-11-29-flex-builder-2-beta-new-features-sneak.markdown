@@ -1,6 +1,7 @@
 ---
 title: Flex Builder 2 Beta New Features Sneak
 author: mikechambers
+date: 2005-11-29 12:37:01 -0800
 layout: post
 permalink: /2005/11/29/flex-builder-2-beta-new-features-sneak/
 categories:

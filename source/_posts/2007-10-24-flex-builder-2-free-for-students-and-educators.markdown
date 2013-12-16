@@ -1,6 +1,7 @@
 ---
 title: Flex Builder 2 free for students and educators
 author: mikechambers
+date: 2007-10-24 12:45:01 -0800
 layout: post
 permalink: /2007/10/24/flex-builder-2-free-for-students-and-educators/
 categories:

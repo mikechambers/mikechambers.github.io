@@ -1,6 +1,7 @@
 ---
 title: 'Sneak Peak : Flash Resource Manager'
 author: mikechambers
+date: 2004-03-30 12:24:01 -0800
 layout: post
 permalink: /2004/03/30/sneak-peak-flash-resource-manager/
 categories:

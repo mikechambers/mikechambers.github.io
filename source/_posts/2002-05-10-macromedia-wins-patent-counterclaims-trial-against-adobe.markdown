@@ -1,6 +1,7 @@
 ---
 title: Macromedia Wins Patent Counterclaims Trial Against Adobe
 author: mikechambers
+date: 2002-05-10 12:16:01 -0800
 layout: post
 permalink: /2002/05/10/macromedia-wins-patent-counterclaims-trial-against-adobe/
 categories:

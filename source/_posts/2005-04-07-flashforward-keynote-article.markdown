@@ -1,6 +1,7 @@
 ---
 title: FlashForward Keynote Article
 author: mikechambers
+date: 2005-04-07 12:23:01 -0800
 layout: post
 permalink: /2005/04/07/flashforward-keynote-article/
 categories:

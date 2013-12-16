@@ -1,6 +1,7 @@
 ---
 title: 'Flash Remoting : Passing responder object with remote function calls.'
 author: mikechambers
+date: 2002-07-09 12:49:01 -0800
 layout: post
 permalink: /2002/07/09/flash-remoting-passing-responder-object-with-remote-function-calls/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: AIR JavaScript Pocket-guide Translated to Japanese
 author: mikechambers
+date: 2007-10-04 12:01:01 -0800
 layout: post
 permalink: /2007/10/04/air-javascript-pocket-guide-translated-to-japanese/
 categories:

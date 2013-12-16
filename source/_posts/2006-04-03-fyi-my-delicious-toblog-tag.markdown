@@ -1,6 +1,7 @@
 ---
 title: 'fyi : my del.icio.us toblog tag'
 author: mikechambers
+date: 2006-04-03 12:59:01 -0800
 layout: post
 permalink: /2006/04/03/fyi-my-delicious-toblog-tag/
 categories:

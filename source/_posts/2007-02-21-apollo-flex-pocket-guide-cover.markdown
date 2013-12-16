@@ -1,6 +1,7 @@
 ---
 title: Apollo / Flex Pocket Guide Cover
 author: mikechambers
+date: 2007-02-21 12:29:01 -0800
 layout: post
 permalink: /2007/02/21/apollo-flex-pocket-guide-cover/
 categories:

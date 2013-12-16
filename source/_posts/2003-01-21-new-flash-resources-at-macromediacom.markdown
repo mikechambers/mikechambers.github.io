@@ -1,6 +1,7 @@
 ---
 title: New Flash Resources at Macromedia.com
 author: mikechambers
+date: 2003-01-21 12:59:01 -0800
 layout: post
 permalink: /2003/01/21/new-flash-resources-at-macromediacom/
 categories:

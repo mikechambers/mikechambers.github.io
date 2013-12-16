@@ -1,6 +1,7 @@
 ---
 title: 'Accelerate : Flash / Arduino Based Speed Detector'
 author: mikechambers
+date: 2010-08-11 12:54:01 -0800
 layout: post
 permalink: /2010/08/11/accelerate-flash-arduino-based-speedometer/
 categories:

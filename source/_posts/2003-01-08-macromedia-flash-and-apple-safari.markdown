@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash and Apple Safari
 author: mikechambers
+date: 2003-01-08 12:08:01 -0800
 layout: post
 permalink: /2003/01/08/macromedia-flash-and-apple-safari/
 categories:

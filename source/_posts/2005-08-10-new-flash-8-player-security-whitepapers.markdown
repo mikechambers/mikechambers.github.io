@@ -1,6 +1,7 @@
 ---
 title: New Flash 8 Player Security Whitepapers
 author: mikechambers
+date: 2005-08-10 12:20:01 -0800
 layout: post
 permalink: /2005/08/10/new-flash-8-player-security-whitepapers/
 categories:

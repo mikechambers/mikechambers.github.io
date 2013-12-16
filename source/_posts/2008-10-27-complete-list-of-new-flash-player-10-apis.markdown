@@ -1,6 +1,7 @@
 ---
 title: Complete List of new Flash Player 10 APIs
 author: mikechambers
+date: 2008-10-27 12:33:01 -0800
 layout: post
 permalink: /2008/10/27/complete-list-of-new-flash-player-10-apis/
 categories:

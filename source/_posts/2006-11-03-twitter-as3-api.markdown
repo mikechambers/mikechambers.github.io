@@ -1,6 +1,7 @@
 ---
 title: Twitter AS3 API
 author: mikechambers
+date: 2006-11-03 12:01:01 -0800
 layout: post
 permalink: /2006/11/03/twitter-as3-api/
 categories:

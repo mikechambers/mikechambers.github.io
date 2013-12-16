@@ -1,6 +1,7 @@
 ---
 title: Flash at the Pocket PC Summit
 author: mikechambers
+date: 2002-05-28 12:09:01 -0800
 layout: post
 permalink: /2002/05/28/flash-at-the-pocket-pc-summit/
 categories:

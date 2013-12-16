@@ -1,6 +1,7 @@
 ---
 title: Flash UI Component Set 5 Documentation on-line
 author: mikechambers
+date: 2003-05-06 12:57:01 -0800
 layout: post
 permalink: /2003/05/06/flash-ui-component-set-5-documentation-on-line/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Rich Runtime Install Sizes Matrix
 author: mikechambers
+date: 2009-03-30 12:21:01 -0800
 layout: post
 permalink: /2009/03/30/rich-runtime-install-sizes-matrix/
 categories:

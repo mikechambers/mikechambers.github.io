@@ -1,6 +1,7 @@
 ---
 title: 'DevCon : MX Stage 2'
 author: mikechambers
+date: 2002-10-27 12:09:01 -0800
 layout: post
 permalink: /2002/10/27/devcon-mx-stage-2/
 categories:

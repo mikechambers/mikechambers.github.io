@@ -1,6 +1,7 @@
 ---
 title: 'TIP : How to get Apache Location directive to match trailing slashes'
 author: mikechambers
+date: 2008-05-01 12:56:01 -0800
 layout: post
 permalink: /2008/05/01/tip-how-to-get-apache-location-directive-to-match-trailing-slashes/
 categories:

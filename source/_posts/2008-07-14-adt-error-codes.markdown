@@ -1,6 +1,7 @@
 ---
 title: ADT Error Codes
 author: mikechambers
+date: 2008-07-14 12:31:01 -0800
 layout: post
 permalink: /2008/07/14/adt-error-codes/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Adobe AIR / Firefox issue on Vista
 author: mikechambers
+date: 2008-07-09 12:00:01 -0800
 layout: post
 permalink: /2008/07/09/adobe-air-firefox-issue-on-vista/
 categories:

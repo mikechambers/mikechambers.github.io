@@ -1,6 +1,7 @@
 ---
 title: ActionScript 3 Libs and Beta 2
 author: mikechambers
+date: 2006-03-23 12:06:01 -0800
 layout: post
 permalink: /2006/03/23/actionscript-3-libs-and-beta-2/
 categories:

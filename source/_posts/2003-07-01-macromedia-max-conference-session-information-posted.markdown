@@ -1,6 +1,7 @@
 ---
 title: Macromedia MAX Conference Session Information posted
 author: mikechambers
+date: 2003-07-01 12:19:01 -0800
 layout: post
 permalink: /2003/07/01/macromedia-max-conference-session-information-posted/
 categories:

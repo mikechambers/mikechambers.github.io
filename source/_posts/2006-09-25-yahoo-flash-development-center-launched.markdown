@@ -1,6 +1,7 @@
 ---
 title: Yahoo Flash Development Center Launched
 author: mikechambers
+date: 2006-09-25 12:12:01 -0800
 layout: post
 permalink: /2006/09/25/yahoo-flash-development-center-launched/
 categories:

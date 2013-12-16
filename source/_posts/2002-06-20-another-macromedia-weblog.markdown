@@ -1,6 +1,7 @@
 ---
 title: Another Macromedia Weblog
 author: mikechambers
+date: 2002-06-20 12:46:01 -0800
 layout: post
 permalink: /2002/06/20/another-macromedia-weblog/
 categories:

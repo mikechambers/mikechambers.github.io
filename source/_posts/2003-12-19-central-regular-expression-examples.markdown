@@ -1,6 +1,7 @@
 ---
 title: Central Regular Expression Examples
 author: mikechambers
+date: 2003-12-19 12:08:01 -0800
 layout: post
 permalink: /2003/12/19/central-regular-expression-examples/
 categories:

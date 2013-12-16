@@ -1,6 +1,7 @@
 ---
 title: Toggling mute on Mac OS X with non-Mac Keyboards and Alfred
 author: mikechambers
+date: 2011-05-23 12:07:01 -0800
 layout: post
 permalink: /2011/05/23/toggling-mute-on-mac-os-x-with-non-mac-keyboards-and-alfred/
 categories:

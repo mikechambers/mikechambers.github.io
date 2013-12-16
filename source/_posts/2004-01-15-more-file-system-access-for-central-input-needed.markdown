@@ -1,6 +1,7 @@
 ---
 title: More File System Access for Central Input Needed
 author: mikechambers
+date: 2004-01-15 12:00:01 -0800
 layout: post
 permalink: /2004/01/15/more-file-system-access-for-central-input-needed/
 categories:

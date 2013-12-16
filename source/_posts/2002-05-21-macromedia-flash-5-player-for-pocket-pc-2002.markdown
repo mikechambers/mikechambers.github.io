@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash 5 Player for Pocket PC 2002
 author: mikechambers
+date: 2002-05-21 12:16:01 -0800
 layout: post
 permalink: /2002/05/21/macromedia-flash-5-player-for-pocket-pc-2002/
 categories:

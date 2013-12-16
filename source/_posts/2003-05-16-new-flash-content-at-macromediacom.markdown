@@ -1,6 +1,7 @@
 ---
 title: New Flash Content at Macromedia.com
 author: mikechambers
+date: 2003-05-16 12:37:01 -0800
 layout: post
 permalink: /2003/05/16/new-flash-content-at-macromediacom/
 categories:

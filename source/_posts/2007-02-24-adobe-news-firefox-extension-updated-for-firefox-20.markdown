@@ -1,6 +1,7 @@
 ---
 title: Adobe News Firefox Extension Updated for Firefox 2.0
 author: mikechambers
+date: 2007-02-24 12:22:01 -0800
 layout: post
 permalink: /2007/02/24/adobe-news-firefox-extension-updated-for-firefox-20/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash and Flash Pro 2004 now Available
 author: mikechambers
+date: 2003-09-10 12:51:01 -0800
 layout: post
 permalink: /2003/09/10/macromedia-flash-and-flash-pro-2004-now-available/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Verdict Reached in Initial Adobe vs. Macromedia Case
 author: mikechambers
+date: 2002-05-03 12:41:01 -0800
 layout: post
 permalink: /2002/05/03/verdict-reached-in-initial-adobe-vs-macromedia-case/
 categories:

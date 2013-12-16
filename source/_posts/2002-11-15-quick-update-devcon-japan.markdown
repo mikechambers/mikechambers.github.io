@@ -1,6 +1,7 @@
 ---
 title: Quick Update / DevCon Japan
 author: mikechambers
+date: 2002-11-15 12:14:01 -0800
 layout: post
 permalink: /2002/11/15/quick-update-devcon-japan/
 categories:

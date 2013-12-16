@@ -1,6 +1,7 @@
 ---
 title: 'POC : Implementing HTML 5 Video Element using JavaScript and Flash'
 author: mikechambers
+date: 2008-05-27 12:56:01 -0800
 layout: post
 permalink: /2008/05/27/poc-implementing-html-5-video-element-using-javascript-and-flash/
 categories:

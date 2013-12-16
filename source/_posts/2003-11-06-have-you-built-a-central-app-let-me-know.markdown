@@ -1,6 +1,7 @@
 ---
 title: 'Have you built a Central App? Let me know...'
 author: mikechambers
+date: 2003-11-06 12:06:01 -0800
 layout: post
 permalink: /2003/11/06/have-you-built-a-central-app-let-me-know/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'DRK : Work-around for component installation problem'
 author: mikechambers
+date: 2002-10-02 12:48:01 -0800
 layout: post
 permalink: /2002/10/02/drk-work-around-for-component-installation-problem/
 categories:

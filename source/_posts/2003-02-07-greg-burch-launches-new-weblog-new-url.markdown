@@ -1,6 +1,7 @@
 ---
 title: Greg Burch Launches new Weblog / New URL
 author: mikechambers
+date: 2003-02-07 12:35:01 -0800
 layout: post
 permalink: /2003/02/07/greg-burch-launches-new-weblog-new-url/
 categories:

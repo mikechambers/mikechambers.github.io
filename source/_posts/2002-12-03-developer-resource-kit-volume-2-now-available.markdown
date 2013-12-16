@@ -1,6 +1,7 @@
 ---
 title: 'Developer Resource Kit : Volume 2 : Now Available'
 author: mikechambers
+date: 2002-12-03 12:57:01 -0800
 layout: post
 permalink: /2002/12/03/developer-resource-kit-volume-2-now-available/
 categories:

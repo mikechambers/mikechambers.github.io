@@ -1,6 +1,7 @@
 ---
 title: FlashForward Film Festival Finalists
 author: mikechambers
+date: 2003-02-14 12:38:01 -0800
 layout: post
 permalink: /2003/02/14/flashforward-film-festival-finalists/
 categories:

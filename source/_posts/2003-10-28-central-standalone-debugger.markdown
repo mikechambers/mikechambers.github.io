@@ -1,6 +1,7 @@
 ---
 title: Central Standalone Debugger?
 author: mikechambers
+date: 2003-10-28 12:18:01 -0800
 layout: post
 permalink: /2003/10/28/central-standalone-debugger/
 categories:

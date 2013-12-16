@@ -1,6 +1,7 @@
 ---
 title: 'New Contest : Flash / ColdFusion Based Halo 2 Application'
 author: mikechambers
+date: 2004-11-10 12:39:01 -0800
 layout: post
 permalink: /2004/11/10/new-contest-flash-coldfusion-based-halo-2-application/
 categories:

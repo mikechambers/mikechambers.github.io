@@ -1,6 +1,7 @@
 ---
 title: Apollo Camp Photos
 author: mikechambers
+date: 2007-03-18 12:53:01 -0800
 layout: post
 permalink: /2007/03/18/apollo-camp-photos/
 categories:

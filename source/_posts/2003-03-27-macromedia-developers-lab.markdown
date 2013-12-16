@@ -1,6 +1,7 @@
 ---
 title: Macromedia Developers Lab
 author: mikechambers
+date: 2003-03-27 12:18:01 -0800
 layout: post
 permalink: /2003/03/27/macromedia-developers-lab/
 categories:

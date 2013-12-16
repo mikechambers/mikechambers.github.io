@@ -1,6 +1,7 @@
 ---
 title: Flash Platform Wallpaper for Sony PSP
 author: mikechambers
+date: 2005-09-02 12:27:01 -0800
 layout: post
 permalink: /2005/09/02/flash-platform-wallpaper-for-sony-psp/
 categories:

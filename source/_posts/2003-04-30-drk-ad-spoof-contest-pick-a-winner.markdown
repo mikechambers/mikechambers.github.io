@@ -1,6 +1,7 @@
 ---
 title: 'DRK AD Spoof Contest : Pick a Winner'
 author: mikechambers
+date: 2003-04-30 12:39:01 -0800
 layout: post
 permalink: /2003/04/30/drk-ad-spoof-contest-pick-a-winner/
 categories:

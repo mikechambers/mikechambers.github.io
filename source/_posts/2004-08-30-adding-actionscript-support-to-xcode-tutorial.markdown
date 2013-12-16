@@ -1,6 +1,7 @@
 ---
 title: Adding ActionScript support to Xcode Tutorial
 author: mikechambers
+date: 2004-08-30 12:42:01 -0800
 layout: post
 permalink: /2004/08/30/adding-actionscript-support-to-xcode-tutorial/
 categories:

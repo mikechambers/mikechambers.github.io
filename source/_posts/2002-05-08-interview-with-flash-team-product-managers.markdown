@@ -1,6 +1,7 @@
 ---
 title: Interview with Flash Team Product Managers
 author: mikechambers
+date: 2002-05-08 12:44:01 -0800
 layout: post
 permalink: /2002/05/08/interview-with-flash-team-product-managers/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Which Adobe AIR apps are you using?
 author: mikechambers
+date: 2008-07-22 12:28:01 -0800
 layout: post
 permalink: /2008/07/22/which-adobe-air-apps-are-you-using/
 categories:

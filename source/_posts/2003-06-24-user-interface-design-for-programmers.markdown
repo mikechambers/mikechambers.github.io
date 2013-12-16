@@ -1,6 +1,7 @@
 ---
 title: User Interface Design for Programmers
 author: mikechambers
+date: 2003-06-24 12:29:01 -0800
 layout: post
 permalink: /2003/06/24/user-interface-design-for-programmers/
 categories:

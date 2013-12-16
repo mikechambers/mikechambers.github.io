@@ -1,6 +1,7 @@
 ---
 title: 'New Flash Weblog :: Robert Hall'
 author: mikechambers
+date: 2002-05-23 12:36:01 -0800
 layout: post
 permalink: /2002/05/23/new-flash-weblog-robert-hall/
 categories:

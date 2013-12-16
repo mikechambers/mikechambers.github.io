@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash MX Answers Panel 2.2
 author: mikechambers
+date: 2002-07-17 12:10:01 -0800
 layout: post
 permalink: /2002/07/17/macromedia-flash-mx-answers-panel-22/
 categories:

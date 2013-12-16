@@ -1,6 +1,7 @@
 ---
 title: What do you want to see on the DevNet Center
 author: mikechambers
+date: 2003-04-02 12:57:01 -0800
 layout: post
 permalink: /2003/04/02/what-do-you-want-to-see-on-the-devnet-center/
 categories:

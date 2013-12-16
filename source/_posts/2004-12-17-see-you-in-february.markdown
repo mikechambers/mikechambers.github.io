@@ -1,6 +1,7 @@
 ---
 title: See you in February
 author: mikechambers
+date: 2004-12-17 12:51:01 -0800
 layout: post
 permalink: /2004/12/17/see-you-in-february/
 categories:

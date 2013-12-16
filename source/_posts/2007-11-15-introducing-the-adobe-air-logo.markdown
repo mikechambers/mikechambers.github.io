@@ -1,6 +1,7 @@
 ---
 title: Introducing the Adobe AIR Logo
 author: mikechambers
+date: 2007-11-15 12:27:01 -0800
 layout: post
 permalink: /2007/11/15/introducing-the-adobe-air-logo/
 categories:

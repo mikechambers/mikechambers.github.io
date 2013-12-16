@@ -1,6 +1,7 @@
 ---
 title: Final Release Candidate Build Flash Player Beta
 author: mikechambers
+date: 2002-12-04 12:25:01 -0800
 layout: post
 permalink: /2002/12/04/final-release-candidate-build-flash-player-beta/
 categories:

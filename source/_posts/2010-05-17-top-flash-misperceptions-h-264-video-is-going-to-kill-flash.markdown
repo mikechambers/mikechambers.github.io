@@ -1,6 +1,7 @@
 ---
 title: 'Top Flash Misperceptions : H.264 Video is going to kill Flash'
 author: mikechambers
+date: 2010-05-17 12:33:01 -0800
 layout: post
 permalink: /2010/05/17/top-flash-misperceptions-h-264-video-is-going-to-kill-flash/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Macromedia + Adobe
 author: mikechambers
+date: 2005-04-18 12:55:01 -0800
 layout: post
 permalink: /2005/04/18/macromedia-adobe/
 categories:

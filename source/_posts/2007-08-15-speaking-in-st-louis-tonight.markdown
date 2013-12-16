@@ -1,6 +1,7 @@
 ---
 title: Speaking in St Louis Tonight
 author: mikechambers
+date: 2007-08-15 12:38:01 -0800
 layout: post
 permalink: /2007/08/15/speaking-in-st-louis-tonight/
 categories:

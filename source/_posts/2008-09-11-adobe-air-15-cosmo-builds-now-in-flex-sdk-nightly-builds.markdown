@@ -1,6 +1,7 @@
 ---
 title: 'Adobe AIR 1.5 (&#8220;Cosmo&#8221;) builds now in Flex SDK Nightly builds'
 author: mikechambers
+date: 2008-09-11 12:18:01 -0800
 layout: post
 permalink: /2008/09/11/adobe-air-15-cosmo-builds-now-in-flex-sdk-nightly-builds/
 categories:

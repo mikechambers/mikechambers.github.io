@@ -1,6 +1,7 @@
 ---
 title: Live from somewhere over Greenland / Im in Europe this week
 author: mikechambers
+date: 2005-05-23 12:27:01 -0800
 layout: post
 permalink: /2005/05/23/live-from-somewhere-over-greenland-im-in-europe-this-week/
 categories:

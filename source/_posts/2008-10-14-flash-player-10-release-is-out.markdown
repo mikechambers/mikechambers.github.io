@@ -1,6 +1,7 @@
 ---
 title: Flash Player 10 Release is Out
 author: mikechambers
+date: 2008-10-14 12:04:01 -0800
 layout: post
 permalink: /2008/10/14/flash-player-10-release-is-out/
 categories:

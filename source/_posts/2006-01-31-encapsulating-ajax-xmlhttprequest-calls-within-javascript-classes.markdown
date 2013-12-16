@@ -1,6 +1,7 @@
 ---
 title: Encapsulating Ajax XMLHTTPRequest Calls within JavaScript classes
 author: mikechambers
+date: 2006-01-31 12:28:01 -0800
 layout: post
 permalink: /2006/01/31/encapsulating-ajax-xmlhttprequest-calls-within-javascript-classes/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: What info do you want to see in a Central FAQ?
 author: mikechambers
+date: 2003-11-13 12:03:01 -0800
 layout: post
 permalink: /2003/11/13/what-info-do-you-want-to-see-in-a-central-faq/
 categories:

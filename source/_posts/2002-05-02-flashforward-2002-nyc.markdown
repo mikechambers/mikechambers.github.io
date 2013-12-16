@@ -1,6 +1,7 @@
 ---
 title: FlashForward 2002 NYC
 author: mikechambers
+date: 2002-05-02 12:25:01 -0800
 layout: post
 permalink: /2002/05/02/flashforward-2002-nyc/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Retrieving Values for 3D Bar Chart Component
 author: mikechambers
+date: 2003-08-11 12:35:01 -0800
 layout: post
 permalink: /2003/08/11/retrieving-values-for-3d-bar-chart-component/
 categories:

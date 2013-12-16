@@ -1,6 +1,7 @@
 ---
 title: Update on Apollo (m2 release)
 author: mikechambers
+date: 2006-11-30 12:47:01 -0800
 layout: post
 permalink: /2006/11/30/update-on-apollo-m2-release/
 categories:

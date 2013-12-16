@@ -1,6 +1,7 @@
 ---
 title: Apollo FAQ Translated to Portuguese
 author: mikechambers
+date: 2006-11-16 12:28:01 -0800
 layout: post
 permalink: /2006/11/16/apollo-faq-translated-to-portuguese/
 categories:

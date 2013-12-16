@@ -1,6 +1,7 @@
 ---
 title: Yahoo Hack Day Today
 author: mikechambers
+date: 2006-09-29 12:23:01 -0800
 layout: post
 permalink: /2006/09/29/yahoo-hack-day-today/
 categories:

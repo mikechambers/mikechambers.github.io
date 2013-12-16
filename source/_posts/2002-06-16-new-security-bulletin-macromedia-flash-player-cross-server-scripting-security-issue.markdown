@@ -1,6 +1,7 @@
 ---
 title: 'New Security Bulletin : Macromedia Flash Player Cross Server Scripting Security Issue'
 author: mikechambers
+date: 2002-06-16 12:39:01 -0800
 layout: post
 permalink: /2002/06/16/new-security-bulletin-macromedia-flash-player-cross-server-scripting-security-issue/
 categories:

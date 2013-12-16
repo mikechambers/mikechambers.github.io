@@ -1,6 +1,7 @@
 ---
 title: yourminis.com Alpha for Apollo
 author: mikechambers
+date: 2007-03-20 12:48:01 -0800
 layout: post
 permalink: /2007/03/20/yourminiscom-alpha-for-apollo/
 categories:

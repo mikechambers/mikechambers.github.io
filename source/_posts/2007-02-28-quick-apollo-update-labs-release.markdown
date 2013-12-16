@@ -1,6 +1,7 @@
 ---
 title: Quick Apollo Update / Labs Release
 author: mikechambers
+date: 2007-02-28 12:58:01 -0800
 layout: post
 permalink: /2007/02/28/quick-apollo-update-labs-release/
 categories:

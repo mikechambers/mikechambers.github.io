@@ -1,6 +1,7 @@
 ---
 title: Where is the Flash Player 8.5 Alpha Download?
 author: mikechambers
+date: 2005-10-18 12:20:01 -0800
 layout: post
 permalink: /2005/10/18/where-is-the-flash-player-85-alpha-download/
 categories:

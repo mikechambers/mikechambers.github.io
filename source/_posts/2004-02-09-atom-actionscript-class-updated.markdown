@@ -1,6 +1,7 @@
 ---
 title: Atom ActionScript Class Updated
 author: mikechambers
+date: 2004-02-09 12:23:01 -0800
 layout: post
 permalink: /2004/02/09/atom-actionscript-class-updated/
 categories:

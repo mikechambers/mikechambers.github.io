@@ -1,6 +1,7 @@
 ---
 title: Understanding Central
 author: mikechambers
+date: 2004-01-22 12:10:01 -0800
 layout: post
 permalink: /2004/01/22/understanding-central/
 categories:

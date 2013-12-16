@@ -1,6 +1,7 @@
 ---
 title: FlashForward Slides Online
 author: mikechambers
+date: 2002-07-13 12:32:01 -0800
 layout: post
 permalink: /2002/07/13/flashforward-slides-online/
 categories:

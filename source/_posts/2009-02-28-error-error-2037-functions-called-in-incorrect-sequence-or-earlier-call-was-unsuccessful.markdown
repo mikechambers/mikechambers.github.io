@@ -1,6 +1,7 @@
 ---
 title: 'Error: Error #2037: Functions called in incorrect sequence, or earlier call was unsuccessful'
 author: mikechambers
+date: 2009-02-28 12:04:01 -0800
 layout: post
 permalink: /2009/02/28/error-error-2037-functions-called-in-incorrect-sequence-or-earlier-call-was-unsuccessful/
 categories:

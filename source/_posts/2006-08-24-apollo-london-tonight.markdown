@@ -1,6 +1,7 @@
 ---
 title: Apollo, London, Tonight
 author: mikechambers
+date: 2006-08-24 12:49:01 -0800
 layout: post
 permalink: /2006/08/24/apollo-london-tonight/
 categories:

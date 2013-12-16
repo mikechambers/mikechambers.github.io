@@ -1,6 +1,7 @@
 ---
 title: 'FOTB Slides : Advanced Desktop Development with Adobe AIR'
 author: mikechambers
+date: 2009-09-22 12:50:01 -0800
 layout: post
 permalink: /2009/09/22/fotb-slides-advanced-desktop-development-with-adobe-air/
 categories:

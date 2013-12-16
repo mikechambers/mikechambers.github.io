@@ -1,6 +1,7 @@
 ---
 title: Central Developer Playground
 author: mikechambers
+date: 2003-11-19 12:22:01 -0800
 layout: post
 permalink: /2003/11/19/central-developer-playground/
 categories:

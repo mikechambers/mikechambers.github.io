@@ -1,6 +1,7 @@
 ---
 title: ServerSide ActionScript Info Review
 author: mikechambers
+date: 2002-05-15 12:54:01 -0800
 layout: post
 permalink: /2002/05/15/serverside-actionscript-info-review/
 categories:

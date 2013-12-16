@@ -1,6 +1,7 @@
 ---
 title: Adobe AIR Express Install Resources
 author: mikechambers
+date: 2008-03-07 12:50:01 -0800
 layout: post
 permalink: /2008/03/07/adobe-air-express-install-resources/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: JavaScript QuadTree Implementation
 author: mikechambers
+date: 2011-03-21 12:47:01 -0800
 layout: post
 permalink: /2011/03/21/javascript-quadtree-implementation/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Integrating Radio and Flash MX
 author: mikechambers
+date: 2002-05-06 12:24:01 -0800
 layout: post
 permalink: /2002/05/06/integrating-radio-and-flash-mx/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Coding for a Time-based Medium : Flash for Developers'
 author: mikechambers
+date: 2002-08-30 12:07:01 -0800
 layout: post
 permalink: /2002/08/30/coding-for-a-time-based-medium-flash-for-developers/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Certifiable certification Central application
 author: mikechambers
+date: 2004-04-19 12:04:01 -0800
 layout: post
 permalink: /2004/04/19/certifiable-certification-central-application/
 categories:

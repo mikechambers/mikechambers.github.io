@@ -1,6 +1,7 @@
 ---
 title: Flash Forward News
 author: mikechambers
+date: 2002-06-07 12:10:01 -0800
 layout: post
 permalink: /2002/06/07/flash-forward-news/
 categories:

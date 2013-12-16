@@ -1,6 +1,7 @@
 ---
 title: Offline most of this week
 author: mikechambers
+date: 2007-08-27 12:25:01 -0800
 layout: post
 permalink: /2007/08/27/offline-most-of-this-week/
 categories:

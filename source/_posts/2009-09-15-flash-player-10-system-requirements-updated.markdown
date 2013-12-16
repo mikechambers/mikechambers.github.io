@@ -1,6 +1,7 @@
 ---
 title: Flash Player 10 System Requirements Updated
 author: mikechambers
+date: 2009-09-15 12:03:01 -0800
 layout: post
 permalink: /2009/09/15/flash-player-10-system-requirements-updated/
 categories:

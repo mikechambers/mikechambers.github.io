@@ -1,6 +1,7 @@
 ---
 title: DRK Component Documentation Online
 author: mikechambers
+date: 2003-01-30 12:39:01 -0800
 layout: post
 permalink: /2003/01/30/drk-component-documentation-online/
 categories:

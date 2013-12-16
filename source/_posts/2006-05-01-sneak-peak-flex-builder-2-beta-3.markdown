@@ -1,6 +1,7 @@
 ---
 title: 'Sneak Peak : Flex Builder 2 Beta 3'
 author: mikechambers
+date: 2006-05-01 12:41:01 -0800
 layout: post
 permalink: /2006/05/01/sneak-peak-flex-builder-2-beta-3/
 categories:

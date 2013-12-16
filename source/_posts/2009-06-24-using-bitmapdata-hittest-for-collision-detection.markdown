@@ -1,6 +1,7 @@
 ---
 title: Using BitmapData.hitTest for Collision Detection
 author: mikechambers
+date: 2009-06-24 12:57:01 -0800
 layout: post
 permalink: /2009/06/24/using-bitmapdata-hittest-for-collision-detection/
 categories:

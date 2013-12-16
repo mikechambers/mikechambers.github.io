@@ -1,6 +1,7 @@
 ---
 title: Digital Editions is not an Apollo Application
 author: mikechambers
+date: 2006-10-26 12:25:01 -0800
 layout: post
 permalink: /2006/10/26/digital-editions-is-not-an-apollo-application/
 categories:

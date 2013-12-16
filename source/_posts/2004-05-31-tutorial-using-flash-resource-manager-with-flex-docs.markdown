@@ -1,6 +1,7 @@
 ---
 title: 'Tutorial : Using Flash Resource Manager with Flex Docs'
 author: mikechambers
+date: 2004-05-31 12:32:01 -0800
 layout: post
 permalink: /2004/05/31/tutorial-using-flash-resource-manager-with-flex-docs/
 categories:

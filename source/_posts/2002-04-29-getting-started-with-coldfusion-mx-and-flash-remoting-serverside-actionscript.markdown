@@ -1,6 +1,7 @@
 ---
 title: 'Getting Started with ColdFusion MX and Flash Remoting : ServerSide ActionScript'
 author: mikechambers
+date: 2002-04-29 12:55:01 -0800
 layout: post
 permalink: /2002/04/29/getting-started-with-coldfusion-mx-and-flash-remoting-serverside-actionscript/
 categories:

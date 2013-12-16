@@ -1,6 +1,7 @@
 ---
 title: Apollo at Web 2.0 Conference
 author: mikechambers
+date: 2006-11-08 12:33:01 -0800
 layout: post
 permalink: /2006/11/08/apollo-at-web-20-conference/
 categories:

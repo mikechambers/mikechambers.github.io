@@ -1,6 +1,7 @@
 ---
 title: i enjoy soup
 author: mikechambers
+date: 2002-10-29 12:22:01 -0800
 layout: post
 permalink: /2002/10/29/i-enjoy-soup/
 categories:

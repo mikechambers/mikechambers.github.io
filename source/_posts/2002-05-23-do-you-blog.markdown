@@ -1,6 +1,7 @@
 ---
 title: Do you blog?
 author: mikechambers
+date: 2002-05-23 12:51:01 -0800
 layout: post
 permalink: /2002/05/23/do-you-blog/
 categories:

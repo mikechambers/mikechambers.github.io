@@ -1,6 +1,7 @@
 ---
 title: 'Repost : New Macromedia DevNet RSS Feed'
 author: mikechambers
+date: 2003-03-31 12:09:01 -0800
 layout: post
 permalink: /2003/03/31/repost-new-macromedia-devnet-rss-feed/
 categories:

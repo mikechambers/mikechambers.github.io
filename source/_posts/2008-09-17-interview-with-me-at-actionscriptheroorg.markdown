@@ -1,6 +1,7 @@
 ---
 title: Interview with me at ActionScriptHero.org
 author: mikechambers
+date: 2008-09-17 12:03:01 -0800
 layout: post
 permalink: /2008/09/17/interview-with-me-at-actionscriptheroorg/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Wearable Technology : Wireless Fashion : Phillip Torrone'
 author: mikechambers
+date: 2002-07-12 12:26:01 -0800
 layout: post
 permalink: /2002/07/12/wearable-technology-wireless-fashion-phillip-torrone/
 categories:

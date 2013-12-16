@@ -1,6 +1,7 @@
 ---
 title: Debugging Applications running within Central
 author: mikechambers
+date: 2003-10-22 12:02:01 -0800
 layout: post
 permalink: /2003/10/22/debugging-applications-running-within-central/
 categories:

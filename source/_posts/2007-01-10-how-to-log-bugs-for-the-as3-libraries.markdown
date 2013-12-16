@@ -1,6 +1,7 @@
 ---
 title: How to log bugs for the AS3 Libraries
 author: mikechambers
+date: 2007-01-10 12:51:01 -0800
 layout: post
 permalink: /2007/01/10/how-to-log-bugs-for-the-as3-libraries/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash Resource Manager Updated / Flex and ColdFusion Support
 author: mikechambers
+date: 2004-04-15 12:15:01 -0800
 layout: post
 permalink: /2004/04/15/flash-resource-manager-updated-flex-and-coldfusion-support/
 categories:

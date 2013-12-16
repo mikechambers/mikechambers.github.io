@@ -1,6 +1,7 @@
 ---
 title: Apollo Camp is Sold Out
 author: mikechambers
+date: 2007-02-23 12:51:01 -0800
 layout: post
 permalink: /2007/02/23/apollo-camp-is-sold-out/
 categories:

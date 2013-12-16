@@ -1,6 +1,7 @@
 ---
 title: Latest Central Community Happenings
 author: mikechambers
+date: 2004-01-14 12:08:01 -0800
 layout: post
 permalink: /2004/01/14/latest-central-community-happenings/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Quick Contest : Find what is new?'
 author: mikechambers
+date: 2005-05-04 12:08:01 -0800
 layout: post
 permalink: /2005/05/04/quick-contest-find-what-is-new/
 categories:

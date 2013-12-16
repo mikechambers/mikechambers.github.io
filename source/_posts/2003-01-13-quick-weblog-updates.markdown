@@ -1,6 +1,7 @@
 ---
 title: Quick weblog updates
 author: mikechambers
+date: 2003-01-13 12:22:01 -0800
 layout: post
 permalink: /2003/01/13/quick-weblog-updates/
 categories:

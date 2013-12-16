@@ -1,6 +1,7 @@
 ---
 title: MXNA Podcast Contest Winners
 author: mikechambers
+date: 2005-08-01 12:53:01 -0800
 layout: post
 permalink: /2005/08/01/mxna-podcast-contest-winners/
 categories:

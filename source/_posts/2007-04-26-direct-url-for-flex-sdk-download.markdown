@@ -1,6 +1,7 @@
 ---
 title: Direct URL for Flex SDK Download
 author: mikechambers
+date: 2007-04-26 12:55:01 -0800
 layout: post
 permalink: /2007/04/26/direct-url-for-flex-sdk-download/
 categories:

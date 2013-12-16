@@ -1,6 +1,7 @@
 ---
 title: ActionScript 3 / Flex 2.0 Notification
 author: mikechambers
+date: 2005-10-11 12:19:01 -0800
 layout: post
 permalink: /2005/10/11/actionscript-3-flex-20-notification/
 categories:

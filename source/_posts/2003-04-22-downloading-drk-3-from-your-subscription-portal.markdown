@@ -1,6 +1,7 @@
 ---
 title: Downloading DRK 3 from your subscription portal
 author: mikechambers
+date: 2003-04-22 12:51:01 -0800
 layout: post
 permalink: /2003/04/22/downloading-drk-3-from-your-subscription-portal/
 categories:

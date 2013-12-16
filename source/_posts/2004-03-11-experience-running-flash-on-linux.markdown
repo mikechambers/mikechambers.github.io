@@ -1,6 +1,7 @@
 ---
 title: Experience running Flash on Linux?
 author: mikechambers
+date: 2004-03-11 12:28:01 -0800
 layout: post
 permalink: /2004/03/11/experience-running-flash-on-linux/
 categories:

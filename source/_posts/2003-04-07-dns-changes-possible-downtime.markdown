@@ -1,6 +1,7 @@
 ---
 title: DNS Changes / Possible Downtime
 author: mikechambers
+date: 2003-04-07 12:47:01 -0800
 layout: post
 permalink: /2003/04/07/dns-changes-possible-downtime/
 categories:

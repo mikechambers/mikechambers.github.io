@@ -1,6 +1,7 @@
 ---
 title: 'Why I don&#8217;t use Windows Media Video'
 author: mikechambers
+date: 2006-07-07 12:29:01 -0800
 layout: post
 permalink: /2006/07/07/why-i-dont-use-windows-media-video/
 categories:

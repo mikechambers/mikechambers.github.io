@@ -1,6 +1,7 @@
 ---
 title: Flash Video / Xbox / DevChat Tests
 author: mikechambers
+date: 2004-09-30 12:19:01 -0800
 layout: post
 permalink: /2004/09/30/flash-video-xbox-devchat-tests/
 categories:

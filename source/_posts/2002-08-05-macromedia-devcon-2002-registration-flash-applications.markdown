@@ -1,6 +1,7 @@
 ---
 title: Macromedia DEVCON 2002 Registration / Flash Applications
 author: mikechambers
+date: 2002-08-05 12:07:01 -0800
 layout: post
 permalink: /2002/08/05/macromedia-devcon-2002-registration-flash-applications/
 categories:

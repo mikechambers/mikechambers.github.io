@@ -1,6 +1,7 @@
 ---
 title: Skinner, Moock and Ziade on Flex 2 and AS 3
 author: mikechambers
+date: 2006-07-06 12:27:01 -0800
 layout: post
 permalink: /2006/07/06/skinner-moock-and-ziade-on-flex-2-and-as-3/
 categories:

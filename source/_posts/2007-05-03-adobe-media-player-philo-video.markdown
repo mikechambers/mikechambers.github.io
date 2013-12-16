@@ -1,6 +1,7 @@
 ---
 title: Adobe Media Player (Philo) Video
 author: mikechambers
+date: 2007-05-03 12:43:01 -0800
 layout: post
 permalink: /2007/05/03/adobe-media-player-philo-video/
 categories:

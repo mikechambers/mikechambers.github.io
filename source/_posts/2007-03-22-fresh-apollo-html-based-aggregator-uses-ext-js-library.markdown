@@ -1,6 +1,7 @@
 ---
 title: Fresh Apollo HTML based Aggregator uses Ext JS Library
 author: mikechambers
+date: 2007-03-22 12:28:01 -0800
 layout: post
 permalink: /2007/03/22/fresh-apollo-html-based-aggregator-uses-ext-js-library/
 categories:

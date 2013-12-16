@@ -1,6 +1,7 @@
 ---
 title: Installing English Ellipsis on Non-English versions of Flash
 author: mikechambers
+date: 2004-07-30 12:31:01 -0800
 layout: post
 permalink: /2004/07/30/installing-english-ellipsis-on-non-english-versions-of-flash/
 categories:

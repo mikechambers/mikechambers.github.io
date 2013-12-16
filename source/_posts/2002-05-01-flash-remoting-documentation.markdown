@@ -1,6 +1,7 @@
 ---
 title: Flash Remoting Documentation
 author: mikechambers
+date: 2002-05-01 12:09:01 -0800
 layout: post
 permalink: /2002/05/01/flash-remoting-documentation/
 categories:

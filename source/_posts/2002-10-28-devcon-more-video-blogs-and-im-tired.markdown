@@ -1,6 +1,7 @@
 ---
 title: 'DevCon : more video blogs, and im tired'
 author: mikechambers
+date: 2002-10-28 12:01:01 -0800
 layout: post
 permalink: /2002/10/28/devcon-more-video-blogs-and-im-tired/
 categories:

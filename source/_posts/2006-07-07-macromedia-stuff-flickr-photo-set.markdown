@@ -1,6 +1,7 @@
 ---
 title: Macromedia Stuff Flickr Photo Set
 author: mikechambers
+date: 2006-07-07 12:55:01 -0800
 layout: post
 permalink: /2006/07/07/macromedia-stuff-flickr-photo-set/
 categories:

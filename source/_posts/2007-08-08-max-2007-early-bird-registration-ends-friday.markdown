@@ -1,6 +1,7 @@
 ---
 title: MAX 2007 Early Bird Registration Ends Friday
 author: mikechambers
+date: 2007-08-08 12:17:01 -0800
 layout: post
 permalink: /2007/08/08/max-2007-early-bird-registration-ends-friday/
 categories:

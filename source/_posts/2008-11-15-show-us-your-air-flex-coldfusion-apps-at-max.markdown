@@ -1,6 +1,7 @@
 ---
 title: Show us your AIR / Flex / ColdFusion apps at MAX
 author: mikechambers
+date: 2008-11-15 12:56:01 -0800
 layout: post
 permalink: /2008/11/15/show-us-your-air-flex-coldfusion-apps-at-max/
 categories:

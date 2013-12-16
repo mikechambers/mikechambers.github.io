@@ -1,6 +1,7 @@
 ---
 title: 'Embedding Flash Player in Windows Applications using C#'
 author: mikechambers
+date: 2003-07-29 12:23:01 -0800
 layout: post
 permalink: /2003/07/29/embedding-flash-player-in-windows-applications-using-c/
 categories:

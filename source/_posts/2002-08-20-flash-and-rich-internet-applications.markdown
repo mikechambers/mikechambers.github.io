@@ -1,6 +1,7 @@
 ---
 title: Flash and Rich Internet Applications
 author: mikechambers
+date: 2002-08-20 12:35:01 -0800
 layout: post
 permalink: /2002/08/20/flash-and-rich-internet-applications/
 categories:

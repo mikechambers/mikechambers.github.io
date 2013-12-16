@@ -1,6 +1,7 @@
 ---
 title: What to do if you get lost in NYC at FlashForward?
 author: mikechambers
+date: 2002-07-10 12:40:01 -0800
 layout: post
 permalink: /2002/07/10/what-to-do-if-you-get-lost-in-nyc-at-flashforward/
 categories:

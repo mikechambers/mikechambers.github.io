@@ -1,6 +1,7 @@
 ---
 title: Home from Flash Forward
 author: mikechambers
+date: 2002-07-13 12:57:01 -0800
 layout: post
 permalink: /2002/07/13/home-from-flash-forward/
 categories:

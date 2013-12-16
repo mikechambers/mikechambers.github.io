@@ -1,6 +1,7 @@
 ---
 title: Everything you ever wanted to know about components (but were afraid to ask)
 author: mikechambers
+date: 2002-06-05 12:55:01 -0800
 layout: post
 permalink: /2002/06/05/everything-you-ever-wanted-to-know-about-components-but-were-afraid-to-ask/
 categories:

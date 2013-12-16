@@ -1,6 +1,7 @@
 ---
 title: MXNA for Pocket PC
 author: mikechambers
+date: 2004-05-12 12:31:01 -0800
 layout: post
 permalink: /2004/05/12/mxna-for-pocket-pc/
 categories:

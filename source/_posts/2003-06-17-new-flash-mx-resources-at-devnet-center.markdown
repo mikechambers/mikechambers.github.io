@@ -1,6 +1,7 @@
 ---
 title: New Flash MX Resources at DevNet Center
 author: mikechambers
+date: 2003-06-17 12:09:01 -0800
 layout: post
 permalink: /2003/06/17/new-flash-mx-resources-at-devnet-center/
 categories:

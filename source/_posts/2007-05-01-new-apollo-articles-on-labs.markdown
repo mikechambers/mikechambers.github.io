@@ -1,6 +1,7 @@
 ---
 title: New Apollo Articles on Labs
 author: mikechambers
+date: 2007-05-01 12:55:01 -0800
 layout: post
 permalink: /2007/05/01/new-apollo-articles-on-labs/
 categories:

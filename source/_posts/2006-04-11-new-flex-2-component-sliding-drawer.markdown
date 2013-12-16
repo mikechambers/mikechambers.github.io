@@ -1,6 +1,7 @@
 ---
 title: 'New Flex 2 component : Sliding Drawer'
 author: mikechambers
+date: 2006-04-11 12:01:01 -0800
 layout: post
 permalink: /2006/04/11/new-flex-2-component-sliding-drawer/
 categories:

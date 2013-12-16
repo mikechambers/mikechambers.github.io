@@ -1,6 +1,7 @@
 ---
 title: ActionScript 3 MySQL library
 author: mikechambers
+date: 2007-05-07 12:46:01 -0800
 layout: post
 permalink: /2007/05/07/actionscript-3-mysql-library/
 categories:

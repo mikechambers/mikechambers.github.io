@@ -1,6 +1,7 @@
 ---
 title: 'Product  Activation Pilot'
 author: mikechambers
+date: 2003-07-16 12:51:01 -0800
 layout: post
 permalink: /2003/07/16/product-activation-pilot/
 categories:

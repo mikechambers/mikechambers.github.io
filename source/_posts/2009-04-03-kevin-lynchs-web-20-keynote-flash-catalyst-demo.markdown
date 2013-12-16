@@ -1,6 +1,7 @@
 ---
 title: 'Kevin Lynch&#8217;s Web 2.0 Keynote / Flash Catalyst Demo'
 author: mikechambers
+date: 2009-04-03 12:04:01 -0800
 layout: post
 permalink: /2009/04/03/kevin-lynchs-web-20-keynote-flash-catalyst-demo/
 categories:

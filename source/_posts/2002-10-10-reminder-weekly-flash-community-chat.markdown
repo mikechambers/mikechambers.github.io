@@ -1,6 +1,7 @@
 ---
 title: 'Reminder : Weekly Flash Community Chat'
 author: mikechambers
+date: 2002-10-10 12:15:01 -0800
 layout: post
 permalink: /2002/10/10/reminder-weekly-flash-community-chat/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash MX Forums / Mailing Lists
 author: mikechambers
+date: 2002-04-19 12:04:01 -0800
 layout: post
 permalink: /2002/04/19/macromedia-flash-mx-forums-mailing-lists/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Community test XMPP / Jabber room
 author: mikechambers
+date: 2008-08-18 12:25:01 -0800
 layout: post
 permalink: /2008/08/18/community-test-xmpp-jabber-room/
 categories:

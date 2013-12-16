@@ -1,6 +1,7 @@
 ---
 title: 'DRK : New DataGrid Example : Editable Fields and StyleProperties'
 author: mikechambers
+date: 2002-09-13 12:21:01 -0800
 layout: post
 permalink: /2002/09/13/drk-new-datagrid-example-editable-fields-and-styleproperties/
 categories:

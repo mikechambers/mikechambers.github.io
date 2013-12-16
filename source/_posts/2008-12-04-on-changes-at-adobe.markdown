@@ -1,6 +1,7 @@
 ---
 title: On changes at Adobe
 author: mikechambers
+date: 2008-12-04 12:35:01 -0800
 layout: post
 permalink: /2008/12/04/on-changes-at-adobe/
 categories:

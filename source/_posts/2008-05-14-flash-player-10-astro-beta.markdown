@@ -1,6 +1,7 @@
 ---
 title: Flash Player 10 (Astro) Beta
 author: mikechambers
+date: 2008-05-14 12:14:01 -0800
 layout: post
 permalink: /2008/05/14/flash-player-10-astro-beta/
 categories:

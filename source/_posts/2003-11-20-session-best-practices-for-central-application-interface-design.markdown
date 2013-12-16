@@ -1,6 +1,7 @@
 ---
 title: 'Session : Best Practices for Central Application Interface Design'
 author: mikechambers
+date: 2003-11-20 12:22:01 -0800
 layout: post
 permalink: /2003/11/20/session-best-practices-for-central-application-interface-design/
 categories:

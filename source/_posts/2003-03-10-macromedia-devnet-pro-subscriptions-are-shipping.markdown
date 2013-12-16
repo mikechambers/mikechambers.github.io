@@ -1,6 +1,7 @@
 ---
 title: Macromedia DevNet Pro Subscriptions are Shipping
 author: mikechambers
+date: 2003-03-10 12:41:01 -0800
 layout: post
 permalink: /2003/03/10/macromedia-devnet-pro-subscriptions-are-shipping/
 categories:

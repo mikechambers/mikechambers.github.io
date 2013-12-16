@@ -1,6 +1,7 @@
 ---
 title: Apollo Developer FAQ Online
 author: mikechambers
+date: 2006-07-18 12:55:01 -0800
 layout: post
 permalink: /2006/07/18/apollo-developer-faq-online/
 categories:

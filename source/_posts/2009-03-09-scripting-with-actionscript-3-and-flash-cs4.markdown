@@ -1,6 +1,7 @@
 ---
 title: Scripting with ActionScript 3 and Flash CS4
 author: mikechambers
+date: 2009-03-09 12:56:01 -0800
 layout: post
 permalink: /2009/03/09/scripting-with-actionscript-3-and-flash-cs4/
 categories:

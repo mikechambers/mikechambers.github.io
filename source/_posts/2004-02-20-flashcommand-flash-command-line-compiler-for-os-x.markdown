@@ -1,6 +1,7 @@
 ---
 title: flashcommand Flash command line compiler for OS X
 author: mikechambers
+date: 2004-02-20 12:46:01 -0800
 layout: post
 permalink: /2004/02/20/flashcommand-flash-command-line-compiler-for-os-x/
 categories:

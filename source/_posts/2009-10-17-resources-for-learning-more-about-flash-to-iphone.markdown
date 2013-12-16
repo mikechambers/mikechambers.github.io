@@ -1,6 +1,7 @@
 ---
 title: Resources for Learning more about Flash to iPhone
 author: mikechambers
+date: 2009-10-17 12:22:01 -0800
 layout: post
 permalink: /2009/10/17/resources-for-learning-more-about-flash-to-iphone/
 categories:

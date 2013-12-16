@@ -1,6 +1,7 @@
 ---
 title: FlashPlayer 7 for Linux Beta
 author: mikechambers
+date: 2004-03-09 12:46:01 -0800
 layout: post
 permalink: /2004/03/09/flashplayer-7-for-linux-beta/
 categories:

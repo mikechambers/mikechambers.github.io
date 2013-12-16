@@ -1,6 +1,7 @@
 ---
 title: 'Macromedia Podcast #3 and the new Maelstrom ExternalInterface API'
 author: mikechambers
+date: 2005-07-28 12:33:01 -0800
 layout: post
 permalink: /2005/07/28/macromedia-podcast-3-and-the-new-maelstrom-externalinterface-api/
 categories:

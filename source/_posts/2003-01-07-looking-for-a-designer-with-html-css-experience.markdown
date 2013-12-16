@@ -1,6 +1,7 @@
 ---
 title: Looking for a Designer with HTML / CSS experience
 author: mikechambers
+date: 2003-01-07 12:54:01 -0800
 layout: post
 permalink: /2003/01/07/looking-for-a-designer-with-html-css-experience/
 categories:

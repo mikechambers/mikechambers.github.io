@@ -1,6 +1,7 @@
 ---
 title: I made it to Sydney / MXDU
 author: mikechambers
+date: 2004-02-21 12:44:01 -0800
 layout: post
 permalink: /2004/02/21/i-made-it-to-sydney-mxdu/
 categories:

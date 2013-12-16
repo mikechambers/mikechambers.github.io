@@ -1,6 +1,7 @@
 ---
 title: Central Trace Panel for OS X Source Released
 author: mikechambers
+date: 2004-03-06 12:44:01 -0800
 layout: post
 permalink: /2004/03/06/central-trace-panel-for-os-x-source-released/
 categories:

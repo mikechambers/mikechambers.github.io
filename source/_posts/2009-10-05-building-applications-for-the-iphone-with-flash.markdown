@@ -1,6 +1,7 @@
 ---
 title: Building Applications for the iPhone with Flash
 author: mikechambers
+date: 2009-10-05 12:45:01 -0800
 layout: post
 permalink: /2009/10/05/building-applications-for-the-iphone-with-flash/
 categories:

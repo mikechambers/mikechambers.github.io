@@ -1,6 +1,7 @@
 ---
 title: Teknision on Apollo and Branded Applications
 author: mikechambers
+date: 2007-03-21 12:11:01 -0800
 layout: post
 permalink: /2007/03/21/teknision-on-apollo-and-branded-applications/
 categories:

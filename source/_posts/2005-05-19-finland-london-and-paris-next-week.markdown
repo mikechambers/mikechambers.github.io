@@ -1,6 +1,7 @@
 ---
 title: Finland, London and Paris next week
 author: mikechambers
+date: 2005-05-19 12:43:01 -0800
 layout: post
 permalink: /2005/05/19/finland-london-and-paris-next-week/
 categories:

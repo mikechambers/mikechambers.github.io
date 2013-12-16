@@ -1,6 +1,7 @@
 ---
 title: Mini Speaking Tour in Asia (Tokyo, Seoul, Taipei and Hong Kong)
 author: mikechambers
+date: 2008-09-11 12:55:01 -0800
 layout: post
 permalink: /2008/09/11/mini-speaking-tour-in-asia-tokyo-seoul-tapei-and-hong-kong/
 categories:

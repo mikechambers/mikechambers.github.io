@@ -1,6 +1,7 @@
 ---
 title: Upload Support Added to Flickr Library
 author: mikechambers
+date: 2007-06-20 12:25:01 -0800
 layout: post
 permalink: /2007/06/20/upload-support-added-to-flickr-library/
 categories:

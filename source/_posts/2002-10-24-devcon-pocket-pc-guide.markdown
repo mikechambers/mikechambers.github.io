@@ -1,6 +1,7 @@
 ---
 title: DevCon Pocket PC Guide
 author: mikechambers
+date: 2002-10-24 12:23:01 -0800
 layout: post
 permalink: /2002/10/24/devcon-pocket-pc-guide/
 categories:

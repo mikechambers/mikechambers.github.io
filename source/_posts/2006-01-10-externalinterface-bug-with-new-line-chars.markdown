@@ -1,6 +1,7 @@
 ---
 title: ExternalInterface Bug with new line chars
 author: mikechambers
+date: 2006-01-10 12:36:01 -0800
 layout: post
 permalink: /2006/01/10/externalinterface-bug-with-new-line-chars/
 categories:

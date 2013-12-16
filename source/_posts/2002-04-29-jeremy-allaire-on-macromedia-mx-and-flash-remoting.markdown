@@ -1,6 +1,7 @@
 ---
 title: Jeremy Allaire on Macromedia MX and Flash Remoting
 author: mikechambers
+date: 2002-04-29 12:37:01 -0800
 layout: post
 permalink: /2002/04/29/jeremy-allaire-on-macromedia-mx-and-flash-remoting/
 categories:

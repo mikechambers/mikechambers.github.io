@@ -1,6 +1,7 @@
 ---
 title: Buy DRK 2 get DRK 1 for Half Price
 author: mikechambers
+date: 2003-01-06 12:52:01 -0800
 layout: post
 permalink: /2003/01/06/buy-drk-2-get-drk-1-for-half-price/
 categories:

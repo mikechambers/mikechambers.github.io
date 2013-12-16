@@ -1,6 +1,7 @@
 ---
 title: Adobe AIR for JavaScript Developers Translated to Thai
 author: mikechambers
+date: 2007-11-26 12:33:01 -0800
 layout: post
 permalink: /2007/11/26/adobe-air-for-javascript-developers-translated-to-thai/
 categories:

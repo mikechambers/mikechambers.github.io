@@ -1,6 +1,7 @@
 ---
 title: Central Install Issues Fixed
 author: mikechambers
+date: 2003-12-03 12:47:01 -0800
 layout: post
 permalink: /2003/12/03/central-install-issues-fixed/
 categories:

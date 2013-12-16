@@ -1,6 +1,7 @@
 ---
 title: 'European User Group Tour : Mike Chambers and Lee Brimelow'
 author: mikechambers
+date: 2007-10-15 12:32:01 -0800
 layout: post
 permalink: /2007/10/15/european-user-group-tour-mike-chambers-and-lee-brimelow/
 categories:

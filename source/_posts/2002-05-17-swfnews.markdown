@@ -1,6 +1,7 @@
 ---
 title: SWFNews
 author: mikechambers
+date: 2002-05-17 12:38:01 -0800
 layout: post
 permalink: /2002/05/17/swfnews/
 categories:

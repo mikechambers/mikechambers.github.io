@@ -1,6 +1,7 @@
 ---
 title: 'Podcast : April 5, 2006'
 author: mikechambers
+date: 2006-04-05 12:44:01 -0800
 layout: post
 permalink: /2006/04/05/podcast-april-5-2006/
 categories:

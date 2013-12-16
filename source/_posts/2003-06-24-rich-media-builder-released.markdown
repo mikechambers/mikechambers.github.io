@@ -1,6 +1,7 @@
 ---
 title: Rich Media Builder Released
 author: mikechambers
+date: 2003-06-24 12:53:01 -0800
 layout: post
 permalink: /2003/06/24/rich-media-builder-released/
 categories:

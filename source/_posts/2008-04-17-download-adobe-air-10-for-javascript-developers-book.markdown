@@ -1,6 +1,7 @@
 ---
 title: 'Download  Adobe AIR 1.0 for JavaScript Developers Book'
 author: mikechambers
+date: 2008-04-17 12:53:01 -0800
 layout: post
 permalink: /2008/04/17/download-adobe-air-10-for-javascript-developers-book/
 categories:

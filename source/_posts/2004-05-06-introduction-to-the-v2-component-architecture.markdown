@@ -1,6 +1,7 @@
 ---
 title: Introduction to the v2 component architecture
 author: mikechambers
+date: 2004-05-06 12:00:01 -0800
 layout: post
 permalink: /2004/05/06/introduction-to-the-v2-component-architecture/
 categories:

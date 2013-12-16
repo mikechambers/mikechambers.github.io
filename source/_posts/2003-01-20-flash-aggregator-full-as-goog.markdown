@@ -1,6 +1,7 @@
 ---
 title: 'Flash Aggregator : Full as Goog'
 author: mikechambers
+date: 2003-01-20 12:25:01 -0800
 layout: post
 permalink: /2003/01/20/flash-aggregator-full-as-goog/
 categories:

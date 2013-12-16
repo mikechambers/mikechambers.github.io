@@ -1,6 +1,7 @@
 ---
 title: Possible Updates this Weekend
 author: mikechambers
+date: 2003-02-14 12:40:01 -0800
 layout: post
 permalink: /2003/02/14/possible-updates-this-weekend/
 categories:

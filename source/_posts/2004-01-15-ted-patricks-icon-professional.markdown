@@ -1,6 +1,7 @@
 ---
 title: 'Ted Patrick&#8217;s Icon Professional'
 author: mikechambers
+date: 2004-01-15 12:58:01 -0800
 layout: post
 permalink: /2004/01/15/ted-patricks-icon-professional/
 categories:

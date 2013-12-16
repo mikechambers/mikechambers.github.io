@@ -1,6 +1,7 @@
 ---
 title: Flash and the Designer / Developer Experience
 author: mikechambers
+date: 2003-01-21 12:17:01 -0800
 layout: post
 permalink: /2003/01/21/flash-and-the-designer-developer-experience/
 categories:

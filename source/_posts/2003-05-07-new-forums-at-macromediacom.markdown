@@ -1,6 +1,7 @@
 ---
 title: New Forums at Macromedia.com
 author: mikechambers
+date: 2003-05-07 12:50:01 -0800
 layout: post
 permalink: /2003/05/07/new-forums-at-macromediacom/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'SE|PY : Python : Editing ActionScript on OS X'
 author: mikechambers
+date: 2004-02-12 12:08:01 -0800
 layout: post
 permalink: /2004/02/12/sepy-python-editing-actionscript-on-os-x/
 categories:

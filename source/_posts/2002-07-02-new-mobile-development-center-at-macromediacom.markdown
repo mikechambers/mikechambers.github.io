@@ -1,6 +1,7 @@
 ---
 title: New Mobile Development Center at Macromedia.com
 author: mikechambers
+date: 2002-07-02 12:04:01 -0800
 layout: post
 permalink: /2002/07/02/new-mobile-development-center-at-macromediacom/
 categories:

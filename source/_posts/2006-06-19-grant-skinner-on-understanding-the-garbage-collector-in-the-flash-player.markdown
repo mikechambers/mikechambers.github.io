@@ -1,6 +1,7 @@
 ---
 title: Grant Skinner on understanding the Garbage Collector in the Flash Player
 author: mikechambers
+date: 2006-06-19 12:54:01 -0800
 layout: post
 permalink: /2006/06/19/grant-skinner-on-understanding-the-garbage-collector-in-the-flash-player/
 categories:

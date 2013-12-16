@@ -1,6 +1,7 @@
 ---
 title: 'Flash Player 6 Beta : Linux, Mac and Windows'
 author: mikechambers
+date: 2002-10-18 12:35:01 -0800
 layout: post
 permalink: /2002/10/18/flash-player-6-beta-linux-mac-and-windows/
 categories:

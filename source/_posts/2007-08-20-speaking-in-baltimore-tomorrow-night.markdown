@@ -1,6 +1,7 @@
 ---
 title: Speaking in Baltimore Tomorrow Night
 author: mikechambers
+date: 2007-08-20 12:20:01 -0800
 layout: post
 permalink: /2007/08/20/speaking-in-baltimore-tomorrow-night/
 categories:

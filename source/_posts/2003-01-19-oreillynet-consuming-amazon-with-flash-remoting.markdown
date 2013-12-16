@@ -1,6 +1,7 @@
 ---
 title: 'OReilly.net : Consuming Amazon with Flash Remoting'
 author: mikechambers
+date: 2003-01-19 12:19:01 -0800
 layout: post
 permalink: /2003/01/19/oreillynet-consuming-amazon-with-flash-remoting/
 categories:

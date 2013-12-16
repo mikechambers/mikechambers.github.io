@@ -1,6 +1,7 @@
 ---
 title: FlashCommand for OS X re-uploaded
 author: mikechambers
+date: 2008-04-29 12:18:01 -0800
 layout: post
 permalink: /2008/04/29/flashcommand-for-os-x-re-uploaded/
 categories:

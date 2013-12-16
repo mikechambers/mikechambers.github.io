@@ -1,6 +1,7 @@
 ---
 title: Setting the background color when generating images from Canvas.toDataURL
 author: mikechambers
+date: 2011-01-31 12:30:01 -0800
 layout: post
 permalink: /2011/01/31/setting-the-background-color-when-generating-images-from-canvas-todataurl/
 categories:

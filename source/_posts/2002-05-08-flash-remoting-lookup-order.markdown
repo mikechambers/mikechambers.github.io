@@ -1,6 +1,7 @@
 ---
 title: Flash Remoting Lookup Order
 author: mikechambers
+date: 2002-05-08 12:00:01 -0800
 layout: post
 permalink: /2002/05/08/flash-remoting-lookup-order/
 categories:

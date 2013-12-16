@@ -1,6 +1,7 @@
 ---
 title: 'Clarification : Flash 5 Player for Pocket PC'
 author: mikechambers
+date: 2002-05-22 12:55:01 -0800
 layout: post
 permalink: /2002/05/22/clarification-flash-5-player-for-pocket-pc/
 categories:

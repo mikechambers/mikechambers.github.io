@@ -1,6 +1,7 @@
 ---
 title: Macromedia Central Forum has moved
 author: mikechambers
+date: 2003-05-30 12:02:01 -0800
 layout: post
 permalink: /2003/05/30/macromedia-central-forum-has-moved/
 categories:

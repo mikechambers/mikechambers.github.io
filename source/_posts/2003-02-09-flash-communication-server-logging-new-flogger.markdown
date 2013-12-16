@@ -1,6 +1,7 @@
 ---
 title: 'Flash Communication Server Logging : New Flogger'
 author: mikechambers
+date: 2003-02-09 12:49:01 -0800
 layout: post
 permalink: /2003/02/09/flash-communication-server-logging-new-flogger/
 categories:

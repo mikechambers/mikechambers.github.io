@@ -1,6 +1,7 @@
 ---
 title: 'Tutorial : Using JSON with Flex 2 and ActionScript 3'
 author: mikechambers
+date: 2006-03-28 12:56:01 -0800
 layout: post
 permalink: /2006/03/28/tutorial-using-json-with-flex-2-and-actionscript-3/
 categories:

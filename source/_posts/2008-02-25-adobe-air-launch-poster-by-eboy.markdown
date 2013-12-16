@@ -1,6 +1,7 @@
 ---
 title: Adobe AIR Launch Poster (by eboy)
 author: mikechambers
+date: 2008-02-25 12:58:01 -0800
 layout: post
 permalink: /2008/02/25/adobe-air-launch-poster-by-eboy/
 categories:

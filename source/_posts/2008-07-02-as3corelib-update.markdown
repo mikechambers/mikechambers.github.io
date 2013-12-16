@@ -1,6 +1,7 @@
 ---
 title: as3corelib update
 author: mikechambers
+date: 2008-07-02 12:27:01 -0800
 layout: post
 permalink: /2008/07/02/as3corelib-update/
 categories:

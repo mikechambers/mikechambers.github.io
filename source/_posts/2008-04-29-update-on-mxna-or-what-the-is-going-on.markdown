@@ -1,6 +1,7 @@
 ---
 title: 'Update on MXNA (or what the %@#! is going on!)'
 author: mikechambers
+date: 2008-04-29 12:35:01 -0800
 layout: post
 permalink: /2008/04/29/update-on-mxna-or-what-the-is-going-on/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: FlashInTheCan Day 1 Update
 author: mikechambers
+date: 2003-04-14 12:54:01 -0800
 layout: post
 permalink: /2003/04/14/flashinthecan-day-1-update/
 categories:

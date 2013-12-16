@@ -1,6 +1,7 @@
 ---
 title: Updated Eval Technote
 author: mikechambers
+date: 2002-05-14 12:15:01 -0800
 layout: post
 permalink: /2002/05/14/updated-eval-technote/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Fixed : Problems compiling Flash / JavaScript Integration Kit'
 author: mikechambers
+date: 2005-06-16 12:52:01 -0800
 layout: post
 permalink: /2005/06/16/fixed-problems-compiling-flash-javascript-integration-kit/
 categories:

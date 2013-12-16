@@ -1,6 +1,7 @@
 ---
 title: Flash and Director Resource Center
 author: mikechambers
+date: 2002-06-06 12:57:01 -0800
 layout: post
 permalink: /2002/06/06/flash-and-director-resource-center/
 categories:

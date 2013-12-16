@@ -1,6 +1,7 @@
 ---
 title: Simple Apollo Offline Caching Example
 author: mikechambers
+date: 2007-03-19 12:01:01 -0800
 layout: post
 permalink: /2007/03/19/simple-apollo-offline-caching-example/
 categories:

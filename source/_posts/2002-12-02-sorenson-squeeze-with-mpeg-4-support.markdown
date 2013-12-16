@@ -1,6 +1,7 @@
 ---
 title: Sorenson Squeeze with mpeg-4 support
 author: mikechambers
+date: 2002-12-02 12:51:01 -0800
 layout: post
 permalink: /2002/12/02/sorenson-squeeze-with-mpeg-4-support/
 categories:

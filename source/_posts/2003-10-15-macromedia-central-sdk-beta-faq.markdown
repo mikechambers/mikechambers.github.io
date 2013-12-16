@@ -1,6 +1,7 @@
 ---
 title: Macromedia Central SDK Beta FAQ
 author: mikechambers
+date: 2003-10-15 12:05:01 -0800
 layout: post
 permalink: /2003/10/15/macromedia-central-sdk-beta-faq/
 categories:

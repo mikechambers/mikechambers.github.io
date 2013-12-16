@@ -1,6 +1,7 @@
 ---
 title: Macromedia T-Shirts available on-line
 author: mikechambers
+date: 2003-04-15 12:26:01 -0800
 layout: post
 permalink: /2003/04/15/macromedia-t-shirts-available-on-line/
 categories:

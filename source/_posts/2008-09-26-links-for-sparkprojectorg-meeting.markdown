@@ -1,6 +1,7 @@
 ---
 title: Links for SparkProject.org meeting
 author: mikechambers
+date: 2008-09-26 12:35:01 -0800
 layout: post
 permalink: /2008/09/26/links-for-sparkprojectorg-meeting/
 categories:

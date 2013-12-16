@@ -1,6 +1,7 @@
 ---
 title: Open Source ActionScript 3 Libraries moved to Google Code
 author: mikechambers
+date: 2007-01-08 12:01:01 -0800
 layout: post
 permalink: /2007/01/08/open-source-actionscript-3-libraries-moved-to-google-code/
 categories:

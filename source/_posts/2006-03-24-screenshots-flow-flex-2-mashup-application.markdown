@@ -1,6 +1,7 @@
 ---
 title: 'Screenshots : Flow : Flex 2 Mashup Application'
 author: mikechambers
+date: 2006-03-24 12:12:01 -0800
 layout: post
 permalink: /2006/03/24/screenshots-flow-flex-2-mashup-application/
 categories:

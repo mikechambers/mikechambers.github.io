@@ -1,6 +1,7 @@
 ---
 title: First two conferences with ActionScript 3 / Flex 2 sessions
 author: mikechambers
+date: 2005-10-12 12:34:01 -0800
 layout: post
 permalink: /2005/10/12/first-two-conferences-with-actionscript-3-flex-2-sessions/
 categories:

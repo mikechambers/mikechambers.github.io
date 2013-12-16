@@ -1,6 +1,7 @@
 ---
 title: 'Apollo Camp  1/2 Sold out in 24 Hours'
 author: mikechambers
+date: 2007-02-21 12:13:01 -0800
 layout: post
 permalink: /2007/02/21/apollo-camp-12-sold-out-in-24-hours/
 categories:

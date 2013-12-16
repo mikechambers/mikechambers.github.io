@@ -1,6 +1,7 @@
 ---
 title: Ellipsis Article translated into 8 more languages
 author: mikechambers
+date: 2004-09-02 12:26:01 -0800
 layout: post
 permalink: /2004/09/02/ellipsis-article-translated-into-8-more-languages/
 categories:

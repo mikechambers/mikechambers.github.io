@@ -1,6 +1,7 @@
 ---
 title: Central Birds of a Feature
 author: mikechambers
+date: 2003-11-20 12:03:01 -0800
 layout: post
 permalink: /2003/11/20/central-birds-of-a-feature/
 categories:

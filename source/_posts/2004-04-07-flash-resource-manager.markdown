@@ -1,6 +1,7 @@
 ---
 title: Flash Resource Manager
 author: mikechambers
+date: 2004-04-07 12:29:01 -0800
 layout: post
 permalink: /2004/04/07/flash-resource-manager/
 categories:

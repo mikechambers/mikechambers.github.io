@@ -1,6 +1,7 @@
 ---
 title: 'I&#8217;m back / DRK examples'
 author: mikechambers
+date: 2002-12-30 12:05:01 -0800
 layout: post
 permalink: /2002/12/30/im-back-drk-examples/
 categories:

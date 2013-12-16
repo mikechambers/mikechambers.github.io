@@ -1,6 +1,7 @@
 ---
 title: Flash Device Weblog news
 author: mikechambers
+date: 2002-08-29 12:07:01 -0800
 layout: post
 permalink: /2002/08/29/flash-device-weblog-news/
 categories:

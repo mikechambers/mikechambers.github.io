@@ -1,6 +1,7 @@
 ---
 title: How to get on the 8Ball and Maelstrom Betas
 author: mikechambers
+date: 2005-06-09 12:58:01 -0800
 layout: post
 permalink: /2005/06/09/how-to-get-on-the-8ball-and-maelstrom-betas/
 categories:

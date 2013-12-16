@@ -1,6 +1,7 @@
 ---
 title: Macromedia News FireFox Extension Preferences
 author: mikechambers
+date: 2004-12-09 12:03:01 -0800
 layout: post
 permalink: /2004/12/09/macromedia-news-firefox-extension-preferences/
 categories:

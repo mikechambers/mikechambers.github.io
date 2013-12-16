@@ -1,6 +1,7 @@
 ---
 title: Calendar Component Examples
 author: mikechambers
+date: 2002-09-11 12:14:01 -0800
 layout: post
 permalink: /2002/09/11/calendar-component-examples/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Central Presence API / SDK Beta
 author: mikechambers
+date: 2004-03-24 12:45:01 -0800
 layout: post
 permalink: /2004/03/24/central-presence-api-sdk-beta/
 categories:

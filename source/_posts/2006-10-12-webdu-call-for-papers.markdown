@@ -1,6 +1,7 @@
 ---
 title: webDU call for Papers
 author: mikechambers
+date: 2006-10-12 12:21:01 -0800
 layout: post
 permalink: /2006/10/12/webdu-call-for-papers/
 categories:

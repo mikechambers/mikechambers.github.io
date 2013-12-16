@@ -1,6 +1,7 @@
 ---
 title: Four years of Blogging
 author: mikechambers
+date: 2006-04-19 12:27:01 -0800
 layout: post
 permalink: /2006/04/19/four-years-of-blogging/
 categories:

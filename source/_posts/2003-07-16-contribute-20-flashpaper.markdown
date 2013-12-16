@@ -1,6 +1,7 @@
 ---
 title: Contribute 2.0 / FlashPaper
 author: mikechambers
+date: 2003-07-16 12:31:01 -0800
 layout: post
 permalink: /2003/07/16/contribute-20-flashpaper/
 categories:

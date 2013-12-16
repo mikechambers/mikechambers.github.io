@@ -1,6 +1,7 @@
 ---
 title: 'Pet Market Blueprint Application : What would you have done differently?'
 author: mikechambers
+date: 2002-12-14 12:42:01 -0800
 layout: post
 permalink: /2002/12/14/pet-market-blueprint-application-what-would-you-have-done-differently/
 categories:

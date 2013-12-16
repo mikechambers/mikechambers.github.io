@@ -1,6 +1,7 @@
 ---
 title: Spotlight Search Plugin for ActionScript
 author: mikechambers
+date: 2005-06-27 12:16:01 -0800
 layout: post
 permalink: /2005/06/27/spotlight-search-plugin-for-actionscript/
 categories:

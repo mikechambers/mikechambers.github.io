@@ -1,6 +1,7 @@
 ---
 title: Central Developer Release
 author: mikechambers
+date: 2003-11-20 12:54:01 -0800
 layout: post
 permalink: /2003/11/20/central-developer-release/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Apollo Desktop Wallpapers Uploaded
 author: mikechambers
+date: 2006-10-25 12:57:01 -0800
 layout: post
 permalink: /2006/10/25/apollo-desktop-wallpapers-uploaded/
 categories:

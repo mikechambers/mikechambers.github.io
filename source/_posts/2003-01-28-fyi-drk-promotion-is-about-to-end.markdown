@@ -1,6 +1,7 @@
 ---
 title: 'FYI : DRK Promotion is about to end'
 author: mikechambers
+date: 2003-01-28 12:55:01 -0800
 layout: post
 permalink: /2003/01/28/fyi-drk-promotion-is-about-to-end/
 categories:

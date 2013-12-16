@@ -1,6 +1,7 @@
 ---
 title: FlashForward 2003 San Francisco
 author: mikechambers
+date: 2003-03-26 12:58:01 -0800
 layout: post
 permalink: /2003/03/26/flashforward-2003-san-francisco-3/
 categories:

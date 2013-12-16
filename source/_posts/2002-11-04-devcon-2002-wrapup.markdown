@@ -1,6 +1,7 @@
 ---
 title: DevCon 2002 Wrapup
 author: mikechambers
+date: 2002-11-04 12:05:01 -0800
 layout: post
 permalink: /2002/11/04/devcon-2002-wrapup/
 categories:

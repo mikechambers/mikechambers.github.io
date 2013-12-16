@@ -1,6 +1,7 @@
 ---
 title: New Features in ActionScript 3
 author: mikechambers
+date: 2006-04-06 12:20:01 -0800
 layout: post
 permalink: /2006/04/06/new-features-in-actionscript-3/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: fyi Ubiquity Command Updated
 author: mikechambers
+date: 2009-07-13 12:13:01 -0800
 layout: post
 permalink: /2009/07/13/fyi-ubiquity-command-updated/
 categories:

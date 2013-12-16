@@ -1,6 +1,7 @@
 ---
 title: Parsing and displaying BMP files via ActionScript
 author: mikechambers
+date: 2009-09-17 12:29:01 -0800
 layout: post
 permalink: /2009/09/17/parsing-and-displaying-bmp-files-via-actionscript/
 categories:

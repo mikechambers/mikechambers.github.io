@@ -1,6 +1,7 @@
 ---
 title: Bash Scripts for working with ActionScript 3 in TextMate
 author: mikechambers
+date: 2008-10-09 12:49:01 -0800
 layout: post
 permalink: /2008/10/09/bash-scripts-for-working-with-actionscript-3-in-textmate/
 categories:

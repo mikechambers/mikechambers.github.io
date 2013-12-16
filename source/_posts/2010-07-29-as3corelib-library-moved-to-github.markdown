@@ -1,6 +1,7 @@
 ---
 title: as3corelib Library moved to GitHub
 author: mikechambers
+date: 2010-07-29 12:01:01 -0800
 layout: post
 permalink: /2010/07/29/as3corelib-library-moved-to-github/
 categories:

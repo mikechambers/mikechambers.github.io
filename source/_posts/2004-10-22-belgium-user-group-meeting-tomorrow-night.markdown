@@ -1,6 +1,7 @@
 ---
 title: Belgium User Group Meeting Tomorrow Night
 author: mikechambers
+date: 2004-10-22 12:48:01 -0800
 layout: post
 permalink: /2004/10/22/belgium-user-group-meeting-tomorrow-night/
 categories:

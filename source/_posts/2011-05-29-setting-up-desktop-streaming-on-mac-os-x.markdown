@@ -1,6 +1,7 @@
 ---
 title: Streaming your Desktop on Mac OS X
 author: mikechambers
+date: 2011-05-29 12:19:01 -0800
 layout: post
 permalink: /2011/05/29/setting-up-desktop-streaming-on-mac-os-x/
 categories:

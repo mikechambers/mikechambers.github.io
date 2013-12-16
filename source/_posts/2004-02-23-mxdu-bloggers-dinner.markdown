@@ -1,6 +1,7 @@
 ---
 title: 'MXDU Blogger&#8217;s Dinner'
 author: mikechambers
+date: 2004-02-23 12:48:01 -0800
 layout: post
 permalink: /2004/02/23/mxdu-bloggers-dinner/
 categories:

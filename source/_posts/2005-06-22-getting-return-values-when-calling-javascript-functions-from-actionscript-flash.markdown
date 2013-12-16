@@ -1,6 +1,7 @@
 ---
 title: Getting Return values when calling JavaScript Functions from ActionScript / Flash
 author: mikechambers
+date: 2005-06-22 12:11:01 -0800
 layout: post
 permalink: /2005/06/22/getting-return-values-when-calling-javascript-functions-from-actionscript-flash/
 categories:

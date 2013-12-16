@@ -1,6 +1,7 @@
 ---
 title: Pet Market app in Pure ColdFusion MX
 author: mikechambers
+date: 2003-01-23 12:58:01 -0800
 layout: post
 permalink: /2003/01/23/pet-market-app-in-pure-coldfusion-mx/
 categories:

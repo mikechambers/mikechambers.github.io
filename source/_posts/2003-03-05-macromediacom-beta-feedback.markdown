@@ -1,6 +1,7 @@
 ---
 title: Macromedia.com Beta Feedback
 author: mikechambers
+date: 2003-03-05 12:08:01 -0800
 layout: post
 permalink: /2003/03/05/macromediacom-beta-feedback/
 categories:

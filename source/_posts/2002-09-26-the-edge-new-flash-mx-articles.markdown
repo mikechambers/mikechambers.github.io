@@ -1,6 +1,7 @@
 ---
 title: 'the edge : New Flash MX articles'
 author: mikechambers
+date: 2002-09-26 12:04:01 -0800
 layout: post
 permalink: /2002/09/26/the-edge-new-flash-mx-articles/
 categories:

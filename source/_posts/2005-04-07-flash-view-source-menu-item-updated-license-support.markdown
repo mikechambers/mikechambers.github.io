@@ -1,6 +1,7 @@
 ---
 title: Flash View Source Menu Item updated (License Support)
 author: mikechambers
+date: 2005-04-07 12:48:01 -0800
 layout: post
 permalink: /2005/04/07/flash-view-source-menu-item-updated-license-support/
 categories:

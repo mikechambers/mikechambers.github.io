@@ -1,6 +1,7 @@
 ---
 title: Flash Resource Manager and Flash 8
 author: mikechambers
+date: 2005-09-14 12:03:01 -0800
 layout: post
 permalink: /2005/09/14/flash-resource-manager-and-flash-8/
 categories:

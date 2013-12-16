@@ -1,6 +1,7 @@
 ---
 title: Open letter to Illegal Software Distributors
 author: mikechambers
+date: 2002-08-22 12:26:01 -0800
 layout: post
 permalink: /2002/08/22/open-letter-to-illegal-software-distributors/
 categories:

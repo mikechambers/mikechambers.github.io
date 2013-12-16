@@ -1,6 +1,7 @@
 ---
 title: Blogging Flash Forward NYC
 author: mikechambers
+date: 2002-07-08 12:56:01 -0800
 layout: post
 permalink: /2002/07/08/blogging-flash-forward-nyc/
 categories:

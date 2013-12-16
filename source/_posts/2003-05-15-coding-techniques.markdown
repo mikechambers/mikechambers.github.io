@@ -1,6 +1,7 @@
 ---
 title: Coding Techniques
 author: mikechambers
+date: 2003-05-15 12:06:01 -0800
 layout: post
 permalink: /2003/05/15/coding-techniques/
 categories:

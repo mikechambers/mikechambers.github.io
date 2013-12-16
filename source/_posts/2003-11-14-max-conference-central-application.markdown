@@ -1,6 +1,7 @@
 ---
 title: MAX Conference Central Application
 author: mikechambers
+date: 2003-11-14 12:46:01 -0800
 layout: post
 permalink: /2003/11/14/max-conference-central-application/
 categories:

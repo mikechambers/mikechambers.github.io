@@ -1,6 +1,7 @@
 ---
 title: Moving a git repository subdirectory to its own repository
 author: mikechambers
+date: 2009-11-04 12:03:01 -0800
 layout: post
 permalink: /2009/11/04/moving-a-git-repository-subdirectory-to-its-own-repository/
 categories:

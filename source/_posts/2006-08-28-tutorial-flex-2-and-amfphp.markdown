@@ -1,6 +1,7 @@
 ---
 title: 'Tutorial : Flex 2 and AMFPHP'
 author: mikechambers
+date: 2006-08-28 12:44:01 -0800
 layout: post
 permalink: /2006/08/28/tutorial-flex-2-and-amfphp/
 categories:

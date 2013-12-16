@@ -1,6 +1,7 @@
 ---
 title: 'Podcast : July 14, 2006'
 author: mikechambers
+date: 2006-07-14 12:31:01 -0800
 layout: post
 permalink: /2006/07/14/podcast-july-14-2006/
 categories:

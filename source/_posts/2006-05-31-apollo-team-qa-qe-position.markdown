@@ -1,6 +1,7 @@
 ---
 title: Apollo Team QA / QE Position
 author: mikechambers
+date: 2006-05-31 12:35:01 -0800
 layout: post
 permalink: /2006/05/31/apollo-team-qa-qe-position/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: View Source for Flash Content Resources
 author: mikechambers
+date: 2005-07-07 12:23:01 -0800
 layout: post
 permalink: /2005/07/07/view-source-for-flash-content-resources/
 categories:

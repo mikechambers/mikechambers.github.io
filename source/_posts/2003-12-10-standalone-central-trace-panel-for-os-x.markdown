@@ -1,6 +1,7 @@
 ---
 title: Standalone Central Trace Panel for OS X
 author: mikechambers
+date: 2003-12-10 12:34:01 -0800
 layout: post
 permalink: /2003/12/10/standalone-central-trace-panel-for-os-x/
 categories:

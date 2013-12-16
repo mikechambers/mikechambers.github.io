@@ -1,6 +1,7 @@
 ---
 title: Creating Apollo Applications using Flash CS3
 author: mikechambers
+date: 2007-04-26 12:53:01 -0800
 layout: post
 permalink: /2007/04/26/creating-apollo-applications-using-flash-cs3/
 categories:

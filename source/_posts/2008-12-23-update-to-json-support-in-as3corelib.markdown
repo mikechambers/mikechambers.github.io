@@ -1,6 +1,7 @@
 ---
 title: Update to JSON support in as3corelib
 author: mikechambers
+date: 2008-12-23 12:35:01 -0800
 layout: post
 permalink: /2008/12/23/update-to-json-support-in-as3corelib/
 categories:

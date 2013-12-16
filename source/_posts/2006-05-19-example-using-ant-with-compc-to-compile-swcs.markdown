@@ -1,6 +1,7 @@
 ---
 title: 'Example : Using ANT with COMPC to compile SWCs'
 author: mikechambers
+date: 2006-05-19 12:25:01 -0800
 layout: post
 permalink: /2006/05/19/example-using-ant-with-compc-to-compile-swcs/
 categories:

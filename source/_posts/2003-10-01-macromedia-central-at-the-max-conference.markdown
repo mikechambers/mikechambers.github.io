@@ -1,6 +1,7 @@
 ---
 title: Macromedia Central at the MAX Conference
 author: mikechambers
+date: 2003-10-01 12:09:01 -0800
 layout: post
 permalink: /2003/10/01/macromedia-central-at-the-max-conference/
 categories:

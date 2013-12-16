@@ -1,6 +1,7 @@
 ---
 title: Clarifications on Flash Player for Mobile Browsers, the Flash Platform, and the Future of Flash
 author: mikechambers
+date: 2011-11-11 12:53:01 -0800
 layout: post
 permalink: /2011/11/11/clarifications-on-flash-player-for-mobile-browsers-the-flash-platform-and-the-future-of-flash/
 categories:

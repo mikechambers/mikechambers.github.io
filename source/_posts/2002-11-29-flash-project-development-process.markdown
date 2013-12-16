@@ -1,6 +1,7 @@
 ---
 title: Flash Project Development Process
 author: mikechambers
+date: 2002-11-29 12:24:01 -0800
 layout: post
 permalink: /2002/11/29/flash-project-development-process/
 categories:

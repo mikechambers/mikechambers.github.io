@@ -1,6 +1,7 @@
 ---
 title: Flash Player 10 Security Changes
 author: mikechambers
+date: 2008-08-19 12:17:01 -0800
 layout: post
 permalink: /2008/08/19/flash-player-10-security-changes/
 categories:

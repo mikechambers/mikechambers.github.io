@@ -1,6 +1,7 @@
 ---
 title: Central Licensing Updates at Macromedia.com
 author: mikechambers
+date: 2003-12-09 12:13:01 -0800
 layout: post
 permalink: /2003/12/09/central-licensing-updates-at-macromediacom/
 categories:

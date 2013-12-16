@@ -1,6 +1,7 @@
 ---
 title: Learning Object Oriented JavaScript Programing from ActionScript
 author: mikechambers
+date: 2006-01-27 12:21:01 -0800
 layout: post
 permalink: /2006/01/27/learning-object-oriented-javascript-programing-from-actionscript/
 categories:

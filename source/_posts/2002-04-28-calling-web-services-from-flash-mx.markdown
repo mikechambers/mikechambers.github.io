@@ -1,6 +1,7 @@
 ---
 title: Calling Web Services from Flash MX
 author: mikechambers
+date: 2002-04-28 12:20:01 -0800
 layout: post
 permalink: /2002/04/28/calling-web-services-from-flash-mx/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Amsterdam Macromedia User Group Meeting Tonight
 author: mikechambers
+date: 2004-05-19 12:18:01 -0800
 layout: post
 permalink: /2004/05/19/amsterdam-macromedia-user-group-meeting-tonight/
 categories:

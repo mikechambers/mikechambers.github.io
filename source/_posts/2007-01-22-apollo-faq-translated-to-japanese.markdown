@@ -1,6 +1,7 @@
 ---
 title: Apollo FAQ Translated to Japanese
 author: mikechambers
+date: 2007-01-22 12:25:01 -0800
 layout: post
 permalink: /2007/01/22/apollo-faq-translated-to-japanese/
 categories:

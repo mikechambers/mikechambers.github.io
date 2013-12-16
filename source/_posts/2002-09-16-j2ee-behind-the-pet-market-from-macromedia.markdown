@@ -1,6 +1,7 @@
 ---
 title: 'J2EE: Behind the Pet Market From Macromedia'
 author: mikechambers
+date: 2002-09-16 12:56:01 -0800
 layout: post
 permalink: /2002/09/16/j2ee-behind-the-pet-market-from-macromedia/
 categories:

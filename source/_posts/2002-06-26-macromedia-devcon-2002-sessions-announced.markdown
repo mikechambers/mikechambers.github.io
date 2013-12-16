@@ -1,6 +1,7 @@
 ---
 title: Macromedia DevCon 2002 Sessions Announced
 author: mikechambers
+date: 2002-06-26 12:51:01 -0800
 layout: post
 permalink: /2002/06/26/macromedia-devcon-2002-sessions-announced/
 categories:

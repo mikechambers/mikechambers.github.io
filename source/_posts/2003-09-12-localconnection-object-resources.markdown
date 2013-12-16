@@ -1,6 +1,7 @@
 ---
 title: LocalConnection Object Resources
 author: mikechambers
+date: 2003-09-12 12:21:01 -0800
 layout: post
 permalink: /2003/09/12/localconnection-object-resources/
 categories:

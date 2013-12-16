@@ -1,6 +1,7 @@
 ---
 title: Sorting Date fields in a DataGrid in the Flex Framework
 author: mikechambers
+date: 2005-04-27 12:54:01 -0800
 layout: post
 permalink: /2005/04/27/sorting-date-fields-in-a-datagrid-in-the-flex-framework/
 categories:

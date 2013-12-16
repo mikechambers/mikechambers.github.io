@@ -1,6 +1,7 @@
 ---
 title: Cnet on Apollo
 author: mikechambers
+date: 2006-05-11 12:08:01 -0800
 layout: post
 permalink: /2006/05/11/cnet-on-apollo/
 categories:

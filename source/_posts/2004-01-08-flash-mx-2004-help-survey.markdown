@@ -1,6 +1,7 @@
 ---
 title: Flash MX 2004 Help Survey
 author: mikechambers
+date: 2004-01-08 12:05:01 -0800
 layout: post
 permalink: /2004/01/08/flash-mx-2004-help-survey/
 categories:

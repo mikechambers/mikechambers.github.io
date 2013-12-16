@@ -1,6 +1,7 @@
 ---
 title: Flash ActionScript RSS Parser
 author: mikechambers
+date: 2002-05-28 12:55:01 -0800
 layout: post
 permalink: /2002/05/28/flash-actionscript-rss-parser/
 categories:

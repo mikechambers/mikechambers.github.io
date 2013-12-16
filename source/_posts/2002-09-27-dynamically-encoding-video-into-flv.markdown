@@ -1,6 +1,7 @@
 ---
 title: Dynamically encoding video into FLV
 author: mikechambers
+date: 2002-09-27 12:35:01 -0800
 layout: post
 permalink: /2002/09/27/dynamically-encoding-video-into-flv/
 categories:

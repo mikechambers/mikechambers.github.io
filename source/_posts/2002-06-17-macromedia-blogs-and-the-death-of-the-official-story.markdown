@@ -1,6 +1,7 @@
 ---
 title: 'Macromedia Blogs and the Death of the &#8216;Official Story&#8217;'
 author: mikechambers
+date: 2002-06-17 12:17:01 -0800
 layout: post
 permalink: /2002/06/17/macromedia-blogs-and-the-death-of-the-official-story/
 categories:

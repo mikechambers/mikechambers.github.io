@@ -1,6 +1,7 @@
 ---
 title: 'OOO ZZzz wc3 etc...'
 author: mikechambers
+date: 2002-09-19 12:57:01 -0800
 layout: post
 permalink: /2002/09/19/ooo-zzzz-wc3-etc/
 categories:

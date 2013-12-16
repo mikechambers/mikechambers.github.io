@@ -1,6 +1,7 @@
 ---
 title: 'Macromedia Developer Relations Podcast #1'
 author: mikechambers
+date: 2005-06-28 12:00:01 -0800
 layout: post
 permalink: /2005/06/28/macromedia-developer-relations-podcast-1/
 categories:

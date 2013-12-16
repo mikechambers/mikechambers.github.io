@@ -1,6 +1,7 @@
 ---
 title: How to enable English translation for Japanese NHK Channel on Comcast
 author: mikechambers
+date: 2011-03-12 12:40:01 -0800
 layout: post
 permalink: /2011/03/12/how-to-enable-english-translation-for-japanese-nhk-channel-on-comcast/
 categories:

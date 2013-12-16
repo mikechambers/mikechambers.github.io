@@ -1,6 +1,7 @@
 ---
 title: Flash Player 9 / Flex 2 Beta 3 is out!
 author: mikechambers
+date: 2006-05-09 12:46:01 -0800
 layout: post
 permalink: /2006/05/09/flash-player-9-flex-2-beta-3-is-out/
 categories:

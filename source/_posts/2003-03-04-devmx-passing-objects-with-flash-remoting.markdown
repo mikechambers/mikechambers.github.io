@@ -1,6 +1,7 @@
 ---
 title: 'DevMX : Passing Objects with Flash Remoting'
 author: mikechambers
+date: 2003-03-04 12:28:01 -0800
 layout: post
 permalink: /2003/03/04/devmx-passing-objects-with-flash-remoting/
 categories:

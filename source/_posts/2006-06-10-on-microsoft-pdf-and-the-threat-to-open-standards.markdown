@@ -1,6 +1,7 @@
 ---
 title: On Microsoft, PDF and the threat to open standards
 author: mikechambers
+date: 2006-06-10 12:15:01 -0800
 layout: post
 permalink: /2006/06/10/on-microsoft-pdf-and-the-threat-to-open-standards/
 categories:

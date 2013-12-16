@@ -1,6 +1,7 @@
 ---
 title: Timing issues when animating with CSS3 Transitions
 author: mikechambers
+date: 2011-07-20 12:10:01 -0800
 layout: post
 permalink: /2011/07/20/timing-issues-when-animating-with-css3-transitions/
 categories:

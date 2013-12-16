@@ -1,6 +1,7 @@
 ---
 title: Database data into Flash MX via Flash Remoting and ColdFusion MX
 author: mikechambers
+date: 2002-04-29 12:48:01 -0800
 layout: post
 permalink: /2002/04/29/database-data-into-flash-mx-via-flash-remoting-and-coldfusion-mx/
 categories:

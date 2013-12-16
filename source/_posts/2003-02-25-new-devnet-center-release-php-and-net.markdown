@@ -1,6 +1,7 @@
 ---
 title: 'New DevNet Center Release : PHP and .NET'
 author: mikechambers
+date: 2003-02-25 12:03:01 -0800
 layout: post
 permalink: /2003/02/25/new-devnet-center-release-php-and-net/
 categories:

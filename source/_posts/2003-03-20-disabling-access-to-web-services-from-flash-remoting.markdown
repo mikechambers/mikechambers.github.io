@@ -1,6 +1,7 @@
 ---
 title: Disabling Access to Web Services from Flash Remoting
 author: mikechambers
+date: 2003-03-20 12:01:01 -0800
 layout: post
 permalink: /2003/03/20/disabling-access-to-web-services-from-flash-remoting/
 categories:

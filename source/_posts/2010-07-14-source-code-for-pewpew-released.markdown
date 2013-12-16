@@ -1,6 +1,7 @@
 ---
 title: Source code for PewPew Released
 author: mikechambers
+date: 2010-07-14 12:50:01 -0800
 layout: post
 permalink: /2010/07/14/source-code-for-pewpew-released/
 categories:

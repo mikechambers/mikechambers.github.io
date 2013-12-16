@@ -1,6 +1,7 @@
 ---
 title: Flash Tray Tools Updated
 author: mikechambers
+date: 2004-04-08 12:17:01 -0800
 layout: post
 permalink: /2004/04/08/flash-tray-tools-updated/
 categories:

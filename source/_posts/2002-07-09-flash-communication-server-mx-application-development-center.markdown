@@ -1,6 +1,7 @@
 ---
 title: Flash Communication Server MX Application Development Center
 author: mikechambers
+date: 2002-07-09 12:10:01 -0800
 layout: post
 permalink: /2002/07/09/flash-communication-server-mx-application-development-center/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Free Passes to Seybold Keynote
 author: mikechambers
+date: 2003-09-08 12:34:01 -0800
 layout: post
 permalink: /2003/09/08/free-passes-to-seybold-keynote/
 categories:

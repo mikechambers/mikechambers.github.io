@@ -1,6 +1,7 @@
 ---
 title: 'Slow Flash Day : What do you want to see in the next version of Flash?'
 author: mikechambers
+date: 2002-08-11 12:26:01 -0800
 layout: post
 permalink: /2002/08/11/slow-flash-day-what-do-you-want-to-see-in-the-next-version-of-flash/
 categories:

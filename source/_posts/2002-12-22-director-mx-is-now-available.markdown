@@ -1,6 +1,7 @@
 ---
 title: Director MX is now Available
 author: mikechambers
+date: 2002-12-22 12:11:01 -0800
 layout: post
 permalink: /2002/12/22/director-mx-is-now-available/
 categories:

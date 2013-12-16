@@ -1,6 +1,7 @@
 ---
 title: ActionScript 2.0 Resources
 author: mikechambers
+date: 2004-01-22 12:48:01 -0800
 layout: post
 permalink: /2004/01/22/actionscript-20-resources/
 categories:

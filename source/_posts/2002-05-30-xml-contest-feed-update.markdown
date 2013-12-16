@@ -1,6 +1,7 @@
 ---
 title: 'XML Contest Feed : Update'
 author: mikechambers
+date: 2002-05-30 12:49:01 -0800
 layout: post
 permalink: /2002/05/30/xml-contest-feed-update/
 categories:

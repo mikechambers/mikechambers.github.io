@@ -1,6 +1,7 @@
 ---
 title: Where is Macromedia Central?
 author: mikechambers
+date: 2003-09-10 12:53:01 -0800
 layout: post
 permalink: /2003/09/10/where-is-macromedia-central/
 categories:

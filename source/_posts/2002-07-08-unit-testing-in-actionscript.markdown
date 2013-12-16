@@ -1,6 +1,7 @@
 ---
 title: Unit Testing in ActionScript
 author: mikechambers
+date: 2002-07-08 12:58:01 -0800
 layout: post
 permalink: /2002/07/08/unit-testing-in-actionscript/
 categories:

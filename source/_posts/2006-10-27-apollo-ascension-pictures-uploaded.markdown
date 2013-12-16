@@ -1,6 +1,7 @@
 ---
 title: Apollo Ascension Pictures Uploaded
 author: mikechambers
+date: 2006-10-27 12:52:01 -0800
 layout: post
 permalink: /2006/10/27/apollo-ascension-pictures-uploaded/
 categories:

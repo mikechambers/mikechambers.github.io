@@ -1,6 +1,7 @@
 ---
 title: 'Flash MX and the Bigger Picture: Lightweight Internet Applications : Oreillynet.com'
 author: mikechambers
+date: 2002-09-06 12:58:01 -0800
 layout: post
 permalink: /2002/09/06/flash-mx-and-the-bigger-picture-lightweight-internet-applications-oreillynetcom/
 categories:

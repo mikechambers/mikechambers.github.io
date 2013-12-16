@@ -1,6 +1,7 @@
 ---
 title: Detecting whether an AIR application has run before
 author: mikechambers
+date: 2007-11-07 12:32:01 -0800
 layout: post
 permalink: /2007/11/07/detecting-whether-an-air-application-has-run-before/
 categories:

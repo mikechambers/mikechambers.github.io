@@ -1,6 +1,7 @@
 ---
 title: Adobe on Open Markets
 author: mikechambers
+date: 2010-05-14 12:58:01 -0800
 layout: post
 permalink: /2010/05/14/adobe-on-open-markets/
 categories:

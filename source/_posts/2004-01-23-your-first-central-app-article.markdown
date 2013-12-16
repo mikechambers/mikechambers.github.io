@@ -1,6 +1,7 @@
 ---
 title: Your First Central App Article
 author: mikechambers
+date: 2004-01-23 12:48:01 -0800
 layout: post
 permalink: /2004/01/23/your-first-central-app-article/
 categories:

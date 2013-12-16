@@ -1,6 +1,7 @@
 ---
 title: 'MovableType and ActionScript : MTCodeBeautifier'
 author: mikechambers
+date: 2003-04-16 12:43:01 -0800
 layout: post
 permalink: /2003/04/16/movabletype-and-actionscript-mtcodebeautifier/
 categories:

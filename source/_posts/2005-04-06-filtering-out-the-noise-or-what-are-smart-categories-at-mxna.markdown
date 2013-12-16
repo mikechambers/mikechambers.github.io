@@ -1,6 +1,7 @@
 ---
 title: Filtering out the noise (or What are Smart Categories at MXNA?)
 author: mikechambers
+date: 2005-04-06 12:03:01 -0800
 layout: post
 permalink: /2005/04/06/filtering-out-the-noise-or-what-are-smart-categories-at-mxna/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Online Poll / DRK 4 Pollster
 author: mikechambers
+date: 2003-07-28 12:56:01 -0800
 layout: post
 permalink: /2003/07/28/online-poll-drk-4-pollster/
 categories:

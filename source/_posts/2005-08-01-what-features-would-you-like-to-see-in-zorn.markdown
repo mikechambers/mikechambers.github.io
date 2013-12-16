@@ -1,6 +1,7 @@
 ---
 title: What features would you like to see in Zorn?
 author: mikechambers
+date: 2005-08-01 12:58:01 -0800
 layout: post
 permalink: /2005/08/01/what-features-would-you-like-to-see-in-zorn/
 categories:

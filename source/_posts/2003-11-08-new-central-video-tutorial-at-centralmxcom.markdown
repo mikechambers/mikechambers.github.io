@@ -1,6 +1,7 @@
 ---
 title: New Central video tutorial at CentralMX.com
 author: mikechambers
+date: 2003-11-08 12:29:01 -0800
 layout: post
 permalink: /2003/11/08/new-central-video-tutorial-at-centralmxcom/
 categories:

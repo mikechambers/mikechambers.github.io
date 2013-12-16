@@ -1,6 +1,7 @@
 ---
 title: Compiling ActionScript 3 and MXML on Mac and Linux
 author: mikechambers
+date: 2005-12-22 12:11:01 -0800
 layout: post
 permalink: /2005/12/22/compiling-actionscript-3-and-mxml-on-mac-and-linux/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Example : Creating spiral designs with Canvas, JavaScript and EaselJS'
 author: mikechambers
+date: 2011-02-09 12:27:01 -0800
 layout: post
 permalink: /2011/02/09/example-creating-spirals-designs-with-canvas-and-easeljs/
 categories:

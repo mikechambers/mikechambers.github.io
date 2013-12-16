@@ -1,6 +1,7 @@
 ---
 title: Flex is Free
 author: mikechambers
+date: 2006-03-25 12:34:01 -0800
 layout: post
 permalink: /2006/03/25/flex-is-free/
 categories:

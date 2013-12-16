@@ -1,6 +1,7 @@
 ---
 title: 'FlashForward Slides : Flash Remoting with Flash MX and ColdFusion MX'
 author: mikechambers
+date: 2002-07-13 12:12:01 -0800
 layout: post
 permalink: /2002/07/13/flashforward-slides-flash-remoting-with-flash-mx-and-coldfusion-mx/
 categories:

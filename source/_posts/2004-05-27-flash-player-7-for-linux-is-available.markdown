@@ -1,6 +1,7 @@
 ---
 title: Flash Player 7 for Linux is Available
 author: mikechambers
+date: 2004-05-27 12:06:01 -0800
 layout: post
 permalink: /2004/05/27/flash-player-7-for-linux-is-available/
 categories:

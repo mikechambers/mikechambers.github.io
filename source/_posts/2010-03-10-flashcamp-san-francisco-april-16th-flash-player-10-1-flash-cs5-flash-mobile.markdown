@@ -1,6 +1,7 @@
 ---
 title: 'FlashCamp San Francisco : April 16th : Flash Player 10.1, Flash CS5, Flash Mobile'
 author: mikechambers
+date: 2010-03-10 12:55:01 -0800
 layout: post
 permalink: /2010/03/10/flashcamp-san-francisco-april-16th-flash-player-10-1-flash-cs5-flash-mobile/
 categories:

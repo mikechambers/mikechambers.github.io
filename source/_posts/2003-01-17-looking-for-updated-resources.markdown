@@ -1,6 +1,7 @@
 ---
 title: Looking for updated resources
 author: mikechambers
+date: 2003-01-17 12:50:01 -0800
 layout: post
 permalink: /2003/01/17/looking-for-updated-resources/
 categories:

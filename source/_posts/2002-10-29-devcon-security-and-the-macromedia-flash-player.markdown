@@ -1,6 +1,7 @@
 ---
 title: 'DevCon : Security and the Macromedia Flash Player'
 author: mikechambers
+date: 2002-10-29 12:19:01 -0800
 layout: post
 permalink: /2002/10/29/devcon-security-and-the-macromedia-flash-player/
 categories:

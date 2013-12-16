@@ -1,6 +1,7 @@
 ---
 title: 'Andre Michelle : ActionScript 3 Compute Spectrum'
 author: mikechambers
+date: 2006-03-31 12:00:01 -0800
 layout: post
 permalink: /2006/03/31/andre-michelle-actionscript-3-compute-spectrum/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash Player 8 already at 50%
 author: mikechambers
+date: 2006-01-31 12:03:01 -0800
 layout: post
 permalink: /2006/01/31/flash-player-8-already-at-50/
 categories:

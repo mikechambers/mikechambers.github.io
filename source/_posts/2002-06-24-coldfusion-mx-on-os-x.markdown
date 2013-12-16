@@ -1,6 +1,7 @@
 ---
 title: ColdFusion MX on OS X
 author: mikechambers
+date: 2002-06-24 12:21:01 -0800
 layout: post
 permalink: /2002/06/24/coldfusion-mx-on-os-x/
 categories:

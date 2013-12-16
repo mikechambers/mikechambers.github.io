@@ -1,6 +1,7 @@
 ---
 title: 'DRK Example : DataGrid Component'
 author: mikechambers
+date: 2002-09-10 12:10:01 -0800
 layout: post
 permalink: /2002/09/10/drk-example-datagrid-component/
 categories:

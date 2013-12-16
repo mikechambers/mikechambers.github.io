@@ -1,6 +1,7 @@
 ---
 title: ExternalInterface API Examples
 author: mikechambers
+date: 2005-10-25 12:37:01 -0800
 layout: post
 permalink: /2005/10/25/externalinterface-api-examples/
 categories:

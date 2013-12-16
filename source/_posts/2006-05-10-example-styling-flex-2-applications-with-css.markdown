@@ -1,6 +1,7 @@
 ---
 title: 'Example : Styling Flex 2 Applications with CSS'
 author: mikechambers
+date: 2006-05-10 12:58:01 -0800
 layout: post
 permalink: /2006/05/10/example-styling-flex-2-applications-with-css/
 categories:

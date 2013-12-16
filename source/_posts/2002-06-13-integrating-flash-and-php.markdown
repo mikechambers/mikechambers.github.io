@@ -1,6 +1,7 @@
 ---
 title: Integrating Flash and PHP
 author: mikechambers
+date: 2002-06-13 12:22:01 -0800
 layout: post
 permalink: /2002/06/13/integrating-flash-and-php/
 categories:

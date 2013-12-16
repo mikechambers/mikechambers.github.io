@@ -1,6 +1,7 @@
 ---
 title: Server Side ActionScript Tutorial
 author: mikechambers
+date: 2002-04-30 12:41:01 -0800
 layout: post
 permalink: /2002/04/30/server-side-actionscript-tutorial/
 categories:

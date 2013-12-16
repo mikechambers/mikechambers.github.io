@@ -1,6 +1,7 @@
 ---
 title: 'FITC Edmonton Slides : Building iPhone applications with Flash CS5'
 author: mikechambers
+date: 2009-10-20 12:22:01 -0800
 layout: post
 permalink: /2009/10/20/fitc-edmonton-slides-building-iphone-applications-with-flash-cs5/
 categories:

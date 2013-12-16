@@ -1,6 +1,7 @@
 ---
 title: 'Firefox Ubiquity Command : fyi'
 author: mikechambers
+date: 2008-08-31 12:46:01 -0800
 layout: post
 permalink: /2008/08/31/firefox-ubiquity-command-fyi/
 categories:

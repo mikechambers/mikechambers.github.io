@@ -1,6 +1,7 @@
 ---
 title: 'Flash Video Test (#2) : Multiple Streams : StarWars BattleFront'
 author: mikechambers
+date: 2004-10-04 12:46:01 -0800
 layout: post
 permalink: /2004/10/04/flash-video-test-2-multiple-streams-starwars-battlefront/
 categories:

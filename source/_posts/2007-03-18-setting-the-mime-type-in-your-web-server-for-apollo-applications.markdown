@@ -1,6 +1,7 @@
 ---
 title: Setting the mime type in your Web Server for Apollo applications
 author: mikechambers
+date: 2007-03-18 12:45:01 -0800
 layout: post
 permalink: /2007/03/18/setting-the-mime-type-in-your-web-server-for-apollo-applications/
 categories:

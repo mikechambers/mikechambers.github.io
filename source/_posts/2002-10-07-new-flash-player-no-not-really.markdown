@@ -1,6 +1,7 @@
 ---
 title: New Flash Player? No not really.
 author: mikechambers
+date: 2002-10-07 12:27:01 -0800
 layout: post
 permalink: /2002/10/07/new-flash-player-no-not-really/
 categories:

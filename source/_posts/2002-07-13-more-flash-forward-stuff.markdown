@@ -1,6 +1,7 @@
 ---
 title: More Flash Forward Stuff
 author: mikechambers
+date: 2002-07-13 12:29:01 -0800
 layout: post
 permalink: /2002/07/13/more-flash-forward-stuff/
 categories:

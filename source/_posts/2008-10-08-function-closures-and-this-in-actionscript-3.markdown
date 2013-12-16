@@ -1,6 +1,7 @@
 ---
 title: 'Functions, activation objects and &#8216;this&#8217; in ActionScript 3'
 author: mikechambers
+date: 2008-10-08 12:58:01 -0800
 layout: post
 permalink: /2008/10/08/function-closures-and-this-in-actionscript-3/
 categories:

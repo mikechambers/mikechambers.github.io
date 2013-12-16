@@ -1,6 +1,7 @@
 ---
 title: Learning Object Oriented Programming in Flash
 author: mikechambers
+date: 2002-05-21 12:14:01 -0800
 layout: post
 permalink: /2002/05/21/learning-object-oriented-programming-in-flash/
 categories:

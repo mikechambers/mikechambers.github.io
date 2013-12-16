@@ -1,6 +1,7 @@
 ---
 title: Flash Communication Server Framework Article
 author: mikechambers
+date: 2002-11-01 12:16:01 -0800
 layout: post
 permalink: /2002/11/01/flash-communication-server-framework-article/
 categories:

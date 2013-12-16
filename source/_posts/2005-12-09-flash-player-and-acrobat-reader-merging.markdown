@@ -1,6 +1,7 @@
 ---
 title: Flash Player and Acrobat Reader merging?
 author: mikechambers
+date: 2005-12-09 12:29:01 -0800
 layout: post
 permalink: /2005/12/09/flash-player-and-acrobat-reader-merging/
 categories:

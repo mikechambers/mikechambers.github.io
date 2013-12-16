@@ -1,6 +1,7 @@
 ---
 title: I have 100 AS3 RIA Reference Guides to send out
 author: mikechambers
+date: 2008-07-24 12:52:01 -0800
 layout: post
 permalink: /2008/07/24/i-have-100-as3-ria-reference-guides-to-send-out/
 categories:

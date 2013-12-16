@@ -1,6 +1,7 @@
 ---
 title: 'New &#8220;Airwolf&#8221; Technote'
 author: mikechambers
+date: 2002-07-22 12:21:01 -0800
 layout: post
 permalink: /2002/07/22/new-airwolf-technote/
 categories:

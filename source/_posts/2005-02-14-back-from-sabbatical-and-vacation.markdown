@@ -1,6 +1,7 @@
 ---
 title: Back from Sabbatical and Vacation
 author: mikechambers
+date: 2005-02-14 12:37:01 -0800
 layout: post
 permalink: /2005/02/14/back-from-sabbatical-and-vacation/
 categories:

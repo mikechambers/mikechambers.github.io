@@ -1,6 +1,7 @@
 ---
 title: Read AIR For JavaScript Developers Pocket Guide Online with Adobe Share
 author: mikechambers
+date: 2007-10-02 12:32:01 -0800
 layout: post
 permalink: /2007/10/02/read-air-for-javascript-developers-pocket-guide-online-with-adobe-share/
 categories:

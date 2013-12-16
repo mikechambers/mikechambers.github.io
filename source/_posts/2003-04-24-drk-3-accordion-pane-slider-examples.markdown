@@ -1,6 +1,7 @@
 ---
 title: 'DRK 3 : Accordion Pane / Slider Examples'
 author: mikechambers
+date: 2003-04-24 12:24:01 -0800
 layout: post
 permalink: /2003/04/24/drk-3-accordion-pane-slider-examples/
 categories:

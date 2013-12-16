@@ -1,6 +1,7 @@
 ---
 title: 'Open Review : del.icio.us ActionScript 3 Libraries'
 author: mikechambers
+date: 2006-04-01 12:25:01 -0800
 layout: post
 permalink: /2006/04/01/open-review-delicious-actionscript-3-libraries/
 categories:

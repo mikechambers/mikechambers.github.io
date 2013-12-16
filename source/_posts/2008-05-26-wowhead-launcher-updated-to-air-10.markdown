@@ -1,6 +1,7 @@
 ---
 title: Wowhead Launcher Updated to AIR 1.0
 author: mikechambers
+date: 2008-05-26 12:06:01 -0800
 layout: post
 permalink: /2008/05/26/wowhead-launcher-updated-to-air-10/
 categories:

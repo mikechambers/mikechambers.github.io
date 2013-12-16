@@ -1,6 +1,7 @@
 ---
 title: Flash Remoting for .NET and Java
 author: mikechambers
+date: 2002-09-23 12:07:01 -0800
 layout: post
 permalink: /2002/09/23/flash-remoting-for-net-and-java/
 categories:

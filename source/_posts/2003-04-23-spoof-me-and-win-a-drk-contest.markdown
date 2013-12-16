@@ -1,6 +1,7 @@
 ---
 title: 'Spoof me and win a  DRK contest'
 author: mikechambers
+date: 2003-04-23 12:10:01 -0800
 layout: post
 permalink: /2003/04/23/spoof-me-and-win-a-drk-contest/
 categories:

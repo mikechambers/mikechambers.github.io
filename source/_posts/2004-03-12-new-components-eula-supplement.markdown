@@ -1,6 +1,7 @@
 ---
 title: New Components EULA Supplement
 author: mikechambers
+date: 2004-03-12 12:35:01 -0800
 layout: post
 permalink: /2004/03/12/new-components-eula-supplement/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Encapsulating Custom Pixel Bender Filters in ActionScript 3
 author: mikechambers
+date: 2008-09-08 12:53:01 -0800
 layout: post
 permalink: /2008/09/08/encapsulating-custom-pixel-bender-filters-in-actionscript-3/
 categories:

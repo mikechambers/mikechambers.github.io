@@ -1,6 +1,7 @@
 ---
 title: Atom ActionScript Class v.22
 author: mikechambers
+date: 2004-02-12 12:04:01 -0800
 layout: post
 permalink: /2004/02/12/atom-actionscript-class-v22/
 categories:

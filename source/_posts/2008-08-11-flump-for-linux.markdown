@@ -1,6 +1,7 @@
 ---
 title: Flump for Linux
 author: mikechambers
+date: 2008-08-11 12:44:01 -0800
 layout: post
 permalink: /2008/08/11/flump-for-linux/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Halo Application Contest Closed
 author: mikechambers
+date: 2004-12-03 12:01:01 -0800
 layout: post
 permalink: /2004/12/03/halo-application-contest-closed/
 categories:

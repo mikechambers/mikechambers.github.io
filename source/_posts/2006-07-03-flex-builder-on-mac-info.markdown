@@ -1,6 +1,7 @@
 ---
 title: Flex Builder on Mac info
 author: mikechambers
+date: 2006-07-03 12:25:01 -0800
 layout: post
 permalink: /2006/07/03/flex-builder-on-mac-info/
 categories:

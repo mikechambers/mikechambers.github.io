@@ -1,6 +1,7 @@
 ---
 title: Do Apollo and WPF compete with each other?
 author: mikechambers
+date: 2007-03-18 12:37:01 -0800
 layout: post
 permalink: /2007/03/18/do-apollo-and-wpf-compete-with-each-other/
 categories:

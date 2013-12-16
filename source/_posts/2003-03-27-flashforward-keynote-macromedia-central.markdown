@@ -1,6 +1,7 @@
 ---
 title: 'FlashForward Keynote : Macromedia Central'
 author: mikechambers
+date: 2003-03-27 12:39:01 -0800
 layout: post
 permalink: /2003/03/27/flashforward-keynote-macromedia-central/
 categories:

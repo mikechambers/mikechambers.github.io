@@ -1,6 +1,7 @@
 ---
 title: Shell Scripting on OS X with ECMA / JavaScript
 author: mikechambers
+date: 2003-12-06 12:56:01 -0800
 layout: post
 permalink: /2003/12/06/shell-scripting-on-os-x-with-ecma-javascript/
 categories:

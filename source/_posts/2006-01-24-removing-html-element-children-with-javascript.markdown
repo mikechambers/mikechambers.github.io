@@ -1,6 +1,7 @@
 ---
 title: Removing HTML Element children with JavaScript
 author: mikechambers
+date: 2006-01-24 12:31:01 -0800
 layout: post
 permalink: /2006/01/24/removing-html-element-children-with-javascript/
 categories:

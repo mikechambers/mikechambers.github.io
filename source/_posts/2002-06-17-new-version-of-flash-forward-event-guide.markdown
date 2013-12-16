@@ -1,6 +1,7 @@
 ---
 title: New Version of Flash Forward Event Guide
 author: mikechambers
+date: 2002-06-17 12:03:01 -0800
 layout: post
 permalink: /2002/06/17/new-version-of-flash-forward-event-guide/
 categories:

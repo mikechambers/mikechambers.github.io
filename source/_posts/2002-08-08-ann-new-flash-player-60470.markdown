@@ -1,6 +1,7 @@
 ---
 title: 'ANN : New Flash Player : 6.0.47.0'
 author: mikechambers
+date: 2002-08-08 12:34:01 -0800
 layout: post
 permalink: /2002/08/08/ann-new-flash-player-60470/
 categories:

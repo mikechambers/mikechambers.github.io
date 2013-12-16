@@ -1,6 +1,7 @@
 ---
 title: Update from Europe
 author: mikechambers
+date: 2007-11-11 12:36:01 -0800
 layout: post
 permalink: /2007/11/11/update-from-europe/
 categories:

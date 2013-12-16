@@ -1,6 +1,7 @@
 ---
 title: Kevin Lynch on Apollo Alpha
 author: mikechambers
+date: 2007-03-19 12:04:01 -0800
 layout: post
 permalink: /2007/03/19/kevin-lynch-on-apollo-alpha/
 categories:

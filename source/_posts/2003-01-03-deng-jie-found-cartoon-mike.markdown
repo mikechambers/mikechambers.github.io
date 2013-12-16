@@ -1,6 +1,7 @@
 ---
 title: Deng Jie found Cartoon Mike
 author: mikechambers
+date: 2003-01-03 12:23:01 -0800
 layout: post
 permalink: /2003/01/03/deng-jie-found-cartoon-mike/
 categories:

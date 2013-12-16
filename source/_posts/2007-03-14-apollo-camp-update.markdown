@@ -1,6 +1,7 @@
 ---
 title: Apollo Camp Update
 author: mikechambers
+date: 2007-03-14 12:05:01 -0800
 layout: post
 permalink: /2007/03/14/apollo-camp-update/
 categories:

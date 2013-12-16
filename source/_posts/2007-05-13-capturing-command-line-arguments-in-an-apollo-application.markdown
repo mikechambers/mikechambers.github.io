@@ -1,6 +1,7 @@
 ---
 title: Capturing Command Line Arguments in an Apollo Application
 author: mikechambers
+date: 2007-05-13 12:29:01 -0800
 excerpt: Here is a simple example that shows how to capture command line arguments passed to a Flex based Apollo application.
 layout: post
 permalink: /2007/05/13/capturing-command-line-arguments-in-an-apollo-application/

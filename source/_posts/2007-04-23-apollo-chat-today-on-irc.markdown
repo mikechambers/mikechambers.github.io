@@ -1,6 +1,7 @@
 ---
 title: Apollo Chat today on IRC
 author: mikechambers
+date: 2007-04-23 12:44:01 -0800
 layout: post
 permalink: /2007/04/23/apollo-chat-today-on-irc/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Macromedia XML Resource Feed News
 author: mikechambers
+date: 2002-04-30 12:48:01 -0800
 layout: post
 permalink: /2002/04/30/macromedia-xml-resource-feed-news/
 categories:

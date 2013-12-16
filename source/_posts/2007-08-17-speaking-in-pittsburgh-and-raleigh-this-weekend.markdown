@@ -1,6 +1,7 @@
 ---
 title: Speaking in Pittsburgh and Raleigh this weekend
 author: mikechambers
+date: 2007-08-17 12:47:01 -0800
 layout: post
 permalink: /2007/08/17/speaking-in-pittsburgh-and-raleigh-this-weekend/
 categories:

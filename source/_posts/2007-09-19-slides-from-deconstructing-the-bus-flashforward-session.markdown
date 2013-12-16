@@ -1,6 +1,7 @@
 ---
 title: Slides from Deconstructing the Bus FlashForward Session
 author: mikechambers
+date: 2007-09-19 12:31:01 -0800
 layout: post
 permalink: /2007/09/19/slides-from-deconstructing-the-bus-flashforward-session/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: ActionScript 3 RIA Reference Guide
 author: mikechambers
+date: 2008-03-17 12:10:01 -0800
 layout: post
 permalink: /2008/03/17/actionscript-3-ria-reference-guide/
 categories:

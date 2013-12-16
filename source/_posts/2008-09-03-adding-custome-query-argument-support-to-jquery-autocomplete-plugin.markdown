@@ -1,6 +1,7 @@
 ---
 title: Adding custome query argument support to jQuery Autocomplete plugin
 author: mikechambers
+date: 2008-09-03 12:11:01 -0800
 layout: post
 permalink: /2008/09/03/adding-custome-query-argument-support-to-jquery-autocomplete-plugin/
 categories:

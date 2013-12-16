@@ -1,6 +1,7 @@
 ---
 title: FUIComponentClass ActionScript Dictionary
 author: mikechambers
+date: 2002-10-09 12:29:01 -0800
 layout: post
 permalink: /2002/10/09/fuicomponentclass-actionscript-dictionary/
 categories:

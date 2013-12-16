@@ -1,6 +1,7 @@
 ---
 title: Advanced Flash RSS Viewer
 author: mikechambers
+date: 2002-05-31 12:39:01 -0800
 layout: post
 permalink: /2002/05/31/advanced-flash-rss-viewer/
 categories:

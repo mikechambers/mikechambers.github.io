@@ -1,6 +1,7 @@
 ---
 title: Macromedia Flash for Palm OS
 author: mikechambers
+date: 2002-11-04 12:00:01 -0800
 layout: post
 permalink: /2002/11/04/macromedia-flash-for-palm-os/
 categories:

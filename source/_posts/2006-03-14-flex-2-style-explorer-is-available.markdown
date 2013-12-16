@@ -1,6 +1,7 @@
 ---
 title: Flex 2 Style Explorer is Available
 author: mikechambers
+date: 2006-03-14 12:37:01 -0800
 layout: post
 permalink: /2006/03/14/flex-2-style-explorer-is-available/
 categories:

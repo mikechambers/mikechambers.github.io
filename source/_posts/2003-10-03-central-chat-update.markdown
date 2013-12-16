@@ -1,6 +1,7 @@
 ---
 title: Central Chat Update
 author: mikechambers
+date: 2003-10-03 12:32:01 -0800
 layout: post
 permalink: /2003/10/03/central-chat-update/
 categories:

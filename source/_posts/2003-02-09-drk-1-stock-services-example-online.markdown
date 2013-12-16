@@ -1,6 +1,7 @@
 ---
 title: 'DRK 1 : Stock Services Example Online'
 author: mikechambers
+date: 2003-02-09 12:24:01 -0800
 layout: post
 permalink: /2003/02/09/drk-1-stock-services-example-online/
 categories:

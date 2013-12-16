@@ -1,6 +1,7 @@
 ---
 title: 'DRK Sneak :  Pollster Test'
 author: mikechambers
+date: 2003-07-16 12:35:01 -0800
 layout: post
 permalink: /2003/07/16/drk-sneak-pollster-test/
 categories:

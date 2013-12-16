@@ -1,6 +1,7 @@
 ---
 title: Speaking in Europe on Flex and AIR (on AIR Tour)
 author: mikechambers
+date: 2008-02-20 12:44:01 -0800
 layout: post
 permalink: /2008/02/20/speaking-in-europe-on-flex-and-air-on-air-tour/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Apollo in Europe this week
 author: mikechambers
+date: 2006-11-29 12:01:01 -0800
 layout: post
 permalink: /2006/11/29/apollo-in-europe-this-week/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Read the Weblog &#8212; Get 10% off'
 author: mikechambers
+date: 2002-09-18 12:44:01 -0800
 layout: post
 permalink: /2002/09/18/read-the-weblog-get-10-off/
 categories:

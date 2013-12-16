@@ -1,6 +1,7 @@
 ---
 title: Hilarious videos on Flash / Adobe Communities
 author: mikechambers
+date: 2008-02-22 12:29:01 -0800
 layout: post
 permalink: /2008/02/22/hilarious-videos-on-flash-adobe-communities/
 categories:

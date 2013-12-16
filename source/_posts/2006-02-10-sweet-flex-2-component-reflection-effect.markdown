@@ -1,6 +1,7 @@
 ---
 title: Sweet Flex 2 Component Reflection Effect
 author: mikechambers
+date: 2006-02-10 12:11:01 -0800
 layout: post
 permalink: /2006/02/10/sweet-flex-2-component-reflection-effect/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: URLLoader subclass with automatic refresh support
 author: mikechambers
+date: 2008-09-12 12:01:01 -0800
 layout: post
 permalink: /2008/09/12/urlloader-subclass-with-automatic-refresh-support/
 categories:

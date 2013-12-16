@@ -1,6 +1,7 @@
 ---
 title: Flash and Web 2.0
 author: mikechambers
+date: 2005-08-30 12:33:01 -0800
 layout: post
 permalink: /2005/08/30/flash-and-web-20/
 categories:

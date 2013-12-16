@@ -1,6 +1,7 @@
 ---
 title: Central DevChat
 author: mikechambers
+date: 2004-02-02 12:40:01 -0800
 layout: post
 permalink: /2004/02/02/central-devchat/
 categories:

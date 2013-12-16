@@ -1,6 +1,7 @@
 ---
 title: PDF to Flash Linux server
 author: mikechambers
+date: 2002-09-27 12:54:01 -0800
 layout: post
 permalink: /2002/09/27/pdf-to-flash-linux-server/
 categories:

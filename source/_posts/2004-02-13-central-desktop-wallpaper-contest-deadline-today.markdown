@@ -1,6 +1,7 @@
 ---
 title: Central Desktop Wallpaper Contest Deadline Today
 author: mikechambers
+date: 2004-02-13 12:15:01 -0800
 layout: post
 permalink: /2004/02/13/central-desktop-wallpaper-contest-deadline-today/
 categories:

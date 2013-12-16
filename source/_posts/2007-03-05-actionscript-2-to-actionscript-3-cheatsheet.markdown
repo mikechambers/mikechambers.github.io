@@ -1,6 +1,7 @@
 ---
 title: ActionScript 2 to ActionScript 3 Cheatsheet
 author: mikechambers
+date: 2007-03-05 12:28:01 -0800
 layout: post
 permalink: /2007/03/05/actionscript-2-to-actionscript-3-cheatsheet/
 categories:

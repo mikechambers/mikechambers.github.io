@@ -1,6 +1,7 @@
 ---
 title: Converting Nikon D90 Videos to work with Adobe Premiere Pro CS4
 author: mikechambers
+date: 2009-08-02 12:24:01 -0800
 layout: post
 permalink: /2009/08/02/convert-nikon-d90-videos-to-work-with-adobe-premiere-pro-cs4/
 categories:

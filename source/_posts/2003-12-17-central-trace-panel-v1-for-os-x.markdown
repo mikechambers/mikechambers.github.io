@@ -1,6 +1,7 @@
 ---
 title: Central Trace Panel v1 for OS X
 author: mikechambers
+date: 2003-12-17 12:08:01 -0800
 layout: post
 permalink: /2003/12/17/central-trace-panel-v1-for-os-x/
 categories:

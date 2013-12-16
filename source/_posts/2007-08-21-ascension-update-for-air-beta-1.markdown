@@ -1,6 +1,7 @@
 ---
 title: Ascension Updated for AIR Beta 1
 author: mikechambers
+date: 2007-08-21 12:21:01 -0800
 layout: post
 permalink: /2007/08/21/ascension-update-for-air-beta-1/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Using Pixel Bender Filters within Flex
 author: mikechambers
+date: 2008-09-08 12:44:01 -0800
 layout: post
 permalink: /2008/09/08/using-pixel-bender-filters-within-flex/
 categories:

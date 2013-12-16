@@ -1,6 +1,7 @@
 ---
 title: RSS Creation Alternative to RSSify
 author: mikechambers
+date: 2003-06-05 12:41:01 -0800
 layout: post
 permalink: /2003/06/05/rss-creation-alternative-to-rssify/
 categories:

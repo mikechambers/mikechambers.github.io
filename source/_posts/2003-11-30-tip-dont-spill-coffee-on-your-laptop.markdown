@@ -1,6 +1,7 @@
 ---
 title: 'Tip : Don&#8217;t Spill Coffee on your laptop'
 author: mikechambers
+date: 2003-11-30 12:40:01 -0800
 layout: post
 permalink: /2003/11/30/tip-dont-spill-coffee-on-your-laptop/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Inserting Flash 6 content in Dreamweaver 4
 author: mikechambers
+date: 2002-07-01 12:29:01 -0800
 layout: post
 permalink: /2002/07/01/inserting-flash-6-content-in-dreamweaver-4/
 categories:

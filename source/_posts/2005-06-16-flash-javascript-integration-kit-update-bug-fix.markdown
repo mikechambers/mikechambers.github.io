@@ -1,6 +1,7 @@
 ---
 title: Flash / JavaScript Integration Kit Update / Bug Fix
 author: mikechambers
+date: 2005-06-16 12:35:01 -0800
 layout: post
 permalink: /2005/06/16/flash-javascript-integration-kit-update-bug-fix/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Open Source ActionScript 3 Libraries updated
 author: mikechambers
+date: 2006-07-11 12:37:01 -0800
 layout: post
 permalink: /2006/07/11/open-source-actionscript-3-libraries-updated-2/
 categories:

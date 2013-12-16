@@ -1,6 +1,7 @@
 ---
 title: 'Google Finance : Flash / Ajax integration'
 author: mikechambers
+date: 2006-03-21 12:50:01 -0800
 layout: post
 permalink: /2006/03/21/google-finance-flash-ajax-integration/
 categories:

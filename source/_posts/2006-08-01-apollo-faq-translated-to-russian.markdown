@@ -1,6 +1,7 @@
 ---
 title: Apollo FAQ Translated to Russian
 author: mikechambers
+date: 2006-08-01 12:01:01 -0800
 layout: post
 permalink: /2006/08/01/apollo-faq-translated-to-russian/
 categories:

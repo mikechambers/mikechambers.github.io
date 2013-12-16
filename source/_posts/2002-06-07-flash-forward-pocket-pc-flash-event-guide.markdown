@@ -1,6 +1,7 @@
 ---
 title: Flash Forward Pocket PC Flash Event guide
 author: mikechambers
+date: 2002-06-07 12:47:01 -0800
 layout: post
 permalink: /2002/06/07/flash-forward-pocket-pc-flash-event-guide/
 categories:

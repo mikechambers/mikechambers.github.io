@@ -1,6 +1,7 @@
 ---
 title: ActionScript 3 and ECMAScript 4
 author: mikechambers
+date: 2008-08-14 12:12:01 -0800
 layout: post
 permalink: /2008/08/14/actionscript-3-and-ecmascript-4/
 categories:

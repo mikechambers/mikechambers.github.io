@@ -1,6 +1,7 @@
 ---
 title: MX Studio Available / New Resources at Macromedia.com
 author: mikechambers
+date: 2002-05-29 12:14:01 -0800
 layout: post
 permalink: /2002/05/29/mx-studio-available-new-resources-at-macromediacom/
 categories:

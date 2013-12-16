@@ -1,6 +1,7 @@
 ---
 title: 'Is  ActionScript 2 Development Faster than ActionScript 3 Development?'
 author: mikechambers
+date: 2008-10-29 12:48:01 -0800
 layout: post
 permalink: /2008/10/29/is-actionscript-2-development-faster-than-actionscript-3-development/
 categories:

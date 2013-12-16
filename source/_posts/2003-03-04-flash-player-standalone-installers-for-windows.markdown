@@ -1,6 +1,7 @@
 ---
 title: Flash Player Standalone Installers for Windows
 author: mikechambers
+date: 2003-03-04 12:41:01 -0800
 layout: post
 permalink: /2003/03/04/flash-player-standalone-installers-for-windows/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Macromedia Central Public Beta
 author: mikechambers
+date: 2003-09-25 12:14:01 -0800
 layout: post
 permalink: /2003/09/25/macromedia-central-public-beta/
 categories:

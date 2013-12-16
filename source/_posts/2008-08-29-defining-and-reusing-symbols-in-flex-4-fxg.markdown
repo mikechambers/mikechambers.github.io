@@ -1,6 +1,7 @@
 ---
 title: Defining and Reusing Symbols in Flex 4 FXG
 author: mikechambers
+date: 2008-08-29 12:02:01 -0800
 layout: post
 permalink: /2008/08/29/defining-and-reusing-symbols-in-flex-4-fxg/
 categories:

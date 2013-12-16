@@ -1,6 +1,7 @@
 ---
 title: Central Example App and Code
 author: mikechambers
+date: 2004-01-08 12:15:01 -0800
 layout: post
 permalink: /2004/01/08/central-example-app-and-code/
 categories:

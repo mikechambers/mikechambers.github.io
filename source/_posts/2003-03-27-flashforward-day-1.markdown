@@ -1,6 +1,7 @@
 ---
 title: FlashForward Day 1
 author: mikechambers
+date: 2003-03-27 12:43:01 -0800
 layout: post
 permalink: /2003/03/27/flashforward-day-1/
 categories:

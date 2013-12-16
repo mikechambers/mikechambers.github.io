@@ -1,6 +1,7 @@
 ---
 title: 'Links from &#8220;Architecting Flash Applications&#8221; session'
 author: mikechambers
+date: 2004-05-24 12:09:01 -0800
 layout: post
 permalink: /2004/05/24/links-from-architecting-flash-applications-session/
 categories:

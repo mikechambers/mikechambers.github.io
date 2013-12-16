@@ -1,6 +1,7 @@
 ---
 title: New Weblog Home and Domain
 author: mikechambers
+date: 2007-04-24 12:15:01 -0800
 layout: post
 permalink: /2007/04/24/new-weblog-home-and-domain/
 categories:

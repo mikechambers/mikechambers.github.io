@@ -1,6 +1,7 @@
 ---
 title: What new game APIs do you want in the Flash Player?
 author: mikechambers
+date: 2009-06-16 12:35:01 -0800
 layout: post
 permalink: /2009/06/16/what-new-game-apis-do-you-want-in-the-flash-player/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Community Week is this Week!
 author: mikechambers
+date: 2004-05-18 12:56:01 -0800
 layout: post
 permalink: /2004/05/18/community-week-is-this-week/
 categories:

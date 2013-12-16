@@ -1,6 +1,7 @@
 ---
 title: Favorite Flash based cartoons?
 author: mikechambers
+date: 2004-01-28 12:00:01 -0800
 layout: post
 permalink: /2004/01/28/favorite-flash-based-cartoons/
 categories:

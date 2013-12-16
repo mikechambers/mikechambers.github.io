@@ -1,6 +1,7 @@
 ---
 title: Central Failing? More FUD?
 author: mikechambers
+date: 2004-03-02 12:45:01 -0800
 layout: post
 permalink: /2004/03/02/central-failing-more-fud/
 categories:

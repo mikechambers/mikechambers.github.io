@@ -1,6 +1,7 @@
 ---
 title: 'FYI : Out of Office and Mail Offline'
 author: mikechambers
+date: 2006-12-18 12:33:01 -0800
 layout: post
 permalink: /2006/12/18/fyi-out-of-office-and-mail-offline/
 categories:

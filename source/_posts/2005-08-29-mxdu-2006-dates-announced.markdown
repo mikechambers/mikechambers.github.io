@@ -1,6 +1,7 @@
 ---
 title: MXDU 2006 Dates Announced!
 author: mikechambers
+date: 2005-08-29 12:39:01 -0800
 layout: post
 permalink: /2005/08/29/mxdu-2006-dates-announced/
 categories:

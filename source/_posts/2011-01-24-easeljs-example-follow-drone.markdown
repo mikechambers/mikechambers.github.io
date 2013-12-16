@@ -1,6 +1,7 @@
 ---
 title: 'EaselJS / Canvas Example : Follow Drone'
 author: mikechambers
+date: 2011-01-24 12:53:01 -0800
 layout: post
 permalink: /2011/01/24/easeljs-example-follow-drone/
 categories:

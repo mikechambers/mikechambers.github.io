@@ -1,6 +1,7 @@
 ---
 title: Weblog Design Updated
 author: mikechambers
+date: 2006-04-07 12:40:01 -0800
 layout: post
 permalink: /2006/04/07/weblog-design-updated/
 categories:

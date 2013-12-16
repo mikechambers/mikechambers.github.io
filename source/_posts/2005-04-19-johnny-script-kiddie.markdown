@@ -1,6 +1,7 @@
 ---
 title: Johnny Script kiddie?
 author: mikechambers
+date: 2005-04-19 12:41:01 -0800
 layout: post
 permalink: /2005/04/19/johnny-script-kiddie/
 categories:

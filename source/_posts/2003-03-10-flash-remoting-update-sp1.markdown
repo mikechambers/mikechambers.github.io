@@ -1,6 +1,7 @@
 ---
 title: Flash Remoting Update SP1
 author: mikechambers
+date: 2003-03-10 12:11:01 -0800
 layout: post
 permalink: /2003/03/10/flash-remoting-update-sp1/
 categories:

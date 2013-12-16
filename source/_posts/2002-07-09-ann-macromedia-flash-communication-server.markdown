@@ -1,6 +1,7 @@
 ---
 title: 'Ann : Macromedia Flash Communication Server'
 author: mikechambers
+date: 2002-07-09 12:21:01 -0800
 layout: post
 permalink: /2002/07/09/ann-macromedia-flash-communication-server/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Apps to test App resizing in Central
 author: mikechambers
+date: 2003-10-20 12:15:01 -0800
 layout: post
 permalink: /2003/10/20/apps-to-test-app-resizing-in-central/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flex based Flickr API Authorization control
 author: mikechambers
+date: 2008-08-12 12:18:01 -0800
 layout: post
 permalink: /2008/08/12/flex-based-flickr-api-authorization-control/
 categories:

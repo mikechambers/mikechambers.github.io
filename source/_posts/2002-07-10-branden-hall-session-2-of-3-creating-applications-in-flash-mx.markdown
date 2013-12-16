@@ -1,6 +1,7 @@
 ---
 title: 'Branden Hall Session 2 of 3 : Creating applications in Flash MX'
 author: mikechambers
+date: 2002-07-10 12:58:01 -0800
 layout: post
 permalink: /2002/07/10/branden-hall-session-2-of-3-creating-applications-in-flash-mx/
 categories:

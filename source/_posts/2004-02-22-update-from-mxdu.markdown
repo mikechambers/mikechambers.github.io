@@ -1,6 +1,7 @@
 ---
 title: Update from MXDU
 author: mikechambers
+date: 2004-02-22 12:11:01 -0800
 layout: post
 permalink: /2004/02/22/update-from-mxdu/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: ActionScript 3 Reserved Words
 author: mikechambers
+date: 2006-03-31 12:21:01 -0800
 layout: post
 permalink: /2006/03/31/actionscript-3-reserved-words/
 categories:

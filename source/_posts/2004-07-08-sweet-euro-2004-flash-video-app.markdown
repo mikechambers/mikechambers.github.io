@@ -1,6 +1,7 @@
 ---
 title: Sweet Euro 2004 Flash Video App
 author: mikechambers
+date: 2004-07-08 12:03:01 -0800
 layout: post
 permalink: /2004/07/08/sweet-euro-2004-flash-video-app/
 categories:

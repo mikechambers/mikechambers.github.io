@@ -1,6 +1,7 @@
 ---
 title: Updates to Flash Player Public Bug Base
 author: mikechambers
+date: 2010-02-10 12:43:01 -0800
 layout: post
 permalink: /2010/02/10/updates-to-flash-player-public-bug-base/
 categories:

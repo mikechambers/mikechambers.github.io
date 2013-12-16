@@ -1,6 +1,7 @@
 ---
 title: 'AIR Bug : AIR Install dialog is displayed in wrong language'
 author: mikechambers
+date: 2009-02-05 12:20:01 -0800
 layout: post
 permalink: /2009/02/05/air-bug-air-install-dialog-is-displayed-in-wrong-language/
 categories:

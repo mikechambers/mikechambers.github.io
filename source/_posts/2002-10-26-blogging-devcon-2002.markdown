@@ -1,6 +1,7 @@
 ---
 title: Blogging DevCon 2002
 author: mikechambers
+date: 2002-10-26 12:47:01 -0800
 layout: post
 permalink: /2002/10/26/blogging-devcon-2002/
 categories:

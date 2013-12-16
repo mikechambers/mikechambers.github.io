@@ -1,6 +1,7 @@
 ---
 title: 'Video : Leveraging HTML / JavaScript in Apollo'
 author: mikechambers
+date: 2006-11-01 12:55:01 -0800
 layout: post
 permalink: /2006/11/01/video-leveraging-html-javascript-in-apollo/
 categories:

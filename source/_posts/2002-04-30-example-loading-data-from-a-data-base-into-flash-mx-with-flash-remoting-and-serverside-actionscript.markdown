@@ -1,6 +1,7 @@
 ---
 title: 'Example : loading data from a data base into Flash MX with Flash Remoting and ServerSide ActionScript'
 author: mikechambers
+date: 2002-04-30 12:04:01 -0800
 layout: post
 permalink: /2002/04/30/example-loading-data-from-a-data-base-into-flash-mx-with-flash-remoting-and-serverside-actionscript/
 categories:

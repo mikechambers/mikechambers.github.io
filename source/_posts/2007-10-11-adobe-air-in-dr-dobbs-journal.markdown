@@ -1,6 +1,7 @@
 ---
 title: 'Adobe AIR in Dr Dobb&#8217;s Journal'
 author: mikechambers
+date: 2007-10-11 12:22:01 -0800
 layout: post
 permalink: /2007/10/11/adobe-air-in-dr-dobbs-journal/
 categories:

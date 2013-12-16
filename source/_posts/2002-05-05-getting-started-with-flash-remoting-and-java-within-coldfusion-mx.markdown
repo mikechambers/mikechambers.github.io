@@ -1,6 +1,7 @@
 ---
 title: Getting Started with Flash Remoting and Java within ColdFusion MX
 author: mikechambers
+date: 2002-05-05 12:35:01 -0800
 layout: post
 permalink: /2002/05/05/getting-started-with-flash-remoting-and-java-within-coldfusion-mx/
 categories:

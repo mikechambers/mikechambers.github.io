@@ -1,6 +1,7 @@
 ---
 title: 'New Macromedia Weblog : Mike Downey'
 author: mikechambers
+date: 2004-02-12 12:23:01 -0800
 layout: post
 permalink: /2004/02/12/new-macromedia-weblog-mike-downey/
 categories:

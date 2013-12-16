@@ -1,6 +1,7 @@
 ---
 title: 'New Flash Blog : Peter Hall'
 author: mikechambers
+date: 2002-09-10 12:52:01 -0800
 layout: post
 permalink: /2002/09/10/new-flash-blog-peter-hall/
 categories:

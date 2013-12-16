@@ -1,6 +1,7 @@
 ---
 title: Global Variables within Flex Applications
 author: mikechambers
+date: 2007-02-05 12:10:01 -0800
 layout: post
 permalink: /2007/02/05/global-variables-within-flex-applications/
 categories:

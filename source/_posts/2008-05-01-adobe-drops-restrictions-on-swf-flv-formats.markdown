@@ -1,6 +1,7 @@
 ---
 title: Adobe drops restrictions on SWF, FLV formats
 author: mikechambers
+date: 2008-05-01 12:13:01 -0800
 layout: post
 permalink: /2008/05/01/adobe-drops-restrictions-on-swf-flv-formats/
 categories:

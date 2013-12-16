@@ -1,6 +1,7 @@
 ---
 title: Macromedia News Firefox Extension Updates
 author: mikechambers
+date: 2005-10-20 12:46:01 -0800
 layout: post
 permalink: /2005/10/20/macromedia-news-firefox-extension-updates/
 categories:

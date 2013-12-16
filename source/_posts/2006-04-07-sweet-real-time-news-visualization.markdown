@@ -1,6 +1,7 @@
 ---
 title: Sweet Real Time News Visualization
 author: mikechambers
+date: 2006-04-07 12:40:01 -0800
 layout: post
 permalink: /2006/04/07/sweet-real-time-news-visualization/
 categories:

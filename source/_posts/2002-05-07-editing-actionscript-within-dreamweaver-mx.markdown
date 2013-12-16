@@ -1,6 +1,7 @@
 ---
 title: Editing ActionScript within Dreamweaver MX
 author: mikechambers
+date: 2002-05-07 12:08:01 -0800
 layout: post
 permalink: /2002/05/07/editing-actionscript-within-dreamweaver-mx/
 categories:

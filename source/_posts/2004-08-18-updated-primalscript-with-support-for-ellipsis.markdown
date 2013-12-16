@@ -1,6 +1,7 @@
 ---
 title: Updated PrimalScript with Support for Ellipsis
 author: mikechambers
+date: 2004-08-18 12:09:01 -0800
 layout: post
 permalink: /2004/08/18/updated-primalscript-with-support-for-ellipsis/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Adobe AIR for Linux Beta is live
 author: mikechambers
+date: 2008-09-15 12:52:01 -0800
 layout: post
 permalink: /2008/09/15/adobe-air-for-linux-beta-is-live/
 categories:

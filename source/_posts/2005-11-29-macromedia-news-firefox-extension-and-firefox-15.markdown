@@ -1,6 +1,7 @@
 ---
 title: Macromedia News Firefox Extension and Firefox 1.5
 author: mikechambers
+date: 2005-11-29 12:20:01 -0800
 layout: post
 permalink: /2005/11/29/macromedia-news-firefox-extension-and-firefox-15/
 categories:

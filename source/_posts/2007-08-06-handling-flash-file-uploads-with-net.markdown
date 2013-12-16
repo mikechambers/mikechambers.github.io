@@ -1,6 +1,7 @@
 ---
 title: Handling Flash File Uploads with .NET
 author: mikechambers
+date: 2007-08-06 12:46:01 -0800
 layout: post
 permalink: /2007/08/06/handling-flash-file-uploads-with-net/
 categories:

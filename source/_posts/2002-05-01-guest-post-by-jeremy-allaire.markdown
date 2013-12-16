@@ -1,6 +1,7 @@
 ---
 title: Guest Post by Jeremy Allaire
 author: mikechambers
+date: 2002-05-01 12:03:01 -0800
 layout: post
 permalink: /2002/05/01/guest-post-by-jeremy-allaire/
 categories:

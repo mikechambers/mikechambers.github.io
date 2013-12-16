@@ -1,6 +1,7 @@
 ---
 title: Photos from Flash Forward
 author: mikechambers
+date: 2002-07-10 12:48:01 -0800
 layout: post
 permalink: /2002/07/10/photos-from-flash-forward/
 categories:

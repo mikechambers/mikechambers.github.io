@@ -1,6 +1,7 @@
 ---
 title: VNC Client written in ActionScript 3 / Flash Player 8.5
 author: mikechambers
+date: 2005-10-28 12:26:01 -0800
 layout: post
 permalink: /2005/10/28/vnc-client-written-in-actionscript-3-flash-player-85/
 categories:

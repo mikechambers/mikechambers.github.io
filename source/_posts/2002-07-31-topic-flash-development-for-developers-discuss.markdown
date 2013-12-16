@@ -1,6 +1,7 @@
 ---
 title: 'Topic : Flash Development for Developers : Discuss'
 author: mikechambers
+date: 2002-07-31 12:43:01 -0800
 layout: post
 permalink: /2002/07/31/topic-flash-development-for-developers-discuss/
 categories:

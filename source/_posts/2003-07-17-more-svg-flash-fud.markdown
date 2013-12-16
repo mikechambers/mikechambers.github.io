@@ -1,6 +1,7 @@
 ---
 title: More SVG / Flash FUD?
 author: mikechambers
+date: 2003-07-17 12:04:01 -0800
 layout: post
 permalink: /2003/07/17/more-svg-flash-fud/
 categories:

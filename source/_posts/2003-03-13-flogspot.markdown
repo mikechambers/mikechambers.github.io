@@ -1,6 +1,7 @@
 ---
 title: FlogSpot
 author: mikechambers
+date: 2003-03-13 12:08:01 -0800
 layout: post
 permalink: /2003/03/13/flogspot/
 categories:

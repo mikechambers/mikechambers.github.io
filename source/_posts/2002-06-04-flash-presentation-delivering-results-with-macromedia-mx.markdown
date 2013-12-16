@@ -1,6 +1,7 @@
 ---
 title: 'Flash Presentation : Delivering Results with Macromedia MX'
 author: mikechambers
+date: 2002-06-04 12:10:01 -0800
 layout: post
 permalink: /2002/06/04/flash-presentation-delivering-results-with-macromedia-mx/
 categories:

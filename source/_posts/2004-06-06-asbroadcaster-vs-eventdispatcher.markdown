@@ -1,6 +1,7 @@
 ---
 title: AsBroadCaster vs. EventDispatcher
 author: mikechambers
+date: 2004-06-06 12:41:01 -0800
 layout: post
 permalink: /2004/06/06/asbroadcaster-vs-eventdispatcher/
 categories:

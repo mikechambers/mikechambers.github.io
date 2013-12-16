@@ -1,6 +1,7 @@
 ---
 title: Ascension Application and Source Released
 author: mikechambers
+date: 2007-04-23 12:52:01 -0800
 layout: post
 permalink: /2007/04/23/ascension-application-and-source-released/
 categories:

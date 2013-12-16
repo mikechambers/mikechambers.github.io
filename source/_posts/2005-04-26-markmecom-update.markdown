@@ -1,6 +1,7 @@
 ---
 title: markme.com update
 author: mikechambers
+date: 2005-04-26 12:49:01 -0800
 layout: post
 permalink: /2005/04/26/markmecom-update/
 categories:

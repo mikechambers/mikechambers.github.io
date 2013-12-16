@@ -1,6 +1,7 @@
 ---
 title: 'Challenge : Search engine in 4 lines of code?'
 author: mikechambers
+date: 2004-02-25 12:37:01 -0800
 layout: post
 permalink: /2004/02/25/challenge-search-engine-in-4-lines-of-code/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'The Edge : DRK : The Secret of Developing Components'
 author: mikechambers
+date: 2003-05-13 12:03:01 -0800
 layout: post
 permalink: /2003/05/13/the-edge-drk-the-secret-of-developing-components/
 categories:

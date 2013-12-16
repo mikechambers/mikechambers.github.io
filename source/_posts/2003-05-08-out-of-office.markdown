@@ -1,6 +1,7 @@
 ---
 title: Out of Office
 author: mikechambers
+date: 2003-05-08 12:34:01 -0800
 layout: post
 permalink: /2003/05/08/out-of-office/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash Player Beta Performance Benchmarks
 author: mikechambers
+date: 2002-10-21 12:14:01 -0800
 layout: post
 permalink: /2002/10/21/flash-player-beta-performance-benchmarks/
 categories:

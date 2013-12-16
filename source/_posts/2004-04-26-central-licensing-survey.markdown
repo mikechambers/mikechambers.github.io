@@ -1,6 +1,7 @@
 ---
 title: Central Licensing Survey
 author: mikechambers
+date: 2004-04-26 12:59:01 -0800
 layout: post
 permalink: /2004/04/26/central-licensing-survey/
 categories:

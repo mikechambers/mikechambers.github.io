@@ -1,6 +1,7 @@
 ---
 title: 'That&#8217;s a lot of Flash Blogs!'
 author: mikechambers
+date: 2002-05-31 12:38:01 -0800
 layout: post
 permalink: /2002/05/31/thats-a-lot-of-flash-blogs/
 categories:

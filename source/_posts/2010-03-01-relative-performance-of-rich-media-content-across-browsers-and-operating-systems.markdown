@@ -1,6 +1,7 @@
 ---
 title: Relative Performance of Rich Media Content across Browsers and Operating Systems
 author: mikechambers
+date: 2010-03-01 12:26:01 -0800
 layout: post
 permalink: /2010/03/01/relative-performance-of-rich-media-content-across-browsers-and-operating-systems/
 categories:

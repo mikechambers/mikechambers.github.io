@@ -1,6 +1,7 @@
 ---
 title: 'Colin Moock&#8217;s ImageViewer Example Updated to ActionScript 3'
 author: mikechambers
+date: 2005-11-11 12:08:01 -0800
 layout: post
 permalink: /2005/11/11/colin-moocks-imageviewer-example-updated-to-actionscript-3/
 categories:

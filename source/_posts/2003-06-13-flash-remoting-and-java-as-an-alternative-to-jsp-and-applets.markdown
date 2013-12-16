@@ -1,6 +1,7 @@
 ---
 title: Flash Remoting and Java as an alternative to JSP and Applets
 author: mikechambers
+date: 2003-06-13 12:42:01 -0800
 layout: post
 permalink: /2003/06/13/flash-remoting-and-java-as-an-alternative-to-jsp-and-applets/
 categories:

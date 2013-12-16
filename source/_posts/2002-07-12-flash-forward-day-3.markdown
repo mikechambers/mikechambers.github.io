@@ -1,6 +1,7 @@
 ---
 title: 'Flash Forward : Day 3'
 author: mikechambers
+date: 2002-07-12 12:40:01 -0800
 layout: post
 permalink: /2002/07/12/flash-forward-day-3/
 categories:

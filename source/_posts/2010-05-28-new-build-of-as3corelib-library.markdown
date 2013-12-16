@@ -1,6 +1,7 @@
 ---
 title: New Release of as3corelib Library
 author: mikechambers
+date: 2010-05-28 12:27:01 -0800
 layout: post
 permalink: /2010/05/28/new-build-of-as3corelib-library/
 categories:

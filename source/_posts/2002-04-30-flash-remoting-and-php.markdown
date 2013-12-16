@@ -1,6 +1,7 @@
 ---
 title: Flash Remoting and PHP
 author: mikechambers
+date: 2002-04-30 12:16:01 -0800
 layout: post
 permalink: /2002/04/30/flash-remoting-and-php/
 categories:

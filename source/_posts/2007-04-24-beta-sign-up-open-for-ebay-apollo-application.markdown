@@ -1,6 +1,7 @@
 ---
 title: Beta Sign-up open for eBay Apollo application
 author: mikechambers
+date: 2007-04-24 12:46:01 -0800
 layout: post
 permalink: /2007/04/24/beta-sign-up-open-for-ebay-apollo-application/
 categories:

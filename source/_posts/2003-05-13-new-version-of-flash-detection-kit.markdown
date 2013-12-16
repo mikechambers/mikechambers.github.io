@@ -1,6 +1,7 @@
 ---
 title: New version of Flash Detection Kit
 author: mikechambers
+date: 2003-05-13 12:30:01 -0800
 layout: post
 permalink: /2003/05/13/new-version-of-flash-detection-kit/
 categories:

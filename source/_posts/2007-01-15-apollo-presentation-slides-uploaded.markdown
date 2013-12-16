@@ -1,6 +1,7 @@
 ---
 title: Apollo Presentation Slides Uploaded
 author: mikechambers
+date: 2007-01-15 12:12:01 -0800
 excerpt: apollo
 layout: post
 permalink: /2007/01/15/apollo-presentation-slides-uploaded/

@@ -1,6 +1,7 @@
 ---
 title: 'Jeremy Allaire : Macromedia Founder Emeritus / New Challenges'
 author: mikechambers
+date: 2003-02-05 12:42:01 -0800
 layout: post
 permalink: /2003/02/05/jeremy-allaire-macromedia-founder-emeritus-new-challenges/
 categories:

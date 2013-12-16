@@ -1,6 +1,7 @@
 ---
 title: Memorial Day in United States
 author: mikechambers
+date: 2003-05-26 12:37:01 -0800
 layout: post
 permalink: /2003/05/26/memorial-day-in-united-states/
 categories:

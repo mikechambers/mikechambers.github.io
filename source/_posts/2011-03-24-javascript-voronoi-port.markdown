@@ -1,6 +1,7 @@
 ---
 title: JavaScript Voronoi port
 author: mikechambers
+date: 2011-03-24 12:22:01 -0800
 layout: post
 permalink: /2011/03/24/javascript-voronoi-port/
 categories:

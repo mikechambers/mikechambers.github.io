@@ -1,6 +1,7 @@
 ---
 title: 'New Chat : FCF Chat'
 author: mikechambers
+date: 2002-10-01 12:44:01 -0800
 layout: post
 permalink: /2002/10/01/new-chat-fcf-chat/
 categories:

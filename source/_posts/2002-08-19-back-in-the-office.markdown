@@ -1,6 +1,7 @@
 ---
 title: Back in the Office
 author: mikechambers
+date: 2002-08-19 12:06:01 -0800
 layout: post
 permalink: /2002/08/19/back-in-the-office/
 categories:

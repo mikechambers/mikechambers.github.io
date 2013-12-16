@@ -1,6 +1,7 @@
 ---
 title: What is your Flash IDE Layout?
 author: mikechambers
+date: 2004-01-24 12:22:01 -0800
 layout: post
 permalink: /2004/01/24/what-is-your-flash-ide-layout/
 categories:

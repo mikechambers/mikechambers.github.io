@@ -1,6 +1,7 @@
 ---
 title: Find the answer to your Flash question
 author: mikechambers
+date: 2003-06-02 12:39:01 -0800
 layout: post
 permalink: /2003/06/02/find-the-answer-to-your-flash-question/
 categories:

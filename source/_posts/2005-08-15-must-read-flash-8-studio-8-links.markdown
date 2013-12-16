@@ -1,6 +1,7 @@
 ---
 title: Must Read Flash 8 / Studio 8 Links
 author: mikechambers
+date: 2005-08-15 12:58:01 -0800
 layout: post
 permalink: /2005/08/15/must-read-flash-8-studio-8-links/
 categories:

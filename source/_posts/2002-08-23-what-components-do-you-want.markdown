@@ -1,6 +1,7 @@
 ---
 title: What components do you want?
 author: mikechambers
+date: 2002-08-23 12:14:01 -0800
 layout: post
 permalink: /2002/08/23/what-components-do-you-want/
 categories:

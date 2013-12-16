@@ -1,6 +1,7 @@
 ---
 title: Using Custom Pixel Bender Filter Classes in MXML
 author: mikechambers
+date: 2008-09-08 12:25:01 -0800
 layout: post
 permalink: /2008/09/08/using-custom-pixel-bender-filter-classes-in-mxml/
 categories:

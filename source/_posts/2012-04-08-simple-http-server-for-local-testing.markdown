@@ -1,6 +1,7 @@
 ---
 title: Simple HTTP Server for local testing
 author: mikechambers
+date: 2012-04-08 12:11:01 -0800
 layout: post
 permalink: /2012/04/08/simple-http-server-for-local-testing/
 categories:

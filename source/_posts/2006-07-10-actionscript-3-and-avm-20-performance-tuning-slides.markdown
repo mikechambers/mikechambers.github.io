@@ -1,6 +1,7 @@
 ---
 title: ActionScript 3 and AVM 2.0 Performance Tuning Slides
 author: mikechambers
+date: 2006-07-10 12:55:01 -0800
 layout: post
 permalink: /2006/07/10/actionscript-3-and-avm-20-performance-tuning-slides/
 categories:

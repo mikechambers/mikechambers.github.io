@@ -1,6 +1,7 @@
 ---
 title: FlashForward 2003 NYC Pictures
 author: mikechambers
+date: 2003-07-10 12:07:01 -0800
 layout: post
 permalink: /2003/07/10/flashforward-2003-nyc-pictures/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 2 New Application Showcases / Case Studies
 author: mikechambers
+date: 2003-11-20 12:02:01 -0800
 layout: post
 permalink: /2003/11/20/2-new-application-showcases-case-studies/
 categories:

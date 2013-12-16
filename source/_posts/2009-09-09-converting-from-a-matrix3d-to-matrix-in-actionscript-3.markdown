@@ -1,6 +1,7 @@
 ---
 title: Converting from Matrix3D to Matrix in ActionScript 3
 author: mikechambers
+date: 2009-09-09 12:37:01 -0800
 layout: post
 permalink: /2009/09/09/converting-from-a-matrix3d-to-matrix-in-actionscript-3/
 categories:

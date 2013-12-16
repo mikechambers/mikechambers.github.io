@@ -1,6 +1,7 @@
 ---
 title: Flex / Apollo IRC Channel?
 author: mikechambers
+date: 2007-04-19 12:57:01 -0800
 layout: post
 permalink: /2007/04/19/flex-apollo-irc-channel/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Finding more info on the CF object in ServerSide ActionScript.
 author: mikechambers
+date: 2002-05-10 12:59:01 -0800
 layout: post
 permalink: /2002/05/10/finding-more-info-on-the-cf-object-in-serverside-actionscript-2/
 categories:

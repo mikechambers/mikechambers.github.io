@@ -1,6 +1,7 @@
 ---
 title: Central Development Quick Start Guide
 author: mikechambers
+date: 2003-10-15 12:31:01 -0800
 layout: post
 permalink: /2003/10/15/central-development-quick-start-guide/
 categories:

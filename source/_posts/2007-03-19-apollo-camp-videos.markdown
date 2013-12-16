@@ -1,6 +1,7 @@
 ---
 title: Apollo Camp Videos
 author: mikechambers
+date: 2007-03-19 12:35:01 -0800
 layout: post
 permalink: /2007/03/19/apollo-camp-videos/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: New Flash MX Content at Macromedia DevNet Center
 author: mikechambers
+date: 2003-02-11 12:30:01 -0800
 layout: post
 permalink: /2003/02/11/new-flash-mx-content-at-macromedia-devnet-center/
 categories:

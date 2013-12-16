@@ -1,6 +1,7 @@
 ---
 title: On Vacation
 author: mikechambers
+date: 2002-07-03 12:03:01 -0800
 layout: post
 permalink: /2002/07/03/on-vacation/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Adobe AIR and Flex 3 Beta 3 Available
 author: mikechambers
+date: 2007-12-13 12:09:01 -0800
 layout: post
 permalink: /2007/12/13/adobe-air-and-flex-3-beta-3-available/
 categories:

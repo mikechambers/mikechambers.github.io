@@ -1,6 +1,7 @@
 ---
 title: View Source / License Menu Option for Flex Applications
 author: mikechambers
+date: 2005-04-08 12:23:01 -0800
 layout: post
 permalink: /2005/04/08/view-source-license-menu-option-for-flex-applications/
 categories:

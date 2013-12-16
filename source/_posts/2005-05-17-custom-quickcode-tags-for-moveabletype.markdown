@@ -1,6 +1,7 @@
 ---
 title: Custom Quickcode Tags for MoveableType
 author: mikechambers
+date: 2005-05-17 12:17:01 -0800
 layout: post
 permalink: /2005/05/17/custom-quickcode-tags-for-moveabletype/
 categories:

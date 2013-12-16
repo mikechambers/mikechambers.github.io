@@ -1,6 +1,7 @@
 ---
 title: 'Find Cartoon Mesh : Win a DRK'
 author: mikechambers
+date: 2002-12-30 12:32:01 -0800
 layout: post
 permalink: /2002/12/30/find-cartoon-mesh-win-a-drk/
 categories:

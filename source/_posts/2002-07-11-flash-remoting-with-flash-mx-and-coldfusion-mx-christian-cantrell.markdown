@@ -1,6 +1,7 @@
 ---
 title: 'Flash Remoting with Flash MX and ColdFusion MX : Christian Cantrell'
 author: mikechambers
+date: 2002-07-11 12:13:01 -0800
 layout: post
 permalink: /2002/07/11/flash-remoting-with-flash-mx-and-coldfusion-mx-christian-cantrell/
 categories:

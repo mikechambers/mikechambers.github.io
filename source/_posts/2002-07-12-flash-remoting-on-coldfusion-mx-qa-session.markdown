@@ -1,6 +1,7 @@
 ---
 title: Flash Remoting on ColdFusion MX QA Session
 author: mikechambers
+date: 2002-07-12 12:35:01 -0800
 layout: post
 permalink: /2002/07/12/flash-remoting-on-coldfusion-mx-qa-session/
 categories:

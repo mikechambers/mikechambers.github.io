@@ -1,6 +1,7 @@
 ---
 title: 'New Tech Note : ColdFusion MX: How to pass login credentials to cflogin via Flash Remoting'
 author: mikechambers
+date: 2003-05-28 12:24:01 -0800
 layout: post
 permalink: /2003/05/28/new-tech-note-coldfusion-mx-how-to-pass-login-credentials-to-cflogin-via-flash-remoting/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: ActionScript 3 Class Interface Implementations
 author: mikechambers
+date: 2008-02-29 12:14:01 -0800
 layout: post
 permalink: /2008/02/29/actionscript-3-class-interface-implementations/
 categories:

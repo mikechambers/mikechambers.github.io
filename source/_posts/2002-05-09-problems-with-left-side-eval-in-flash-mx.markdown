@@ -1,6 +1,7 @@
 ---
 title: Problems with left side eval in Flash MX
 author: mikechambers
+date: 2002-05-09 12:29:01 -0800
 layout: post
 permalink: /2002/05/09/problems-with-left-side-eval-in-flash-mx/
 categories:

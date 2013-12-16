@@ -1,6 +1,7 @@
 ---
 title: Studio MX Promotion
 author: mikechambers
+date: 2003-05-20 12:16:01 -0800
 layout: post
 permalink: /2003/05/20/studio-mx-promotion/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Allaire on Rich Internet Applications
 author: mikechambers
+date: 2002-10-11 12:02:01 -0800
 layout: post
 permalink: /2002/10/11/allaire-on-rich-internet-applications/
 categories:

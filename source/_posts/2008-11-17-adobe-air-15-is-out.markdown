@@ -1,6 +1,7 @@
 ---
 title: Adobe AIR 1.5 is out
 author: mikechambers
+date: 2008-11-17 12:18:01 -0800
 layout: post
 permalink: /2008/11/17/adobe-air-15-is-out/
 categories:

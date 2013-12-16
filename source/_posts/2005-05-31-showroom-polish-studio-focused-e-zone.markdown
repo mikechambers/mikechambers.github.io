@@ -1,6 +1,7 @@
 ---
 title: 'showroom : Polish Studio focused e-zone'
 author: mikechambers
+date: 2005-05-31 12:12:01 -0800
 layout: post
 permalink: /2005/05/31/showroom-polish-studio-focused-e-zone/
 categories:

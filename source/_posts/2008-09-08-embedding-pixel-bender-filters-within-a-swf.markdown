@@ -1,6 +1,7 @@
 ---
 title: Embedding Pixel Bender Filters within a SWF
 author: mikechambers
+date: 2008-09-08 12:00:01 -0800
 layout: post
 permalink: /2008/09/08/embedding-pixel-bender-filters-within-a-swf/
 categories:

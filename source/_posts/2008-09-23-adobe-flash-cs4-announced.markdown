@@ -1,6 +1,7 @@
 ---
 title: Adobe Flash CS4 Announced
 author: mikechambers
+date: 2008-09-23 12:51:01 -0800
 layout: post
 permalink: /2008/09/23/adobe-flash-cs4-announced/
 categories:

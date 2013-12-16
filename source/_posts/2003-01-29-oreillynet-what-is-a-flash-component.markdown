@@ -1,6 +1,7 @@
 ---
 title: 'O&#8217;Reilly.net : What is a Flash Component?'
 author: mikechambers
+date: 2003-01-29 12:11:01 -0800
 layout: post
 permalink: /2003/01/29/oreillynet-what-is-a-flash-component/
 categories:

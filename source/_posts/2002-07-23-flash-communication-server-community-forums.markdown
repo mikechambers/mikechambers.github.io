@@ -1,6 +1,7 @@
 ---
 title: Flash Communication Server Community Forums
 author: mikechambers
+date: 2002-07-23 12:38:01 -0800
 layout: post
 permalink: /2002/07/23/flash-communication-server-community-forums/
 categories:

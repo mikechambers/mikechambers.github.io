@@ -1,6 +1,7 @@
 ---
 title: New Flash MX Content at Macromedia.com
 author: mikechambers
+date: 2002-10-01 12:28:01 -0800
 layout: post
 permalink: /2002/10/01/new-flash-mx-content-at-macromediacom-5/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'New Central Articles :  Notices &#038; Accordion Tab'
 author: mikechambers
+date: 2003-12-16 12:02:01 -0800
 layout: post
 permalink: /2003/12/16/new-central-articles-notices-accordion-tab/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Flash Command line compiler soon
 author: mikechambers
+date: 2003-10-23 12:55:01 -0800
 layout: post
 permalink: /2003/10/23/flash-command-line-compiler-soon/
 categories:

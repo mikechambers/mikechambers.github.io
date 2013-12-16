@@ -1,6 +1,7 @@
 ---
 title: Creating a Proxy for Flash using Flash Remoting and ServerSide ActionScript
 author: mikechambers
+date: 2002-05-07 12:42:01 -0800
 layout: post
 permalink: /2002/05/07/creating-a-proxy-for-flash-using-flash-remoting-and-serverside-actionscript/
 categories:

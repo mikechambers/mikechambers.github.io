@@ -1,6 +1,7 @@
 ---
 title: initializing for loop counter outside of loop in ActionScript
 author: mikechambers
+date: 2007-10-23 12:53:01 -0800
 layout: post
 permalink: /2007/10/23/initializing-for-loop-counter-outside-of-loop-in-actionscript/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Apollo Camp Hotel Information
 author: mikechambers
+date: 2007-02-22 12:56:01 -0800
 layout: post
 permalink: /2007/02/22/apollo-camp-hotel-information/
 categories:

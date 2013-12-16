@@ -1,6 +1,7 @@
 ---
 title: Flash Player Switching on Mac
 author: mikechambers
+date: 2006-01-06 12:50:01 -0800
 layout: post
 permalink: /2006/01/06/flash-player-switching-on-mac/
 categories:

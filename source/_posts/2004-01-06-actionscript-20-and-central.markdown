@@ -1,6 +1,7 @@
 ---
 title: ActionScript 2.0 and Central
 author: mikechambers
+date: 2004-01-06 12:20:01 -0800
 layout: post
 permalink: /2004/01/06/actionscript-20-and-central/
 categories:

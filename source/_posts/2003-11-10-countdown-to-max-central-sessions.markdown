@@ -1,6 +1,7 @@
 ---
 title: 'Countdown to Max : Central Sessions'
 author: mikechambers
+date: 2003-11-10 12:17:01 -0800
 layout: post
 permalink: /2003/11/10/countdown-to-max-central-sessions/
 categories:

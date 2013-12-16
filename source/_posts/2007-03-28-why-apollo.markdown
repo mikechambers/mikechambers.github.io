@@ -1,6 +1,7 @@
 ---
 title: Why Apollo?
 author: mikechambers
+date: 2007-03-28 12:51:01 -0800
 layout: post
 permalink: /2007/03/28/why-apollo/
 categories:

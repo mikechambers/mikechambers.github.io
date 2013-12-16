@@ -1,6 +1,7 @@
 ---
 title: Pre Film Festival Reception
 author: mikechambers
+date: 2002-07-11 12:18:01 -0800
 layout: post
 permalink: /2002/07/11/pre-film-festival-reception/
 categories:

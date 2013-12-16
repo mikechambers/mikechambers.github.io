@@ -1,6 +1,7 @@
 ---
 title: Kevin Lynch on Next Generation Flash Player Demo / Video
 author: mikechambers
+date: 2004-10-26 12:21:01 -0800
 layout: post
 permalink: /2004/10/26/kevin-lynch-on-next-generation-flash-player-demo-video/
 categories:

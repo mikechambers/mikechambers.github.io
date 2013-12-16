@@ -1,6 +1,7 @@
 ---
 title: 'flashme : Creating new FLAs from the command line on OS X'
 author: mikechambers
+date: 2004-06-07 12:51:01 -0800
 layout: post
 permalink: /2004/06/07/flashme-creating-new-flas-from-the-command-line-on-os-x/
 categories:

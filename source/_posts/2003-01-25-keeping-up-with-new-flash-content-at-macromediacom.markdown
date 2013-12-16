@@ -1,6 +1,7 @@
 ---
 title: Keeping up with new Flash Content at Macromedia.com
 author: mikechambers
+date: 2003-01-25 12:23:01 -0800
 layout: post
 permalink: /2003/01/25/keeping-up-with-new-flash-content-at-macromediacom/
 categories:

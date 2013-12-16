@@ -1,6 +1,7 @@
 ---
 title: Using Macromedia Flash MX as a multilingual authoring application
 author: mikechambers
+date: 2002-08-26 12:21:01 -0800
 layout: post
 permalink: /2002/08/26/using-macromedia-flash-mx-as-a-multilingual-authoring-application/
 categories:

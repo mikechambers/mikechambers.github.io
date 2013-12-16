@@ -1,6 +1,7 @@
 ---
 title: 'PixelFlow : EaselJS / Canvas Dynamic Graphics Example'
 author: mikechambers
+date: 2011-02-02 12:25:01 -0800
 layout: post
 permalink: /2011/02/02/pixelflow-easeljs-canvas-dynamic-graphics-example/
 categories:

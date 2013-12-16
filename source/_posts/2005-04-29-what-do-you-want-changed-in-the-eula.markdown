@@ -1,6 +1,7 @@
 ---
 title: What do you want changed in the EULA?
 author: mikechambers
+date: 2005-04-29 12:41:01 -0800
 layout: post
 permalink: /2005/04/29/what-do-you-want-changed-in-the-eula/
 categories:

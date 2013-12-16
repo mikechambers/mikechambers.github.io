@@ -1,6 +1,7 @@
 ---
 title: mesh@macromedia.com going away
 author: mikechambers
+date: 2006-01-10 12:57:01 -0800
 layout: post
 permalink: /2006/01/10/meshmacromediacom-going-away/
 categories:

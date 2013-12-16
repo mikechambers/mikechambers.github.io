@@ -1,6 +1,7 @@
 ---
 title: 'Poor Man&#8217;s Log File Parser'
 author: mikechambers
+date: 2006-05-25 12:22:01 -0800
 layout: post
 permalink: /2006/05/25/poor-mans-log-file-parser/
 categories:

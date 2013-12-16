@@ -1,6 +1,7 @@
 ---
 title: 'Flash on Mobile and Embedded Devices : O&#8217;Reilly.com'
 author: mikechambers
+date: 2002-08-05 12:27:01 -0800
 layout: post
 permalink: /2002/08/05/flash-on-mobile-and-embedded-devices-oreillycom/
 categories:

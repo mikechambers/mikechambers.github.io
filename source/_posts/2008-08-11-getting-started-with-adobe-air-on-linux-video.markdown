@@ -1,6 +1,7 @@
 ---
 title: Getting Started with Adobe AIR on Linux (Video)
 author: mikechambers
+date: 2008-08-11 12:22:01 -0800
 layout: post
 permalink: /2008/08/11/getting-started-with-adobe-air-on-linux-video/
 categories:

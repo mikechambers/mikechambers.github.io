@@ -1,6 +1,7 @@
 ---
 title: Some personal thoughts on Apple and the trend towards closed platforms
 author: mikechambers
+date: 2010-01-28 12:51:01 -0800
 layout: post
 permalink: /2010/01/28/some-personal-thoughts-on-apple-and-the-trend-towards-closed-platforms/
 categories:

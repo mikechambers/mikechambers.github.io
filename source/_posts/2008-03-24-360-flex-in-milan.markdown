@@ -1,6 +1,7 @@
 ---
 title: 360 Flex in Milan
 author: mikechambers
+date: 2008-03-24 12:48:01 -0800
 layout: post
 permalink: /2008/03/24/360-flex-in-milan/
 categories:

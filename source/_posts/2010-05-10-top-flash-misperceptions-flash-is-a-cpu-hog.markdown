@@ -1,6 +1,7 @@
 ---
 title: 'Top Flash Misperceptions : Flash is a CPU Hog'
 author: mikechambers
+date: 2010-05-10 12:55:01 -0800
 layout: post
 permalink: /2010/05/10/top-flash-misperceptions-flash-is-a-cpu-hog/
 categories:

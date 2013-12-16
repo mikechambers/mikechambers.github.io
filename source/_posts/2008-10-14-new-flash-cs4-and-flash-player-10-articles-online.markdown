@@ -1,6 +1,7 @@
 ---
 title: New Flash CS4 and Flash Player 10 Articles online
 author: mikechambers
+date: 2008-10-14 12:08:01 -0800
 layout: post
 permalink: /2008/10/14/new-flash-cs4-and-flash-player-10-articles-online/
 categories:

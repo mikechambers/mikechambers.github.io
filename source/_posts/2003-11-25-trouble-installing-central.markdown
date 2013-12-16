@@ -1,6 +1,7 @@
 ---
 title: Trouble Installing Central
 author: mikechambers
+date: 2003-11-25 12:14:01 -0800
 layout: post
 permalink: /2003/11/25/trouble-installing-central/
 categories:

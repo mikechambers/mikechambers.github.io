@@ -1,6 +1,7 @@
 ---
 title: AsDoc (AS3 Doc Generating Tool) on Labs
 author: mikechambers
+date: 2006-08-14 12:13:01 -0800
 layout: post
 permalink: /2006/08/14/asdoc-as3-doc-generating-tool-on-labs/
 categories:

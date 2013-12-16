@@ -1,6 +1,7 @@
 ---
 title: Product Manager for Developer Relations for the Flash Platform
 author: mikechambers
+date: 2004-06-15 12:36:01 -0800
 layout: post
 permalink: /2004/06/15/product-manager-for-developer-relations-for-the-flash-platform/
 categories:

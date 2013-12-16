@@ -1,6 +1,7 @@
 ---
 title: Speaking at Flash on the Beach Brighton
 author: mikechambers
+date: 2009-07-14 12:51:01 -0800
 layout: post
 permalink: /2009/07/14/speaking-at-flash-on-the-beach-brighton/
 categories:

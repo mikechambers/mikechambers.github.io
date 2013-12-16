@@ -1,6 +1,7 @@
 ---
 title: Subclassing the mx:Application Tag in Flex
 author: mikechambers
+date: 2004-10-08 12:40:01 -0800
 layout: post
 permalink: /2004/10/08/subclassing-the-mxapplication-tag-in-flex/
 categories:

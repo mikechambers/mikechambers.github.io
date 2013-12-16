@@ -1,6 +1,7 @@
 ---
 title: Can I contribute to wikipedia?
 author: mikechambers
+date: 2005-04-11 12:48:01 -0800
 layout: post
 permalink: /2005/04/11/can-i-contribute-to-wikipedia/
 categories:

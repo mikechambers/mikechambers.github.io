@@ -1,6 +1,7 @@
 ---
 title: 'Blogging for Dollars: Giving Rise to the Professional Blogger'
 author: mikechambers
+date: 2002-08-13 12:01:01 -0800
 layout: post
 permalink: /2002/08/13/blogging-for-dollars-giving-rise-to-the-professional-blogger/
 categories:

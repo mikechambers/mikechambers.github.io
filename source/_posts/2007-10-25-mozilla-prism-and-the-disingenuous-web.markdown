@@ -1,6 +1,7 @@
 ---
 title: Mozilla Prism and the disingenuous web
 author: mikechambers
+date: 2007-10-25 12:11:01 -0800
 layout: post
 permalink: /2007/10/25/mozilla-prism-and-the-disingenuous-web/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'JTV Live : A Google Chrome Extension for Justin.tv'
 author: mikechambers
+date: 2011-07-06 12:59:01 -0800
 layout: post
 permalink: /2011/07/06/jtv-live-a-google-chrome-extension-for-justin-tv/
 s2mail:

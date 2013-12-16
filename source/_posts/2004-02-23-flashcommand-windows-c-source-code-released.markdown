@@ -1,6 +1,7 @@
 ---
 title: 'FlashCommand Windows C# Source Code released'
 author: mikechambers
+date: 2004-02-23 12:35:01 -0800
 layout: post
 permalink: /2004/02/23/flashcommand-windows-c-source-code-released/
 categories:

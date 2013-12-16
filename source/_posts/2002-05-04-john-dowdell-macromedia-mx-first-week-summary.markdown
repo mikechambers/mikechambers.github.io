@@ -1,6 +1,7 @@
 ---
 title: 'John Dowdell : Macromedia MX First week summary'
 author: mikechambers
+date: 2002-05-04 12:04:01 -0800
 layout: post
 permalink: /2002/05/04/john-dowdell-macromedia-mx-first-week-summary/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: New Apollo Screenshots and Information
 author: mikechambers
+date: 2006-10-01 12:46:01 -0800
 layout: post
 permalink: /2006/10/01/new-apollo-screenshots-and-information/
 categories:

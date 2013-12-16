@@ -1,6 +1,7 @@
 ---
 title: New Boston Macromedia Flash User Group
 author: mikechambers
+date: 2002-07-15 12:34:01 -0800
 layout: post
 permalink: /2002/07/15/new-boston-macromedia-flash-user-group/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Video Update 1.2 for Flash MX Professional 2004
 author: mikechambers
+date: 2004-02-06 12:50:01 -0800
 layout: post
 permalink: /2004/02/06/video-update-12-for-flash-mx-professional-2004/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Macromedia Acquires Presedia
 author: mikechambers
+date: 2003-01-16 12:19:01 -0800
 layout: post
 permalink: /2003/01/16/macromedia-acquires-presedia/
 categories:

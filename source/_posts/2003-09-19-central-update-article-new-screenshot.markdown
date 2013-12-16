@@ -1,6 +1,7 @@
 ---
 title: Central Update Article / New Screenshot
 author: mikechambers
+date: 2003-09-19 12:11:01 -0800
 layout: post
 permalink: /2003/09/19/central-update-article-new-screenshot/
 categories:

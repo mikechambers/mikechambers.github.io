@@ -1,6 +1,7 @@
 ---
 title: ActionScript 3 Language Specification Draft
 author: mikechambers
+date: 2006-02-28 12:33:01 -0800
 layout: post
 permalink: /2006/02/28/actionscript-3-language-specification-draft/
 categories:

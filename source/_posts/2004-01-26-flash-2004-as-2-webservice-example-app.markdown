@@ -1,6 +1,7 @@
 ---
 title: Flash 2004 / AS 2 WebService Example App
 author: mikechambers
+date: 2004-01-26 12:07:01 -0800
 layout: post
 permalink: /2004/01/26/flash-2004-as-2-webservice-example-app/
 categories:

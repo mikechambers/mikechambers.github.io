@@ -1,6 +1,7 @@
 ---
 title: 'My MAX Session has Changed / Now about AOL &#8211; Central SDK'
 author: mikechambers
+date: 2003-11-19 12:22:01 -0800
 layout: post
 permalink: /2003/11/19/my-max-session-has-changed-now-about-aol-central-sdk/
 categories:

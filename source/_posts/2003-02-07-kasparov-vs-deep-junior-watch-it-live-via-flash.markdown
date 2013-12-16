@@ -1,6 +1,7 @@
 ---
 title: 'Kasparov vs Deep Junior : Watch it Live via Flash'
 author: mikechambers
+date: 2003-02-07 12:22:01 -0800
 layout: post
 permalink: /2003/02/07/kasparov-vs-deep-junior-watch-it-live-via-flash/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: CFMX / Flash Remoting for OS X
 author: mikechambers
+date: 2003-01-07 12:57:01 -0800
 layout: post
 permalink: /2003/01/07/cfmx-flash-remoting-for-os-x/
 categories:

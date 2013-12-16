@@ -1,6 +1,7 @@
 ---
 title: 'Chart : FlexCoder&#8217;s List Historical Post Trends'
 author: mikechambers
+date: 2006-04-11 12:55:01 -0800
 layout: post
 permalink: /2006/04/11/chart-flexcoders-list-historical-post-trends/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: TattleTale for MAC OS X Preview / Beta
 author: mikechambers
+date: 2004-08-25 12:23:01 -0800
 layout: post
 permalink: /2004/08/25/tattletale-for-mac-os-x-preview-beta/
 categories:

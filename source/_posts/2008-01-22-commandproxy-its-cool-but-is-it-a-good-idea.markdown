@@ -1,6 +1,7 @@
 ---
 title: 'CommandProxy : It&#8217;s cool, but is it a good idea?'
 author: mikechambers
+date: 2008-01-22 12:01:01 -0800
 layout: post
 permalink: /2008/01/22/commandproxy-its-cool-but-is-it-a-good-idea/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Pixel Mesh on Why Max
 author: mikechambers
+date: 2009-09-29 12:59:01 -0800
 layout: post
 permalink: /2009/09/29/pixel-mesh-on-why-max/
 categories:

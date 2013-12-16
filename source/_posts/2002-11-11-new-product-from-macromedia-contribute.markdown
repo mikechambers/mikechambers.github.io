@@ -1,6 +1,7 @@
 ---
 title: 'New Product from Macromedia : Contribute'
 author: mikechambers
+date: 2002-11-11 12:24:01 -0800
 layout: post
 permalink: /2002/11/11/new-product-from-macromedia-contribute/
 categories:

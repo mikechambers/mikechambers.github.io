@@ -1,6 +1,7 @@
 ---
 title: Heading to the East Coast for the next two weeks
 author: mikechambers
+date: 2007-08-09 12:56:01 -0800
 layout: post
 permalink: /2007/08/09/heading-to-the-east-coast-for-the-next-two-weeks/
 categories:

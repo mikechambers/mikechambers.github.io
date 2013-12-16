@@ -1,6 +1,7 @@
 ---
 title: Flash MX Developer Certification Update
 author: mikechambers
+date: 2002-08-28 12:29:01 -0800
 layout: post
 permalink: /2002/08/28/flash-mx-developer-certification-update/
 categories:

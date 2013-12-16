@@ -1,6 +1,7 @@
 ---
 title: Growl support for Adobe AIR applications
 author: mikechambers
+date: 2008-11-13 12:35:01 -0800
 layout: post
 permalink: /2008/11/13/growl-support-for-adobe-air-applications/
 categories:

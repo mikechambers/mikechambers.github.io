@@ -1,6 +1,7 @@
 ---
 title: Flash Forward NYC 2003
 author: mikechambers
+date: 2003-07-08 12:07:01 -0800
 layout: post
 permalink: /2003/07/08/flash-forward-nyc-2003/
 categories:

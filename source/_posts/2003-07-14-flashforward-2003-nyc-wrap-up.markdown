@@ -1,6 +1,7 @@
 ---
 title: FlashForward 2003 NYC Wrap-up
 author: mikechambers
+date: 2003-07-14 12:20:01 -0800
 layout: post
 permalink: /2003/07/14/flashforward-2003-nyc-wrap-up/
 categories:

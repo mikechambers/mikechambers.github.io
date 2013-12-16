@@ -1,6 +1,7 @@
 ---
 title: European Flash Conference in Amsterdam this November
 author: mikechambers
+date: 2005-09-19 12:14:01 -0800
 layout: post
 permalink: /2005/09/19/european-flash-conference-in-amsterdam-this-november/
 categories:

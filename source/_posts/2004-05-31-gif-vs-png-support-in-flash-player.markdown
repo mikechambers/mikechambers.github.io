@@ -1,6 +1,7 @@
 ---
 title: GIF vs PNG support in Flash Player
 author: mikechambers
+date: 2004-05-31 12:06:01 -0800
 layout: post
 permalink: /2004/05/31/gif-vs-png-support-in-flash-player/
 categories:

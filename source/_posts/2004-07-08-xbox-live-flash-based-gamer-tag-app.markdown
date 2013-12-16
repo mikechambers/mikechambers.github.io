@@ -1,6 +1,7 @@
 ---
 title: XBox Live Flash based gamer tag app
 author: mikechambers
+date: 2004-07-08 12:48:01 -0800
 layout: post
 permalink: /2004/07/08/xbox-live-flash-based-gamer-tag-app/
 categories:

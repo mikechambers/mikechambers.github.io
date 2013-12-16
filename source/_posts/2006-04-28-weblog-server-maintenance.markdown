@@ -1,6 +1,7 @@
 ---
 title: Weblog Server Maintenance
 author: mikechambers
+date: 2006-04-28 12:52:01 -0800
 layout: post
 permalink: /2006/04/28/weblog-server-maintenance/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Customize the default AIR application descriptor xml file in Flex Builder beta
 author: mikechambers
+date: 2007-10-02 12:58:01 -0800
 layout: post
 permalink: /2007/10/02/customize-the-default-air-application-descriptor-xml-file-in-flex-builder-beta/
 categories:

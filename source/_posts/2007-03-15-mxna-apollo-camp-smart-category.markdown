@@ -1,6 +1,7 @@
 ---
 title: MXNA Apollo Camp Smart Category
 author: mikechambers
+date: 2007-03-15 12:17:01 -0800
 layout: post
 permalink: /2007/03/15/mxna-apollo-camp-smart-category/
 categories:

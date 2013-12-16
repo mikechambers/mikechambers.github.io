@@ -1,6 +1,7 @@
 ---
 title: 'Halo 3 iPhone Application : Timetrocity'
 author: mikechambers
+date: 2009-03-11 12:07:01 -0800
 layout: post
 permalink: /2009/03/11/halo-3-iphone-application-timetrocity/
 categories:

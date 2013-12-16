@@ -1,6 +1,7 @@
 ---
 title: Flash MX Reference Panel in Dreamweaver
 author: mikechambers
+date: 2002-09-04 12:58:01 -0800
 layout: post
 permalink: /2002/09/04/flash-mx-reference-panel-in-dreamweaver/
 categories:

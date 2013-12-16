@@ -1,6 +1,7 @@
 ---
 title: New ASO Cache Clearing Commands
 author: mikechambers
+date: 2004-07-27 12:10:01 -0800
 layout: post
 permalink: /2004/07/27/new-aso-cache-clearing-commands/
 categories:

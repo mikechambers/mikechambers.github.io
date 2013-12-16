@@ -1,6 +1,7 @@
 ---
 title: Beta Macromedia Resource 1.0 RSS Feed
 author: mikechambers
+date: 2003-02-11 12:19:01 -0800
 layout: post
 permalink: /2003/02/11/beta-macromedia-resource-10-rss-feed/
 categories:

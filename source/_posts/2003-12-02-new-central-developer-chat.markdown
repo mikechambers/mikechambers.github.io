@@ -1,6 +1,7 @@
 ---
 title: New Central Developer Chat
 author: mikechambers
+date: 2003-12-02 12:38:01 -0800
 layout: post
 permalink: /2003/12/02/new-central-developer-chat/
 categories:

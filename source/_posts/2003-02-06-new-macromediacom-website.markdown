@@ -1,6 +1,7 @@
 ---
 title: New Macromedia.com Website
 author: mikechambers
+date: 2003-02-06 12:54:01 -0800
 layout: post
 permalink: /2003/02/06/new-macromediacom-website/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Announcing Apollo Camp San Francisco
 author: mikechambers
+date: 2007-02-20 12:01:01 -0800
 layout: post
 permalink: /2007/02/20/announcing-apollo-camp-san-francisco/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Royale FAQ / info on-line
 author: mikechambers
+date: 2003-06-12 12:51:01 -0800
 layout: post
 permalink: /2003/06/12/royale-faq-info-on-line/
 categories:

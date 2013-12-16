@@ -1,6 +1,7 @@
 ---
 title: 'turl &#8211; Mac Command Line tool for creating smaller URLs'
 author: mikechambers
+date: 2007-10-26 12:30:01 -0800
 layout: post
 permalink: /2007/10/26/turl-mac-command-line-tool-for-creating-smaller-urls/
 categories:

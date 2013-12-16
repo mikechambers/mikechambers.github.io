@@ -1,6 +1,7 @@
 ---
 title: eBay on Apollo
 author: mikechambers
+date: 2006-12-13 12:10:01 -0800
 layout: post
 permalink: /2006/12/13/ebay-on-apollo/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Couple of new Flash Articles at DevNet Center
 author: mikechambers
+date: 2003-05-27 12:51:01 -0800
 layout: post
 permalink: /2003/05/27/couple-of-new-flash-articles-at-devnet-center/
 categories:

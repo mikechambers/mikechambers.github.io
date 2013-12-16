@@ -1,6 +1,7 @@
 ---
 title: JXL LMAO
 author: mikechambers
+date: 2005-06-30 12:36:01 -0800
 layout: post
 permalink: /2005/06/30/jxl-lmao/
 categories:

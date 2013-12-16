@@ -1,6 +1,7 @@
 ---
 title: 'E4X : Retrieving a sibling of a node'
 author: mikechambers
+date: 2006-08-17 12:26:01 -0800
 layout: post
 permalink: /2006/08/17/e4x-retrieving-a-sibling-of-a-node/
 categories:

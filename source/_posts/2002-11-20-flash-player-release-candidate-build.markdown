@@ -1,6 +1,7 @@
 ---
 title: Flash Player Release Candidate Build
 author: mikechambers
+date: 2002-11-20 12:24:01 -0800
 layout: post
 permalink: /2002/11/20/flash-player-release-candidate-build/
 categories:

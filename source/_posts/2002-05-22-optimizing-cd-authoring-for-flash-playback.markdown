@@ -1,6 +1,7 @@
 ---
 title: Optimizing CD authoring for Flash playback
 author: mikechambers
+date: 2002-05-22 12:51:01 -0800
 layout: post
 permalink: /2002/05/22/optimizing-cd-authoring-for-flash-playback/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: How to apply for the 8ball Beta
 author: mikechambers
+date: 2004-10-25 12:22:01 -0800
 layout: post
 permalink: /2004/10/25/how-to-apply-for-the-8ball-beta/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Memorial Day Weekend Holiday
 author: mikechambers
+date: 2002-05-27 12:07:01 -0800
 layout: post
 permalink: /2002/05/27/memorial-day-weekend-holiday/
 categories:

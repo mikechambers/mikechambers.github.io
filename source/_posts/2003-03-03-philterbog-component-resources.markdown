@@ -1,6 +1,7 @@
 ---
 title: 'PhilterBog : Component Resources'
 author: mikechambers
+date: 2003-03-03 12:40:01 -0800
 layout: post
 permalink: /2003/03/03/philterbog-component-resources/
 categories:

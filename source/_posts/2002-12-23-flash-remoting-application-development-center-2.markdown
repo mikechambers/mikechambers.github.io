@@ -1,6 +1,7 @@
 ---
 title: Flash Remoting Application Development Center
 author: mikechambers
+date: 2002-12-23 12:52:01 -0800
 layout: post
 permalink: /2002/12/23/flash-remoting-application-development-center-2/
 categories:

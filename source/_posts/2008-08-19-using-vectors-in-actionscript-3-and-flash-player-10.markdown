@@ -1,6 +1,7 @@
 ---
 title: Using Vectors in ActionScript 3 and Flash Player 10
 author: mikechambers
+date: 2008-08-19 12:27:01 -0800
 layout: post
 permalink: /2008/08/19/using-vectors-in-actionscript-3-and-flash-player-10/
 categories:

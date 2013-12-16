@@ -1,6 +1,7 @@
 ---
 title: Apollo Alpha Available on Labs
 author: mikechambers
+date: 2007-03-18 12:08:01 -0800
 layout: post
 permalink: /2007/03/18/apollo-alpha-available-on-labs/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 'Example : Integrating Flash MX and Radio'
 author: mikechambers
+date: 2002-05-05 12:12:01 -0800
 layout: post
 permalink: /2002/05/05/example-integrating-flash-mx-and-radio/
 categories:

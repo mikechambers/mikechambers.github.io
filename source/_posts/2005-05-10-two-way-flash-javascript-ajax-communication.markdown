@@ -1,6 +1,7 @@
 ---
 title: Two Way Flash / JavaScript Ajax Communication
 author: mikechambers
+date: 2005-05-10 12:41:01 -0800
 layout: post
 permalink: /2005/05/10/two-way-flash-javascript-ajax-communication/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: On my way to MAX
 author: mikechambers
+date: 2004-11-01 12:14:01 -0800
 layout: post
 permalink: /2004/11/01/on-my-way-to-max/
 categories:

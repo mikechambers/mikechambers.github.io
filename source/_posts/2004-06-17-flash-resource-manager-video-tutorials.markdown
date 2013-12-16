@@ -1,6 +1,7 @@
 ---
 title: Flash Resource Manager Video Tutorials
 author: mikechambers
+date: 2004-06-17 12:20:01 -0800
 layout: post
 permalink: /2004/06/17/flash-resource-manager-video-tutorials/
 categories:

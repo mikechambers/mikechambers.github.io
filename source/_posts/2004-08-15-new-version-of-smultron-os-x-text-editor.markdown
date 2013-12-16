@@ -1,6 +1,7 @@
 ---
 title: 'New Version of Smultron : OS X Text Editor'
 author: mikechambers
+date: 2004-08-15 12:05:01 -0800
 layout: post
 permalink: /2004/08/15/new-version-of-smultron-os-x-text-editor/
 categories:

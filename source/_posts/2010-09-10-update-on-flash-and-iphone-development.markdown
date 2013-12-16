@@ -1,6 +1,7 @@
 ---
 title: Update on Flash and iPhone development
 author: mikechambers
+date: 2010-09-10 12:22:01 -0800
 layout: post
 permalink: /2010/09/10/update-on-flash-and-iphone-development/
 categories:

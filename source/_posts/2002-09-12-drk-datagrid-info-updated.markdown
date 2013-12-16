@@ -1,6 +1,7 @@
 ---
 title: 'DRK : DataGrid info updated'
 author: mikechambers
+date: 2002-09-12 12:51:01 -0800
 layout: post
 permalink: /2002/09/12/drk-datagrid-info-updated/
 categories:

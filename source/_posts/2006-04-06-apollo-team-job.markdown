@@ -1,6 +1,7 @@
 ---
 title: Apollo Team Job
 author: mikechambers
+date: 2006-04-06 12:14:01 -0800
 layout: post
 permalink: /2006/04/06/apollo-team-job/
 categories:

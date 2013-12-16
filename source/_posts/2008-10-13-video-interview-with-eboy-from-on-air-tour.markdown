@@ -1,6 +1,7 @@
 ---
 title: Video interview with eBoy from on AIR Tour
 author: mikechambers
+date: 2008-10-13 12:31:01 -0800
 layout: post
 permalink: /2008/10/13/video-interview-with-eboy-from-on-air-tour/
 categories:

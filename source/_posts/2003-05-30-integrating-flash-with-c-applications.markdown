@@ -1,6 +1,7 @@
 ---
 title: 'Integrating Flash with C# Applications'
 author: mikechambers
+date: 2003-05-30 12:05:01 -0800
 layout: post
 permalink: /2003/05/30/integrating-flash-with-c-applications/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Adobe AIR Error Codes
 author: mikechambers
+date: 2008-08-26 12:10:01 -0800
 layout: post
 permalink: /2008/08/26/adobe-air-error-codes/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: New Drawing Article from Helen Triolo
 author: mikechambers
+date: 2003-05-15 12:52:01 -0800
 layout: post
 permalink: /2003/05/15/new-drawing-article-from-helen-triolo/
 categories:

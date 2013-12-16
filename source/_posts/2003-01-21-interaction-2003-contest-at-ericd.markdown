@@ -1,6 +1,7 @@
 ---
 title: Interaction 2003 Contest at ericd
 author: mikechambers
+date: 2003-01-21 12:47:01 -0800
 layout: post
 permalink: /2003/01/21/interaction-2003-contest-at-ericd/
 categories:

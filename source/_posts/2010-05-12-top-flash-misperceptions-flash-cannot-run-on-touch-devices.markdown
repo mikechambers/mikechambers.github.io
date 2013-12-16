@@ -1,6 +1,7 @@
 ---
 title: 'Top Flash Misperceptions : Flash cannot run on touch devices'
 author: mikechambers
+date: 2010-05-12 12:24:01 -0800
 layout: post
 permalink: /2010/05/12/top-flash-misperceptions-flash-cannot-run-on-touch-devices/
 categories:

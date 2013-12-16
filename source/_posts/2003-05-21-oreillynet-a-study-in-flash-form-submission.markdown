@@ -1,6 +1,7 @@
 ---
 title: 'Oreilly.net : A Study in Flash Form Submission'
 author: mikechambers
+date: 2003-05-21 12:22:01 -0800
 layout: post
 permalink: /2003/05/21/oreillynet-a-study-in-flash-form-submission/
 categories:

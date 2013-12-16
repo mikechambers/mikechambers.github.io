@@ -1,6 +1,7 @@
 ---
 title: New Flash Articles at DevMX
 author: mikechambers
+date: 2003-01-20 12:33:01 -0800
 layout: post
 permalink: /2003/01/20/new-flash-articles-at-devmx/
 categories:

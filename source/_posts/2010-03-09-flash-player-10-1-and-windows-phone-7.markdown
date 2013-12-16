@@ -1,6 +1,7 @@
 ---
 title: Flash Player 10.1 and Windows Phone 7
 author: mikechambers
+date: 2010-03-09 12:21:01 -0800
 layout: post
 permalink: /2010/03/09/flash-player-10-1-and-windows-phone-7/
 categories:

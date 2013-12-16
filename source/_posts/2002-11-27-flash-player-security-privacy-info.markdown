@@ -1,6 +1,7 @@
 ---
 title: Flash Player Security / Privacy info
 author: mikechambers
+date: 2002-11-27 12:32:01 -0800
 layout: post
 permalink: /2002/11/27/flash-player-security-privacy-info/
 categories:

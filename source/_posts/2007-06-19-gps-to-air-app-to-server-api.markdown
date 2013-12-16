@@ -1,6 +1,7 @@
 ---
 title: GPS to AIR app to server API
 author: mikechambers
+date: 2007-06-19 12:05:01 -0800
 layout: post
 permalink: /2007/06/19/gps-to-air-app-to-server-api/
 categories:

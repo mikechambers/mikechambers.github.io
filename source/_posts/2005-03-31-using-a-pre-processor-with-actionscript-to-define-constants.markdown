@@ -1,6 +1,7 @@
 ---
 title: Using a Pre-processor with ActionScript to define constants
 author: mikechambers
+date: 2005-03-31 12:12:01 -0800
 layout: post
 permalink: /2005/03/31/using-a-pre-processor-with-actionscript-to-define-constants/
 categories:

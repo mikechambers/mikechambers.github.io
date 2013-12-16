@@ -1,6 +1,7 @@
 ---
 title: Example loading data from a data base into Flash MX with Flash Remoting and CF MX
 author: mikechambers
+date: 2002-04-29 12:55:01 -0800
 layout: post
 permalink: /2002/04/29/example-loading-data-from-a-data-base-into-flash-mx-with-flash-remoting-and-cf-mx/
 categories:

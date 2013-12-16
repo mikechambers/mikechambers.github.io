@@ -1,6 +1,7 @@
 ---
 title: 'Tweetr : Sweet Apollo Based Twitter Application'
 author: mikechambers
+date: 2007-04-27 12:15:01 -0800
 layout: post
 permalink: /2007/04/27/tweetr-sweet-apollo-based-twitter-application/
 categories:

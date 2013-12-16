@@ -1,6 +1,7 @@
 ---
 title: Why I love the Flash Community
 author: mikechambers
+date: 2008-09-16 12:45:01 -0800
 layout: post
 permalink: /2008/09/16/why-i-love-the-flash-community/
 categories:

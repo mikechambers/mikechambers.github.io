@@ -1,6 +1,7 @@
 ---
 title: 'Updated turl : command line url shortener (with bit.ly support)'
 author: mikechambers
+date: 2008-07-10 12:58:01 -0800
 layout: post
 permalink: /2008/07/10/updated-turl-command-line-url-shortener-with-bitly-support/
 categories:

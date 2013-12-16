@@ -1,6 +1,7 @@
 ---
 title: TattleTale for Windows Preview / Beta
 author: mikechambers
+date: 2004-08-26 12:47:01 -0800
 layout: post
 permalink: /2004/08/26/tattletale-for-windows-preview-beta/
 categories:

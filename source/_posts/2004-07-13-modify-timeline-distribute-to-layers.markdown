@@ -1,6 +1,7 @@
 ---
 title: 'Modify > Timeline > Distribute to Layers'
 author: mikechambers
+date: 2004-07-13 12:42:01 -0800
 layout: post
 permalink: /2004/07/13/modify-timeline-distribute-to-layers/
 categories:

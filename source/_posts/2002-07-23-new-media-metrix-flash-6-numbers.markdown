@@ -1,6 +1,7 @@
 ---
 title: New Media Metrix Flash 6 numbers
 author: mikechambers
+date: 2002-07-23 12:39:01 -0800
 layout: post
 permalink: /2002/07/23/new-media-metrix-flash-6-numbers/
 categories:

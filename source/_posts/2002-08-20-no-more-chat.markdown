@@ -1,6 +1,7 @@
 ---
 title: No more Chat?
 author: mikechambers
+date: 2002-08-20 12:42:01 -0800
 layout: post
 permalink: /2002/08/20/no-more-chat/
 categories:

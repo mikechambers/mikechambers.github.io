@@ -1,6 +1,7 @@
 ---
 title: Macromedia Application Development Center for ASP.NET
 author: mikechambers
+date: 2002-07-08 12:00:01 -0800
 layout: post
 permalink: /2002/07/08/macromedia-application-development-center-for-aspnet/
 categories:

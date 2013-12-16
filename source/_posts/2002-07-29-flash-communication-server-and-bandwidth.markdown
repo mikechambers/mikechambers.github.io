@@ -1,6 +1,7 @@
 ---
 title: Flash Communication Server and Bandwidth
 author: mikechambers
+date: 2002-07-29 12:32:01 -0800
 layout: post
 permalink: /2002/07/29/flash-communication-server-and-bandwidth/
 categories:

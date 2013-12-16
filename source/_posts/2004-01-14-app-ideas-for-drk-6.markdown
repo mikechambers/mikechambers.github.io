@@ -1,6 +1,7 @@
 ---
 title: App Ideas for DRK 6?
 author: mikechambers
+date: 2004-01-14 12:12:01 -0800
 layout: post
 permalink: /2004/01/14/app-ideas-for-drk-6/
 categories:

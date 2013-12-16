@@ -1,6 +1,7 @@
 ---
 title: History of Macromedia Flash
 author: mikechambers
+date: 2002-05-07 12:24:01 -0800
 layout: post
 permalink: /2002/05/07/history-of-macromedia-flash/
 categories:

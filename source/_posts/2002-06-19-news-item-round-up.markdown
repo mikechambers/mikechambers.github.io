@@ -1,6 +1,7 @@
 ---
 title: News Item Round-up
 author: mikechambers
+date: 2002-06-19 12:49:01 -0800
 layout: post
 permalink: /2002/06/19/news-item-round-up/
 categories:

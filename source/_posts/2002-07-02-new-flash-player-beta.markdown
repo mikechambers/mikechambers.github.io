@@ -1,6 +1,7 @@
 ---
 title: New Flash Player Beta
 author: mikechambers
+date: 2002-07-02 12:24:01 -0800
 layout: post
 permalink: /2002/07/02/new-flash-player-beta/
 categories:

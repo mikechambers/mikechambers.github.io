@@ -1,6 +1,7 @@
 ---
 title: ColdFusion content on DRK 3
 author: mikechambers
+date: 2003-04-22 12:42:01 -0800
 layout: post
 permalink: /2003/04/22/coldfusion-content-on-drk-3/
 categories:

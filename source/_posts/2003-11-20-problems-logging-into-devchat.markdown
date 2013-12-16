@@ -1,6 +1,7 @@
 ---
 title: Problems logging into DevChat?
 author: mikechambers
+date: 2003-11-20 12:38:01 -0800
 layout: post
 permalink: /2003/11/20/problems-logging-into-devchat/
 categories:

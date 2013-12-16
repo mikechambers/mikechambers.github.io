@@ -1,6 +1,7 @@
 ---
 title: EaselJS / Canvas Generative Graphics Flickr Set
 author: mikechambers
+date: 2011-01-26 12:17:01 -0800
 layout: post
 permalink: /2011/01/26/easeljs-canvas-generative-graphics-flickr-set/
 categories:

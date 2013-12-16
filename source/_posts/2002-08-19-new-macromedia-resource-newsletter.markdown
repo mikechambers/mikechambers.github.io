@@ -1,6 +1,7 @@
 ---
 title: New Macromedia Resource Newsletter
 author: mikechambers
+date: 2002-08-19 12:25:01 -0800
 layout: post
 permalink: /2002/08/19/new-macromedia-resource-newsletter/
 categories:

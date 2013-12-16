@@ -1,6 +1,7 @@
 ---
 title: Lack of Updates and an Update
 author: mikechambers
+date: 2004-07-05 12:55:01 -0800
 layout: post
 permalink: /2004/07/05/lack-of-updates-and-an-update/
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Greetings from Salt Lake City
 author: mikechambers
+date: 2003-11-18 12:42:01 -0800
 layout: post
 permalink: /2003/11/18/greetings-from-salt-lake-city/
 categories:

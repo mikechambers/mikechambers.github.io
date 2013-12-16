@@ -1,6 +1,7 @@
 ---
 title: New Finnish Flash Community Site
 author: mikechambers
+date: 2002-09-04 12:31:01 -0800
 layout: post
 permalink: /2002/09/04/new-finnish-flash-community-site/
 categories:

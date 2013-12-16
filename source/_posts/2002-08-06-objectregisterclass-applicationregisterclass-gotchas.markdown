@@ -1,6 +1,7 @@
 ---
 title: 'Object.registerClass / application.registerClass Gotcha&#8217;s'
 author: mikechambers
+date: 2002-08-06 12:06:01 -0800
 layout: post
 permalink: /2002/08/06/objectregisterclass-applicationregisterclass-gotchas/
 categories:

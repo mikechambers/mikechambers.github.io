@@ -1,6 +1,7 @@
 ---
 title: Central SDK Video Tutorial
 author: mikechambers
+date: 2003-10-23 12:21:01 -0800
 layout: post
 permalink: /2003/10/23/central-sdk-video-tutorial/
 categories:
