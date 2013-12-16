@@ -18,278 +18,275 @@ If you have read my blog any [this][1] [week][2], you have probably noticed that
   
 First, the test code (uses Flash Pro). clip1 and clip2 reference two overlapping MovieClips on the stage (clip2 is about 1/2 the size of clip1).
 
-<div class="highlight">
-  <pre>package
+``` actionscript
+package
 {
-	<span style="color: #008000; font-weight: bold">import</span> flash.display.<span style="color: #008000">MovieClip</span><span style="color: #666666">;</span>
-	<span style="color: #008000; font-weight: bold">import</span> flash.geom.<span style="color: #008000">Point</span><span style="color: #666666">;</span>
-	<span style="color: #008000; font-weight: bold">import</span> flash.display.Bitmap<span style="color: #666666">;</span>
-	<span style="color: #008000; font-weight: bold">import</span> flash.display.<span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
-	<span style="color: #008000; font-weight: bold">import</span> flash.geom.<span style="color: #008000">Rectangle</span><span style="color: #666666">;</span>
+	import flash.display.MovieClip;
+	import flash.geom.Point;
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	import flash.geom.Rectangle;
 	
-	<span style="color: #008000; font-weight: bold">import</span> com.gskinner.utils.PerformanceTest<span style="color: #666666">;</span>
+	import com.gskinner.utils.PerformanceTest;
 
-	<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> CollisionDetectionTests <span style="color: #008000; font-weight: bold">extends</span> <span style="color: #008000">MovieClip</span>
+	public class CollisionDetectionTests extends MovieClip
 	{
-		<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">var</span> clip1<span style="color: #666666">:</span><span style="color: #008000">MovieClip</span><span style="color: #666666">;</span>
-		<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">var</span> clip2<span style="color: #666666">:</span><span style="color: #008000">MovieClip</span><span style="color: #666666">;</span>
+		public var clip1:MovieClip;
+		public var clip2:MovieClip;
 	
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> dynamicClip1<span style="color: #666666">:</span><span style="color: #008000">MovieClip</span><span style="color: #666666">;</span>
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> dynamicClip2<span style="color: #666666">:</span><span style="color: #008000">MovieClip</span><span style="color: #666666">;</span>	
+		private var dynamicClip1:MovieClip;
+		private var dynamicClip2:MovieClip;	
 	
-		<span style="color: #008000; font-weight: bold">var</span> point1<span style="color: #666666">:</span><span style="color: #008000">Point</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Point</span>();
-		<span style="color: #008000; font-weight: bold">var</span> point2<span style="color: #666666">:</span><span style="color: #008000">Point</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Point</span>();
+		var point1:Point = new Point();
+		var point2:Point = new Point();
 	
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> clip1Rect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span><span style="color: #666666">;</span>
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> clip1ClipBmpData<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> clip2Rect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span><span style="color: #666666">;</span>
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> clip2ClipBmpData<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
+		private var clip1Rect:Rectangle;
+		private var clip1ClipBmpData:BitmapData;
+		private var clip2Rect:Rectangle;
+		private var clip2ClipBmpData:BitmapData;
 		
-		<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> CollisionDetectionTests()
+		public function CollisionDetectionTests()
 		{
-			<span style="color: #008000; font-weight: bold">super</span>();
+			super();
 			
 			init();
 			checkCollisions();
 			runTests();
 		}
 		
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> init()<span style="color: #666666">:</span>void
+		private function init():void
 		{
 	
-			clip1Rect <span style="color: #666666">=</span> clip1.getBounds(<span style="color: #008000; font-weight: bold">this</span>);
-			clip1ClipBmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(clip1Rect.width<span style="color: #666666">,</span> clip1Rect.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+			clip1Rect = clip1.getBounds(this);
+			clip1ClipBmpData = new BitmapData(clip1Rect.width, clip1Rect.height, true, 0);
 			clip1ClipBmpData.draw(clip1);
 
-			clip2Rect <span style="color: #666666">=</span> clip2.getBounds(<span style="color: #008000; font-weight: bold">this</span>);
-			clip2ClipBmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(clip2Rect.width<span style="color: #666666">,</span> clip2Rect.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+			clip2Rect = clip2.getBounds(this);
+			clip2ClipBmpData = new BitmapData(clip2Rect.width, clip2Rect.height, true, 0);
 			clip2ClipBmpData.draw(clip2);
 
-			dynamicClip1 <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">MovieClip</span>();
+			dynamicClip1 = new MovieClip();
 
-			dynamicClip1.graphics.beginFill(<span style="color: #666666"></span>xFF0000);
-			dynamicClip1.graphics.drawEllipse(<span style="color: #666666">0,0,</span> <span style="color: #666666">100,100</span>);
-			dynamicClip1.cacheAsBitmap <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+			dynamicClip1.graphics.beginFill(0xFF0000);
+			dynamicClip1.graphics.drawEllipse(0,0, 100,100);
+			dynamicClip1.cacheAsBitmap = true;
 
-			dynamicClip1.x <span style="color: #666666">=</span> <span style="color: #666666">300;</span>
-			dynamicClip1.y <span style="color: #666666">=</span> <span style="color: #666666">300;</span>
+			dynamicClip1.x = 300;
+			dynamicClip1.y = 300;
 
 			addChild(dynamicClip1);
 
-			dynamicClip2 <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">MovieClip</span>();
+			dynamicClip2 = new MovieClip();
 
-			dynamicClip2.graphics.beginFill(<span style="color: #666666">0x0000</span>FF);
-			dynamicClip2.graphics.moveTo(<span style="color: #666666">0,</span> <span style="color: #666666"></span>);
-			dynamicClip2.graphics.lineTo(<span style="color: #666666">100,</span> <span style="color: #666666"></span>);
-			dynamicClip2.graphics.lineTo(<span style="color: #666666">100,</span> <span style="color: #666666">100</span>);
-			dynamicClip2.graphics.lineTo(<span style="color: #666666">0,</span> <span style="color: #666666">100</span>);
-			dynamicClip2.graphics.lineTo(<span style="color: #666666">0,</span> <span style="color: #666666"></span>);
-			dynamicClip2.cacheAsBitmap <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+			dynamicClip2.graphics.beginFill(0x0000FF);
+			dynamicClip2.graphics.moveTo(0, 0);
+			dynamicClip2.graphics.lineTo(100, 0);
+			dynamicClip2.graphics.lineTo(100, 100);
+			dynamicClip2.graphics.lineTo(0, 100);
+			dynamicClip2.graphics.lineTo(0, 0);
+			dynamicClip2.cacheAsBitmap = true;
 
-			dynamicClip2.x <span style="color: #666666">=</span> <span style="color: #666666">250;</span>
-			dynamicClip2.y <span style="color: #666666">=</span> <span style="color: #666666">250;</span>
+			dynamicClip2.x = 250;
+			dynamicClip2.y = 250;
 
 			addChild(dynamicClip2);
 		}
 
 		
 
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkCollisions()<span style="color: #666666">:</span>void
+		private function checkCollisions():void
 		{
-			<span style="color: #408080; font-style: italic">//make sure everything is working and returns true</span>
-			<span style="color: #0000FF">trace</span>(checkHitTest());
-			<span style="color: #0000FF">trace</span>(boundsIntersection());
-			<span style="color: #0000FF">trace</span>(checkHitTestReverse());
-			<span style="color: #0000FF">trace</span>(checkBoundsManually());
-			<span style="color: #0000FF">trace</span>(hitTestCircle());
-			<span style="color: #0000FF">trace</span>(checkBitmapDataHit());
-			<span style="color: #0000FF">trace</span>(checkBitmapDataHitReverse());
-			<span style="color: #0000FF">trace</span>(checkBitmapDataHitInternal());
-			<span style="color: #0000FF">trace</span>(checkBitmapDataHitDynamic());
+			//make sure everything is working and returns true
+			trace(checkHitTest());
+			trace(boundsIntersection());
+			trace(checkHitTestReverse());
+			trace(checkBoundsManually());
+			trace(hitTestCircle());
+			trace(checkBitmapDataHit());
+			trace(checkBitmapDataHitReverse());
+			trace(checkBitmapDataHitInternal());
+			trace(checkBitmapDataHitDynamic());
 		}
 
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> runTests()<span style="color: #666666">:</span>void
+		private function runTests():void
 		{
-			<span style="color: #008000; font-weight: bold">var</span> perfTest<span style="color: #666666">:</span>PerformanceTest <span style="color: #666666">=</span> PerformanceTest.getInstance();
-			perfTest.out <span style="color: #666666">=</span> out<span style="color: #666666">;</span>
+			var perfTest:PerformanceTest = PerformanceTest.getInstance();
+			perfTest.out = out;
 
-			<span style="color: #408080; font-style: italic">//this is to work around bug in test lib</span>
+			//this is to work around bug in test lib
 			perfTest.testSuite({});
 
-			perfTest.testFunction(checkHitTest<span style="color: #666666">,</span> <span style="color: #666666">10000,</span> <span style="color: #BA2121">"checkHitTest"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"Uses DisplayObject.hitTest"</span>);
-			perfTest.testFunction(checkHitTestReverse<span style="color: #666666">,</span> <span style="color: #666666">10000,</span> <span style="color: #BA2121">"checkHitTestReverse"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"Uses DisplayObject.hitTest with clips reversed"</span>);
-			perfTest.testFunction(boundsIntersection<span style="color: #666666">,</span> <span style="color: #666666">10000,</span> <span style="color: #BA2121">"boundsIntersection"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"Uses Rectangle.intersects()"</span>);
-			perfTest.testFunction(checkBoundsManually<span style="color: #666666">,</span> <span style="color: #666666">10000,</span> <span style="color: #BA2121">"checkBoundsManually"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"manually checks if bounds intersect."</span>);
-			perfTest.testFunction(hitTestCircle<span style="color: #666666">,</span> <span style="color: #666666">10000,</span> <span style="color: #BA2121">"hitTestCircle"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"Check if bounding circles intersect."</span>);
-			perfTest.testFunction(checkBitmapDataHit<span style="color: #666666">,</span> <span style="color: #666666">10000,</span> <span style="color: #BA2121">"checkBitmapDataHit"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"Uses BitmapData.hitTest to check for collision."</span>);
-			perfTest.testFunction(checkBitmapDataHitReverse<span style="color: #666666">,</span> <span style="color: #666666">10000,</span> <span style="color: #BA2121">"checkBitmapDataHitReverse"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"Uses BitmapData.hitTest to check for collision. Instances reversed."</span>);
-			perfTest.testFunction(checkBitmapDataHitInternal<span style="color: #666666">,</span> <span style="color: #666666">10000,</span> <span style="color: #BA2121">"checkBitmapDataHitInternal"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"Uses BitmapData.hitTest to check for collision. BitmapData not cached."</span>);
-			perfTest.testFunction(checkBitmapDataHitDynamic<span style="color: #666666">,</span> <span style="color: #666666">10000,</span> <span style="color: #BA2121">"checkBitmapDataHitDynamic"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"Uses BitmapData.hitTest to check for collision. BitmapData not cached. MovieClips dynamic."</span>);
+			perfTest.testFunction(checkHitTest, 10000, "checkHitTest", "Uses DisplayObject.hitTest");
+			perfTest.testFunction(checkHitTestReverse, 10000, "checkHitTestReverse", "Uses DisplayObject.hitTest with clips reversed");
+			perfTest.testFunction(boundsIntersection, 10000, "boundsIntersection", "Uses Rectangle.intersects()");
+			perfTest.testFunction(checkBoundsManually, 10000, "checkBoundsManually", "manually checks if bounds intersect.");
+			perfTest.testFunction(hitTestCircle, 10000, "hitTestCircle", "Check if bounding circles intersect.");
+			perfTest.testFunction(checkBitmapDataHit, 10000, "checkBitmapDataHit", "Uses BitmapData.hitTest to check for collision.");
+			perfTest.testFunction(checkBitmapDataHitReverse, 10000, "checkBitmapDataHitReverse", "Uses BitmapData.hitTest to check for collision. Instances reversed.");
+			perfTest.testFunction(checkBitmapDataHitInternal, 10000, "checkBitmapDataHitInternal", "Uses BitmapData.hitTest to check for collision. BitmapData not cached.");
+			perfTest.testFunction(checkBitmapDataHitDynamic, 10000, "checkBitmapDataHitDynamic", "Uses BitmapData.hitTest to check for collision. BitmapData not cached. MovieClips dynamic.");
 		}
 
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkHitTest()<span style="color: #666666">:</span><span style="color: #008000">Boolean</span>
+		private function checkHitTest():Boolean
 		{
-			<span style="color: #008000; font-weight: bold">return</span> clip1.hitTestObject(clip2);
+			return clip1.hitTestObject(clip2);
 		}
 
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkHitTestReverse()<span style="color: #666666">:</span><span style="color: #008000">Boolean</span>
+		private function checkHitTestReverse():Boolean
 		{
-			<span style="color: #008000; font-weight: bold">return</span> clip2.hitTestObject(clip1);
+			return clip2.hitTestObject(clip1);
 		}
 
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> boundsIntersection()<span style="color: #666666">:</span><span style="color: #008000">Boolean</span>
+		private function boundsIntersection():Boolean
 		{	
-			<span style="color: #008000; font-weight: bold">return</span> clip1.getBounds(<span style="color: #008000; font-weight: bold">this</span>).intersects(clip2.getBounds(<span style="color: #008000; font-weight: bold">this</span>));
+			return clip1.getBounds(this).intersects(clip2.getBounds(this));
 		}
 
 
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> hitTestCircle()<span style="color: #666666">:</span><span style="color: #008000">Boolean</span>
+		private function hitTestCircle():Boolean
 		{
-			<span style="color: #008000; font-weight: bold">var</span> dx<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> (clip2.x <span style="color: #666666">+</span> clip2.width <span style="color: #BB6688">/ 2) - (clip1.x + clip1.width /</span> <span style="color: #666666">2</span>);
-			<span style="color: #008000; font-weight: bold">var</span> dy<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> (clip2.y <span style="color: #666666">+</span> clip2.height <span style="color: #BB6688">/ 2) - (clip1.y + clip1.height /</span> <span style="color: #666666">2</span>);
-			<span style="color: #008000; font-weight: bold">var</span> dist<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #008000">Math</span>.sqrt(dx <span style="color: #666666">*</span> dx <span style="color: #666666">+</span> dy <span style="color: #666666">*</span> dy);
+			var dx:Number = (clip2.x + clip2.width / 2) - (clip1.x + clip1.width / 2);
+			var dy:Number = (clip2.y + clip2.height / 2) - (clip1.y + clip1.height / 2);
+			var dist:Number = Math.sqrt(dx * dx + dy * dy);
 
-			<span style="color: #008000; font-weight: bold">return</span> (dist <span style="color: #666666">&lt;</span> ((clip1.width <span style="color: #BB6688">/ 2) + (clip2.width /</span> <span style="color: #666666">2</span>)));
+			return (dist < ((clip1.width / 2) + (clip2.width / 2)));
 		}
 
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkBoundsManually()<span style="color: #666666">:</span><span style="color: #008000">Boolean</span>
+		private function checkBoundsManually():Boolean
 		{
-			<span style="color: #008000; font-weight: bold">if</span>(clip1.x <span style="color: #666666">&lt;</span> clip2.x <span style="color: #666666">+</span> clip2.width <span style="color: #666666">&&</span>
-			   clip2.x <span style="color: #666666">&lt;</span> clip1.x <span style="color: #666666">+</span> clip1.width <span style="color: #666666">&&</span>
-			   clip1.y <span style="color: #666666">&lt;</span> clip2.y <span style="color: #666666">+</span> clip2.height <span style="color: #666666">&&</span>
-			   clip2.y <span style="color: #666666">&lt;</span> clip1.y <span style="color: #666666">+</span> clip1.height
+			if(clip1.x < clip2.x + clip2.width &&
+			   clip2.x < clip1.x + clip1.width &&
+			   clip1.y < clip2.y + clip2.height &&
+			   clip2.y < clip1.y + clip1.height
 			   )
 			{
-				<span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+				return true;
 			}
 
-			<span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">;</span>
+			return false;
 		}
 
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkBitmapDataHit()<span style="color: #666666">:</span><span style="color: #008000">Boolean</span>
+		private function checkBitmapDataHit():Boolean
 		{
-			point1.x <span style="color: #666666">=</span> clip1.x<span style="color: #666666">;</span>
-			point1.y <span style="color: #666666">=</span> clip1.y<span style="color: #666666">;</span>
+			point1.x = clip1.x;
+			point1.y = clip1.y;
 
-			point2.x <span style="color: #666666">=</span> clip2.x<span style="color: #666666">;</span>
-			point2.y <span style="color: #666666">=</span> clip2.y<span style="color: #666666">;</span>
-			<span style="color: #008000; font-weight: bold">if</span>(clip1ClipBmpData.hitTest(point1<span style="color: #666666">,</span>
-										<span style="color: #666666">255,</span>
-										clip2ClipBmpData<span style="color: #666666">,</span>
-										point2<span style="color: #666666">,</span>
-										<span style="color: #666666">255</span>
+			point2.x = clip2.x;
+			point2.y = clip2.y;
+			if(clip1ClipBmpData.hitTest(point1,
+										255,
+										clip2ClipBmpData,
+										point2,
+										255
 
 								  ))
 			{
-				<span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+				return true;
 			}
 
-			<span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">;</span>
+			return false;
 		}
 
 
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkBitmapDataHitInternal()<span style="color: #666666">:</span><span style="color: #008000">Boolean</span>
+		private function checkBitmapDataHitInternal():Boolean
 		{
-			<span style="color: #008000; font-weight: bold">var</span> _clip1Rect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> clip1.getBounds(<span style="color: #008000; font-weight: bold">this</span>);
-			<span style="color: #008000; font-weight: bold">var</span> _clip1ClipBmpData<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(_clip1Rect.width<span style="color: #666666">,</span> _clip1Rect.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+			var _clip1Rect:Rectangle = clip1.getBounds(this);
+			var _clip1ClipBmpData:BitmapData = new BitmapData(_clip1Rect.width, _clip1Rect.height, true, 0);
 			_clip1ClipBmpData.draw(clip1);
 
-			<span style="color: #008000; font-weight: bold">var</span> _clip2Rect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> clip2.getBounds(<span style="color: #008000; font-weight: bold">this</span>);
-			<span style="color: #008000; font-weight: bold">var</span> _clip2ClipBmpData<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(_clip2Rect.width<span style="color: #666666">,</span> _clip2Rect.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+			var _clip2Rect:Rectangle = clip2.getBounds(this);
+			var _clip2ClipBmpData:BitmapData = new BitmapData(_clip2Rect.width, _clip2Rect.height, true, 0);
 			_clip2ClipBmpData.draw(clip2);	
 
-			point1.x <span style="color: #666666">=</span> clip1.x<span style="color: #666666">;</span>
-			point1.y <span style="color: #666666">=</span> clip1.y<span style="color: #666666">;</span>
+			point1.x = clip1.x;
+			point1.y = clip1.y;
 
-			point2.x <span style="color: #666666">=</span> clip2.x<span style="color: #666666">;</span>
-			point2.y <span style="color: #666666">=</span> clip2.y<span style="color: #666666">;</span>
+			point2.x = clip2.x;
+			point2.y = clip2.y;
 
-			<span style="color: #008000; font-weight: bold">var</span> hits<span style="color: #666666">:</span><span style="color: #008000">Boolean</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">;</span>
-			<span style="color: #008000; font-weight: bold">if</span>(_clip1ClipBmpData.hitTest(point1<span style="color: #666666">,</span>
-										<span style="color: #666666">255,</span>
-										_clip2ClipBmpData<span style="color: #666666">,</span>
-										point2<span style="color: #666666">,</span>
-										<span style="color: #666666">255</span>
+			var hits:Boolean = false;
+			if(_clip1ClipBmpData.hitTest(point1,
+										255,
+										_clip2ClipBmpData,
+										point2,
+										255
 								  ))
 			{
-				hits <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+				hits = true;
 			}
 
 			_clip1ClipBmpData.dispose();
 			_clip2ClipBmpData.dispose();
 
-			<span style="color: #008000; font-weight: bold">return</span> hits<span style="color: #666666">;</span>
+			return hits;
 		}
 
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkBitmapDataHitDynamic()<span style="color: #666666">:</span><span style="color: #008000">Boolean</span>
+		private function checkBitmapDataHitDynamic():Boolean
 		{
-			<span style="color: #008000; font-weight: bold">var</span> dynamicClip1Rect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> dynamicClip1.getBounds(<span style="color: #008000; font-weight: bold">this</span>);
-			<span style="color: #008000; font-weight: bold">var</span> dynamicClip1ClipBmpData<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(dynamicClip1Rect.width<span style="color: #666666">,</span> 
-																	dynamicClip1Rect.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+			var dynamicClip1Rect:Rectangle = dynamicClip1.getBounds(this);
+			var dynamicClip1ClipBmpData:BitmapData = new BitmapData(dynamicClip1Rect.width, 
+																	dynamicClip1Rect.height, true, 0);
 			dynamicClip1ClipBmpData.draw(dynamicClip1);
 
-			<span style="color: #008000; font-weight: bold">var</span> dynamicClip2Rect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> dynamicClip2.getBounds(<span style="color: #008000; font-weight: bold">this</span>);
-			<span style="color: #008000; font-weight: bold">var</span> dynamicClip2ClipBmpData<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(dynamicClip2Rect.width<span style="color: #666666">,</span> 
-																	dynamicClip2Rect.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+			var dynamicClip2Rect:Rectangle = dynamicClip2.getBounds(this);
+			var dynamicClip2ClipBmpData:BitmapData = new BitmapData(dynamicClip2Rect.width, 
+																	dynamicClip2Rect.height, true, 0);
 			dynamicClip2ClipBmpData.draw(dynamicClip2);	
 
-			point1.x <span style="color: #666666">=</span> dynamicClip1.x<span style="color: #666666">;</span>
-			point1.y <span style="color: #666666">=</span> dynamicClip1.y<span style="color: #666666">;</span>
+			point1.x = dynamicClip1.x;
+			point1.y = dynamicClip1.y;
 
-			point2.x <span style="color: #666666">=</span> dynamicClip2.x<span style="color: #666666">;</span>
-			point2.y <span style="color: #666666">=</span> dynamicClip2.y<span style="color: #666666">;</span>	
+			point2.x = dynamicClip2.x;
+			point2.y = dynamicClip2.y;	
 
-			<span style="color: #008000; font-weight: bold">var</span> hits<span style="color: #666666">:</span><span style="color: #008000">Boolean</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">;</span>
-			<span style="color: #008000; font-weight: bold">if</span>(dynamicClip1ClipBmpData.hitTest(point1<span style="color: #666666">,</span>
-										<span style="color: #666666">255,</span>
-										dynamicClip2ClipBmpData<span style="color: #666666">,</span>
-										point2<span style="color: #666666">,</span>
-										<span style="color: #666666">255</span>
+			var hits:Boolean = false;
+			if(dynamicClip1ClipBmpData.hitTest(point1,
+										255,
+										dynamicClip2ClipBmpData,
+										point2,
+										255
 								  ))
 			{
-				hits <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+				hits = true;
 			}
 
 			dynamicClip1ClipBmpData.dispose();
 			dynamicClip2ClipBmpData.dispose();
 
-			<span style="color: #008000; font-weight: bold">return</span> hits<span style="color: #666666">;</span>
+			return hits;
 		}
 
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkBitmapDataHitReverse()<span style="color: #666666">:</span><span style="color: #008000">Boolean</span>
+		private function checkBitmapDataHitReverse():Boolean
 		{
-			point1.x <span style="color: #666666">=</span> clip1.x<span style="color: #666666">;</span>
-			point1.y <span style="color: #666666">=</span> clip1.y<span style="color: #666666">;</span>
+			point1.x = clip1.x;
+			point1.y = clip1.y;
 
-			point2.x <span style="color: #666666">=</span> clip2.x<span style="color: #666666">;</span>
-			point2.y <span style="color: #666666">=</span> clip2.y<span style="color: #666666">;</span>	
+			point2.x = clip2.x;
+			point2.y = clip2.y;	
 
-			<span style="color: #008000; font-weight: bold">if</span>(clip2ClipBmpData.hitTest(point2<span style="color: #666666">,</span>
-										<span style="color: #666666">255,</span>
-										clip1ClipBmpData<span style="color: #666666">,</span>
-										point1<span style="color: #666666">,</span>
-										<span style="color: #666666">255</span>
+			if(clip2ClipBmpData.hitTest(point2,
+										255,
+										clip1ClipBmpData,
+										point1,
+										255
 
 								  ))
 			{
-				<span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+				return true;
 			}
 
-			<span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">;</span>
+			return false;
 		}
 
-		<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> out(str<span style="color: #666666">:*</span>)<span style="color: #666666">:</span>void
+		private function out(str:*):void
 		{
-			<span style="color: #0000FF">trace</span>(str);
+			trace(str);
 		}
 	}
 }
-</pre>
-</div>
+```
 
-&nbsp;
-
-You can download the code from [here][3] (requires Flash Pro and [Grant Skinner&#8217;s Performance Testing Harness][4]).
+You can download the code from [here][3] (requires Flash Pro and [Grant Skinner's Performance Testing Harness][4]).
 
 And here are the raw results:
 
@@ -366,11 +363,9 @@ method...................................................ttl ms...avg ms
 [function]                                                 1892     0.19
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
 
-&nbsp;
-
 Most of the results are as expected, although there is one surprise. 
 
-Doing a BitmapData.hitTest on a MovieClip placed onto the stage at author time (in Flash Pro) is 3 times slower than testing against a MovieClip generated and drawn at runtime. The only thing I can think that is happening is that perhaps for some reason the garbage collector is being triggered in the checkBitmapDataHitInternal and not the checkBitmapDataHitDynamic test. I have asked around internally what might be causing it, but I would be curious if anyone else is seeing the same results.
+Doing a BitmapData.hitTest on a MovieClip placed onto the stage at author time (in Flash Pro) is 3 times slower than testing against a MovieClip generated and drawn at runtime. The only thing I can think that is happening is that perhaps for some reason the garbage collector is being triggered in the *checkBitmapDataHitInternal* and not the checkBitmapDataHitDynamic test. I have asked around internally what might be causing it, but I would be curious if anyone else is seeing the same results.
 
 So, some quick conclusions from this:
 
@@ -385,7 +380,7 @@ If you find any bugs with the test, or would like to add some more tests (such a
 
 **Updated : July 6, 2009 : Added info on cacheAsBitmap property impact on performance.** (See this [comment][7]).
 
-**Updated : November 6, 2009 : Added optimized circle test in[ comments][8]** : Approaches performance of hitTest.
+**Updated : November 6, 2009 : Added optimized circle test in [comments][8]** : Approaches performance of hitTest.
 
  [1]: http://www.mikechambers.com/blog/2009/06/24/using-bitmapdata-hittest-for-collision-detection/
  [2]: http://www.mikechambers.com/blog/2009/06/25/strategies-for-optimizing-collision-detection-with-bitmapdata-hittest/
