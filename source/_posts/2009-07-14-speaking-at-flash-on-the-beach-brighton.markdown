@@ -9,9 +9,9 @@ categories:
 ---
 
 
-I am fortunate to have been invited to speak again at[ Flash on the Beach in Brighton][1] this fall. The event is September 20th &#8211; 23rd, in Brighton, England, and is hands down the top Flash Conference in Europe (and a contender for top worldwide).
+I am fortunate to have been invited to speak again at[ Flash on the Beach in Brighton][1] this fall. The event is September 20th - 23rd, in Brighton, England, and is hands down the top Flash Conference in Europe (and a contender for top worldwide).
 
-I will be doing a session titled &#8220;[Advanced Desktop Development with Adobe AIR][2]&#8221; which will cover some useful tricks and techniques when developing AIR Applications. I will also be going over some next generation Adobe AIR features and APIs.
+I will be doing a session titled "[Advanced Desktop Development with Adobe AIR][2]" which will cover some useful tricks and techniques when developing AIR Applications. I will also be going over some next generation Adobe AIR features and APIs.
 
 If you are a Flash developer / designer and are in Europe, you CANNOT miss this conference. As usual, the [speaker list][3] is pretty amazing, and this is really shaping up to be a great conference.
 
