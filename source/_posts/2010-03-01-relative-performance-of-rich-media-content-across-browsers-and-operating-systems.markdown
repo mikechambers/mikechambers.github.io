@@ -7,7 +7,6 @@ categories:
   - General
 ---
 
-
 Two of the things that Flash is often criticized for is that it:
 
 1.  Uses too much CPU
@@ -107,8 +106,6 @@ All tests were run on the following hardware:
   </tr>
 </table>
 
-&nbsp;
-
 I have both a Windows 7 and OS X partition on this computer, and Windows 7 tests were run while booted into Windows 7.
 
 For browsers, I used the latest release browser versions. For Flash Player, I used the latest labs release (Flash Player 10.1 Beta 3 : 10,1,51,95).
@@ -166,8 +163,6 @@ For browsers, I used the latest release browser versions. For Flash Player, I us
     </td>
   </tr>
 </table>
-
-&nbsp;
 
 **Windows 7 Versions**
 
@@ -233,7 +228,6 @@ For browsers, I used the latest release browser versions. For Flash Player, I us
   </tr>
 </table>
 
-&nbsp;
 
 IMPORTANT, THE ONLY RELEVANT COMPARISONS ARE BETWEEN PERFORMANCE OF THE SAME CONTENT ACROSS DIFFERENT BROWSERS AND OPERATING SYSTEMS. COMPARING FLASH CONTENT TO JAVASCRIPT CONTENT IN THIS TEST IS NOT VALID GIVEN THE DIFFERENCES IN THE CONTENT AND / OR FUNCTIONALITY.
 
@@ -315,7 +309,6 @@ Note: I am looking into why Internet Explorer is reporting 0% CPU usage on some 
   </tr>
 </table>
 
-&nbsp;
 
 [9elements JavaScript / Canvas Dynamic Animation Example][2]
 
@@ -368,7 +361,7 @@ Note: I am looking into why Internet Explorer is reporting 0% CPU usage on some 
     </th>
     
     <td align="center" bgcolor="#FF0000">
-      100% &#8211; 170%
+      100% - 170%
     </td>
     
     <td align="center" bgcolor="#00FF00">
@@ -391,7 +384,6 @@ Note: I am looking into why Internet Explorer is reporting 0% CPU usage on some 
   </tr>
 </table>
 
-&nbsp;
 
 [Sublime HTML 5 HD Video Example][3]
 
@@ -467,7 +459,6 @@ Note: I am looking into why Internet Explorer is reporting 0% CPU usage on some 
   </tr>
 </table>
 
-&nbsp;
 
 [HYPE Dynamic Flash Animation Example][4]
 
@@ -543,7 +534,6 @@ Note: I am looking into why Internet Explorer is reporting 0% CPU usage on some 
   </tr>
 </table>
 
-&nbsp;
 
 [Vimeo HD Flash Video Example][5]
 
@@ -619,7 +609,6 @@ Note: I am looking into why Internet Explorer is reporting 0% CPU usage on some 
   </tr>
 </table>
 
-&nbsp;
 
 **Overall Comparative Performance** (shows how often each platform performed the best per content type)
 
