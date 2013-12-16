@@ -9,10 +9,9 @@ tags:
   - git
 ---
 
-
 I use [Git][1] and [GitHub][2] to manage all of my personal code projects. I have one large repository called projects, which is then broken into sub directories based on the main technology used for each project (i.e. Flash, JavaScript, iphone, etc...).
 
-I am currently working on a Flash based iphone game code-named &#8220;pewpew&#8221;, which is maintained within my projects repository. As I have begun to work on it more and more, I decided that I wanted to have pewpew in its own git repository. This will make it easier to track issues, as well as give me the option of open sourcing it and allow others to create and submit forks.  
+I am currently working on a Flash based iphone game code-named "pewpew", which is maintained within my projects repository. As I have begun to work on it more and more, I decided that I wanted to have pewpew in its own git repository. This will make it easier to track issues, as well as give me the option of open sourcing it and allow others to create and submit forks.  
 <!--more-->
 
   
