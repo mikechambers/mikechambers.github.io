@@ -12,8 +12,7 @@ tags:
   - Flex
 ---
 
-
-<img src="http://www.mikechambers.com/mesh/files/flashcamp/flash_camp_sm.png" alt="" align="right" width="58" height="58" />We have just posted information about [FlashCamp San Francisco][1], a free developer event that we will be holding in the [Adobe San Francisco Office on Friday night, May 29th][1]. This will be similar to the [ApolloCamp][2] event that we held for the Apollo Beta launch a couple of years ago, although this event will be focused on the next generation of Flex, including [Flex 4][3], [Flash Catalyst][4], and Flex Builder 4.
+We have just posted information about [FlashCamp San Francisco][1], a free developer event that we will be holding in the [Adobe San Francisco Office on Friday night, May 29th][1]. This will be similar to the [ApolloCamp][2] event that we held for the Apollo Beta launch a couple of years ago, although this event will be focused on the next generation of Flex, including [Flex 4][3], [Flash Catalyst][4], and Flex Builder 4.
 
 [Register for FlashCamp San Francisco][1]
 
@@ -23,14 +22,9 @@ From the event page:
 
 <!--more-->
 
-  
 Doors open at 5, and we will have plenty of food and drinks (beer is being provided by [City Beer Store][5]!). Kevin Lynch is launching the event with a keynote around 5:45, and then we will move into sessions on Flex 4, Flex Builder 4, and Flash Catalyst (all presented by members of the respective engineering teams).
 
 We will also have a dedicated space setup if you want to chat with any of the engineers or team members of the product teams (this has been really popular in the past).
-
-Here is the current agenda:
-
-
 
 You can find more information on the event, as well as register on the event page at:
 
@@ -38,7 +32,7 @@ You can find more information on the event, as well as register on the event pag
 
 The event is free, but please register as soon as possible as these event have sold out / filled up in the past.
 
-We don&#8217;t have a huge marketing budget (we spent it all on the [beer][5] and [swag][6] for the event), so I would appreciate any help in getting the word out about the event (blogging, twitter, facebook, etc...).
+We don't have a huge marketing budget (we spent it all on the [beer][5] and [swag][6] for the event), so I would appreciate any help in getting the word out about the event (blogging, twitter, facebook, etc...).
 
 You can follow the latest news and information on the event via twitter at:
 
