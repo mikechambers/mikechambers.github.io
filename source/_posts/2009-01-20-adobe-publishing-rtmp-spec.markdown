@@ -10,7 +10,6 @@ tags:
   - rtmp
 ---
 
-
 From the [press release][1]:
 
 > Adobe Systems Incorporated (Nasdaq:ADBE) today announced plans to publish the Real-Time Messaging Protocol (RTMP) specification, which is designed for high-performance transmission of audio, video, and data between Adobe® Flash® Platform technologies.

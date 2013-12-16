@@ -8,8 +8,7 @@ categories:
   - General
 ---
 
-
-As you may have noticed from some of my recent posts ([here][1] and [here][2]), I have been spending some time lately thinking about the ActionScript 2 to ActionScript 3 transition. I am working on some stuff to make this transition easier (especially for non-developers), but I wanted to make a quick post and get the community&#8217;s input.
+As you may have noticed from some of my recent posts ([here][1] and [here][2]), I have been spending some time lately thinking about the ActionScript 2 to ActionScript 3 transition. I am working on some stuff to make this transition easier (especially for non-developers), but I wanted to make a quick post and get the community's input.
 
 How can we make the transition from ActionScript 2 to ActionScript 3 easier? I am specifically interested in input from anyone who does not consider themselves hardcore developers.
 
