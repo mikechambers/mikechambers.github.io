@@ -23,15 +23,12 @@ The first thing to do is to check whether you need to check for visible collisio
 
 To do this, just use the DisplayObject.hitTestObject API like so:
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">if</span>(displayObject1.hitTestObject(displayObject2))
+``` actionscript
+if(displayObject1.hitTestObject(displayObject2))
 {
-	<span style="color: #408080; font-style: italic">//do check with BitmapData.hitTest</span>
+	//do check with BitmapData.hitTest
 }
-</pre>
-</div>
-
-&nbsp;
+```
 
 When checking collisions against many items, this can dramatically improve performance, as it can remove most of the BitmapData api calls and comparisons.
 
@@ -41,50 +38,44 @@ If one or more of your display objects will not have any transformations applied
 
 Here is a simple example:
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> bmpData<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
+``` actionscript
+private var bmpData:BitmapData;
 
-<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkCollisions()<span style="color: #666666">:</span>void
+private function checkCollisions():void
 {
-	<span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">!</span>bmpData)
-	{
-		<span style="color: #008000; font-weight: bold">var</span> blueRect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> blueClip.getBounds(<span style="color: #008000; font-weight: bold">this</span>);
-		bmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(blueRect.width<span style="color: #666666">,</span> blueRect.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
-		bmpData.draw(blueClip)
-	}
-	
-	<span style="color: #408080; font-style: italic">//use bmpData.hitTest to check collisions</span>
+    if(!bmpData)
+    {
+        var blueRect:Rectangle = blueClip.getBounds(this);
+        bmpData = new BitmapData(blueRect.width, blueRect.height, true, );
+        bmpData.draw(blueClip)
+    }
+    
+    //use bmpData.hitTest to check collisions
 }
-</pre>
-</div>
-
-&nbsp;
+```
 
 Furthermore, if you use multiple instances of a DisplayObject, then you can store the BitmapData for one instance, and use it for all instances of the DisplayObject. One thing I do, is the store it by the class type, which allows me to easily cache and retrieve BitmapData for multiple DisplayObject classes (I have custom classes that extend DisplayObject).
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> bmpDataLookup<span style="color: #666666">:</span>Dictionary <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Dictionary();
+``` actionscript
+private var bmpDataLookup:Dictionary = new Dictionary();
 
-<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkCollisions()<span style="color: #666666">:</span>void
+private function checkCollisions():void
 {
-		<span style="color: #008000; font-weight: bold">var</span> classRef<span style="color: #666666">:</span>Class <span style="color: #666666">=</span> blueClip[<span style="color: #BA2121">"constructor"</span>] as Class<span style="color: #666666">;</span>
+		var classRef:Class = blueClip["constructor"] as Class;
 
-		bmpData <span style="color: #666666">=</span> bmpDataLookup[classRef];
+		bmpData = bmpDataLookup[classRef];
 		
-		<span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">!</span>bmpData)
+		if(!bmpData)
 		{
-			<span style="color: #408080; font-style: italic">//run once per lifetime of app per DisplayObject subclass</span>
-			<span style="color: #008000; font-weight: bold">var</span> blueRect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> blueClip.getBounds(<span style="color: #008000; font-weight: bold">this</span>);
-			bmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(blueRect.width<span style="color: #666666">,</span> blueRect.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+			//run once per lifetime of app per DisplayObject subclass
+			var blueRect:Rectangle = blueClip.getBounds(this);
+			bmpData = new BitmapData(blueRect.width, blueRect.height, true, 0);
 			bmpData.draw(blueClip)
 		}
 		
-		<span style="color: #408080; font-style: italic">//use bmpData.hitTest to check collisions</span>
+		//use bmpData.hitTest to check collisions
 }
-</pre>
-</div>
-
-&nbsp;
+```
 
 This example caches the BitmapData once for each Class type. i.e. if you have a lot of instances of a UFOClass (which extends DisplayObject), you would only have to cache one instance of BitmapData regardless of the number of instances of the UFOClass you had.
 
@@ -94,45 +85,42 @@ Again though, this only really works if your DisplayObjects will not have any tr
 
 Even if your DisplayObjects will have transformations applied to them, you can still improve performance by only updating the BitmapData if the transformation has changed more than some threshold. Essentially, you can trade some hit detection accuracy, for better performance.
 
-For example, in a game I am working on right now, I have a Ship that rotates based on the user input. I need to check if the ship collides with any enemies. Since the ship may rotate, I can&#8217;t use the technique above to cache the BitmapData. However, after some testing and profiling, I realized that I could cache the BitmapData and only update it if the rotation changes by more than 5. This means that the hit detection is slightly less accurate, but I can use cached BitmapData for many of the checks. In my case, I was able to remove 2/3rds of the BitmapData calls (basically use cached data 2/3rds of the time), without any noticeable change in ht detection accuracy.
+For example, in a game I am working on right now, I have a Ship that rotates based on the user input. I need to check if the ship collides with any enemies. Since the ship may rotate, I can't use the technique above to cache the BitmapData. However, after some testing and profiling, I realized that I could cache the BitmapData and only update it if the rotation changes by more than 5. This means that the hit detection is slightly less accurate, but I can use cached BitmapData for many of the checks. In my case, I was able to remove 2/3rds of the BitmapData calls (basically use cached data 2/3rds of the time), without any noticeable change in ht detection accuracy.
 
-<div class="highlight">
-  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> shipBmpData<span style="color: #666666">:</span><span style="color: #008000">BitmapData</span><span style="color: #666666">;</span>
-<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> oldShipHash<span style="color: #666666">:</span>int <span style="color: #666666">=</span> <span style="color: #666666">0;</span>
+``` actionscript
+private var shipBmpData:BitmapData;
+private var oldShipHash:int = 0;
 
-<span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkCollisions()<span style="color: #666666">:</span>void
+private function checkCollisions():void
 {
 
-	<span style="color: #008000; font-weight: bold">var</span> shipBounds<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> ship.getBounds(<span style="color: #008000; font-weight: bold">this</span>);	
+	var shipBounds:Rectangle = ship.getBounds(this);	
 	
-	<span style="color: #008000; font-weight: bold">var</span> shipBoundsHash<span style="color: #666666">:</span>int <span style="color: #666666">=</span> ship.rotation<span style="color: #666666">;</span>
+	var shipBoundsHash:int = ship.rotation;
 	
-	<span style="color: #408080; font-style: italic">//basically, we check the rotation to see if it has changed much</span>
-	<span style="color: #408080; font-style: italic">//if it hasnt, we just use the bitmapdata from earlier frame(s)</span>
-	<span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">!</span>shipBmpData <span style="color: #666666">||</span> 
-		shipBoundsHash <span style="color: #666666">&lt;</span> oldShipHash <span style="color: #666666">-</span> <span style="color: #666666">5</span> <span style="color: #666666">||</span> 
-		shipBoundsHash <span style="color: #666666">&gt;</span> oldShipHash <span style="color: #666666">+</span> <span style="color: #666666">5</span>)
+	//basically, we check the rotation to see if it has changed much
+	//if it hasnt, we just use the bitmapdata from earlier frame(s)
+	if(!shipBmpData || 
+		shipBoundsHash < oldShipHash - 5 || 
+		shipBoundsHash > oldShipHash + 5)
 	{	
-		shipBmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(shipBounds.width<span style="color: #666666">,</span> shipBounds.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+		shipBmpData = new BitmapData(shipBounds.width, shipBounds.height, true, 0);
 		
-		<span style="color: #408080; font-style: italic">//this shouldnt work in some cases because of the x/y changes</span>
-		<span style="color: #408080; font-style: italic">//but collision detection seems to be working ok</span>
-		<span style="color: #008000; font-weight: bold">var</span> shipOffset<span style="color: #666666">:</span><span style="color: #008000">Matrix</span> <span style="color: #666666">=</span> ship.transform.matrix<span style="color: #666666">;</span>
-		shipOffset.tx <span style="color: #666666">=</span> ship.x <span style="color: #666666">-</span> shipBounds.x<span style="color: #666666">;</span>
-		shipOffset.ty <span style="color: #666666">=</span> ship.y <span style="color: #666666">-</span> shipBounds.y<span style="color: #666666">;</span>			
+		//this shouldnt work in some cases because of the x/y changes
+		//but collision detection seems to be working ok
+		var shipOffset:Matrix = ship.transform.matrix;
+		shipOffset.tx = ship.x - shipBounds.x;
+		shipOffset.ty = ship.y - shipBounds.y;			
 
-		shipBmpData.draw(ship<span style="color: #666666">,</span> shipOffset);
+		shipBmpData.draw(ship, shipOffset);
 	}
 
-	oldShipHash <span style="color: #666666">=</span> shipBoundsHash<span style="color: #666666">;</span>
+	oldShipHash = shipBoundsHash;
 
-	<span style="color: #408080; font-style: italic">//do collision detection with BitmapData.hitTest</span>
+	//do collision detection with BitmapData.hitTest
 	
 }
-</pre>
-</div>
-
-&nbsp;
+```
 
 Depending on the accuracy needed, this can provide large performance improvements.
 
