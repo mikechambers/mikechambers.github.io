@@ -9,12 +9,9 @@ categories:
 ---
 
 
-Here is Kevin Lynch&#8217;s [Keynote from the Web 2.0 conference][1] where he shows how to build a full application using Illustrator, [Flash Catalyst][2], Flex Builder, Flex and the [Facebook ActionScript 3 API][3].  
+Here is Kevin Lynch's [Keynote from the Web 2.0 conference][1] where he shows how to build a full application using Illustrator, [Flash Catalyst][2], Flex Builder, Flex and the [Facebook ActionScript 3 API][3].  
 <!--more-->
-
-  
-<embed src="http://blip.tv/play/gshV99oMhrwN" type="application/x-shockwave-flash" width="640" height="390" allowscriptaccess="always" allowfullscreen="true">
-</embed>
+<embed src="http://blip.tv/play/gshV99oMhrwN" type="application/x-shockwave-flash" width="640" height="390" allowscriptaccess="always" allowfullscreen="true"></embed> 
 
  [1]: http://blip.tv/file/1951449
  [2]: http://labs.adobe.com/technologies/flashcatalyst/
