@@ -10,7 +10,6 @@ tags:
   - air
 ---
 
-
 There is a known issue with the Adobe AIR 1.5 install on Mac where in certain circumstances the install dialog will appear in the wrong language (usually Japanese or Chinese). If you run into this, here are the steps to work around it:
 
 1.  Go to System Preferences

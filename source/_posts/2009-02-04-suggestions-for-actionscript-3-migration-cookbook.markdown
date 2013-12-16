@@ -8,7 +8,6 @@ categories:
   - General
 ---
 
-
 As part of some of my [recent work and research into ActionScript 2 to ActionScript 3 migration][1], I am working on an AS2 to AS3 migration reference cookbook. The core of the reference is the cookbook section which shows how to do commons tasks in ActionScript 2 and then ActionScript 3. The reference is targeted at users using Flash Pro to create animations and / or motion graphics and includes cookbook examples such as opening a URL, playing a sound, etc...
 
 So, what cookbook examples would you like to see? I am looking for frequently used code snippets / tasks that may require different code in ActionScript 3.
