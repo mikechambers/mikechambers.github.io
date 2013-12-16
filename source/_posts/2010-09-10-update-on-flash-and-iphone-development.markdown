@@ -15,7 +15,6 @@ As you have probably heard, Apple has updated the terms of their developer progr
 
 We have posted some more [information on this][1] on the Adobe Conversations blog. Speaking about the packager for iphone included in Flash CS5:  
 <!--more-->
-
 > The feature is available for developers to use today in Flash Professional CS5, and we will now resume development work on this feature for future releases.
 
 Christian Cantrell has posted [a refresher on getting started with the packager for iphone][2], and I will be updating my FOTB session on [optimizing Flash content for mobile][3] to include information on optimizing content for iOS devices (joining the existing Android content).
