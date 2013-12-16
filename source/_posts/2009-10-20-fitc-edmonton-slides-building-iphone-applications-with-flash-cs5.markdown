@@ -7,8 +7,7 @@ categories:
   - General
 ---
 
-
-Here are my slides from my [FITC Edmonton][1] talk titled &#8220;[Building iPhone Applications with Flash CS5][2]&#8220;.
+Here are my slides from my [FITC Edmonton][1] talk titled "[Building iPhone Applications with Flash CS5][2]".
 
 You can download the slides from [here][2].
 
