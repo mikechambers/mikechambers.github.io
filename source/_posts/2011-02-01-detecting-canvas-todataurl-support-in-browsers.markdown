@@ -17,61 +17,54 @@ I am wrapping up a code example that uses the [Canvas.toDataURL][1] API to save 
 Well, after some cursing, I put together a simple method for detecting whether the API is supported on any particular device. I wanted to share it in case anyone else might run into a need for it. So, here it is:  
 <!--more-->
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">function</span> supportsToDataURL<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #003366; font-weight: bold;">var</span> c <span style="color: #339933;">=</span> document.<span style="color: #660066;">createElement</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"canvas"</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	<span style="color: #003366; font-weight: bold;">var</span> data <span style="color: #339933;">=</span> c.<span style="color: #660066;">toDataURL</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"image/png"</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	<span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">&#40;</span>data.<span style="color: #660066;">indexOf</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"data:image/png"</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">==</span> <span style="color: #CC0000;"></span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+``` javascript
+function supportsToDataURL()
+{
+	var c = document.createElement("canvas");
+	var data = c.toDataURL("image/png");
+	return (data.indexOf("data:image/png") == 0);
+}
+```
 
 The code assumes that you are already checking for Canvas support.
 
 Here is the script in action:
 
-<div>
-  <strong></strong>
-</div>
+<div><strong><script>function supports_canvas(){return!!document.createElement("canvas").getContext}function supportsToDataURL(){if(!supports_canvas())return false;var c=document.createElement("canvas");var data=c.toDataURL("image/png");return data.indexOf("data:image/png")==0}var results="";if(supportsToDataURL())results="You browser is cool and supports Canvas.toDataURL();";else results="You browser is lame and does NOT support Canvas.toDataURL();";document.write(results);</script></strong></div>
 
-&nbsp;
 
 and the code:
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">function</span> supports_canvas<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #000066; font-weight: bold;">return</span> <span style="color: #339933;">!!</span>document.<span style="color: #660066;">createElement</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'canvas'</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">getContext</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #003366; font-weight: bold;">function</span> supportsToDataURL<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span><span style="color: #339933;">!</span>supports_canvas<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
-	<span style="color: #009900;">&#123;</span>
-		<span style="color: #000066; font-weight: bold;">return</span> <span style="color: #003366; font-weight: bold;">false</span><span style="color: #339933;">;</span>
-	<span style="color: #009900;">&#125;</span>
-&nbsp;
-	<span style="color: #003366; font-weight: bold;">var</span> c <span style="color: #339933;">=</span> document.<span style="color: #660066;">createElement</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"canvas"</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	<span style="color: #003366; font-weight: bold;">var</span> data <span style="color: #339933;">=</span> c.<span style="color: #660066;">toDataURL</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"image/png"</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	<span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">&#40;</span>data.<span style="color: #660066;">indexOf</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"data:image/png"</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">==</span> <span style="color: #CC0000;"></span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #003366; font-weight: bold;">var</span> results <span style="color: #339933;">=</span> <span style="color: #3366CC;">""</span><span style="color: #339933;">;</span>
-&nbsp;
-<span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span>supportsToDataURL<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	results<span style="color: #339933;">=</span><span style="color: #3366CC;">"You browser is cool and supports Canvas.toDataURL();"</span>
-<span style="color: #009900;">&#125;</span>
-<span style="color: #000066; font-weight: bold;">else</span>
-<span style="color: #009900;">&#123;</span>
-	results<span style="color: #339933;">=</span><span style="color: #3366CC;">"You browser is lame and does NOT support Canvas.toDataURL();"</span>
-<span style="color: #009900;">&#125;</span>
-document.<span style="color: #000066; font-weight: bold;">write</span><span style="color: #009900;">&#40;</span>results<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></pre>
-  </div>
-</div>
+``` javascript
+function supports_canvas()
+{
+	return !!document.createElement('canvas').getContext;
+}
+
+function supportsToDataURL()
+{
+	if(!supports_canvas())
+	{
+		return false;
+	}
+	
+	var c = document.createElement("canvas");
+	var data = c.toDataURL("image/png");
+	return (data.indexOf("data:image/png") == 0);
+}
+
+var results = "";
+
+if(supportsToDataURL())
+{
+	results="You browser is cool and supports Canvas.toDataURL();"
+}
+else
+{
+	results="You browser is lame and does NOT support Canvas.toDataURL();"
+}
+document.write(results);
+```
 
 If you have any fixes or suggestions for the detection, post them in the comments.
 
