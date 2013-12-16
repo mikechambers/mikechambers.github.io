@@ -16,19 +16,14 @@ tags:
 
 As I [posted the other day][1], I have been spending some time playing around with dynamic drawing with the HTML5 Canvas element and [EaselJS][2]. I have put together quite a few examples and experiments and will be posting them (along with what I learned from them) over the next couple of weeks.
 
-The first example I want to share is a simple one which I call &#8220;follow&#8221;. It basically uses EaselJS to create a snake like shape that follows you mouse. Here is a screen shot of a graphic I created with it:
+The first example I want to share is a simple one which I call "follow". It basically uses EaselJS to create a snake like shape that follows you mouse. Here is a screen shot of a graphic I created with it:
 
-<div style="text-align:center;">
-  <a href="http://www.flickr.com/photos/mikechambers/5373349685/" title="Untitled by mike.chambers, on Flickr"><img src="http://farm6.static.flickr.com/5208/5373349685_2c82f5de47.jpg" width="500" height="313" alt="" style="border:1px solid black; moz-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);-webkit-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);box-shadow: 3px 3px 4px rgba(0,0,0,0.7);" /></a>
-</div>
-
-&nbsp;
+[![](http://farm6.static.flickr.com/5208/5373349685_2c82f5de47.jpg)](http://www.flickr.com/photos/mikechambers/5373349685/)
 
 Here is an inline version of the example that you can play with. Just click to toggle whether the drone follows your mouse (requires a browser with support for the HTML5 Canvas element).  
 <!--more-->
 
-  
-
+<iframe src="http://www.mikechambers.com/html5/easeljs/follow/" width="100%" height="400"></iframe>
 
 You can view the example fullscreen (which looks better) [here][3].
 
