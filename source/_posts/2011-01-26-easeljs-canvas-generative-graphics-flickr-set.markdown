@@ -14,9 +14,7 @@ tags:
 
 Just a quick note, but I have created a [Flickr set which contains some of the generative graphics][1] I have been creating using [canvas, JavaScript and EaselJS][2].
 
-<div style="text-align:center;">
-  <a href="http://www.flickr.com/photos/mikechambers/sets/72157625744699667/with/5390791220/" title="Untitled by mike.chambers, on Flickr"><img src="http://farm6.static.flickr.com/5092/5390791220_c17fc5dabb_m.jpg" width="240" height="207" alt="" style="border:1px solid black; moz-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);-webkit-box-shadow: 3px 3px 4px rgba(0,0,0,0.7);box-shadow: 3px 3px 4px rgba(0,0,0,0.7);" /></a>
-</div>
+[![title](http://farm6.static.flickr.com/5092/5390791220_c17fc5dabb_m.jpg)](http://www.flickr.com/photos/mikechambers/sets/72157625744699667/with/5390791220/)
 
 You can view the set [here][1].
 

@@ -38,54 +38,50 @@ In initial testing prior to adding the overlay, performance on Android and iOS d
 
 Lets look at the code. First, here is the HTML markup for the example:
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="html4strict" style="font-family:monospace;"><span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">body</span>&gt;</span>
-	<span style="color: #009900;">&lt;canvas <span style="color: #000066;">id</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"mainCanvas"</span> <span style="color: #000066;">width</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"600"</span> <span style="color: #000066;">height</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"400"</span>&gt;&lt;<span style="color: #66cc66;">/</span>canvas&gt;</span>
-<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">body</span>&gt;</span></pre>
-  </div>
-</div>
+``` html
+<body>
+	<canvas id="mainCanvas" width="600" height="400"></canvas>
+</body>
+```
 
 Notice that there is only a single canvas element. At runtime, we detect the environment in which we are running, and then then dynamically add the second canvas only if it is needed (Note that the content uses [jQuery][4]).
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span>	<span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/iPad/i</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">!=</span> <span style="color: #003366; font-weight: bold;">null</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">||</span>
-	<span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/iPhone/i</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">||</span> 
-	<span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/iPod/i</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">||</span>
-	<span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/Android/i</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
-	<span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>	
-	<span style="color: #006600; font-style: italic;">//...</span>
-<span style="color: #009900;">&#125;</span>
-<span style="color: #000066; font-weight: bold;">else</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #006600; font-style: italic;">//assume we are on a device with a mouse / pointer</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//we have to dynamically add the overlay canvas, because if we do it</span>
-	<span style="color: #006600; font-style: italic;">//in HTML, and then remove it for mobile devices, it causes all of</span>
-	<span style="color: #006600; font-style: italic;">//the drawing on the mobile devices to no be anti-aliased</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//create the overlayCanvas, and add it to the DOM after the main</span>
-	<span style="color: #006600; font-style: italic;">//canvas (which is specified in the HTML)</span>
-	<span style="color: #006600; font-style: italic;">//canvasWrapper is a jQUery object that wraps the main canvas element</span>
-	 canvasWrapper.<span style="color: #660066;">after</span><span style="color: #009900;">&#40;</span>
-		<span style="color: #3366CC;">'&lt;canvas id="overlayCanvas" width="600" height="400"&gt;&lt;/canvas&gt;'</span>
-		<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//overlay canvas used to draw target and line</span>
-	canvasOverlayWrapper <span style="color: #339933;">=</span> $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"#overlayCanvas"</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//...</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//stage to manage the overlay canvas. Need to get the actual</span>
-	<span style="color: #006600; font-style: italic;">//element from the JQuery object.</span>
-	overlayStage <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">new</span> Stage<span style="color: #009900;">&#40;</span>canvasOverlayWrapper.<span style="color: #660066;">get</span><span style="color: #009900;">&#40;</span><span style="color: #CC0000;"></span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>		
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//..</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+``` javascript
+if((navigator.userAgent.match(/iPad/i) != null) ||
+	(navigator.userAgent.match(/iPhone/i)) || 
+	(navigator.userAgent.match(/iPod/i)) ||
+	(navigator.userAgent.match(/Android/i))
+	)
+{	
+	//...
+}
+else
+{
+	//assume we are on a device with a mouse / pointer
+	
+	//we have to dynamically add the overlay canvas, because if we do it
+	//in HTML, and then remove it for mobile devices, it causes all of
+	//the drawing on the mobile devices to no be anti-aliased
+	
+	//create the overlayCanvas, and add it to the DOM after the main
+	//canvas (which is specified in the HTML)
+	//canvasWrapper is a jQUery object that wraps the main canvas element
+	 canvasWrapper.after(
+		'<canvas id="overlayCanvas" width="600" height="400"></canvas>'
+		);
+		
+	//overlay canvas used to draw target and line
+	canvasOverlayWrapper = $("#overlayCanvas");
+	
+	//...
+	
+	//stage to manage the overlay canvas. Need to get the actual
+	//element from the JQuery object.
+	overlayStage = new Stage(canvasOverlayWrapper.get(0));		
+
+	//..
+}
+```
 
 Note, that I am testing for specific devices instead of general capabilities, as in general I am branching based on known CPU performance. However, a more robust solution would probably be to quickly profile the performance of the current environment and then use the overlay only in environments that met a certain performance threshold.
 
@@ -98,55 +94,51 @@ At this point, when running on a non-Android / iOS device, I have two Canvas ele
 
 First, I had to add a simple CSS rule to overlay the overlay canvas on top of the main canvas, and position it at 0,0 in the document:
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="css" style="font-family:monospace;"><span style="color: #cc00cc;">#overlayCanvas</span>
-<span style="color: #00AA00;">&#123;</span>
-	<span style="color: #000000; font-weight: bold;">position</span><span style="color: #00AA00;">:</span><span style="color: #993333;">absolute</span><span style="color: #00AA00;">;</span>
-	<span style="color: #000000; font-weight: bold;">left</span><span style="color: #00AA00;">:</span><span style="color: #cc66cc;"></span><span style="color: #00AA00;">;</span>
-	<span style="color: #000000; font-weight: bold;">top</span><span style="color: #00AA00;">:</span><span style="color: #cc66cc;"></span><span style="color: #00AA00;">;</span>
-<span style="color: #00AA00;">&#125;</span></pre>
-  </div>
-</div>
+``` css
+#overlayCanvas
+{
+	position:absolute;
+	left:0;
+	top:0;
+}
+```
 
 As far as sizing, I already had code to handle resizing the main canvas based on the window resizing, so I only had to add code to also resize the overlay canvas.
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">//called when the browser window is resized</span>
-<span style="color: #003366; font-weight: bold;">function</span> onWindowResize<span style="color: #009900;">&#40;</span>e<span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #006600; font-style: italic;">//..</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//update the canvas dimensions since the window</span>
-	<span style="color: #006600; font-style: italic;">//has resized. Note that changing canvas dimensions, </span>
-	<span style="color: #006600; font-style: italic;">//will cause it to be cleared</span>
-	updateCanvasDimensions<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//..</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #006600; font-style: italic;">//function that updates the size of the canvas based on the window size</span>
-<span style="color: #003366; font-weight: bold;">function</span> updateCanvasDimensions<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #006600; font-style: italic;">//note that changing the canvas dimensions clears the canvas.</span>
-	canvasWrapper.<span style="color: #660066;">attr</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"height"</span><span style="color: #339933;">,</span> $<span style="color: #009900;">&#40;</span>window<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">height</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	canvasWrapper.<span style="color: #660066;">attr</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"width"</span><span style="color: #339933;">,</span> $<span style="color: #009900;">&#40;</span>window<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">width</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//save the canvas offset</span>
-	canvasOffset <span style="color: #339933;">=</span> canvasWrapper.<span style="color: #660066;">offset</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>	
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//if we have an overlay canvas</span>
-	<span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span>canvasOverlayWrapper<span style="color: #009900;">&#41;</span>
-	<span style="color: #009900;">&#123;</span>
-		<span style="color: #006600; font-style: italic;">//resize it</span>
-		canvasOverlayWrapper.<span style="color: #660066;">attr</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"height"</span><span style="color: #339933;">,</span> $<span style="color: #009900;">&#40;</span>window<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">height</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-		canvasOverlayWrapper.<span style="color: #660066;">attr</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">"width"</span><span style="color: #339933;">,</span> $<span style="color: #009900;">&#40;</span>window<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">width</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-		canvasOverlayOffset <span style="color: #339933;">=</span> canvasOverlayWrapper.<span style="color: #660066;">offset</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	<span style="color: #009900;">&#125;</span>	
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+``` javascript
+//called when the browser window is resized
+function onWindowResize(e)
+{
+	//..
+	
+	//update the canvas dimensions since the window
+	//has resized. Note that changing canvas dimensions, 
+	//will cause it to be cleared
+	updateCanvasDimensions();
+	
+	//..
+}
+
+//function that updates the size of the canvas based on the window size
+function updateCanvasDimensions()
+{
+	//note that changing the canvas dimensions clears the canvas.
+	canvasWrapper.attr("height", $(window).height(true));
+	canvasWrapper.attr("width", $(window).width(true));
+	
+	//save the canvas offset
+	canvasOffset = canvasWrapper.offset();	
+	
+	//if we have an overlay canvas
+	if(canvasOverlayWrapper)
+	{
+		//resize it
+		canvasOverlayWrapper.attr("height", $(window).height(true));
+		canvasOverlayWrapper.attr("width", $(window).width(true));
+		canvasOverlayOffset = canvasOverlayWrapper.offset();
+	}	
+}
+```
 
 So, now both canvases are aligned, and when the window is resized they are both resized to the same dimensions.
 
@@ -158,55 +150,51 @@ Luckily, both canvases are in the same coordinate space, so I can just listen fo
 
 The main change this required was changing which canvas listened for the events based on whether there was an overlay canvas or not. If there is an overlay canvas, then the overlay canvas will capture the mouse events (since it is at a higher z-order). If there is no overlay, then the main canvas will capture the mouse events.
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span>	<span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/iPad/i</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">!=</span> <span style="color: #003366; font-weight: bold;">null</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">||</span>
-	<span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/iPhone/i</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">||</span> 
-	<span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/iPod/i</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">||</span>
-	<span style="color: #009900;">&#40;</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/Android/i</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
-	<span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>	
-	mainCanvas.<span style="color: #660066;">ontouchstart</span> <span style="color: #339933;">=</span> onTouchStart<span style="color: #339933;">;</span>
-	mainCanvas.<span style="color: #660066;">ontouchend</span> <span style="color: #339933;">=</span> onTouchEnd<span style="color: #339933;">;</span>
-	<span style="color: #006600; font-style: italic;">//...</span>
-<span style="color: #009900;">&#125;</span>
-<span style="color: #000066; font-weight: bold;">else</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #006600; font-style: italic;">//..</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//listen for when the mouse moves</span>
-	canvasOverlayWrapper.<span style="color: #660066;">mousemove</span><span style="color: #009900;">&#40;</span>onMouseMove<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//listen for a click event</span>
-	canvasOverlayWrapper.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span>onMouseClick<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//..</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+``` javascript
+if(	(navigator.userAgent.match(/iPad/i) != null) ||
+	(navigator.userAgent.match(/iPhone/i)) || 
+	(navigator.userAgent.match(/iPod/i)) ||
+	(navigator.userAgent.match(/Android/i))
+	)
+{	
+	mainCanvas.ontouchstart = onTouchStart;
+	mainCanvas.ontouchend = onTouchEnd;
+	//...
+}
+else
+{
+	//..
+	
+	//listen for when the mouse moves
+	canvasOverlayWrapper.mousemove(onMouseMove);
+	
+	//listen for a click event
+	canvasOverlayWrapper.click(onMouseClick);
+
+	//..
+}
+```
 
 At this point, both canvases are aligned and in the same coordinate space, and I am receiving the relevant mouse events that I need. All I need to do now is listen for the relevant mouse events, and re-draw both canvases when the mouse position changes.
 
 First, I listen for when the mouse moves:
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">function</span> onMouseMove<span style="color: #009900;">&#40;</span>e<span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #006600; font-style: italic;">//update the Mouse position coordinates</span>
-	updateMouseCoordinates<span style="color: #009900;">&#40;</span>e<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #006600; font-style: italic;">//update the mouse coordinates</span>
-<span style="color: #003366; font-weight: bold;">function</span> updateMouseCoordinates<span style="color: #009900;">&#40;</span>e<span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #006600; font-style: italic;">//we store these in a global object so they can be easily accessed</span>
-	<span style="color: #006600; font-style: italic;">//from anywhere (other classes)</span>
-	Mouse.<span style="color: #660066;">x</span> <span style="color: #339933;">=</span> e.<span style="color: #660066;">pageX</span> <span style="color: #339933;">-</span> canvasOffset.<span style="color: #660066;">left</span><span style="color: #339933;">;</span>
-	Mouse.<span style="color: #660066;">y</span> <span style="color: #339933;">=</span> e.<span style="color: #660066;">pageY</span> <span style="color: #339933;">-</span> canvasOffset.<span style="color: #660066;">top</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+``` javascript
+function onMouseMove(e)
+{
+	//update the Mouse position coordinates
+	updateMouseCoordinates(e);
+}
+
+//update the mouse coordinates
+function updateMouseCoordinates(e)
+{
+	//we store these in a global object so they can be easily accessed
+	//from anywhere (other classes)
+	Mouse.x = e.pageX - canvasOffset.left;
+	Mouse.y = e.pageY - canvasOffset.top;
+}
+```
 
 When the mouse moves, I copy the canvas relative mouse cursor coordinates into a global object. Given that hundreds of mouse events can fire a second, I try to minimize code being executed here, and don&#8217;t do any rendering updates.
 
@@ -214,52 +202,48 @@ The rendering updates occur when the EaselJS tick event is called (which in my c
 
 Here is the tick listener for the main page:
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">//called at each time interval. This is essentially the listener</span>
-<span style="color: #006600; font-style: italic;">//for Tick.addListener</span>
-<span style="color: #003366; font-weight: bold;">function</span> tick<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #006600; font-style: italic;">//update the main stage / canvas</span>
-	stage.<span style="color: #660066;">tick</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//check if we have an overlay stage</span>
-	<span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span>overlayStage<span style="color: #009900;">&#41;</span>
-	<span style="color: #009900;">&#123;</span>
-		<span style="color: #006600; font-style: italic;">//update the overlay line</span>
-		updateLine<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-		<span style="color: #006600; font-style: italic;">//re-render the overlay stage / canvas</span>
-		overlayStage.<span style="color: #660066;">tick</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	<span style="color: #009900;">&#125;</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+``` javascript
+//called at each time interval. This is essentially the listener
+//for Tick.addListener
+function tick()
+{
+	//update the main stage / canvas
+	stage.tick();
+	
+	//check if we have an overlay stage
+	if(overlayStage)
+	{
+		//update the overlay line
+		updateLine();
+		
+		//re-render the overlay stage / canvas
+		overlayStage.tick();
+	}
+}
+```
 
 Note that the order of the stage.tick() calls is important. We need to update / tick the main stage first, as the overlay stage relies on properties from DisplayObjects on the main stage (and we want to make sure they have been updated before we render the overlay stage).
 
 Basically, it renders the main canvas (with the new position of the drone shape), and if there is an overlayStage, re-renders the ui:
 
-<div class="wp_syntax">
-  <div class="code">
-    <pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">//redraws the overlay line based on Mouse and Drone position</span>
-<span style="color: #003366; font-weight: bold;">function</span> updateLine<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #009900;">&#123;</span>
-	<span style="color: #006600; font-style: italic;">//clear previous line</span>
-	lineGraphics.<span style="color: #660066;">clear</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//stroke style</span>
-	lineGraphics.<span style="color: #660066;">setStrokeStyle</span><span style="color: #009900;">&#40;</span><span style="color: #CC0000;">1</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//stroke color</span>
-	lineGraphics.<span style="color: #660066;">beginStroke</span><span style="color: #009900;">&#40;</span>targetColor<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-	<span style="color: #006600; font-style: italic;">//draw line from Mouse position to Drone position</span>
-	lineGraphics.<span style="color: #660066;">moveTo</span><span style="color: #009900;">&#40;</span>Mouse.<span style="color: #660066;">x</span><span style="color: #339933;">,</span> Mouse.<span style="color: #660066;">y</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-	lineGraphics.<span style="color: #660066;">lineTo</span><span style="color: #009900;">&#40;</span>drone.<span style="color: #660066;">x</span><span style="color: #339933;">,</span> drone.<span style="color: #660066;">y</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span></pre>
-  </div>
-</div>
+``` javascript
+//redraws the overlay line based on Mouse and Drone position
+function updateLine()
+{
+	//clear previous line
+	lineGraphics.clear();
+	
+	//stroke style
+	lineGraphics.setStrokeStyle(1);
+	
+	//stroke color
+	lineGraphics.beginStroke(targetColor);
+	
+	//draw line from Mouse position to Drone position
+	lineGraphics.moveTo(Mouse.x, Mouse.y);
+	lineGraphics.lineTo(drone.x, drone.y);
+}
+```
 
 lineGraphics is a EaselJS [Graphics][5] instance attached to a Shape instance on the overlay stage. 
 
@@ -267,7 +251,7 @@ The [Drone][6] instance on the main stage is also re-rendering itself on the tic
 
 Here we can see how nice it is to be able to share coordinates between canvases. First, we move the drawing point on the overlay canvas to the current mouse position. We then draw a line from that point, to the coordinates for the drone, which is attached the the main canvas.
 
-You may be thinking that using multiple canvases and stages like this would be any easy way to manage the z-order between graphics rendered to the canvas. You can do this, but keep in mind that changing the z-order of the canvas elements in the DOM may cause page reflows, and thus could potentially be expensive. EaselJS allows you to manage the z-order of your display list using stage.addChildAt and stage.addChild (the same as in ActionScript 3). Which technique you should use will depend on your particular project, and how often individual &#8220;layers&#8221; need to be updated.
+You may be thinking that using multiple canvases and stages like this would be any easy way to manage the z-order between graphics rendered to the canvas. You can do this, but keep in mind that changing the z-order of the canvas elements in the DOM may cause page reflows, and thus could potentially be expensive. EaselJS allows you to manage the z-order of your display list using stage.addChildAt and stage.addChild (the same as in ActionScript 3). Which technique you should use will depend on your particular project, and how often individual "layers" need to be updated.
 
 Of course, this is a simple example. Where this could really shine is in games with complex layers of graphics, where each layer may need to be updated at differing intervals.
 
