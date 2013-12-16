@@ -37,7 +37,7 @@ You can find more information on the event, as well as register on the event pag
 
 The event is free, but please register as soon as possible as these event have sold out / filled up in the past.
 
-We don&#8217;t have a huge marketing budget (we spent it all on the [beer][5] and [swag][6] for the event), so I would appreciate any help in getting the word out about the event (blogging, twitter, facebook, etc&#8230;).
+We don&#8217;t have a huge marketing budget (we spent it all on the [beer][5] and [swag][6] for the event), so I would appreciate any help in getting the word out about the event (blogging, twitter, facebook, etc...).
 
 You can follow the latest news and information on the event via twitter at:
 

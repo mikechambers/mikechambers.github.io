@@ -12,7 +12,7 @@ John Dowdell gives a good [summary][1] of the first week of Macromedia MX. He me
 He also mentions that he is getting a lot of traffic from [google][2] for terms such as macromedia Flash MX crack, and Dreamweaver MX crack.&nbsp; To quote John:  
 <!--StartFragment -->
 
-*I&#8217;m still perplexed at the underlying psychological need to crack a preview release which is already free*&#8230;
+*I&#8217;m still perplexed at the underlying psychological need to crack a preview release which is already free*...
 
  [1]: http://jdmx.blogspot.com/2002_04_28_jdmx_archive.html#76144416
  [2]: http://www.google.com

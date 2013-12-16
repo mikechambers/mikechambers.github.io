@@ -8,7 +8,7 @@ categories:
 ---
 
 
-Phillip started with an overview of the Pocket PC platform, and show some accessories for the Pocket PC (keyboards, cameras, storage, etc)&#8230;  
+Phillip started with an overview of the Pocket PC platform, and show some accessories for the Pocket PC (keyboards, cameras, storage, etc)...  
 Can you make money with Flash on the Pocket PC? Yes.  
   
 *   Microsoft Enterprise Platform : Phillip show a really nice application they did for Microsoft, that deomnstrated and gave information on their enterprise platform. They initially made it for the web, and then took the same assets, and a little tweaking and created it for the Pocket PC platform.  

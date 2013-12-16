@@ -10,7 +10,7 @@ categories:
 
 I often have to manually parse through web logs to quickly get the number of times something has been downloaded.
 
-This is pretty simple on unix based OS&#8217;s (Linux, OS-X, etc&#8230;), except that I always forget the exact command (and always have to bug [Christian][1] to remind me how to do it).
+This is pretty simple on unix based OS&#8217;s (Linux, OS-X, etc...), except that I always forget the exact command (and always have to bug [Christian][1] to remind me how to do it).
 
 So, I figured I would post the here in case anyone might find it useful (and so I can easily find them in the future):  
 <!--more-->

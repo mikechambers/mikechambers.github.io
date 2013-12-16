@@ -8,7 +8,7 @@ categories:
 ---
 
 
-This is an open letter to whoever keeps sending e-mail to <wish-flash@macromedia.com> advertising illegal cracked versions of our products (Flash MX, Dreamweaver MX, etc&#8230;) for sale.  
+This is an open letter to whoever keeps sending e-mail to <wish-flash@macromedia.com> advertising illegal cracked versions of our products (Flash MX, Dreamweaver MX, etc...) for sale.  
   
 1.  Thank you, but we already have legal copies.
   

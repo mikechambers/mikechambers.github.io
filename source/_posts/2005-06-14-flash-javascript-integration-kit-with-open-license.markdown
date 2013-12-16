@@ -49,7 +49,7 @@ Here are the main links:
 *   [Source Tree][8]
 *   [Main Release Site][9]
 
-The main project site is hosted on the [osflash wiki][6], so anyone can add to the docs, samples, etc&#8230;
+The main project site is hosted on the [osflash wiki][6], so anyone can add to the docs, samples, etc...
 
 Anyways, expect a lot more info in the coming days and weeks. We have been getting [some bug submissions][10], and are planning on doing a new release soon.
 

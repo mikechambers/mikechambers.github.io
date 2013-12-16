@@ -25,7 +25,7 @@ Plugins search panel (you can add your own plugins) and preferences panel (showi
 
 Btw, if you can think of a good / cool name, post it in the comments.
 
-More info soon&#8230;
+More info soon...
 
  [1]: /mesh/files/helpapp/ref_scrn.gif
  [2]: /mesh/files/helpapp/search_scrn.gif

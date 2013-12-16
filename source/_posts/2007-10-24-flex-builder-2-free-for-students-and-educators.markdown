@@ -10,7 +10,7 @@ categories:
 
 From the press release:
 
-> Adobe Systems Incorporated (Nasdaq:ADBE) today announced that it is offering AdobeÂ® Flexâ„¢ Builderâ„¢ 2 software at no cost to students and faculty at educational institutions worldwide&#8230;. Adobe Flex 2 will be available to qualified education end-users for free download on Adobe.com in early November.
+> Adobe Systems Incorporated (Nasdaq:ADBE) today announced that it is offering AdobeÂ® Flexâ„¢ Builderâ„¢ 2 software at no cost to students and faculty at educational institutions worldwide.... Adobe Flex 2 will be available to qualified education end-users for free download on Adobe.com in early November.
 
 You can read the entire press release [here][1].
 

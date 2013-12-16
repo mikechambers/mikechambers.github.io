@@ -18,7 +18,7 @@ I am really excited about this. As we have said previously, we have always plann
 
 In addition, there will also be new enterprise-class features of the Flex framework that require the Flex server. You will be able to take advantage of Zorn to author those applications too, but you will need a Flex server to deploy them. We are currently working on the next version of the Flex server, code-named &#8220;Mistral&#8221;, which will make enterprise level RIA development, much, much easier (you can find more info on Mistral in the [Flash Platform whitepaper][3]). 
 
-Anyways, I can&#8217;t go into much more feature details right now (on Zorn or Mistral), but I can say that you should expect to hear much, much more about the future of Zorn, the Flex framework and application development for the Flash Platform over the coming weeks and months. Hmm&#8230;. might be a good time to register for [MAX][4].
+Anyways, I can&#8217;t go into much more feature details right now (on Zorn or Mistral), but I can say that you should expect to hear much, much more about the future of Zorn, the Flex framework and application development for the Flash Platform over the coming weeks and months. Hmm.... might be a good time to register for [MAX][4].
 
  [1]: /mesh/archives/2005/08/what_features_w.cfm
  [2]: http://www.macromedia.com/go/platform

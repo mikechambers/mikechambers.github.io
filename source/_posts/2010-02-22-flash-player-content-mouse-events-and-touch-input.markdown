@@ -99,7 +99,7 @@ As a content creator, you should focus on creating content that provides a good 
 
 Here are some links to videos of existing Flash content running on mobile devices. A lot of this content is content never designed to be run on a device with touch input.
 
-*   [Demos of Flash Player 10.1 on various mobile devices][3] (iPhone, Palm Pre, Nexus One, Droid, and more&#8230;)
+*   [Demos of Flash Player 10.1 on various mobile devices][3] (iPhone, Palm Pre, Nexus One, Droid, and more...)
 *   [Flash Player content on Nexus One][4]
 *   [Unofficial Nexus One Flash Demos][5]
 

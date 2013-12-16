@@ -78,7 +78,7 @@ categories:
                                                                   
                                                                 *   &#8220;Best way to connect flash to servers. period. end of story.&#8221;  
                                                                     *   Can send and receive native Flash / Data types. don&#8217;t have to do any data serialization / de-serialization.  
-                                                                        *   Can directly call remote services from flash (java, .net, cfmx, web services, etc&#8230;).  
+                                                                        *   Can directly call remote services from flash (java, .net, cfmx, web services, etc...).  
                                                                             *   Authoring Components are free from macromedia.com. Gateway is included with jrun4, and cfmx. will be avaliable for .net and java servers.</UL>
                                                                               
                                                                             XML is a very verbose way to serialize data. Flash Player communicates with Flash Remoting Adaptor via AMF, a binary format created specifically to serialize ActionScript data types. very efficient and lightweight.  

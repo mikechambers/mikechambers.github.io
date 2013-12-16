@@ -9,4 +9,4 @@ categories:
 
 
 I have been seeing a lot of questions about support for PHP with Flash Remoting. Currently, Flash Remoting doesn&#8217;t support PHP. As far as future support, we haven&#8217;t made any announcements concerning this,&nbsp;but we will be making some more announcements related to Flash Remoting in the near future.  
-Hope that helps&#8230;
+Hope that helps...

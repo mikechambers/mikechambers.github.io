@@ -25,7 +25,7 @@ So, I wanted to take a quick inventory of the projects and resources that Macrom
 *   [RSS/XML News Reader Application][11]
 *   [Macromedia XML News Aggregator (MXNA)][3]
 
-Of course, you can expect us to continue to take advantage of the format. There is a ton of additional useful content on [Macromedia.com][12] that could be syndicated via RSS (technotes, exchange items, etc&#8230;). I also don&#8217;t think it would be too far of a leap to expect future DRKs, and products such as Central to take advantage of and utilize RSS.
+Of course, you can expect us to continue to take advantage of the format. There is a ton of additional useful content on [Macromedia.com][12] that could be syndicated via RSS (technotes, exchange items, etc...). I also don&#8217;t think it would be too far of a leap to expect future DRKs, and products such as Central to take advantage of and utilize RSS.
 
 So, what RSS content, feeds, tool would you like to see from Macromedia? Post your suggestions in the comments section.
 

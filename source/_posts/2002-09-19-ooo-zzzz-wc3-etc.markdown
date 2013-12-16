@@ -1,5 +1,5 @@
 ---
-title: 'OOO ZZzz wc3 etc&#8230;'
+title: 'OOO ZZzz wc3 etc...'
 author: mikechambers
 layout: post
 permalink: /2002/09/19/ooo-zzzz-wc3-etc/

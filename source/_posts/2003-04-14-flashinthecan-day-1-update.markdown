@@ -22,7 +22,7 @@ Right now, I am sitting in on [Erik Natzke&#8217;s][12] session, and as usual, h
 
 Of course, the best part about attending these conferences is that I get to meet so many people in the Flash community that I have either never met, or haven&#8217;t seen in a long time. THus far I have chatted with Colin Moock, Dave Yang, Branden Hall, Beau Amber and Grant Skinner. There is a book signing party tonight so I will probably get to meet a lot more people from the Flash Community.
 
-More updates later&#8230;
+More updates later...
 
  [1]: http://www.flashinthecan.com
  [2]: http://www.macromedia.com/software/flashcom/

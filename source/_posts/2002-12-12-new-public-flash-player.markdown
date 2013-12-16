@@ -10,7 +10,7 @@ categories:
 
 We have [released][1] a new public version of the Flash Player for all platforms (Windows, Mac and Linux). The is the final version of the beta that has been running for a month or two.  
 You can download the updated version [here][1].  
-Note, this is also the first public release of the Flash 6 Player for Linux, and has full support for all Flash 6 capabilities (such as Flash Remoting, Video playback, Flash Communication Server, etc&#8230;). You can find links to the Linux players [here][2].  
+Note, this is also the first public release of the Flash 6 Player for Linux, and has full support for all Flash 6 capabilities (such as Flash Remoting, Video playback, Flash Communication Server, etc...). You can find links to the Linux players [here][2].  
 You can find more info on this release, as well as download standalone, authoring and debug players [here][3].  
 Note, unfortunately, due to some last minute show stopper issues on OSX and Linux, the version numbers are not synced up across platforms. Here are the release versions:  
 **Windows / Mac Classic**: 6,0,65,0  

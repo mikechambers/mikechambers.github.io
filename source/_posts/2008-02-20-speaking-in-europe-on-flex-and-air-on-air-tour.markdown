@@ -22,9 +22,9 @@ We have a pretty impressive line up of [speakers][4] and sessions for all of the
 
 To be honest though, I am most excited about the tour because it is just flat out fun. I get to meet tons of new developers at the events, see new apps, hear new ideas. On the North American leg of the tour, we hung out with a lot of people after the events, and I made a lot of new friends, and I expect the same will happen in Europe. Even the travel is fun, as I get to hang out with some super talented developers, and work on apps (or just mess around). (I was in Europe on a speaking tour in the Fall, so Im hoping I get to meet up again with a lot of the people I met).
 
-Oh yeah, and we have some cool schwag too&#8230; ;)
+Oh yeah, and we have some cool schwag too... ;)
 
-Anyways, we try to get a pretty good mix of developers at the events, with a target of around 50% Flash and Flex developers and 50% JavaScript / HTML developers (that includes PHP, Java, etc&#8230;). We really rely on word of mouth, so if you know someone doing web development, then make sure to let them know about the tour. Even if they are not interested in AIR, it is a good chance to hang out, and meet a lot of other web developers in the area. If you are planning on attending, make sure to blog the tour, and let people know.
+Anyways, we try to get a pretty good mix of developers at the events, with a target of around 50% Flash and Flex developers and 50% JavaScript / HTML developers (that includes PHP, Java, etc...). We really rely on word of mouth, so if you know someone doing web development, then make sure to let them know about the tour. Even if they are not interested in AIR, it is a good chance to hang out, and meet a lot of other web developers in the area. If you are planning on attending, make sure to blog the tour, and let people know.
 
 You can find a complete list of dates and cities, as well and information on how to register on the [onair website][3].
 

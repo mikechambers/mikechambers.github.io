@@ -10,6 +10,6 @@ categories:
 
 The title says it all, What type of applications do you want to see built for [Macromedia Central][1]?
 
-Post you thoughts in the comments section&#8230;
+Post you thoughts in the comments section...
 
  [1]: http://www.macromedia.com/software/central/

@@ -1,5 +1,5 @@
 ---
-title: 'New Flash MX Resources at&#8230;'
+title: 'New Flash MX Resources at...'
 author: mikechambers
 layout: post
 permalink: /2002/04/29/new-flash-mx-resources-at/

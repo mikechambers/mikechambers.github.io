@@ -31,7 +31,7 @@ I wrote the command because I am often finding myself forwarding URLs to friends
 13. Enter the TO email address
 14. Finally send the email
 
-Phew&#8230;
+Phew...
 
 Well, no more. By using the &#8220;fyi&#8221; command, you can quickly and easily forward information about a page to anyone.
 

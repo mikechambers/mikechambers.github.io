@@ -36,7 +36,7 @@ There are a couple of things to keep in mind:
 *   Before releasing your application, you should comment out the Tracer.app name code.
 *   If you have multiple Agents running from your domain, the last one laoded will set the Tracer.appName value.
 
-Also, you can set Tracer.appName to be any value (a string, array, etc&#8230;) and it will be passed to the Tracer panel. The panel from Macromedia only recognizes strings for the appName value, but the complete source code for the panel is included on the SDK, so you can modify it accept other data types.
+Also, you can set Tracer.appName to be any value (a string, array, etc...) and it will be passed to the Tracer panel. The panel from Macromedia only recognizes strings for the appName value, but the complete source code for the panel is included on the SDK, so you can modify it accept other data types.
 
 You can download the Central Trace panel as part of the [Central SDK][1]. You can also download standalone versions for [OS X][2] and [Win][3].
 

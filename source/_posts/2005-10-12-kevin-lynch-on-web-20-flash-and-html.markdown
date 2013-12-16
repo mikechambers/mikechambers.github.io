@@ -12,7 +12,7 @@ Kevin Lynch has posted his [thoughts on Web 2.0, Flash and HTML][1]. He discusse
 
 > Flash brings capabilities that HTML doesn&#8217;t currently have, and they can be used together to great benefit &#8212; in fact, Flash has already been architected to fit perfectly in the Web 2.0 model.
 > 
-> &#8230;
+> ...
 > 
 > This is not about Flash vs. HTML or Ajax. It&#8217;s using Flash + HTML with the Ajax approach to build Web 2.0 applications
 

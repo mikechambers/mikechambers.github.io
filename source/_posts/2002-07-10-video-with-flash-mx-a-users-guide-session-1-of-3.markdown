@@ -31,7 +31,7 @@ The Importance of Flash MX Video
                     *   More onsistence playback across platforms.</UL>
                       
                     on mac, import an 1/8 of a second&nbsp; blank audio on first frame. set it to stream. this will make the video drop frames if it can&#8217;t keep up, which leads to better video flow.  
-                    Showing new ESPN video player. Flash Interface, with a layer of video (real or windows media) over flash. sometimes it will not come up, can take a while to load due to checking players, browser, etc&#8230;  
+                    Showing new ESPN video player. Flash Interface, with a layer of video (real or windows media) over flash. sometimes it will not come up, can take a while to load due to checking players, browser, etc...  
                     Showing Xgames video full screen flash application / projector, with video. *Pretty sweet &#8211; mc*.  
                     It is more difficult to steal video from Flash. That doesn&#8217;t mean it is impossible, but for regular users, it is enough of a hassle, that most will give up or not try.  
                     Because everything is contained within Flash, you can leverage the power of flash with video to completely customize your application (i.e. create a custom / advanced preloader for the video).  

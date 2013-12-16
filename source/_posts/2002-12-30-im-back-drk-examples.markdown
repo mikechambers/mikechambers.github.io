@@ -9,6 +9,6 @@ categories:
 
 
 I hope that everyone had a good holiday. I am back from some &#8220;time off&#8221; and am trying to get back into the swing of things. It looks like I finally have the resources necessary to post some [DRK][1] 2 (or 1) examples online, so if there is anything in particular that would like to see, let me know.  
-More posts a little later&#8230;
+More posts a little later...
 
  [1]: http://www.macromedia.com/software/drk/

@@ -28,7 +28,7 @@ The nature of standards are that they are slow, and they follow implementation. 
 
 While Alex has been focusing a lot of his hopes and efforts on [Google Gears][7], the Flash Player is in the same position. Indeed, the Flash Player has consistently pushed innovation on the web, from bringing animation and motion to the web, to advanced scripting capabilities, to video, and more robust programming runtimes.
 
-It should therefore be no surprise that the [HTML 5 draft][8] reads like a laundry list of past Flash features (video, audio, sockets, drawing apis, etc&#8230;).
+It should therefore be no surprise that the [HTML 5 draft][8] reads like a laundry list of past Flash features (video, audio, sockets, drawing apis, etc...).
 
 To sum up, ActionScript 3 isn&#8217;t changing and we are not going to dumb down future versions or ActionScript. We are going to continue to innovate on the web with the Flash Player, and push the web forward, as we have done for over a decade.
 

@@ -176,7 +176,7 @@ Clip of interview with FAA who has been using the new report functionality.
 
 Blackstone can take data outside the realm of the web. Goes into Admin and starts an SMS tester to test SMS functionality. Launches built in cellphone emulator so he can test sending SMS messages to CF app. Sends an SMS and immediately gets results back on phone.
 
-SMS feature is part of a bigger feature called gateways, that allows you to tie into other systems, SMS, JMS, etc&#8230; You can go to cyber cafe, enter you mobile number and you will get alerts via SMS. or you can send an SMS to a number and get information about your sessions.
+SMS feature is part of a bigger feature called gateways, that allows you to tie into other systems, SMS, JMS, etc... You can go to cyber cafe, enter you mobile number and you will get alerts via SMS. or you can send an SMS to a number and get information about your sessions.
 
 Beta of Blackstone is included in your Max bag. (Applause)
 

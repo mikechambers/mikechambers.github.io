@@ -14,7 +14,7 @@ So, my question for the day is: what do you think of software subscriptions in g
 
 Update : note that I am not talking about DRK subscriptions (or at least not that specifically), but subscriptions in general.
 
-Post your thoughts in the comments section&#8230;
+Post your thoughts in the comments section...
 
  [1]: http://www.macromedia.com/software/drk/
  [2]: http://groups.google.com/groups?hl=en&lr=&ie=UTF-8&oe=UTF-8&threadm=Xns92E6818D47A66mbrownmacromediacom%4010.208.4.99&rnum=2&prev=/groups%3Fhl%3Den%26lr%3D%26ie%3DUTF-8%26oe%3DUTF-8%26q%3Dmacromedia%2Bdrk%2Bsubscription%26btnG%3DGoogle%2BSearch

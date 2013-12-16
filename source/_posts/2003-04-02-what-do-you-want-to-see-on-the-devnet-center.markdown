@@ -12,6 +12,6 @@ We have been thinking about what Flash articles, content and topics we should fe
 
 **What Flash content, topics and articles do you want to see on the Macromedia DevNet Center?**
 
-Post your thoughts in the comments&#8230;
+Post your thoughts in the comments...
 
  [1]: http://www.macromedia.com/devnet/

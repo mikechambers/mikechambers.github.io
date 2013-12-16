@@ -12,7 +12,7 @@ As we [announced][1] a couple of months ago, we are working on a next generation
 
 So, what features would you like to see in Zorn?
 
-Post your feature requests in the comments&#8230;
+Post your feature requests in the comments...
 
  [1]: http://www.macromedia.com/macromedia/proom/pr/2005/eclipse_flashplatform.html
  [2]: http://www.macromedia.com/software/flex/productinfo/faq/#item-f15

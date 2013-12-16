@@ -14,7 +14,7 @@ So what do people think about coming up with an XML format that describes and li
 <!--more-->
 
   
-So, in the case of Flash Weblogs, there could be one XML source which listed all of the Flash Weblogs, and information about them (URL, description, language, xml feed url, etc&#8230;). 
+So, in the case of Flash Weblogs, there could be one XML source which listed all of the Flash Weblogs, and information about them (URL, description, language, xml feed url, etc...). 
 
 Then you could write code that periodically checked the list and automatically generated the links for your weblog, or maybe you have a Flash based news feed reader that just reads the resource file and then loads the individual feeds to be read.
 

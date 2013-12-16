@@ -8,7 +8,7 @@ categories:
 ---
 
 
-We have just finished moving all of the [open source ActionScript 3 Libraries][1] over to Google code. Not only does this provide a much better infrastructure for the libraries (providing source control, mailing list, bug base, etc&#8230;), but more importantly, it finally makes it easy for us to allow other developers to contribute to the projects.  
+We have just finished moving all of the [open source ActionScript 3 Libraries][1] over to Google code. Not only does this provide a much better infrastructure for the libraries (providing source control, mailing list, bug base, etc...), but more importantly, it finally makes it easy for us to allow other developers to contribute to the projects.  
 <!--more-->
 
   

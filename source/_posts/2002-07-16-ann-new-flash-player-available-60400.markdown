@@ -10,7 +10,7 @@ categories:
 
 There is a new Flash Player available. This is version 6,0,40,0 and includes a ton of bug fixes as well as some new features.  
 You can download the player [here][1].  
-We will have the other players (standalone, debug, etc&#8230;) availiable shortly, as well as release notes for the new player.  
+We will have the other players (standalone, debug, etc...) availiable shortly, as well as release notes for the new player.  
   
 &nbsp;
 

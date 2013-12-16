@@ -21,9 +21,9 @@ As I mentioned above, we just had another internal Apollo release. This release,
 *   Initial Flex Framework support of Apollo (i.e. HTML control, ApolloApplication component).
 *   lots more
 
-We have added our initial HTML support, and it is pretty cool. Right now HTML only works within Flash / Flex content. i.e. you cant have a top level HTML Apollo application yet. The thing that is really cool though about the HTML support via Flash, is that the HTML is rendered via the Flash display stack, and thus anything that you can do with content on Flash&#8217;s display list (blur, rotate, etc&#8230;), you can also do with HTML (and the HTML remains interactive). You can find more details on this [video of the the HTML session from Max][2] that I posted a couple of weeks ago.
+We have added our initial HTML support, and it is pretty cool. Right now HTML only works within Flash / Flex content. i.e. you cant have a top level HTML Apollo application yet. The thing that is really cool though about the HTML support via Flash, is that the HTML is rendered via the Flash display stack, and thus anything that you can do with content on Flash&#8217;s display list (blur, rotate, etc...), you can also do with HTML (and the HTML remains interactive). You can find more details on this [video of the the HTML session from Max][2] that I posted a couple of weeks ago.
 
-Right now, you can specify a URL for the HTML control to load (remote or local), or give it a string of HTML to render. Remember, that this is a full HTML engine ([WebKit][3]), so all HTML, CSS, JavaScript, etc&#8230; is supported.
+Right now, you can specify a URL for the HTML control to load (remote or local), or give it a string of HTML to render. Remember, that this is a full HTML engine ([WebKit][3]), so all HTML, CSS, JavaScript, etc... is supported.
 
 Another cool thing that was included in M2, was a pretty significant update to the File I/O API. In general the APIs were cleaned up and rationalized, but the biggest thing was the addition of a synchronous File API (in M1 all File I/O was Asynchronous). This provides a lot of flexibility for the developer, and makes it even easier to read / write data to and from the file system.
 

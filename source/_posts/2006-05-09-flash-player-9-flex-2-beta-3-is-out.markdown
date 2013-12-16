@@ -13,7 +13,7 @@ Well, as you have probably seen from the [50 million posts on MXNA][1] about it,
 
 *   Flash Player 9 (the Player formerly known as Flash Player 8.5)
 *   Flex Builder 2.0
-*   Flex SDK 2.0 (includes Flex Framework and command-line compiler for Mac, Windows, Linux, etc&#8230;)
+*   Flex SDK 2.0 (includes Flex Framework and command-line compiler for Mac, Windows, Linux, etc...)
 *   Flex Charting Components
 *   Flex Builder 2.0
 

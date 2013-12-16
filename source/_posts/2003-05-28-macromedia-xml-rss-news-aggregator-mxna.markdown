@@ -23,7 +23,7 @@ Some of the features of MXNA include:
 *   Ability to filter feeds.
 *   Ability to filter non RSS / XML feeds.
 *   Currently over 140 feeds.
-*   and more&#8230;
+*   and more...
 
 Note, when linking to the aggregator, please use this URL:
 

@@ -14,7 +14,7 @@ categories:
 [Using Flash Player 8 Features in Your Flex 1.5 Application][4]  
 [Alpha masking goodness in Flash Player 8][5]  
 [The quest for a new video codec in Flash 8][6]  
-[Why does Flash Player 8 on Mac perform so much better? Here is the answer&#8230;][7]  
+[Why does Flash Player 8 on Mac perform so much better? Here is the answer...][7]  
 [Putting the Customer Up Front with Studio 8][8]  
 [Studio 8 Feature Tour][9]  
 [What are the upgrade paths for Studio 8][10]  

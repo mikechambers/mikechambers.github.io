@@ -22,7 +22,7 @@ You can download the plugin from [here][3].
 
 Installation instructions are included in the readme file within the zip.
 
-If you have any bug fixes, problems, recommendations, etc&#8230;, just post them in the comments.
+If you have any bug fixes, problems, recommendations, etc..., just post them in the comments.
 
  [1]: http://www.apple.com/macosx/features/spotlight/
  [2]: http://www.apple.com/macosx/

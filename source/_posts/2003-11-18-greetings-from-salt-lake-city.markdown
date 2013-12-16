@@ -12,7 +12,7 @@ I am finally in Salt Lake city for the [Max conference][1]. Unfortunately, I hav
 
 [Danny Dura][2] and [Christian Cantrell][3] are also hanging around and we are working on some pretty cool stuff. More info soon.
 
-I&#8217;ll be posting pictures on the [Vision][4] website that Christian made (hmm&#8230; that sure would make a good Central app&#8230; ;) ).
+I&#8217;ll be posting pictures on the [Vision][4] website that Christian made (hmm... that sure would make a good Central app... ;) ).
 
  [1]: http://www.macromedia.com/macromedia/conference/
  [2]: http://www.daneldura.com

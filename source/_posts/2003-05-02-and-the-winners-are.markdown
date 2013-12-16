@@ -1,5 +1,5 @@
 ---
-title: 'And the winners are&#8230;'
+title: 'And the winners are...'
 author: mikechambers
 layout: post
 permalink: /2003/05/02/and-the-winners-are/

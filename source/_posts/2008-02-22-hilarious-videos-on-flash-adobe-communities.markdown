@@ -8,7 +8,7 @@ categories:
 ---
 
 
-[Phillip Kerman][1] has been putting together some [videos][2] for the [30onair][3] project, and they are absolutely hilarious (in part because of how true they). He has videos on Why Flash, Flex, Lingo, on AIR Tour, Ajax, etc&#8230; and all of them take a tongue in cheek look at the technologies.
+[Phillip Kerman][1] has been putting together some [videos][2] for the [30onair][3] project, and they are absolutely hilarious (in part because of how true they). He has videos on Why Flash, Flex, Lingo, on AIR Tour, Ajax, etc... and all of them take a tongue in cheek look at the technologies.
 
 He just posted one on the [on AIR tour,][4] which I blogged about on the [tour blog][5], but make sure to check out his other videos (especially the [why Ajax][6], and [why Lingo][7]).
 

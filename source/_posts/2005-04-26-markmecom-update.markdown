@@ -22,7 +22,7 @@ For you information, here are the steps that we will be taking for the transitio
 4. Redirect old markme.com links to weblogs.macromedia.com  
 5. Eventually point markme.com and weblogs.macromedia.com to the same machine.
 
-Now, a lot of people use resources from markme.com (rss feeds, web services, etc&#8230;). In almost all cases, these should continue to work. We have set up go urls that will automatically update, but in cases where the actual URL is being referenced, we will try to make sure to have them automatically redirected to the new url. If we miss something, please let us know by emailing <mxna@macromedia.com>.
+Now, a lot of people use resources from markme.com (rss feeds, web services, etc...). In almost all cases, these should continue to work. We have set up go urls that will automatically update, but in cases where the actual URL is being referenced, we will try to make sure to have them automatically redirected to the new url. If we miss something, please let us know by emailing <mxna@macromedia.com>.
 
 The one item that might be tricky is if you are using the old MXNA web service API. This API is now deprecated, and so you should look at upgrading your apps to the [new webservice API][6]. (The old API can still be found on the new MXNA [here][7]). But note, that API is still in beta, and we are tweaking and adding a ton of stuff. It should settle down sometime next week. If there is some API you would like to see added to the new web service API, [let us know][8] as soon as possible, and we will see about getting it in.
 

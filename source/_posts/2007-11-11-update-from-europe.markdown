@@ -20,7 +20,7 @@ Oh yeah, we got a chance to sit down with [Ralph Hauwert][4] in Denmark, and do 
 
 Anyways, it is been a blast getting to meet and hang out with everyone, and now that we are rested, we are ready to head out for week 2.
 
-Update : Looks like some of this code is taking a little longer than expected, so the surprise we had for tonight might have to wait&#8230; ;(
+Update : Looks like some of this code is taking a little longer than expected, so the surprise we had for tonight might have to wait... ;(
 
  [1]: http://www.theflashblog.com
  [2]: http://www.mikechambers.com/blog/2007/10/15/european-user-group-tour-mike-chambers-and-lee-brimelow/

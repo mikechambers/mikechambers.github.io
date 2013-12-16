@@ -1,5 +1,5 @@
 ---
-title: 'DevCon : mesh meet george&#8230;'
+title: 'DevCon : mesh meet george...'
 author: mikechambers
 layout: post
 permalink: /2002/10/30/devcon-mesh-meet-george/

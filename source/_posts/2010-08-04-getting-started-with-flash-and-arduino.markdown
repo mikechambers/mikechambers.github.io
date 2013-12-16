@@ -38,8 +38,8 @@ Once we are finished with the tutorial, you will be all setup to begin working o
 1.  An Arduino Main Board: These are pretty cheap ($20 - $30) and you can pick them up tons of places (I recommend [AdaFruit][4] and [Sparkfun][5]). If you are just getting started with basic electronics, you may want to consider picking up a starter kit ([AdaFruit][6], [SparkFun][7]). The most current version is the [Arduino Duemilanove with Atmega328][8] which I will be using. Make sure that you get the appropriate USB cable if it is not included with your Arduino.
 2.  Arduino software and drivers for your platform: You can grab these from the [Arduino downloads page][9]. I will be using the Arduino 0018 download on Mac.
 3.  TinkerProxy. [TinkerProxy][10] is a small local proxy that acts as a bridge between the serial port and Flash (via a socket server). This allows Flash to communicate with the Arduino.
-4.  Editor for writing ActionScript code. You can use any editor such as Flash Authoring, Flash Builder, FDT, etc&#8230;
-5.  Flash / ActionScript compiler. Finally, you will need a way to compile your ActionScript. Again, this could be anything that can compile ActionScript 3, such as Flash Builder, Flash Authoring, etc&#8230; I will be using the MXMLC command line compiler from the open source Flex 4 SDK.
+4.  Editor for writing ActionScript code. You can use any editor such as Flash Authoring, Flash Builder, FDT, etc...
+5.  Flash / ActionScript compiler. Finally, you will need a way to compile your ActionScript. Again, this could be anything that can compile ActionScript 3, such as Flash Builder, Flash Authoring, etc... I will be using the MXMLC command line compiler from the open source Flex 4 SDK.
 
 You can download and view all of the code from this article from [my GitHub examples repository][11].
 

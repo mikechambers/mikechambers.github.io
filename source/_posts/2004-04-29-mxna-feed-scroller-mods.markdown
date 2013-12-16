@@ -14,7 +14,7 @@ Peter Elst turned it into a [ScreenSaver][2].
 
 Eric Dolecki updated it with a [new look][3].
 
-Hmmm&#8230;. I think I see a contest coming on&#8230;. :)
+Hmmm.... I think I see a contest coming on.... :)
 
  [1]: http://www.markme.com/mesh/archives/004880.cfm
  [2]: http://www.peterelst.com/blog/index.php?p=44&c=1#comments

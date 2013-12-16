@@ -1,5 +1,5 @@
 ---
-title: 'Have you built a Central App? Let me know&#8230;'
+title: 'Have you built a Central App? Let me know...'
 author: mikechambers
 layout: post
 permalink: /2003/11/06/have-you-built-a-central-app-let-me-know/

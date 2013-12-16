@@ -1,5 +1,5 @@
 ---
-title: 'coming soon&#8230;'
+title: 'coming soon...'
 author: mikechambers
 layout: post
 permalink: /2002/04/19/coming-soon/
@@ -8,4 +8,4 @@ categories:
 ---
 
 
-coming soon&#8230;
+coming soon...

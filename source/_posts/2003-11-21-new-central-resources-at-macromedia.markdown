@@ -48,7 +48,7 @@ I am about a day late in posting this, but there are a ton of new resources on M
 *   [SDK Release Notes][20]
 *   [System Requirements][21]
 
-Have fun reading&#8230;
+Have fun reading...
 
  [1]: http://www.macromedia.com/go/central_sdk
  [2]: http://www.macromedia.com/devnet/central/articles/quick_start.html

@@ -18,9 +18,9 @@ categories:
 
 [The Pixies][5]
 
-and on and on&#8230;
+and on and on...
 
-Post other cool stuff in the comments&#8230;
+Post other cool stuff in the comments...
 
  [1]: http://www.praystation.com
  [2]: http://www.gskinner.com/gmodeler/

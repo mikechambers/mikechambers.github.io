@@ -22,7 +22,7 @@ We are going to work hard to make sure that everything moves forward smoothly, b
 
 How do I feel about this personally? Well, of course, I was a little surprised at first. But, now that I have had some time to think about it for a while, I am actually quite excited. I strongly believe in the potential of Flash as a cross-platform solution for deploying rich content and applications (I can&#8217;t stress the cross-platform part of that enough). Together, the combined company will have the resources on our own to make the platform successful on a larger scale. So, personally, I am excited about this because, after the combination closes, Flash as a platform will be driven by a much, much larger company (combined we would be over $2 billion a year in revenue), with a lot more resources at its disposal. I think it makes it much more likely that Flash will play a significant role as the next generation application / content platform (one that is ubiquitous and cross platform).
 
-I think it makes things very interesting&#8230;
+I think it makes things very interesting...
 
 Here are the links to more info:
 

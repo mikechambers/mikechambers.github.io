@@ -11,7 +11,7 @@ categories:
 As you probably noticed, yesterday Adobe ran some ads [expressing its thoughts on the importance of open markets][1]. I think Adobe's position is best summarized in an [open letter from Adobe's founders, John Warnock and Chuck Geschke][2]:  
 <!--more-->
 
-> When markets are open, anyone with a great idea has a chance to drive innovation and find new customers. Adobe's business philosophy is based on a premise that, in an open market, the best products will win in the end — and the best way to compete is to create the best technology and innovate faster than your competitors&#8230;.
+> When markets are open, anyone with a great idea has a chance to drive innovation and find new customers. Adobe's business philosophy is based on a premise that, in an open market, the best products will win in the end — and the best way to compete is to create the best technology and innovate faster than your competitors....
 > 
 > We believe that Apple, by taking the opposite approach, has taken a step that could undermine this next chapter of the web — the chapter in which mobile devices outnumber computers, any individual can be a publisher, and content is accessed anywhere and at any time.
 
@@ -21,7 +21,7 @@ Adobe isn't arguing that the Flash toolchain is more open than Apple's toolchain
 
 I think that John Nack has done the [best job of explaining some of the dangers and concerns around this][3]:
 
-> First, all these conversations tend to get framed in terms of Adobe Flash. That's a mistake. Apple's decision to deny customers the choice of whether to use Flash on iPads/iPhones is just one part of a bigger, more interesting question: What maximizes innovation & ultimate benefit to customers?&#8230;
+> First, all these conversations tend to get framed in terms of Adobe Flash. That's a mistake. Apple's decision to deny customers the choice of whether to use Flash on iPads/iPhones is just one part of a bigger, more interesting question: What maximizes innovation & ultimate benefit to customers?...
 > 
 > You shouldn't care about this stuff because you love or hate Adobe. You should care because these issues affect your choices as a customer & a creative person. 
 

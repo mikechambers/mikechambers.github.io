@@ -1,5 +1,5 @@
 ---
-title: 'DevCon spaces, Going, Going&#8230;'
+title: 'DevCon spaces, Going, Going...'
 author: mikechambers
 layout: post
 permalink: /2002/10/17/devcon-spaces-going-going/

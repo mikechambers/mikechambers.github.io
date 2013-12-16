@@ -48,7 +48,7 @@ vector.fixed <span style="color: #666666">=</span> <span style="color: #666666">
 </pre>
 </div>
 
-Keep in mind, that if fixed is set to true, then you cannot call any Vector methods that change the length, such as pop(), push(), shift(), etc&#8230;
+Keep in mind, that if fixed is set to true, then you cannot call any Vector methods that change the length, such as pop(), push(), shift(), etc...
 
 Vectors are also type safe, so while with an Array you can store multiple types:
 

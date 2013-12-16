@@ -44,7 +44,7 @@ memory issues
                                                       
                                                     Sony Requirements  
                                                       
-                                                    *   memory cards stuff is more than half of the work. (what happens when the user pulls a card out, inserts it, etc&#8230;).  
+                                                    *   memory cards stuff is more than half of the work. (what happens when the user pulls a card out, inserts it, etc...).  
                                                         *   sony design documentation manual. very big.</UL>
                                                           
                                                         card issues, example:  
@@ -58,7 +58,7 @@ memory issues
                                                                                 *   being read?  
                                                                                     *   did you tell the user how much space is required?  
                                                                                         *   does the user want to format or save the data?  
-                                                                                            *   etc&#8230;</UL>
+                                                                                            *   etc...</UL>
                                                                                               
                                                                                             these all have to be asked and considered within the flash movie.  
                                                                                             Middleware layer. the layer of scripting between the hardware / game and flash.  

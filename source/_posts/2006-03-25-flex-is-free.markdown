@@ -18,7 +18,7 @@ categories:
 
 Ok. I know that is a little annoying, but I keep seeing [fundamental misunderstandings][1] around Flex pricing.
 
-So, just to clarify, the Flex 2 SDK, which includes the Framework, compiler, debugger, docs, etc&#8230; will cost nothing. Nada, zilch&#8230; You ill be able to build and deploy Flex 2 apps using the framework for absolutely no cost (commercial, non-commercial, semi-commercial, etc&#8230;).
+So, just to clarify, the Flex 2 SDK, which includes the Framework, compiler, debugger, docs, etc... will cost nothing. Nada, zilch... You ill be able to build and deploy Flex 2 apps using the framework for absolutely no cost (commercial, non-commercial, semi-commercial, etc...).
 
 Btw, we will also have a completely free version of Flex Data Services (more on that in a seperate post).
 

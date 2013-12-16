@@ -14,7 +14,7 @@ It is pretty amazing, which brought the following question to mind&#8221;
 
 Is this going to be the best Flash conference ever?
 
-Discuss&#8230;
+Discuss...
 
  [1]: http://www.flashonthebeach.com/speakers/
  [2]: http://www.mikechambers.com/blog/2007/10/15/european-user-group-tour-mike-chambers-and-lee-brimelow/
