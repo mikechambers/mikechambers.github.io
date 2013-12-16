@@ -9,7 +9,7 @@ categories:
 ---
 
 
-I am in Brighton for [Flash on the Beach 2009][1] (amazing conference as usual). I gave a presentation on Adobe AIR yesterday, titled &#8220;[Advanced Desktop Development with Adobe AIR][2]&#8220;, which went well. I covered how to accomplish and approach a number of development tasks when working with AIR, and also talked about a couple of new features that we are working on.
+I am in Brighton for [Flash on the Beach 2009][1] (amazing conference as usual). I gave a presentation on Adobe AIR yesterday, titled "[Advanced Desktop Development with Adobe AIR][2]", which went well. I covered how to accomplish and approach a number of development tasks when working with AIR, and also talked about a couple of new features that we are working on.
 
 I have posted the slides for the session, which you can grab from [here][2].
 
