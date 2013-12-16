@@ -10,12 +10,11 @@ tags:
   - as3corelib
 ---
 
-
 I have just posted a [new release (.93) of as3corelib][1]. The corelib project is an ActionScript 3 Library that contains a number of classes and utilities for working with ActionScript? 3. 
 
-You can view a complete list of changes in the [change list (items 75 &#8211; 106)][2].
+You can view a complete list of changes in the [change list (items 75 - 106)][2].
 
-You can download the updated SWC and source from the [project&#8217;s download page][1].
+You can download the updated SWC and source from the [project's download page][1].
 
 Thanks to [Christian Cantrell][3] for helping build the release.
 
