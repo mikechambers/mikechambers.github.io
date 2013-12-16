@@ -9,4 +9,4 @@ categories:
 ---
 
 
-Just a quick note, but my Max session for Wednesday morning, at ( 9:30 AM) titled &#8220;Secret Session : Flash&#8221; is now an open Q and A with the Flash Player and AIR teams to talk about creating applications for the iPhone with Flash.
+Just a quick note, but my Max session for Wednesday morning, at ( 9:30 AM) titled "Secret Session : Flash" is now an open Q and A with the Flash Player and AIR teams to talk about creating applications for the iPhone with Flash.
