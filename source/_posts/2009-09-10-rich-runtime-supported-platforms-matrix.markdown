@@ -17,18 +17,17 @@ The runtimes covered include:
 *   [Microsoft Silverlight 3.0][2]
 *   [Java FX 1.2][3]
 
-Information is obtained from the runtime&#8217;s websites (linked below).  
+Information is obtained from the runtime's websites (linked below).  
 <!--more-->
 
-  
 A green box indicates that the runtime is supported on the specified platform, while a red box indicates the runtime is not supported and / or not available for the specified platform.
 
-<title>
-</title>
+<span><style type="text/css">
+.tblGenFixed td {padding:0 3px;overflow:hidden;white-space:normal;letter-spacing:0;word-spacing:0;background-color:#fff;z-index:1;border-top:0px none;border-left:0px none;border-bottom:1px solid #CCC;border-right:1px solid #CCC;} .dn {display:none} .tblGenFixed td.s0 {background-color:white;font-family:arial,sans,sans-serif;font-size:100.0%;font-weight:normal;font-style:normal;text-decoration:none;vertical-align:bottom;white-space:normal;overflow:hidden;text-indent:0px;padding-left:3px;border-top:1px solid black;border-right:1px solid black;border-bottom:1px solid black;border-left:1px solid black;} .tblGenFixed td.s2 {background-color:white;font-family:arial,sans,sans-serif;font-size:100.0%;font-weight:normal;font-style:normal;text-decoration:none;vertical-align:bottom;white-space:normal;overflow:hidden;text-indent:0px;padding-left:3px;border-top:1px solid #CCC;border-right:1px solid #CCC;border-bottom:1px solid #CCC;} .tblGenFixed td.s1 {background-color:white;font-family:arial,sans,sans-serif;font-size:100.0%;font-weight:bold;font-style:normal;color:#000000;text-decoration:none;text-align:center;vertical-align:bottom;white-space:normal;overflow:hidden;text-indent:0px;padding-left:3px;border-top:1px solid black;border-right:1px solid black;border-bottom:1px solid black;} .tblGenFixed td.s7 {background-color:white;font-family:arial,sans,sans-serif;font-size:100.0%;font-weight:normal;font-style:normal;text-decoration:none;vertical-align:bottom;white-space:normal;overflow:hidden;text-indent:0px;padding-left:3px;border-right:1px solid #CCC;border-bottom:1px solid #CCC;border-left:1px solid #CCC;} .tblGenFixed td.s8 {background-color:white;font-family:arial,sans,sans-serif;font-size:100.0%;font-weight:normal;font-style:normal;text-decoration:none;vertical-align:bottom;white-space:normal;overflow:hidden;text-indent:0px;padding-left:3px;border-right:1px solid #CCC;border-bottom:1px solid #CCC;} .tblGenFixed td.s5 {background-color:white;font-family:arial,sans,sans-serif;font-size:100.0%;font-weight:normal;font-style:normal;text-decoration:none;vertical-align:bottom;white-space:normal;overflow:hidden;text-indent:0px;padding-left:3px;border-right:1px solid #CCC;border-bottom:1px solid #CCC;} .tblGenFixed td.s6 {background-color:#ff0000;font-family:arial,sans,sans-serif;font-size:100.0%;font-weight:normal;font-style:normal;color:#000000;text-decoration:none;text-align:center;vertical-align:bottom;white-space:normal;overflow:hidden;text-indent:0px;padding-left:3px;border-right:1px solid black;border-bottom:1px solid black;} .tblGenFixed td.s3 {background-color:white;font-family:arial,sans,sans-serif;font-size:100.0%;font-weight:bold;font-style:normal;color:#000000;text-decoration:none;text-align:left;vertical-align:bottom;white-space:normal;overflow:hidden;text-indent:0px;padding-left:3px;border-right:1px solid black;border-bottom:1px solid black;border-left:1px solid black;} .tblGenFixed td.s4 {background-color:#00ff00;font-family:arial,sans,sans-serif;font-size:100.0%;font-weight:normal;font-style:normal;color:#000000;text-decoration:none;text-align:center;vertical-align:bottom;white-space:normal;overflow:hidden;text-indent:0px;padding-left:3px;border-right:1px solid black;border-bottom:1px solid black;} 
+</style></span>
 
   
-</head>  
-</p> <table border="0" cellpadding="0" cellspacing="0" id='tblMain'>
+<table border="0" cellpadding="0" cellspacing="0" id='tblMain'>
   <tr>
     <td>
       <table border="0" cellpadding="0" cellspacing="0" class='tblGenFixed' id='tblMain_0'>
@@ -243,7 +242,6 @@ A green box indicates that the runtime is supported on the specified platform, w
   </tr>
 </table>
 
-&nbsp;
 
 (1) Requires Java 1.5
 
