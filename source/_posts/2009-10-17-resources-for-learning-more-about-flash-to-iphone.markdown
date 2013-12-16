@@ -7,11 +7,9 @@ categories:
   - General
 ---
 
-
 Below is a list of some of the best resources if you are interesting in getting a deeper understanding Adobe&#8217;s recent announcement that Flash CS5 will be able to output standalone applications for the iPhone.  
 <!--more-->
 
-  
 [Building Applications for the iPhone with Flash][1] : My original blog post on the iPhone announcements.
 
 [Developer FAQ][2] : Official FAQ which answers common questions about creating content for iPhone using Flash.
@@ -20,7 +18,7 @@ Below is a list of some of the best resources if you are interesting in getting 
 
 [Flash to iPhone][4] : Excellent article by Veronique Brossier (who was on the private pre-release) going into deep technical detail about creating applications for the iPhone using Flash.
 
-[Flash on iPhone : My Experience][5] : Blog post by Ben Garney (of [pushbuttonlabs][6]) talking about his experiences building the &#8220;Trading Stuff in Outer Space&#8221;" game for the iPhone using Flash.
+[Flash on iPhone : My Experience][5] : Blog post by Ben Garney (of [pushbuttonlabs][6]) talking about his experiences building the "Trading Stuff in Outer Space" game for the iPhone using Flash.
 
 [Designing Flash Applications for the iPhone][7] : Max session from Arono Gourdol from the Adobe AIR team, talking about designing content for iPhone applications using Flash.
 
