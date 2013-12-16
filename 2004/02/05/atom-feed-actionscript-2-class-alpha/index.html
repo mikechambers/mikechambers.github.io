@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Atom Feed ActionScript 2 Class Alpha - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="I am putting together an ActionScript 2 class to represent and parse [Atom feeds][1]. I have put together an early alpha version of the class, but &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2004/02/05/atom-feed-actionscript-2-class-alpha">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Atom Feed ActionScript 2 Class Alpha</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-02-05T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I am putting together an ActionScript 2 class to represent and parse [Atom feeds][1]. I have put together an early alpha version of the class, but wanted to get some feedback on it before I continue work on it.</p>
+
+<!--more-->
+
+
+<p>Alpha .22: (Feb.12 2004)</p>
+
+<ul>
+<li>Refactored to make it easier to extend and add support for custom namespaces</li>
+<li>User cannot add nodes</li>
+<li>tag attributes are now placed in attributes object for element.</li>
+<li>TODO: check case sensitivity in switch statements</li>
+<li>TODO: check if namespace is added tags : atom:element</li>
+<li>TODO: optimize parse functions</li>
+<li>TODO: document api</li>
+<li>TODO: wrap in MXP file for distribution</li>
+</ul>
+
+
+<p>Alpha .20:</p>
+
+<ul>
+<li>Should parse all elements and attributes described in the Atom .03 spec.</li>
+<li>Does not currently support non-atom namespaces.</li>
+<li>Utilizes the [W3CDateTime class][2]</li>
+</ul>
+
+
+<p>Alpha .10:</p>
+
+<ul>
+<li>Does not parse all Atom elements.</li>
+<li>Only parses elements included in default Movable Type atom feed. Specifically, [my Atom feed][3].</li>
+<li>Cannot yet add nodes</li>
+<li>Dates are not supported yet. Need to make a date class for the date types used by Atom</li>
+<li>This is a super early version, and the code will probably drastically change.</li>
+</ul>
+
+
+<p>Before I finish up adding support for all of Atom, I wanted to get some input on the class, and how I make the Atom dom avaliable. Please post any suggestions in the comments.</p>
+
+<p>One quick comment (and my personal opinion), thus far, Atom has been a pure joy to work with. It is so nice have a structured format to work with. I love what RSS enables, but with all of the [different versions, and permutations][4], it is a huge hassle to work with.</p>
+
+<p>Anyways, here is the class (v .20):</p>
+
+<p>`</p>
+
+<pre>/*
+    Atom.as
+    
+    Mike Chambers
+    mesh@macromedia.com
+    
+    Class that represents an Atom XML document.
+    
+    You can find more information on Atom at:
+
+http://www.atomenabled.org
+
+    Version Alpha .22   
+        -user cannot yet add nodes
+        -check case sensitivity in switch statements
+        -check if namespace is added tags : atom:element
+        -optimize parse functions   
+*/
+
+import mx.events.EventDispatcher;
+import com.macromedia.date.W3CDateTime;
+
+class com.macromedia.data.Atom extends XML
+{
+    private var dispatchEvent:Function;
+    public var addEventListener:Function;
+    public var removeEventListener:Function;
+    
+    private var feed:Object;
+    private var entriesArray:Array;
+    
+    private var ignoreWhite:Boolean = true;
+    
+    public function Atom(xmlSource:String)
+    {   
+        super(xmlSource);
+        
+        mx.events.EventDispatcher.initialize(this);
+    }
+    
+    private function onLoad(success:Boolean):Void
+    {
+        if(!success)
+        {
+            //throw error
+            trace("xml did not load");
+            return;
+        }
+        parseFeedTags();
+        
+        dispatchEvent({type:"onAtomLoad", target:this});
+    }   
+    
+    //need a way to reparse if user manually adds nodes
+    private function parseFeedTags(Void):Void
+    {   
+        feed = parseFeedElement();
+        
+        //should this be in info, or in feed        
+        //feed.info = parseFeedElement();
+            
+        var nodes:Array = firstChild.childNodes;
+        
+        var len:Number = nodes.length;
+        
+        var node:XMLNode;
+        for(var i:Number = 0; i< len; i++)
+        {
+            node = nodes[i];
+
+            //do we need to worry about case sensitivity?
+            switch(node.nodeName)
+            {
+                case "entry":
+                {
+                    break;
+                }
+                case "title":
+                {
+                    feed.title = parseFeedTitle(node);
+                    break;
+                }
+                case "author":
+                {
+                    feed.author = parseFeedAuthor(node);
+                    break;
+                }   
+                case "contributor":
+                {
+                    feed.contributor = parseFeedContributor(node);
+                    break;
+                }                   
+                case "tagline":
+                {
+                    feed.tagline = parseFeedTagline(node);
+                    break;
+                }       
+                case "copyright":
+                {
+                    feed.copyright = parseFeedCopyright(node);
+                    break;
+                }   
+                case "generator":
+                {
+                    
+                    feed.generator = parseFeedGenerator(node);
+
+                    break;
+                }   
+                case "info":
+                {
+                    feed.info = parseFeedInfo(node);
+                    break;
+                }               
+                case "id":
+                {
+                    feed.id = parseFeedId(node);
+                    break;
+                }   
+                case "link":
+                {                   
+                    feed.link = parseFeedLink(node);
+                     
+                    break;
+                }                   
+                case "modified":
+                {
+                    feed.modified = parseFeedModified(node);
+                    break;
+                }   
+                default:
+                {
+                    parseFeedDefault(node);
+                    break;
+                }
+            }   
+        }
+    }
+    
+    
+    private function parseFeedTitle(node:XMLNode):Object
+    {
+        var obj:Object = new Object();
+            obj.value = node.firstChild.nodeValue;
+            
+        return obj;
+    }
+
+    private function parseFeedAuthor(node:XMLNode):Object
+    {
+        var obj:Object = parsePersonConstruct(node);
+        
+        return obj;
+    }
+    
+    private function parseFeedContributor(node:XMLNode):Object
+    {
+        var obj:Object = parsePersonConstruct(node);
+        
+        return obj;
+    }
+    
+    private function parseFeedTagline(node:XMLNode):Object
+    {
+        var obj:Object = new Object();
+            obj.value = node.firstChild.nodeValue;
+        
+        return obj;
+    }
+
+    private function parseFeedCopyright(node:XMLNode):Object
+    {
+        var obj:Object = new Object();
+            obj.value = node.firstChild.nodeValue;
+            
+        return;     
+    }
+
+    private function parseFeedGenerator(node:XMLNode):Object
+    {
+        var obj:Object = new Object();
+            obj.value = node.firstChild.nodeValue;
+                    
+            var genAtts:Object = node.attributes;
+                    
+            obj.url = genAtts.url;
+            obj.version = genAtts.version;
+            
+        return obj;
+    }
+
+    private function parseFeedInfo(node:XMLNode):Object
+    {
+        var obj:Object = new Object();
+            obj.value = node.firstChild.nodeValue;
+            
+            return obj;
+    }
+
+    private function parseFeedId(node:XMLNode):Object
+    {
+        var obj:Object = new Object();
+            obj.value = node.firstChild.nodeValue;
+            
+        return;
+    }
+
+    private function parseFeedLink(node:XMLNode):Object
+    {
+        var obj:Object = parseLinkConstruct(node);
+        
+        return obj;
+    }
+
+    private function parseFeedModified(node:XMLNode):Object
+    {
+        var obj:Object = new Object();
+            obj.value = W3CDateTime.parseString(node.firstChild.nodeValue);
+            
+        return obj;
+    }
+
+    private function parseFeedDefault(node:XMLNode):Object
+    {
+        return undefined;
+    }   
+    
+    private function parseLinkConstruct(node:XMLNode):Object
+    {
+        var feedAtts:Object = node.attributes;
+        var link:Object = new Object();
+            link.attributes = new Object();
+                    
+        link.attributes.rel = feedAtts.rel;
+        link.attributes.type = feedAtts.type;
+        link.attributes.href = feedAtts.href;
+        link.attributes.title = feedAtts.title;
+
+        return link;        
+    }
+    
+    private function parseFeedElement(Void):Object
+    {
+        var feedInfo:Object = new Object();
+            feedInfo.attributes = new Object();
+            
+        var feedAttributes:Object = firstChild.attributes;
+                    
+        feedInfo.attributes.version = feedAttributes.version;
+        feedInfo.attributes["xml:lang"] = feedAttributes["xml:lang"];
+        
+        return feedInfo;
+    }   
+    
+    //need a way to reparse if user manually adds nodes
+    private function parseEntries(Void):Void
+    {               
+        entriesArray = new Array();
+                
+        var nodes:Array = firstChild.childNodes;
+        
+        var len:Number = nodes.length;
+        
+        var node:XMLNode;
+        var tempEntry:Object;
+        
+        for(var i:Number = 0; i< len; i++)
+        {
+            node = nodes[i];
+            
+            if(node.nodeName == "entry")
+            {
+                tempEntry = parseEntry(node);
+                entriesArray.push(tempEntry);
+            }
+        }
+    }   
+    
+    private function parseEntry(node:XMLNode):Object
+    {
+        if(node == undefined)
+        {
+            return;
+        }
+    
+        var entryElements:Array = node.childNodes;
+        var elementLen:Number = entryElements.length;
+    
+        var entry:Object = new Object();
+        var entryElement:XMLNode;
+        
+        for(var k:Number = 0; k < elementLen; k++)
+        {
+            entryElement = entryElements[k];        
+
+            switch(entryElement.nodeName)
+            {
+                case "title":
+                {       
+                    entry.title = parseEntryTitle(entryElement);
+                    break;
+                }
+                case "link":
+                {
+                    entry.link = parseEntryLink(entryElement);
+                    break;
+                }
+                case "modified":
+                {
+                    entry.modified = parseEntryModified(entryElement);                      
+                    break;
+                }
+                case "issued":
+                {
+                    entry.issued = parseEntryIssued(entryElement);                          
+                    break;
+                }
+                case "id":
+                {
+                    entry.id = parseEntryId(entryElement);                      
+                    break;
+                }   
+                case "created":
+                {
+                    entry.created = parseEntryCreated(entryElement);                        
+                    break;
+                }
+                case "summary":
+                {
+                    entry.summary = parseEntrySummary(entryElement);                
+                    break;
+                }
+                case "author":
+                {
+                    entry.author = parseEntryAuthor(entryElement);
+                    break;
+                }
+                case "contributor":
+                {
+                    entry.contributor = parseEntryContributor(entryElement);
+                    break;
+                }                       
+                case "content":
+                {
+        
+                    entry.content = parseEntryContent(entryElement);
+                    break;
+                }   
+                default:
+                {
+                    //pass this to a parse default function
+                    break;
+                }               
+            }
+        }   
+        return entry;
+    }
+
+    
+    private function parseEntryTitle(node:XMLNode):Object
+    {
+        var obj:Object = new Object();
+            obj.value = node.firstChild.nodeValue;
+
+        return obj;
+    }
+    
+    private function parseEntryLink(node:XMLNode):Object
+    {
+        var obj:Object = parseLinkConstruct(node);
+        return obj;
+    }
+
+    private function parseEntryModified(node:XMLNode):Object
+    {
+        var obj:Object = new Object();
+            obj.value = W3CDateTime.parseString(node.firstChild.nodeValue);
+        
+        return obj;
+    }
+
+    private function parseEntryIssued(node:XMLNode):Object
+    {   
+        var obj:Object = new Object();
+            obj.value = W3CDateTime.parseString(node.firstChild.nodeValue);
+        
+        return obj;     
+    }
+    
+    private function parseEntryId(node:XMLNode):Object
+    {
+        var obj:Object = new Object();
+            obj.value = node.firstChild.nodeValue;
+        
+        return obj;         
+    }
+
+    private function parseEntryCreated(node:XMLNode):Object
+    {
+        var obj:Object = new Object();
+            obj.value = W3CDateTime.parseString(node.firstChild.nodeValue);
+        
+        return obj;         
+    }
+
+    private function parseEntrySummary(node:XMLNode):Object
+    {
+        var obj:Object = new Object();      
+        
+        obj.value = node.firstChild.nodeValue;
+        obj.type = node.attributes.type;    
+        
+        var childNodes:Array = node.childNodes;
+        var childNodesLen:Number = childNodes.length;
+        
+        var childNode:XMLNode;
+//TODO: test this with a summary tag                                            
+        //find out if there is a created node
+        for(var z:Number = 0; z < childNodesLen; z++)
+        {
+            childNode = childNodes[z];
+
+            if(childNode.nodeName == "created")
+            {
+                obj.created = new Object();
+                obj.created.value = 
+                        W3CDateTime.parseString(childNode.firstChild.nodeValue);    
+                
+                break;
+            }                               
+        }   
+        
+        return obj;
+    }
+    
+
+    private function parseEntryAuthor(node:XMLNode):Object
+    {
+        var obj:Object = parsePersonConstruct(node);
+        return obj;
+    }
+    
+
+    private function parseEntryContributor(node:XMLNode):Object
+    {
+        var obj:Object = parsePersonConstruct(node);
+        return obj;
+    }
+
+    private function parseEntryContent(node:XMLNode):Object
+    {
+        var obj:Object = new Object();
+            obj.attributes = new Object();
+        
+        var atts:Object = node.attributes;
+                    
+        obj.attributes.mode = atts.mode;
+        obj.attributes.type = atts.type;
+        obj.value = node.firstChild.nodeValue;
+        
+        return obj;
+    }       
+    
+    private function parsePersonConstruct(node:XMLNode):Object
+    {   
+        var author:Object = new Object();
+        
+        var children:Array = node.childNodes;
+        var len:Number = children.length;
+
+        var tempNode:Object;
+        var tempName:String;
+        
+        for(var i:Number = 0; i < len; i++)
+        {
+            tempNode = children[i];
+            tempName = tempNode.nodeName;
+            
+            switch(tempName)
+            {
+                case "name":
+                {
+                    //fall through
+                }
+                case "url":
+                {
+                    //fall through
+                }
+                case "email":
+                {
+                    author[tempName] = new Object();
+                    author[tempName].value = tempNode.firstChild.nodeValue;
+                    break;
+                }
+            }
+            
+        }
+        
+        return author;
+    }
+    
+    /**************** Public API / Getters *******************/
+    
+//TODO: make sure we have getters for all of the top level feed elements
+    
+    public function getFeedTitle(Void):String
+    {
+        return feed.title.value;
+    }
+    
+    public function getFeedModified(Void):Date
+    {
+        return feed.modified.value;
+    }   
+    
+    public function getFeedLink(Void):Object
+    {
+        return feed.link;
+    }
+    
+    public function getFeedId(Void):String
+    {
+        return feed.id.value;
+    }
+    
+    public function getFeedGenerator(Void):String
+    {
+        return feed.generator.value;
+    }
+    
+    public function getFeedCopyright(Void):String
+    {
+        return feed.copyright.value;
+    }
+    
+    public function getFeedTagline(Void):String
+    {   
+        return feed.tagline.value;
+    }   
+    
+    //TODO : should this be a property?
+    public function getFeed(Void):Object
+    {
+        return feed;
+    }
+    
+    public function get entries ():Array
+    {
+        if(entriesArray == undefined)
+        {
+            parseEntries();
+        }
+        
+        return entriesArray;
+    }
+    
+}</pre>
+
+
+<p><p>`</p>
+
+<p> [1]: <a href="http://www.atomenabled.org">http://www.atomenabled.org</a>
+ [2]: /mesh/archives/004376.cfm
+ [3]: <a href="http://www.markme.com/mesh/atom.xml">http://www.markme.com/mesh/atom.xml</a>
+ [4]: <a href="http://diveintomark.org/archives/2004/02/04/incompatible-rss">http://diveintomark.org/archives/2004/02/04/incompatible-rss</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-02-05T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-02-05T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/actionscript/'>ActionScript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2004/02/05/atom-feed-actionscript-2-class-alpha/" data-via="" data-counturl="http://mikechambers.github.io/2004/02/05/atom-feed-actionscript-2-class-alpha/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2004/02/04/new-mxna-tools/" title="Previous Post: New MXNA Tools">&laquo; New MXNA Tools</a>
+      
+      
+        <a class="basic-alignment right" href="/2004/02/05/central-desktop-wallpaper-contest/" title="Next Post: Central  Desktop Wallpaper Contest">Central  Desktop Wallpaper Contest &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

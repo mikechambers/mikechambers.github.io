@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>AIR Example : HTML Editor With Live Preview - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="As part of my [Flash on the Beach][1] Intro to AIR Session, I built a simple HTML Editor with a live preview. I have added comments to the code, and &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2007/11/06/air-example-html-editor-with-live-preview">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">AIR Example : HTML Editor With Live Preview</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-06T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>As part of my [Flash on the Beach][1] Intro to AIR Session, I built a simple HTML Editor with a live preview. I have added comments to the code, and uploaded it to the [on AIR tour google repository][2].</p>
+
+<p>This example demonstrates:</p>
+
+<ul>
+<li>Using the File API to write a string to a file</li>
+<li>Using the HTML Control within an application to render a string of HTML</li>
+<li>Using the File.browseForSave API to open a native save dialog.</li>
+</ul>
+
+
+<p>Here is the code if you just want to glance at it:</p>
+
+<!--more-->
+
+
+<p>HTMLEditor.mxml<br/>
+`</p>
+
+<pre><?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication 
+    xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+     viewSourceURL="srcview/index.html">
+    <!-- include the code for the main app class -->
+    <mx:Script source="HTMLEditorClass.as" />
+    
+    <!-- TextArea used to type in HTML -->
+    <mx:TextArea height="172" top="10" left="10" right="10" 
+        change="onTextChange()"
+        id="inputField" />
+        
+    <!-- HTML Control which we use for live preview of HTML -->
+    <mx:HTML top="190" left="10" right="10" bottom="41" id="htmlField"/>
+    
+    <!-- Save button to save the HTML to a file -->
+    <mx:Button label="Save" right="10" bottom="10" click="onSaveClick()"/>
+
+</mx:WindowedApplication></pre>
+
+
+<p><p>`</p>
+
+<p>HTMLEditorClass.as<br/>
+`
+<pre>import flash.events.Event;
+import flash.filesystem.File;</p>
+
+<p>//called when the text / html is changed
+private function onTextChange():void
+{</p>
+
+<pre><code>htmlField.htmlText = inputField.text;
+</code></pre>
+
+<p>}</p>
+
+<p>//Called when the user selects a file to save
+//html in.
+private function onBrowseForSave(e:Event):void
+{</p>
+
+<pre><code>//get a file reference to the file the user selected
+var f:File = File(e.target);
+
+//create a file stream to write to the file
+var fs:FileStream = new FileStream();
+
+    //open the file for writing
+    fs.open(f, FileMode.WRITE);
+
+    //write string of html to file
+    fs.writeUTFBytes(inputField.text);
+
+    //close the file
+    fs.close();  
+</code></pre>
+
+<p>}</p>
+
+<p>//called when user presses save button
+private function onSaveClick():void
+{</p>
+
+<pre><code>//get a reference to the desktop dir
+//this will be used as the default dir that the dialog
+//will open at
+var f:File = File.desktopDirectory;
+
+    //listen for the select event for when the user selects
+    //a file to save the html in
+    f.addEventListener(Event.SELECT, onBrowseForSave);
+
+    //open the browse for save native dialog, and pass in a title
+    //for the dialog
+    f.browseForSave("Save HTML File");
+</code></pre>
+
+<p>}</pre>
+<p>`</p>
+
+<p>You can grab the code from the [on AIR Tour code repository][3].</p>
+
+<p> [1]: <a href="http://www.flashonthebeach.com/">http://www.flashonthebeach.com/</a>
+ [2]: <a href="http://code.google.com/p/onairbustour/">http://code.google.com/p/onairbustour/</a>
+ [3]: <a href="http://onairbustour.googlecode.com/svn/trunk/projects/HTMLEditor/">http://onairbustour.googlecode.com/svn/trunk/projects/HTMLEditor/</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-06T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-06T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/air/'>air</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2007/11/06/air-example-html-editor-with-live-preview/" data-via="" data-counturl="http://mikechambers.github.io/2007/11/06/air-example-html-editor-with-live-preview/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2007/11/01/microsoft-trying-to-derail-ecmascript-4/" title="Previous Post: Microsoft trying to derail ECMAScript 4?">&laquo; Microsoft trying to derail ECMAScript 4?</a>
+      
+      
+        <a class="basic-alignment right" href="/2007/11/07/air-example-native-drag-and-drop/" title="Next Post: AIR Example : Native Drag and Drop">AIR Example : Native Drag and Drop &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

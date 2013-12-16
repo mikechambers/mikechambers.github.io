@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sneak Peak : Using the Central Accordion Tab Component - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="I just finished an article on using the Central Accordion Tab component. It will be on the Central DevNet Center in a week, but I thought I would go &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2003/12/10/sneak-peak-using-the-central-accordion-tab-component">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Sneak Peak : Using the Central Accordion Tab Component</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-10T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I just finished an article on using the Central Accordion Tab component. It will be on the Central DevNet Center in a week, but I thought I would go ahead and give a sneak peak.</p>
+
+<p>Below is an excerpt from the article that shows how to manage application views using the component. Note, that this has not been edited yet, so may contain typos, grammar mistakes or code errors. If you have any questions or run into any problems, post them in the comments.</p>
+
+<!--more-->
+
+
+<p><strong>Switching between views when the selected tab changes.</strong></p>
+
+<p>Because tabs provide an interface for multiple related items, tabbed controls lend themselves to applications that contain multiple views. The tabs can be used to manage the state and presentation of the views.</p>
+
+<p>This section will provide a simple example that shows:</p>
+
+<ol>
+<li>How to store references to a view / MovieClip within each tab.</li>
+<li>How to use the tab control to manage the state of the possible views.</li>
+</ol>
+
+
+<p>We will create a simple example that toggles the state of three simple movie clips. However, the example can easily be applied to managing more complex movie clips that have classes associated with them.</p>
+
+<p>First we will need to create the views / MovieClips whose state will be controlled by the Accordion Tab component. We will then write the ActionScript code necessary.</p>
+
+<p>The article assumes that you are starting with the file you created in the addItem section. If not, just create a new movie with two layers named Actions and accordion. Drag an instance of the Accordion Tab component onto the accordion layer, and give it an instance name of myTab.</p>
+
+<ol>
+<li>Create three MovieClips, and name them red, green and blue.</li>
+<li>Open each one and draw a 100 x 100 square. The color of the square should match the clips name (i.e. red, green or blue).</li>
+<li>Make sure that each square is at coordinate 0,0.</li>
+<li>Create three new layers on your timeline (above the accordion layer) and name them red, green and blue. If you like, you can place these within a folder to help organize them.</li>
+<li>Drag an instance of each clip onto its respective timeline.</li>
+<li>Give each clip an instance name that matches its symbol name (i.e. red, green, or blue).</li>
+<li>Finally, position each clip in the bottom left of the accordion tab and make sure that the x, y coordinates of each clip are exactly the same.</li>
+</ol>
+
+
+<p>Now we can add the ActionScript that manages the application. We will show all of the code, and then discuss the new sections.</p>
+
+<p>`</p>
+
+<pre>function onActivate()
+{
+    green._visible = false;
+    blue._visible = false;
+    
+    myTab.addItem("red", red);
+    myTab.addItem("green", green);
+    myTab.addItem("blue", blue);
+    
+    selectedTab = red;
+    
+    myTab.setChangeHandler("onTabChange");
+}
+
+function onTabChange()
+{
+    selectedTab._visible = false;
+    
+    var tab = myTab.getSelectedItem().data;
+    
+    tab._visible = true;
+    selectedTab = tab;
+}
+
+Central.initApplication(this, this);</pre>
+
+
+<p><p>`</p>
+
+<p>Basically, we make all of the clips that are not selected invisible (_visible = false). We then store a reference to each clip in its respective tab, and when a tab is selected, we toggle the visibility of the clips.</p>
+
+<p>The default-selected item is the red clip. So we make the green and blue clips invisible:</p>
+
+<p>`
+<pre>green._visible = false;</p>
+
+<pre><code>blue._visible = false;&lt;/pre&gt;
+</code></pre>
+
+<p><p>`</p>
+
+<p>We then add the tabs to the component using the addItem method.</p>
+
+<p>`
+<pre>myTab.addItem(&ldquo;red&rdquo;, red);</p>
+
+<pre><code>myTab.addItem("green", green);
+myTab.addItem("blue", blue);&lt;/pre&gt;
+</code></pre>
+
+<p><p>`</p>
+
+<p>Notice that the data stored with each tab (the second parameter) is actually a reference to the tabs respective clip.</p>
+
+<p>We could also use the setDataProvider method, in which case the reference to the clip would be stored in the data property.</p>
+
+<p>We then create a new property called selectedTab. This will store a reference to the currently selected (and thus visible tab).</p>
+
+<p><code>
+&lt;pre&gt;selectedTab = red;&lt;/pre&gt;
+&lt;p&gt;</code></p>
+
+<p>Finally, we set the change handler for the component to the onTabChange function.</p>
+
+<p>The onTabChange function gets the clip reference from the selected tab, and then based on that toggles the state of the clips.</p>
+
+<p>First, it sets the selectedTabs visibility to false.</p>
+
+<p><code>
+&lt;pre&gt;selectedTab._visible = false;&lt;/pre&gt;
+&lt;p&gt;</code></p>
+
+<p>Then, we get a reference to the clip from the newly selected tab. We make that clip visible, and then set it as the selected tab:</p>
+
+<p>`
+<pre>var tab = myTab.getSelectedItem().data;</p>
+
+<pre><code>tab._visible = true;
+selectedTab = tab;&lt;/pre&gt;
+</code></pre>
+
+<p><p>`</p>
+
+<p>If you publish the application into Central and test it, the visible clip will change based on the selected tab.</p>
+
+<p>Of course, in most cases the clips would be more complex and have classes associated with them. However, the code for switching between then would be the same.</p>
+
+<p>Instead of toggling the visibility, you could also dynamically attach and remove the MovieClips. The code would pretty much be the same, except instead of setting the visibility, you would attach the clip to be displayed, and remove the previously selected clip. The main advantage to this technique is that all of your clips do not have to be loaded into memory. For applications with many views, or views that encompass a lot of functionality, this can make a significant difference in performance and memory usage.</p>
+
+<p>Here are the pros and cons of each technique:</p>
+
+<p><strong>Switching Visibility</strong></p>
+
+<ul>
+<li><p>Pro</p>
+
+<ul>
+<li>Switching between views is relatively fast.</li>
+<li>Views automatically maintain state.</li>
+<li>Can access all views via ActionScript even if they are not currently displayed.</li>
+<li>View do not need to initialize when they are switched to.</li>
+</ul>
+</li>
+<li><p>Cons</p>
+
+<ul>
+<li>Requires that all clips be loaded into memory (thus requires more memory).</li>
+<li>Initial initialization takes longer, since each view has to initialize on load / activate.</li>
+</ul>
+</li>
+</ul>
+
+
+<p><strong>Dynamically Attaching / Removing</strong></p>
+
+<ul>
+<li><p>Pro</p>
+
+<ul>
+<li>Uses less memory, as only active views are loaded at any one time.</li>
+<li>Initial initialization is relatively faster, since only the selected item has to be initialized on load /activate.</li>
+</ul>
+</li>
+<li><p>Cons</p>
+
+<ul>
+<li>Switching between views is relatively slower, since the view must initialize itself.</li>
+<li>Not as efficient, since views must be initialized every time they are loaded.
+Views do not automatically maintain their state. State must be explicitly managed via ActionScript.</li> </ul> </li> </ul>
+You can use these pros and cons to help determine the technique best suited for your application.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-10T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2003-12-10T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/central/'>Central</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2003/12/10/sneak-peak-using-the-central-accordion-tab-component/" data-via="" data-counturl="http://mikechambers.github.io/2003/12/10/sneak-peak-using-the-central-accordion-tab-component/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2003/12/09/central-licensing-updates-at-macromediacom/" title="Previous Post: Central Licensing Updates at Macromedia.com">&laquo; Central Licensing Updates at Macromedia.com</a>
+      
+      
+        <a class="basic-alignment right" href="/2003/12/10/standalone-central-trace-panel-for-os-x/" title="Next Post: Standalone Central Trace Panel for OS X">Standalone Central Trace Panel for OS X &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

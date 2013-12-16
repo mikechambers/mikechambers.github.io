@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Pixel Bender Grayscale Filter - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="Below is another simple Pixel Bender filter that I created last night. This one basically, converts an image to gray scale, using the ITU-R &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2008/09/18/pixel-bender-grayscale-filter">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Pixel Bender Grayscale Filter</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-18T00:00:00-07:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Below is another simple <a href="http://labs.adobe.com/wiki/index.php/Pixel_Bender_Toolkit">Pixel Bender</a> filter that I created last night. This one basically, converts an image to gray scale, using the ITU-R Recommendation BT.709 algorithm described <a href="http://local.wasp.uwa.edu.au/~pbourke/texture_colour/imageprocess/">here</a>.</p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/2868222770/" title="Pixel Bender Grayscale Filter by mike.chambers, on Flickr"><img src="http://farm4.static.flickr.com/3057/2868222770_e537d4b918.jpg" width="500" height="192" alt="Pixel Bender Grayscale Filter" /></a></p>
+
+<!--more-->
+
+
+<p>Here is the filter:</p>
+
+<div class="highlight">
+  <pre><span style="color: #666666">&lt;</span>languageVersion <span style="color: #666666">:</span> <span style="color: #666666">1.0;&gt;</span>
+
+kernel GrayScale
+<span style="color: #666666">&lt;</span>   namespace <span style="color: #666666">:</span> <span style="color: #BA2121">"mesh"</span><span style="color: #666666">;</span>
+    vendor <span style="color: #666666">:</span> <span style="color: #BA2121">"Mike Chambers"</span><span style="color: #666666">;</span>
+    version <span style="color: #666666">:</span> <span style="color: #666666">1;</span>
+    description <span style="color: #666666">:</span> <span style="color: #BA2121">"Gray scale filter"</span><span style="color: #666666">;</span>
+<span style="color: #666666">&gt;</span>
+{
+    input image4 src<span style="color: #666666">;</span>
+    output pixel4 dst<span style="color: #666666">;</span>
+
+    void
+    evaluatePixel()
+    {
+        dst <span style="color: #666666">=</span> sampleNearest(src<span style="color: #666666">,</span>outCoord());
+        
+        <span style="color: #408080; font-style: italic">//algorithm from ITU-R Recommendation BT.709</span>
+        <span style="color: #408080; font-style: italic">//http://local.wasp.uwa.edu.au/~pbourke/texture_colour/imageprocess/</span>
+        float avg <span style="color: #666666">=</span> <span style="color: #666666">0.2125</span> <span style="color: #666666">*</span> dst.r <span style="color: #666666">+</span> <span style="color: #666666">0.7154</span> <span style="color: #666666">*</span> dst.g <span style="color: #666666">+</span> <span style="color: #666666">0.0721</span> <span style="color: #666666">*</span> dst.b<span style="color: #666666">;</span>
+        dst <span style="color: #666666">=</span> float4(avg<span style="color: #666666">,</span> avg<span style="color: #666666">,</span> avg<span style="color: #666666">,</span> dst.a);
+
+    }
+}
+</pre>
+</div>
+
+
+<p>Again, its pretty simple, but I am trying to learn both Pixel Bender and image processing in general. The biggest thing I learned for this example is how to work with different vector sizes (which can be a little confusing). Im still wrapping my head around it, but once I get it down, Ill make a post on vectors in Pixel Bender.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-18T00:00:00-07:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-18T00:00:00-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2008/09/18/pixel-bender-grayscale-filter/" data-via="" data-counturl="http://mikechambers.github.io/2008/09/18/pixel-bender-grayscale-filter/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2008/09/17/pixel-bender-tv-scanline-filter/" title="Previous Post: Pixel Bender TV Scanline Filter">&laquo; Pixel Bender TV Scanline Filter</a>
+      
+      
+        <a class="basic-alignment right" href="/2008/09/22/new-adobe-air-t-shirt-created-by-eboy/" title="Next Post: New Adobe AIR T-shirt created by eboy">New Adobe AIR T-shirt created by eboy &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Update on ActionScript 3 Development Task Contest #1 - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="Well, there is just a little over a day before the deadline for entries to the ActionScript Development Task Contest (AS3DTC) are due. I wanted to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2009/11/12/update-on-actionscript-3-development-task-contest-1">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Update on ActionScript 3 Development Task Contest #1</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-12T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Well, there is just a little over a day before the deadline for entries to the <a href="/blog/2009/11/10/actionscript-3-development-task-contest-1/">ActionScript Development Task Contes</a>t (AS3DTC) are due. I wanted to make a quick post with a couple of reminders to ensure everyone has their correctly working submissions in on time.</p>
+
+<p>First, a couple items:</p>
+
+<!--more-->
+
+
+<ol>
+<li>Make sure to include your name for the copyright in the ProximityManager.as file (replace my name at the top). This is really important, as you have the copyright, and it makez it easier for me to know who the submission is from.</li>
+<li>Run your submissions again against the latest test files. There have been some minor changes to the test, so make sure they dont affect your results.</li>
+<li>Test that you are returning valid results. See below for tips about how to do this.</li>
+<li>Read through the <a href="http://www.mikechambers.com/blog/2009/11/10/actionscript-3-development-task-contest-1/#comments">comments</a> in the original contest post, especially the comments that I made. There are some rule clarifications that are important.</li>
+<li>Make sure you are using testing with <a href="http://github.com/mikechambers/ActionScript-3-Development-Task-Contests/tree/master/AS3DTC_1/p">the latest contest files</a>. TestRunner.as has had some updates.</li>
+</ol>
+
+
+<p>Regarding #4, here are some of the rule clarifications:</p>
+
+<ul>
+<li>For the purposes of the contest, you should use the x, y coordinates of the display objects to determine which cell they are contained within (i.e. you don&#8217;t have to worry about a display object straddling two cells).</li>
+<li>Basically, the only information your class has access to is that which is passed to its constructors and methods. Your code cannot make assumptions based on information in the test which is not passed to the ProximityManager class (i.e., how many items there are on the stage, or the fact that the items are not moving, etc…). If I change the parameters of the test that your code does not know about, then your class should still work correctly.</li>
+<li>The bounds argument is now required in ProximityManager constructor. This specifies the bounds of the collision detection / grid area.</li>
+<li>If the positions of the DisplayObjects change, update will be called again. Thus, when update is called, the code should treat it as new data.</li>
+<li>You must return a new Vector from getNeighbors. (You can&#8217;t re-use the same Vector instance).</li>
+</ul>
+
+
+<p>If you have any additional questions about the rules, then please post them on the original post.</p>
+
+<p><strong>Validating Results</strong></p>
+
+<p>Inside of TestRunner.as, there is a checkResults method, which you can use to validate your results.</p>
+
+<p>To run it, uncomment the runTests() method in onStageAdded, and and the add this code:</p>
+
+<div class="highlight">
+  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onStageAdded(e<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
+{
+    ...
+    
+    <span style="color: #408080; font-style: italic">//runTests();</span>
+
+    proximityManager.update(items);
+    checkResults(checkSprite_3<span style="color: #666666">,</span> proximityManager.getNeighbors(checkSprite_3));
+}
+</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>This will return something that should similar to this:</p>
+
+<p><img src="/blog/files/as3dtc/test_results_example.png" width="546" height="506" /></p>
+
+<p>This test ensures that you are not missing any DisplayObjects which you should return.</p>
+
+<p>To ensure you are not including any DisplayObjects which you should not be, change the for each loop in checkResults to:</p>
+
+<div class="highlight">
+  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> checkResults(checkSprite<span style="color: #666666">:</span>Sprite<span style="color: #666666">,</span> items<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span>DisplayObject<span style="color: #666666">&gt;</span>)<span style="color: #666666">:</span><span style="color: #008000">Boolean</span>
+{
+    ...
+    
+    <span style="color: #008000; font-weight: bold">for</span> each(<span style="color: #008000; font-weight: bold">var</span> disp<span style="color: #666666">:</span>Sprite <span style="color: #008000; font-weight: bold">in</span> items)
+    {
+        disp.graphics.beginFill( <span style="color: #666666">0x0000</span>FF <span style="color: #666666">,</span> <span style="color: #666666">1</span> );
+        disp.graphics.drawCircle( <span style="color: #666666">5</span> <span style="color: #666666">,</span> <span style="color: #666666">5</span> <span style="color: #666666">,</span> <span style="color: #666666">5</span> );
+        disp.graphics.endFill();
+        disp.alpha <span style="color: #666666">=</span> <span style="color: #666666">1;</span>
+    }
+    
+    ...
+}
+</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>You should not see any dark spots appear.</p>
+
+<p>I have gone through and done an initial validation all of the submissions thus far. There were a couple of entries which were not returning the correct results, and I have emailed those developers. I also did a quick test run on my Mac Book Pro (2.4 Ghz Intel Core 2 Duo), and in general, right now, the bar to reach is an average of 2 &#8211; 3 ms per test run. Most submissions use take the same basic approach, but some have some interesting twists. I think there is still a opportunity for someone to take a novel approach and maybe jump ahead.</p>
+
+<p>Remember, contest entries have to be received by me (<a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#109;&#x65;&#115;&#x68;&#x40;&#x61;&#100;&#111;&#x62;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#109;&#101;&#x73;&#104;&#x40;&#x61;&#100;&#x6f;&#x62;&#101;&#x2e;&#99;&#x6f;&#x6d;</a>) by 12 Noon, PST, Friday, November 13.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-12T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-12T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2009/11/12/update-on-actionscript-3-development-task-contest-1/" data-via="" data-counturl="http://mikechambers.github.io/2009/11/12/update-on-actionscript-3-development-task-contest-1/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/11/10/actionscript-3-development-task-contest-1/" title="Previous Post: ActionScript 3 Development Task Contest #1">&laquo; ActionScript 3 Development Task Contest #1</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/11/13/actionscript-3-development-task-contest-1-entries/" title="Next Post: ActionScript 3 Development Task Contest #1 Entries">ActionScript 3 Development Task Contest #1 Entries &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

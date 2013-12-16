@@ -1,0 +1,1014 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Relative Performance of Rich Media Content Across Browsers and Operating Systems - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="Two of the things that Flash is often criticized for is that it: Uses too much CPU
+Performs significantly worse on the Mac than on Windows This got &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2010/03/01/relative-performance-of-rich-media-content-across-browsers-and-operating-systems">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Relative Performance of Rich Media Content Across Browsers and Operating Systems</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-01T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Two of the things that Flash is often criticized for is that it:</p>
+
+<ol>
+<li>Uses too much CPU</li>
+<li>Performs significantly worse on the Mac than on Windows</li>
+</ol>
+
+
+<p>This got me thinking about whether some quick tests would bear this out, and if so, whether it was isolated to just Flash content.</p>
+
+<p>Below are some raw numbers showing CPU usage of various rich content across different browsers and operating systems. This includes video deployed via HTML 5, JavaScript / Canvas animations, Flash Video, and Flash animations. This is by no means a scientific study, but I do think the results show that:</p>
+
+<!--more-->
+
+
+<ol>
+<li>Flash does not necessarily perform worse on Mac as opposed to PC</li>
+<li>All rich media content, including that created with JavaScript / HTML 5 content show (sometimes widely) varying levels of performance across browsers and operating systems</li>
+</ol>
+
+
+<p>All numbers below show CPU usage as a total of all CPU resources available on the system. This means that if you are running on a machine with more than one core processor, then CPU usage can be over 100%. This is how Mac shows CPU usage, and I feel it gives a clearer picture of how much CPU any individual item is using. Windows CPU usage have been normalized to show CPU usage in terms of this overall CPU usage.</p>
+
+<p>All tests were run on the following hardware:</p>
+
+<table width="450" border="1" cellpadding="2">
+  <tr>
+    <td width="192" align="left"  widtd="178">
+      <strong>Model Identifier:</strong>
+    </td>
+    
+    <td width="242" align="left" scope="col" widtd="256">
+      MacPro3,1
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="left" scope="row">
+      <strong>Processor Name:</strong>
+    </td>
+    
+    <td align="left">
+      Quad-Core Intel Xeon
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="left" scope="row">
+      <strong>Processor Speed:</strong>
+    </td>
+    
+    <td align="left">
+      3 GHz
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="left" scope="row">
+      <strong>Number of Processors:</strong>
+    </td>
+    
+    <td align="left">
+      2
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="left" scope="row">
+      <strong>Total Number of Cores:</strong>
+    </td>
+    
+    <td align="left">
+      8
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="left" scope="row">
+      <strong>L2 Cache:</strong>
+    </td>
+    
+    <td align="left">
+      12 MB
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="left" scope="row">
+      <strong>Memory:</strong>
+    </td>
+    
+    <td align="left">
+      8 GB
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="left" scope="row">
+      <strong>Bus Speed:</strong>
+    </td>
+    
+    <td align="left">
+      1.6 GHz
+    </td>
+  </tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<p>I have both a Windows 7 and OS X partition on this computer, and Windows 7 tests were run while booted into Windows 7.</p>
+
+<p>For browsers, I used the latest release browser versions. For Flash Player, I used the latest labs release (Flash Player 10.1 Beta 3 : 10,1,51,95).</p>
+
+<p><strong>Mac OS X Versions</strong></p>
+
+<table width="353" border="1" cellpadding="2">
+  <tr>
+    <td width="120">
+      <strong>Mac OS X</strong>
+    </td>
+    
+    <td width="217">
+      10.6.2
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Google Chrome</strong>
+    </td>
+    
+    <td>
+      5.0.307.9 beta
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Safari</strong>
+    </td>
+    
+    <td>
+      4.0.4 (6531.21.10)
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Firefox</strong>
+    </td>
+    
+    <td>
+      3.6
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Flash Player</strong>
+    </td>
+    
+    <td>
+      MAC 10,1,51,95
+    </td>
+  </tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<p><strong>Windows 7 Versions</strong></p>
+
+<table width="353" border="1" cellpadding="2">
+  <tr>
+    <td width="120">
+      <strong>Windows 7</strong>
+    </td>
+    
+    <td width="217">
+      7600
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Google Chrome</strong>
+    </td>
+    
+    <td>
+      4.0.249.89 (38071)
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Safari</strong>
+    </td>
+    
+    <td>
+      4.0.4 (531.21.10)
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Firefox</strong>
+    </td>
+    
+    <td>
+      3.6
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Internet Explorer</strong>
+    </td>
+    
+    <td>
+      8.0.7600.16385
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Flash Player</strong>
+    </td>
+    
+    <td>
+      WIN 10,1,51,95
+    </td>
+  </tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<p>IMPORTANT, THE ONLY RELEVANT COMPARISONS ARE BETWEEN PERFORMANCE OF THE SAME CONTENT ACROSS DIFFERENT BROWSERS AND OPERATING SYSTEMS. COMPARING FLASH CONTENT TO JAVASCRIPT CONTENT IN THIS TEST IS NOT VALID GIVEN THE DIFFERENCES IN THE CONTENT AND / OR FUNCTIONALITY.</p>
+
+<p>Below are the pages / content run, and the amount of CPU they took to run. Lowest CPU usage is highlighted in green, and highest CPU usage is highlighted in red. I have also included a platform delta line, which shows the range in performance between the high and lowest CPU usage per operating system. Note, that as time passes, the content at some of the URLs may change, and not reflect the content tested.</p>
+
+<p>Note: I am looking into why Internet Explorer is reporting 0% CPU usage on some of the JavaScript and Flash examples.</p>
+
+<p><a href="http://www.macheist.com">MacHeist Dynamic Canvas / JavaScript animation example</a></p>
+
+<table width="450" border="1">
+  <tr>
+    <th width="141" scope="col">
+      &nbsp;
+    </th>
+    
+    <th width="33%" align="center" scope="col">
+      Mac
+    </th>
+    
+    <th width="33%" align="center" scope="col">
+      Windows
+    </th>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Google Chrome
+    </th>
+    
+    <td align="center">
+      95%
+    </td>
+    
+    <td align="center">
+      80%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Safari
+    </th>
+    
+    <td align="center" bgcolor="#00FF00">
+      25%
+    </td>
+    
+    <td align="center">
+      80%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Firefox
+    </th>
+    
+    <td align="center" bgcolor="#FF0000">
+      100%
+    </td>
+    
+    <td align="center">
+      40%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Internet Explorer
+    </th>
+    
+    <td align="center">
+      NA
+    </td>
+    
+    <td align="center">
+      0%
+    </td>
+  </tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<p><a href="http://9elements.com/io/projects/html5/canvas/">9elements JavaScript / Canvas Dynamic Animation Example</a></p>
+
+<table width="450" border="1">
+  <tr>
+    <th width="141" scope="col">
+      &nbsp;
+    </th>
+    
+    <th width="33%" align="center" scope="col">
+      Mac
+    </th>
+    
+    <th width="33%" align="center" scope="col">
+      Windows
+    </th>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Google Chrome
+    </th>
+    
+    <td align="center">
+      100%
+    </td>
+    
+    <td align="center">
+      96%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Safari
+    </th>
+    
+    <td align="center">
+      98%
+    </td>
+    
+    <td align="center">
+      104%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Firefox
+    </th>
+    
+    <td align="center" bgcolor="#FF0000">
+      100% &#8211; 170%
+    </td>
+    
+    <td align="center" bgcolor="#00FF00">
+      72%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Internet Explorer
+    </th>
+    
+    <td align="center">
+      NA
+    </td>
+    
+    <td align="center">
+      Did Not Work
+    </td>
+  </tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<p><a href="http://jilion.com/sublime/video">Sublime HTML 5 HD Video Example</a></p>
+
+<table width="450" border="1">
+  <tr>
+    <th width="141" scope="col">
+      &nbsp;
+    </th>
+    
+    <th width="33%" align="center" scope="col">
+      Mac
+    </th>
+    
+    <th width="33%" align="center" scope="col">
+      Windows
+    </th>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Google Chrome
+    </th>
+    
+    <td align="center">
+      85%
+    </td>
+    
+    <td align="center">
+      24%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Safari
+    </th>
+    
+    <td align="center" bgcolor="#00FF00">
+      21%
+    </td>
+    
+    <td align="center" bgcolor="#FF0000">
+      104%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Firefox
+    </th>
+    
+    <td align="center">
+      85%
+    </td>
+    
+    <td align="center">
+      80%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Internet Explorer
+    </th>
+    
+    <td align="center">
+      NA
+    </td>
+    
+    <td align="center">
+      Did Not Work
+    </td>
+  </tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<p><a href="http://www.hypeframework.org/02_examples/variablevibration/content/03_variablevibration/">HYPE Dynamic Flash Animation Example</a></p>
+
+<table width="450" border="1">
+  <tr>
+    <th width="141" scope="col">
+      &nbsp;
+    </th>
+    
+    <th width="33%" align="center" scope="col">
+      Mac
+    </th>
+    
+    <th width="33%" align="center" scope="col">
+      Windows
+    </th>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Google Chrome
+    </th>
+    
+    <td align="center">
+      25%
+    </td>
+    
+    <td align="center" bgcolor="#00FF00">
+      16%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Safari
+    </th>
+    
+    <td align="center">
+      17%
+    </td>
+    
+    <td align="center" bgcolor="#FF0000">
+      48%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Firefox
+    </th>
+    
+    <td align="center">
+      23%
+    </td>
+    
+    <td align="center">
+      18%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Internet Explorer
+    </th>
+    
+    <td align="center">
+      NA
+    </td>
+    
+    <td align="center">
+      0%
+    </td>
+  </tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<p><a href="http://vimeo.com/1694439">Vimeo HD Flash Video Example</a></p>
+
+<table width="450" border="1">
+  <tr>
+    <th width="141" scope="col">
+      &nbsp;
+    </th>
+    
+    <th width="33%" align="center" scope="col">
+      Mac
+    </th>
+    
+    <th width="33%" align="center" scope="col">
+      Windows
+    </th>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Google Chrome
+    </th>
+    
+    <td align="center">
+      88%
+    </td>
+    
+    <td align="center" bgcolor="#00FF00">
+      56%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Safari
+    </th>
+    
+    <td align="center">
+      58%
+    </td>
+    
+    <td align="center">
+      64%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Firefox
+    </th>
+    
+    <td align="center">
+      70%
+    </td>
+    
+    <td align="center">
+      64%
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" valign="bottom" scope="row">
+      Internet Explorer
+    </th>
+    
+    <td align="center">
+      NA
+    </td>
+    
+    <td align="center" bgcolor="#FF0000">
+      104%
+    </td>
+  </tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<p><strong>Overall Comparative Performance</strong> (shows how often each platform performed the best per content type)</p>
+
+<table width="450" border="1">
+  <tr>
+    <th align="left" scope="col">
+      &nbsp;
+    </th>
+    
+    <th width="33%" align="center" scope="col">
+      Mac
+    </th>
+    
+    <th width="33%" align="center" scope="col">
+      Windows
+    </th>
+  </tr>
+  
+  <tr>
+    <th align="left" scope="row">
+      HTML / JavaScript
+    </th>
+    
+    <td align="center">
+      3
+    </td>
+    
+    <td align="center">
+      6
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" scope="row">
+      Flash
+    </th>
+    
+    <td align="center">
+      2
+    </td>
+    
+    <td align="center">
+      4
+    </td>
+  </tr>
+  
+  <tr>
+    <th align="left" scope="row">
+      All
+    </th>
+    
+    <td align="center">
+      5
+    </td>
+    
+    <td align="center">
+      10
+    </td>
+  </tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<p>I am not going to draw any definitive conclusions from this, but I do have some observations based on the results above.</p>
+
+<ul>
+<li>From these tests, Flash content does not perform consistently worse on Mac than on Windows.</li>
+<li>There is a wide range of CPU usage for HTML 5 video, depending on the browser / operating system it is being played back on, with Mac generally being slower.</li>
+<li>Canvas / JavaScript animations (at least those tested) seem to have high CPU usage, and generally run slower on Mac than on Windows (although not in all cases).</li>
+<li>Some of the HTML / JavaScript content would not run across all browsers.</li>
+<li>There seems to be some bug in the tested Flash Player when playing back video in Firefox. CPU usage would climb very high, and then drop. (I have reported this to the team).</li>
+<li>Availability of hardware acceleration for playing back video looks like it makes a huge difference in CPU usage (duh!).</li>
+<li>Regardless of technology (Flash and JavaScript / HTML), performance of rich media can vary widely depending on which browser / operating system it runs on.</li>
+</ul>
+
+
+<p>AGAIN, AS I STATED BEFORE THE ONLY RELEVANT COMPARISONS ARE BETWEEN PERFORMANCE OF THE SAME CONTENT ACROSS DIFFERENT BROWSERS AND OPERATING SYSTEMS. COMPARING FLASH CONTENT TO JAVASCRIPT CONTENT IN THESE TESTS IS NOT VALID GIVEN THE DIFFERENCES IN THE CONTENT AND / OR FUNCTIONALITY.</p>
+
+<p>Please keep comments on topic. Off topic comments will be moderated / deleted.</p>
+
+<p>Update (March 10, 2010) : You can find similar (but separate) tests and discussions on this topic <a href="http://www.streaminglearningcenter.com/articles/flash-player-cpu-hog-or-hot-tamale-it-depends-.html">here</a> and <a href="http://www.readwriteweb.com/archives/does_html5_really_beat_flash_surprising_results_of_new_tests.php">here</a>.</p>
+
+<p>Update (March 11, 2010) : Updated to make it clearer which Flash Player version was being used.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-01T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-01T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2010/03/01/relative-performance-of-rich-media-content-across-browsers-and-operating-systems/" data-via="" data-counturl="http://mikechambers.github.io/2010/03/01/relative-performance-of-rich-media-content-across-browsers-and-operating-systems/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/02/23/scrolling-html-with-flash-content-on-touch-devices/" title="Previous Post: Scrolling HTML with Flash Content on Touch Devices">&laquo; Scrolling HTML with Flash Content on Touch Devices</a>
+      
+      
+        <a class="basic-alignment right" href="/2010/03/09/flash-player-10-1-and-windows-phone-7/" title="Next Post: Flash Player 10.1 and Windows Phone 7">Flash Player 10.1 and Windows Phone 7 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

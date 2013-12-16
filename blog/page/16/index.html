@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="I have posted a new build of Flump, which is an Adobe AIR based Flickr image downloader. There are AIR files for AIR 1.1 (Mac and Windows) and the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/blog/page/16">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/12/new-version-of-flump-flickr-downloader/">New Version of Flump (Flickr Downloader)</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-12T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have posted a new build of <a href="http://code.google.com/p/onairbustour/wiki/flump">Flump</a>, which is an Adobe AIR based Flickr image downloader. There are AIR files for <a href="http://www.adobe.com/go/air">AIR 1.1</a> (Mac and Windows) and the <a href="http://www.adobe.com/go/airlinux">Adobe AIR Linux Alpha</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/08/12/new-version-of-flump-flickr-downloader/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/12/flex-based-flickr-api-authorization-control/">Flex Based Flickr API Authorization Control</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-12T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just checked in some updates to the <a href="http://code.google.com/p/as3flickrlib/">ActionScript 3 Flickr library</a>. The biggest change is that I checked in a Flex control that will provide a UI and handle all of the communication to authorize an application with Flickr.</p>
+
+<p>There is no documentation on it, and as I have built it for projects I am using, there are probably some API gaps, but it seems to be pretty solid.</p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/2759026262/" title="Flickr API Auth Flex Component by mike.chambers, on Flickr"><img src="http://farm4.static.flickr.com/3150/2759026262_d26bd78437.jpg" width="460" height="289" alt="Flickr API Auth Flex Component" /></a></p>
+
+<p>Here is a simple example of how to use it:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/08/12/flex-based-flickr-api-authorization-control/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/11/getting-started-with-adobe-air-on-linux-video/">Getting Started With Adobe AIR on Linux (Video)</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-11T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have just posted a video over at <a href="http://www.gotoandlearn.com/player.php?id=80">gotoandlearn.com</a> that walks through how to <a href="http://www.gotoandlearn.com/player.php?id=80">get AIR applications running on Linux using the Adobe AIR for Linux Alpha</a>.</p>
+
+<p><a href="http://www.gotoandlearn.com/player.php?id=80"><img width=125 height=90 src="http://www.gotoandlearn.com/thumbs/air\_linux\_setup.gif" border="0" /></a></p>
+
+<p>The video covers:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/08/11/getting-started-with-adobe-air-on-linux-video/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/11/flump-for-linux/">Flump for Linux</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-11T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just uploaded a build of <a href="http://code.google.com/p/onairbustour/wiki/flump?updated=flump&amp;ts=1218475538">Flump</a> (Flickr image downloader) that works with the <a href="http://www.adobe.com/go/airlinux">Linux alpha of Adobe AIR</a>.</p>
+
+<p>The issue was that the the Linux alpha is based on AIR 1.0, and I had packaged Flump as an AIR 1.1 app.</p>
+
+<p>You can find more information, as well as download Flump (and its sourcecode) from the <a href="http://code.google.com/p/onairbustour/wiki/flump?updated=flump&amp;ts=1218475538">Flump project page</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/07/new-version-of-flump-flickr-image-downloader/">New Version of Flump (Flickr Image Downloader)</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-07T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>About a year ago, <a href="http://www.theflashblog.com">Lee Brimelow</a> and I released a simple application named <a href="http://code.google.com/p/onairbustour/wiki/flump">flump</a> that would download all of the images from a flickr account. We made this so we could download all of the webcam images from the bus tour, and put together a time lapsed video (you can view some of that video <a href="http://onair.adobe.com/blogs/videos/2007/10/12/video-bus-tour-video-from-max-day-2-keynote/">here</a>).</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/08/07/new-version-of-flump-flickr-image-downloader/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/06/what-are-your-biggest-issues-with-adobe-air/">What Are Your Biggest Issues With Adobe AIR?</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-06T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>What are your biggest issues, bugs and annoyances with Adobe AIR? I am specifically looking for input on both developers bugs, and end user bugs. I am not looking for input on features you would like added (Ill do that in another post).</p>
+
+<p>We already have a pretty good idea of the main issues (based on the forums, bug reports, blogs, testing and twitter), but your comments here will be another useful data point.</p>
+
+<p>As usual, you can always submit the issues directly to the AIR team <a href="http://www.adobe.com/go/wish">here</a>.</p>
+
+<p>So, post your biggest Adobe AIR annoyances, bugs and issues in the comments. Keep comments on topic.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/07/24/i-have-100-as3-ria-reference-guides-to-send-out/">I Have 100 AS3 RIA Reference Guides to Send Out</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-24T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Well, now that I have finally sent out all of the books from the <a href="http://ajaxian.com/archives/free-copies-available-of-the-adobe-air-for-javascript-developers-pocketguide">Ajaxian post</a> (I ended up sending out nearly 400), I now have 100 Adobe <a href="http://www.mikechambers.com/blog/2008/03/17/actionscript-3-ria-reference-guide/">AS3 RIA Reference Guides</a> to send out.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/07/24/i-have-100-as3-ria-reference-guides-to-send-out/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/07/22/which-adobe-air-apps-are-you-using/">Which Adobe AIR Apps Are You Using?</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-22T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.adobe.com/go/air">Adobe AIR</a> has been out for a couple of months now, and we are really seeing a lot of good apps being released. So, which AIR apps do you find yourself using the most?</p>
+
+<p>For me, I use the following daily:</p>
+
+<ul>
+<li><a href="http://www.tweetdeck.com">TweetDeck</a> Has added a TON of value to <a href="http://www.twitter.com">twitter</a> for me (especially their <a href="http://www.summize.com/">summize</a> integration)</li>
+<li><a href="http://www.pandora.com/desktop">Pandora</a> No more accidentally closing a browser tab and losing my music</li>
+<li><strong>Adobe Desktop Directory</strong> (internal Adobe directory app)</li>
+</ul>
+
+
+<p>So, which AIR apps do you find yourself using the most?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/07/17/adobe-air-based-ebay-desktop-hits-1-million-downloads/">Adobe AIR Based eBay Desktop Hits 1 Million Downloads</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-17T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Read about it <a href="http://desktop.ebay.com/blog/?p=18">here</a> and <a href="http://ebayinkblog.com/2008/07/17/ebay-desktop-turns-1-million-steve-jobs-likes-meat-and-potatoes-ebay-iphone-app/">here</a>.</p>
+
+<p>Congrats to the eBay team that worked on this.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/07/14/adt-error-codes/">ADT Error Codes</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-14T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Just a quick fyi, but we have just posted a technote with <a href="http://kb.adobe.com/selfservice/viewContent.do?externalId=kb404054">a list of error codes and their meaning from the ADT</a> tool (inside the Adobe AIR SDK).</p>
+
+<p>You can find the technote <a href="http://kb.adobe.com/selfservice/viewContent.do?externalId=kb404054">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/17/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/15/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<!--
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+&#8211;>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

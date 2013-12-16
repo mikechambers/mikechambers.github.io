@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Branden Hall&#8217;s Session 1 of 3. - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="The first day of Flash Forward involves a number of half day sessions / classes. I am sitting in Branden Hall&#8217;s first session of three. The &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2002/07/10/branden-halls-session-1-of-3">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Branden Hall&#8217;s Session 1 of 3.</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-07-10T00:00:00-07:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The first day of Flash Forward involves a number of half day sessions / classes. I am sitting in Branden Hall&#8217;s first session of three. The first session is on Object Oriented Programming in Flash (something that Branden and Sam Wan just wrote a book on).<br/>
+Branden is discussing some of the basics of Object oriented programming in Flash, including objects vs instances, and how to create custom classes.&nbsp;<br/>
+Importance of encapsulation</p>
+
+<ul>
+<li>Using getter / setter methods to access internal properties.
+
+<ul>
+<li>Should not directly access internal object properties.
+
+<ul>
+<li>Don&#8217;t hard code references to timelines (if they are needed, pass them in through a method).
+
+<ul>
+<li>many getter / setter methods can inidcate design problems.</UL></li>
+</ul>
+
+
+<p>Composition vs Inheritance<br/>
+Branden says that Generally you should avoid inheritance <em>(i don&#8217;t agree with this, and Branden and i got into a pretty heated discussion about it on the train-mc)</em>. Inheritance in Flash can be messy.<br/>
+You should consider using composition instead of inheritance. Composition is a &#8220;has a&#8221; relationship. Inhiritance is a &#8220;is a&#8221; relationship.<br/>
+<strong>Design Patterns</strong></p>
+
+<ul>
+<li>Take advantage of previous work that has already solved common problems.
+
+<ul>
+<li>Object oriented and language independent (any design patter book can be applied to flash).</UL></li>
+</ul>
+
+
+<p>3 patterns<br/>
+Value Object Pattern : don&#8217;t use multiple getter / setter methods. multiple function calls can cause performance issues, especially for remote methods. Send a value / object which contains properties and values. Only requires one method call, and properties can be set at once:
+<PRE>foo.setValues({name:&#8221;mike&#8221;, address:&#8221;500 main st.&#8221;});</PRE></p>
+
+<p>Observer Pattern : Multiple events need to listen for events from a single object. The event source object allows other objects to add or remove themselves as listeners.<br/>
+Easiest way is to use undocumented AsBroadcaster
+<PRE>FooClass = function(){ AsBroadcaster.initialize(this);}</PRE></p>
+
+<p><PRE>FooClass.prototype.sendEvent = function(){this.broadcastMessage(&#8220;onEvent&#8221;);}</PRE></p>
+
+<p><PRE>myFoo = new Foo();</PRE></p>
+
+<p><PRE>myFoo.addListener(this);</PRE></p>
+
+<p>See <a href="http://chattyfig.figleaf.com">flash coders wiki</a> for more info.<br/>
+Model / View Controller Patter : Some articles at <a href="http://www.macromedia.com/desdev/">Des / Dev</a> Center.</p>
+
+<ul>
+<li>Seperate data from presentation.
+
+<ul>
+<li>Model : Data
+
+<ul>
+<li>View : Interface
+
+<ul>
+<li>Controller &#8221; Logic
+
+<ul>
+<li>All pieces are independent of one another, although code for pieces are often all combined in one place in flash (on main timlines). *just make sure to comment the different sections-mc. *
+
+<ul>
+<li>Sections can be swapped out and changed without affecting other layers. (i.e. switch out view to create new interface for different devices&nbsp;/ platforms).
+
+<ul>
+<li>Model View Presenter (more advanced).
+
+<ul>
+<li>This architeture works very well for creating applications in Flash.
+
+<ul>
+<li>Layers should be completely independent of each other.
+
+<ul>
+<li>Model should be abstracted away from viewer and controller (it should not know about them).
+
+<ul>
+<li>The view listens for events.</UL></li>
+</ul>
+
+
+<p>Branden is showing a new app called bibliofile that he uses to keep track of all of his books. uses treemenu component, and new tabbed view component that branden built. Showing some of the listener code in the model section of the application. Uses value object pattern to pass properties / values into objects. the app has multiple frames, which each frame representing a different state of his application. The app uses Flash Remoting to get information on books from a remote web service.<br/>
+TabBar component : Branden is very happy with this, he feels he hit the &#8220;sweet spot&#8221; with it (not over or under engineering it). Live preview, scalling. You add tabs through PI and set alignment, and then when the tabs are clicked, callback methods are called where you can have code that reacts to the event. In the case of brandens app, it either moves between frames, or hides movie clips (he is using it in two places).<br/>
+ToolTip component : Drag and drop, add message in PI. Super easy to use.<br/>
+KeyBoard Navigation Component. Isn&#8217;t showing it because he didnt have time to get it in the session.<br/>
+end of first hour, next hour is about components and working with flash remoting.<br/>
+&nbsp;</p></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-07-10T00:00:00-07:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-07-10T00:00:00-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/conferences/'>Conferences</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2002/07/10/branden-halls-session-1-of-3/" data-via="" data-counturl="http://mikechambers.github.io/2002/07/10/branden-halls-session-1-of-3/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2002/07/10/branden-hall-session-2-of-3-creating-applications-in-flash-mx/" title="Previous Post: Branden Hall Session 2 of 3 : Creating applications in Flash MX">&laquo; Branden Hall Session 2 of 3 : Creating applications in Flash MX</a>
+      
+      
+        <a class="basic-alignment right" href="/2002/07/10/branden-halls-session-3-of-3-oop-app-review/" title="Next Post: Branden Hall&#8217;s Session : 3 of 3 : OOP App Review">Branden Hall&#8217;s Session : 3 of 3 : OOP App Review &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

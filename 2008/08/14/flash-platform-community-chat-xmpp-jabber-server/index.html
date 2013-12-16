@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Flash Platform Community Chat XMPP / Jabber Server - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="If you have been in the Flash community for a while, then you may remember a chat app that I worked on for Macromedia Central, named &#8220;Central &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2008/08/14/flash-platform-community-chat-xmpp-jabber-server">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Flash Platform Community Chat XMPP / Jabber Server</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-14T00:00:00-07:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>If you have been in the Flash community for a while, then you may remember a chat app that I worked on for Macromedia Central, named &#8220;Central Dev Chat&#8221;. This was a decent chat client, but the thing I liked about it the most, was that it provided an easy way for the community to hang out and chat about the Flash community and development.</p>
+
+<p>Since then, I have tried a couple of solutions to bring a persistent chat back (including IRC) but haven&#8217;t found anything that is easy enough to use and administer. I spent the past week thinking about building a new chat system using AIR and Python, and then remembered that this problem has already been solved with with XMPP / Jabber.</p>
+
+<p>So, I have setup an XMPP / Jabber server on my server and am going to experiment with using it as a community server, especially to host a chat room to talk about the Flash Platform.</p>
+
+<!--more-->
+
+
+<p>Right now you need to access the room via an IM client with XMPP / Jabber support (I use <a href="http://www.adiumx.com/">Adium</a>), although if there is interest, then I may build an AIR app to connect to the chat (which would make it super easy for anyone to join).</p>
+
+<p>So, here is the server info:</p>
+
+<p><strong>Server</strong> : mikechambers.com<br/>
+<strong>Port</strong> : 5222</p>
+
+<p>The server allows registration of new account via your IM client.</p>
+
+<p>Here is the info for the chat room:</p>
+
+<p><strong>Room name</strong>: flashplatform_chat<br/>
+<strong>Server</strong> : conference.mikechambers.com</p>
+
+<p>Note : You may get a warning that the certificate cannot be verified. Just ignore it (I am looking into how to fix it).</p>
+
+<p>If your IM client supports it, then you can just click the link below:</p>
+
+<p>&lt;xmpp:flashplatform_chat@conference.mikechambers.com?join></p>
+
+<p>You can find a list of IM client which support XMPP / Jabber <a href="http://www.jabber.org/clients">here</a>.</p>
+
+<p>This is an experiment, so especially at first, the server may go up and down, and accounts may get reset. However, if it proves useful, then I would like to keep it as a resource for the community (including adding additional chat rooms).</p>
+
+<p>I am also hoping to weekly scheduled chats with members of AIR, Flash Player and Flex teams.</p>
+
+<h2>Connecting</h2>
+
+<p>Below is information on how to connect to the chat with different IM clients.</p>
+
+<h3><a href="http://www.adiumx.com/">Adium</a></h3>
+
+<p>If you have an existing Jabber / XMPP account, such as a GTalk account, then you can connect without having to register with my server.</p>
+
+<p>File > Join Group Chat</p>
+
+<p>Select the GTalk server.</p>
+
+<p>Enter these settings:</p>
+
+<p>Chat Room Name: flashplatform_chat<br/>
+Server : conference.mikechambers.com<br/>
+Handle : You name / handle<br/>
+Password : leave blank</p>
+
+<p>Click Join</p>
+
+<p>If you want to create an account on my server then:</p>
+
+<p>File > Add Account > Jabber > Register New Account</p>
+
+<p>When the dialog opens asking for the server, enter <em>mikechambers.com</em></p>
+
+<p>This will enter a dialog where you can add your account info.</p>
+
+<p>Once you have the account, then you need to connect to the room:</p>
+
+<p>File > Join Group Chat</p>
+
+<p>Select mikechambers.com server.</p>
+
+<p>Enter these settings:</p>
+
+<p>Chat Room Name: flashplatform_chat<br/>
+Server : conference.mikechambers.com<br/>
+Handle : YOUR_SERVER_USERNAME<br/>
+Password : YOUR_SERVER_PASSWORD</p>
+
+<h3>iChat</h3>
+
+<p>Cliff Rowley has <a href="http://www.mikechambers.com/blog/2008/08/14/flash-platform-community-chat-xmpp-jabber-server/#comment-13278">posted instructions for iChat in this comment</a>.</p>
+
+<h2>Rules</h2>
+
+<p>Keep things civil and act as if you were actually talking to everyone else in person. If anyone is being disruptive or abusive, then I reserve the right to temporarily or permanently ban then from the server.</p>
+
+<p>If you have info on how to connect to the chat with a particular IM client, please post it in the comments to help others figure it out. If you run into any issues, or have problems, please post in the comments, and I will try and help out.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-14T00:00:00-07:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-14T00:00:00-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2008/08/14/flash-platform-community-chat-xmpp-jabber-server/" data-via="" data-counturl="http://mikechambers.github.io/2008/08/14/flash-platform-community-chat-xmpp-jabber-server/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2008/08/14/connecting-to-an-xmpp-jabber-server-with-the-xiff-as3-library/" title="Previous Post: Connecting to an XMPP / Jabber Server with the XIFF AS3 Library">&laquo; Connecting to an XMPP / Jabber Server with the XIFF AS3 Library</a>
+      
+      
+        <a class="basic-alignment right" href="/2008/08/18/anyone-using-actionscript-2-to-build-air-applications/" title="Next Post: Anyone using ActionScript 2 to build AIR applications?">Anyone using ActionScript 2 to build AIR applications? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

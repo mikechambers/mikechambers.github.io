@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Reading and Writing Local Files in Flash Player 10 - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="One of the new features in Flash Player 10 are new ActionScript FileReference APIs that allow Flash content to directly read and write data to the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2008/08/20/reading-and-writing-local-files-in-flash-player-10">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Reading and Writing Local Files in Flash Player 10</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-20T00:00:00-07:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>One of the new features in <a href="http://labs.adobe.com/technologies/flashplayer10/">Flash Player 10</a> are new ActionScript FileReference APIs that allow Flash content to directly read and write data to the user&#8217;s system.</p>
+
+<p>Prior to Flash Player 10, in order to read or write a file to the user&#8217;s system, Flash content would first have to bounce it off of a server, and then load it back to the users system before it could be accessed. This was not only a hassle to program, but added additional application latency and resource usage.</p>
+
+<p>The new functionality is achieved through the addition of two new APIs on the FileReference class:</p>
+
+<!--more-->
+
+
+<p><strong>FileReference.load()</strong> : Loads data from a file selected by the user.<br/>
+<strong>FileReference.save()</strong> : Saves data to a file location selected by the user.</p>
+
+<p>A couple of points to keep in mind:</p>
+
+<ul>
+<li>The load() and save() APIs can only be called in response to user interaction (such as a button click).</li>
+<li>The locations of the loaded and save files are not exposed to ActionScript.</li>
+<li>The APIs are asynchronous (non-blocking).</li>
+</ul>
+
+
+<p>Below are two examples that show how to use the APIs. The examples use Flex for the UI, but the ActionScript is the same regardless of whether you are using Flex or not. The examples are fully commented.</p>
+
+<p><strong>Read a file from the users system:</strong></p>
+
+<div class="highlight">
+  <pre><span style="color: #666666">&lt;?</span>xml version<span style="color: #666666">=</span><span style="color: #BA2121">"1.0"</span> encoding<span style="color: #666666">=</span><span style="color: #BA2121">"utf-8"</span><span style="color: #666666">?&gt;</span>
+<span style="color: #666666">&lt;</span>mx<span style="color: #666666">:</span>Application xmlns<span style="color: #666666">:</span>mx<span style="color: #666666">=</span><span style="color: #BA2121">"http://www.adobe.com/2006/mxml"</span> layout<span style="color: #666666">=</span><span style="color: #BA2121">"absolute"</span><span style="color: #666666">&gt;</span>
+
+    <span style="color: #666666">&lt;</span>mx<span style="color: #666666">:</span>Script<span style="color: #666666">&gt;</span>
+        <span style="color: #666666">&lt;!</span>[CDATA[
+            <span style="color: #008000; font-weight: bold">import</span> flash.net.<span style="color: #008000">FileReference</span><span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">import</span> flash.net.FileFilter<span style="color: #666666">;</span>
+            
+            <span style="color: #008000; font-weight: bold">import</span> flash.events.IOErrorEvent<span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">import</span> flash.events.Event<span style="color: #666666">;</span>
+            
+            <span style="color: #008000; font-weight: bold">import</span> flash.utils.ByteArray<span style="color: #666666">;</span>
+        
+            <span style="color: #408080; font-style: italic">//FileReference Class well will use to load data</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> fr<span style="color: #666666">:</span><span style="color: #008000">FileReference</span><span style="color: #666666">;</span>
+            
+            <span style="color: #408080; font-style: italic">//File types which we want the user to open</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">static</span> const FILE_TYPES<span style="color: #666666">:</span><span style="color: #008000">Array</span> <span style="color: #666666">=</span> [<span style="color: #008000; font-weight: bold">new</span> FileFilter(<span style="color: #BA2121">"Text File"</span><span style="color: #666666">,</span> <span style="color: #BA2121">"*.txt;*.text"</span>)];
+        
+            <span style="color: #408080; font-style: italic">//called when the user clicks the load file button</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onLoadFileClick()<span style="color: #666666">:</span>void
+            {
+                <span style="color: #408080; font-style: italic">//create the FileReference instance</span>
+                fr <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">FileReference</span>();
+                
+                <span style="color: #408080; font-style: italic">//listen for when they select a file</span>
+                fr.addEventListener(Event.SELECT<span style="color: #666666">,</span> onFileSelect);
+                
+                <span style="color: #408080; font-style: italic">//listen for when then cancel out of the browse dialog</span>
+                fr.addEventListener(Event.CANCEL<span style="color: #666666">,</span>onCancel);
+                
+                <span style="color: #408080; font-style: italic">//open a native browse dialog that filters for text files</span>
+                fr.browse(FILE_TYPES);
+            }
+            
+            <span style="color: #408080; font-style: italic">/************ Browse Event Handlers **************/</span>
+            
+            <span style="color: #408080; font-style: italic">//called when the user selects a file from the browse dialog</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onFileSelect(e<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
+            {
+                <span style="color: #408080; font-style: italic">//listen for when the file has loaded</span>
+                fr.addEventListener(Event.COMPLETE<span style="color: #666666">,</span> onLoadComplete);
+                
+                <span style="color: #408080; font-style: italic">//listen for any errors reading the file</span>
+                fr.addEventListener(IOErrorEvent.IO_ERROR<span style="color: #666666">,</span> onLoadError);
+                
+                <span style="color: #408080; font-style: italic">//load the content of the file</span>
+                fr.load();
+            }
+            
+            <span style="color: #408080; font-style: italic">//called when the user cancels out of the browser dialog</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onCancel(e<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
+            {
+                <span style="color: #0000FF">trace</span>(<span style="color: #BA2121">"File Browse Canceled"</span>);
+                fr <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
+            }
+            
+            <span style="color: #408080; font-style: italic">/************ Select Event Handlers **************/</span>
+            
+            <span style="color: #408080; font-style: italic">//called when the file has completed loading</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onLoadComplete(e<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
+            {
+                <span style="color: #408080; font-style: italic">//get the data from the file as a ByteArray</span>
+                <span style="color: #008000; font-weight: bold">var</span> data<span style="color: #666666">:</span>ByteArray <span style="color: #666666">=</span> fr.data<span style="color: #666666">;</span>
+                
+                <span style="color: #408080; font-style: italic">//read the bytes of the file as a string and put it in the</span>
+                <span style="color: #408080; font-style: italic">//textarea</span>
+                outputField.text <span style="color: #666666">=</span> data.readUTFBytes(data.bytesAvailable);
+                
+                <span style="color: #408080; font-style: italic">//clean up the FileReference instance</span>
+                
+                fr <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
+            }
+            
+            <span style="color: #408080; font-style: italic">//called if an error occurs while loading the file contents</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onLoadError(e<span style="color: #666666">:</span>IOErrorEvent)<span style="color: #666666">:</span>void
+            {
+                <span style="color: #0000FF">trace</span>(<span style="color: #BA2121">"Error loading file : "</span> <span style="color: #666666">+</span> e.text);
+            }
+            
+        ]]<span style="color: #666666">&gt;</span>
+    <span style="color: #666666">&lt;/</span>mx<span style="color: #666666">:</span>Script<span style="color: #666666">&gt;</span>
+
+
+    <span style="color: #666666">&lt;</span>mx<span style="color: #666666">:</span>Button label<span style="color: #666666">=</span><span style="color: #BA2121">"Load Text File"</span> right<span style="color: #666666">=</span><span style="color: #BA2121">"10"</span> bottom<span style="color: #666666">=</span><span style="color: #BA2121">"10"</span> click<span style="color: #666666">=</span><span style="color: #BA2121">"onLoadFileClick()"</span><span style="color: #666666">/&gt;</span>
+    <span style="color: #666666">&lt;</span>mx<span style="color: #666666">:</span>TextArea right<span style="color: #666666">=</span><span style="color: #BA2121">"10"</span> left<span style="color: #666666">=</span><span style="color: #BA2121">"10"</span> top<span style="color: #666666">=</span><span style="color: #BA2121">"10"</span> bottom<span style="color: #666666">=</span><span style="color: #BA2121">"40"</span> id<span style="color: #666666">=</span><span style="color: #BA2121">"outputField"</span><span style="color: #666666">/&gt;</span>
+    
+<span style="color: #666666">&lt;/</span>mx<span style="color: #666666">:</span>Application<span style="color: #666666">&gt;</span>
+</pre>
+</div>
+
+
+<p><strong>Write a file to the users system:</strong></p>
+
+<div class="highlight">
+  <pre><span style="color: #666666">&lt;?</span>xml version<span style="color: #666666">=</span><span style="color: #BA2121">"1.0"</span> encoding<span style="color: #666666">=</span><span style="color: #BA2121">"utf-8"</span><span style="color: #666666">?&gt;</span>
+<span style="color: #666666">&lt;</span>mx<span style="color: #666666">:</span>Application xmlns<span style="color: #666666">:</span>mx<span style="color: #666666">=</span><span style="color: #BA2121">"http://www.adobe.com/2006/mxml"</span> layout<span style="color: #666666">=</span><span style="color: #BA2121">"absolute"</span><span style="color: #666666">&gt;</span>
+
+    <span style="color: #666666">&lt;</span>mx<span style="color: #666666">:</span>Script<span style="color: #666666">&gt;</span>
+        <span style="color: #666666">&lt;!</span>[CDATA[
+            
+            <span style="color: #008000; font-weight: bold">import</span> flash.net.<span style="color: #008000">FileReference</span><span style="color: #666666">;</span>
+            
+            <span style="color: #008000; font-weight: bold">import</span> flash.events.IOErrorEvent<span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">import</span> flash.events.Event<span style="color: #666666">;</span>
+        
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">static</span> const DEFAULT_FILE_NAME<span style="color: #666666">:</span><span style="color: #008000">String</span> <span style="color: #666666">=</span> <span style="color: #BA2121">"example.txt"</span><span style="color: #666666">;</span>
+        
+            <span style="color: #408080; font-style: italic">//FileReference Class well will use to save data</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> fr<span style="color: #666666">:</span><span style="color: #008000">FileReference</span><span style="color: #666666">;</span>
+                        
+            
+            <span style="color: #408080; font-style: italic">/********** UI Event Handlers **************/</span>
+            
+            <span style="color: #408080; font-style: italic">//called when the users types in the textarea</span>
+            <span style="color: #408080; font-style: italic">//note valueCommit should be used, but is broken in the flex build </span>
+            <span style="color: #408080; font-style: italic">//I am using</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onInputChange()<span style="color: #666666">:</span>void
+            {
+                <span style="color: #408080; font-style: italic">//enable button if there is any text to save</span>
+                saveButton.enabled <span style="color: #666666">=</span> (inputField.text.length <span style="color: #666666">&gt;</span> <span style="color: #666666"></span>);
+            }
+            
+            <span style="color: #408080; font-style: italic">//called when the user clicks the load file button</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onSaveClick()<span style="color: #666666">:</span>void
+            {
+                <span style="color: #408080; font-style: italic">//create the FileReference instance</span>
+                fr <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">FileReference</span>();
+                
+                <span style="color: #408080; font-style: italic">//listen for the file has been saved</span>
+                fr.addEventListener(Event.COMPLETE<span style="color: #666666">,</span> onFileSave);
+                
+                <span style="color: #408080; font-style: italic">//listen for when then cancel out of the save dialog</span>
+                fr.addEventListener(Event.CANCEL<span style="color: #666666">,</span>onCancel);
+                
+                <span style="color: #408080; font-style: italic">//listen for any errors that occur while writing the file</span>
+                fr.addEventListener(IOErrorEvent.IO_ERROR<span style="color: #666666">,</span> onSaveError);
+                
+                <span style="color: #408080; font-style: italic">//open a native save file dialog, using the default file name</span>
+                fr.save(inputField.text<span style="color: #666666">,</span> DEFAULT_FILE_NAME);
+            }
+            
+            <span style="color: #408080; font-style: italic">/***** File Save Event Handlers ******/</span>
+            
+            <span style="color: #408080; font-style: italic">//called once the file has been saved</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onFileSave(e<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
+            {
+                <span style="color: #0000FF">trace</span>(<span style="color: #BA2121">"File Saved"</span>);
+                fr <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
+            }
+            
+            <span style="color: #408080; font-style: italic">//called if the user cancels out of the file save dialog</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onCancel(e<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
+            {
+                <span style="color: #0000FF">trace</span>(<span style="color: #BA2121">"File save select canceled."</span>);
+                fr <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
+            }
+            
+            <span style="color: #408080; font-style: italic">//called if an error occurs while saving the file</span>
+            <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> onSaveError(e<span style="color: #666666">:</span>IOErrorEvent)<span style="color: #666666">:</span>void
+            {
+                <span style="color: #0000FF">trace</span>(<span style="color: #BA2121">"Error Saving File : "</span> <span style="color: #666666">+</span> e.text);
+                fr <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
+            }
+        ]]<span style="color: #666666">&gt;</span>
+    <span style="color: #666666">&lt;/</span>mx<span style="color: #666666">:</span>Script<span style="color: #666666">&gt;</span>
+
+
+    <span style="color: #666666">&lt;</span>mx<span style="color: #666666">:</span>Button label<span style="color: #666666">=</span><span style="color: #BA2121">"Save File"</span> right<span style="color: #666666">=</span><span style="color: #BA2121">"10"</span> bottom<span style="color: #666666">=</span><span style="color: #BA2121">"10"</span> id<span style="color: #666666">=</span><span style="color: #BA2121">"saveButton"</span> 
+                                            click<span style="color: #666666">=</span><span style="color: #BA2121">"onSaveClick()"</span> enabled<span style="color: #666666">=</span><span style="color: #BA2121">"false"</span><span style="color: #666666">/&gt;</span>
+    <span style="color: #666666">&lt;</span>mx<span style="color: #666666">:</span>TextArea right<span style="color: #666666">=</span><span style="color: #BA2121">"10"</span> left<span style="color: #666666">=</span><span style="color: #BA2121">"10"</span> top<span style="color: #666666">=</span><span style="color: #BA2121">"36"</span> bottom<span style="color: #666666">=</span><span style="color: #BA2121">"40"</span> id<span style="color: #666666">=</span><span style="color: #BA2121">"inputField"</span> 
+                                    editable<span style="color: #666666">=</span><span style="color: #BA2121">"true"</span> change<span style="color: #666666">=</span><span style="color: #BA2121">"onInputChange()"</span><span style="color: #666666">/&gt;</span>
+    <span style="color: #666666">&lt;</span>mx<span style="color: #666666">:</span>Label text<span style="color: #666666">=</span><span style="color: #BA2121">"Enter text to save"</span> left<span style="color: #666666">=</span><span style="color: #BA2121">"10"</span> top<span style="color: #666666">=</span><span style="color: #BA2121">"10"</span> fontWeight<span style="color: #666666">=</span><span style="color: #BA2121">"bold"</span><span style="color: #666666">/&gt;</span>
+    
+<span style="color: #666666">&lt;/</span>mx<span style="color: #666666">:</span>Application<span style="color: #666666">&gt;</span>
+</pre>
+</div>
+
+
+<p>In addition to the events shown in the examples above, the following events are also broadcast by the APIS:<br/>
+<strong><br/>
+ProgressEvent.PROGRESS</strong> : Gives progress on the reading or writing of the file<br/>
+<strong>Event.OPEN</strong> : Broadcast when the file is opened for reading or writing.</p>
+
+<p>While it will also be possible to use these APIs in <a href="http://www.adobe.com/go/air">Adobe AIR</a>, in general, you will want to use the AIR File APIs as they provide more functionality and flexibility.</p>
+
+<p>You can download the Flash Player 10 ActionScript APIs docs from <a href="http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_as3langref_070208.zip">here</a>.</p>
+
+<p>You can find more information on <a href="http://labs.adobe.com/technologies/flashplayer10/">Flash Player 10 on labs</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-20T00:00:00-07:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-20T00:00:00-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2008/08/20/reading-and-writing-local-files-in-flash-player-10/" data-via="" data-counturl="http://mikechambers.github.io/2008/08/20/reading-and-writing-local-files-in-flash-player-10/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2008/08/19/using-vectors-in-actionscript-3-and-flash-player-10/" title="Previous Post: Using Vectors in ActionScript 3 and Flash Player 10">&laquo; Using Vectors in ActionScript 3 and Flash Player 10</a>
+      
+      
+        <a class="basic-alignment right" href="/2008/08/21/flex-sdk-31-and-flex-builder-301-updates-support-for-air-11/" title="Next Post: Flex SDK 3.1 and Flex Builder 3.0.1 Updates : Support for AIR 1.1">Flex SDK 3.1 and Flex Builder 3.0.1 Updates : Support for AIR 1.1 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Converting From Matrix3D to Matrix in ActionScript 3 - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="For the past month or two, I have been spending time building a game (something I havent done since my Flash 4 days). This has really been a lot of &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2009/09/09/converting-from-a-matrix3d-to-matrix-in-actionscript-3">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Converting From Matrix3D to Matrix in ActionScript 3</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-09T00:00:00-07:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>For the past month or two, I have been spending time building a game (something I havent done since my Flash 4 days). This has really been a lot of fun, as it has allowed me to use some of the Flash Player APIs which I really haven&#8217;t had a chance or need to use before.</p>
+
+<p>One thing which I have been (slowly) learning about are using Matrix transformations on DisplayObjects. I made a post earlier showing how (with much, much help from <a href="http://www.senocular.com/">Senocular</a>), I was able to <a href="http://www.mikechambers.com/blog/2009/06/24/using-bitmapdata-hittest-for-collision-detection/">use Matrix to do hit tests using BitmapData.hitTest on DisplayObjects</a> which have had transformations applied to them (in this case, rotation).</p>
+
+<p>Well, I recently had the need to convert some of my DisplayObjects to use the 2.5D APIs (by setting the z property to a value). Unfortunately, this ended up breaking a lot of my code, mostly because of how it changes how transformations are applied to a DisplayObject. Specifically, when you set the <code>DisplayObject.z</code> property to any value, <code>DisplayObject.transform.matrix</code> will return null, and you must use <code>DisplayObject.transform.matrix3D</code> instead. Where this causes problems is when you are using APIs that expect to use a <code>Matrix</code> instance, as opposed to <code>Matrix3D</code> instance, such as <code>BitmapData.draw</code>.</p>
+
+<!--more-->
+
+
+<p>This is exactly the scenario I ran into, and this post will show one solution for how to convert from a Matrix3D to a Matrix instance, which can then be passed to the BitmapData.draw.</p>
+
+<p>First, lets look at my original code:</p>
+
+<div class="highlight">
+  <pre>shipBmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(shipBounds.width<span style="color: #666666">,</span> 
+                shipBounds.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+
+<span style="color: #008000; font-weight: bold">var</span> shipOffset<span style="color: #666666">:</span><span style="color: #008000">Matrix</span> <span style="color: #666666">=</span> ship.transform.matrix<span style="color: #666666">;</span>
+shipOffset.tx <span style="color: #666666">=</span> ship.x <span style="color: #666666">-</span> shipBounds.x<span style="color: #666666">;</span>
+shipOffset.ty <span style="color: #666666">=</span> ship.y <span style="color: #666666">-</span> shipBounds.y<span style="color: #666666">;</span>          
+
+shipBmpData.draw(ship<span style="color: #666666">,</span> shipOffset);
+</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>Basically, this draws the bitmap data for my ship into a <code>BitmapData</code> instance, taking into account any transformations which have been applied to the ship (in this case rotation). In my code, this bitmap data is cached, and then later used with <code>BitmapData.hitTest</code> for collision detection (not shown here).</p>
+
+<p>However, as soon as I set the z property on the ship (which is a DisplayObject), this code will no longer work, as <code>ship.transform.matrix</code> will return null (since 3D transformations are now being used).</p>
+
+<p>At first, I figured I would just change my code to access the Matrix3D instance like so:</p>
+
+<div class="highlight">
+  <pre><span style="color: #008000; font-weight: bold">var</span> shipOffset<span style="color: #666666">:</span>Matrix3D <span style="color: #666666">=</span> ship.transform.matrix3D<span style="color: #666666">;</span>
+</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>and then pass this to the <code>BitmapData.draw</code> API. However, I was quickly reminded (by the compiler) that <code>Matrix3D</code> does not inherit from <code>Matrix</code>, and thus cannot be passed to <code>BitmapData.draw</code>.</p>
+
+<p>Because of this I needed to convert from a <code>Matrix3D</code> to a <code>Matrix</code> instance, which could then be passed to <code>BitmapData.draw</code>. After some help from <a href="http://www.unitzeroone.com/blog/">Ralph Hauwert</a> (who tracked down a couple of bugs) I was able to get it working.</p>
+
+<p>Before I show the code, it will be useful to look at which values <code>Matrix</code> and <code>Matrix3D</code> contain. First, here are the values held by a <code>Matrix</code> instance:</p>
+
+<pre><code>a  c  tx
+b  d  ty
+u  v  w
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>You can find a description of the properties in the <a href="http://livedocs.adobe.com/flex/3/langref/flash/geom/Matrix.html#propertySummary">Matrix docs</a>.</p>
+
+<p>Here are the values held by a Matrix3D instance:</p>
+
+<pre><code>scaleX  0         0          tx
+0         scaleY  0          ty
+0         0           scaleZ  tz
+0         0          0          tw
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>From the <a href="http://help.adobe.com/en_US/AS3LCR/Flash_10.0/flash/geom/Matrix3D.html">Matrix3D docs</a>:</p>
+
+<blockquote><p>The Matrix3D class uses a 4&#215;4 square matrix: a table of four rows and columns of numbers that hold the data for the transformation. The first three rows of the matrix hold data for each 3D axis (x,y,z). The translation information is in the last column. The orientation and scaling data are in the first three columns. The scaling factors are the diagonal numbers in the first three columns</p></blockquote>
+
+<p>Basically, in addition to holding values for x and y, the <code>Matrix3D</code> class also has slots for z properties. Because the <code>Matrix</code> is a 3&#215;3 matrix, and the <code>Matrix3D</code> is a 4&#215;4 matrix converting from <code>Matrix3d</code> to <code>Matrix</code> means that we will have to discard some information. Luckily, in my case, I didnt need the z information, so i was able to discard it and map the related x, y values to the <code>Matrix</code> instance. We can then pass this new <code>Matrix</code> instance to the <code>BitmapData.draw</code> class.</p>
+
+<p>For our purposes, the <code>Matrix3D</code> mapping to <code>Matrix</code> is:</p>
+
+<pre><code>a  c   0          tx
+b  d  0          ty
+0  0  scaleZ  tz
+0  0  0          tw
+</code></pre>
+
+<p>Here is the code that maps between the two:</p>
+
+<div class="highlight">
+  <pre><span style="color: #008000; font-weight: bold">var</span> shipOffset<span style="color: #666666">:</span>Matrix3D <span style="color: #666666">=</span> ship.transform.matrix3D<span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">var</span> rawMatrixData<span style="color: #666666">:</span>Vector.<span style="color: #666666">&lt;</span><span style="color: #008000">Number</span><span style="color: #666666">&gt;</span> <span style="color: #666666">=</span> shipOffset.rawData<span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">var</span> matrix<span style="color: #666666">:</span><span style="color: #008000">Matrix</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Matrix</span>();
+matrix.a <span style="color: #666666">=</span> rawMatrixData[<span style="color: #666666"></span>];
+matrix.c <span style="color: #666666">=</span> rawMatrixData[<span style="color: #666666">1</span>];
+matrix.tx <span style="color: #666666">=</span> ship.x <span style="color: #666666">-</span> shipBounds.x<span style="color: #666666">;</span>
+
+matrix.b <span style="color: #666666">=</span> rawMatrixData[<span style="color: #666666">4</span>];
+matrix.d <span style="color: #666666">=</span> rawMatrixData[<span style="color: #666666">5</span>];
+matrix.ty <span style="color: #666666">=</span> ship.y <span style="color: #666666">-</span> shipBounds.y<span style="color: #666666">;</span>
+
+ship.transform.matrix3D <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
+shipBmpData.draw(ship<span style="color: #666666">,</span> matrix);
+ship.transform.matrix3D <span style="color: #666666">=</span> shipOffset<span style="color: #666666">;</span>
+</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>Basically, we get an instance of the <code>Matrix3D</code> class for the <code>DisplayObject</code>. We then access the raw data of the <code>Matrix3D</code> instance, and copy it into a new <code>Matrix</code> instance (ignoring and dropping the z values), and apply the transformation corrections in the process.</p>
+
+<p>We can then pass this new <code>Matrix</code> instance to the <code>BitmapData.draw</code> API. However, as you probably noticed in the code, I had to first do an additional step. Specifically:</strike ></p>
+
+<div class="highlight">
+  <pre>ship.transform.matrix3D <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span><span style="color: #666666">;</span>
+shipBmpData.draw(ship<span style="color: #666666">,</span> matrix);
+ship.transform.matrix3D <span style="color: #666666">=</span> shipOffset<span style="color: #666666">;</span>
+</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>Before we draw the data to the <code>BitmapData</code> instance, we have to clear out the existing <code>Matrix3D</code> applied to the <code>DisplayObject</code>. This is to work around a bug discovered by <a href="http://www.unitzeroone.com/blog/">Ralph Hauwert</a>. When passing a <code>DisplayObject</code> which does not have a <code>Matrix3D</code> transformation (as in our first example) to <code>BitmapData.draw</code>, any transformations on the <code>DisplayObject</code> ARE NOT taken into account when drawing. However, when the the <code>DisplayObject</code> does have a <code>Matrix3D</code> transformation applied to it (such as when the z property has been set to a value), then any transformations ARE applied when drawing to <code>BitmapData.draw</code>. Because of this, we have to first store the <code>Matrix3D</code> associated with the DisplayObject, set it to null, draw the <code>DisplayObject</code> to the <code>BitmapData</code> instance, and then reapply the <code>Matrix3D</code> to the <code>DisplayObject</code>.</p>
+
+<p><strike><strong>Update</strong>: as <a href="http://www.mikechambers.com/blog/2009/09/09/converting-from-a-matrix3d-to-matrix-in-actionscript-3/#comment-16700">Ben Garney points out in the comments</a>, since the transformation is applied to <code>BitmapData.draw</code> when <code>Matrix3D</code> is set, all we need to do is pass in either an identiy matrix, or null to the second argument of the API. So, in my case, this solves my problems, and removes the need to convert bewteen the matrix types.</strike></p>
+
+<p><strike>The updated code is simply:</strike></p>
+
+<p><strike> <div class="highlight">
+  <pre>shipBmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(shipBounds.width<span style="color: #666666">,</span></p>
+
+<pre><code>            shipBounds.height&lt;span style="color: #666666"&gt;,&lt;/span&gt; &lt;span style="color: #008000; font-weight: bold"&gt;true&lt;/span&gt;&lt;span style="color: #666666"&gt;,&lt;/span&gt; &lt;span style="color: #666666"&gt;&lt;/span&gt;);
+</code></pre>
+
+<p>shipBmpData.draw(ship<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">null</span>);  <br/>
+</pre>
+</div></p>
+
+<p></strike></p>
+
+<p>&nbsp;</p>
+
+<p><strike>which turns out to be much less complex than when you use the 2D APIs. However, the technique above for converting between matrix types is still valid.</strike></p>
+
+<p><strong>Update 2</strong>: It turns out passing in null or an identity matrix to <code>BitmapData.draw</code>. does not work correctly.</p>
+
+<p>Of course, this is not always necessary when converting from a <code>Matrix</code> instance to a <code>Matrix3D</code> instance, but in my case it was. As you can imagine, this can have some significant performance implications, both because of memory allocation and deallocation, as well as the fact that removing the <code>Matrix3D</code>, even temporarily, changes how the <code>DisplayObject</code> is rendered.</p>
+
+<p>Right now, this trade off is ok in my case, although I am not sure if it will be for the long term. Again, in my case, I may need to look at some re-architecting so I don&#8217;t have to work around this issue (such as nesting clips and cacheing the parent <code>BitmapData</code>, so I don&#8217;t have to apply the transformations).</p>
+
+<p>Anyways, I am just learning the implications of using the 2.5D APIs in the Flash Player. This is an area where there is not currently a lot of information or documentation, especially information on the implications of moving from 2D to 2.5D APIs. Hopefully this will be useful.</p>
+
+<p>Here are a couple of other resources which I found useful:</p>
+
+<p><a href="http://adobe.com/go/AS3LR">API docs for Matrix, Matrix3D, Transformation and DisplayObject</a>.</p>
+
+<p><a href="http://www.bytearray.org/wp-content/projects/fp10-session/">Thibault Imbert&#8217;s Flash Player 10 Presentation</a>, which has some good info on the 2.5D APIS.</p>
+
+<p><a href="http://help.adobe.com/en_US/ActionScript/3.0_ProgrammingAS3/WSF24A5A75-38D6-4a44-BDC6-927A2B123E90.html">Flash CS4 Docs : Working in three dimensions</a></p>
+
+<p>As I mentioned above, I am still getting my head around some of this stuff, so if you have any clarifications or corrections, post them in the comments.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-09T00:00:00-07:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-09T00:00:00-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/actionscript/'>ActionScript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2009/09/09/converting-from-a-matrix3d-to-matrix-in-actionscript-3/" data-via="" data-counturl="http://mikechambers.github.io/2009/09/09/converting-from-a-matrix3d-to-matrix-in-actionscript-3/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/08/02/convert-nikon-d90-videos-to-work-with-adobe-premiere-pro-cs4/" title="Previous Post: Converting Nikon D90 Videos to work with Adobe Premiere Pro CS4">&laquo; Converting Nikon D90 Videos to work with Adobe Premiere Pro CS4</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/09/10/rich-runtime-supported-platforms-matrix/" title="Next Post: Rich Runtime Supported Platforms Matrix">Rich Runtime Supported Platforms Matrix &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Encapsulating Ajax Calls in an XHTML Friendly Way - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="In the comments for my post from the other day titled &#8220;[Encapsulating Ajax XMLHTTPRequest Calls within JavaScript classes][1]&#8220;, Kevin F &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2006/02/07/encapsulating-ajax-calls-in-an-xhtml-friendly-way">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Encapsulating Ajax Calls in an XHTML Friendly Way</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-02-07T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In the comments for my post from the other day titled &#8220;[Encapsulating Ajax XMLHTTPRequest Calls within JavaScript classes][1]&#8220;, Kevin F noted that using document.write was not allowed within an XHTML document.</p>
+
+<p>Now, this isn&#8217;t directly related to Encapsulating Ajax calls, as you could have a non-visual class that doesn&#8217;t need to write visual content out to the browser. However, I wanted to post an update to the original example that shows how to do this that would be valid within an XHTML document.</p>
+
+<!--more-->
+
+
+<p>First, why is document.write not allowed within XHTML documents? Well, once you think about it is actually pretty easy to understand. Basically, XHTML is XML, and as such, if you are dynamically writing elements into the container, and by-passing the parser, then there is really no easy way for the XML engine to be sure that you are going to be writing valid XML. Because of this, you have to use the DOM APIs to manipulate / insert nodes into an XHTML document. This makes it more likely that valid XML is going to be created, and also ensures that the DOM / XML engine will know about the changes.</p>
+
+<p>The W3C has a good [FAQ item][2] that discusses this issue.</p>
+
+<p>In the previous example, we were dynamically using document.write from within the JavaScript class to write out the DIV / container that the content would be added to. The advantage to this is that it makes the class completely self contained, but the (big) disadvantage is that it won&#8217;t work when writing to an XHTML document.</p>
+
+<p>The work around is quite simple though, and just requires passing a reference to the XHTML node that will be written to into the class. This class will then use this node to dynamically generate its content.</p>
+
+<p>Here is the modified example. First, the HTML.</p>
+
+<p>`</p>
+
+<pre>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" version="-//W3C//DTD XHTML 1.1//EN" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <link href="styles/MessageLoader.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="scripts/MessageLoader.js"></script>
+
+    <title>index</title>
+    
+</head>
+
+<body>
+    
+<div id="container" style="width:100%">     
+    <script language="javascript" type="text/javascript">
+        var ml = new MessageLoader("container");
+            ml.load();
+    </script>
+</div>
+
+
+</body>
+</html>
+</pre>
+
+
+<p><p>`</p>
+
+<p>Two minor but significant changes here. First, we wrap the Script block that contains our class inside of a DIV. This is the DIV that the class will dynamically write its content to.</p>
+
+<p>Next, we pass the ID of the DIV into the constructor of the JavaScript class. This is how we tell the class where it can writes its info.</p>
+
+<p>Couple of notes. First, it is not necessary that the Script tags containing the class be nested within the DIV tag. I am doing it to make the code a little more organized and make it clear that these two elements are related.</p>
+
+<p>Second, you could either pass a String with the name of the ID for the DIV, or a reference to the actual div. I choose a string because it is a little easier for the user (requires one less line of code), and I wanted to abstract away some of that complexity.</p>
+
+<p>Now, lets look at the (slightly) modified JavaScript class.</p>
+
+<p>`
+<pre>
+/<em>*
+*   @fileoverview Simple example that shows how to encapsulate
+*   XMLHTTPRequestCalls
+*
+*   @author Mike Chambers (<a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#x6d;&#101;&#x73;&#104;&#x40;&#97;&#x64;&#111;&#98;&#x65;&#46;&#x63;&#x6f;&#x6d;">&#109;&#x65;&#115;&#104;&#x40;&#x61;&#100;&#111;&#x62;&#101;&#46;&#99;&#111;&#x6d;</a>)
+</em>/</p>
+
+<p>/<em>*
+*   Constructor for the class.
+*
+*   @param {String} dataURL The path to the data that the class
+*   will load (OPTIONAL)
+*
+*   @constructor
+</em>/
+function MessageLoader(outerContainerID, dataURL)
+{</p>
+
+<pre><code>this._outerContainer = document.getElementById(outerContainerID);
+
+if(dataURL != undefined)
+{
+    this._dataURL = dataURL;
+}
+
+this._writeContainer();
+</code></pre>
+
+<p>}</p>
+
+<p>//where to load the data from
+MessageLoader.prototype._dataURL = &ldquo;data.txt&rdquo;;</p>
+
+<p>//var to hold an instance of the XMLHTTPRequest object
+MessageLoader.prototype._request = undefined;</p>
+
+<p>MessageLoader.prototype._outerContainer = undefined;</p>
+
+<p>//ID for the html div we will create to display the data
+MessageLoader.prototype._containerID = &ldquo;innerContainer&rdquo;;</p>
+
+<p>//name of the css class for the HTML container
+MessageLoader.prototype._containerClass = &ldquo;ml_container&rdquo;;</p>
+
+<p>/<strong><strong><strong><strong><strong><strong><strong><strong> Public APIs </strong></strong></strong></strong></strong></strong></strong></strong>******/</p>
+
+<p>/<em>*
+*   Tells the class to load its data and render the results.
+</em>/
+MessageLoader.prototype.load = function()
+{</p>
+
+<pre><code>//get a new XMLHTTPRequest and store it in an instance var.
+this._request = this._getXMLHTTPRequest();
+
+//set the var so we can scope the callback
+var _this = this;
+
+//callback will be an anonymous function that calls back into our class
+//this allows the call back in which we handle the response (_onData())
+// to have the correct scope.
+this._request.onreadystatechange = function(){_this._onData()};
+this._request.open("GET", this._generateDataUrl(), true);
+this._request.send(null);
+</code></pre>
+
+<p>}</p>
+
+<p>/<strong><strong><strong><strong><strong><strong><strong><em>Private Rendering APIs </em></strong></strong></strong></strong></strong></strong></strong>*****/</p>
+
+<p>//writes the top level div for the class / widget
+MessageLoader.prototype._writeContainer = function()
+{</p>
+
+<pre><code>//styles should be in external CSS
+//document.write("&lt;div id='"+this._containerID+"' class='"+this._containerClass+"'&gt;&lt;/div&gt;");
+var innerContainer = document.createElement("div");
+    innerContainer.setAttribute("id", this._containerID);
+    innerContainer.setAttribute("class", this._containerClass);
+
+    //need this for IE
+    innerContainer.setAttribute("className", this._containerClass);
+
+this._outerContainer.appendChild(innerContainer);
+</code></pre>
+
+<p>}</p>
+
+<p>//renders the entire widget
+MessageLoader.prototype._render = function(title)
+{</p>
+
+<pre><code>var content = document.getElementById(this._containerID);
+    content.appendChild(document.createTextNode(title));
+</code></pre>
+
+<p>}</p>
+
+<p>/<strong><strong><strong><strong><strong><strong><strong><em>Private Data Loading Handlers</em></strong></strong></strong></strong></strong></strong></strong>****/</p>
+
+<p>//return the URL from which the data will be loaded
+MessageLoader.prototype._generateDataUrl = function()
+{</p>
+
+<pre><code>return this._dataURL;
+</code></pre>
+
+<p>}</p>
+
+<p>//callback for when the data is loaded from the server
+MessageLoader.prototype._onData = function()
+{</p>
+
+<pre><code>if(this._request.readyState == 4)
+{
+    if(this._request.status == "200")
+    {
+        this._render(this._request.responseText);
+
+        //if the onDraw callback has been defined
+        //call it to let the listener know
+        //that we are done creating the list
+        if(this.onDraw != undefined)
+        {
+            this.onDraw();
+        }
+    }
+    else
+    {   
+        //check if an error callback handler has been defined
+        if(this.onError != undefined)
+        {
+            //pass an object to the callback handler with info
+            //about the error
+            this.onError({status:this_request.status, 
+                    statusText:this._request.statusText});
+        }
+    }
+
+    //clean up
+    delete this._request;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>/<strong><strong><strong><strong><strong><strong><strong><em>Private Data Util Functions </em></strong></strong></strong></strong></strong></strong></strong>*****/</p>
+
+<p>//returns an XMLHTTPRequest instance (based on browser)
+MessageLoader.prototype._getXMLHTTPRequest = function()
+{</p>
+
+<pre><code>var xmlHttp;
+try
+{
+    xmlHttp = new ActiveXObject("Msxml2.XMLHttp");
+}
+catch(e)
+{
+    try
+    {
+        xmlHttp = new ActiveXObject("Microsoft.XMLHttp");
+    }
+    catch(e2)
+    {
+    }
+}
+
+if(xmlHttp == undefined &amp;#038;&amp;#038; (typeof XMLHttpRequest != 'undefined'))
+{
+    xmlHttp = new XMLHttpRequest();
+}
+
+return xmlHttp;
+</code></pre>
+
+<p>}
+</pre>
+<p>`</p>
+
+<p>There were really only two methods that have changes.</p>
+
+<p>First, the constructor:</p>
+
+<p>`
+<pre>
+function MessageLoader(outerContainerID, dataURL)
+{</p>
+
+<pre><code>this._outerContainer = document.getElementById(outerContainerID);
+
+if(dataURL != undefined)
+{
+    this._dataURL = dataURL;
+}
+
+this._writeContainer();
+</code></pre>
+
+<p>}
+</pre>
+<p>`</p>
+
+<p>It has been modified to take the ID name of the DIV it will write to as its first argument. We then use that ID to get a reference to the actual div using document.getElementById.</p>
+
+<p>Next, the _writeContainer method has also been changed.</p>
+
+<p>`
+<pre>
+MessageLoader.prototype._writeContainer = function()
+{</p>
+
+<pre><code>var innerContainer = document.createElement("div");
+    innerContainer.setAttribute("id", this._containerID);
+    innerContainer.setAttribute("class", this._containerClass);
+
+    //need this for IE
+    innerContainer.setAttribute("className", this._containerClass);
+
+this._outerContainer.appendChild(innerContainer);
+</code></pre>
+
+<p>}
+</pre>
+<p>`</p>
+
+<p>Instead of using document.write to create the DIV that we will write to, we now use the DOM APIs to create the DIV, appending them to the DIV passed into the class.</p>
+
+<p>Notice that I am actually appending an innerContainer div onto the one passed in. This is what the content will be built within, verses the container passed in. This is done so that we can completely encapsulate the class / code, and have complete control over the styling (i.e. we don&#8217;t have to have the outerContainer DIV implement specific CSS classes.</p>
+
+<p>Those are the only two changes that we need to make. The code / class works exactly the same, only now it is compatible with XHTML documents.</p>
+
+<p>Post any suggestions / corrections / improvements in the comments. In particular, does anyone know of a way to get access to the outer DIV in a DOM friendly way from within the JavaScript class without having the user pass in a reference to it?</p>
+
+<p> [1]: <a href="http://weblogs.macromedia.com/mesh/archives/2006/01/encapsulating_a.cfm">http://weblogs.macromedia.com/mesh/archives/2006/01/encapsulating_a.cfm</a>
+ [2]: <a href="http://www.w3.org/MarkUp/2004/xhtml-faq#docwrite">http://www.w3.org/MarkUp/2004/xhtml-faq#docwrite</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-02-07T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-02-07T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2006/02/07/encapsulating-ajax-calls-in-an-xhtml-friendly-way/" data-via="" data-counturl="http://mikechambers.github.io/2006/02/07/encapsulating-ajax-calls-in-an-xhtml-friendly-way/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2006/01/31/flash-player-8-already-at-50/" title="Previous Post: Flash Player 8 already at 50%">&laquo; Flash Player 8 already at 50%</a>
+      
+      
+        <a class="basic-alignment right" href="/2006/02/10/sweet-flex-2-component-reflection-effect/" title="Next Post: Sweet Flex 2 Component Reflection Effect">Sweet Flex 2 Component Reflection Effect &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

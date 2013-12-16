@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Star Wars in Flash: Developing for the Playstation 2 : Fred Sharples - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="I came in a little late.
+orangedesign created the menus for lucasart&#8217;s starfighter games (2) for ps2. All of the menus were created within &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2002/07/12/star-wars-in-flash-developing-for-the-playstation-2-fred-sharples">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Star Wars in Flash: Developing for the Playstation 2 : Fred Sharples</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-07-12T00:00:00-07:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I came in a little late.<br/>
+orangedesign created the menus for lucasart&#8217;s starfighter games (2) for ps2. All of the menus were created within macromedia flash, and played back within a Flash player included with the game.<br/>
+Have to conisder localization. They do the German version first since the german words tend to be the longest.<br/>
+Memory considerations, only 32 megs of ram on ps2. compressed sizes of images doesn&#8217;t matter, it is the uncompressed size. reducing the number of colors. the butterflyed the images (symetrical, so they only have to load half of each image (and then flip it)).<br/>
+design process<br/>
+fred is showing some of the images they presented to the lucas arts to get an idea of the type of imagery they were looking for in the jedi starfigter menus. (just regular images they found on the web).<br/>
+originally, they had a more dirty, mechaninal interface, but in the end it became more modern, clean look.<br/>
+showed series of drawings of early menu prototypes. really cool.<br/>
+tips and tricks<br/>
+memory issues</p>
+
+<ul>
+<li>use ntsc or pal on a television to determine how far you can compress bitmaps.
+
+<ul>
+<li>watch memory. major issue.
+
+<ul>
+<li>butterfly symetrical bitmaps whenever possible.
+
+<ul>
+<li>concern yourself with the unpacked size of images, not the file size.
+
+<ul>
+<li>Optimize your bitmaps before they are brough in.</UL></li>
+</ul>
+
+
+<p>framerate issues</p>
+
+<ul>
+<li>try breaking text if it doesnt animate fast enough.
+
+<ul>
+<li>avoid using more that a paragraph of type on one screen.
+
+<ul>
+<li>build all of your alpha effects into your bitmaps.
+
+<ul>
+<li>give life to your art by animating smaller screen areas.
+
+<ul>
+<li>with vectors, try finding shapes that use the fewsest number of triangles.
+
+<ul>
+<li>don&#8217;t use a lot of thin vector lines.</UL></li>
+</ul>
+
+
+<p>Localization</p>
+
+<ul>
+<li>design with plenty of space for copy. 150%.
+
+<ul>
+<li>localize early in german (long words, design issues)
+
+<ul>
+<li>test doubel byte comparison.
+
+<ul>
+<li>work with native speaker to avoid embarressment.
+
+<ul>
+<li>have experienced designer do the final layout.</UL></li>
+</ul>
+
+
+<p>Sony Requirements</p>
+
+<ul>
+<li>memory cards stuff is more than half of the work. (what happens when the user pulls a card out, inserts it, etc&#8230;).
+
+<ul>
+<li>sony design documentation manual. very big.</UL></li>
+</ul>
+
+
+<p>card issues, example:</p>
+
+<ul>
+<li>is card full
+
+<ul>
+<li>formatted?
+
+<ul>
+<li>saved data?
+
+<ul>
+<li>ps2 card or ps1?
+
+<ul>
+<li>damage?
+
+<ul>
+<li>is it being formatted?
+
+<ul>
+<li>being read?
+
+<ul>
+<li>did you tell the user how much space is required?
+
+<ul>
+<li>does the user want to format or save the data?
+
+<ul>
+<li>etc&#8230;</UL></li>
+</ul>
+
+
+<p>these all have to be asked and considered within the flash movie.<br/>
+Middleware layer. the layer of scripting between the hardware / game and flash.</p>
+
+<ul>
+<li>written by game programmer.
+
+<ul>
+<li>a simple script layer
+
+<ul>
+<li>communicates between game, flash and hardware.
+
+<ul>
+<li>almost all UI logic resideds in the flash later.
+
+<ul>
+<li>middleware never drives the flash movie.</UL></li>
+</ul>
+
+
+<p>example of setting something in the game&#8217;s middleware. this tells the game to play in stereo mode:
+<PRE>getURL(&#8220;callback://SetStereoStatus&#8221;, 2);</PRE></p>
+
+<p>getURL(&#8220;callback://GetStereoStatus&#8221;, &#8220;variableName&#8221;);<br/>
+this tells the middleware what variable name to use when it passed the data back to flash. you have to wait one frame in flash before you can reference the data.<br/>
+Why should flash be on Playstation 2?<br/>
+Currently not avaliable. playstation 2 is very popular platform.<br/>
+three versions of flash player for ps2</p>
+
+<ul>
+<li>generation one, used on starfighter. only supported flash 4. built by secret level. software only, very slow. doesn&#8217;t support loadmovie, so memory issues cause problems.
+
+<ul>
+<li>strobe : (gen 2) &#8211; used by lucasarts for some other games (they have in house flash team). supports flash 5, working on MX version. hardware enabled. also ported to xBox and Directx8. supports loadmovie command.
+
+<ul>
+<li>internet version for ps2 : developed by macromedia and sony. deomonstrated at E3 in may 2001. may be related to to linux os and network adaptor kit released by sony. did not play in browser.</UL></li>
+</ul>
+
+
+<p>showing pictures on ps2 linux kit. pretty cool. comes with harddrive and ethernet port.<br/>
+website:<br/>
+Fred wrote a chapter on Flash for the PS2 in <a href="http://www.amazon.com/exec/obidos/ASIN/0735711771/">Flash Enabled : Flash Design and Development for Devices</a>.<br/>
+<a href="http://www.orangedesign.com">orangedesign.com</a><br/>
+<a href="http://www.secretlevel.com">secretlevel.com</a><br/>
+<a href="http://www.lucasarts.com">lucasarts.com</a><br/>
+future they want to be able to use the flash player within the games, overlaying the action and even showing video.<br/>
+testing. worked on pc. they had firewire connection into test unit that they used to upload the entire game into the ps2, and then test it on the console.<br/>
+orange did not do the sound.<br/>
+end of session.</p></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-07-12T00:00:00-07:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-07-12T00:00:00-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/conferences/'>Conferences</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2002/07/12/star-wars-in-flash-developing-for-the-playstation-2-fred-sharples/" data-via="" data-counturl="http://mikechambers.github.io/2002/07/12/star-wars-in-flash-developing-for-the-playstation-2-fred-sharples/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2002/07/12/rich-application-development-with-flash-remoting-mike-chambers/" title="Previous Post: Rich Application Development with Flash Remoting : Mike Chambers">&laquo; Rich Application Development with Flash Remoting : Mike Chambers</a>
+      
+      
+        <a class="basic-alignment right" href="/2002/07/12/video-of-flash-forward-keynote/" title="Next Post: Video of Flash Forward Keynote?">Video of Flash Forward Keynote? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Accelerate : Flash / Arduino Based Speed Detector - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="Well, as you may have noticed from my blog posts the past week or two, I have been playing around with Flash and Arduino. I have a ton of ideas and &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2010/08/11/accelerate-flash-arduino-based-speedometer">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Accelerate : Flash / Arduino Based Speed Detector</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-11T00:00:00-07:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Well, as you may have noticed from my <a href="http://www.mikechambers.com/blog/tag/arduino/">blog posts the past week or two</a>, I have been playing around with Flash and <a href="http://www.arduino.cc">Arduino</a>. I have a ton of ideas and projects in mind, but wanted to start on something that wouldn&#8217;t be too overwhelming, and would give me a good opportunity to learn the basics. Well, I have finished my first project, and wanted to share it with everyone. It is a Flash / Arduino based speed detector with clients for Mac, Windows and Android based devices (via <a href="https://prerelease.adobe.com/callout/default.html?callid={AEF64EB4-A977-4317-909A-14AD8014BA21}">Adobe AIR 2.5 beta</a>).</p>
+
+<p>I have put together a quick video that shows the app in action:</p>
+
+<!--more-->
+
+
+<p>View HD version <a href="http://vimeo.com/14053460?hd=1">here</a>.</p>
+
+<p>Here is how it works. I have an Arduino Duemilanove with ATMega328 which has two photo-resistors connected (with a 10k pull down resistor). I set up two laser pointers to shine a laser directly onto the photo-resistor (which is enclosed within a dark box). The Arduino monitors the values returned from the light sensor, and watches for any changes that indicate that the laser bean has been broken. When both laser beams are broken, the Arduino calculates the amount of time between when each sensor was tripped. It then sends that value to the Adobe AIR based client, which is connected to the Arduino via USB / Serial port and a serial port proxy (in the case, TinkerProxy).</p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/4884468886/" title="Untitled by mike.chambers, on Flickr"><img src="http://farm5.static.flickr.com/4143/4884468886_c93a9daae1.jpg" width="500" height="291" alt="" /></a></p>
+
+<p>You can download <a href="http://github.com/mikechambers/Accelerate/tree/master/src/arduino/eagle/">the schematic from the project&#8217;s repository</a>.</p>
+
+<p>Once the AIR application (running on the desktop, or an Android based device) gets the message from the Arduino that both sensors have been tripped, the AIR app takes the time that it took for each sensor to be tripped, and combines it with the distance between the sensors (in inches), and uses that data to determine the speed.</p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/4884434876/" title="Accelerate Screenshot by mike.chambers, on Flickr"><img src="http://farm5.static.flickr.com/4134/4884434876_ae2fa2dc45.jpg" width="500" height="306" alt="Accelerate Screenshot" /></a></p>
+
+<p>While I put this together mostly for fun, it is actually useful for tweaking RC car gears and setup. You can use it to help tweak both maximum speed, as well as acceleration / starting speed. Unfortunately, I dont know enough about working on RC cars yet to actually take advantage of the data, but it is fun to hack around with regardless.</p>
+
+<p>I have <a href="http://github.com/mikechambers/Accelerate">posted all of the Flash and Arduino code on GitHub</a>, and released it under an open source <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>. The AIR application is built using Flex 4, and although Flex 4 is not optimized for mobile, it performs really well on my Nexus One.</p>
+
+<p>When looking at the Arduino code, keep in mind this is my first Arduino project, and the code could use some optimization, refactoring. (post in the comments if you have any suggestions).</p>
+
+<p>I have posted some of the lessons learned from the projects in <a href="http://www.mikechambers.com/blog/2010/08/06/flash-arduino-tips-tricks-and-gotchas/">another blog post</a> , so make sure to check that out.</p>
+
+<p>Big thanks to Ben Griffith, Geoffrey Mattie who made some suggestions to clean up the design and UI of the app.</p>
+
+<ul>
+<li><a href="http://vimeo.com/14053460">View video of Accelerate project.</a></li>
+<li><a href="http://github.com/mikechambers/Accelerate">Code Repository for all code.</a></li>
+<li><a href="http://www.flickr.com/photos/mikechambers/sets/72157624582669047/">Images of Project.</a></li>
+</ul>
+
+
+<p>If you have any questions or suggestions about the project, just post them in the comments.</p>
+
+<p>Update: Changed title since it is really more of a speed detector than speedometer.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-11T00:00:00-07:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-11T00:00:00-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2010/08/11/accelerate-flash-arduino-based-speedometer/" data-via="" data-counturl="http://mikechambers.github.io/2010/08/11/accelerate-flash-arduino-based-speedometer/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/08/06/flash-arduino-tips-tricks-and-gotchas/" title="Previous Post: Flash / Arduino Tips, Tricks and Gotchas">&laquo; Flash / Arduino Tips, Tricks and Gotchas</a>
+      
+      
+        <a class="basic-alignment right" href="/2010/09/10/update-on-flash-and-iphone-development/" title="Next Post: Update on Flash and iPhone development">Update on Flash and iPhone development &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

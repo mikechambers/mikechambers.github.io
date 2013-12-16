@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Compiling ActionScript 3 and MXML on Mac and Linux - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="I finally switched back to Mac from Windows yesterday. I had moved to Windows a couple of months ago so that I could use the Flex Builder 2 alpha. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2005/12/22/compiling-actionscript-3-and-mxml-on-mac-and-linux">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Compiling ActionScript 3 and MXML on Mac and Linux</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-12-22T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I finally switched back to Mac from Windows yesterday. I had moved to Windows a couple of months ago so that I could use the Flex Builder 2 alpha. However, after my 4th system failure in the past 3 months, I decided it was time to go back to Mac.</p>
+
+<p>One of the first things I wanted to set up was my development environment so that I could continue to develop in Flex 2 and ActionScript 3. We do not currently have a Mac version of Flex Builder, but fortunately, the command line compiler (mxmlc) included with Flex builder is written in Java, which means it should (and does) run on Mac and Linux.</p>
+
+<!--more-->
+
+
+<p>NOTE, currently, mxmlc is supported on windows only. The instructions below work well, but running mxmlc on non-Windows system is currently not supported.</p>
+
+<p>The MXMLC compiler that is included with Flex Builder comes with a Windows executable wrapper (mxmlc.exe) that makes it very easy to use on Windows. However, you can not use the wrapper on Mac or Linux. Getting the compiler to run is not too difficult once you figure it out, although it can require constructing a pretty extensive command to run. In order to make this easier, I wrote my own simple bash script that acts as a wrapper for mxmlc and makes it easy to compile ActionScript 2 and Flex 2 applications from the command line on Mac and Linux.</p>
+
+<p>First, you need to download the compiler and set it up on your system. We have <a href="http://labs.macromedia.com/wiki/index.php/Flex_Framework:tutorials:mac_development">a page on the Labs wiki that describes how to do this on non-Windows systems</a>.</p>
+
+<p>Once the compiler is setup, calling MXMLC is not too difficult. Here is a typical command line to compile a simple application:</p>
+
+<pre><code>java -jar "/Users/mesh/bin/flex/lib/mxmlc.jar" -flexlib "/Users/mesh/bin/flex/frameworks/" MyApp.as
+</code></pre>
+
+<p>That would work as long as the application only used Flash Player APIs, and not external ActionScript libraries. If it used external ActionScript classes, then you would need to specify the ActionScript classpaths like so:</p>
+
+<pre><code>java -jar "/Users/mesh/bin/flex/lib/mxmlc.jar" -flexlib "/Users/mesh/bin/flex/frameworks/" -actionscript-classpath /Users/mesh/src/flashplatform/projects/corelib/trunk/src/actionscript3/ /Users/mesh/src/flashplatform/projects/testlib/trunk/src/actionscript3/ MyApp.as
+</code></pre>
+
+<p>This specifies two paths to search for classes. As you can see, it begins to get a little more tedious to construct the command line. However, the Flex engineers considered this, and created a config file that the mxmlc compiler uses. You can find this setting in the frameworks/flex-config.xml file.</p>
+
+<p>If we add the following to the file (just un-comment the entry already in the file):</p>
+
+<pre><code>&lt;actionscript-classpath&gt;
+
+ &lt;path-element&lt;/Users/mesh/src/flashplatform/projects/corelib/trunk/src/actionscript3/&lt;/path-element&gt;
+
+ &lt;path-element&lt;/Users/mesh/src/flashplatform/projects/testlib/trunk/src/actionscript3/&lt;/path-element&gt;       
+
+&lt;/actionscript-classpath&gt;
+</code></pre>
+
+<p>then MXMLC will know where to look for ActionScript classes, and we will no longer need to specify them on the command line.</p>
+
+<p>But, that still brings us back to:</p>
+
+<pre><code>java -jar "/Users/mesh/bin/flex/lib/mxmlc.jar" -flexlib "/Users/mesh/bin/flex/frameworks/" MyApp.as
+</code></pre>
+
+<p>which is still a little tedious to type each time you want to compile the application.</p>
+
+<p>So, I wrote a simple bash script that wraps mxmlc.</p>
+
+<p>First, create a new text file on your machine (I called it mxmlc), and add the following script to it:</p>
+
+<pre><code>#!/bin/bash
+
+flex='/Users/mesh/bin/flex/'
+
+classpath=''
+
+if [ -n "$ASCLASSPATH" ]; then
+        classpath="-actionscript-classpath `echo $ASCLASSPATH | sed 's/:/ /g'`"
+fi
+
+echo $classpath
+
+java -jar "$flex/lib/mxmlc.jar" -flexlib "$flex/frameworks/" $classpath --incremental=true $@
+</code></pre>
+
+<p>Make sure to change the:</p>
+
+<pre><code>flex='/Users/mesh/bin/flex/'
+</code></pre>
+
+<p>to point to the folder that contains your flex files (that you installed according to the instructions here). Not that the script adds the &#8211;incrental=true flag. This enables incremental compilation and should dramatically increases compilation performance.</p>
+
+<p>Next, from the command line you need to make sure that the script is executable, so run this command on it:</p>
+
+<pre><code>chmod 755 mxmlc
+</code></pre>
+
+<p>Once you have done that, you can now compile your applications like so:</p>
+
+<pre><code>mxmlc MyApp.as
+</code></pre>
+
+<p>The script is written so that you can also pass any supported mxmlc command line arguments to it, like so:</p>
+
+<pre><code>mxmlc -verbose MyApp.as
+</code></pre>
+
+<p>It also supports a system level ActionScript classpath. If you want to specify your ActionScript classpath in the system, and not in the flex-config.xml file (similar to a Java classpath), just specify an $ASCLASSPATH environment variable, that contains a colon &#8220;:&#8221; separated lists of ActionScript classpath.</p>
+
+<p>For example, my .profile file in my home directory contains this line:</p>
+
+<pre><code>ASCLASSPATH=/Users/mesh/src/flashplatform/projects/corelib/trunk/src/actionscript3/:/Users/mesh/src/flashplatform/projects/testlib/trunk/src/actionscript3/
+
+export ASCLASSPATH
+</code></pre>
+
+<p>Now, any application or script on my system can access my ActionScript classpath. If this is set, then the mxmlc script will use it when compiling the application. Of course, you can continue to specify it on the command line or via the flex-config.xml file.</p>
+
+<p>Here are some additional resources on using mxmlc:</p>
+
+<ul>
+<li><a href="http://labs.macromedia.com/wiki/index.php/Flex_Framework:tutorials:mac_development">Compiling and Developing with ActionScript 3 and Flex 2 on the Mac</a> (labs)</li>
+<li><a href="http://labs.macromedia.com/wiki/index.php/Flex_Framework:tutorials:compiling_mxmlc">Using the mxmlc command line compiler to compiler ActionScript 3 and Flex 2 Framework applications</a> (labs)</li>
+<li><a href="http://www.joshbuhler.com/2005/10/20/compile-as-3-on-mac">Compile AS3 on Mac</a> (Josh Buhler)</li>
+</ul>
+
+
+<p>Hope that help makes compiling on Mac and Linux easier. If you have any comments / suggestions / corrections, please post them in the comments.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-12-22T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-12-22T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2005/12/22/compiling-actionscript-3-and-mxml-on-mac-and-linux/" data-via="" data-counturl="http://mikechambers.github.io/2005/12/22/compiling-actionscript-3-and-mxml-on-mac-and-linux/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2005/12/09/flash-player-and-acrobat-reader-merging/" title="Previous Post: Flash Player and Acrobat Reader merging?">&laquo; Flash Player and Acrobat Reader merging?</a>
+      
+      
+        <a class="basic-alignment right" href="/2006/01/06/flash-player-switching-on-mac/" title="Next Post: Flash Player Switching on Mac">Flash Player Switching on Mac &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

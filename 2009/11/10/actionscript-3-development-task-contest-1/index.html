@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ActionScript 3 Development Task Contest #1 - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="I was working on some code over the weekend and was spending a lot of time trying to figure out the best way to approach a problem, and how to get &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2009/11/10/actionscript-3-development-task-contest-1">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ActionScript 3 Development Task Contest #1</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-10T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I was working on some code over the weekend and was spending a lot of time trying to figure out the best way to approach a problem, and how to get the best performance from the solution. I thought it would be useful and interesting to see how other developers would approach the problem. This gave me an idea for an ActionScript 3 contest, which I am announcing today.</p>
+
+<!--more-->
+
+
+<p><strong>What</strong>: ActionScript 3 Development Task Contest (AS3DTC)<br/>
+<strong>When</strong>: Submissions must be received by Mike Chambers (<a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#58;&#109;&#x65;&#115;&#104;&#x40;&#x61;&#x64;&#x6f;&#98;&#x65;&#x2e;&#99;&#111;&#109;">&#x6d;&#101;&#115;&#x68;&#64;&#x61;&#100;&#111;&#x62;&#x65;&#46;&#x63;&#111;&#109;</a>) by 12 Noon, PST, Friday, November 13th.<br/>
+<strong>Who</strong>: Anyone is eligible (see details below)<br/>
+<strong>Prizes</strong> : Copy of Flex Builder 3, choice of a T-shirt from <a href="http://www.threadless.com/">threadless.org</a>, lots of random swag, and the admiration and adulation of your ActionScript developer peers.</p>
+
+<p><strong>Goals of contest</strong></p>
+
+<ol>
+<li>Get some solid implementations of classes that will be useful to everyone.</li>
+<li>Get multiple examples of high performance code that everyone can learn from.</li>
+<li>Drive discussions around implementations, and possible further optimizations (code and architectural).</li>
+</ol>
+
+
+<p>Keep these goals in mind when writing your code and making your submission.</p>
+
+<p><strong>Contest Task</strong></p>
+
+<p>Implement a class named ProximityManager that divides the stage into a grid with cells sizes of 35px x 35px, and returns all of the display object instances within the same and adjacent cells as a specified display object (that will be passed in).</p>
+
+<p>I have provided a TestRunner.as class that will be used to judge the contest. You cannot change this file. Your entry will consist of a class called ProximityManager.as that implements the constructor and public APIs in the included ProximityManager.as.</p>
+
+<p><strong>Update</strong> (November 11, 2009) : For the purposes of the contest, you can use the x, y coordinates of the display objects to determine which cell they are contained within (i.e. you dont have to worry about a display object straddling two cells).</p>
+
+<p>The TestRunner will randomly place 10,000 display objects on the stage. It will then randomly place four target Sprites (checkSprites) instances on the stage.</p>
+
+<p>The test that will be run is:</p>
+
+<div class="highlight">
+  <pre><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">function</span> testProximityManager()<span style="color: #666666">:</span>void
+{
+    proximityManager.update(items);
+    proximityManager.getNeighbors(checkSprite_1);
+    proximityManager.getNeighbors(checkSprite_2);
+    proximityManager.getNeighbors(checkSprite_3);
+    proximityManager.getNeighbors(checkSprite_4);
+}
+</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>Where items is a Vector of all DisplayObjects to be checked against, and checkSprite is the target Sprite, whose neighbors must be found and returned in a Vector of DisplayObjects.</p>
+
+<p>Tests will be run and results determined using Grant Skinner&#8217;s <a href="http://www.gskinner.com/blog/archives/2009/04/as3_performance.html">ActionScript 3 Performance Test Harness</a>.</p>
+
+<p><a href="http://github.com/mikechambers/ActionScript-3-Development-Task-Contests/tree/master/AS3DTC_1/p">Download Contest Files</a></p>
+
+<p>All test files and entries will be posted to the <a href="http://github.com/mikechambers/ActionScript-3-Development-Task-Contests/tree/master/AS3DTC_1/">ActionScript 3 Development Task Contests GitHub Repository</a>.</p>
+
+<p><strong>Additional Rules</strong></p>
+
+<ul>
+<li>Code must be release under an <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.</li>
+<li>Code must be fully commented.</li>
+<li>Code must be human readable.</li>
+<li>Code must implement the constructor and public APIs defined in the included ProximityManager.as file.</li>
+<li>Code must be implemented in the provided ProximityManager.as class.</li>
+<li>Contest is open to everyone.</li>
+<li>Code must be authored by the submitter.</li>
+<li>Code cannot have any external dependencies (including Flex).</li>
+<li>Code cannot require any additional tools, pre or post processing steps.</li>
+<li>All entry code must include the MIT license at the top, as well as the name of the developer who wrote and is submitting the code.</li>
+<li>Developers may enter more than once, but only entries that take a significantly different approach will be accepted.</li>
+</ul>
+
+
+<p>Note, that the rules and TestRunner may be tweaked after I post them, but I will try and make any changes or clarifications within 1 day. Please make sure to check back to this post for any changes.</p>
+
+<p>Don&#8217;t try to game the contest. If you are not sure if you are, then ping me. This is a community contest for fun and learning. I will make the final call on all disputes and entries. If I think an entry doesn&#8217;t abide by the rules, or is trying to game the contest then I may reject the entry. I am very serious about this, so dont mess around.</p>
+
+<p><strong>Update</strong> (November 10, 2009) : Basically, the only information your class has access to is that which is passed to its constructors and methods. Your code cannot make assumptions based on information in the test which is not passed to the ProximityManager class (i.e., how many items there are on the stage, or the fact that the items are not moving, etc&#8230;). If I change the parameters of the test that your code does not know about, then your class should still work correctly.</p>
+
+<p>The winning entry will be determined by compiling the TestRunner.as (included) and submission class with the latest public release of the mxmlc compiler. The TestRunner SWF will be run 5 times and total times will be combined. The submission with the lowest total time over the test iterations will be the winner. The return values from the getNeighbors API will be validated (an example validation test is included in the TestRunner).</p>
+
+<p>Tests will be run on the latest Flash Player 10 Release (non-debug) version in the Safari browser (latest release version) on an Intel Mac Pro. All submissions will be posted online.</p>
+
+<p>Once the results are announced, ranked, and posted, there will be a short period before the contest is finalized. This will give the community a chance to identify any bugs in the code logic. I will make the final decision about whether any bugs in the logic will disqualify the entry. Basically, if it is a minor bug that will not affect performance, then I will let it pass. If it is a major bug, or has a major impact on performance, then I will probably disqualify the entry. I may give the developer a chance to correct the bug.</p>
+
+<p>Since one of the main goals of the contest is to help generate knowledge on techniques and optimizations, the contest is open to everyone, including Adobe employees. However, if an Adobe employee wins, the prizes will go to the highest ranked non-Adobe employee.</p>
+
+<p>This is the first time I have tried this, so there will be some kinks in the process. Please be patient, and keep the goals and spirit of the contest in mind. If it goes well, then we will do more contests, with different tasks.</p>
+
+<p>If you find any errors / bugs in the TestRunner class, please post them in the comments, and I will get them fixed.</p>
+
+<p>If you have any questions, or want clarification on something, post it in the comments. All clarifications made by me in this post and its comments should be considered part of the rule set.</p>
+
+<p>Watch this blog post, and my twitter account (<a href="http://www.twitter.com/mesh">@mesh</a>) for contest updates and reminders.</p>
+
+<p>File Updates:</p>
+
+<p><strong>Release 0.7 (November 12, 2009)</strong></p>
+
+<ul>
+<li>TestRunner now waits one second after it has loaded before it runs the performance tests.</li>
+</ul>
+
+
+<p><strong>Release 0.6 (November 12, 2009)</strong></p>
+
+<ul>
+<li>checkResults now removes all result items from the stage. This makes it easier to view and validate results</li>
+</ul>
+
+
+<p><strong>Release 0.5 (November 12, 2009)</strong></p>
+
+<ul>
+<li>All circles are now drawn so the top left of their bounds is at 0,0.</li>
+</ul>
+
+
+<p><strong>Release 0.4 (November 11, 2009)</strong></p>
+
+<ul>
+<li>bounds argument is now required in ProximityManager constructor. This specifies the bounds of the collision detection / grid area.</li>
+</ul>
+
+
+<p><strong>Release 0.3 (November 11, 2009)</strong></p>
+
+<ul>
+<li>Fixed Release dates in README.txt</li>
+<li>Added visual validation code to TestRunner.as (thanks to Sean Christmann for the help)</li>
+<li>Made a minor change to how circles are drawn in Display Objects on stage.<br/>
+<strong>From</strong> : <code>disp.graphics.drawCircle( 0 , 0 , 5 )</code>;<br/>
+<strong>To</strong> : <code>disp.graphics.drawCircle( 5 , 5 , 5 );</code></li>
+</ul>
+
+
+<p><strong>Release 0.2 (November 10, 2009)</strong></p>
+
+<ul>
+<li>Move SWF meta data from ProximityManager to TestRunner</li>
+<li>Added README.txt file</li>
+</ul>
+
+
+<p><strong>Release 0.1 (November 10, 2009)</strong></p>
+
+<ul>
+<li>Initial Release</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-10T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-10T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2009/11/10/actionscript-3-development-task-contest-1/" data-via="" data-counturl="http://mikechambers.github.io/2009/11/10/actionscript-3-development-task-contest-1/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/11/04/moving-a-git-repository-subdirectory-to-its-own-repository/" title="Previous Post: Moving a git repository subdirectory to its own repository">&laquo; Moving a git repository subdirectory to its own repository</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/11/12/update-on-actionscript-3-development-task-contest-1/" title="Next Post: Update on ActionScript 3 Development Task Contest #1">Update on ActionScript 3 Development Task Contest #1 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

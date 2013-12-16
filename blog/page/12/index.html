@@ -1,0 +1,637 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="In my original post on the new Flash Player 10 Vector class, I did a simple example that showed Vectors being slightly faster than Array when just &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/blog/page/12">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/24/actioscript-3-vector-array-performance-comparison/">ActionScript 3 Vector / Array Performance Comparison</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-24T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In my <a href="http://www.mikechambers.com/blog/2008/08/19/using-vectors-in-actionscript-3-and-flash-player-10/">original post on the new Flash Player 10 Vector class</a>, I did a simple example that showed Vectors being slightly faster than Array when just populating and looping through collections.</p>
+
+<p>Below is another example that shows a more significant performance increase when using Vectors. In this example, I populate an Array and Vector with 5 million random numbers, and then loop through them and average all of the numbers.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/09/24/actioscript-3-vector-array-performance-comparison/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/23/adobe-flash-cs4-announced/">Adobe Flash CS4 Announced</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-23T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As you have surely already read, we announced <a href="http://www.adobe.com/products/flash/?promoid=BPDEE">Adobe Flash CS4</a> today. I am not going to go into all of the details about what is in this release as you can find that on the website. However, I havent really used the authoring tool in some time (I barely picked up CS3), but I have really been enjoying CS4. It just feels like the Flash team nailed it this time around (Keith Peters has similar <a href="http://www.bit-101.com/blog/?p=1493">sentiments</a>).</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/09/23/adobe-flash-cs4-announced/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/22/new-adobe-air-t-shirt-created-by-eboy/">New Adobe AIR T-shirt Created by Eboy</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-22T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Here is a sneak peak of the new AIR t-shirts (with a shout out to Flex and Flash). These were created by <a href="http://www.eboy.com">eboy</a>, who also created the<a href="http://www.flickr.com/photos/mikechambers/2290198773/"> AIR 1.0 launch t-shirts</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/09/22/new-adobe-air-t-shirt-created-by-eboy/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/18/pixel-bender-grayscale-filter/">Pixel Bender Grayscale Filter</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-18T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Below is another simple <a href="http://labs.adobe.com/wiki/index.php/Pixel_Bender_Toolkit">Pixel Bender</a> filter that I created last night. This one basically, converts an image to gray scale, using the ITU-R Recommendation BT.709 algorithm described <a href="http://local.wasp.uwa.edu.au/~pbourke/texture_colour/imageprocess/">here</a>.</p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/2868222770/" title="Pixel Bender Grayscale Filter by mike.chambers, on Flickr"><img src="http://farm4.static.flickr.com/3057/2868222770_e537d4b918.jpg" width="500" height="192" alt="Pixel Bender Grayscale Filter" /></a></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/09/18/pixel-bender-grayscale-filter/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/17/pixel-bender-tv-scanline-filter/">Pixel Bender TV Scanline Filter</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-17T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>After seeing all of the <a href="http://pixelero.wordpress.com/">cool stuff people have been doing with Pixel Bender,</a> I finally decided to spend a little time and start learning how to build them myself.</p>
+
+<p>The learning curve isn&#8217;t too difficult, although you do have to learn some new concepts, and deal with some limitations (at least when creating filters for Flash). The most difficult part for me thus far, is just understanding color and pixel math and manipulation (something I need to read up on more).</p>
+
+<p>Anyways, below if one of my first filters. I wanted to post it as it is a pretty simple example, while still potentially being useful. Basically, it creates a TV scanline effect by making every other row of pixels black.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/09/17/pixel-bender-tv-scanline-filter/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/17/interview-with-me-at-actionscriptheroorg/">Interview With Me at ActionScriptHero.org</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-17T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>ActionScriptHero.org has just posted <a href="http://www.actionscripthero.org/index.php?view=article&amp;catid=37%3Ainterviews&amp;id=59%3Amike-chambers&amp;option=com_content&amp;Itemid=63">an interview that they did with me</a>. This is part of a series of interviews that they are doing with members of the Flash community.</p>
+
+<p>Make sure to check out some of the other interviews, which include chats with Keith Peters, Mario Klingemann, Andre Michelle, Branden Hall, Grant Skinner and Ralph Hauwert (and <a href="http://www.actionscripthero.org/index.php?option=com_content&amp;view=category&amp;id=37&amp;Itemid=63">more</a>).</p>
+
+<p>You can read the entire interview <a href="http://www.actionscripthero.org/index.php?view=article&amp;catid=37%3Ainterviews&amp;id=59%3Amike-chambers&amp;option=com_content&amp;Itemid=63">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/17/creating-re-distributable-actionscript-libraries-of-pixel-bender-filters/">Creating Re-distributable ActionScript Libraries of Pixel Bender Filters</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-17T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last week I wrote a number of blog posts showing how to work with <a href="http://labs.adobe.com/wiki/index.php/Pixel_Bender_Toolkit">Pixel Bender</a> filters in Flash, Flex and ActionScript. In particular, I wrote about how to <a href="http://www.mikechambers.com/blog/2008/09/08/embedding-pixel-bender-filters-within-a-swf/">embed pixel bender filters within a SWF</a> and how to <a href="http://www.mikechambers.com/blog/2008/09/08/encapsulating-custom-pixel-bender-filters-in-actionscript-3/">encapsulate custom Pixel Bender filters in an ActionScript 3 class</a>. For this post, I am going to take the next step, and show how to create re-distributable SWC libraries of custom Pixel Bender filters that can be used in <a href="http://labs.adobe.com/technologies/flashplayer10/">Flash Player 10</a> based projects (including Flex Builder, MXMLC and Flash Professional).</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/09/17/creating-re-distributable-actionscript-libraries-of-pixel-bender-filters/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/16/why-i-love-the-flash-community/">Why I Love the Flash Community</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-16T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Keith Peters nails it in his <a href="http://www.actionscripthero.org/index.php?option=com_content&amp;task=view&amp;id=58&amp;Itemid=63">interview with ActionScriptHero.org</a>:</p>
+
+<blockquote><p>The Flash community is seriously one of the best parts of being into Flash. I mean, the tools are cool, and what you can do with them is cool, but the openness and willing to help and share and teach each other is really incredible. I&#8217;ve dabbled in some other technology groups and have seen people appalled when I dared ask them how they did something, like I was trying to steal their precious secrets. But in the Flash community, you ask someone how they did something, they&#8217;ll sit you down, buy you a beer, explain it in detail and email you the source code the next day.</p></blockquote>
+
+<p>Couldn&#8217;t have said it better myself.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/15/adobe-air-for-linux-beta-is-live/">Adobe AIR for Linux Beta Is Live</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-15T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>We have just posted an update of the <a href="http://labs.adobe.com/technologies/air/">pre-release version of Adobe AIR for Linux</a>. This version is a beta (previous version was an Alpha) and adds support for a ton of new AIR features (and fixes a lot of bugs). You can find all of the details in the <a href="http://labs.adobe.com/wiki/index.php/AIR_for_Linux:Release_Notes">release notes</a>.</p>
+
+<p>You can find more information, as well as download the bits from the <a href="http://labs.adobe.com/technologies/air/">Adobe AIR for Linux Beta labs page</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/12/urlloader-subclass-with-automatic-refresh-support/">URLLoader Subclass With Automatic Refresh Support</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-12T00:00:00-07:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://twitter.com/chayen/statuses/918906248">Chris Hayen twittered</a> to me this morning expressing his wish that the ActionScript 3 <a href="http://livedocs.adobe.com/flex/3/langref/flash/net/URLLoader.html">URLLoader</a> class had a <code>refreshInterval</code> property. I <a href="http://twitter.com/mesh/statuses/919232933">responded</a> that this should be pretty simple to add by extending the class. Well, I had a little time while I download some internal software builds, so I put together a class that adds a <code>refreshInterval</code> property.</p>
+
+<p>This has not been tested very much. In fact, I have only tested when the data loads successfully from the server. However, I wanted to post an early / rough version here with the hope that I get feedback on it. If the consensus is that this could be useful, then I will look at making it more solid, and adding it to the <a href="http://code.google.com/p/as3corelib/">as3corelib library</a>.</p>
+
+<p>The class adds two new public APIs:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/09/12/urlloader-subclass-with-automatic-refresh-support/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/13/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/11/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<!--
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+&#8211;>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Getting Started With Phidgets and ActionScript 3 - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="Phidgets are a set of devices and sensors that provide a simple way for developers to create applications that both send and receiving information &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2010/07/26/getting-started-with-phidgets-and-actionscript">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Getting Started With Phidgets and ActionScript 3</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-26T00:00:00-07:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://www.phidgets.com/index.php">Phidgets</a> are a set of devices and sensors that provide a simple way for developers to create applications that both send and receiving information from external sensors, motors and pretty much anything else you can hook up via electronics. They are similar to the open source <a href="http://www.arduino.cc/">Arduino</a> electronic platform.</p>
+
+<p>Im not going to do a big comparison between Arduino and Phidgets in this post. I plan to do that in another post (along with an Arduino / Flash hello world article). Suffice it to say though, that one of the major benefits of Phidgets, is that the Phidgets devices are a bit higher level, both on the hardware, and software side and thus can be a little easier for a developer new to electronics to get started with.</p>
+
+<!--more-->
+
+
+<p>If you are a Flash developer, Phidget&#8217;s are very attractive, as they provide a very well developed and documented <a href="http://www.phidgets.com/programming_resources.php">ActionScript API for working with the Phidgets devices</a>. The API works by connecting via a socket from Flash content, to a Phidgets local (or remote) server. The Phidgets server connects directly to the Phidgets devices over USB, and proxies communication between the Flash / ActionScript content, and the Phidgets devices and electronics.</p>
+
+<p>In this post, I will cover everything you need to know in order to get started integrating Phidgets electronics and Flash / ActionScript content.</p>
+
+<p><link rel="stylesheet" href="/styles/lightbox.css" type="text/css" media="screen" /></p>
+
+<p>You can grab all of the code for the example from my <a href="http://github.com/mikechambers/ExamplesByMesh/tree/master/Phidgets/PhidgetsHelloWorld/">GitHub Example repository</a>.</p>
+First, here is what you will need to get started:</p>
+
+<ul>
+<li>An ActionScript 3 compiler (such as <a href="http://www.adobe.com/products/flashbuilder/">Flash Builder</a>, <a href="http://www.adobe.com/products/flash/">Flash Professional</a>, or the open source MXMLC compiler included in the <a href="http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+4">Flex 4 SDK</a>).</li>
+<li>An IDE or text editor to edit ActionScript (such as Flash Builder, Flash Authoring, FDT, TextMate or any other general text editor).</li>
+<li>The Phidgets ActionScript 3 library. You can find the library&#8217;s SWC in Flex 3 Code Sample ZIP file, and can find the source in the Flash AS3 Code Sample Zip file, both on the <a href="http://www.phidgets.com/programming_resources.php">Phidgets programming resources page</a>.</li>
+<li>The Phidgets drivers for your platform. This will install the drivers for the devices, as well as the proxy application / server that Flash will use to communicate with the devices. You can download these from the <a href="http://www.phidgets.com/drivers.php">Phidgets driver page</a>.</li>
+<li>At least one Phidgets device that can connect directly to your computer USB. If you are just getting started, then I would recommend the <a href="http://www.phidgets.com/products.php?category=0&amp;product_id=1018">1018 &#8211; PhidgetInterfaceKit 8/8/8</a> as it is the most flexible and extensible. This article will assume you are using this kit.</li>
+<li>One LED to test the kit with.</li>
+</ul>
+
+
+<p>For this article I will be using <a href="http://macromates.com/">TextMate</a> on a Mac and compiling with the free mxmlc compiler included in the <a href="http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+4">Flex 4 SDK</a>. We will be running the example via Adobe AIR (via ADL included in the Flex 4 SDK) (although the SWF we create will also work in the Flash Player in the browser).</p>
+
+<p><strong>Install Drivers</strong></p>
+
+<p>First, download and install the <a href="http://www.phidgets.com/drivers.php">Phidgets drivers for your platform</a>. This will install the drivers to interface with the devices via USB, and will also install a standalone application / server that will proxy calls between Flash and the devices.</p>
+
+<p><strong>Test Installation</strong></p>
+
+<p>Once you have installed the drivers, download the <a href="http://www.phidgets.com/documentation/Phidgets/1018.pdf">manual for the 1018 &#8211; PhidgetInterfaceKit 8/8/8</a>. I strongly recommend you read through the entire PDF document, but at a minimum, you will want to read the &#8220;Product Features&#8221; and &#8220;Getting Started&#8221;&ldquo; sections.</p>
+
+<p>Connect your Phidget via USB to your computer and then read and follow the steps under the <em>Getting Started > Testing</em> section in the 1018 docs. This will show you how to ensure that your Phidgets and software are setup and functioning correctly. Make sure to run the sample program as described in the docs.</p>
+
+<p><strong>Download Phidget ActionScript Library</strong></p>
+
+<p>In order to communication with the Phidgets devices / proxy application via ActionScript, we need to download the Phidgets ActionScript library. There are two Flash related libraries on the <a href="http://www.phidgets.com/programming_resources.php">Phidgets Programming Resources page</a>. The Flash AS3 download contains example FLAs to be run in Flash Authoring (4 or 5), as well as the source code for the Phidgets ActionScript library. The Flex AS3 download contains both Flex / MXML and pure ActionScript examples, as well as the Phidget AS3 Library SWC. You can also download API references and a getting started guide on the page.</p>
+
+<p>You can use either the Phidget library source from the Flash AS3 download, or the Phidget library SWC from the Flex AS3 download. Just make sure to link them in when compiling your ActionScript. For this article I will be using the compiled SWC.</p>
+
+<p><strong>Configure the Phidget</strong></p>
+
+<p>For our simple hello world example, we are going to connect an LED to our Phidget and then turn it on via ActionScript. In order to do this, we need to connect an LED to the PhidgetInterfaceKit. Connect an LED to output pins G (Ground) and 0. Make sure that the long wire (anode) of the LED is connected to pin 0, and the short wire (cathode) is connect to the ground (G).</p>
+
+<p><a href="/blog/images/phidgets/phidget_led.jpg" rel="lightbox[phidgets]" title="Interface Board with LED Attached"><img src="/blog/images/phidgets/phidget_led_sm.jpg"  width="400" height="290" /></a></p>
+
+<p>Next, make sure that the Phidget is connected to the computer via USB. You can test that everything is connected and hooked up correctly by opening the Phidget preferences, and selecting output 0 on the Phidget Interface Kit screen. This should turn on the LED (make sure to turn it off once you are done).</p>
+
+<p><a href="/blog/images/phidgets/phidget_mac_settings.png" rel="lightbox[phidgets]" title="Interface Kit Screen in Preferences"><img src="/blog/images/phidgets/phidget_mac_settings_sm.png"  width="500" height="452" /></a></p>
+
+<p><strong>Turn on Phidget Proxy / Server</strong></p>
+
+<p>The last step before we can write our code is to make sure that the Phidget proxy / web server is running. This is a simple socket server that runs locally and proxies calls between Flash and the Phidget.</p>
+
+<p>On Mac, you can start this in <em>System Preferences > Phidgets > Web Service > Start Web Service</em>. Check the <a href="http://www.phidgets.com/documentation/Tutorials/Working_With_PhidgetWebservice.pdf">documentation</a> for how to start it on other platforms.</p>
+
+<p>For now you can leave the ServerID and Password blank, and leave the port at its default value of &#8220;5001&#8243;.</p>
+
+<p><strong>Write ActionScript Code</strong></p>
+
+<p>We are finally ready to write the ActionScript code to interface with the Phidget.</p>
+
+<p>Open you ActionScript editor, and type in the following code in a file named PhidgetsHelloWorld.as. The code below is fully commented and explains what is going on.</p>
+
+<pre><code>/*
+    The MIT License
+
+    Copyright (c) 2010 Mike Chambers
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+*/
+
+package
+{
+    import flash.display.Sprite;
+    import flash.events.Event;
+
+    //import the Phidget classes we need for this example
+    //from the Phidget's library / SWC
+    import com.phidgets.Phidget;
+    import com.phidgets.PhidgetInterfaceKit;
+    import com.phidgets.events.PhidgetEvent;    
+
+    public class PhidgetsHelloWorld extends Sprite
+    {       
+
+        //reference to the Phidget Interface Kit we are connecting to
+        private var interfaceKit:PhidgetInterfaceKit;
+
+        //constructor
+        public function PhidgetsHelloWorld()
+        {
+            //listen for when we are added to the stage
+            addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+        }
+
+        private function onAddedToStage(e:Event):void
+        {
+            removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+
+            //create instance of PhidgetInterfaceKit
+            interfaceKit = new PhidgetInterfaceKit();
+
+            //listen for event that we need for this example
+
+            //connected to proxy
+            interfaceKit.addEventListener(PhidgetEvent.CONNECT, onConnect);
+
+            //device attached
+            interfaceKit.addEventListener(PhidgetEvent.ATTACH,  onAttach);
+
+            //device detached
+            interfaceKit.addEventListener(PhidgetEvent.DETACH,  onDetach);
+
+            //disconnected from proxy
+            interfaceKit.addEventListener(PhidgetEvent.DISCONNECT, onDisconnect);
+
+            //proxy address. Usually localhost / 127.0.0.1, but can be any server
+            //on any computer. The proxy returns proper security policy file
+            var serverAddress:String = "127.0.0.1";
+
+            //port the proxy is listening on
+            var serverPort:uint = 5001;
+
+            //connect to the proxy and device
+            interfaceKit.open("127.0.0.1", 5001);
+        }
+
+        //called when we connect to the proxy server
+        private function onConnect(e:PhidgetEvent):void
+        {
+            //note, we cannot access any devices here yet, since
+            //we have not connected to them. You have to wait for the
+            //onAttach event
+            trace("-------onConnect------- ");
+        }
+
+        //called when we attach / connect to the actual Phidget
+        private function onAttach(e:PhidgetEvent):void
+        {
+            trace("-------onAttach------- ");
+
+            //get a reference to the device we connected to
+            var device:Phidget = e.Device;
+
+            //print out a bunch of information about it
+            trace(device.Name + " : " + device.Label);
+            trace("Version : " + device.Version);
+            trace("Serial : " + device.serialNumber);
+
+
+            //output number / pin that the LED is connected to
+            var outputPin:uint = 0;
+
+            //state to set the output pin. true = on, false = off
+            var state:Boolean = true;
+
+            //set the output state for pin 0 to true / on.
+            //this will turn on the LED
+            interfaceKit.setOutputState(outputPin, state);
+
+            //note, you have to explicitly turn it off, or else
+            //it will stay on, even after the program has stopped running
+        }
+
+        //called when a device is detached. i.e. the USB cable is disconnected
+        //while the program is running
+        private function onDetach(e:PhidgetEvent):void
+        {
+            //you cannot access the devices here.
+            trace("-------onDetach------- ");
+        }       
+
+        //called once the connection to the proxy server is closed.
+        private function onDisconnect(e:PhidgetEvent):void
+        {
+            //you cannot access the devices here
+            trace("-------onAttach------- ");
+        }
+    }
+}
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>I am going to run this via ADL (Adobe AIR) included in the Flex SDK, and thus also need the following PhidgetHelloWorld-app.xml file:</p>
+
+<pre><code>&lt;?xml version ="1.0" encoding="utf-8" ?&gt;
+&lt;application xmlns="http://ns.adobe.com/air/application/2.0"&gt;
+    &lt;id&gt;PhidgetsHelloWorld&lt;/id&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+    &lt;filename&gt;PhidgetsHelloWorld&lt;/filename&gt;
+    &lt;description&gt;&lt;/description&gt;
+    &lt;name&gt;PhidgetsHelloWorld&lt;/name&gt;
+    &lt;copyright&gt;&lt;/copyright&gt;
+    &lt;initialWindow&gt;
+        &lt;content&gt;PhidgetsHelloWorld.swf&lt;/content&gt;
+        &lt;systemChrome&gt;standard&lt;/systemChrome&gt;
+        &lt;transparent&gt;false&lt;/transparent&gt;
+        &lt;visible&gt;true&lt;/visible&gt;
+        &lt;fullScreen&gt;false&lt;/fullScreen&gt;
+        &lt;autoOrients&gt;false&lt;/autoOrients&gt;
+        &lt;aspectRatio&gt;portrait&lt;/aspectRatio&gt;
+        &lt;renderMode&gt;auto&lt;/renderMode&gt;
+    &lt;/initialWindow&gt;
+    &lt;customUpdateUI&gt;false&lt;/customUpdateUI&gt;
+    &lt;allowBrowserInvocation&gt;false&lt;/allowBrowserInvocation&gt;
+    &lt;icon&gt;
+    &lt;/icon&gt;
+&lt;/application&gt;
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>I am running it via ADL / Adobe AIR as it will easily allow me to see the trace output on the command line.</p>
+
+<p>Here is the command to compile the program using MXMLC:</p>
+
+<p><code>mxmlc -library-path+=Phidget21Library.swc PhidgetHelloWorld.as</code></p>
+
+<p>&nbsp;</p>
+
+<p>You may receive a warning about runtime shared libraries. You can safely ignore this.</p>
+
+<p>If you get an error that mxmlc cant be found, then make sure you have added the FLEXSDK/bin directory to your system&#8217;s path.</p>
+
+<p>If you receive any errors, make sure you are linking in the Phidget library correctly. Once it compiles, you can test it on the command line with the following command:</p>
+
+<p><code>adl PhidgetHelloWorld-app.xml</code></p>
+
+<p>&nbsp;</p>
+
+<p>When I run this on my machine the LED turns on on the Phidget, and I get the following output on the command line:</p>
+
+<pre><code>-------onConnect------- 
+-------onAttach------- 
+Phidget InterfaceKit 8/8/8 : 
+Version : 900
+Serial : 116799
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>If you run the SWF in the player, then you should see the LED turn on. If you run in Flash Authoring (FLA included) or FlashBuilder, then you should also see the trace output in the output panel.</p>
+
+<p>Notice that once you close the program, the LED is still on. You have to explicitly turn off the LED. You can do this by modifying the code to turn it off, and then run it again.</p>
+
+<p>This is an important point. The device may maintain its state even after the program has stopped running. Because of this, you should always set the device to a known state when your application starts up, and make sure it is in the correct state when you shut down your program.</p>
+
+<p>Once you are at this point, it is just a matter of hooking up additional sensors, motors and outputs. The Phidgets ActionScript library is very well written, and makes it easy to work with additional Phidgets.</p>
+
+<p>Make sure to check out all of the Phidgets and ActionScript related <a href="http://www.phidgets.com/programming_resources.php">docs</a> on the Phidgets site, as well as the <a href="http://www.phidgets.com/phorum/viewforum.php?f=10">Phidgets ActionScript forum</a>.</p>
+
+<p>If you find any errors, or have any questions or suggestions, then please leave them in the comments.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-26T00:00:00-07:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-26T00:00:00-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2010/07/26/getting-started-with-phidgets-and-actionscript/" data-via="" data-counturl="http://mikechambers.github.io/2010/07/26/getting-started-with-phidgets-and-actionscript/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/07/15/fitc-san-francisco/" title="Previous Post: FITC San Francisco">&laquo; FITC San Francisco</a>
+      
+      
+        <a class="basic-alignment right" href="/2010/07/29/as3corelib-library-moved-to-github/" title="Next Post: as3corelib Library moved to GitHub">as3corelib Library moved to GitHub &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

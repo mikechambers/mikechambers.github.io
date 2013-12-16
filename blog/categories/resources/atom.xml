@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Resources | Mike Chambers]]></title>
+  <link href="http://mikechambers.github.io/blog/categories/resources/atom.xml" rel="self"/>
+  <link href="http://mikechambers.github.io/"/>
+  <updated>2013-12-15T16:15:00-08:00</updated>
+  <id>http://mikechambers.github.io/</id>
+  <author>
+    <name><![CDATA[Mike Chambers]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[New Flash Resources at DevNet Center]]></title>
+    <link href="http://mikechambers.github.io/2003/06/29/new-flash-resources-at-devnet-center/"/>
+    <updated>2003-06-29T00:00:00-07:00</updated>
+    <id>http://mikechambers.github.io/2003/06/29/new-flash-resources-at-devnet-center</id>
+    <content type="html"><![CDATA[<p>We have just published some new Flash articles and resources at the <a href="http://www.macromedia.com/devnet/">DevNet Center</a>.</p>
+
+<ul>
+<li><a href="http://www.macromedia.com/devnet/mx/director/articles/oop_dir_flash.html">Object-Oriented Programming in Director and Macromedia Flash</a></li>
+<li><a href="http://www.macromedia.com/devnet/mx/flashcom/articles/ticket/fcs_secure_ticket.pdf">Securing Authentication with Flash Communication Server</a> (pdf)
+
+<ul>
+<li><a href="http://www.macromedia.com/devnet/mx/coldfusion/articles/cfunit.html">DRK 3 Preview: Creating a Test Plan for Your ColdFusion Apps</a></li>
+<li><a href="http://download.macromedia.com/pub/solutions/downloads/elearning/scorm_flashlo.pdf">SCORM and Macromedia Flash MX Learning Objects</a>(pdf)
+
+<ul>
+<li><a href="http://www.macromedia.com/devnet/mx/flash/articles/amfphp.html">Connecting Macromedia Flash and PHP</a></li>
+<li><a href="http://www.macromedia.com/devnet/mx/freehand/articles/fh_flash_workflow.html">Working Seamlessly Between FreeHand and Macromedia Flash (Part 3)</a></li>
+<li><p><a href="http://download.macromedia.com/pub/solutions/downloads/elearning/flash_mxlo.pdf">Creating Learning Objects With Macromedia Flash MX</a>(pdf)</ul>
+You can visit the DevNet Center <a href="http://www.macromedia.com/devnet/">here</a>.</p>
+
+<p>[via <a href="http://www.macromedia.com/go/weblogs/">mxna</a>]</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New Content at DevNet Center]]></title>
+    <link href="http://mikechambers.github.io/2003/06/04/new-content-at-devnet-center/"/>
+    <updated>2003-06-04T00:00:00-07:00</updated>
+    <id>http://mikechambers.github.io/2003/06/04/new-content-at-devnet-center</id>
+    <content type="html"><![CDATA[<p>We have just published some new articles and resources at the <a href="http://www.macromedia.com/devnet/">Macromedia DevNet Center</a>. Some of the highlights include:</p>
+
+<ul>
+<li><a href="http://www.macromedia.com/devnet/mx/flashcom/articles/mp3_streaming.html">MP3 Streaming with Macromedia Flash Communication Server</a></li>
+<li><a href="http://www.macromedia.com/devnet/mx/director/articles/flashobjscript.html">Using Macromedia Flash Objects from Scripting in Director MX</a></li>
+<li><a href="http://www.macromedia.com/devnet/logged_in/ccantrell_cf_osx.html">Logged In: ColdFusion MX and JRun 4 for Mac OS X</a></li>
+<li><a href="http://www.macromedia.com/devnet/jd_forum/jd029.html">JD&#8217;s Forum: The Right Price for Digital Content</a></li>
+</ul>
+
+
+<p>You can visit the DevNet Center <a href="http://www.macromedia.com/devnet/">here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Couple of New Flash Articles at DevNet Center]]></title>
+    <link href="http://mikechambers.github.io/2003/05/27/couple-of-new-flash-articles-at-devnet-center/"/>
+    <updated>2003-05-27T00:00:00-07:00</updated>
+    <id>http://mikechambers.github.io/2003/05/27/couple-of-new-flash-articles-at-devnet-center</id>
+    <content type="html"><![CDATA[<p>The <a href="http://www.macromedia.com/go/weblogs">DevNet Center</a> has a had a mini update with a couple of new Flash articles.</p>
+
+<p>They are:</p>
+
+<ul>
+<li><a href="http://www.macromedia.com/devnet/mx/freehand/articles/logo_browser.html">Using FreeHand MX with Macromedia Flash Part 1: Logo Browser Project</a></li>
+<li><a href="http://www.macromedia.com/devnet/mx/flash/articles/rss_aggregator_pt2.html">RSS Aggregator Part II: Firefly Components and Flash Remoting</a></li>
+</ul>
+
+
+<p>You can visit the Macromedia DevNet Center <a href="http://www.macromedia.com/devnet/">here</a>.</p>
+
+<p>Btw, you can keep up with the latest DevNet content at the <a href="http://www.macromedia.com/go/weblogs">MXNA Macromedia Category</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New Flash Content at Macromedia.com]]></title>
+    <link href="http://mikechambers.github.io/2003/05/16/new-flash-content-at-macromediacom/"/>
+    <updated>2003-05-16T00:00:00-07:00</updated>
+    <id>http://mikechambers.github.io/2003/05/16/new-flash-content-at-macromediacom</id>
+    <content type="html"><![CDATA[<p>We have released some new Flash content and resources at the Macromedia <a href="http://www.macromedia.com/devnet/">DevNet Center</a>. This release has a couple of articles on the Data Connection Kit and the new Flash Detection Kit.</p>
+
+<p>As usual, you can view a complete list of the new articles at <a href="http://www.markme.com/mxna/blogview.cfm?blogid=8">MXNA</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PHP Content and Resources on Macromedia.com]]></title>
+    <link href="http://mikechambers.github.io/2003/04/29/php-content-and-resources-on-macromediacom/"/>
+    <updated>2003-04-29T00:00:00-07:00</updated>
+    <id>http://mikechambers.github.io/2003/04/29/php-content-and-resources-on-macromediacom</id>
+    <content type="html"><![CDATA[<p>Just a quick reminder. We have a ton of PHP content and Resources at the <a href="http://www.macromedia.com/devnet/topics/php.html">DevNet PHP Topic Center</a>.</p>
+
+<p>You can view the center <a href="http://www.macromedia.com/devnet/topics/php.html">here</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

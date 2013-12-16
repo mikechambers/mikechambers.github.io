@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Example : Integrating Flash MX and Radio - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="This tutorial demonstrates a simple example of integrating Radio with Macromedia Flash MX.
+If you have visited this site before, you may or may not &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2002/05/05/example-integrating-flash-mx-and-radio">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Example : Integrating Flash MX and Radio</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-05-05T00:00:00-07:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This tutorial demonstrates a simple example of integrating <a href="http://radio.userland.com">Radio</a> with <a href="http://www.macromedia.com/flash/">Macromedia Flash MX</a>.<br/>
+If you have visited this site before, you may or may not have noticed that the heading at the top of all of my pages is actually a Flash 6 movie. The movie displays the title (left), data from the <a href="http://www.macromedia.com/desdev/articles/xml_resource_feed.html">Macromedia XML Resource Feed</a> (right), and the date that the site was last updated (center). The last updated information actually comes from a Radio macro, and is a good example of a simple way to integrate data from Radio within a Macromedia Flash 6 movie.<br/>
+First, lets look at the basic HTML required to display a Flash movie within an HTML page:</p>
+
+<PRE>&lt;OBJECT classid=&#8221;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&#8243; <BR />&nbsp;codebase=<BR />&nbsp;&#8221;<A href="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0">http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0</A>&#8220;<BR />&nbsp;WIDTH=&#8221;100%&#8221; HEIGHT=&#8221;40&#8243;&gt;&nbsp;&nbsp;&nbsp;&nbsp; <BR />&nbsp;&lt;PARAM NAME=movie VALUE=&#8221;movie.swf&#8221;&gt;&nbsp;&nbsp;&nbsp;&nbsp; <BR />&nbsp;&lt;PARAM NAME=quality VALUE=high&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR />&nbsp;<BR />&nbsp;&lt;EMBED src=&#8221;movie.swf&#8221;&nbsp; WIDTH=&#8221;100%&#8221; HEIGHT=&#8221;40&#8243;&nbsp; <BR />&nbsp;&nbsp;TYPE=&#8221;application/x-shockwave-flash&#8221;&nbsp; <BR />&nbsp;&nbsp;PLUGINSPAGE=&#8221;<A href="http://www.macromedia.com/go/getflashplayer">http://www.macromedia.com/go/getflashplayer</A>&#8220;&gt;<BR />&nbsp;&lt;/EMBED&gt;<BR />&lt;/OBJECT&gt;</PRE>
+
+
+<p>Notice that there is EMBED tag within the Object tag. The OBJECT tag is used for browsers that use the ActiveX version of the Flash player, and the EMBED tag is used for all other browsers.<br/>
+The code should be pretty self explanatory. The Flash movie to be loaded is specified in the movie attribute of the PARAM tag, and the SRC attribute of the EMBED tag. Note that you can use either relative or absolute paths to specify the Flash movie (.swf).<br/>
+In Flash 5, you could pass name / value pairs to the Flash movie by appending them to the end of the path to the Flash movie, like so:</p>
+
+<PRE>&lt;PARAM NAME=movie VALUE=&#8221;movie.swf?foo=bar&#8221;&gt;</PRE>
+
+
+<p>This technique still works in Flash 6, but has the limitation that the amount of data you can send varies depending on the browser it is running in.<br/>
+Flash 6 offers a better solution, FlashVars, which allows you to send large amounts of data (i believe it is 64kb) into the Flash movie at runtime. The data is sent as a URL encoded query string of name / value pairs to the Flash movie.<br/>
+Here is an example:</p>
+
+<PRE>&lt;OBJECT classid=&#8221;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&#8243;<BR />&nbsp;codebase=<BR />&nbsp;&#8221;<A href="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0">http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0</A>&#8220;<BR />&nbsp;WIDTH=&#8221;100%&#8221; HEIGHT=&#8221;40&#8243;&gt;&nbsp;&nbsp;&nbsp;&nbsp; <BR />&nbsp;&lt;PARAM NAME=movie VALUE=&#8221;movie.swf&#8221;&gt;&nbsp;&nbsp;&nbsp;&nbsp; <BR />&nbsp;&lt;PARAM NAME=FlashVars VALUE=&#8221;foo=bar&bim=bam%20bam&#8221;&gt;&nbsp;&nbsp;&nbsp;&nbsp; <BR />&nbsp;&lt;PARAM NAME=quality VALUE=high&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR />&nbsp;<BR />&nbsp;&lt;EMBED src=&#8221;movie.swf&#8221;&nbsp; <BR />&nbsp;&nbsp;WIDTH=&#8221;100%&#8221; HEIGHT=&#8221;40&#8243;&nbsp; <BR />&nbsp;&nbsp;flashvars = &#8220;foo=bar&bim=bam%20bam&#8221; <BR />&nbsp;&nbsp;TYPE=&#8221;application/x-shockwave-flash&#8221;&nbsp; <BR />&nbsp;&nbsp;PLUGINSPAGE=&#8221;<A href="http://www.macromedia.com/go/getflashplayer">http://www.macromedia.com/go/getflashplayer</A>&#8220;&gt;<BR />&nbsp;&lt;/EMBED&gt;<BR />&lt;/OBJECT&gt;</PRE>
+
+
+<p>Notice that we have added a flashvars attributes to both the OBJECT and EMBED tags. When the Flash movie loads, the name / value pairs passed through the FLASHVARS attributes will then be available to the Flash movie on the main timeline.<br/>
+So, how do we get data from Radio to Flash? Remember that Radio macros are processed on the server side. If you look at the <a href="http://127.0.0.1:5335/system/pages/prefs?page=3.1">main template</a> for Radio, you will see that the code that creates the HTML to display the last updated date is:<br/>
+&lt;%if radioResponder.flStaticRendering {return (searchEngine.stripMarkup(now))} else {return (&#8220;&#8221;)}%><br/>
+This will output the last date and time that the weblog was updated.<br/>
+In order to get that data into Flash, we need to specify it in the FlashVars attribute, and we need to URL Encode the data. Here is the code that displays the Flash movie at the top of my pages:</p>
+
+<PRE>&lt;OBJECT classid=&#8221;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&#8243;<BR />&nbsp;codebase=<BR />&nbsp;&#8221;<A href="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0">http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0</A>&#8220;<BR />&nbsp;WIDTH=&#8221;100%&#8221; HEIGHT=&#8221;40&#8243; <BR />&nbsp;id=&#8221;header&#8221; ALIGN=&#8221;&#8221;&gt;&nbsp;&nbsp;&nbsp;&nbsp; <BR />&nbsp;&lt;PARAM NAME=movie VALUE=&#8221;/0106797/images/header.swf&#8221;&gt;&nbsp;&nbsp;&nbsp;&nbsp; <BR />&nbsp;&lt;PARAM NAME=quality VALUE=high&gt;&nbsp;&nbsp;&nbsp;&nbsp; <BR />&nbsp;&lt;PARAM NAME=bgcolor VALUE=#002039&gt;&nbsp;&nbsp;&nbsp;&nbsp; <BR />&nbsp;&lt;param name=&#8221;flashvars&#8221; <BR />&nbsp;&nbsp;value=&#8221;u=&lt;%if radioResponder.flStaticRendering {<BR />&nbsp;&nbsp;&nbsp;return (string.urlencode(searchEngine.stripMarkup(now)))} <BR />&nbsp;&nbsp;&nbsp;else {return (&#8220;&#8221;)}%&gt;&#8221;&gt;<BR />&nbsp;&nbsp;&nbsp;<BR />&nbsp;&lt;EMBED src=&#8221;/0106797/images/header.swf&#8221;&nbsp; <BR />&nbsp;&nbsp;quality=high bgcolor=#002039&nbsp;&nbsp; <BR />&nbsp;&nbsp;WIDTH=&#8221;100%&#8221; HEIGHT=&#8221;40&#8243;&nbsp; <BR />&nbsp;&nbsp;NAME=&#8221;header&#8221;&nbsp; <BR />&nbsp;&nbsp;flashvars=&#8221;u=&lt;%if radioResponder.flStaticRendering { <BR />&nbsp;&nbsp;&nbsp;return (string.urlencode(searchEngine.stripMarkup(now)))} <BR />&nbsp;&nbsp;&nbsp;else {return (&#8220;&#8221;)}%&gt;&#8221;&nbsp; <BR />&nbsp;&nbsp;ALIGN=&#8221;&#8221; TYPE=&#8221;application/x-shockwave-flash&#8221;&nbsp; <BR />&nbsp;&nbsp;PLUGINSPAGE=&#8221;<A href="http://www.macromedia.com/go/getflashplayer">http://www.macromedia.com/go/getflashplayer</A>&#8220;&gt;<BR />&nbsp;&lt;/EMBED&gt;<BR />&lt;/OBJECT&gt;</PRE>
+
+
+<p>The code (for the OBJECT tag) that passes the data from Radio to Flash is:</p>
+
+<PRE>&lt;param name=&#8221;flashvars&#8221; <BR />&nbsp;value=&#8221;u=&lt;%if <BR />&nbsp;&nbsp;radioResponder.flStaticRendering {<BR />&nbsp;&nbsp;return (string.urlencode(searchEngine.stripMarkup(now)))} <BR />&nbsp;&nbsp;else {return (&#8220;&#8221;)}%&gt;&#8221;&gt;</PRE>
+
+
+<p>Notice that we embed a <a href="http://127.0.0.1:5335/system/pages/help?page=13.1">Radio macro</a> within the HTML code.<br/>
+Two other things to note. First, we are storing the last updated string in a variable called u (which, btw is a bad naming convention on my part). Secondly, we URL encode the string using the radio string.urlencode function.<br/>
+There is one problem with the code above though. If there are any line returns with the OBJECT tags, Radio will place HTML formating, which will break the tags. Because of this, you must remove all line returns from the HTML code, which in essence places it all on one line.&nbsp;<br/>
+Update : <a href="http://www.scriptingnews.com">Dave Winer</a> sent along this <a href="http://radio.userland.com/textEditingCheatSheet#automaticParagraphTags">link</a>, which shows how to workaround the issue of Radio inserting HTML markup into your code.</p>
+
+<PRE>&lt;param name=&#8221;flashvars&#8221; value=&#8221;u=5%2F5%2F2002;%209%3A21%3A42%20PM&#8221;&gt;</PRE>
+
+
+<p>which is a URL encoded string of the last updated date / time.<br/>
+Within our Flash movie, we have a text field with an instance name of &#8220;updated&#8221; that will be used to display the last updated time.<br/>
+Here is all of the code necessary to place the data in the field:</p>
+
+<PRE>updated.text = &#8220;Updated : &#8221; + u;</PRE>
+
+
+<p>This says that the text in the updated field should be the string &#8220;Updated &#8221; plus the value of the variable u (which was passed in through the flashvars tag).<br/>
+Pretty simple, heh? Of course, this is a very simple example, but using this technique, you could theoretically create an entire weblog in Flash that is&nbsp; managed by Radio (although I am not sure that you would want to).<br/>
+If you have any comments, corrections or suggestions, please post them in the comments section.<br/>
+Update : Thanks to Greg Burch for pointing out&nbsp;an error&nbsp;(its flashvars and not flashvar).</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-05-05T00:00:00-07:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-05-05T00:00:00-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2002/05/05/example-integrating-flash-mx-and-radio/" data-via="" data-counturl="http://mikechambers.github.io/2002/05/05/example-integrating-flash-mx-and-radio/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2002/05/04/john-dowdell-macromedia-mx-first-week-summary/" title="Previous Post: John Dowdell : Macromedia MX First week summary">&laquo; John Dowdell : Macromedia MX First week summary</a>
+      
+      
+        <a class="basic-alignment right" href="/2002/05/05/flash-remoting-and-java-example/" title="Next Post: Flash Remoting and Java Example">Flash Remoting and Java Example &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Encapsulating Ajax XMLHTTPRequest Calls Within JavaScript Classes - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="The guys over at Fold [posted][1] an article on how to use multiple XMLHTTPRequest (XHR) calls within a single page. This is something that I have &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2006/01/31/encapsulating-ajax-xmlhttprequest-calls-within-javascript-classes">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Encapsulating Ajax XMLHTTPRequest Calls Within JavaScript Classes</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-01-31T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The guys over at Fold [posted][1] an article on how to use multiple XMLHTTPRequest (XHR) calls within a single page. This is something that I have had to tackle in my own work, and though I would write up how I solve this issue.</p>
+
+<p>This post describes a simple technique for encapsulating XMLHTTPRequest calls within JavaScript classes. In general, this makes code more maintainable, allows for the creation of easier to use APIs, and makes it much easier to create components / widgets that load data from the server.</p>
+
+<!--more-->
+
+
+<p>Basically, the technique associates and encapsulates XMLHTTPRequest instances within individual JavaScript class instances.</p>
+
+<p>For this post, we will create a simple widget that uses XHR and Ajax techniques to dynamically load some data from the server, and then render it in the page. Nothing super exciting, but it provides enough to get an idea of how everything works.</p>
+
+<p>First, the examples contains the following files:</p>
+
+<ul>
+<li><strong>index.html :</strong> The main HTML page for the example.</li>
+<li><strong>scripts/MessageLoader.js :</strong> A JavaScript file that includes the JavaScript class used in the example.</li>
+<li><strong>styles/MessageLoader.css :</strong> A Simple Cascading StyleSheet that tries to make the end result look pretty.</li>
+<li><strong>data.txt :</strong> The data that will be loaded by the JavaScript class. It just contains raw text that will be displayed in the page.</li>
+</ul>
+
+
+<p>You can download all of the files from [here][2].</p>
+
+<p>First, lets look at what the final HTML file will look like:</p>
+
+<p>`</p>
+
+<pre>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" version="-//W3C//DTD XHTML 1.1//EN" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <link href="styles/MessageLoader.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="scripts/MessageLoader.js"></script>
+
+    <title>index</title>
+    
+</head>
+
+<body>
+    
+<script language="javascript" type="text/javascript">
+    var ml = new MessageLoader();
+        ml.load();
+</script>
+
+
+</body>
+</html>
+</pre>
+
+
+<p><p>`</p>
+
+<p>Pretty simple. We link to the style sheet and MessageLoader.js file in the head tag. Then, we just have a simple script block in the body that will render the content.</p>
+
+<p>The main work goes on in the scripts/MessageLoader.js file.</p>
+
+<p>`
+<pre>/<em>*
+*   @fileoverview Simple example that shows how to encapsulate
+*   XMLHTTPRequestCalls
+*
+*   @author Mike Chambers (<a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#x6d;&#101;&#115;&#104;&#x40;&#97;&#x64;&#x6f;&#98;&#x65;&#x2e;&#x63;&#111;&#x6d;">&#x6d;&#x65;&#115;&#x68;&#x40;&#97;&#x64;&#x6f;&#98;&#101;&#46;&#99;&#111;&#x6d;</a>)
+</em>/</p>
+
+<p>/<em>*
+*   Constructor for the class.
+*
+*   @param {String} dataURL The path to the data that the class
+*   will load (OPTIONAL)
+*
+*   @constructor
+</em>/
+function MessageLoader(dataURL)
+{</p>
+
+<pre><code>if(dataURL != undefined)
+{
+    this._dataURL = dataURL;
+}
+
+this._writeContainer();
+</code></pre>
+
+<p>}</p>
+
+<p>//where to load the data from
+MessageLoader.prototype._dataURL = &ldquo;data.txt&rdquo;;</p>
+
+<p>//var to hold an instance of the XMLHTTPRequest object
+MessageLoader.prototype._request = undefined;</p>
+
+<p>//ID for the html div we will create to display the data
+MessageLoader.prototype._containerID = &ldquo;container&rdquo;;</p>
+
+<p>//name of the css class for the HTML container
+MessageLoader.prototype._containerClass = &ldquo;ml_container&rdquo;;</p>
+
+<p>/<strong><strong><strong><strong><strong><strong><strong><strong> Public APIs </strong></strong></strong></strong></strong></strong></strong></strong>******/</p>
+
+<p>/<em>*
+*   Tells the class to load its data and render the results.
+</em>/
+MessageLoader.prototype.load = function()
+{</p>
+
+<pre><code>//get a new XMLHTTPRequest and store it in an instance var.
+this._request = this._getXMLHTTPRequest();
+
+//set the var so we can scope the callback
+var _this = this;
+
+//callback will be an anonymous function that calls back into our class
+//this allows the call back in which we handle the response (_onData())
+// to have the correct scope.
+this._request.onreadystatechange = function(){_this._onData()};
+this._request.open("GET", this._generateDataUrl(), true);
+this._request.send(null);
+</code></pre>
+
+<p>}</p>
+
+<p>/<strong><strong><strong><strong><strong><strong><strong><em>Private Rendering APIs </em></strong></strong></strong></strong></strong></strong></strong>*****/</p>
+
+<p>//writes the top level div for the class / widget
+MessageLoader.prototype._writeContainer = function()
+{</p>
+
+<pre><code>//styles should be in external CSS
+document.write("&lt;div id='"+this._containerID+"' class='"+this._containerClass+"'&gt;&lt;/div&gt;");
+</code></pre>
+
+<p>}</p>
+
+<p>//renders the entire widget
+MessageLoader.prototype._render = function(title)
+{</p>
+
+<pre><code>var content = document.getElementById(this._containerID);
+    content.appendChild(document.createTextNode(title));
+</code></pre>
+
+<p>}</p>
+
+<p>/<strong><strong><strong><strong><strong><strong><strong><em>Private Data Loading Handlers</em></strong></strong></strong></strong></strong></strong></strong>****/</p>
+
+<p>//return the URL from which the data will be loaded
+MessageLoader.prototype._generateDataUrl = function()
+{</p>
+
+<pre><code>return this._dataURL;
+</code></pre>
+
+<p>}</p>
+
+<p>//callback for when the data is loaded from the server
+MessageLoader.prototype._onData = function()
+{</p>
+
+<pre><code>if(this._request.readyState == 4)
+{
+    if(this._request.status == "200")
+    {
+        this._render(this._request.responseText);
+
+        //if the onDraw callback has been defined
+        //call it to let the listener know
+        //that we are done creating the list
+        if(this.onDraw != undefined)
+        {
+            this.onDraw();
+        }
+    }
+    else
+    {   
+        //check if an error callback handler has been defined
+        if(this.onError != undefined)
+        {
+            //pass an object to the callback handler with info
+            //about the error
+            this.onError({status:this_request.status, 
+                    statusText:this._request.statusText});
+        }
+    }
+
+    //clean up
+    delete this._request;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>/<strong><strong><strong><strong><strong><strong><strong><em>Private Data Util Functions </em></strong></strong></strong></strong></strong></strong></strong>*****/</p>
+
+<p>//returns an XMLHTTPRequest instance (based on browser)
+MessageLoader.prototype._getXMLHTTPRequest = function()
+{</p>
+
+<pre><code>var xmlHttp;
+try
+{
+    xmlHttp = new ActiveXObject("Msxml2.XMLHttp");
+}
+catch(e)
+{
+    try
+    {
+        xmlHttp = new ActiveXObject("Microsoft.XMLHttp");
+    }
+    catch(e2)
+    {
+    }
+}
+
+if(xmlHttp == undefined &amp;#038;&amp;#038; (typeof XMLHttpRequest != 'undefined'))
+{
+    xmlHttp = new XMLHttpRequest();
+}
+
+return xmlHttp;
+</code></pre>
+
+<p>}</pre>
+<p>`</p>
+
+<p>I have tried to comment the code to make it self documenting, but lets do a quick overview of what it going on.</p>
+
+<p>First, the class constructor does two main things:</p>
+
+<p>`
+<pre>function MessageLoader(dataURL)
+{</p>
+
+<pre><code>if(dataURL != undefined)
+{
+    this._dataURL = dataURL;
+}
+
+this._writeContainer();
+</code></pre>
+
+<p>}</pre>
+<p>`</p>
+
+<p>It allows the developer to optionally specify the path to the data to be loaded, and it calls the this._writeContainer(); method. All this method does is write a small piece of content into the HTML page into which the dynamic data that will be loaded will be attached to.</p>
+
+<p>Everything is set in motion when the load() method is called.</p>
+
+<p>`
+<pre>/<em>*
+*   Tells the class to load its data and render the results.
+</em>/
+MessageLoader.prototype.load = function()
+{</p>
+
+<pre><code>//get a new XMLHTTPRequest and store it in an isntance var.
+this._request = this._getXMLHTTPRequest();
+
+//set the var so we can scope the callback
+var _this = this;
+
+//callback will be an anonymous function that calls back into our class
+//this allows the call back in which we handle the response (_onData())
+// to have the correct scope.
+this._request.onreadystatechange = function(){_this._onData()};
+this._request.open("GET", this._generateDataUrl(), true);
+this._request.send(null);
+</code></pre>
+
+<p>}</pre>
+<p>`</p>
+
+<p>This is pretty standard XHR code, but there are two things worth calling out.</p>
+
+<p>First, we store the XHR object within a local variable named _request. This will allow it to be accessed later within the class instance.</p>
+
+<p><code>
+&lt;pre&gt;this._request = this._getXMLHTTPRequest();&lt;/pre&gt;
+&lt;p&gt;</code></p>
+
+<p>Second, we create a local variable named _this that points to the class instance, and then create an anonymouse function to use as the onreadystatechange callback handler.</p>
+
+<p>`
+<pre>   //set the var so we can scope the callback</p>
+
+<pre><code>var _this = this;
+
+//callback will be an anonymous function that calls back into our class
+//this allows the call back in which we handle the response (_onData())
+// to have the correct scope.
+this._request.onreadystatechange = function(){_this._onData()};
+</code></pre>
+
+<p></pre>
+<p>`</p>
+
+<p>This is necessary because of how scoping works within JavaScript. Basically, any functions created contain references to variables within their scope. Thus, when we define the anonymouse function here:</p>
+
+<p><code>
+&lt;pre&gt;this._request.onreadystatechange = function(){_this._onData()};&lt;/pre&gt;
+&lt;p&gt;</code></p>
+
+<p>The _this variable is copied into the function. This allows us to essentially proxy the data handler call to data handler that is called within the scope of our class instance.</p>
+
+<p>This makes it much, much easier to encapsulate the XHR call, as if we did not do this, then &#8220;this&#8221; within the callback would refer to the browser&#8217;s global window object, and NOT to our class instances.</p>
+
+<p>You can see this in the data handler which is called when the data is loaded from the server:</p>
+
+<p>`
+<pre>MessageLoader.prototype._onData = function()
+{</p>
+
+<pre><code>if(this._request.readyState == 4)
+{
+    if(this._request.status == "200")
+    {
+        this._render(this._request.responseText);
+
+        //if the onDraw callback has been defined
+        //call it to let the listener know
+        //that we are done creating the list
+        if(this.onDraw != undefined)
+        {
+            this.onDraw();
+        }
+    }
+    else
+    {   
+        //check if an error callback handler has been defined
+        if(this.onError != undefined)
+        {
+            //pass an object to the callback handler with info
+            //about the error
+            this.onError({status:this_request.status, 
+                    statusText:this._request.statusText});
+        }
+    }
+
+    //clean up
+    delete this._request;
+}
+</code></pre>
+
+<p>}</pre>
+<p>`</p>
+
+<p>This handler is called within the scope of our class instance. This allows us to get a reference to the XHR instance through this._request, and to call isntance methods directly.</p>
+
+<p>All this code does is check to make sure the data has completed loading. If it has, then it calls the _render method, which renders the content in the page. If an error occurs, then we throw an error event that the developer can listen for.</p>
+
+<p>Once we have retrieved the data we no longer need the XHR instance hanging around within our class instance, so we delete it.</p>
+
+<p>That is pretty much all there is to it. You could now instantiate multiple instances of the class, and each would contain its own XHR isntance. Furthermore, you can completely abstract away the XHR object, and provide a simple API specific to whatever you code / widget does.</p>
+
+<p>Now, in this example, you can only really crete one instance of the widget in a page, since we don&#8217;t do anything to create unique IDs for the dynamically generated DIVs / HTML content. However, that is easy enough to solve, and I will update this example to do this in the next day or two.</p>
+
+<p>Post any questions / corrections or suggestions in the comments.</p>
+
+<p> [1]: <a href="http://foldblog.blogspot.com/2006/01/ajax-handling-multiple-xmlhttprequests.html">http://foldblog.blogspot.com/2006/01/ajax-handling-multiple-xmlhttprequests.html</a>
+ [2]: /mesh/files/XHREncapsulation.zip</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-01-31T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-01-31T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2006/01/31/encapsulating-ajax-xmlhttprequest-calls-within-javascript-classes/" data-via="" data-counturl="http://mikechambers.github.io/2006/01/31/encapsulating-ajax-xmlhttprequest-calls-within-javascript-classes/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2006/01/28/actionscript-20-cheatsheet/" title="Previous Post: ActionScript 2.0 Cheatsheet">&laquo; ActionScript 2.0 Cheatsheet</a>
+      
+      
+        <a class="basic-alignment right" href="/2006/01/31/flash-player-8-already-at-50/" title="Next Post: Flash Player 8 already at 50%">Flash Player 8 already at 50% &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Using BitmapData.hitTest for Collision Detection - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="The Flash Player contains a number of APIs for handling collision detection within Flash content. The DisplayObject class contains hitTest and &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2009/06/24/using-bitmapdata-hittest-for-collision-detection">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Using BitmapData.hitTest for Collision Detection</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-24T00:00:00-07:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The Flash Player contains a number of APIs for handling collision detection within Flash content. The <a href="http://livedocs.adobe.com/flex/3/langref/flash/display/DisplayObject.html">DisplayObject</a> class contains hitTest and hitTestPoint which can be useful if you need to detect bounding box collisions, or detect collisions between an individual point and bounding boxes or shapes.</p>
+
+<p>However, BitmapData also contains a <a href="http://livedocs.adobe.com/flex/3/langref/flash/display/BitmapData.html#hitTest()">hitTest</a> API, which can check collisions on BitmapData. Where the API really shines, is when you need to detect collisions between the visible areas of DisplayObjects (and not just of their bounding boxes). The API contains functionality for testing collisions between BitmapData and a Point, BitmapData and a Rectangle, and BitmapData and another BitmapData. It is the last item that I will focus on in this post.</p>
+
+<!--more-->
+
+
+<p>Since you can get BitmapData from a DisplayObject the API can be used to detect very exact collisions between the visible areas of DisplayObjects, even if the DisplayObjects have irregular shapes.</p>
+
+<p>Here is a simple example that uses the API to detect collisions between the visible areas of two MovieClips using BitmapData.hitTest.</p>
+
+<div id="myAlternativeContent_1">
+  <a href="http://www.adobe.com/go/getflashplayer"><br /> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /><br /> </a>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>And here is the code</p>
+
+<div class="highlight">
+  <pre><span style="color: #008000; font-weight: bold">var</span> redRect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> redClip.getBounds(<span style="color: #008000; font-weight: bold">this</span>);
+<span style="color: #008000; font-weight: bold">var</span> redClipBmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(redRect.width<span style="color: #666666">,</span> redRect.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+redClipBmpData.draw(redClip);
+
+<span style="color: #008000; font-weight: bold">var</span> blueRect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> blueClip.getBounds(<span style="color: #008000; font-weight: bold">this</span>);
+<span style="color: #008000; font-weight: bold">var</span> blueClipBmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(blueRect.width<span style="color: #666666">,</span> blueRect.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+blueClipBmpData.draw(blueClip);
+
+addEventListener(Event.ENTER_FRAME<span style="color: #666666">,</span> enterFrame);
+
+<span style="color: #008000; font-weight: bold">function</span> enterFrame(e<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
+{
+    blueClip.x <span style="color: #666666">=</span> mouseX<span style="color: #666666">;</span>
+    blueClip.y <span style="color: #666666">=</span> mouseY<span style="color: #666666">;</span>
+    
+    <span style="color: #008000; font-weight: bold">if</span>(redClipBmpData.hitTest(<span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Point</span>(redClip.x<span style="color: #666666">,</span> redClip.y)<span style="color: #666666">,</span>
+                                <span style="color: #666666">255,</span>
+                                blueClipBmpData<span style="color: #666666">,</span>
+                                <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Point</span>(blueClip.x<span style="color: #666666">,</span> blueClip.y)<span style="color: #666666">,</span>
+                                <span style="color: #666666">255</span>
+                          
+                          ))
+    {
+        <span style="color: #0000FF">trace</span>(<span style="color: #BA2121">"hit"</span>);
+        redClip.filters <span style="color: #666666">=</span> [<span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">GlowFilter</span>()];
+    }
+    <span style="color: #008000; font-weight: bold">else</span>
+    {
+        redClip.filters <span style="color: #666666">=</span> [];
+    }
+}
+</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>Basically, the content contains two MovieClips on the timeline. We draw the graphics for each MovieClip into a BitmapData instance, and then use the BitmapData.hitTest API to see if the visible parts of the MovieClip (non-transparent) instances collide.</p>
+
+<p>Couple of notes on the example:</p>
+
+<ol>
+<li><p>The initial fill for the BitmapData is transparent pixels. This is necessary to detect just the visible areas of the DisplayObject.</p></li>
+<li><p>The Point instances passed to hitTest are used to align the BitmapData instances for the comparisons.</p></li>
+</ol>
+
+
+<p>This example works regardless of the contents or shape of the DisplayObjects. However, if either of the DisplayObjects have had any transformations applied to them (such as rotation), then the collision detection wont work correctly.</p>
+
+<p>In order to get it to work, you need to apply a Matrix when drawing the BitmapData to account for the transformation applied to one or both DisplayObjects. If you haven&#8217;t worked with Matrices and DisplayObject transformations, this can be a little daunting at first (it was for me). If you are new to using Matrices, I suggest reading this <a href="http://www.senocular.com/flash/tutorials/transformmatrix/">excellent article on Matrices in Flash over at senocular.com</a>.</p>
+
+<p>Luckily for me, Trevor McCauley, who runs <a href="http://www.senocular.com/">senocular.com</a>, also happens to works for Adobe on the Flash Player team. He really helped me understand how how to get the hit detection to work when the DisplayObjects have had transformations applied to them.</p>
+
+<p>Here is the example:</p>
+
+<div id="myAlternativeContent_2">
+  <a href="http://www.adobe.com/go/getflashplayer"><br /> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /><br /> </a>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>and the code:</p>
+
+<div class="highlight">
+  <pre>addEventListener(Event.ENTER_FRAME<span style="color: #666666">,</span> enterFrame);
+
+<span style="color: #008000; font-weight: bold">function</span> enterFrame(e<span style="color: #666666">:</span>Event)<span style="color: #666666">:</span>void
+{
+    blueClip.x <span style="color: #666666">=</span> mouseX<span style="color: #666666">;</span>
+    blueClip.y <span style="color: #666666">=</span> mouseY<span style="color: #666666">;</span>    
+    
+    redClip.rotation<span style="color: #666666">++;</span>
+    
+    <span style="color: #008000; font-weight: bold">var</span> blueRect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> blueClip.getBounds(<span style="color: #008000; font-weight: bold">this</span>);
+    <span style="color: #008000; font-weight: bold">var</span> blueOffset<span style="color: #666666">:</span><span style="color: #008000">Matrix</span> <span style="color: #666666">=</span> blueClip.transform.matrix<span style="color: #666666">;</span>
+    blueOffset.tx <span style="color: #666666">=</span> blueClip.x <span style="color: #666666">-</span> blueRect.x<span style="color: #666666">;</span>
+    blueOffset.ty <span style="color: #666666">=</span> blueClip.y <span style="color: #666666">-</span> blueRect.y<span style="color: #666666">;</span>    
+    
+    <span style="color: #008000; font-weight: bold">var</span> blueClipBmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(blueRect.width<span style="color: #666666">,</span> blueRect.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+    blueClipBmpData.draw(blueClip<span style="color: #666666">,</span> blueOffset);     
+    
+    
+    <span style="color: #008000; font-weight: bold">var</span> redRect<span style="color: #666666">:</span><span style="color: #008000">Rectangle</span> <span style="color: #666666">=</span> redClip.getBounds(<span style="color: #008000; font-weight: bold">this</span>);
+    <span style="color: #008000; font-weight: bold">var</span> redClipBmpData <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">BitmapData</span>(redRect.width<span style="color: #666666">,</span> redRect.height<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span> <span style="color: #666666"></span>);
+    
+    <span style="color: #008000; font-weight: bold">var</span> redOffset<span style="color: #666666">:</span><span style="color: #008000">Matrix</span> <span style="color: #666666">=</span> redClip.transform.matrix<span style="color: #666666">;</span>
+    redOffset.tx <span style="color: #666666">=</span> redClip.x <span style="color: #666666">-</span> redRect.x<span style="color: #666666">;</span>
+    redOffset.ty <span style="color: #666666">=</span> redClip.y <span style="color: #666666">-</span> redRect.y<span style="color: #666666">;</span>   
+    
+    redClipBmpData.draw(redClip<span style="color: #666666">,</span> redOffset);    
+    
+    <span style="color: #008000; font-weight: bold">var</span> rLoc<span style="color: #666666">:</span><span style="color: #008000">Point</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Point</span>(redRect.x<span style="color: #666666">,</span> redRect.y);
+    <span style="color: #008000; font-weight: bold">var</span> bLoc<span style="color: #666666">:</span><span style="color: #008000">Point</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">Point</span>(blueRect.x<span style="color: #666666">,</span> blueRect.y);   
+    
+    
+    <span style="color: #008000; font-weight: bold">if</span>(redClipBmpData.hitTest(rLoc<span style="color: #666666">,</span>
+                                    <span style="color: #666666">255,</span>
+                                    blueClipBmpData<span style="color: #666666">,</span>
+                                    bLoc<span style="color: #666666">,</span>
+                                    <span style="color: #666666">255</span>
+                                ))
+    {
+        <span style="color: #0000FF">trace</span>(<span style="color: #BA2121">"hit"</span>);
+        redClip.filters <span style="color: #666666">=</span> [<span style="color: #008000; font-weight: bold">new</span> <span style="color: #008000">GlowFilter</span>()];
+    }
+    <span style="color: #008000; font-weight: bold">else</span>
+    {
+        redClip.filters <span style="color: #666666">=</span> [];
+    }
+    
+    blueClipBmpData.dispose();
+    redClipBmpData.dispose();
+}
+</pre>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>Note that we use the bounds of each DisplayObject to determine the BitmapData size and not the height / width of the DisplayObject. This is because the transformation will most likely modify the bounds, and we need to take this into account. In the first example, we could have just used the height and width of the DisplayObjects since they were the same as the bounds, but in general you should get in the habit of using the bounds.</p>
+
+<p>We also pass a Matrix to each BitmapData.draw call to account for any transformations that may have been applied to the DisplayObjects (in this case rotations). I could try and explain what the Matrix is doing, but to be honest, im still trying to get my head around it. Instead, Ill let Trevor explain it (from an email he sent to me):</p>
+
+<blockquote><p>For this you need the transformation of the object as defined by DisplayObject.transform.matrix. Since everything is in the same container, we still won&#8217;t have to worry about walking up hierarchies to get contcatenated/global matrices &#8211; we can just use that which is directly applied to the target object (transform.matrix). This gives you the full transform of that object. But for the purposes of capturing a bitmap, we only want the non-translation parts of that transform. This is because when a bitmap is captured, it&#8217;s captured from the 0,0 location in the coordinate space of the captured object outward into positive space. The translation of the matrix of the desired object is its position in its parent coordinate space, not its own. HOWEVER, if that object&#8217;s own 0,0 location is within the middle of its graphic elements, drawing it into a Bitmap directly from 0,0 could cause cropping. So in terms of that translation as it is to be used with BitmapData.draw(), it&#8217;s still important to make sure everything in the target object is captured. And in doing that, it means shifting everything that would appear in negative coordinate space over into positive coordinate space.</p>
+
+<p>Luckily, using getBounds (again) this is quite simple. We can use getBounds to determine the bounds of an object in its parent coordinate space &#8211; this includes its transformations. We also know the location of 0,0 within the parent coordinate space because that is the same location it places the target object using its x and y properties. With that, we can get the needed bitmap translation by simply subtracting the bounds x,y from the object&#8217;s own x,y. In code that essentially becomes</p>
+
+<p>var b = t.getBounds(t.parent);<br/>
+var m = t.transform.matrix;<br/>
+m.tx = t.x &#8211; b.x;<br/>
+m.ty = t.y &#8211; b.y;<br/>
+var bmp = new BitmapData(b.width, b.height, true, 0);<br/>
+bmp.draw(t, m);</p>
+
+<p>where &#8216;t&#8217; is the target display object.</p></blockquote>
+
+<p>Now, I will be the first to admit that I am still wrapping my head around some of this stuff, especially with the use of the Matrices to offset the transformation. However, the second example above is generic and robust enough to be used for general pixel perfect collision detection on visible portions of DisplayObjects.</p>
+
+<p>One note, is that the examples above assumes that the items being compared share the same parent. If they don&#8217;t you need to make some additional adjustments (to take into consideration other transformations), but that is a post for another day.</p>
+
+<p>Btw, if you don&#8217;t already, you need to read <a href="http://www.senocular.com/">senocular.com</a>. This is one of the best resources on understanding ActionScript 3 and the Flash Player.</p>
+
+<p><strong>Update</strong> : One optimzation which you can make is to first check if the bounding boxes of the DisplayObjects overlap (using <a href="http://livedocs.adobe.com/flex/3/langref/flash/display/DisplayObject.html#hitTestObject()">DisplayObject.hitTestObject</a>), and only if they do, use BitmapData.hitTest to see if their visible areas are touching.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-24T00:00:00-07:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-24T00:00:00-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2009/06/24/using-bitmapdata-hittest-for-collision-detection/" data-via="" data-counturl="http://mikechambers.github.io/2009/06/24/using-bitmapdata-hittest-for-collision-detection/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/06/16/what-new-game-apis-do-you-want-in-the-flash-player/" title="Previous Post: What new game APIs do you want in the Flash Player?">&laquo; What new game APIs do you want in the Flash Player?</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/06/25/strategies-for-optimizing-collision-detection-with-bitmapdata-hittest/" title="Next Post: Strategies for optimizing collision detection with BitmapData.hitTest">Strategies for optimizing collision detection with BitmapData.hitTest &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Update on Apollo (M2 Release) - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="Sorry for the lack of posts lately. I have been traveling a lot (Korea Max, and [now in Europe][1]), as well as focusing on an internal Apollo &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2006/11/30/update-on-apollo-m2-release">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Update on Apollo (M2 Release)</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-11-30T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Sorry for the lack of posts lately. I have been traveling a lot (Korea Max, and [now in Europe][1]), as well as focusing on an internal Apollo release. I wanted to make up for the lack of posts though by giving everyone an update on what is going on with Apollo.</p>
+
+<!--more-->
+
+
+<p>As I mentioned above, we just had another internal Apollo release. This release, named M2, is our third internal release and includes a number of new features including:</p>
+
+<ul>
+<li>HTML Support within Flash content (woot!)</li>
+<li>Updated File System API (with both Synchronous and Asynchronous APIs)</li>
+<li>Initial implementation of express install from the web browser</li>
+<li>Updates to the Windowing API (although we don&#8217;t have multiple window support yet)</li>
+<li>Initial Flex Framework support of Apollo (i.e. HTML control, ApolloApplication component).</li>
+<li>lots more</li>
+</ul>
+
+
+<p>We have added our initial HTML support, and it is pretty cool. Right now HTML only works within Flash / Flex content. i.e. you cant have a top level HTML Apollo application yet. The thing that is really cool though about the HTML support via Flash, is that the HTML is rendered via the Flash display stack, and thus anything that you can do with content on Flash&#8217;s display list (blur, rotate, etc&#8230;), you can also do with HTML (and the HTML remains interactive). You can find more details on this [video of the the HTML session from Max][2] that I posted a couple of weeks ago.</p>
+
+<p>Right now, you can specify a URL for the HTML control to load (remote or local), or give it a string of HTML to render. Remember, that this is a full HTML engine ([WebKit][3]), so all HTML, CSS, JavaScript, etc&#8230; is supported.</p>
+
+<p>Another cool thing that was included in M2, was a pretty significant update to the File I/O API. In general the APIs were cleaned up and rationalized, but the biggest thing was the addition of a synchronous File API (in M1 all File I/O was Asynchronous). This provides a lot of flexibility for the developer, and makes it even easier to read / write data to and from the file system.</p>
+
+<p>One little gem that I discovered in the APIs was the File.writeObject() and File.readObject() methods. Basically, this will take an ActionScript object and write it out to the file system (or read it from the file system). Using the [registerClassAlias API][4] or meta data, you can even serialize and de-serialize custom classes. This makes it super simple to persist application state between sessions.</p>
+
+<p>For example, here is the code from Ascension (an Apollo mp3 player I am working on) that saves and loads the song library:</p>
+
+<p>`</p>
+
+<pre>
+//this is the code the loads and de-serializes an Array of Songs
+private function onFileReadComplete(event:Event):void
+{
+    var fs:FileStream = FileStream(event.target);
+
+    //this reads the file as ActionScript data (in this case
+    //an Array of Songs
+    var data:Array = (fs.readObject()) as Array;
+    fs.close();
+        
+    for each(var s:Song in data)
+    {
+        addSong(s);
+    }                               
+ }
+
+//this serializes the current Array of Songs to the file system
+public function save():void
+{
+    //createLibPath just returns the path to the file 
+    //where the songs are serialized
+    var fr:File = new File(createLibPath());
+    var fileStream:FileStream = new FileStream();
+        
+    fileStream.openAsync(fr, FileMode.WRITE);
+    
+    //songs.source is an Array of Song instances
+    fileStream.writeObject(songs.source);
+    fileStream.close();
+}
+</pre>
+
+
+<p><p>`</p>
+
+<p>I use ASYNC APIs here as I don&#8217;t know how large the song library for the user will be. This ensures that the app will not lock up and freeze even if loading / saving a very large song library.</p>
+
+<p>The team is now starting to work on the next release (M3). Tons of new stuff going in including support for HTML / JavaScript based applications. I will post more info on this a little further into the development cycle.</p>
+
+<p>Anyways, that is a quick update on what has been going on with Apollo. Pretty much everyone we have shown Apollo too has been pretty excited about it, which is cool (especially considering that we are still pretty early in the development process). Expect to hear and see more over the next couple of months.</p>
+
+<p>As usual, you can find more info on Apollo at:</p>
+
+<p><a href="http://www.adobe.com/go/apollo">http://www.adobe.com/go/apollo</a></p>
+
+<p> [1]: <a href="http://weblogs.macromedia.com/mesh/archives/2006/11/apollo_in_europ.html">http://weblogs.macromedia.com/mesh/archives/2006/11/apollo_in_europ.html</a>
+ [2]: <a href="http://weblogs.macromedia.com/mesh/archives/2006/11/video_leveragin.html">http://weblogs.macromedia.com/mesh/archives/2006/11/video_leveragin.html</a>
+ [3]: <a href="http://webkit.org/">http://webkit.org/</a>
+ [4]: <a href="http://livedocs.macromedia.com/flex/2/langref/flash/net/package.html#registerClassAlias">http://livedocs.macromedia.com/flex/2/langref/flash/net/package.html#registerClassAlias</a>()</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-11-30T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-11-30T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2006/11/30/update-on-apollo-m2-release/" data-via="" data-counturl="http://mikechambers.github.io/2006/11/30/update-on-apollo-m2-release/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2006/11/29/apollo-in-europe-this-week/" title="Previous Post: Apollo in Europe this week">&laquo; Apollo in Europe this week</a>
+      
+      
+        <a class="basic-alignment right" href="/2006/12/13/ebay-on-apollo/" title="Next Post: eBay on Apollo">eBay on Apollo &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Macromedia News FireFox Extension Preferences - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="As I posted the other day, I have built an extension for FireFox that makes it easy to keep up with the latest news and information from Macromedia. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2004/12/09/macromedia-news-firefox-extension-preferences">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Macromedia News FireFox Extension Preferences</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-12-09T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>As I <a href="/mesh/archives/006507.cfm">posted</a> the other day, I have built an <a href="/macromedianews/">extension</a> for <a href="http://www.getfirefox.com">FireFox</a> that makes it easy to keep up with the latest news and information from Macromedia. Judging by the number of downloads, as well as emails I have received, it seems to be pretty popular.</p>
+
+<p>I have also received a couple of emails asking for features / changes that are already possible by tweaking the preferences. So, I figured I would make a post to describes in detail what each preference does, as well as describe some undocumented settings.</p>
+
+<!--more-->
+
+
+<p>First, if you have not already installed the extension, then:</p>
+
+<p><a href="/mesh/files/firefox/extensions/macromedianews.xpi">Install the Macromedia News FireFox Extension</a> (requires <a href="http://www.getfirefox.com">FireFox 1.0</a>)</p>
+
+<p>Once you have installed the extension and restarted FireFox, then you are ready to go.</p>
+
+<p>You can modify the preferences a number of ways:</p>
+
+<ul>
+<li>Click the extension icon (bottom right of status bar) and click Preferences.</li>
+<li>Open the Extension Manager (Tools > Extensions), choose Macromedia News, right click and select Preferences.</li>
+<li>Type about:config in the URL field for FireFox, and filter for settings that start with &#8220;macromedianews&#8221;.</li>
+</ul>
+
+
+<p>All preferences will take affect as soon as they have been changed.</p>
+
+<p>Once you open the preferences you will see the following window:</p>
+
+<p><img src="/macromedianews/images/prefs_screen.gif" width="215" height="357" /><br/>
+Preferences Menu</p>
+
+<p>&nbsp;</p>
+
+<p>Lets go over each preference:</p>
+
+<p><strong>Trim Title</strong> : If checked, if the length of the title of an item is greater than the trimTitleLength setting (default of 35), then the title will be shortened to the trimTitleLength setting, and an ellipsis will be added. If not checked, then the entire title will be shown (FireFox may cut it off to make it fit in the menu).</p>
+
+<p>This setting is useful if you don&#8217;t want the menu to take up a lot of space.</p>
+
+<p>Here are some examples:</p>
+
+<p><img width="317" height="22" src="/mesh/files/macromedianews/trim_on_scrn.gif" /><br/>
+Item with Trim Title on.</p>
+
+<p>&nbsp;</p>
+
+<p><img width="317" height="22" src="/mesh/files/macromedianews/trim_off_scrn.gif" />Item with Trim Title off.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Display Source</strong> : This determines whether the name of the source that the item is from will be displayed (i.e. which weblog it is from). If checked, then the source will be added in parentheses after the title.</p>
+
+<p><img width="317" height="22" src="/mesh/files/macromedianews/showsource_on_scrn.gif" /><br/>
+Item with Display Source on.</p>
+
+<p>&nbsp;</p>
+
+<p><img width="317" height="22" src="/mesh/files/macromedianews/showsource_off_scrn.gif" /><br/>
+Item with Display Source off.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Blink Icon on New Items</strong> : This one should be pretty self-explanatory. If checked, then the extension icon will blink when new items are found. If un-checked, then the icon will turn green but will not blink.</p>
+
+<p><strong>Open Items In</strong>: this setting determines how items will be opened when they are clicked. There are three possible options:</p>
+
+<p>&lt;li<strong>Current Tab</strong> : Opens the item in the currently selected / visible tab.</li>
+*   <strong>New Tab (background)</strong> : Opens the item in a new tab in the background, i.e. focus will remain on the currently selected / visible tab.
+*   <strong>New Tab (focus)</strong> : Opens the item in a new tab in the foreground, i.e. focus switches away from the current / visible tab, to the newly created tab and item.</p>
+
+<p><strong>View items</strong> : This preference allows you to determine how the items will be viewed within the menu. There are two options:</p>
+
+<ul>
+<li><strong>Chronologically</strong> : This displays the items in the chronological order (i.e. the order in which the posts were made) with the most recent items at the top of the menu.</li>
+<li><strong>By Source</strong> : This separates the items within the menu by their source. The source name will appear, with items from that source listed under it. You can click on the source name to view that source in your browser.</li>
+</ul>
+
+
+<p><img src="/macromedianews/images/screen_category_menu.gif" width="360" height="672" /><br/>
+Displayed by Source</p>
+
+<p>&nbsp;</p>
+
+<p><img src="/macromedianews/images/screen_normal_menu.gif" width="353" height="466" /><br/>
+Displayed in Chronological order</p>
+
+<p>&nbsp;</p>
+
+<p>In addition to the preferences available to the preferences panel, there are two additional preferences which can only be set via about:config.</p>
+
+<p><strong>macromedianews.refreshInterval</strong> : This specifies in milliseconds how often the extension will check for new data.</p>
+
+<p><strong>macromedianews.trimTitleLen</strong> : This specifies the maximum length of titles when the Trim Title preference is checked.</p>
+
+<p>While the entire extension is not supported, changing these two preferences is extra not support, mostly because I have not had a chance to test them very much. If you try the settings, let me know if you have any problems with them (or if they work as expected).</p>
+
+<p>If you have any questions or need something clarified, just post it in the comments.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-12-09T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-12-09T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2004/12/09/macromedia-news-firefox-extension-preferences/" data-via="" data-counturl="http://mikechambers.github.io/2004/12/09/macromedia-news-firefox-extension-preferences/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2004/12/08/halo-2-application-contest-entries/" title="Previous Post: Halo 2 Application Contest Entries">&laquo; Halo 2 Application Contest Entries</a>
+      
+      
+        <a class="basic-alignment right" href="/2004/12/10/updated-macromedia-news-firefox-extension-soon/" title="Next Post: Updated Macromedia News FireFox Extension Soon">Updated Macromedia News FireFox Extension Soon &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

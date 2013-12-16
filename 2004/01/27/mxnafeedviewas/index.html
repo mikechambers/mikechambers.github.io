@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>MXNAFeedView.as - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="Here is the next class from the [MXNA Web Service sample app][1]. This is the MXNAFeedView class, and is the main (and currently only) view class of &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2004/01/27/mxnafeedviewas">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">MXNAFeedView.as</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-01-27T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Here is the next class from the [MXNA Web Service sample app][1]. This is the MXNAFeedView class, and is the main (and currently only) view class of the app.</p>
+
+<p>It contains most of the UI elements for selecting and displaying categories and feeds.</p>
+
+<p>You can also view the [MXNAAppController][2] class.</p>
+
+<p>I will post the rest of the classes as I comment and finish them.</p>
+
+<p>As usual, if you have any suggestions or questions, post them in the comments.</p>
+
+<!--more-->
+
+
+<p>`</p>
+
+<pre>import mx.controls.ComboBox;
+import mx.controls.DataGrid
+import mx.controls.TextArea;
+
+import com.macromedia.mesh.events.EventProxy;
+import com.macromedia.mxna.app.MXNARankingCell;
+
+/*
+    This class is the main view application. It contains the primary
+    UI elements for displaying information to the user.
+*/
+class com.macromedia.mxna.app.MXNAFeedView extends MovieClip
+{
+    /* Declar functions that EventDispatcher adds */
+    private var dispatchEvent:Function;
+    public var addEventListener:Function;
+    public var removeEventListener:Function;
+
+    /* Components used in class */
+    private var category_cb:ComboBox;
+    private var feedDG:DataGrid;
+    private var feedField:TextArea;
+    private var titleField:TextArea;
+    private var urlField:TextArea;
+    
+    /* used to load ranking stars into */
+    private var loadingClip:MovieClip;
+    
+    /* 
+        These are proxies so we can direct the events to individual methods
+        and so we can run them in the scope of this class
+    */
+    private var categoryProxy:EventProxy;
+    private var feedGridProxy:EventProxy;
+    
+    /* The enabled state of the class */
+    private var isEnabled:Boolean;
+    
+    /* 
+        We have to store the current direction of the ranking sort
+        so we can manually sort it
+    */
+    private var rankingSortASC:Boolean;
+    
+    /* Array of Months. This should really be in some */
+    private var MONTHS:Array = ["January",
+                "February",
+            "March",
+            "Arpil",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"];
+    
+    /* Constructor. Most initialization done in onLoad */
+    public function MXNAFeedView()
+    {
+        /* initialize this class to broadclass events using EventDispatcher*/
+        mx.events.EventDispatcher.initialize(this);
+    }
+    
+    /* 
+        called when the class / symbol is loaded on stage. Most of the
+        initialization is done here
+    */
+    private function onLoad():Void
+    {
+        isEnabled = true;
+        rankingSortASC = true;
+    
+        /* 
+            Create a proxy so the change event from the category ComboBox
+            can go to its own method, and be called in the scope of
+            this class
+        */
+        categoryProxy = new EventProxy(this, "onCategorySelect");
+        category_cb.addEventListener("change", categoryProxy);
+        
+        //show up to 10 items at a time in the combo box dropdown
+        category_cb.rowCount = 10;
+        
+        //only show the following columns in the datagrid
+        feedDG.columnNames = ["title", "name", "ranking"];
+        
+        //size the columns in the datagrid
+        feedDG.getColumnAt(0).width = feedDG._width - 200;
+        feedDG.getColumnAt(1).width = 105;
+        feedDG.getColumnAt(2).width = 95;
+        
+        //use a custom cell renderer for the ranking column.
+        feedDG.getColumnAt(2).cellRenderer = "MXNARankingCell";
+        //don't sort ranking column automatically
+        feedDG.getColumnAt(2).sortOnHeaderRelease = false;
+        
+        //catch the headerRelease event so we can sort the ranking column manually
+        feedDG.addEventListener("headerRelease", this);
+        
+        /* 
+            Create a proxy so the change event from the datagrid
+            can go to its own method, and be called in the scope of
+            this class
+        */      
+        feedGridProxy = new EventProxy(this, "onFeedGridSelect");
+        feedDG.addEventListener("change", feedGridProxy);
+    
+        //initialize feed data TextArea
+        feedField.html = true;
+        feedField.editable = false;
+        
+        //initialize feed title TextArea
+        titleField.html = true;
+        titleField.editable = false; 
+        titleField.wordWrap = false;
+        //no border
+        titleField.setStyle("borderStyle", "none");
+    
+        //initialize feed url TextAre
+        urlField.html = true;
+        urlField.editable = false; 
+        urlField.wordWrap = false;
+        //no border
+        urlField.setStyle("borderStyle", "none");
+    }
+    
+    //setter for setting the enabled property
+    public function set enabled(enabled:Boolean)
+    {
+        isEnabled = enabled;
+        
+        category_cb.enabled = enabled;
+        feedDG.enabled = enabled;
+        feedField.enabled = enabled;   
+        titleField.enabled = enabled;
+        urlField.enabled = enabled;
+    }
+ 
+    //getter for enabled property
+    public function get enabled():Boolean
+    {
+        return isEnabled;
+    }
+    
+    //populates the ComboBox with categories
+    //Takes on optional second parameter that specifies which field the label
+    //is stored within
+    public function setCategories(categories:Array, labelField:String):Void
+    {
+        if(labelField != undefined)
+        {
+            category_cb.labelField = labelField;
+        }
+        
+        category_cb.dataProvider = categories;
+    }
+    
+    //setter for the feeds to be displayed within the DataGrid
+    public function set dataProvider(dp:Array)
+    {
+        //clear all TextArea fields
+        clearFields();
+        
+        //set the dataprovider for the DataGrid
+        feedDG.dataProvider = dp;
+    
+        //select the first row in the data grid
+        feedDG.selectedIndex = 0;
+        
+        //since the previous line does not trigger the change event, we need to
+        //manually call the displayFeed method, to display the info on the first
+        //row
+        displayFeed(feedDG.selectedItem);
+    }
+    
+    //simple methods that clears the TextArea and ranking stars
+    private function clearFields(Void):Void
+    {
+        titleField.text = "";
+        feedField.text = "";
+        urlField.text = "";
+        loadingClip.star.removeMovieClip();
+    }
+    
+    //simple method to format a Date object into the format we want to display
+    private function formatDate(d:Date):String
+    {
+        //January 25, 2004Ã¯Â¿Â½Ã¯Â¿Â½11:30 AM
+        
+        var hours:Number = d.getHours();
+        var timeOfDay:String = "AM";
+        
+        if(hours > 12)
+        {
+            timeOfDay = "PM";
+            hours = hours - 12;
+        }
+        
+        //note, this will only work up until 2010
+        var year:Number = d.getYear() - 100;
+        
+        //TODO: the minutes to be formatted when it is 1-9.
+        var out:String = MONTHS[d.getMonth()] + " " + d.getDate() + ", " +
+                "200" + year + "  " + hours + ":" + d.getMinutes() + 
+            " " + timeOfDay + " UTC";
+        return out;
+    }
+    
+    //takes an item from the DataGrid, and display the specific information
+    private function displayFeed(feedItem:Object):Void
+    {
+        /*
+            feedItem contains the following properties:
+                websiteUrl
+                title
+                link
+                excerpt
+                dateAggregated
+                ranking
+                clicks
+                category
+                name
+                id
+        */
+        
+        //bail if undefined
+        if(feedItem == undefined)
+        {
+            return;
+        }
+
+        //title field
+        titleField.text = "<b>" + createLink(feedItem.title, feedItem.link, true) + "</b> (" + 
+                    createLink(feedItem.name, feedItem.websiteUrl, true) + ")";
+    
+        //feed field
+        feedField.text =  "<i>" + formatDate(feedItem.dateAggregated) +  "</i><br>" +
+                    feedItem.excerpt + "<br><br>" + createLink("Link...", feedItem.link, true, true);
+        
+        //urlField
+        urlField.text = createLink(feedItem.link, feedItem.link, true, true);       
+            
+        //ranking is passed in as a string
+        var star:Number = Number(feedItem.ranking);
+        
+        //normally, we only rank items within the last 24 hours. Items older than
+        //24 hours rank 0, and dont show any graphic. However, this was confusing
+        //in the UI, so we will give items older than 24 hours 0 stars.
+        //Note that this does not necessarily mean they have no clicks, but 
+        //rather that they are older than 24 hours.
+        //TODO : Fix this. Maybe a different graphic.
+        if(star < 1)
+        {
+            star = 1;
+        }
+        
+        //display the appropriate star symbol
+        loadingClip.attachMovie("star" + star, "star", 998);
+  
+    }
+    
+    //simple method that generates HTML code for a link
+    //optionally takes two extra parameters that specify whether to
+    //color(highlight) and underline the link.
+    //
+    //TODO : Look into using style sheets
+    private function createLink(title:String, link:String, 
+                    highlight:Boolean, underline:Boolean):String
+    {
+        //default highlight to false
+        if(highlight == undefined)
+        {
+            highlight = false;
+        }
+    
+        //default underline to false
+        if(underline == undefined)
+        {
+            underline = false;
+        }
+        
+        //create the link
+        var out:String = "<a href=\"" + link +"\">" + title + "</a>";
+        
+        //see if we need to add a font tag
+        if(highlight)
+        {
+            out = "<font color=\"#003366\">" + out + "</font>";
+        }
+        
+        //see if we need to add underline tags
+        if(underline)
+        {
+            out = "<u>" + out + "</u>";
+        }
+        
+        return out;
+    }
+    
+    /******** UI Event Handlers *********/
+    
+    //broadcast by ComboBox when user selects an item in the combo
+    private function onCategorySelect(eventObj:Object):Void
+    {        
+        //get the selected category
+        var category:String = category_cb.selectedItem[category_cb.labelField];  
+
+        //broadcast an event that a category has been selected
+        dispatchEvent({type:"onSelectCategory", category:category});
+    }
+    
+    //broadcast by the DataGrid when the user selects a row
+    private function onFeedGridSelect(eventObj:Object)
+    {
+        //get and display the item from the selected row
+        var item:Object = feedDG.selectedItem;
+        displayFeed(item);
+    }
+    
+    //broadcast by the DataGrid when the user releases from click one of the
+    //column headers
+    private function headerRelease(eventObj:Object)
+    {
+        //we only care if they clicked the ranking column, so ignore clicks
+        //from other columsn
+        //TODO : columnIndex should be put in a CONSTANT
+        if(eventObj.columnIndex != 2)
+        {
+            return;
+        }
+        
+        //reverse the ranking
+        rankingSortASC = !rankingSortASC;
+        
+        //figure out which way to sort, and then call the appropriate function
+        //TODO : figure out if there is a better way to do this
+        var sortFunc = (rankingSortASC)? sortGridByRankingASC : sortGridByRankingDESC;
+        
+        //sort the DG
+        feedDG.sortItems(sortFunc);
+    }    
+    
+    //custom sorting functions for the ranking column
+    private function sortGridByRankingASC(a,b)
+    {
+        return Number(a.ranking) > Number(b.ranking);
+    }  
+  
+    private function sortGridByRankingDESC(a,b)
+    {
+        return Number(a.ranking) < Number(b.ranking);
+    }    
+    
+}</pre>
+
+
+<p><p>`</p>
+
+<p> [1]: <a href="http://www.markme.com/mesh/archives/004255.cfm">http://www.markme.com/mesh/archives/004255.cfm</a>
+ [2]: <a href="http://www.markme.com/mesh/archives/004267.cfm">http://www.markme.com/mesh/archives/004267.cfm</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-01-27T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-01-27T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/actionscript/'>ActionScript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2004/01/27/mxnafeedviewas/" data-via="" data-counturl="http://mikechambers.github.io/2004/01/27/mxnafeedviewas/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2004/01/27/mxnaappcontrolleras/" title="Previous Post: MXNAAppController.as">&laquo; MXNAAppController.as</a>
+      
+      
+        <a class="basic-alignment right" href="/2004/01/28/atom-feed-added/" title="Next Post: Atom Feed Added">Atom Feed Added &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

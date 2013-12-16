@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Video With Flash MX : A Users Guide : Session 1 of 3. - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="Video in Flash MX. &nbsp;Danny Mavromatis and Mike Davidson, ESPN.com Danny and Mike work for ESPN.com which is a very popular site. they do have &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2002/07/10/video-with-flash-mx-a-users-guide-session-1-of-3">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Video With Flash MX : A Users Guide : Session 1 of 3.</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-07-10T00:00:00-07:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Video in Flash MX.</p>
+
+<!--StartFragment -->
+
+
+<p>&nbsp;Danny Mavromatis and Mike Davidson, ESPN.com</p>
+
+<p>Danny and Mike work for ESPN.com which is a very popular site. they do have some power to force users to change browsers.<br/>
+Video in Flash<br/>
+<strong>Image Sequences</strong><br/>
+Most primitive version of video in flash is a sequence of images. They are showing some Seinfeld clips that use the technique. Basically, take a video clip, export it as a sequence of images, and then import them into flash (flash will recornize that it is a sequence of images).<br/>
+problems, no sound, although you can manually add it. it is essentially an image of jpgs. no temporal compression.<br/>
+<strong>QuickTime</strong><br/>
+Flash Player is embedded in player. Pretty much flash 4 compatible, but can be a little buggy. more for adding effects on top of quicktime movies.<br/>
+<strong>Video on Top of Flash</strong><br/>
+Interface in Flash, and then layer video ontop of flash using DHTML and iframes. Works pretty well. problems with browser support (due to DHTML).<br/>
+The Importance of Flash MX Video</p>
+
+<ul>
+<li>Reduces incompatibilities between systems (some difference between playback on pc and mac, pc smoother).
+
+<ul>
+<li>Reduces complexities of mcahine interactions.
+
+<ul>
+<li>Easier to set up on the client.
+
+<ul>
+<li>More self-contained
+
+<ul>
+<li>Not easiliy saveable on client-machines
+
+<ul>
+<li>More onsistence playback across platforms.</UL></li>
+</ul>
+
+
+<p>on mac, import an 1/8 of a second&nbsp; blank audio on first frame. set it to stream. this will make the video drop frames if it can&#8217;t keep up, which leads to better video flow.<br/>
+Showing new ESPN video player. Flash Interface, with a layer of video (real or windows media) over flash. sometimes it will not come up, can take a while to load due to checking players, browser, etc&#8230;<br/>
+Showing Xgames video full screen flash application / projector, with video. <em>Pretty sweet &#8211; mc</em>.<br/>
+It is more difficult to steal video from Flash. That doesn&#8217;t mean it is impossible, but for regular users, it is enough of a hassle, that most will give up or not try.<br/>
+Because everything is contained within Flash, you can leverage the power of flash with video to completely customize your application (i.e. create a custom / advanced preloader for the video).<br/>
+more advantages to video in flash</p>
+
+<ul>
+<li>no missing codec issues.
+
+<ul>
+<li>fully transparent display mechanism
+
+<ul>
+<li>temporal compression (only saves video data that changes from flash to flash. sorenson squeeze does this and leads to higher quality and lower file sizes).
+
+<ul>
+<li>easily operable across flash applicaiotns.
+
+<ul>
+<li>potential on playback on devices.</UL></li>
+</ul>
+
+
+<p>Limitations of Video in Flash</p>
+
+<ul>
+<li>currently not batch encodable (sorenson spark pro can do this).
+
+<ul>
+<li>No built in buffering mechanisms (you can write your own buffering with ActionScript).
+
+<ul>
+<li>No built in connection speed detection mchanisms.
+
+<ul>
+<li>No sure streamtype capabilities.
+
+<ul>
+<li>Current Flash 6 player pentration is low.</UL></li>
+</ul>
+
+
+<p>they are showing media metrix numbers for flash penetration. numbers are from march. they are very consistent in growth rates. every 14 months, pentration is up to 86% (based on his research. <em>note, we project flash 6 rates will go up faster than in the past. -mc</em>)</p>
+
+<ul>
+<li>Video does not automatically stop on last frame (you can write actionscript to stop it).
+
+<ul>
+<li>upsacing video size is slightly inferior to other video formats.
+
+<ul>
+<li>not a reference format (quicktime is, windows media, real are not).
+
+<ul>
+<li>no rights managements capabilities.
+
+<ul>
+<li>No native full screen mode. </UL></li>
+</ul>
+
+
+<p>end of session.</p></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-07-10T00:00:00-07:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-07-10T00:00:00-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/conferences/'>Conferences</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2002/07/10/video-with-flash-mx-a-users-guide-session-1-of-3/" data-via="" data-counturl="http://mikechambers.github.io/2002/07/10/video-with-flash-mx-a-users-guide-session-1-of-3/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2002/07/10/posts-from-flash-forward/" title="Previous Post: Posts from Flash Forward">&laquo; Posts from Flash Forward</a>
+      
+      
+        <a class="basic-alignment right" href="/2002/07/10/video-with-flash-mx-a-users-guide-session-2-of-3/" title="Next Post: Video with Flash MX : A Users Guide : Session 2 of 3">Video with Flash MX : A Users Guide : Session 2 of 3 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

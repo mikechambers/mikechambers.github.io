@@ -1,0 +1,933 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Getting Started With Flash and Arduino - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="In this post, I will show how to setup your development environment and started developing Flash projects that integrate with the Arduino electronic &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2010/08/04/getting-started-with-flash-and-arduino">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Getting Started With Flash and Arduino</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-04T00:00:00-07:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In this post, I will show how to setup your development environment and started developing Flash projects that integrate with the <a href="http://www.arduino.cc">Arduino</a> electronic platform.</p>
+
+<p>So, what is Arduino? From the website:</p>
+
+<!--more-->
+
+
+<blockquote><p>Arduino is an open-source electronics prototyping platform based on flexible, easy-to-use hardware and software. It&#8217;s intended for artists, designers, hobbyists, and anyone interested in creating interactive objects or environments.</p></blockquote>
+
+<p>Basically, the Arduino can be a bridge from the computer to the physical world, allowing developers and artist to both read input from sensors, as well as output from the computer to the physical world.</p>
+
+<p>The design of the Arduino board is open source, which among other things, means that there are a lot of options for both the main board, as well as add-ons. Take a look at the Arduino sections at <a href="http://www.adafruit.com/index.php?main_page=index&amp;cPath=17_21">Adafruit</a> and <a href="http://www.sparkfun.com/commerce/categories.php?c=103">SparkFun.com</a> to get an idea of the type of add-ons / shields that have already been created.</p>
+
+<p>For this tutorial, we will cover how to:</p>
+
+<ol>
+<li>Set up Arduino and make sure it is connected correctly.</li>
+<li>Install and configure a proxy program so Flash can communicate with the Arduino.</li>
+<li>Build a simple Flash application that blinks an LED on the Arduino.</li>
+</ol>
+
+
+<p>Once we are finished with the tutorial, you will be all setup to begin working on real world Flash / Arduino projects.</p>
+
+<p><strong>What you will need</strong></p>
+
+<ol>
+<li>An Arduino Main Board: These are pretty cheap ($20 &#8211; $30) and you can pick them up tons of places (I recommend <a href="http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=17&amp;products_id=50">AdaFruit</a> and <a href="http://www.sparkfun.com/commerce/product_info.php?products_id=666">Sparkfun</a>). If you are just getting started with basic electronics, you may want to consider picking up a starter kit (<a href="http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=17&amp;products_id=68">AdaFruit</a>, <a href="http://www.sparkfun.com/commerce/product_info.php?products_id=9284">SparkFun</a>). The most current version is the <a href="http://arduino.cc/en/Main/ArduinoBoardDuemilanove">Arduino Duemilanove with Atmega328</a> which I will be using. Make sure that you get the appropriate USB cable if it is not included with your Arduino.</li>
+<li>Arduino software and drivers for your platform: You can grab these from the <a href="http://arduino.cc/en/Main/Software">Arduino downloads page</a>. I will be using the Arduino 0018 download on Mac.</li>
+<li>TinkerProxy. <a href="http://code.google.com/p/tinkerit/wiki/TinkerProxy">TinkerProxy</a> is a small local proxy that acts as a bridge between the serial port and Flash (via a socket server). This allows Flash to communicate with the Arduino.</li>
+<li>Editor for writing ActionScript code. You can use any editor such as Flash Authoring, Flash Builder, FDT, etc&#8230;</li>
+<li>Flash / ActionScript compiler. Finally, you will need a way to compile your ActionScript. Again, this could be anything that can compile ActionScript 3, such as Flash Builder, Flash Authoring, etc&#8230; I will be using the MXMLC command line compiler from the open source Flex 4 SDK.</li>
+</ol>
+
+
+<p>You can download and view all of the code from this article from <a href="http://github.com/mikechambers/ExamplesByMesh/tree/master/Arduino/FlashArduinoGettingStarted/">my GitHub examples repository</a>.</p>
+
+<p><strong>Installing Arduino</strong></p>
+
+<p>First, we need to install the Arduino software and drivers. The Arduino site has very good <a href="http://arduino.cc/en/Guide/HomePage">platform specific getting started articles</a>, so I am not going to try and reproduce them here.</p>
+
+<p>Following the instructions for your specific platform, and once your Arduino is setup and working, come back here:</p>
+
+<ul>
+<li><a href="http://arduino.cc/en/Guide/Windows">Windows</a></li>
+<li><a href="http://arduino.cc/en/Guide/MacOSX">Mac OS X</a></li>
+<li><a href="http://www.arduino.cc/playground/Learning/Linux">Linux</a></li>
+</ul>
+
+
+<p>If you run into any issues, make sure that you check out the <a href="http://arduino.cc/en/Guide/Troubleshooting">troubleshooting document</a>.</p>
+
+<p><strong>Setting up TinkerProxy</strong></p>
+
+<p>Now that you have your Arduino set up and working, we are ready to install a local proxy application that will bridge the communication between Flash and the Arduino. There are a <a href="http://www.arduino.cc/playground/Interfacing/SerialNet">number of possible proxies</a> for this, but for this article, we will be using <a href="">TinkerProxy</a>. This is an open source port of serproxy and has good support for Flash.</p>
+
+<p>Download the most recent version of TinkerProxy from the project&#8217;s <a href="http://code.google.com/p/tinkerit/downloads/list">download page</a>. I am using the 2.0 release from March 2009.</p>
+
+<p>Once you have downloaded it, unzip the file. This will create a directory named <em>tinkerproxy-2_0</em>. Move this directory to where you want to keep it. On my system, I put it at <em>~/bin/tinkerproxy</em>. If you like, you can add this directory to your system&#8217;s path, which will allow you to start TinkerProxy from anywhere.</p>
+
+<p>Open up the tinkerproxy directory in your file manager. You should see 3 files:</p>
+
+<ul>
+<li>serproxy.cfg : configuration file</li>
+<li>serproxy.exe : windows executable</li>
+<li>serproxy.osx : mac executable</li>
+</ul>
+
+
+<p>If you are on Mac, rename the <em>serproxy.cfg</em> file to <em>serproxy.osx.cfg</em>. (Im not sure if you need to rename it on Windows).</p>
+
+<p>Open the configuration file (<em>serproxy.osx.cfg</em>) in a text editor so we can make a couple of changes.</p>
+
+<p>First, find the line that looks like this:</p>
+
+<p><code>serial_device1=/dev/tty.usbserial-A6004osh</code></p>
+
+<p>You need to update this to the serial port that the Arduino is connected to. You can do this 2 ways.</p>
+
+<p>The easiest way is to open up the Arduino development environment (make sure the Arduino is connected), and find the entry in <em>Arduino > Tools > Serial Port</em>.</p>
+
+<p>You can also run the following command : <code>ls -l /dev/</code> and find the Arduino entry there (it will be the <em>usbserial</em> entry).</p>
+
+<p>Once you have found the correct serial port, update the configuration file with the information.</p>
+
+<p><code>serial_device1=/dev/cu.usbserial-A700dZgM</code></p>
+
+<p>Next, we need to specify which comm port the Arduino is associated with. (This is usually comm port 3 on Windows). For the mac, just change the comm_ports entry like so:</p>
+
+<p><code>comm_ports=1</code></p>
+
+<p>Next, change the <em>comm_baud</em> setting to 9600.</p>
+
+<p><code>comm_baud=9600</code></p>
+
+<p>This is the speed that Arduino and TinkerProxy communicate (9600 bytes a second). You can set this at a higher level but it is good to start out low in order to ensure that any issues are not due to the baud rate.</p>
+
+<p>Finally, we need to update the <em>net_port</em> setting. Comment out all of the net_port<em> entries, except for </em>net_port1*. For its value, set the port that you want the proxy to listen on.</p>
+
+<p><code>net_port1=5331</code></p>
+
+<p>Here is what my entire <em>serproxy.osx.cfg</em> proxy looks like:</p>
+
+<pre><code># Config file for serproxy
+# See serproxy's README file for documentation
+
+# Transform newlines coming from the serial port into nils
+# true (e.g. if using Flash) or false
+newlines_to_nils=false
+
+# on a mac you will need to add this
+serial_device1=/dev/cu.usbserial-A700dZgM
+
+# Comm ports used
+comm_ports=1
+
+# Default settings
+comm_baud=9600
+comm_databits=8
+comm_stopbits=1
+comm_parity=none
+
+# Idle time out in seconds
+timeout=300
+
+# Port 1 settings (ttyS0)
+net_port1=5331
+
+# Port 2 settings (ttyS1)
+#net_port2=5332
+
+# Port 3 settings (ttyS2)
+#net_port3=5333
+
+# Port 4 settings (ttyS3)
+#net_port4=5334
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>Once you have made the changes, save the file and close it.</p>
+
+<p>We are now ready to start TinkerProxy. Make sure that the Arduino is still connected to your computer.</p>
+
+<p>Open up the terminal, and change to the directory where TinkerProxy is installed. Run the following command:</p>
+
+<p><code>./serproxy.osx</code></p>
+
+<p>You should see the following output:</p>
+
+<pre><code>Serproxy 0.2.0 - Tinker.it 
+Based on code by (C)1999 Stefano Busti, (C)2005 David A. Mellis
+
+Waiting for clients
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>If you see this, then you are all set. If you get an error, double check your configuration file, and make sure you are in the directory where <a href="">serproxy.osx</a> is located.</p>
+
+<p><strong>Code</strong></p>
+
+<p>We are finally ready to write some code. For this tutorial, we have Flash control an LED on the Arduino, and have the Arduino send status messages back to Flash.</p>
+
+<p>We need to write two pieces of code. First, we need to write code that will be loaded and run on the Arduino. This will control the hardware, and listen for and respond to messages from Flash. We then need to write some Flash / ActionScript code that will send and received commands to and from the Arduino.</p>
+
+<p><strong>Arduino Code</strong></p>
+
+<p>Lets write the Arduino code first.</p>
+
+<p>Open up the Arduino application, and create a new file called <em>FlashBlink.pde</em>. Type the code below into the editor:</p>
+
+<pre><code>/*
+    Simple example that controls the blinking of the LED
+    connected to digital PIN 13.
+
+    Created by Mike Chambers
+
+http://www.mikechambers.com
+
+    You can hook up an external LED by connecting an LED
+    to PIN 13 and GND (make sure that the anode (long leg) is
+    connected to PING 13 and the cathode (short leg) is connected
+    to GND.
+
+    The on board LED is also connected to PIN 13, and will
+    be controlled by this program.
+
+    Example is released under the following license:
+
+    The MIT License
+
+    Copyright (c) 2010 Mike Chambers
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+*/
+
+
+//The digital pin that the LED is connected to
+#define LED_PIN 13
+
+//incoming command to toggle LED blinking state
+#define TOGGLE_LED_STATE 't'
+
+#define EOL_DELIMITER "\n"
+
+//int to hold incoming byte when we read it
+int incoming = 0;
+
+//whether the led should blink
+boolean shouldBlinkLED = false;
+
+//setup function. called when the program first runs
+void setup()
+{
+    //start listening for incoming messages on the serial port
+    //at 9600 baud
+    Serial.begin(9600);
+
+    //Send a message out that the program is initializing
+    Serial.print("INITIALIZING");
+
+    //Flash looks for this to know when the message is done
+    //See the comments in the Flash file for more info.
+    Serial.print(EOL_DELIMITER);
+
+    //set the pin more for the digital ping that
+    //the LED is connected to (can be INPUT or OUTPUT)
+    pinMode(LED_PIN, OUTPUT);
+
+    //blink the LED 5 times so we can visually see that the
+    //program is running
+    blinkLED(5);
+
+    //Send out a message that initialization is complete.
+    Serial.print("READY");
+    Serial.print(EOL_DELIMITER);
+}
+
+//program loop. Called each timer tick (really fast)
+void loop()
+{
+    //check if we should blink the LED
+    if(shouldBlinkLED)
+    {
+        //if so, blink the LED
+        blinkLED(1);
+    }
+
+    //check if there are any bytes available
+    //on the Serial port
+    if(Serial.available() &gt; 0)
+    {
+        //read a single byte.
+        incoming = Serial.read();
+
+
+        //Calling Serial.read() remove the byte from the Serial
+        //buffer. In this case, if there are multiple bytes that
+        //were sent, the next one will be handled on the next loop.
+        //You could also grab it by calling Serial.read() again
+
+        //check if the incoming byte was a command to toggle
+        //the state of the LED blinking
+        if(incoming == TOGGLE_LED_STATE)
+        {
+            //it was a command
+
+            //toggle the state of the LED Blinking
+            shouldBlinkLED = !shouldBlinkLED;
+
+            //send a message to the Serial port with the 
+            //new LED Blink state
+
+            Serial.print("LED BLINK STATE: "); 
+            if(shouldBlinkLED)
+            {
+                Serial.print("ON");
+            }
+            else
+            {
+                Serial.print("OFF");
+            }
+
+            Serial.print(EOL_DELIMITER);
+
+            //note, if you are using XMLSocket in Flash to read
+            //the string data over the socket then we also have to send 
+            //a null byte with the following command:
+            //
+            //Serial.print(0, BYTE);
+            //
+            //However, in general, it is going to be easier, and more flexible
+            //to use the Socket class (and not the XMLSocket class).
+        }
+    }
+}
+
+//function to blink the LED
+void blinkLED(int count)
+{
+    //loop through
+    for(int i = 0; i &lt; count; i++)
+    {
+        //turn LED on
+        digitalWrite(LED_PIN, HIGH);
+
+        //wait 500 ms
+        delay(500);
+
+        //turn LED off
+        digitalWrite(LED_PIN, LOW);
+
+        //wait 500 ms
+        delay(500);
+    }
+}
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>The code is extensively commented and explains what is going on. Make sure that you read through them.</p>
+
+<p>Basically, the code just listens for a single character (&#8220;t&#8221;) to be sent over the Serial port. When it receives a &#8220;t&#8221; then it toggles the blinking of the LED (from ON to OFF or vice versa). When the LED is toggled, the Arduino will send a message back to Flash with the current LED state. Finally, the code blinks the LED 5 times when it starts so you can see that it is loaded and is running correctly.</p>
+
+<p>Once you have the code typed in, press the &#8220;Verify&#8221; button (looks like a Play button) (<em>Sketch > Verify / Compile</em>) in order to ensure that you don&#8217;t have any compilation errors. Once it compiles, then we are ready to upload it to the Arduino.</p>
+
+<p>Make sure that the Arduino is connected, and then press the &#8220;Upload&#8221; button in the Arduino editor (<em>File > Upload to I/O Board</em>). This will upload the code to the Arduino. Note that even if you disconnect the Arduino, the code will still be on there, and begin running when the Arduino is connected (you dont have to re-upload it every time).</p>
+
+<p>Before we write the ActionScript code, lets test the Arduino code we just wrote to ensure everything is working. We can do this by opening the Arduino Serial Monitor and send a message.</p>
+
+<p>Open the Serial Monitor (<em>Tools > Serial Monitor</em>) and make sure that the baud rate is set to 9600 (in the bottom right of the window). Wait until you see the &#8220;INITIALIZING&#8221; and &#8220;READY&#8221; messages printed from the Arduino (we send these from our code). At the top, type in the letter &#8220;t&#8221; and click &#8220;Send&#8221;. This sends the message to the Arduino. You should see the LED blinking toggle state, and also see a message in the console from the Arduino with the LED blink status.</p>
+
+<p>If something doesn&#8217;t work, then go back and check your code. Make sure you have set the baud rate correctly in your code and in the Serial Monitor. Once everything is working, then we are ready to move on to the final step, which is to write some Flash code to control and communicate with the Arduino.</p>
+
+<p><strong>Flash / ActionScript Code</strong></p>
+
+<p>From the Flash side of things, integrating with the Arduino is pretty much the same as regular client / server development with Flash. Indeed, we will use the <a href="http://help.adobe.com/en_US/FlashPlatform/beta/reference/actionscript/3/flash/net/Socket.html?allClasses=1">Socket</a> class to send and receive messages to the Arduino via TinkerProxy.</p>
+
+<p>Here is our ActionScript code for interacting with the Arduino:</p>
+
+<pre><code>/*
+    Simple Example that connects to an Arduino (via TinkerProxy) and controls
+    the blinking of an LED.
+
+    Created by Mike Chambers
+
+http://www.mikechambers.com
+
+    The MIT License
+
+    Copyright (c) 2010 Mike Chambers
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+*/
+
+package
+{
+    import flash.events.Event;
+    import flash.display.Sprite;
+    import flash.net.Socket;
+    import flash.events.IOErrorEvent;
+    import flash.events.ProgressEvent;
+    import flash.events.SecurityErrorEvent;
+    import flash.utils.Endian;
+    import flash.events.MouseEvent;
+
+    public class FlashBlink extends Sprite
+    {
+
+        //command sent to the Arduino to toggle LED blinking state
+        private static const TOGGLE_LED_STATE:String = "t";
+
+        //Character that delineates the end of a message received
+        //from the Arduino
+        private static const EOL_DELIMITER:String = "\n";
+
+        //socket we will use to connect to TinkerProxy
+        private var _socket:Socket;
+
+        //Address where TinkerProxy is located. Will usually be
+        //localhost / 127.0.0.1
+        private var _proxyAddress:String = "127.0.0.1";
+
+        //port TinkerProxy is listening on
+        private var _proxyPort:uint = 5331;
+
+        //constructor
+        public function FlashBlink()
+        {
+            //listen for when we are added to the stage
+            addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+        }
+
+        private function onAddedToStage(event:Event):void
+        {
+            removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+
+            //create a Sprite to add to the stage.
+            //This will be a simple button
+            var s:Sprite = new Sprite();
+
+            //draw a green square in the Sprite
+            s.graphics.beginFill(0x00FF00);
+            s.graphics.drawRect(0,0, 200,100);
+            s.graphics.endFill();
+
+            //Add Sprite to the display list
+            addChild(s);
+
+            //position it
+            s.x = 50;
+            s.y = 50;
+
+            //listen for when the user clicks the Sprite
+            s.addEventListener(MouseEvent.CLICK, onClick);
+
+            _socket = new Socket();
+
+            //Register for socket events
+
+            //socket connected
+            _socket.addEventListener( Event.CONNECT, onConnect );           
+
+            //socket closed
+            _socket.addEventListener( Event.CLOSE, onClose );           
+
+            //data received from socket
+            _socket.addEventListener( ProgressEvent.SOCKET_DATA, onSocketData );
+
+            //Error connecting
+            _socket.addEventListener( IOErrorEvent.IO_ERROR, onIOError );
+
+            //Security Error
+            _socket.addEventListener( SecurityErrorEvent.SECURITY_ERROR, onSecurityError );
+
+            //need to set Endianness for Socket. THIS IS IMPORTANT
+            //If this is set incorrectly, the Arduino will not be able to understand
+            //all of the data sent from Flash. 
+            //
+            //See:
+            //http://www.mikechambers.com/blog/2010/08/01/sending-multibyte-numbers-from-actionscript-to-arduino/
+            _socket.endian = Endian.LITTLE_ENDIAN;
+
+            //connect
+            _socket.connect(_proxyAddress, _proxyPort);
+        }
+
+        //called when we connect to the proxy server
+        private function onConnect(event:Event):void
+        {
+            /*
+                note, you cannot reliably write data to the socket here.
+
+                Im not sure if this is a Flash player issue, or a timing issue
+                with the proxy.
+            */
+            trace("Socket Connected");
+        }
+
+        /*
+            This function / event handler is called when data is received
+            on the socket. 
+
+            However, it is important to remember that the event is called as
+            data is received, which means that not all of the data may be available
+            when it is called.
+
+            For example, if you sent the string "Hello World" from Arduino,
+            then the event handler might be called twice. Once with "Hello Wo" and
+            a second time with "rld".
+
+            "Because of this, in most cases, you need to buffer the data, and parse
+            out messages, looking for a character (that you specify) that delineates the
+            end of a message.
+
+            If you just want to send a single character back from Arduino, then this
+            is not necessary. However, the handler below is generic, and already does all
+            of the buffering, so you can just use it.
+        */
+
+        //string to hold data as it comes in.
+        private var buffer:String = "";
+
+        //event called when data arrives on the socket from the
+        //arduino
+        private function onSocketData(event:ProgressEvent):void
+        {
+            //get the string sent from the Arduino. This could be any binary data
+            //but in our case, we are sending strings.
+            //In general, it is much easier to just always send strings from 
+            //Arduino, and then parse then in ActionScript
+            var data:String = _socket.readUTFBytes( _socket.bytesAvailable );
+
+            //copy the newly arrived data into the buffer string.
+            buffer += data;
+
+            //completed message from the server
+            var msg:String;
+            var index:int;
+
+            //loop through the buffer until it contains no more
+            //end of message delimiter
+            while((index = buffer.indexOf(EOL_DELIMITER)) &gt; -1)
+            {
+                //extract the message from the beginning to where the delimiter is
+                //we don't include the delimiter
+                msg = buffer.substring(0, index);
+
+                //remove the message from the buffer
+                buffer = buffer.substring(index + 1);
+
+                //trace out the message (or do whatever you want with it)
+                trace("Message Received from Arduino : " + msg);
+            }               
+
+        }
+
+        //called when the user clicks the button on stage
+        private function onClick(event:MouseEvent):void
+        {
+            trace("onClick");
+
+            //make sure we are connected to the socket
+            if(!_socket.connected)
+            {
+                //if not, don't do anything
+                trace("You must be connected to send a command to the Arduino.");
+                return;
+            }
+
+            //write the command to the server
+            _socket.writeUTFBytes(TOGGLE_LED_STATE);
+
+            //flush the socket. Not really necessary, but here for forward compatibility.
+            _socket.flush();
+        }
+
+        //called when the socket is closed
+        private function onClose(event:Event):void
+        {
+            trace("Socket Closed");
+        }
+
+        //called if an error occurs while connecting to the socket.
+        private function onIOError(event:IOErrorEvent):void
+        {
+            trace("IOErrorEvent : " + event.text);
+        }
+
+        //called when there is a security error. Usually if you try to connect to a socket
+        //when the SWF doesn't have permission. 
+        //See:
+        //http://www.adobe.com/devnet/flashplayer/articles/fplayer9_security_04.html
+        //In most cases, when testing locally, this will not be an issue.
+        private function onSecurityError(event:SecurityErrorEvent):void
+        {
+            trace("SecurityErrorEvent : " + event.text);
+        }
+    }
+}
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>Now, that looks like a lot of code for a simple example, but remember that it is mostly comments.</p>
+
+<p>Basically, when the SWF starts running, we connect to the TinkerProxy server. When the button / square on the stage is clicked, then we send a message to the Arduino, telling it toggle the blink state. If you watch the Arduino closely, you can see when it is receiving information as the RX LED button will blink. Also notice how the blinking of the LED is turned on / off each time you click the button in the SWF.</p>
+
+<p>The code also listens for the Arduino to send messages back. In this case, it is just a simple string specifying whether the LED is in blinking mode. Pay particular attention to the code and comments where we get the message from the Arduino. We have to buffer the code coming from the Arduino, since the entire message may not always arrive in one piece. The function is pretty generic can be reused in any project. All of the messages from the Arduino are traced out.</p>
+
+<p>Also, notice that we specifying the Endianness for the socket server:</p>
+
+<p><code>_socket.endian = Endian.LITTLE_ENDIAN;</code></p>
+
+<p>This is necessary to ensure that the Arduino can understand all of the data sent from Flash.</p>
+
+<p>Make sure that the Arduino has initialized before you send any messages to it, or else the messages will be dropped. Normally this is not an issue, since the setup runs instantly, but in our case, we are blinking the LEDs first, so it takes a couple of moments for the setup to run.</p>
+
+<p>I have uploaded a short video showing the Arduino running the code (click through the view the HD version).</p>
+
+<p>At this point, you should have your system setup for Flash / Arduino development, and have a basic understanding of how to send and receive data between Flash content and the Arduino. Of course, the real fun comes when you begin to hook up sensors and motors and real world data. Check out some of the pre-made shields created for the Arduino at <a href="http://www.adafruit.com/index.php?main_page=index&amp;cPath=17_21">Adafruit</a> and <a href="http://www.sparkfun.com/commerce/categories.php?c=103">SparkFun.com</a> to get an idea of what is out there.</p>
+
+<p><strong>Addition Resources</strong></p>
+
+<ul>
+<li><a href="http://www.amazon.com/Getting-Started-Arduino-Make-Projects/dp/0596155514">Getting Started with Arduino Book</a> (Highly Recommended)</li>
+<li><a href="http://arduino.cc/en/Tutorial/HomePage">Arduino Examples</a></li>
+<li><a href="http://arduino.cc/en/Reference/HomePage">Arduino Reference</a></li>
+<li><a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?board=interfacing">Arduino / Flash Forum</a></li>
+<li><a href="http://www.arduino.cc/playground/Interfacing/Flash">Arduino / Flash Playground</a></li>
+<li><a href="http://blog.kevinhoyt.org/?cat=29">Kevin Hoyt&#8217;s Blog Posts on Flash / Arduino</a> (Really great resource)</li>
+<li><a href="http://www.amazon.com/Getting-Started-Electronics-Forrest-Mims/dp/0945053282/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1280982691&amp;sr=8-1">Getting Started in Electronics</a> (Classic book, very approachable)</li>
+<li><a href="http://www.amazon.com/MAKE-Electronics-Learning-Through-Discovery/dp/0596153740/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1280982679&amp;sr=8-1">MAKE: Electronics: Learning Through Discovery</a></li>
+</ul>
+
+
+<p>Again, you can download all of the code from this tutorial <a href="http://github.com/mikechambers/ExamplesByMesh/tree/master/Arduino/FlashArduinoGettingStarted/">here</a>.</p>
+
+<p>If you find any errors in the post, or run into any issues trying to get stuff to work, then post in the comments.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-04T00:00:00-07:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-04T00:00:00-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2010/08/04/getting-started-with-flash-and-arduino/" data-via="" data-counturl="http://mikechambers.github.io/2010/08/04/getting-started-with-flash-and-arduino/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/08/01/sending-multibyte-numbers-from-actionscript-to-arduino/" title="Previous Post: Sending Multibyte Numbers from ActionScript to Arduino">&laquo; Sending Multibyte Numbers from ActionScript to Arduino</a>
+      
+      
+        <a class="basic-alignment right" href="/2010/08/04/quick-contest-flash-and-arduino/" title="Next Post: Quick Contest : Flash and Arduino">Quick Contest : Flash and Arduino &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

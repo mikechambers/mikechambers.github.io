@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Flash Player Switching on Mac - Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="I have been doing most of my work recently using ActionScript 3 and the Flash Player 8.5 public alpha. However, I recently had to do some Flash &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/2006/01/06/flash-player-switching-on-mac">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Flash Player Switching on Mac</h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-01-06T00:00:00-08:00" pubdate data-updated="true"></time>-->
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I have been doing most of my work recently using ActionScript 3 and the <a href="http://labs.macromedia.com">Flash Player 8.5 public alpha</a>. However, I recently had to do some Flash Player 8 / ActionScript 2 work, and ran into the issue of switching the Flash Player version installed on my machine. Of course, I could just install / reinstall players as I need them, but that it tedious, and doesn&#8217;t lend itself to quickly switching back and forth between player versions (especially during the same session). So, I put together a simple bash script that will quickly switch between player versions (for Firefox and Safari).</p>
+
+<!--more-->
+
+
+<p>First, you need to install Flash Player 8 (I suggest installing the debug version which you can get from the Flash Authoring install / trial). Once it is installed, you can find the plugins in:</p>
+
+<pre>/Library/Internet Plug-Ins/</pre>
+
+
+<p>The plugin files are:</p>
+
+<pre>Flash Player Enabler.plugin
+Flash Player.plugin</pre>
+
+
+<p>Inside of this director, create two new directories called 8.0 and 8.5, so that you end up with the following paths:</p>
+
+<pre>/Library/Internet Plug-Ins/8.0/
+/Library/Internet Plug-Ins/8.5/</pre>
+
+
+<p>Copy the two Flash Player plugin files into the newly created 8.0 directory.</p>
+
+<p>Now, <a href="http://labs.macromedia.com/wiki/index.php/Flex_Framework:tutorials:mac_development">download and install Flash Player 8.5 for Mac</a>. This will overwrite the previous plugins, and now you can copy the</p>
+
+<pre>Flash Player Enabler.plugin
+Flash Player.plugin</pre>
+
+
+<p>files into the 8.5 directory.</p>
+
+<p>You probably noticed that the directory that contains the plugin has a space in its name. This normally isn&#8217;t a big deal, but it makes accessing the path in a shell script a bit of a pain. So, we are going to make things a little easier, by creating a soft-link to that directory that does not contain a space.</p>
+
+<p>Switch to the /Library directory and run the following command:</p>
+
+<pre>sudo ln -s Internet\ Plug-Ins/ plugins</pre>
+
+
+<p>Basically, this creates a link called plugins that points to /Library/Internet Plug-Ins. So, we can refer to the Flash Player 8.5 plugin directory like so:</p>
+
+<pre>/Library/plugins/8.5/</pre>
+
+
+<p>This will make writing our shell script a lot easier.</p>
+
+<p>Finally, we need to create a shell script that will allow us to easily switch between plugin versions. Below is a simple bash script that I put together called cfp (change Flash Player). Basically, you call it and pass to it the Flash Player version you want to run, and it will switch to the Player.</p>
+
+<p>Here is the script</p>
+
+<pre>#!/bin/bash
+
+plugin_dir='/Library/plugins'
+
+np_dir="$plugin_dir/$1"
+
+if [ ! -d $np_dir ]
+then
+        echo "$np_dir does not exist."
+        exit
+fi
+
+
+cp -rv $np_dir/* $plugin_dir/</pre>
+
+
+<p>You use it like so:</p>
+
+<p>To switch to Flash Player 8.0:</p>
+
+<pre>sudo cfp 8.0</pre>
+
+
+<p>and to switch to Flash Player 8.5</p>
+
+<pre>sudo cfp 8.5</pre>
+
+
+<p>You will be prompted for your password, since you need admin rights to move the plugin files around.</p>
+
+<p>Note that the Flash Player version passed in is just the name of the Player directories we created earlier. So you can easily add new player versions by just creating new directories and copying the correct plugin files into that directory.</p>
+
+<p>You can confirm that the correct player version is installed by visiting the <a href="http://www.macromedia.com/cfusion/knowledgebase/index.cfm?id=tn_15507">Flash Player Version Test page</a>. My experience has been that you can switch the players without having to restart the browser, however if you run into any weird issues, I would just try and restart the browser.</p>
+
+<p>Now, there are other plugin switchers, but one of the advantages to doing it via bash, is it makes it very easy to automate the plugin switching via a bash or ant script. For example, you could write a script that:</p>
+
+<ol>
+<li>Compiles your ActionScript using MXMLC (AS3) or MTASC (AS2)</li>
+<li>Switches the browser to use the correct plugin using this script.</li>
+<li>Launches the newly compiled file into the browser.</li>
+</ol>
+
+
+<p>The next step is to hook up the command line FDB debugger so that you can debug running SWFs on the Mac. Danny Dura and I got this working yesterday, and I will try and post some info on it next week.</p>
+
+<p>Post any comments / suggestions / questions in the comments.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      <!--
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-01-06T00:00:00-08:00" pubdate data-updated="true"></time>
+-->
+
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mikechambers</span></span>
+ on 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-01-06T00:00:00-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/general/'>General</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mikechambers.github.io/2006/01/06/flash-player-switching-on-mac/" data-via="" data-counturl="http://mikechambers.github.io/2006/01/06/flash-player-switching-on-mac/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2005/12/22/compiling-actionscript-3-and-mxml-on-mac-and-linux/" title="Previous Post: Compiling ActionScript 3 and MXML on Mac and Linux">&laquo; Compiling ActionScript 3 and MXML on Mac and Linux</a>
+      
+      
+        <a class="basic-alignment right" href="/2006/01/09/parsing-xml-in-javascript/" title="Next Post: Parsing XML in JavaScript?">Parsing XML in JavaScript? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+<!--
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+-->
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

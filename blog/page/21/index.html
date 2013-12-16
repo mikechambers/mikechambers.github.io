@@ -1,0 +1,630 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mike Chambers</title>
+  <meta name="author" content="Mike Chambers">
+
+  
+  <meta name="description" content="I posted some proof of concept code the other day, which showed how to create a local command proxy to proxy commands from AIR applications to the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mikechambers.github.io/blog/page/21">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mike Chambers" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-553659-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+
+<body >
+
+<!--
+<body   >
+-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Chambers</a></h1>
+  
+    <h2>code is beautiful</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mikechambers.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/01/22/commandproxy-its-cool-but-is-it-a-good-idea/">CommandProxy : It&#8217;s Cool, but Is It a Good Idea?</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-22T00:00:00-08:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I posted some <a href="/blog/2008/01/17/commandproxy-net-air-integration-proof-of-concept/">proof of concept code the other day</a>, which showed how to create a local command proxy to proxy commands from AIR applications to the underlying operating system. This was some code I put together in the fall during a <a href="http://www.mikechambers.com/blog/2007/10/15/european-user-group-tour-mike-chambers-and-lee-brimelow/">European user group tour</a> as a way to see if it was possible to extend the <a href="http://www.adobe.com/go/air">AIR runtime</a> (after lots of requests on the tour from developers asking how to extend the runtime).</p>
+
+<p>One of the reasons I posted the code, was to generate a discussion not only around the solution and its feasibility, but also on other possible solutions. While there was a lot of positive feedback in the comments, there was not much focus on whether this is actually a good and / or feasible idea.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/01/22/commandproxy-its-cool-but-is-it-a-good-idea/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/01/17/commandproxy-net-air-integration-proof-of-concept/">CommandProxy : .NET / AIR Integration Proof of Concept</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-17T00:00:00-08:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Two of the most requested features for <a href="http://www.adobe.com/go/air">Adobe AIR</a> have been the ability to launch native executables from an AIR application, and the ability to integrate native libraries into an AIR application. Unfortunately, neither feature will be included in Adobe AIR 1.0.</p>
+
+<p>However, this does not mean that you cannot build an AIR application that has closer / tighter integration with the underlying operating system. This lower level of integration is possible, but it requires some work on your part. I have put together a proof of concept project, which shows how to integrate Adobe AIR applications with c# / .NET code on any operating system that Adobe AIR currently runs on (Mac and Windows). The project is called <a href="http://code.google.com/p/commandproxy/">CommandProxy</a>. It provides a communication proxy between an AIR application and the underlying operating system and could theoretically work with other web based desktop runtimes (such as <a href="http://wiki.mozilla.org/Prism">Mozilla Prism</a>).</p>
+
+<p>Update : I have posted some additional thoughts on this proof of concept <a href="http://www.mikechambers.com/blog/2008/01/22/commandproxy-its-cool-but-is-it-a-good-idea/">here</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2008/01/17/commandproxy-net-air-integration-proof-of-concept/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/01/11/new-flash-flex-spell-checking-component/">New Flash / Flex Spell Checking Component</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-11T00:00:00-08:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Grant Skinner has released a <a href="http://www.gskinner.com/products/spl/about.php">full featured spell check component for use in Flash, Flex and AIR applications</a>. This is pretty sweet, and pretty much does everything you would expect a spell check component to do. It really fills a gap in functionality within RIAs.</p>
+
+<p>You can find more information on the component, as well as see it in action <a href="http://www.gskinner.com/products/spl/about.php">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/13/yahoo-releases-sweet-flex-component-skin/">Yahoo Releases Sweet Flex Component Skin</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-13T00:00:00-08:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Check it out <a href="http://www.yswfblog.com/blog/2007/12/13/yahoo-and-flex-feel-good-in-your-own-skin/">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/13/amf-specification-released-blazeds-announced/">AMF Specification Released / BlazeDS Announced</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-13T00:00:00-08:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>We have just released the specification for AMF, as well as announced that we will be releasing and open sourcing a reference implementation (code-named BlazeDS).</p>
+
+<p>From the labs page:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/12/13/amf-specification-released-blazeds-announced/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/13/adobe-air-and-flex-3-beta-3-available/">Adobe AIR and Flex 3 Beta 3 Available</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-13T00:00:00-08:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>We have just posted updated betas for <a href="http://labs.adobe.com/technologies/air/">Adobe AIR</a>, <a href="http://labs.adobe.com/technologies/flex/">Flex 3 and Flex Builder</a> on labs.</p>
+
+<p>Note that the Adobe AIR authoring extension for Flash CS3 has not out just yet. It will be released in the next couple of days, so make sure to watch labs for the bits.</p>
+
+<p>You can find more information, as well as download all of the bits on <a href="http://labs.adobe.com">labs</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/04/papervision-3d-20-alpha/">Papervision 3d 2.0 Alpha</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-04T00:00:00-08:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Want to do real 3D in Flash? Check out the <a href="http://www.unitzeroone.com/blog/papervision3d/papervision3d_20_public_alpha.html">Papervision3D 2.0 Alpha</a>, just released today.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/12/04/new-thermo-video-posted/">New Thermo Video Posted</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-04T00:00:00-08:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The edge has just posted a <a href="http://www.adobe.com/newsletters/edge/december2007/video/index.html?trackingid=BOYND">video interview</a> with Mark Anders and Steven Heinz (both from the Thermo team). In the video, Mark and Steve give an <a href="http://www.adobe.com/newsletters/edge/december2007/video/index.html?trackingid=BOYND">introduction to and overview of Thermo</a>.</p>
+
+<p>What is Thermo? From the labs page:</p>
+
+<blockquote><p>&#8220;Thermo&#8221; is an upcoming Adobe product that makes it easy for designers to create rich Internet application UIs. Thermo allows designers to build on familiar workflows to visually create working applications that easily flow into production and development.</p></blockquote>
+
+<p>You can view the entire video <a href="http://www.adobe.com/newsletters/edge/december2007/video/index.html?trackingid=BOYND">here</a>.</p>
+
+<p>You can find more information on <a href="http://labs.adobe.com/wiki/index.php/Thermo">Thermo on labs</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/26/adobe-air-for-javascript-developers-translated-to-thai/">Adobe AIR for JavaScript Developers Translated to Thai</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-26T00:00:00-08:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just noticed over on the <a href="http://labs.adobe.com/wiki/index.php/AIR:Books:Adobe_Integrated_Runtime_for_JavaScript_Developers">labs wiki</a> that the Adobe AIR For JavaScript Developers Pocket Guide has been <a href="http://lib.blognone.com/Adobe_Integrated_Runtime_(AIR)_for_JavaScript_Developers">translated to Thai</a>.</p>
+
+<p>You can view the full translation <a href="http://lib.blognone.com/Adobe_Integrated_Runtime_(AIR)_for_JavaScript_Developers">here</a>.</p>
+
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons</a> FTW!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2007/11/15/introducing-the-adobe-air-logo/">Introducing the Adobe AIR Logo</a></h1>
+    
+
+    
+      <p class="meta">
+        <!--
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-15T00:00:00-08:00" pubdate data-updated="true"></time>&#8211;>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you have been following <a href="http://www.adobe.com/go/air">Adobe AIR</a> during its young lifetime, then you have probably noticed that it has been pretty inconsistent as far as branding goes. It has had a number of logos and graphics associated with it, including the rocket-ship, and the current &#8220;AIR&#8221; branding.</p>
+
+<p>Part of this was due to the surprisingly complex process of designing and settling on a logo in the technology world. There have been quite a few times during the past year where we felt that we were close to having the final logo, only to then find out that it was just a bit too familiar to some other logo in the computer / internet / tech world.</p>
+
+<p>Well, I am happy to say that we have the final logo. I had the honor of showing it for the first time today, at the <a href="http://www.flexeurs.org/rencontre-avec-mike-chambers-et-lee-brimelow-a-l-occasion-du-air-user-group-tour.html">Adobe User group meeting in Paris</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2007/11/15/introducing-the-adobe-air-logo/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/22/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/20/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<!--
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/test-post/">Test Post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/08/simple-http-server-for-local-testing/">Simple HTTP Server for Local Testing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/04/02/north-american-flash-community-tour/">North American Flash Community Tour</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/22/flash-roadmap-whitepaper-published/">Flash Roadmap Whitepaper Published</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/02/13/in-europe-to-discuss-flash-roadmap/">In Europe to Discuss Flash Roadmap</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/mikechambers">@mikechambers</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mikechambers',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+&#8211;>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Chambers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikechambers';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
