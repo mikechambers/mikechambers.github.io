@@ -11,8 +11,7 @@ tags:
   - touch
 ---
 
-
-In response to my post on [Mouse Events and hover in Flash Player][1] content on touch devices, John Gruber (daringfireball.net) [raises an issue][2]:
+In response to my post on [Mouse Events and hover in Flash Player][1] content on touch devices, [John Gruber](daringfireball.net) [raises an issue][2]:
 
 > The problem, though, for a hypothetic Flash plugin that renders pages within web pages (as on traditional desktop browsers), is how to tell whether a tap-and-drag within a Flash element is supposed to scroll the entire web page or be passed as a mouse movement event to the Flash element. It can’t do both, and it can’t read the user’s mind.
 
@@ -32,7 +31,7 @@ In practice, this works very well, and at least among the people I have watched 
 
 You can see a video of the interactions here:
 
-
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/EeQDihKo5MU&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/EeQDihKo5MU&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
 
 Now, this is all pre-release software, and could change. I would be interested in hearing any other suggestions on how this particular interaction could be made better (for Flash and HTML content). Again though, this is just as much a potential HTML issue, as it is a potential Flash issue, so think about solutions in that context.
 

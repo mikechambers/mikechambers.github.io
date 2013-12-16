@@ -7,7 +7,6 @@ categories:
   - General
 ---
 
-
 Here are my slides from my FITC Amsterdam talk titled [Building High Performance iPhone Applications with ActionScript 3][1].
 
 Sorry I ran a little short of time, but you can find all of the info in the slides.
