@@ -8,8 +8,7 @@ categories:
   - General
 ---
 
-
-Just a quick note, but I have updated my &#8220;[fyi][1]&#8221; Firefox Ubiquity command to work with the [latest version of Ubiquity][2] (0.5).
+Just a quick note, but I have updated my "[fyi][1]" Firefox Ubiquity command to work with the [latest version of Ubiquity][2] (0.5).
 
 You can find more information on the command, as well as install it from [here][1].
 
