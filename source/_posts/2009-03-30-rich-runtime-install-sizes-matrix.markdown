@@ -21,9 +21,7 @@ The runtimes covered include:
 I have obtained the information from the runtimes&#8217; websites. The download sizes are based on actual download size, and not the download size stated on the website (there were some discrepancies). Sections that are blank indicate that there is no supported runtime available for that runtime / platform combination.  
 <!--more-->
 
-<link rel="stylesheet" href="//spreadsheets.google.com/client/css/1466136270-trix_main.css" type="text/css" />
-
-<table border="0" cellpadding="0" cellspacing="0" id='tblMain'>
+<table border="1" cellpadding="0" cellspacing="0" id='tblMain'>
   <tr>
     <td>
       <table border="0" cellpadding="0" cellspacing="0" class='tblGenFixed' id='tblMain_0'>
@@ -264,10 +262,10 @@ I have obtained the information from the runtimes&#8217; websites. The download 
 
 &nbsp;
 
-(1) &#8211; Universal Binary  
-(2) &#8211; Included with Java offline install  
-(3) &#8211; No offline install (could not determine size)  
-(4) &#8211; Beta
+(1) Universal Binary  
+(2) Included with Java offline install  
+(3) No offline install (could not determine size)  
+(4) Beta
 
 Here is a table showing the average sizes for the platforms where the runtime is available:
 
@@ -343,8 +341,6 @@ Here is a table showing the average sizes for the platforms where the runtime is
     </td>
   </tr>
 </table>
-
-&nbsp;
 
 If you find any errors or omissions, please leave them in the comments.
 
