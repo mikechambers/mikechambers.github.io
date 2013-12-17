@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Relative performance for collision detection techniques in ActionScript 3</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Relative performance for collision detection techniques in ActionScript 3</h2>
+<p class="meta">Friday, June 26, 2009</p>
+
+<div class="post">
+<p>If you have read my blog any <a href="http://www.mikechambers.com/blog/2009/06/24/using-bitmapdata-hittest-for-collision-detection/">this</a> <a href="http://www.mikechambers.com/blog/2009/06/25/strategies-for-optimizing-collision-detection-with-bitmapdata-hittest/">week</a>, you have probably noticed that I have been doing some basic research on collision detection within the Flash Player. As part of this, I have put together a simple test suite, showing the performance of a couple of different techniques for checking for collision. This is by no means meant to be exhaustive (and currently tilts towards boundary collision). However, I wanted to post the results as the current information is useful (if nothing more than to confirm existing assumptions), and perhaps generate more tests an ideas around collision detection.<br>
+&lt;!--more--&gt;</p>
+
+<p>First, the test code (uses Flash Pro). clip1 and clip2 reference two overlapping MovieClips on the stage (clip2 is about 1/2 the size of clip1).</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="kd">package</span>
+<a name="line-2"></a><span class="p">{</span>
+<a name="line-3"></a>    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">MovieClip</span><span class="o">;</span>
+<a name="line-4"></a>    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">geom</span><span class="p">.</span><span class="nb">Point</span><span class="o">;</span>
+<a name="line-5"></a>    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Bitmap</span><span class="o">;</span>
+<a name="line-6"></a>    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">BitmapData</span><span class="o">;</span>
+<a name="line-7"></a>    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">geom</span><span class="p">.</span><span class="nb">Rectangle</span><span class="o">;</span>
+<a name="line-8"></a>
+<a name="line-9"></a>    <span class="kd">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">gskinner</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">PerformanceTest</span><span class="o">;</span>
+<a name="line-10"></a>
+<a name="line-11"></a>    <span class="kd">public</span> <span class="kd">class</span> <span class="nx">CollisionDetectionTests</span> <span class="kd">extends</span> <span class="nb">MovieClip</span>
+<a name="line-12"></a>    <span class="p">{</span>
+<a name="line-13"></a>        <span class="kd">public</span> <span class="k">var</span> <span class="nx">clip1</span><span class="o">:</span><span class="nb">MovieClip</span><span class="o">;</span>
+<a name="line-14"></a>        <span class="kd">public</span> <span class="k">var</span> <span class="nx">clip2</span><span class="o">:</span><span class="nb">MovieClip</span><span class="o">;</span>
+<a name="line-15"></a>
+<a name="line-16"></a>        <span class="kd">private</span> <span class="k">var</span> <span class="nx">dynamicClip1</span><span class="o">:</span><span class="nb">MovieClip</span><span class="o">;</span>
+<a name="line-17"></a>        <span class="kd">private</span> <span class="k">var</span> <span class="nx">dynamicClip2</span><span class="o">:</span><span class="nb">MovieClip</span><span class="o">;</span> 
+<a name="line-18"></a>
+<a name="line-19"></a>        <span class="k">var</span> <span class="nx">point1</span><span class="o">:</span><span class="nb">Point</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Point</span><span class="p">();</span>
+<a name="line-20"></a>        <span class="k">var</span> <span class="nx">point2</span><span class="o">:</span><span class="nb">Point</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Point</span><span class="p">();</span>
+<a name="line-21"></a>
+<a name="line-22"></a>        <span class="kd">private</span> <span class="k">var</span> <span class="nx">clip1Rect</span><span class="o">:</span><span class="nb">Rectangle</span><span class="o">;</span>
+<a name="line-23"></a>        <span class="kd">private</span> <span class="k">var</span> <span class="nx">clip1ClipBmpData</span><span class="o">:</span><span class="nb">BitmapData</span><span class="o">;</span>
+<a name="line-24"></a>        <span class="kd">private</span> <span class="k">var</span> <span class="nx">clip2Rect</span><span class="o">:</span><span class="nb">Rectangle</span><span class="o">;</span>
+<a name="line-25"></a>        <span class="kd">private</span> <span class="k">var</span> <span class="nx">clip2ClipBmpData</span><span class="o">:</span><span class="nb">BitmapData</span><span class="o">;</span>
+<a name="line-26"></a>
+<a name="line-27"></a>        <span class="kd">public</span> <span class="kd">function</span> <span class="nx">CollisionDetectionTests</span><span class="p">()</span>
+<a name="line-28"></a>        <span class="p">{</span>
+<a name="line-29"></a>            <span class="kd">super</span><span class="p">();</span>
+<a name="line-30"></a>
+<a name="line-31"></a>            <span class="nx">init</span><span class="p">();</span>
+<a name="line-32"></a>            <span class="nx">checkCollisions</span><span class="p">();</span>
+<a name="line-33"></a>            <span class="nx">runTests</span><span class="p">();</span>
+<a name="line-34"></a>        <span class="p">}</span>
+<a name="line-35"></a>
+<a name="line-36"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">init</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-37"></a>        <span class="p">{</span>
+<a name="line-38"></a>
+<a name="line-39"></a>            <span class="nx">clip1Rect</span> <span class="o">=</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-40"></a>            <span class="nx">clip1ClipBmpData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">clip1Rect</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> <span class="nx">clip1Rect</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-41"></a>            <span class="nx">clip1ClipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">clip1</span><span class="p">);</span>
+<a name="line-42"></a>
+<a name="line-43"></a>            <span class="nx">clip2Rect</span> <span class="o">=</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-44"></a>            <span class="nx">clip2ClipBmpData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">clip2Rect</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> <span class="nx">clip2Rect</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-45"></a>            <span class="nx">clip2ClipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">clip2</span><span class="p">);</span>
+<a name="line-46"></a>
+<a name="line-47"></a>            <span class="nx">dynamicClip1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">MovieClip</span><span class="p">();</span>
+<a name="line-48"></a>
+<a name="line-49"></a>            <span class="nx">dynamicClip1</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">beginFill</span><span class="p">(</span><span class="mi">0</span><span class="nx">xFF0000</span><span class="p">);</span>
+<a name="line-50"></a>            <span class="nx">dynamicClip1</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">drawEllipse</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="p">);</span>
+<a name="line-51"></a>            <span class="nx">dynamicClip1</span><span class="p">.</span><span class="nx">cacheAsBitmap</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<a name="line-52"></a>
+<a name="line-53"></a>            <span class="nx">dynamicClip1</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">300</span><span class="o">;</span>
+<a name="line-54"></a>            <span class="nx">dynamicClip1</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">300</span><span class="o">;</span>
+<a name="line-55"></a>
+<a name="line-56"></a>            <span class="nx">addChild</span><span class="p">(</span><span class="nx">dynamicClip1</span><span class="p">);</span>
+<a name="line-57"></a>
+<a name="line-58"></a>            <span class="nx">dynamicClip2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">MovieClip</span><span class="p">();</span>
+<a name="line-59"></a>
+<a name="line-60"></a>            <span class="nx">dynamicClip2</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">beginFill</span><span class="p">(</span><span class="mh">0x0000</span><span class="nx">FF</span><span class="p">);</span>
+<a name="line-61"></a>            <span class="nx">dynamicClip2</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-62"></a>            <span class="nx">dynamicClip2</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">100</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-63"></a>            <span class="nx">dynamicClip2</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">100</span><span class="o">,</span> <span class="mi">100</span><span class="p">);</span>
+<a name="line-64"></a>            <span class="nx">dynamicClip2</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="p">);</span>
+<a name="line-65"></a>            <span class="nx">dynamicClip2</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-66"></a>            <span class="nx">dynamicClip2</span><span class="p">.</span><span class="nx">cacheAsBitmap</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<a name="line-67"></a>
+<a name="line-68"></a>            <span class="nx">dynamicClip2</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">250</span><span class="o">;</span>
+<a name="line-69"></a>            <span class="nx">dynamicClip2</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">250</span><span class="o">;</span>
+<a name="line-70"></a>
+<a name="line-71"></a>            <span class="nx">addChild</span><span class="p">(</span><span class="nx">dynamicClip2</span><span class="p">);</span>
+<a name="line-72"></a>        <span class="p">}</span>
+<a name="line-73"></a>
+<a name="line-74"></a>
+<a name="line-75"></a>
+<a name="line-76"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkCollisions</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-77"></a>        <span class="p">{</span>
+<a name="line-78"></a>            <span class="c1">//make sure everything is working and returns true</span>
+<a name="line-79"></a>            <span class="nf">trace</span><span class="p">(</span><span class="nx">checkHitTest</span><span class="p">());</span>
+<a name="line-80"></a>            <span class="nf">trace</span><span class="p">(</span><span class="nx">boundsIntersection</span><span class="p">());</span>
+<a name="line-81"></a>            <span class="nf">trace</span><span class="p">(</span><span class="nx">checkHitTestReverse</span><span class="p">());</span>
+<a name="line-82"></a>            <span class="nf">trace</span><span class="p">(</span><span class="nx">checkBoundsManually</span><span class="p">());</span>
+<a name="line-83"></a>            <span class="nf">trace</span><span class="p">(</span><span class="nx">hitTestCircle</span><span class="p">());</span>
+<a name="line-84"></a>            <span class="nf">trace</span><span class="p">(</span><span class="nx">checkBitmapDataHit</span><span class="p">());</span>
+<a name="line-85"></a>            <span class="nf">trace</span><span class="p">(</span><span class="nx">checkBitmapDataHitReverse</span><span class="p">());</span>
+<a name="line-86"></a>            <span class="nf">trace</span><span class="p">(</span><span class="nx">checkBitmapDataHitInternal</span><span class="p">());</span>
+<a name="line-87"></a>            <span class="nf">trace</span><span class="p">(</span><span class="nx">checkBitmapDataHitDynamic</span><span class="p">());</span>
+<a name="line-88"></a>        <span class="p">}</span>
+<a name="line-89"></a>
+<a name="line-90"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">runTests</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-91"></a>        <span class="p">{</span>
+<a name="line-92"></a>            <span class="k">var</span> <span class="nx">perfTest</span><span class="o">:</span><span class="nx">PerformanceTest</span> <span class="o">=</span> <span class="nx">PerformanceTest</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">();</span>
+<a name="line-93"></a>            <span class="nx">perfTest</span><span class="p">.</span><span class="nx">out</span> <span class="o">=</span> <span class="nx">out</span><span class="o">;</span>
+<a name="line-94"></a>
+<a name="line-95"></a>            <span class="c1">//this is to work around bug in test lib</span>
+<a name="line-96"></a>            <span class="nx">perfTest</span><span class="p">.</span><span class="nx">testSuite</span><span class="p">({});</span>
+<a name="line-97"></a>
+<a name="line-98"></a>            <span class="nx">perfTest</span><span class="p">.</span><span class="nx">testFunction</span><span class="p">(</span><span class="nx">checkHitTest</span><span class="o">,</span> <span class="mi">10000</span><span class="o">,</span> <span class="s2">&quot;checkHitTest&quot;</span><span class="o">,</span> <span class="s2">&quot;Uses DisplayObject.hitTest&quot;</span><span class="p">);</span>
+<a name="line-99"></a>            <span class="nx">perfTest</span><span class="p">.</span><span class="nx">testFunction</span><span class="p">(</span><span class="nx">checkHitTestReverse</span><span class="o">,</span> <span class="mi">10000</span><span class="o">,</span> <span class="s2">&quot;checkHitTestReverse&quot;</span><span class="o">,</span> <span class="s2">&quot;Uses DisplayObject.hitTest with clips reversed&quot;</span><span class="p">);</span>
+<a name="line-100"></a>            <span class="nx">perfTest</span><span class="p">.</span><span class="nx">testFunction</span><span class="p">(</span><span class="nx">boundsIntersection</span><span class="o">,</span> <span class="mi">10000</span><span class="o">,</span> <span class="s2">&quot;boundsIntersection&quot;</span><span class="o">,</span> <span class="s2">&quot;Uses Rectangle.intersects()&quot;</span><span class="p">);</span>
+<a name="line-101"></a>            <span class="nx">perfTest</span><span class="p">.</span><span class="nx">testFunction</span><span class="p">(</span><span class="nx">checkBoundsManually</span><span class="o">,</span> <span class="mi">10000</span><span class="o">,</span> <span class="s2">&quot;checkBoundsManually&quot;</span><span class="o">,</span> <span class="s2">&quot;manually checks if bounds intersect.&quot;</span><span class="p">);</span>
+<a name="line-102"></a>            <span class="nx">perfTest</span><span class="p">.</span><span class="nx">testFunction</span><span class="p">(</span><span class="nx">hitTestCircle</span><span class="o">,</span> <span class="mi">10000</span><span class="o">,</span> <span class="s2">&quot;hitTestCircle&quot;</span><span class="o">,</span> <span class="s2">&quot;Check if bounding circles intersect.&quot;</span><span class="p">);</span>
+<a name="line-103"></a>            <span class="nx">perfTest</span><span class="p">.</span><span class="nx">testFunction</span><span class="p">(</span><span class="nx">checkBitmapDataHit</span><span class="o">,</span> <span class="mi">10000</span><span class="o">,</span> <span class="s2">&quot;checkBitmapDataHit&quot;</span><span class="o">,</span> <span class="s2">&quot;Uses BitmapData.hitTest to check for collision.&quot;</span><span class="p">);</span>
+<a name="line-104"></a>            <span class="nx">perfTest</span><span class="p">.</span><span class="nx">testFunction</span><span class="p">(</span><span class="nx">checkBitmapDataHitReverse</span><span class="o">,</span> <span class="mi">10000</span><span class="o">,</span> <span class="s2">&quot;checkBitmapDataHitReverse&quot;</span><span class="o">,</span> <span class="s2">&quot;Uses BitmapData.hitTest to check for collision. Instances reversed.&quot;</span><span class="p">);</span>
+<a name="line-105"></a>            <span class="nx">perfTest</span><span class="p">.</span><span class="nx">testFunction</span><span class="p">(</span><span class="nx">checkBitmapDataHitInternal</span><span class="o">,</span> <span class="mi">10000</span><span class="o">,</span> <span class="s2">&quot;checkBitmapDataHitInternal&quot;</span><span class="o">,</span> <span class="s2">&quot;Uses BitmapData.hitTest to check for collision. BitmapData not cached.&quot;</span><span class="p">);</span>
+<a name="line-106"></a>            <span class="nx">perfTest</span><span class="p">.</span><span class="nx">testFunction</span><span class="p">(</span><span class="nx">checkBitmapDataHitDynamic</span><span class="o">,</span> <span class="mi">10000</span><span class="o">,</span> <span class="s2">&quot;checkBitmapDataHitDynamic&quot;</span><span class="o">,</span> <span class="s2">&quot;Uses BitmapData.hitTest to check for collision. BitmapData not cached. MovieClips dynamic.&quot;</span><span class="p">);</span>
+<a name="line-107"></a>        <span class="p">}</span>
+<a name="line-108"></a>
+<a name="line-109"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkHitTest</span><span class="p">()</span><span class="o">:</span><span class="nb">Boolean</span>
+<a name="line-110"></a>        <span class="p">{</span>
+<a name="line-111"></a>            <span class="k">return</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">hitTestObject</span><span class="p">(</span><span class="nx">clip2</span><span class="p">);</span>
+<a name="line-112"></a>        <span class="p">}</span>
+<a name="line-113"></a>
+<a name="line-114"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkHitTestReverse</span><span class="p">()</span><span class="o">:</span><span class="nb">Boolean</span>
+<a name="line-115"></a>        <span class="p">{</span>
+<a name="line-116"></a>            <span class="k">return</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">hitTestObject</span><span class="p">(</span><span class="nx">clip1</span><span class="p">);</span>
+<a name="line-117"></a>        <span class="p">}</span>
+<a name="line-118"></a>
+<a name="line-119"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">boundsIntersection</span><span class="p">()</span><span class="o">:</span><span class="nb">Boolean</span>
+<a name="line-120"></a>        <span class="p">{</span>   
+<a name="line-121"></a>            <span class="k">return</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">intersects</span><span class="p">(</span><span class="nx">clip2</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+<a name="line-122"></a>        <span class="p">}</span>
+<a name="line-123"></a>
+<a name="line-124"></a>
+<a name="line-125"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">hitTestCircle</span><span class="p">()</span><span class="o">:</span><span class="nb">Boolean</span>
+<a name="line-126"></a>        <span class="p">{</span>
+<a name="line-127"></a>            <span class="k">var</span> <span class="nx">dx</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="p">(</span><span class="nx">clip2</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">width</span> <span class="sr">/ 2) - (clip1.x + clip1.width /</span> <span class="mi">2</span><span class="p">);</span>
+<a name="line-128"></a>            <span class="k">var</span> <span class="nx">dy</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="p">(</span><span class="nx">clip2</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">height</span> <span class="sr">/ 2) - (clip1.y + clip1.height /</span> <span class="mi">2</span><span class="p">);</span>
+<a name="line-129"></a>            <span class="k">var</span> <span class="nx">dist</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">dx</span> <span class="o">*</span> <span class="nx">dx</span> <span class="o">+</span> <span class="nx">dy</span> <span class="o">*</span> <span class="nx">dy</span><span class="p">);</span>
+<a name="line-130"></a>
+<a name="line-131"></a>            <span class="k">return</span> <span class="p">(</span><span class="nx">dist</span> <span class="o">&lt;</span> <span class="p">((</span><span class="nx">clip1</span><span class="p">.</span><span class="nx">width</span> <span class="sr">/ 2) + (clip2.width /</span> <span class="mi">2</span><span class="p">)));</span>
+<a name="line-132"></a>        <span class="p">}</span>
+<a name="line-133"></a>
+<a name="line-134"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkBoundsManually</span><span class="p">()</span><span class="o">:</span><span class="nb">Boolean</span>
+<a name="line-135"></a>        <span class="p">{</span>
+<a name="line-136"></a>            <span class="k">if</span><span class="p">(</span><span class="nx">clip1</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">width</span> <span class="o">&amp;&amp;</span>
+<a name="line-137"></a>               <span class="nx">clip2</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">width</span> <span class="o">&amp;&amp;</span>
+<a name="line-138"></a>               <span class="nx">clip1</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">height</span> <span class="o">&amp;&amp;</span>
+<a name="line-139"></a>               <span class="nx">clip2</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">height</span>
+<a name="line-140"></a>               <span class="p">)</span>
+<a name="line-141"></a>            <span class="p">{</span>
+<a name="line-142"></a>                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<a name="line-143"></a>            <span class="p">}</span>
+<a name="line-144"></a>
+<a name="line-145"></a>            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<a name="line-146"></a>        <span class="p">}</span>
+<a name="line-147"></a>
+<a name="line-148"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkBitmapDataHit</span><span class="p">()</span><span class="o">:</span><span class="nb">Boolean</span>
+<a name="line-149"></a>        <span class="p">{</span>
+<a name="line-150"></a>            <span class="nx">point1</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-151"></a>            <span class="nx">point1</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>
+<a name="line-152"></a>
+<a name="line-153"></a>            <span class="nx">point2</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-154"></a>            <span class="nx">point2</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>
+<a name="line-155"></a>            <span class="k">if</span><span class="p">(</span><span class="nx">clip1ClipBmpData</span><span class="p">.</span><span class="nx">hitTest</span><span class="p">(</span><span class="nx">point1</span><span class="o">,</span>
+<a name="line-156"></a>                                        <span class="mi">255</span><span class="o">,</span>
+<a name="line-157"></a>                                        <span class="nx">clip2ClipBmpData</span><span class="o">,</span>
+<a name="line-158"></a>                                        <span class="nx">point2</span><span class="o">,</span>
+<a name="line-159"></a>                                        <span class="mi">255</span>
+<a name="line-160"></a>
+<a name="line-161"></a>                                  <span class="p">))</span>
+<a name="line-162"></a>            <span class="p">{</span>
+<a name="line-163"></a>                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<a name="line-164"></a>            <span class="p">}</span>
+<a name="line-165"></a>
+<a name="line-166"></a>            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<a name="line-167"></a>        <span class="p">}</span>
+<a name="line-168"></a>
+<a name="line-169"></a>
+<a name="line-170"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkBitmapDataHitInternal</span><span class="p">()</span><span class="o">:</span><span class="nb">Boolean</span>
+<a name="line-171"></a>        <span class="p">{</span>
+<a name="line-172"></a>            <span class="k">var</span> <span class="nx">_clip1Rect</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-173"></a>            <span class="k">var</span> <span class="nx">_clip1ClipBmpData</span><span class="o">:</span><span class="nb">BitmapData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">_clip1Rect</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> <span class="nx">_clip1Rect</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-174"></a>            <span class="nx">_clip1ClipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">clip1</span><span class="p">);</span>
+<a name="line-175"></a>
+<a name="line-176"></a>            <span class="k">var</span> <span class="nx">_clip2Rect</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-177"></a>            <span class="k">var</span> <span class="nx">_clip2ClipBmpData</span><span class="o">:</span><span class="nb">BitmapData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">_clip2Rect</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> <span class="nx">_clip2Rect</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-178"></a>            <span class="nx">_clip2ClipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">clip2</span><span class="p">);</span>  
+<a name="line-179"></a>
+<a name="line-180"></a>            <span class="nx">point1</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-181"></a>            <span class="nx">point1</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>
+<a name="line-182"></a>
+<a name="line-183"></a>            <span class="nx">point2</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-184"></a>            <span class="nx">point2</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>
+<a name="line-185"></a>
+<a name="line-186"></a>            <span class="k">var</span> <span class="nx">hits</span><span class="o">:</span><span class="nb">Boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<a name="line-187"></a>            <span class="k">if</span><span class="p">(</span><span class="nx">_clip1ClipBmpData</span><span class="p">.</span><span class="nx">hitTest</span><span class="p">(</span><span class="nx">point1</span><span class="o">,</span>
+<a name="line-188"></a>                                        <span class="mi">255</span><span class="o">,</span>
+<a name="line-189"></a>                                        <span class="nx">_clip2ClipBmpData</span><span class="o">,</span>
+<a name="line-190"></a>                                        <span class="nx">point2</span><span class="o">,</span>
+<a name="line-191"></a>                                        <span class="mi">255</span>
+<a name="line-192"></a>                                  <span class="p">))</span>
+<a name="line-193"></a>            <span class="p">{</span>
+<a name="line-194"></a>                <span class="nx">hits</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<a name="line-195"></a>            <span class="p">}</span>
+<a name="line-196"></a>
+<a name="line-197"></a>            <span class="nx">_clip1ClipBmpData</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>
+<a name="line-198"></a>            <span class="nx">_clip2ClipBmpData</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>
+<a name="line-199"></a>
+<a name="line-200"></a>            <span class="k">return</span> <span class="nx">hits</span><span class="o">;</span>
+<a name="line-201"></a>        <span class="p">}</span>
+<a name="line-202"></a>
+<a name="line-203"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkBitmapDataHitDynamic</span><span class="p">()</span><span class="o">:</span><span class="nb">Boolean</span>
+<a name="line-204"></a>        <span class="p">{</span>
+<a name="line-205"></a>            <span class="k">var</span> <span class="nx">dynamicClip1Rect</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="nx">dynamicClip1</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-206"></a>            <span class="k">var</span> <span class="nx">dynamicClip1ClipBmpData</span><span class="o">:</span><span class="nb">BitmapData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">dynamicClip1Rect</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> 
+<a name="line-207"></a>                                                                    <span class="nx">dynamicClip1Rect</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-208"></a>            <span class="nx">dynamicClip1ClipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">dynamicClip1</span><span class="p">);</span>
+<a name="line-209"></a>
+<a name="line-210"></a>            <span class="k">var</span> <span class="nx">dynamicClip2Rect</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="nx">dynamicClip2</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-211"></a>            <span class="k">var</span> <span class="nx">dynamicClip2ClipBmpData</span><span class="o">:</span><span class="nb">BitmapData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">dynamicClip2Rect</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> 
+<a name="line-212"></a>                                                                    <span class="nx">dynamicClip2Rect</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-213"></a>            <span class="nx">dynamicClip2ClipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">dynamicClip2</span><span class="p">);</span> 
+<a name="line-214"></a>
+<a name="line-215"></a>            <span class="nx">point1</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">dynamicClip1</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-216"></a>            <span class="nx">point1</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">dynamicClip1</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>
+<a name="line-217"></a>
+<a name="line-218"></a>            <span class="nx">point2</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">dynamicClip2</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-219"></a>            <span class="nx">point2</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">dynamicClip2</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>  
+<a name="line-220"></a>
+<a name="line-221"></a>            <span class="k">var</span> <span class="nx">hits</span><span class="o">:</span><span class="nb">Boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<a name="line-222"></a>            <span class="k">if</span><span class="p">(</span><span class="nx">dynamicClip1ClipBmpData</span><span class="p">.</span><span class="nx">hitTest</span><span class="p">(</span><span class="nx">point1</span><span class="o">,</span>
+<a name="line-223"></a>                                        <span class="mi">255</span><span class="o">,</span>
+<a name="line-224"></a>                                        <span class="nx">dynamicClip2ClipBmpData</span><span class="o">,</span>
+<a name="line-225"></a>                                        <span class="nx">point2</span><span class="o">,</span>
+<a name="line-226"></a>                                        <span class="mi">255</span>
+<a name="line-227"></a>                                  <span class="p">))</span>
+<a name="line-228"></a>            <span class="p">{</span>
+<a name="line-229"></a>                <span class="nx">hits</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<a name="line-230"></a>            <span class="p">}</span>
+<a name="line-231"></a>
+<a name="line-232"></a>            <span class="nx">dynamicClip1ClipBmpData</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>
+<a name="line-233"></a>            <span class="nx">dynamicClip2ClipBmpData</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>
+<a name="line-234"></a>
+<a name="line-235"></a>            <span class="k">return</span> <span class="nx">hits</span><span class="o">;</span>
+<a name="line-236"></a>        <span class="p">}</span>
+<a name="line-237"></a>
+<a name="line-238"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkBitmapDataHitReverse</span><span class="p">()</span><span class="o">:</span><span class="nb">Boolean</span>
+<a name="line-239"></a>        <span class="p">{</span>
+<a name="line-240"></a>            <span class="nx">point1</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-241"></a>            <span class="nx">point1</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">clip1</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>
+<a name="line-242"></a>
+<a name="line-243"></a>            <span class="nx">point2</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-244"></a>            <span class="nx">point2</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">clip2</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span> 
+<a name="line-245"></a>
+<a name="line-246"></a>            <span class="k">if</span><span class="p">(</span><span class="nx">clip2ClipBmpData</span><span class="p">.</span><span class="nx">hitTest</span><span class="p">(</span><span class="nx">point2</span><span class="o">,</span>
+<a name="line-247"></a>                                        <span class="mi">255</span><span class="o">,</span>
+<a name="line-248"></a>                                        <span class="nx">clip1ClipBmpData</span><span class="o">,</span>
+<a name="line-249"></a>                                        <span class="nx">point1</span><span class="o">,</span>
+<a name="line-250"></a>                                        <span class="mi">255</span>
+<a name="line-251"></a>
+<a name="line-252"></a>                                  <span class="p">))</span>
+<a name="line-253"></a>            <span class="p">{</span>
+<a name="line-254"></a>                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<a name="line-255"></a>            <span class="p">}</span>
+<a name="line-256"></a>
+<a name="line-257"></a>            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<a name="line-258"></a>        <span class="p">}</span>
+<a name="line-259"></a>
+<a name="line-260"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">out</span><span class="p">(</span><span class="nx">str</span><span class="o">:*</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-261"></a>        <span class="p">{</span>
+<a name="line-262"></a>            <span class="nf">trace</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+<a name="line-263"></a>        <span class="p">}</span>
+<a name="line-264"></a>    <span class="p">}</span>
+<a name="line-265"></a><span class="p">}</span>
+</code></pre></div>
+<p>You can download the code from <a href="http://www.mikechambers.com/blog/files/collisiondetection/CollisionDetectionTests.zip">here</a> (requires Flash Pro and <a href="http://www.gskinner.com/blog/archives/2009/04/as3_performance.html">Grant Skinner&#39;s Performance Testing Harness</a>).</p>
+
+<p>And here are the raw results:</p>
+
+<pre>––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+checkHitTest (10000 iterations)
+Uses DisplayObject.hitTest                                              
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+method...................................................ttl ms...avg ms
+[function]                                                    8     0.00
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+checkHitTestReverse (10000 iterations)
+Uses DisplayObject.hitTest with clips reversed                          
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+method...................................................ttl ms...avg ms
+[function]                                                    7     0.00
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+boundsIntersection (10000 iterations)
+Uses Rectangle.intersects()                                             
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+method...................................................ttl ms...avg ms
+[function]                                                   33     0.00
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+checkBoundsManually (10000 iterations)
+manually checks if bounds intersect.                                    
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+method...................................................ttl ms...avg ms
+[function]                                                   18     0.00
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+hitTestCircle (10000 iterations)
+Check if bounding circles intersect.                                    
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+method...................................................ttl ms...avg ms
+[function]                                                   22     0.00
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+checkBitmapDataHit (10000 iterations)
+Uses BitmapData.hitTest to check for collision.                         
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+method...................................................ttl ms...avg ms
+[function]                                                    7     0.00
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+checkBitmapDataHitReverse (10000 iterations)
+Uses BitmapData.hitTest to check for collision. Instances reversed.     
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+method...................................................ttl ms...avg ms
+[function]                                                    7     0.00
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+checkBitmapDataHitInternal (10000 iterations)
+Uses BitmapData.hitTest to check for collision. BitmapData not cached.  
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+method...................................................ttl ms...avg ms
+[function]                                                 6332     0.63
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+checkBitmapDataHitDynamic (10000 iterations)
+Uses BitmapData.hitTest to check for collision. BitmapData not cached.
+Dynamic MovieClips
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+method...................................................ttl ms...avg ms
+[function]                                                 1892     0.19
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</pre>
+
+<p>Most of the results are as expected, although there is one surprise. </p>
+
+<p>Doing a BitmapData.hitTest on a MovieClip placed onto the stage at author time (in Flash Pro) is 3 times slower than testing against a MovieClip generated and drawn at runtime. The only thing I can think that is happening is that perhaps for some reason the garbage collector is being triggered in the <em>checkBitmapDataHitInternal</em> and not the checkBitmapDataHitDynamic test. I have asked around internally what might be causing it, but I would be curious if anyone else is seeing the same results.</p>
+
+<p>So, some quick conclusions from this:</p>
+
+<ol>
+<li> DisplayObject.hitTest is a fast way to do a quick boundaries check.</li>
+<li> Having to dynamically generate BitmapData for BitmapData.hitTest leads to a big performance hit.</li>
+<li> If you can cache the BitmapData being compared, then BitmapData.hitTest performance is on par with the other techniques / APIs tested. However, performance degrades as the dimensions of the clips increase (see <a href="http://www.mikechambers.com/blog/2009/06/26/relative-performance-for-collision-detection-techniques-in-actionscript-3/comment-page-1/#comment-16495">here</a>).</li>
+<li> Getting the BitmapData from a MovieClip that has cacheAsBitmap = false is 3 times slower than getting it from a MovieClip with the property set to true (Thanks to Renaun Erickson who figured out the performance discrepancy).</li>
+</ol>
+
+<p>I will update the post and results as I learn more techniques and get more information.</p>
+
+<p>If you find any bugs with the test, or would like to add some more tests (such as a test using <a href="http://livedocs.adobe.com/flex/3/langref/flash/display/BitmapData.html#getColorBoundsRect()">BitmapData.getColorBoundsRect</a>), just post them in the comments.</p>
+
+<p><strong>Updated : July 6, 2009 : Added info on cacheAsBitmap property impact on performance.</strong> (See this <a href="http://www.mikechambers.com/blog/2009/06/26/relative-performance-for-collision-detection-techniques-in-actionscript-3/#comment-16494">comment</a>).</p>
+
+<p><strong>Updated : November 6, 2009 : Added optimized circle test in <a href="#comment-17507">comments</a></strong> : Approaches performance of hitTest.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

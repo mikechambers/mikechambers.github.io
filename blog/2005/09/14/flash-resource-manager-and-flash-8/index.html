@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Flash Resource Manager and Flash 8</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Flash Resource Manager and Flash 8</h2>
+<p class="meta">Wednesday, September 14, 2005</p>
+
+<div class="post">
+<p>As many of you have noticed, <a href="http://weblogs.macromedia.com/mesh/archives/2004/07/new_version_of_4.cfm">Flash Resource Manager</a> does not work with Flash 8. This is because the path to the help files is hardcoded (at least for the first load) for Flash MX 2004.</p>
+
+<p>I just played around with the source, and it was pretty easy for me to fix, so once I get the correct version of Visual Studio installed, I am going to try and update it so it will work with both Flash MX 2004 and Flash 8.</p>
+
+<p>In the meantime, if you look in the install directory for the Flash Resource Manager, you should find a config directory with app.config file. This is an XML file that contains all of the settings for the app. You should be able to change the file paths here to get it to work correctly. I haven&#8217;t been able to get get this to work yet, but I wanted to post it here in case anyone wanted to try (post in the comments if you get it working).</p>
+
+<p>UPDATE : Ritesh has confirmed in the comments that you can get it to work with Flash 8 by manually editing the config file.</p>
+
+<p>UPDATE 2: I can&#8217;t get the app to work correct on the WIndows .NET 2.0 beta, so if you are having problems, that might be the issue.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

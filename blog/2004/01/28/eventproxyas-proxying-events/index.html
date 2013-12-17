@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>EventProxy.as : Proxying Events</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>EventProxy.as : Proxying Events</h2>
+<p class="meta">Wednesday, January 28, 2004</p>
+
+<div class="post">
+<p>One of the issues I ran into while building the <a href="http://www.markme.com/mesh/archives/004255.cfm">MXNA WebService example app</a>, was that both the ComboBox and DataGrid both broadcast &#8220;change&#8221; events. This meant that I could not have a separate function to listen for each event (and have the functions run within the scope of the <a href="http://www.markme.com/mesh/archives/004269.cfm">feedView</a> class).</p>
+
+<!--more-->
+
+<p>There were two solutions to this. The first was to have a switch statement in my change event handler, that checked the eventObt.target property to see where the event came from. I could then dispatch the call as appropriate. Here is an example of what the event handler would look like:</p>
+
+<p><code class="inline-code">
+<pre>private function change(eventObj:Object)
+{
+    switch(eventObj:target)
+    {
+        case myDataGrid :
+        {
+            //the datagrid event fired
+            break;
+        }
+        case myComboBox :
+        {
+            //the combobox event fired
+            break;
+        }
+    }
+}</pre>
+<p></code></p>
+
+<p>However, I personally don&#8217;t like this as it means I have to define an event handler, maintain a switch statement, and then define individual methods to handle the events. Jesse Warden posted a <a href="http://www.jessewarden.com/archives/000426.html">good example</a> of this on his weblog.</p>
+
+<p>The other option was to create a simple class that basically proxies the events to different scopes and methods. I like this solution as it felt a little cleaner to me. I put together a simple proxy class (EventProxy) based on a <a href="http://chattyfig.figleaf.com/ezmlm/ezmlm-cgi/1/98729">FlashCoder&#8217;s post</a> by Sam Neff.</p>
+
+<p>Here is an example of how it works (from MXNAFeedView.as):</p>
+
+<p>`
+<pre></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>public function onLoad(Void):Void
+<a name="line-2"></a>{
+<a name="line-3"></a>    categoryProxy = new EventProxy(this, &quot;onCategorySelect&quot;);
+<a name="line-4"></a>    category_cb.addEventListener(&quot;change&quot;, categoryProxy);
+<a name="line-5"></a>
+<a name="line-6"></a>    feedGridProxy = new EventProxy(this, &quot;onFeedGridSelect&quot;);
+<a name="line-7"></a>    feedDG.addEventListener(&quot;change&quot;, feedGridProxy);
+<a name="line-8"></a>}
+<a name="line-9"></a>
+<a name="line-10"></a>//broadcast by ComboBox when user selects an item in the combo
+<a name="line-11"></a>private function onCategorySelect(eventObj:Object):Void
+<a name="line-12"></a>{        
+<a name="line-13"></a>    //ComboBox change event fired
+<a name="line-14"></a>}
+<a name="line-15"></a>
+<a name="line-16"></a>//broadcast by the DataGrid when the user selects a row
+<a name="line-17"></a>private function onFeedGridSelect(eventObj:Object):Void
+<a name="line-18"></a>{
+<a name="line-19"></a>    //datagrid change event fired
+<a name="line-20"></a>}        
+</code></pre></div>
+<p></pre>
+<p>`</p>
+
+<p>This does two things:</p>
+
+<ol>
+<li> It allows change events from two different components to be dispatched to two methods.</li>
+<li> It allows the event handlers to be called within the scope of the containing class (in this case <a href="http://www.markme.com/mesh/archives/004269.cfm">MXNAFeedView</a>)</li>
+</ol>
+
+<p>Here is the code for the class:</p>
+
+<p>`
+<pre>/*
+    EventProxy class</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>Allows:
+<a name="line-2"></a>    -scope of events to be changed
+<a name="line-3"></a>    -events calls to be proxied to arbitrary functions
+</code></pre></div>
+<p>*/</p>
+
+<p>class com.macromedia.mesh.events.EventProxy
+{
+        private var receiverObj:Object;
+        private var funcName:String;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>    /*
+<a name="line-2"></a>        Constructor:
+<a name="line-3"></a>            -receiverObj : the receiverObj in which the event will be called
+<a name="line-4"></a>            -the function name to be called in response to the event
+<a name="line-5"></a>    */
+<a name="line-6"></a>    function EventProxy(receiverObj:Object, funcName:String)
+<a name="line-7"></a>    {
+<a name="line-8"></a>            this.receiverObj = receiverObj;
+<a name="line-9"></a>            this.funcName = funcName;
+<a name="line-10"></a>    }
+<a name="line-11"></a>
+<a name="line-12"></a>    //this is called before the event is broadcast by the components
+<a name="line-13"></a>    private function handleEvent(eventObj:Object):Void
+<a name="line-14"></a>    {
+<a name="line-15"></a>        //if not function name has been defined
+<a name="line-16"></a>        if(funcName == undefined)
+<a name="line-17"></a>        {
+<a name="line-18"></a>            //pass the call to the event name method
+<a name="line-19"></a>            receiverObj[eventObj.type](eventObj);
+<a name="line-20"></a>        }
+<a name="line-21"></a>        else
+<a name="line-22"></a>        {
+<a name="line-23"></a>            //pass the call to the specified method name
+<a name="line-24"></a>            receiverObj[funcName](eventObj);
+<a name="line-25"></a>        }
+<a name="line-26"></a>    }
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>Post any suggestions or bugs in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

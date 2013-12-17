@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Star Wars in Flash: Developing for the Playstation 2 : Fred Sharples</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Star Wars in Flash: Developing for the Playstation 2 : Fred Sharples</h2>
+<p class="meta">Friday, July 12, 2002</p>
+
+<div class="post">
+<p>I came in a little late.<br>
+orangedesign created the menus for lucasart&#8217;s starfighter games (2) for ps2. All of the menus were created within macromedia flash, and played back within a Flash player included with the game.<br>
+Have to conisder localization. They do the German version first since the german words tend to be the longest.<br>
+Memory considerations, only 32 megs of ram on ps2. compressed sizes of images doesn&#8217;t matter, it is the uncompressed size. reducing the number of colors. the butterflyed the images (symetrical, so they only have to load half of each image (and then flip it)).<br>
+design process<br>
+fred is showing some of the images they presented to the lucas arts to get an idea of the type of imagery they were looking for in the jedi starfigter menus. (just regular images they found on the web).<br>
+originally, they had a more dirty, mechaninal interface, but in the end it became more modern, clean look.<br>
+showed series of drawings of early menu prototypes. really cool.<br>
+tips and tricks<br>
+memory issues  </p>
+
+<ul>
+<li><p>use ntsc or pal on a television to determine how far you can compress bitmaps.  </p>
+
+<ul>
+<li><p>watch memory. major issue.  </p>
+
+<ul>
+<li><p>butterfly symetrical bitmaps whenever possible.  </p>
+
+<ul>
+<li><p>concern yourself with the unpacked size of images, not the file size.  </p>
+
+<ul>
+<li>  Optimize your bitmaps before they are brough in.</UL></li>
+</ul>
+
+<p>framerate issues<br>
+*   try breaking text if it doesnt animate fast enough.<br>
+    *   avoid using more that a paragraph of type on one screen.<br>
+        *   build all of your alpha effects into your bitmaps.<br>
+            *   give life to your art by animating smaller screen areas.<br>
+                *   with vectors, try finding shapes that use the fewsest number of triangles.<br>
+                    *   don&#8217;t use a lot of thin vector lines.</UL></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>                Localization  
+<a name="line-2"></a>
+<a name="line-3"></a>                *   design with plenty of space for copy. 150%.  
+<a name="line-4"></a>                    *   localize early in german (long words, design issues)  
+<a name="line-5"></a>                        *   test doubel byte comparison.  
+<a name="line-6"></a>                            *   work with native speaker to avoid embarressment.  
+<a name="line-7"></a>                                *   have experienced designer do the final layout.&lt;/UL&gt;
+<a name="line-8"></a>
+<a name="line-9"></a>                                Sony Requirements  
+<a name="line-10"></a>
+<a name="line-11"></a>                                *   memory cards stuff is more than half of the work. (what happens when the user pulls a card out, inserts it, etc...).  
+<a name="line-12"></a>                                    *   sony design documentation manual. very big.&lt;/UL&gt;
+<a name="line-13"></a>
+<a name="line-14"></a>                                    card issues, example:  
+<a name="line-15"></a>
+<a name="line-16"></a>                                    *   is card full  
+<a name="line-17"></a>                                        *   formatted?  
+<a name="line-18"></a>                                            *   saved data?  
+<a name="line-19"></a>                                                *   ps2 card or ps1?  
+<a name="line-20"></a>                                                    *   damage?  
+<a name="line-21"></a>                                                        *   is it being formatted?  
+<a name="line-22"></a>                                                            *   being read?  
+<a name="line-23"></a>                                                                *   did you tell the user how much space is required?  
+<a name="line-24"></a>                                                                    *   does the user want to format or save the data?  
+<a name="line-25"></a>                                                                        *   etc...&lt;/UL&gt;
+<a name="line-26"></a>
+<a name="line-27"></a>                                                                        these all have to be asked and considered within the flash movie.  
+<a name="line-28"></a>                                                                        Middleware layer. the layer of scripting between the hardware / game and flash.  
+<a name="line-29"></a>
+<a name="line-30"></a>                                                                        *   written by game programmer.  
+<a name="line-31"></a>                                                                            *   a simple script layer  
+<a name="line-32"></a>                                                                                *   communicates between game, flash and hardware.  
+<a name="line-33"></a>                                                                                    *   almost all UI logic resideds in the flash later.  
+<a name="line-34"></a>                                                                                        *   middleware never drives the flash movie.&lt;/UL&gt;
+<a name="line-35"></a>
+<a name="line-36"></a>                                                                                        example of setting something in the game&amp;#8217;s middleware. this tells the game to play in stereo mode:
+<a name="line-37"></a>                                                                                        &lt;PRE&gt;getURL(&amp;#8220;callback://SetStereoStatus&amp;#8221;, 2);&lt;/PRE&gt;
+<a name="line-38"></a>
+<a name="line-39"></a>                                                                                        getURL(&amp;#8220;callback://GetStereoStatus&amp;#8221;, &amp;#8220;variableName&amp;#8221;);  
+<a name="line-40"></a>                                                                                        this tells the middleware what variable name to use when it passed the data back to flash. you have to wait one frame in flash before you can reference the data.  
+<a name="line-41"></a>                                                                                        Why should flash be on Playstation 2?  
+<a name="line-42"></a>                                                                                        Currently not avaliable. playstation 2 is very popular platform.  
+<a name="line-43"></a>                                                                                        three versions of flash player for ps2  
+<a name="line-44"></a>
+<a name="line-45"></a>                                                                                        *   generation one, used on starfighter. only supported flash 4. built by secret level. software only, very slow. doesn&amp;#8217;t support loadmovie, so memory issues cause problems.  
+<a name="line-46"></a>                                                                                            *   strobe : (gen 2) &amp;#8211; used by lucasarts for some other games (they have in house flash team). supports flash 5, working on MX version. hardware enabled. also ported to xBox and Directx8. supports loadmovie command.  
+<a name="line-47"></a>                                                                                                *   internet version for ps2 : developed by macromedia and sony. deomonstrated at E3 in may 2001. may be related to to linux os and network adaptor kit released by sony. did not play in browser.&lt;/UL&gt;
+<a name="line-48"></a>
+<a name="line-49"></a>                                                                                                showing pictures on ps2 linux kit. pretty cool. comes with harddrive and ethernet port.  
+<a name="line-50"></a>                                                                                                website:  
+<a name="line-51"></a>                                                                                                Fred wrote a chapter on Flash for the PS2 in [Flash Enabled : Flash Design and Development for Devices][1].  
+<a name="line-52"></a>                                                                                                [orangedesign.com][2]  
+<a name="line-53"></a>                                                                                                [secretlevel.com][3]  
+<a name="line-54"></a>                                                                                                [lucasarts.com][4]  
+<a name="line-55"></a>                                                                                                future they want to be able to use the flash player within the games, overlaying the action and even showing video.  
+<a name="line-56"></a>                                                                                                testing. worked on pc. they had firewire connection into test unit that they used to upload the entire game into the ps2, and then test it on the console.  
+<a name="line-57"></a>                                                                                                orange did not do the sound.  
+<a name="line-58"></a>                                                                                                end of session.&lt;/p&gt;
+</code></pre></div></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

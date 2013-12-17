@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Flash / JavaScript Integration Kit (with Open License)</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Flash / JavaScript Integration Kit (with Open License)</h2>
+<p class="meta">Tuesday, June 14, 2005</p>
+
+<div class="post">
+<p>Well, as many noticed last week from the <a href="http://www.macromedia.com/platform/whitepapers/platform_overview.pdf">Flash Platform whitepaper</a>, we have released a beta of the <a href="http://www.macromedia.com/go/flashjavascript/">Flash / JavaScript Integration kit</a>. The kit allows you to call functions from Flash to JavaScript and JavaScript to Flash, all while working cross browser, and supporting passing complex data types.<br>
+&lt;!--more--&gt;</p>
+
+<p>Here is a list of the data types that the kit supports:</p>
+
+<ul>
+<li>  Object</li>
+<li>  Array</li>
+<li>  String</li>
+<li>  Number</li>
+<li>  Boolean</li>
+<li>  Date</li>
+<li>  null</li>
+<li>  undefined</li>
+</ul>
+
+<p>Here is a simple code example that show a call to a JavaScript function from within Flash:</p>
+
+<p>`
+<pre>
+import com.macromedia.javascript.JavaScriptProxy;</p>
+
+<p>var proxy:JavaScriptProxy = new JavaScriptProxy();
+proxy.call(&quot;javaScriptMethodName&quot;, &quot;arg1&quot;, new Object());
+</pre>
+<p>`</p>
+
+<p>We are starting to use the kit at <a href="/mxna/">MXNA</a>, and you can view an example <a href="/mxna/reports/categoryFeedReport/index.cfm">here</a> (right click the chart to view the source).</p>
+
+<p>You can find the latest info on the kit, as well as download the most current release from <a href="http://www.macromedia.com/go/flashjavascript/">here</a>.</p>
+
+<p>The kit has been live since last week, but we haven&#8217;t posted about it until now because we wanted to finalize the details on the licensing. Well, we finally worked out all of the details, and I am really excited to announce that the project is being licensed under an open license (based on the Apache 1.1 Software license). You can view a copy of the license <a href="http://weblogs.macromedia.com/flashjavascript/license.txt">here</a>. </p>
+
+<p>Since the project is now an open project, we have moved it from our internal servers over to <a href="http://www.osflash.org/doku.php?id=flashjs">osflash.org</a>. </p>
+
+<p>Here are the main links:</p>
+
+<ul>
+<li>  <a href="http://www.osflash.org/doku.php?id=flashjs">Main Project Site (including docs)</a></li>
+<li>  <a href="http://osflash.org/mailman/listinfo/flashjs_osflash.org">Project Mailing List</a></li>
+<li>  <a href="http://sourcesecure.co.uk/trac/osflash/flashjavascript/browser/">Source Tree</a></li>
+<li>  <a href="http://weblogs.macromedia.com/flashjavascript">Main Release Site</a></li>
+</ul>
+
+<p>The main project site is hosted on the <a href="http://www.osflash.org/doku.php?id=flashjs">osflash wiki</a>, so anyone can add to the docs, samples, etc...</p>
+
+<p>Anyways, expect a lot more info in the coming days and weeks. We have been getting <a href="http://sourcesecure.co.uk/trac/osflash/flashjavascript/report/1">some bug submissions</a>, and are planning on doing a new release soon.</p>
+
+<p>Also, I want to give a big thanks to <a href="http://www.flashant.org/">Aral Balkan</a>, for setting up <a href="http://www.osflash.org">osflash</a>, but also helping us work out all of the details and helping make the project being open source possible.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

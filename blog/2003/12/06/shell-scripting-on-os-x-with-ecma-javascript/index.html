@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Shell Scripting on OS X with ECMA / JavaScript</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Shell Scripting on OS X with ECMA / JavaScript</h2>
+<p class="meta">Saturday, December 6, 2003</p>
+
+<div class="post">
+<p>Just this week I switched to OS X and found my self wanting to really take advantage of the shell. I have always wanted to be able to do shell scripting in a language that I know well, and I finally found a solution (I know enough bash shell scripting to get in trouble).</p>
+
+<p>You may have heard of the <a href="http://www.mozilla.org/rhino/">Rhino project</a>. A Mozzila project for creating and maintaining a Java based JavaScript parser. Well, what you may not have know, and what I just found out, is that it also includes a command line javascript interpreter that allows you to write shell scripts in JavaScript.</p>
+
+<p>Since ActionScript is based on ECMA / JavaScript, this means that you can leverage the core of your ActionScript knowledge to write shell scripts on OS X and / or Linux.</p>
+
+<p>Here is what you need to set it up.</p>
+
+<!--more-->
+
+<p>First, make sure that you have Java installed and it is in your path (this is already setup on OS X 10.3). You can check by opening a shell / terminal window and typing &#8216;java&#8217;</p>
+
+<p><code class="inline-code">
+<pre>java</pre>
+<p></code></p>
+
+<p>This should output some options and info about Java. If you get an error, install and configure java.</p>
+
+<p>Next, download the Rhino java files from:</p>
+
+<p><a href="http://www.mozilla.org/rhino/download.html">http://www.mozilla.org/rhino/download.html</a></p>
+
+<p>Download the latest version (I have 1.5 R4.1). Once you have downloaded it to your computer, uncompress it. In the root directory, there is a file called js.jar. This contains all of the Rhino code, including the JavaScript command line interpreter. Copy this file into a permanent location.</p>
+
+<p>I put mine in</p>
+
+<p><code class="inline-code">
+<pre>~/classpath/js.jar</pre>
+<p></code></p>
+
+<p>That is:</p>
+
+<p><code class="inline-code">
+<pre>/Users/mesh/classpath/js.jar</pre>
+<p></code></p>
+
+<p>You will probably have to create the classpath folder.</p>
+
+<p>Next, you need to add the path to js.jar to your Java classpath environment variable, so Java can find it when you try to run the interpreter.</p>
+
+<p>I use the bash shell, so I added the following lines to my .bash_profile in my home directory:</p>
+
+<p><code class="inline-code">
+<pre>PATH="/bin:/sbin:/usr/bin:/usr/sbin"
+CLASSPATH="/Users/mesh/classpath:/Users/mesh/classpath/js.jar"
+export PATH CLASSPATH</pre>
+<p></code></p>
+
+<p>Notice that I point directly to the js.jar file. I also include the directory, but this is not necessary to run the js.jar file. The PATH variable was already defined. Finally, I added CLASSPATH to the export line, so it is available to my environment.</p>
+
+<p>Re-initialize the shell, by either running</p>
+
+<p><code class="inline-code">
+<pre>source ~/.bash_profile</pre>
+<p></code></p>
+
+<p>or just closing and re-opening the shell / terminal window.</p>
+
+<p>At this point, you should be able to run the interpreter. To test, create a file named helloworld.js and add the following code:</p>
+
+<p><code class="inline-code">
+<pre>print("Hello World");</pre>
+<p></code></p>
+
+<p>Now run the script with the following command:</p>
+
+<p><code class="inline-code">
+<pre>java org.mozilla.javascript.tools.shell.Main helloworld.js</pre>
+<p></code></p>
+
+<ul>
+<li>  <strong>java</strong> : runs the java command</li>
+<li>  <strong>org.mozilla.javascript.tools.shell.Main</strong> : the class that java should run. In this case it is the command line JavaScript interpreter.</li>
+<li>  <strong>helloworld.js</strong> : the JavaScript file that will be run by the interpreter.</li>
+</ul>
+
+<p>This should then print out:</p>
+
+<p><code class="inline-code">
+<pre>Hello World</pre>
+<p></code></p>
+
+<p>Pretty cool heh? Except that is a lot to type in to run one file. Luckily, bash provides an <a href="http://www.nmt.edu/tcc/swinv/bash/2.03/info/(bash)Alias%20Builtins.html">alias</a> command that allows you to create aliases for commands.</p>
+
+<p>So, open the ~/.bash_profile file and add the following line:</p>
+
+<p><code class="inline-code">
+<pre>alias js='java org.mozilla.javascript.tools.shell.Main'</pre>
+<p></code></p>
+
+<p>Save the file, and reinitialize it.</p>
+
+<p>Now, you can run the interpreter like so:</p>
+
+<p><code class="inline-code">
+<pre>js helloworld.js</pre>
+<p></code></p>
+
+<p>You can find complete usage info at:</p>
+
+<p><a href="http://www.mozilla.org/rhino/shell.html">http://www.mozilla.org/rhino/shell.html</a></p>
+
+<p>Probably the two most useful commands are:</p>
+
+<p>print() which prints out to the console, and runCommand, which runs a command.</p>
+
+<p>You can also pass command line arguments to the script. Here is a simple command that prints out the number of arguments passed in, as well as their values:</p>
+
+<p>`
+<pre>var len = arguments.length;</p>
+
+<p>print(&quot;Arg Len : &quot; + len);</p>
+
+<p>for(var i = 0; i &lt; len; i++)
+{
+        print(&quot;Arg[&quot; + i + &quot;] = &quot; + arguments[i]);
+}</pre>
+<p>`</p>
+
+<p>Save this in a file called args.js and run it like so:</p>
+
+<p><code class="inline-code">
+<pre>js args.js</pre>
+<p></code></p>
+
+<p>This will output:</p>
+
+<p><code class="inline-code">
+<pre>Arg Len : 0</pre>
+<p></code></p>
+
+<p>Now run it like so:</p>
+
+<p><code class="inline-code">
+<pre>js args.js foo bar "foo bar"</pre>
+<p></code></p>
+
+<p>which will output:</p>
+
+<p><code class="inline-code">
+<pre>Arg Len : 3
+Arg[0] = foo
+Arg[1] = bar
+Arg[2] = foo bar</pre>
+<p></code></p>
+
+<p>Of course, the real power comes when you start to integrate this with existing unix commands.</p>
+
+<p>I&#8217;ll post more examples as I create them, in the mean time if you have any good examples, post them in the comments section.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

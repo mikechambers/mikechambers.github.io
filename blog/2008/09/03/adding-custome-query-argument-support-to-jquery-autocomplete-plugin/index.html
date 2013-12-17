@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Adding custome query argument support to jQuery Autocomplete plugin</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Adding custome query argument support to jQuery Autocomplete plugin</h2>
+<p class="meta">Wednesday, September 3, 2008</p>
+
+<div class="post">
+<p>I have been playing around with the <a href="http://jquery.com/">jQuery</a> <a href="http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/">Autocomplete plugin</a> to get it working with the <a href="http://www.mikechambers.com/blog/2008/09/03/actionscript-3-api-service-on-google-app-engine/">ActionScript 3 documentation API</a> that I posted about earlier today.</p>
+
+<p>The Autocomplete API is really nice, and pretty flexible, but one issue I ran into is that the query argument containing the user input that is passed to the server is hard coded to &#8220;q&#8221;. For my api, I needed this argument to be &#8220;api&#8221;.<br>
+&lt;!--more--&gt;</p>
+
+<p>The fix is actually pretty simple, although it does require a slight modification to the <em>jquery.autocomplete.js</em> file.</p>
+
+<p>Here is a diff that shows the change for the AutoComplete library version 1.0.2:</p>
+
+<p>`
+<pre>340a341,343</p>
+
+<blockquote>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>      var o = {limit:options.max};
+<a name="line-2"></a>      o[(options.queryArgument)?options.queryArgument:&quot;q&quot;] = lastWord(term);          
+</code></pre></div>
+<p>348,351c351
+&lt;               data: $.extend({
+&lt;                   q: lastWord(term),
+&lt;                   limit: options.max</p>
+
+<h2>&lt;               }, extraParams),</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>          data: $.extend(o, extraParams),
+</code></pre></div>
+<p>`</pre> 
+You can then pass in the value that should be use for the query term like so:</p>
+</blockquote>
+
+<div class="highlight">
+  <pre><span style="color: #008000; font-weight: bold">var</span> url <span style="color: #666666">=</span> <span style="color: #BA2121">"http://as3reference.appspot.com/getapi?version=flex3"</span><span style="color: #666666">;</span>
+$(<span style="color: #BA2121">"#example"</span>).autocomplete(url<span style="color: #666666">,</span> {
+        matchCase<span style="color: #666666">:</span><span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">,</span>
+        formatItem<span style="color: #666666">:</span>formatItem<span style="color: #666666">,</span>
+        parse<span style="color: #666666">:</span>parse<span style="color: #666666">,</span>
+        queryArgument<span style="color: #666666">:</span><span style="color: #BA2121">"api"</span>
+    });
+</pre>
+</div>
+
+<p>If the queryArgument is not specified, then it defaults back to &quot;q&quot;.</p>
+
+<p>It looks like this <a href="http://groups.google.com/group/jquery-en/browse_thread/thread/77da50f112fcfbb5/1448caf5592fff99?lnk=gst&amp;q=autocomplete+q+#1448caf5592fff99">feature will be added in the next release</a>.</p>
+
+<p>Ill post the complete example working with the API shortly.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

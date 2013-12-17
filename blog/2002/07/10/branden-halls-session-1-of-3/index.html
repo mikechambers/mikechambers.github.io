@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Branden Hall&#8217;s Session 1 of 3.</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Branden Hall&#8217;s Session 1 of 3.</h2>
+<p class="meta">Wednesday, July 10, 2002</p>
+
+<div class="post">
+<p>The first day of Flash Forward involves a number of half day sessions / classes. I am sitting in Branden Hall&#8217;s first session of three. The first session is on Object Oriented Programming in Flash (something that Branden and Sam Wan just wrote a book on).<br>
+Branden is discussing some of the basics of Object oriented programming in Flash, including objects vs instances, and how to create custom classes.&nbsp;<br>
+Importance of encapsulation  </p>
+
+<ul>
+<li><p>Using getter / setter methods to access internal properties.  </p>
+
+<ul>
+<li><p>Should not directly access internal object properties.  </p>
+
+<ul>
+<li><p>Don&#8217;t hard code references to timelines (if they are needed, pass them in through a method).  </p>
+
+<ul>
+<li>  many getter / setter methods can inidcate design problems.</UL></li>
+</ul>
+
+<p>Composition vs Inheritance<br>
+Branden says that Generally you should avoid inheritance <em>(i don&#8217;t agree with this, and Branden and i got into a pretty heated discussion about it on the train-mc)</em>. Inheritance in Flash can be messy.<br>
+You should consider using composition instead of inheritance. Composition is a &#8220;has a&#8221; relationship. Inhiritance is a &#8220;is a&#8221; relationship.<br>
+<strong>Design Patterns</strong><br>
+*   Take advantage of previous work that has already solved common problems.<br>
+    *   Object oriented and language independent (any design patter book can be applied to flash).</UL></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>3 patterns  
+<a name="line-2"></a>Value Object Pattern : don&amp;#8217;t use multiple getter / setter methods. multiple function calls can cause performance issues, especially for remote methods. Send a value / object which contains properties and values. Only requires one method call, and properties can be set at once:
+<a name="line-3"></a>&lt;PRE&gt;foo.setValues({name:&amp;#8221;mike&amp;#8221;, address:&amp;#8221;500 main st.&amp;#8221;});&lt;/PRE&gt;
+<a name="line-4"></a>
+<a name="line-5"></a>Observer Pattern : Multiple events need to listen for events from a single object. The event source object allows other objects to add or remove themselves as listeners.  
+<a name="line-6"></a>Easiest way is to use undocumented AsBroadcaster
+<a name="line-7"></a>&lt;PRE&gt;FooClass = function(){ AsBroadcaster.initialize(this);}&lt;/PRE&gt;
+<a name="line-8"></a>
+<a name="line-9"></a>&lt;PRE&gt;FooClass.prototype.sendEvent = function(){this.broadcastMessage(&amp;#8220;onEvent&amp;#8221;);}&lt;/PRE&gt;
+<a name="line-10"></a>
+<a name="line-11"></a>&lt;PRE&gt;myFoo = new Foo();&lt;/PRE&gt;
+<a name="line-12"></a>
+<a name="line-13"></a>&lt;PRE&gt;myFoo.addListener(this);&lt;/PRE&gt;
+<a name="line-14"></a>
+<a name="line-15"></a>See [flash coders wiki][1] for more info.  
+<a name="line-16"></a>Model / View Controller Patter : Some articles at [Des / Dev][2] Center.  
+<a name="line-17"></a>
+<a name="line-18"></a>*   Seperate data from presentation.  
+<a name="line-19"></a>    *   Model : Data  
+<a name="line-20"></a>        *   View : Interface  
+<a name="line-21"></a>            *   Controller &amp;#8221; Logic  
+<a name="line-22"></a>                *   All pieces are independent of one another, although code for pieces are often all combined in one place in flash (on main timlines). *just make sure to comment the different sections-mc. *  
+<a name="line-23"></a>                    *   Sections can be swapped out and changed without affecting other layers. (i.e. switch out view to create new interface for different devices&amp;nbsp;/ platforms).  
+<a name="line-24"></a>                        *   Model View Presenter (more advanced).  
+<a name="line-25"></a>                            *   This architeture works very well for creating applications in Flash.  
+<a name="line-26"></a>                                *   Layers should be completely independent of each other.  
+<a name="line-27"></a>                                    *   Model should be abstracted away from viewer and controller (it should not know about them).  
+<a name="line-28"></a>                                        *   The view listens for events.&lt;/UL&gt;
+<a name="line-29"></a>
+<a name="line-30"></a>                                        Branden is showing a new app called bibliofile that he uses to keep track of all of his books. uses treemenu component, and new tabbed view component that branden built. Showing some of the listener code in the model section of the application. Uses value object pattern to pass properties / values into objects. the app has multiple frames, which each frame representing a different state of his application. The app uses Flash Remoting to get information on books from a remote web service.  
+<a name="line-31"></a>                                        TabBar component : Branden is very happy with this, he feels he hit the &amp;#8220;sweet spot&amp;#8221; with it (not over or under engineering it). Live preview, scalling. You add tabs through PI and set alignment, and then when the tabs are clicked, callback methods are called where you can have code that reacts to the event. In the case of brandens app, it either moves between frames, or hides movie clips (he is using it in two places).  
+<a name="line-32"></a>                                        ToolTip component : Drag and drop, add message in PI. Super easy to use.  
+<a name="line-33"></a>                                        KeyBoard Navigation Component. Isn&amp;#8217;t showing it because he didnt have time to get it in the session.  
+<a name="line-34"></a>                                        end of first hour, next hour is about components and working with flash remoting.  
+<a name="line-35"></a>                                        &amp;nbsp;&lt;/p&gt;
+</code></pre></div></li>
+</ul></li>
+</ul></li>
+</ul>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Simple Atom Example</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Simple Atom Example</h2>
+<p class="meta">Thursday, February 5, 2004</p>
+
+<div class="post">
+<p>I have put together a very simple example that uses the <a href="/mesh/archives/004355.cfm">Atom ActionScript API Alpha</a> that I am working on.</p>
+
+<p>This lists the all of the entries contained within <a href="/mesh/atom.xml">my Atom.xml feed</a>.</p>
+
+<!--more-->
+
+<p>Here is the code:</p>
+
+<p>`
+<pre>import com.macromedia.data.Atom;</p>
+
+<p>var a:Atom = new Atom();</p>
+
+<p>a.addEventListener(&quot;onAtomLoad&quot;, this);</p>
+
+<p>//event broadcast once the Atom feed has been loaded
+function onAtomLoad(eventObj:Object):Void
+{<br>
+    var  entries:Array = a.entries;
+    var len:Number = entries.length;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//build the XML nodes for the Tree component
+<a name="line-2"></a>var treeXML:String = &quot;&lt;node label=\&quot;Entries\&quot;&gt;&quot;;
+<a name="line-3"></a>for(var i:Number = 0; i &lt; len; i++)
+<a name="line-4"></a>{
+<a name="line-5"></a>    treeXML += &quot;&lt;node label=\&quot;&quot;+entries[i].title.value+&quot;\&quot; isBranch=\&quot;\&quot;/&gt;&quot;;
+<a name="line-6"></a>}
+<a name="line-7"></a>treeXML += &quot;&lt;/node&gt;&quot;;
+<a name="line-8"></a>
+<a name="line-9"></a>entryTree.dataProvider = treeXML;
+<a name="line-10"></a>entryTree.setIsOpen(entryTree.getTreeNodeAt(0), true);
+</code></pre></div>
+<p>}</p>
+
+<p>a.load(&quot;http://www.markme.com/mesh/atom.xml&quot;);</pre>
+<p>`</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Toggling mute on Mac OS X with non-Mac Keyboards and Alfred</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Toggling mute on Mac OS X with non-Mac Keyboards and Alfred</h2>
+<p class="meta">Monday, May 23, 2011</p>
+
+<div class="post">
+<p>I recently switched keyboards and picked up a <a href="http://www.daskeyboard.com/model-s-professional/">daskeyboard professional (model-s)</a>. This is a really nice (and satisfying) mechanical keyboard, which I really like. However, das only makes a Windows version of the keyboard, and I am running Mac OS X. In general, this isn&#8217;t an issue, as I was able to remap control keys to be in the right position, but I really missed being able to quickly toggle whether the system volume is muted.</p>
+
+<p>I could probably use an app such as <a href="http://doublecommand.sourceforge.net/">DoubleCommand</a> to remap one of the function keys to the mute key, but I didn&#8217;t want to rely on on a third-party piece of software that I would have to configure each time I wanted to set up a new system. So, I decided to create a simple AppleScript Application that I could call from <a href="http://www.alfredapp.com/">Alfred</a> (or <a href="http://www.blacktree.com/">Quicksilver</a>) that would toggle whether the volume was muted.<br>
+&lt;!--more--&gt;</p>
+
+<p>Here is the script:</p>
+<div class="highlight"><pre><code class="applescript"><a name="line-1"></a><span class="k">set</span> <span class="nv">volumeSettings</span> <span class="k">to</span> <span class="nb">get volume settings</span>
+<a name="line-2"></a><span class="k">if</span> <span class="nv">output</span> <span class="na">muted</span> <span class="k">of</span> <span class="nv">volumeSettings</span> <span class="ow">is</span> <span class="no">false</span> <span class="k">then</span>
+<a name="line-3"></a>    <span class="nb">set volume</span> <span class="nv">with</span> <span class="nv">output</span> <span class="na">muted</span>
+<a name="line-4"></a><span class="k">else</span>
+<a name="line-5"></a>    <span class="nb">set volume</span> <span class="nv">without</span> <span class="nv">output</span> <span class="na">muted</span>
+<a name="line-6"></a><span class="k">end</span> <span class="k">if</span>
+</code></pre></div>
+<p><a href="https://github.com/mikechambers/ExamplesByMesh/tree/master/AppleScript/mute">Download Source and Application from my GitHub account</a>.</p>
+
+<p>To use this, download the application (or compile the script). Save the application in a place where Alfred / Quicksilver can find it. I placed mine in my <em>/Applications</em> folder.</p>
+
+<p>Now, when you want to toggle whether the volume is muted, just launch Alfred / Quicksilver and type mute.</p>
+
+<p>I know its a pretty simple solution, but I wanted to share it, and post it here for future reference. If you have any suggestions or a better solution, post them in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

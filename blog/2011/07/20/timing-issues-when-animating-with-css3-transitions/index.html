@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Timing issues when animating with CSS3 Transitions</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Timing issues when animating with CSS3 Transitions</h2>
+<p class="meta">Wednesday, July 20, 2011</p>
+
+<div class="post">
+<p>I have been playing around a lot lately with motion graphics created using HTML5 and / or CSS3. One of my favorite new features is <a href="http://www.w3.org/TR/css3-transitions/">CSS Transitions</a>, which makes it super simple to animate element properties between two states.</p>
+
+<p>However, I ran into a gotcha the other day, and wanted to make a quick blog post in case anyone else runs into it in the future. Basically, if you change a property that a CSS Transition is monitoring in the same script loop that you add the element to the DOM, the CSS Transition will not take affect. Instead, the element will be drawn with the new properties, and will not animate to those properties.</p>
+
+<p>Here is an example that shows the issue, as well as how to fix it.<br>
+&lt;!--more--&gt;</p>
+
+<p>First the relevant styles for the CSS Transition:</p>
+<div class="highlight"><pre><code class="css"><a name="line-1"></a><span class="nc">.box</span>
+<a name="line-2"></a><span class="p">{</span>
+<a name="line-3"></a>    <span class="c">/*...*/</span>
+<a name="line-4"></a>    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="n">all</span> <span class="m">0.7s</span> <span class="n">ease</span><span class="p">;</span>
+<a name="line-5"></a>    <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="n">all</span> <span class="m">0.7s</span> <span class="n">ease</span><span class="p">;</span>
+<a name="line-6"></a>    <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="n">all</span> <span class="m">0.7s</span> <span class="n">ease</span><span class="p">;</span>
+<a name="line-7"></a>    <span class="n">transition</span><span class="o">:</span> <span class="n">all</span> <span class="m">0.7s</span> <span class="n">ease</span><span class="p">;</span>
+<a name="line-8"></a><span class="p">}</span>
+</code></pre></div>
+<iframe src="http://mikechambers.com/html5/css/CSS3TransitionsTiming/index.html" width="520" height="300"></iframe>
+
+<p>Notice how when you click the example the cirlce just appears on the right, instead of appearing on the left, and then animating to the right as it should.</p>
+
+<p>Here is the relevant code that creates the div and updates it position:</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="kd">function</span> <span class="nx">onMouseClick</span><span class="p">()</span>
+<a name="line-2"></a><span class="p">{</span>
+<a name="line-3"></a>    <span class="k">if</span><span class="p">(</span><span class="nx">box</span><span class="p">)</span>
+<a name="line-4"></a>    <span class="p">{</span>
+<a name="line-5"></a>        <span class="c1">//remove existing box from dom</span>
+<a name="line-6"></a>        <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">box</span><span class="p">);</span>
+<a name="line-7"></a>    <span class="p">}</span>
+<a name="line-8"></a>
+<a name="line-9"></a>    <span class="c1">//create the div</span>
+<a name="line-10"></a>    <span class="nx">box</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
+<a name="line-11"></a>    <span class="nx">box</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">&quot;box&quot;</span><span class="p">;</span>
+<a name="line-12"></a>
+<a name="line-13"></a>    <span class="c1">//add to dom</span>
+<a name="line-14"></a>    <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">box</span><span class="p">);</span>
+<a name="line-15"></a>
+<a name="line-16"></a>    <span class="c1">//position in middle / left of screen</span>
+<a name="line-17"></a>    <span class="nx">box</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="s2">&quot;10px&quot;</span><span class="p">;</span>
+<a name="line-18"></a>    <span class="nx">box</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">;</span>
+<a name="line-19"></a>
+<a name="line-20"></a>    <span class="c1">//set position we want div to animate to (using the CSS Transition)</span>
+<a name="line-21"></a>    <span class="c1">//NOTE : This will not animate, but will instead just be moved / drawn</span>
+<a name="line-22"></a>    <span class="c1">//in the final position</span>
+<a name="line-23"></a>    <span class="c1">//need to delay this call by 20 ms</span>
+<a name="line-24"></a>    <span class="nx">box</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">-</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">;</span>
+<a name="line-25"></a><span class="p">}</span>
+</code></pre></div>
+<p><a href="https://github.com/mikechambers/ExamplesByMesh/tree/master/CSS/CSS3TransitionsTiming">View / Download Code</a></p>
+
+<p>The solution, is to delay changing the properties that you want to animate by a short time interval. I have found that for most browsers a delay of as little as one second is enough to allow the CSS transition to take effect. However, for Firefox, the first time an element is added, I had to add a delay of 20ms in order to ensure the element animated correctly. However, subsequent animations could use a 1 ms delay. I am not sure if the delay interval is browser specific, or is related to how fast the users CPU is. </p>
+
+<p>Setting the delay can be done using setTimeout.</p>
+
+<p>Here is the update example, and code:</p>
+
+<iframe src="http://mikechambers.com/html5/css/CSS3TransitionsTiming/index_b.html" width="520" height="300"></iframe>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="kd">function</span> <span class="nx">onMouseClick</span><span class="p">()</span>
+<a name="line-2"></a><span class="p">{</span>
+<a name="line-3"></a>    <span class="k">if</span><span class="p">(</span><span class="nx">box</span><span class="p">)</span>
+<a name="line-4"></a>    <span class="p">{</span>
+<a name="line-5"></a>        <span class="c1">//remove existing div from dom</span>
+<a name="line-6"></a>        <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">box</span><span class="p">);</span>
+<a name="line-7"></a>    <span class="p">}</span>
+<a name="line-8"></a>
+<a name="line-9"></a>    <span class="c1">//create the div</span>
+<a name="line-10"></a>    <span class="nx">box</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
+<a name="line-11"></a>    <span class="nx">box</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">&quot;box&quot;</span><span class="p">;</span>
+<a name="line-12"></a>
+<a name="line-13"></a>    <span class="c1">//add to dom</span>
+<a name="line-14"></a>    <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">box</span><span class="p">);</span>
+<a name="line-15"></a>
+<a name="line-16"></a>    <span class="c1">//position in middle / left of screen</span>
+<a name="line-17"></a>    <span class="nx">box</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="s2">&quot;10px&quot;</span><span class="p">;</span>
+<a name="line-18"></a>    <span class="nx">box</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">;</span>
+<a name="line-19"></a>
+<a name="line-20"></a>    <span class="c1">//delay updating position so it will animate correctly</span>
+<a name="line-21"></a>    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">moveBox</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">box</span><span class="p">);</span>
+<a name="line-22"></a><span class="p">}</span>
+<a name="line-23"></a>
+<a name="line-24"></a><span class="kd">function</span> <span class="nx">moveBox</span><span class="p">(</span><span class="nx">box</span><span class="p">)</span>
+<a name="line-25"></a><span class="p">{</span>
+<a name="line-26"></a>    <span class="nx">box</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">-</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;px&quot;</span><span class="p">;</span>
+<a name="line-27"></a><span class="p">}</span>
+</code></pre></div>
+<p><a href="https://github.com/mikechambers/ExamplesByMesh/tree/master/CSS/CSS3TransitionsTiming">View / Download Code</a></p>
+
+<p>The only change, is that we moved the code to update the divs position to its own function. This allows us to then use setTimeout to delay the code from being called for 1 ms. By doing this, the div will be added to the dom, and positioned in the correct initial position, and then animate to its new position.</p>
+
+<p>Here is another example that uses setTimeout to animate newly created DIVs.</p>
+
+<iframe src="http://mikechambers.com/html5/css/CSS3TransitionsAnimation/" width="520" height="400"></iframe>
+
+<p><a href="https://github.com/mikechambers/ExamplesByMesh/tree/master/CSS/CSS3TransitionsAnimation">View / Download Code</a></p>
+
+<p>Post in the comments if you have any questions or suggestions.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

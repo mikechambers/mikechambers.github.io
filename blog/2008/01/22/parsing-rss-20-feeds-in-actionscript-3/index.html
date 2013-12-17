@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Parsing RSS 2.0 Feeds in ActionScript 3</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Parsing RSS 2.0 Feeds in ActionScript 3</h2>
+<p class="meta">Tuesday, January 22, 2008</p>
+
+<div class="post">
+<p>One of the ActionScript libraries that I use most is the <a href="http://code.google.com/p/as3syndicationlib/">as3syndicationlib</a>. This is an opensource library originally developed by <a href="http://weblogs.macromedia.com/cantrell/">Christian Cantrell</a>, and open sourced by Adobe. The library provides code for parsing RSS 1.0, RSS 2.0 and ATOM data feeds. It also provides a generic interface for parsing feeds when you do not know the format of the feeds.</p>
+
+<p>Below is a simple example of how to use the library to parse an RSS 2.0 feed. The example is written in Flex 3 and ActionScript 3, although I have separated the code to make it easy to also use it within Flash CS3.<br>
+&lt;!--more--&gt;</p>
+
+<p>In order to compile and run the code below, you need to download the SWC (or source code) for the <a href="http://code.google.com/p/as3syndicationlib/">as3syndicationlib</a> and <a href="http://code.google.com/p/as3corelib/">corelib</a> libraries (as3syndicationlib requires corelib to compile).</p>
+
+<p><strong>RSSExample.mxml</strong><br>
+`
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>&lt;mx:Script source=&quot;RSSExampleClass.as&quot; /&gt;
+<a name="line-2"></a>
+<a name="line-3"></a>&lt;mx:TextArea left=&quot;20&quot; top=&quot;10&quot; bottom=&quot;40&quot; right=&quot;10&quot; id=&quot;outputField&quot;/&gt;
+<a name="line-4"></a>&lt;mx:Button label=&quot;Load RSS&quot; right=&quot;10&quot; bottom=&quot;10&quot; click=&quot;onLoadPress()&quot;/&gt;
+</code></pre></div>
+<p><a href="/mx:Application">/mx:Application</a>
+</pre>
+<p>`</p>
+
+<p><strong>RSSExampleClass.as</strong><br>
+`
+<pre>
+import com.adobe.utils.XMLUtil;
+import com.adobe.xml.syndication.rss.Item20;
+import com.adobe.xml.syndication.rss.RSS20;</p>
+
+<p>import flash.events.Event;
+import flash.events.IOErrorEvent;
+import flash.events.SecurityErrorEvent;
+import flash.net.URLLoader;
+import flash.net.URLRequest;
+import flash.net.URLRequestMethod;</p>
+
+<p>private var loader:URLLoader;</p>
+
+<p>//url of rss 2.0 feed
+private static const RSS_URL:String = &quot;http://feeds.feedburner.com/MikeChambers/&quot;;</p>
+
+<p>//called when user presses the button to load feed
+private function onLoadPress():void
+{
+    loader = new URLLoader();</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//request pointing to feed
+<a name="line-2"></a>var request:URLRequest = new URLRequest(RSS_URL);
+<a name="line-3"></a>request.method = URLRequestMethod.GET;
+<a name="line-4"></a>
+<a name="line-5"></a>//listen for when the data loads
+<a name="line-6"></a>loader.addEventListener(Event.COMPLETE, onDataLoad);
+<a name="line-7"></a>
+<a name="line-8"></a>//listen for error events
+<a name="line-9"></a>loader.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
+<a name="line-10"></a>loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, onSecurityError);
+<a name="line-11"></a>
+<a name="line-12"></a>
+<a name="line-13"></a>//load the feed data
+<a name="line-14"></a>loader.load(request);
+</code></pre></div>
+<p>}</p>
+
+<p>//called once the data has loaded from the feed
+private function onDataLoad(e:Event):void
+{
+    //get the raw string data from the feed
+    var rawRSS:String = URLLoader(e.target).data;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//parse it as RSS
+<a name="line-2"></a>parseRSS(rawRSS);
+</code></pre></div>
+<p>}</p>
+
+<p>//parses RSS 2.0 feed and prints out the feed titles into
+//the text area
+private function parseRSS(data:String):void
+{</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//XMLSyndicationLibrary does not validate that the data contains valid
+<a name="line-2"></a>//XML, so you need to validate that the data is valid XML.
+<a name="line-3"></a>//We use the XMLUtil.isValidXML API from the corelib library.
+<a name="line-4"></a>if(!XMLUtil.isValidXML(data))
+<a name="line-5"></a>{
+<a name="line-6"></a>    writeOutput(&quot;Feed does not contain valid XML.&quot;);
+<a name="line-7"></a>    return;
+<a name="line-8"></a>}   
+<a name="line-9"></a>
+<a name="line-10"></a>//create RSS20 instance
+<a name="line-11"></a>var rss:RSS20 = new RSS20();
+<a name="line-12"></a>
+<a name="line-13"></a>    //parse the raw rss data
+<a name="line-14"></a>    rss.parse(data);
+<a name="line-15"></a>
+<a name="line-16"></a>    //get all of the items within the feed
+<a name="line-17"></a>    var items:Array = rss.items;
+<a name="line-18"></a>
+<a name="line-19"></a>    //loop through each item in the feed
+<a name="line-20"></a>    for each(var item:Item20 in items)
+<a name="line-21"></a>    {
+<a name="line-22"></a>        //print out the title of each item
+<a name="line-23"></a>        writeOutput(item.title);
+<a name="line-24"></a>    }
+</code></pre></div>
+<p>}</p>
+
+<p>private function writeOutput(data:String):void
+{
+    outputField.text += data + &quot;\n&quot;;
+}</p>
+
+<p>private function onIOError(e:IOErrorEvent):void
+{
+    writeOutput(&quot;IOError : &quot; + e.text);
+}</p>
+
+<p>private function onSecurityError(e:SecurityErrorEvent):void
+{
+    writeOutput(&quot;SecurityError : &quot; + e.text);
+}</p>
+
+<p></pre>
+<p>`</p>
+
+<p>The code for parsing RSS 1.0 and ATOM feeds is pretty much the same as the example above, except instead of using the RSS20 class, you will use the RSS10 or Atom10 classes.</p>
+
+<p>Note, that full API documents for the library are included in the library <a href="http://code.google.com/p/as3corelib/downloads/list">download</a>.</p>
+
+<p>What do you do if you don&#8217;t know the feed type before you parse it? Well, that is where the library really shines, as it provides a FeedFactory class which can automatically detect and parse any supported feed types. I will try and post an example of using the FeedFactory soon.</p>
+
+<p>You can download the as3syndicationlib library from <a href="http://code.google.com/p/as3syndicationlib/">here</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

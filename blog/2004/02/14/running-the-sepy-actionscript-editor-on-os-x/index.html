@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Running the SE|PY ActionScript editor on OS X</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Running the SE|PY ActionScript editor on OS X</h2>
+<p class="meta">Saturday, February 14, 2004</p>
+
+<div class="post">
+<p>I have put together a step by step guide to getting the <a href="http://www.sephiroth.it/python/sepy.php">SE|PY</a> ActionScript editor to run on OS X.</p>
+
+<!--more-->
+
+<ol>
+<li><p>Make sure that you have python installed by running the following command in the terminal (omit the &gt;):  </p>
+
+<blockquote>
+<p>python</p> </p>
+</blockquote>
+
+<ul>
+<li><p>If you get an error that it cannot be found go to <a href="http://www.python.org">http://www.python.org</a> and download the source. Follow the directions from the site to compile and install it. 
+Make sure to follow the directions in Mac/OSX/README. This is required if you want to create apps created with Python (including SE|PY).</p>
+
+<p>Here are the commands I used to compile Python from the source on OS X</p>
+
+<blockquote>
+<p>./configure &#8211;enable-framework<br>
+make<br>
+sudo make frameworkinstall </li> </ul> </li> </p>
+</blockquote>
+
+<ul>
+<li>  Download the source for the SE|PY editor: 
+
+<ul>
+<li>  Via the DevSource from the project page:<br>
+<a href="http://sourceforge.net/project/showfiles.php?group_id=90749">http://sourceforge.net/project/showfiles.php?group_id=90749</a> </li>
+<li>  Via CVS with the following two commands (this will have the most up to date code):<br>
+&gt;cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/SE|PY login<br>
+&gt;cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/SE|PY co SciTE</li>
+</ul></li>
+<li>  switch to the root directory for the source and try to run the program:<br>
+&gt;pythonw main.pyw </li>
+<li><p>If you get an error about the pyRXP library missing, then you need to install the library. </p>
+
+<ol>
+<li> download the source from:<br>
+<a href="http://www.reportlab.org/pyrxp.html">http://www.reportlab.org/pyrxp.html</a> </li>
+<li> Switch to the root of the pyRXP library source and run<br>
+&gt;python setup.py build </li>
+<li><p>If you are using the default OSX install of python, you may get errors that it can&#8217;t find the python header files (if you built and isntalled python yourself you shouldnt get these errors). </p>
+
+<ul>
+<li><p>open setup.py, and look for a line like this: 
+include_dirs=[RXPDIR],</p>
+
+<p>i edited it to include the python header files directory:</p>
+
+<p>include_dirs=[RXPDIR, &quot;/Developer/SDKs/MacOSX10.3.0.sdk/System/Library/Framework<br>
+s/Python.framework/Versions/2.3/include/python2.3/&quot;], </li> </ul> </li> </p>
+
+<ul>
+<li></li>
+<li></li>
+</ul></li>
+</ul></li>
+</ol></li>
+</ul></li>
+</ul>
+
+<p>[2]: http://prdownloads.sourcef  orge.net/wxpython/wxPythonOSX-2.4.2.4-py2.3.dmg</p></li>
+</ol>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

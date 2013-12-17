@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Flex 2 : Clearing the content of an Image Component</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Flex 2 : Clearing the content of an Image Component</h2>
+<p class="meta">Tuesday, April 18, 2006</p>
+
+<div class="post">
+<p>Just a quick tip, but if you need to clear the content of a Flex 2 Image component, just set the source to null:</p>
+
+<p>Here is a simple example<br>
+&lt;!--more--&gt;</p>
+
+<p>`
+<pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" layout="absolute"></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>&lt;mx:Image height=&quot;500&quot; width=&quot;500&quot;
+<a name="line-2"></a>    id=&quot;imageLoader&quot;
+<a name="line-3"></a>    source=&quot;http://images.amazon.com/images/P/B0007NFMDK.01.LZZZZZZZ.jpg&quot;
+<a name="line-4"></a>    completeEffect=&quot;Fade&quot;  horizontalCenter=&quot;0&quot;/&gt;
+<a name="line-5"></a>
+<a name="line-6"></a>&lt;mx:Button label=&quot;Clear Image&quot; horizontalCenter=&quot;0&quot; top=&quot;508&quot; 
+<a name="line-7"></a>    click=&quot;imageLoader.source = null&quot;/&gt;
+</code></pre></div>
+<p><a href="/mx:Application">/mx:Application</a>
+</pre>
+<p>`</p>
+
+<p>It is simple, but took me a while to figure out.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

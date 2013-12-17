@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Flash Video Test (#2) : Multiple Streams : StarWars BattleFront</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Flash Video Test (#2) : Multiple Streams : StarWars BattleFront</h2>
+<p class="meta">Monday, October 4, 2004</p>
+
+<div class="post">
+<p>I have been player around with Flash video for the past couple of days, and have been running a couple of tests. The <a href="http://www.markme.com/mesh/archives/006075.cfm">first test</a> was to test a hardware setup to get live video from a video source (in this case an <a href="http://www.xbox.com">Xbox</a>) to <a href="http://www.macromedia.com/devnet/mx/flash/video.html">Flash</a>. This test is testing the ability to play back different video streams in Flash based on the user&#8217;s bandwidth.</p>
+
+<p>So, here is a simple video clip of my playing a level of <a href="http://www.xbox.com/en-US/starwarsbattlefront/default.htm?level3=starwarsbattlefront&amp;level2=fg5blurb&amp;level1=enusgames">StarWars BattleFront</a> on the Xbox:</p>
+
+<!--more-->
+
+<div id="videoDiv" align="center">
+</div>
+
+<p>The quality of the video and sound will depend on your bandwidth. The slower your connection, the lower the quality of the video and sound. This allows me to offer multiple versions to ensure the best possible experience for all users.</p>
+
+<p>Btw, I am using <a href="http://www.peldi.com/blog/archives/2004/05/flvplayer_new_r.html">Peldi&#8217;s FLVPlayer</a> (which rocks). Thanks to Peldi for putting it together, and helping me work out some kinks in my code.</p>
+
+<p>One tip with using the FLVPlayer. If you want to install the player in one place on your web server and then load it from multiple pages / directories, make sure to set the BASE attribute (within the player&#8217;s object and embed HTML tags) to &#8220;.&#8221;. This will tell Flash to load its resources (such as the player skins) relative to the FLVPlayer.swf file, and not relative to the HTML page / directory that the file is loaded into. You can read more on this in this <a href="http://www.macromedia.com/support/flash/ts/documents/tn4157.html">technote</a>.</p>
+
+<p>If you seem to be getting poor quality for your connection, try to reload the page. You connection may have been busy / full when the player detected your bandwidth.</p>
+
+<p>If you have any problems viewing the video, post your info in the comments (include browser, OS, Flash player version and connection speed).</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

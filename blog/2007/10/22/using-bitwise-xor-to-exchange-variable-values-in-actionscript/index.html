@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Using Bitwise XOR to exchange variable values in ActionScript</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Using Bitwise XOR to exchange variable values in ActionScript</h2>
+<p class="meta">Monday, October 22, 2007</p>
+
+<div class="post">
+<p>I have been <a href="http://www.amazon.com/Programming-Objective-C-Stephen-Kochan/dp/0672325861">studying some Objective-C</a> in my spare time, and was reading up on Bitwise operators tonight. I came across a simple way to exchange the value of two variables using the <a href="http://en.wikipedia.org/wiki/Bitwise_XOR#XOR">Exclusive-OR (XOR)</a> operator that doesn&#8217;t require creating a temporary variable.</p>
+
+<p>Normally, if you wanted to exchange the value of two variables, you would have to create a temp variable to store values temporarily (which uses additional memory). For example:<br>
+&lt;!--more--&gt;</p>
+
+<p>`
+<pre>package
+{
+    import flash.display.Sprite;
+    import flash.system.System;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>public class SwitchVariables extends Sprite
+<a name="line-2"></a>{
+<a name="line-3"></a>    public function SwitchVariables()
+<a name="line-4"></a>    {
+<a name="line-5"></a>        var a:int = 5;
+<a name="line-6"></a>        var b:int = 6;
+<a name="line-7"></a>        var temp:int;
+<a name="line-8"></a>
+<a name="line-9"></a>        trace(&quot;a = &quot; + a + &quot; : b = &quot; + b);
+<a name="line-10"></a>
+<a name="line-11"></a>
+<a name="line-12"></a>        temp = a;
+<a name="line-13"></a>        a = b;
+<a name="line-14"></a>        b = temp;
+<a name="line-15"></a>
+<a name="line-16"></a>        trace(&quot;a = &quot; + a + &quot; : b = &quot; + b);
+<a name="line-17"></a>    }
+<a name="line-18"></a>}
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>Notice that you have to create an additional variable, named <code class="inline-code">temp</code> to temporarily store the value while it is switched.</p>
+
+<p>However, you can use the Bitwise XOR Operator to switch the values without having to create the temporary variable. For example:</p>
+
+<p>`
+<pre>package
+{
+    import flash.display.Sprite;
+    import flash.system.System;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>public class SwitchVariables extends Sprite
+<a name="line-2"></a>{
+<a name="line-3"></a>    public function SwitchVariables()
+<a name="line-4"></a>    {
+<a name="line-5"></a>        var a:int = 5;
+<a name="line-6"></a>        var b:int = 6;
+<a name="line-7"></a>
+<a name="line-8"></a>        trace(&quot;a = &quot; + a + &quot; : b = &quot; + b);
+<a name="line-9"></a>
+<a name="line-10"></a>        a ^= b;
+<a name="line-11"></a>        b ^= a;
+<a name="line-12"></a>        a ^= b;
+<a name="line-13"></a>
+<a name="line-14"></a>        trace(&quot;a = &quot; + a + &quot; : b = &quot; + b);
+<a name="line-15"></a>    }
+<a name="line-16"></a>}
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>You can find a good explanation of what the Exclusive OR operator does <a href="http://en.wikipedia.org/wiki/Bitwise_XOR#XOR">here</a> and a discussion of the XOR swap algorithm <a href="http://en.wikipedia.org/wiki/Xor_swap_algorithm">here</a>.</p>
+
+<p>This is probably not needed in most cases (it can make the code a little harder to read), but if you are exchanging the value of variables in a loop and running into memory issues, this might come in handy.</p>
+
+<p>Have any other bitwise operator tips? Post them in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

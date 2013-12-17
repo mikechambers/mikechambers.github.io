@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Clarifications on Flash Player for Mobile Browsers, the Flash Platform, and the Future of Flash</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Clarifications on Flash Player for Mobile Browsers, the Flash Platform, and the Future of Flash</h2>
+<p class="meta">Friday, November 11, 2011</p>
+
+<div class="post">
+<p>I have worked with Flash and been part of the Flash community for about 12 or 13 years (over 10 of those with Macromedia and Adobe). Over that time there have been a lot of ups and down, but I think that the past couple of days have been some of the most difficult of my career. I wanted to make a post which will hopefully clarify some of the news from the past couple of days, and provide some more context around what is going on.<br>
+&lt;!--more--&gt;</p>
+
+<p>First, and foremost, a couple of days ago Adobe <a href="http://blogs.adobe.com/conversations/2011/11/flash-focus.html">announced</a> the following:</p>
+
+<ol>
+<li> We are focusing work around the Flash Platform on:<br>
+
+<ul>
+<li>  Mobile Applications created with Adobe AIR.</li>
+<li>  Expressive content (particularly games and video) in the browser on the desktop via the Flash Player.</li>
+</ul></li>
+<li> We are further increasing the amount of resources (both money and engineer) toward HTML5 tools, solutions and browsers.</li>
+<li> We are no longer going to be actively developing the Flash Player for Mobile Browsers.</li>
+</ol>
+
+<p>It is this last point which received the most attention, caused the most confusion, and essentially overshadowed all of the other information. Given the very public recent history of the Flash Player on devices this was understandable. However, it is clear that we did not do a good job of communicating why we are are making this shift in strategy. I know how frustrating this has been for the Flash community, and for that I want to apologize. Our goal was to be very clear about WHAT we were doing, but in doing so, we didn&#39;t pay enough attention to explaining WHY we were doing it.</p>
+
+<p>So, please bear with me as this may up being a long post, but I want to talk about the why, as well as discuss what we see as the role of Flash on the web (especially in relation to HTML5).</p>
+
+<p>First, I want to make it very clear that we are continuing to work on Adobe AIR for mobile applications, and have seen an increasing number of successful applications created with Adobe AIR. What we are halting is further development on the Flash Player plugin for mobile browsers. We will continue to provide critical bug fixes and security updates for existing device configuration, as well as continue to distribute the current player. At the same time, we are further increasing our investment (both in resources and engineers) in HTML5. I am not going to go into too much detail on this today, but, in general, we are shifting some resources from the Flash Platform and towards HTML5.</p>
+
+<p>The decision to stop development of the Flash Player plugin for mobile browsers was part of a larger strategic shift at Adobe, one which includes a greater shift in focus toward HTML5, as well as the <a href="http://blogs.adobe.com/conversations/2011/11/adobe-creative-cloud-and-adobe-creative-suite-new-choices-for-customers.html">Adobe Creative Cloud</a> and the services that it provides. I am not going to go into detail on that today (I&#39;ll save that for another post), but you can get in-depth information on Adobe&#39;s strategy as a company by watching the Financial Analyst meeting (<a href="http://www.adobe.com/aboutadobe/pressroom/pressreleases/201111/110811AdobeFinancialAnalystMeeting.html">summary</a>, <a href="http://www.adobe.com/aboutadobe/invrelations/2011_analyst_mtg/2011analystmeeting.html">videos</a>) from a couple of days ago (it is long, but worth it).</p>
+
+<h2>Why did Adobe Decide to no longer develop the Flash Player for Mobile Browsers?</h2>
+
+<p>Considering how politically charged the issue has been, the decision to stop development of the Flash Player for Mobile Browsers was not an easy decision. However, at the end of the day, there were a number of items that made it clear that putting resources towards its continued development would not be the best use of resources.</p>
+
+<h3>The Flash Player was not going to achieve the same ubiquity on mobile as it has on the desktop</h3>
+
+<p>This one should be pretty apparent, but given the fragmentation of the mobile market, and the fact that one of the leading mobile platforms (Apple&#39;s iOS) was not going to allow the Flash Player in the browser, the Flash Player was not on track to reach anywhere near the ubiquity of the Flash Player on desktops.</p>
+
+<p>This effectively meant that if you wanted to use Flash to deliver a rich web experience in the browser on mobile devices you would have to provide both a Flash based, as well as HTML5 based solution. Given the strong support for HTML5 across modern mobile devices, it simply made more sense to create an HTML5 based solution. Now, there are some exceptions to this, especially around advanced video content, but it is very clear that HTML5 is the solution to turn to if you want to provide a richer browser based experience that works across browsers on mobile devices.</p>
+
+<p>Just to be very clear on this. No matter what we did, the Flash Player was not going to be available on Apple&#39;s iOS anytime in the foreseeable future.</p>
+
+<h3>Ubiquity of HTML5 on mobile browsers</h3>
+
+<p>Related to the point above, HTML5 has very strong support on modern mobile devices and tablets. Indeed, on mobile devices, it has a level of ubiquity similar to what the Flash Player has on the desktop. While performance and implementations haven&#39;t always been great or consistent across devices, they have continued to improve at a pretty dramatic rate (just look at the insane Canvas performance increases between iOS 4 and 5).</p>
+
+<p>This new generation of smart phones and tablets (ushered in by the original Apple iPhone) are only a couple of years old. Because of this, the rendering engines deployed on these devices (most WebKit based) were all also relatively new and modern. The end result is that when developing for mobile devices and tablets today, you don&#39;t have to deal with legacy browsers as you do on the desktop.</p>
+
+<p>On mobile devices HTML5 provides a similar level of ubiquity that the Flash Player provides on the desktop. It is the best technology for creating and deploying rich content to the browser across mobile platforms.</p>
+
+<p>Our goal has always been to obtain the same level of ubiquity for the Flash Player on mobile browsers, but, at the end of the day, it is something that did not, and was not going to happen.</p>
+
+<h3>Differences in how users consume rich content on mobile devices compared to the desktop</h3>
+
+<p>On the desktop, users are used to consuming rich content (such as games and applications) via both the browser and native applications. However, on mobile devices users are much more likely to look exclusively toward applications for consuming rich content. The mobile platforms make it very easy to discover new content and applications by providing tight integration between the app stores (Apple App Store, Android Marketplace, etc..) and the mobile operating system. In general, users do not look to the web on mobile devices for finding and consuming rich content (such as games and applications).</p>
+
+<p>There are a number of reasons for this, including:</p>
+
+<ul>
+<li>  Differences in screen sizes, resolution and interaction models between mobile devices and desktop PCs</li>
+<li>  Generally slower, and higher latency network connections (which is often metered) on mobile devices, which makes it cumbersome, sometimes expensive, and sometimes impossible to repeatedly load rich content from the web on demand.</li>
+<li>  The tight integration with the underlying operating systems that native applications provide.</li>
+<li>  The tight integration between mobile app stores and the mobile operating systems, which removes most of the friction for discovering new content.</li>
+</ul>
+
+<p>When a user wants to play a game on a mobile device they turn to the app store for their platform. This makes it very easy for them to discover and install new content. This content can then be quickly accessed regardless of their network connectivity.</p>
+
+<p>Essentially, users&#39; preferences to consume rich content on mobile devices via applications means that there is not as much need or demand for the Flash Player on mobile devices as there is on the desktop.</p>
+
+<h3>Scalability of developing plugins for mobile browsers</h3>
+
+<p>Developing the Flash Player for mobile browsers has proven to require much more resources than we anticipated. When building the player for desktop browsers, we can target well defined plugin APIs provided by the browsers. While we do have close relationships will all of the browser vendors (including Google, Apple, Firefox, Microsoft), as a general rule we can do most of our development using the existing APIs.</p>
+
+<p>However, in the mobile ecosystem, we have to work very closely with other companies engineers on a number of levels:</p>
+
+<ol>
+<li> Mobile Operating System Vendors (such as Google and RIM)</li>
+<li> Hardware Device Manufacturers (such as Motorola and Samsung)</li>
+<li> Component Manufacturers (such as NVIDIA)</li>
+</ol>
+
+<p>While we have good relationships on all levels of this ecosystem, having to do specific work for different combinations of OS, Hardware and event components has taken a significant amount of resources. For each new device, browser and operating system released, the resources required to develop, test and maintain the Flash Player also increases. This is something that we realized is simply not scalable or sustainable.</p>
+
+<p>I have seen a couple of questions asking how Adobe AIR is different. There are a couple of differences which make AIR development significantly less resource intensive, including a more well defined API that we can target, as well as not needing to worry about differences in browsers or new browser versions. Ultimately though, developers are building successful applications with Adobe AIR, and thus it makes sense for us to continue to invest in it.</p>
+
+<h3>Shifting some Resources from Flash to HTML5</h3>
+
+<p>Finally, given the growth of HTML5 on both mobile and desktop browsers, we decided to more evenly balance our resources dedicate between Flash and HTML5.</p>
+
+<p>Halting development on the Flash Player for mobile devices frees up resources for HTML5 development (tooling, frameworks, browsers).</p>
+
+<p>I understand that not everyone may not agree with all of the conclusions drawn above. However, given these points, along with the increasing complexity and costs of developing the Flash Player for mobile browsers, we decided that further development was not the best use of our engineering resources.</p>
+
+<h2>What does this mean for the Flash Platform in General?</h2>
+
+<p>While there was some frustration around our dropping development of the Flash Player for mobile browsers, the main thing I saw was concern and confusion about how this would affect the Flash Platform as a whole. Were we still committed to it? Would we stop developing the Flash Player for the desktop? Is Flash really dead?</p>
+
+<p>So, just to be very clear, contrary to what many have declared, Flash is not dead. It&#39;s role and focus has shifted but we feel that it still fills important roles both on the web and mobile platforms.</p>
+
+<h3>Adobe AIR</h3>
+
+<p>We are continuing to develop Adobe AIR for both the desktop and mobile devices. Indeed, we have seen wide adoption of Adobe AIR for creating mobile applications and there have been a number of blockbuster mobile applications created using Adobe AIR. Some recent examples of applications created for mobile devices using Adobe AIR are <a href="http://amanita-design.net/games/machinarium.html">Machinarium</a>, <a href="https://market.android.com/details?id=air.WatchESPN&amp;hl=en">Watch ESPN</a> and my personal favorite, <a href="http://tweethunt.net/">tweet hunt</a>.</p>
+
+<h3>Flash Player for Desktop Browsers</h3>
+
+<p>We feel that Flash continues to play a vital role of enabling features and functionality on the web that are not otherwise possible. As such, we have a long term commitment to the Flash Player on desktops, and are actively working on the next Flash Player version.</p>
+
+<p>Of course, with the growth and continued improved browser support of HTML5, the role of Flash will change. We feel that for the foreseeable future, Flash is particularly strong in delivering advanced video, as well as providing a robust, and graphically rich gaming platform. We are focusing our Flash Player efforts around these areas.</p>
+
+<p>Some of the features currently being worked on for the Flash Player:</p>
+
+<ul>
+<li>  <a href="http://www.leebrimelow.com/?p=3133">Mouse Lock Support</a></li>
+<li>  ActionScript Workers / Concurrency APIs</li>
+<li>  Telemetry / <a href="http://tv.adobe.com/watch/max-2011-sneak-peeks/max-2011-sneak-peek-monocle/">Monocle</a> Support</li>
+<li>  Audio API improvements, especially for better handling of low latency audio</li>
+<li>  New Datatypes for ActionScript 3</li>
+</ul>
+
+<p>We are also making some long term, and significant architectural changes, which will benefit the Flash Player (and developers) for years to come. This is still in the early stages, and we will have more information in the coming months.</p>
+
+<h3>Adobe Flex</h3>
+
+<p>I know there are a lot of questions around Adobe Flex. We are writing a separate blog post focused just on Flex which should be up shortly. I will update this post when it is live.</p>
+
+<p>Update : The Flex Team has posted more info <a href="http://blogs.adobe.com/flex/2011/11/your-questions-about-flex.html">here</a>.</p>
+
+<h3>Flash Professional</h3>
+
+<p>I discussed the future of Flash Professional in a separate <a href="http://www.mikechambers.com/blog/2011/11/10/flash-professional-and-the-future/">blog post</a> yesterday, so I am not going go into detail on it here. As I stated yesterday, we are actively working on the next version of Flash Professional and have a long term commitment to it’s continued development.</p>
+
+<h3>HTML5 and Flash</h3>
+
+<p>Finally, I want to touch on some of my thoughts on Flash and HTML5.</p>
+
+<p>From its beginning, Flash&#39;s primary role has been to enable things on the web that were not otherwise possible. Over its history, this has included things such as animation, vector graphics, sound, video, webcam and microphone support, and more. Because of its ubiquity and fast rate of adoption, it was uniquely suited to quickly introduce new features to the web.</p>
+
+<p>Overtime, many of these Flash features were added to the browser. Time and time again, as the browsers matured things which were once done exclusively in Flash, were eventually done in the browser. The Flash Player would then add new features and the cycle would continue. This has happened over the entire history of Flash, and I expect, will continue to happen. This was something that was good for users (who got richer content earlier), Adobe (who got to sell tools and technologies), and browser vendors (who could focus their efforts on features which the Flash Player had proven to be popular and viable). </p>
+
+<p>The key point is this. If a Flash feature is successful, it will eventually be integrated into the browser, and developers and users will access it more and more via the browser and not Flash.</p>
+
+<p>With the renewed competition in the browser market and the subsequent acceleration of new HTML5 features being added to browsers, the number of things possible in the browser has dramatically increased. This includes a lot of overlap with features that were once exclusive to the Flash Player. While it will still be a while before HTML5 / CSS3 features have the same ubiquity as the Flash Player currently has, the trend is very clear. A lot of the things that you have done via Flash in the past, will increasingly be done via HTML5 and CSS3 directly in the browser.</p>
+
+<p>I think that is important enough that I should repeat it.</p>
+
+<p>A lot of the things that you have done via Flash in the past, will increasingly be done via HTML5 and CSS3 directly in the browser.</p>
+
+<p>I know that this is a bit scary for a lot of people who have made their career working with Flash. I completely get that. However, I think it is a HUGE opportunity for the Flash community. As browser support for richer content and motion graphics improves, so will demand for designers and developers who have experience working with motion graphics on the web. The Flash community has been doing this type of work on the web for over a decade and is uniquely qualified to fill demand for similar work in the browser. I don&#39;t think it is a coincidence that some of the most cutting edge motion graphics work being done in HTML5 today is being done by developers and agencies with extensive experience in Flash (such as <a href="http://gskinner.com/">Grant Skinner</a>, <a href="http://automatastudios.com/the-endless-mural/">Branden Hall</a>, <a href="http://www.bigspaceship.com/">Big Spaceship</a>, etc...).</p>
+
+<p>I am not suggesting that all Flash content should or will be done in HTML5. You have to look at each project on a case by case basis and make a decision based on development costs, target platforms and user experience. Regardless, your customers are going to ask about HTML5, and you should put yourself in a position to best meet their needs, regardless of technology or platform.</p>
+
+<p>This has ended up much longer than I had expected, but I wanted to share a lot of stuff that has been going through my head over the past couple of days. Again, I understand the frustration about how all of this was originally communicated, and I want to apologize for that. I think it is pretty clear that we did not communicate the news and our views around Flash as clearly as we should have.</p>
+
+<p>Please post and questions / comments below. Please keep all comments constructive and on topic (or else they may be moderated).</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

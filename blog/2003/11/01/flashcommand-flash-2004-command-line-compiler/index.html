@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>FlashCommand Flash 2004  Command Line Compiler</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>FlashCommand Flash 2004  Command Line Compiler</h2>
+<p class="meta">Saturday, November 1, 2003</p>
+
+<div class="post">
+<p>Well, I am finally releasing the first public version of FlashCommand. FlashCommand is a command line compiler for <a href="http://www.macromedia.com/software/flash/">Flash MX 2004 Pro</a>.</p>
+
+<!--more-->
+
+<p>I am sorry it took so long to release, but I have been super swamped. I also ran into a bug where the installer no longer worked (it errors when trying to automatically set the path environment variable). This bug delayed the release, and I ended up just removing the installer. Hopefully, I will have time soon to track the issue down, and release an updated version with the installer.</p>
+
+<p><strong>IMPORTANT : This is something that I did in my own time, and is not supported by Macromedia. Use at your own risk. If you run into any issues (and you will), please post them in the comments. This will make it easier for me to keep track of issues and suggestions.</strong></p>
+
+<p>Here is a <a href="/mesh/files/editplus_compile.gif">screen shot</a> of ActionScript code being compiled from <a href="http://www.editplus.com">EditPlus</a>. Notice that it catches the output (it will also catch compile errors if they occur). Btw, if anyone can figure out how to get this to work with <a href="http://www.bomberstudios.com/sciteflash/">SciteFlash</a>, post the info in the comments.</p>
+
+<p>Note, this is Windows only and requires the <a href="http://msdn.microsoft.com/netframework/downloads/howtoget.aspx">.NET framework</a>. Sorry about that. I will try to make a portable version in the future.</p>
+
+<p><a href="/mesh/files/flashcommand/FlashCommand_win.zip">Download FlashCommand</a></p>
+
+<p><a href="/mesh/files/flashcommand/FlashCommand_win_src.zip">Download FlashCommand Source</a></p>
+
+<p>Here is the usage information (from the readme):</p>
+
+<pre>FlashCommand.exe -e | -c | -p [-q] [-v] [-x] [-q] (-s &lt;sourcefile&gt;) ([-l] [&lt;logfile&gt;])
+    ([-o] &lt;exportpath&gt;) ([-f] &lt;flashpath&gt;) ([-t] &lt;timeout&gt;)
+
+-version : Prints out information about the program.
+-help | Prints out usage information.
+
+-e : Specifies export action.
+-c : Specifies save and compact action. 
+-p : Specifies publish action.
+
+-l : Specifies whether output should be logged to a file. Optional. Takes an optional
+    param specifying the path to the log file. If not specifies, log files will be
+    place in &lt;installdirectory>\log
+-q : Specifies quite mode. Optional. If specified, no output will be written to console
+    (although it may still be logged).
+-v : Specifies verbose mode.
+-d : Specifies temp directory that will be used for temporary file.
+-s : Specifies source files. Required.
+-o : Specifies the output file if -e flag is also set. Optional. If not specifies,
+    file will be output to same directory as source.
+-x : Specifies whether Flash should be closed after it is done processing. Optional.
+-k : Specifies whether the temp jsfl file should be deleted. Optional.
+
+-f : Specifies Flash executable path. Optional.
+-t : Specifies timeout value. Optional
+-d : Specifies temp directory. Optional.
+</pre>
+
+<p>Thanks for <a href="http://blog.debreuil.com/">Robin Debreuil</a>, <a href="http://ohwhen.typepad.com/">Owen van Dijk</a> who provided valuable input and help.</p>
+
+<p><a href="/mesh/files/FlashCommand.zip">Download FlashCommand</a></p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

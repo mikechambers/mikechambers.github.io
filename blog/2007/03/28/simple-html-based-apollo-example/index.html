@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Simple HTML Based Apollo Example</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Simple HTML Based Apollo Example</h2>
+<p class="meta">Wednesday, March 28, 2007</p>
+
+<div class="post">
+<p>Most of the docs and examples for the <a href="http://www.adobe.com/go/apollo">Apollo alpha</a> are Flex / ActionScript focused (next beta will be more focused on HTML / JavaScript). However, you can build Apollo applications using just HTML and JavaScript.</p>
+
+<p>Here is a simple example that shows how to build an HTML / JavaScript Apollo application, and how to access Apollo APIs from JavaScript. The application shows how to launch a file browser from the application, and access information about the selected file (you could then easily read in the contents of the file).<br>
+&lt;!--more--&gt;</p>
+
+<p>Note, that we are working on making it a little easier to access the Apollo apis from JavaScript. </p>
+
+<p><strong>application.xml</strong><br>
+`
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<application xmlns="http://ns.adobe.com/apollo/application/1.0.M3" 
+    appId="com.adobe.mesh.HTMLFileExample" version=".4">   </p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>  &lt;properties&gt;
+<a name="line-2"></a>        &lt;name&gt;HTMLFileExample&lt;/name&gt;
+<a name="line-3"></a>        &lt;description&gt;&lt;/description&gt;
+<a name="line-4"></a>        &lt;publisher&gt;Mike Chambers&lt;/publisher&gt;
+<a name="line-5"></a>        &lt;copyright&gt;&lt;/copyright&gt;
+<a name="line-6"></a>  &lt;/properties&gt;
+<a name="line-7"></a>
+<a name="line-8"></a>  &lt;rootContent systemChrome=&quot;standard&quot; transparent=&quot;false&quot; visible=&quot;true&quot;&gt;
+<a name="line-9"></a>    fileexample.html
+<a name="line-10"></a>  &lt;/rootContent&gt;
+</code></pre></div>
+<p></application>
+</pre>
+<p>`</p>
+
+<p><strong>fileexample.html</strong><br>
+`
+<pre><html></p>
+
+<p><head></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>&lt;script type=&quot;text/javascript&quot; src=&quot;fileexample.js&quot;&gt;&lt;/script&gt;
+</code></pre></div>
+<p></head></p>
+
+<p><body onload="onLoad()"></p>
+
+<p><input type="button" value="Select a File" onClick="onFileClick();"><br /></p>
+
+<p><textarea rows="10" cols="40" id="output"></textarea></p>
+
+<p></body></pre>
+<p>`</p>
+
+<p><strong>fileexample.js</strong><br>
+`
+<pre>
+var apollo = window.runtime;</p>
+
+<p>//called when page has loaded
+function onLoad()
+{
+    //set initial size of app window
+    window.resizeTo(400,300);
+}</p>
+
+<p>//called when button is pressed to select a file
+function onFileClick()
+{
+    //this will trace out the string to the command line
+    apollo.trace(&quot;hello&quot;);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//get a reference to the desktop
+<a name="line-2"></a>var f = apollo.flash.filesystem.File.desktopDirectory;
+<a name="line-3"></a>
+<a name="line-4"></a>//listen for the select event
+<a name="line-5"></a>f.addEventListener(apollo.flash.events.Event.SELECT, onFileSelect);
+<a name="line-6"></a>
+<a name="line-7"></a>//open the browse dialog
+<a name="line-8"></a>f.browse();
+</code></pre></div>
+<p>}</p>
+
+<p>//called when user selects a file
+function onFileSelect(e)
+{
+    //print the path of the selected file
+    output.value = e.target.url;
+}</pre>
+<p>`</p>
+
+<p>You can test this by using ADL (included in the <a href="http://www.adobe.com/go/apollo">Apollo SDK</a>) from the command line like so:</p>
+
+<p><code class="inline-code">
+<pre>adl application.xml</pre>
+<p></code></p>
+
+<p>You can download the code from <a href="/mesh/files/apollo/htmlexample.zip">here</a>.</p>
+
+<p>Post any questions in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

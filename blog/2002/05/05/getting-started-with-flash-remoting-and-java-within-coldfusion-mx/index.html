@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Getting Started with Flash Remoting and Java within ColdFusion MX</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Getting Started with Flash Remoting and Java within ColdFusion MX</h2>
+<p class="meta">Sunday, May 5, 2002</p>
+
+<div class="post">
+<p>This is an addendum to the following article:<br>
+<a href="http://www.macromedia.com/desdev/mx/coldfusion/articles/startremoting.html">Getting Started with ColdFusion MX and Flash Remoting article</a><br>
+that uses a Java class deployed in ColdFusion MX to create a service that can be called from Flash via Flash Remoting. Note, currently you must have ColdFusion MX installed in order to use Flash Remoting. However, we will be releasing separate versions for Java servers very soon.<br>
+This article assumes that you are familiar with Java and Java concepts.<br>
+1. Open the above article in your web browser.<br>
+2. Download and install the ColdFusion MX preview release.<br>
+3. Download and install the Flash Remoting Addons for Flash MX.<br>
+4. Create HelloWorld.java in the com.macromedia.test package.<br>
+HelloWorld.java should contain the following code:<br>
+*****<br>
+**<strong><em>\</em>\<em>\</em>HelloWorld.java**\</strong>*<br>
+*<strong>\</strong><em>\</em><strong>\</strong>*
+<PRE>package com.macromedia.test; <BR /><BR />&nbsp;<BR />public class HelloWorld<BR />{&nbsp; <BR />&nbsp;public String sayHello()<BR />&nbsp;{ <BR />&nbsp;&nbsp;return &#8220;Hello World&#8221;;<BR />&nbsp;} <BR />}</PRE></p>
+
+<p>*****<br>
+*<strong>\</strong><em>\</em><strong>\</strong>**<br>
+*<strong>\</strong><em>\</em><strong>\</strong>**<br>
+*<strong>\</strong><em>\</em><strong>\</strong>**<br>
+*<strong>\</strong><em>\</em><strong>\</strong><em>\</em>**<br>
+compile this into the <em><cfinstall>\runtime\servers\default</em> directory.<br>
+There are no changes required in the Flash code. Open the example file in Flash MX and test your movie.<br>
+Note : If you have done any of the other versions of the tutorials, you need to rename the <em>wwwroot\com\macromedia\test</em> directory (to ensure that the Java class is called and not the code in the folder).<br>
+Of course, this is a really simple example. Play around with passing more complex data such as Arrays, HashMaps and ResultSets. Ill post more information later on how to pass more complex datatypes.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

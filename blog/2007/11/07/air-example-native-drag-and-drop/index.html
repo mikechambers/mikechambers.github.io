@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>AIR Example : Native Drag and Drop</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>AIR Example : Native Drag and Drop</h2>
+<p class="meta">Wednesday, November 7, 2007</p>
+
+<div class="post">
+<p>Here is a simple example that shows how to enable your Adobe AIR application to accept native drag and drop operations.</p>
+
+<p>This is a simple application that allows you to drag a text file into the application and then view its contents.<br>
+&lt;!--more--&gt;</p>
+
+<p>DragAndDropExample.mxml<br>
+`
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<mx:WindowedApplication 
+    creationComplete="onCreationComplete()"
+    xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>&lt;mx:Script source=&quot;DragAndDropExampleClass.as&quot; /&gt;
+<a name="line-2"></a>
+<a name="line-3"></a>&lt;mx:TextArea top=&quot;10&quot; right=&quot;10&quot; bottom=&quot;10&quot; left=&quot;251&quot;
+<a name="line-4"></a>        id=&quot;outputField&quot; /&gt;
+<a name="line-5"></a>&lt;mx:Text text=&quot;Drag a Text File into the Application&quot; 
+<a name="line-6"></a>        width=&quot;233&quot; height=&quot;148&quot; top=&quot;11&quot; left=&quot;10&quot;/&gt;
+</code></pre></div>
+<p><a href="/mx:WindowedApplication">/mx:WindowedApplication</a>
+</pre>
+<p>`</p>
+
+<p>DragAndDropExampleClass.as<br>
+`
+<pre>
+import flash.desktop.ClipboardFormats;
+import flash.desktop.DragManager;
+import flash.events.NativeDragEvent;
+import flash.filesystem.File;
+import flash.filesystem.FileMode;
+import flash.filesystem.FileStream;</p>
+
+<p>//called when app has initialized and is about to display
+private function onCreationComplete():void
+{
+    //register for the drag enter event
+    addEventListener(NativeDragEvent.NATIVE<em>DRAG</em>ENTER, onDragIn);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//register for the drag drop event
+<a name="line-2"></a>addEventListener(NativeDragEvent.NATIVE_DRAG_DROP, onDragDrop);
+</code></pre></div>
+<p>}</p>
+
+<p>//called when the user drags an item into the component area
+private function onDragIn(e:NativeDragEvent):void
+{
+    //check and see if files are being drug in
+    if(e.clipboard.hasFormat(ClipboardFormats.FILE<em>LIST</em>FORMAT))
+    {
+        //get the array of files
+        var files:Array = e.clipboard.getData(ClipboardFormats.FILE<em>LIST</em>FORMAT) as Array;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>    //make sure only one file is dragged in (i.e. this app doesn&#39;t
+<a name="line-2"></a>    //support dragging in multiple files)
+<a name="line-3"></a>    if(files.length == 1)
+<a name="line-4"></a>    {
+<a name="line-5"></a>        //accept the drag action
+<a name="line-6"></a>        DragManager.acceptDragDrop(this);
+<a name="line-7"></a>    }
+<a name="line-8"></a>}
+</code></pre></div>
+<p>}</p>
+
+<p>//called when the user drops an item over the component
+private function onDragDrop(e:NativeDragEvent):void
+{
+    //get the array of files being drug into the app
+    var arr:Array = e.clipboard.getData(ClipboardFormats.FILE<em>LIST</em>FORMAT) as Array;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//grab the files file
+<a name="line-2"></a>var f:File = File(arr[0]);
+<a name="line-3"></a>
+<a name="line-4"></a>//create a FileStream to work with the file
+<a name="line-5"></a>var fs:FileStream = new FileStream();
+<a name="line-6"></a>
+<a name="line-7"></a>    //open the file for reading
+<a name="line-8"></a>    fs.open(f, FileMode.READ);
+<a name="line-9"></a>
+<a name="line-10"></a>//read the file as a string
+<a name="line-11"></a>var data:String = fs.readUTFBytes(fs.bytesAvailable);
+<a name="line-12"></a>
+<a name="line-13"></a>    //close the file
+<a name="line-14"></a>    fs.close();
+<a name="line-15"></a>
+<a name="line-16"></a>//display the contents of the file      
+<a name="line-17"></a>outputField.text = data;
+</code></pre></div>
+<p>}
+</pre>
+<p>`</p>
+
+<p>One of the cool things about the API, is that you can have specific components within your application accept native drag and drop operations (and not just your entire app).</p>
+
+<p>Note, right now, the app is not doing any checking to confirm that the file is a text file. If you try and drag a binary file into the app you will get weird results. (Im looking into how to check that the file is text based).</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

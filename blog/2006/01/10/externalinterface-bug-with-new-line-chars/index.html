@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>ExternalInterface Bug with new line chars</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>ExternalInterface Bug with new line chars</h2>
+<p class="meta">Tuesday, January 10, 2006</p>
+
+<div class="post">
+<p>A couple of days ago I ran into a bug with ExternalInterface which caused me quite a hassle (a couple of <a href="http://codinginparadise.org/weblog/2005/12/serious-bug-in-flash-8.html">people</a> ran into it before I did). I finally figured it out, and wanted to post here in case anyone else runs into it.<br>
+&lt;!--more--&gt;</p>
+
+<p>Basically, if the data being passed from JavaScript to ActionScript or ActionScript to JavaScript via ExternalInterface contains any line returns (\n) then the string is not serialized correctly, and the call will fail (you will probably see a JavaScript error). This affects both Flash Player 8, and the <a href="http://labs.macromedia.com/technologies/flashplayer8_5/">Flash Player 8.5 alpha</a>.</p>
+
+<p>The issue has been logged and is being looked at it. Luckily, there is a simple workaround, which is to manually escape the line returns by replace \n with \n.</p>
+
+<p>Here is how to do it in ActionScript 3:</p>
+
+<pre>var data:String = stringToPass.replace(/\n/g, "\\n" );</pre>
+
+<p>and here is how to do it in ActionScript 2:</p>
+
+<pre>function escapeLineReturns(s:String):String
+{
+    trace("a");
+    var len:Number = s.length;
+    var sb = "";
+    
+    var c;
+    for(var i:Number = 0; i &lt; len; i++)
+    {
+        c = s.charAt(i);
+        if(c == "\n")
+        {
+            sb += "\\n";
+        }
+        else
+        {
+            sb += c;
+        }
+    }
+    
+    trace("r : " + sb);
+    return sb;
+}
+
+var data:String = escapeLineReturns(stringToPass);</pre>
+
+<p>On the JavaScript side you can basically use the same solution as in ActionScript 3.0:</p>
+
+<pre>var data = stringToPass.replace(/\n/g, "\\n" );</pre>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

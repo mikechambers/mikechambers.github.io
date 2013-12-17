@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Getting Started with Phidgets and ActionScript 3</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Getting Started with Phidgets and ActionScript 3</h2>
+<p class="meta">Monday, July 26, 2010</p>
+
+<div class="post">
+<p><a href="http://www.phidgets.com/index.php">Phidgets</a> are a set of devices and sensors that provide a simple way for developers to create applications that both send and receiving information from external sensors, motors and pretty much anything else you can hook up via electronics. They are similar to the open source <a href="http://www.arduino.cc/">Arduino</a> electronic platform. </p>
+
+<p>Im not going to do a big comparison between Arduino and Phidgets in this post. I plan to do that in another post (along with an Arduino / Flash hello world article). Suffice it to say though, that one of the major benefits of Phidgets, is that the Phidgets devices are a bit higher level, both on the hardware, and software side and thus can be a little easier for a developer new to electronics to get started with.<br>
+&lt;!--more--&gt;</p>
+
+<p>If you are a Flash developer, Phidget&#39;s are very attractive, as they provide a very well developed and documented <a href="http://www.phidgets.com/programming_resources.php">ActionScript API for working with the Phidgets devices</a>. The API works by connecting via a socket from Flash content, to a Phidgets local (or remote) server. The Phidgets server connects directly to the Phidgets devices over USB, and proxies communication between the Flash / ActionScript content, and the Phidgets devices and electronics.</p>
+
+<p>In this post, I will cover everything you need to know in order to get started integrating Phidgets electronics and Flash / ActionScript content.</p>
+
+<p>You can grab all of the code for the example from my <a href="http://github.com/mikechambers/ExamplesByMesh/tree/master/Phidgets/PhidgetsHelloWorld/">GitHub Example repository</a>.</p>
+
+<p>First, here is what you will need to get started:</p>
+
+<ul>
+<li>  An ActionScript 3 compiler (such as <a href="http://www.adobe.com/products/flashbuilder/">Flash Builder</a>, <a href="http://www.adobe.com/products/flash/">Flash Professional</a>, or the open source MXMLC compiler included in the <a href="http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+4">Flex 4 SDK</a>).</li>
+<li>  An IDE or text editor to edit ActionScript (such as Flash Builder, Flash Authoring, FDT, TextMate or any other general text editor).</li>
+<li>  The Phidgets ActionScript 3 library. You can find the library&#39;s SWC in Flex 3 Code Sample ZIP file, and can find the source in the Flash AS3 Code Sample Zip file, both on the <a href="http://www.phidgets.com/programming_resources.php">Phidgets programming resources page</a>.</li>
+<li>  The Phidgets drivers for your platform. This will install the drivers for the devices, as well as the proxy application / server that Flash will use to communicate with the devices. You can download these from the <a href="http://www.phidgets.com/drivers.php">Phidgets driver page</a>.</li>
+<li>  At least one Phidgets device that can connect directly to your computer USB. If you are just getting started, then I would recommend the <a href="http://www.phidgets.com/products.php?category=0&amp;product_id=1018">1018 &#8211; PhidgetInterfaceKit 8/8/8</a> as it is the most flexible and extensible. This article will assume you are using this kit.</li>
+<li>  One LED to test the kit with.</li>
+</ul>
+
+<p>For this article I will be using <a href="http://macromates.com/">TextMate</a> on a Mac and compiling with the free mxmlc compiler included in the <a href="http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+4">Flex 4 SDK</a>. We will be running the example via Adobe AIR (via ADL included in the Flex 4 SDK) (although the SWF we create will also work in the Flash Player in the browser).</p>
+
+<p><strong>Install Drivers</strong></p>
+
+<p>First, download and install the <a href="http://www.phidgets.com/drivers.php">Phidgets drivers for your platform</a>. This will install the drivers to interface with the devices via USB, and will also install a standalone application / server that will proxy calls between Flash and the devices.</p>
+
+<p><strong>Test Installation</strong></p>
+
+<p>Once you have installed the drivers, download the <a href="http://www.phidgets.com/documentation/Phidgets/1018.pdf">manual for the 1018 - PhidgetInterfaceKit 8/8/8</a>. I strongly recommend you read through the entire PDF document, but at a minimum, you will want to read the &quot;Product Features&quot; and &quot;Getting Started&quot;&quot; sections.</p>
+
+<p>Connect your Phidget via USB to your computer and then read and follow the steps under the <em>Getting Started &gt; Testing</em> section in the 1018 docs. This will show you how to ensure that your Phidgets and software are setup and functioning correctly. Make sure to run the sample program as described in the docs. </p>
+
+<p><strong>Download Phidget ActionScript Library</strong></p>
+
+<p>In order to communication with the Phidgets devices / proxy application via ActionScript, we need to download the Phidgets ActionScript library. There are two Flash related libraries on the <a href="http://www.phidgets.com/programming_resources.php">Phidgets Programming Resources page</a>. The Flash AS3 download contains example FLAs to be run in Flash Authoring (4 or 5), as well as the source code for the Phidgets ActionScript library. The Flex AS3 download contains both Flex / MXML and pure ActionScript examples, as well as the Phidget AS3 Library SWC. You can also download API references and a getting started guide on the page.</p>
+
+<p>You can use either the Phidget library source from the Flash AS3 download, or the Phidget library SWC from the Flex AS3 download. Just make sure to link them in when compiling your ActionScript. For this article I will be using the compiled SWC.</p>
+
+<p><strong>Configure the Phidget</strong></p>
+
+<p>For our simple hello world example, we are going to connect an LED to our Phidget and then turn it on via ActionScript. In order to do this, we need to connect an LED to the PhidgetInterfaceKit. Connect an LED to output pins G (Ground) and 0. Make sure that the long wire (anode) of the LED is connected to pin 0, and the short wire (cathode) is connect to the ground (G).</p>
+
+<p><a href="/blog/images/phidgets/phidget_led.jpg"><img src="/blog/images/phidgets/phidget_led_sm.jpg" alt="title"></a></p>
+
+<p>Next, make sure that the Phidget is connected to the computer via USB. You can test that everything is connected and hooked up correctly by opening the Phidget preferences, and selecting output 0 on the Phidget Interface Kit screen. This should turn on the LED (make sure to turn it off once you are done).</p>
+
+<p><a href="/blog/images/phidgets/phidget_mac_settings.png"><img src="/blog/images/phidgets/phidget_mac_settings_sm.png" alt="title"></a></p>
+
+<p><strong>Turn on Phidget Proxy / Server</strong></p>
+
+<p>The last step before we can write our code is to make sure that the Phidget proxy / web server is running. This is a simple socket server that runs locally and proxies calls between Flash and the Phidget.</p>
+
+<p>On Mac, you can start this in <em>System Preferences &gt; Phidgets &gt; Web Service &gt; Start Web Service</em>. Check the <a href="http://www.phidgets.com/documentation/Tutorials/Working_With_PhidgetWebservice.pdf">documentation</a> for how to start it on other platforms. </p>
+
+<p>For now you can leave the ServerID and Password blank, and leave the port at its default value of &quot;5001&quot;.</p>
+
+<p><strong>Write ActionScript Code</strong></p>
+
+<p>We are finally ready to write the ActionScript code to interface with the Phidget.</p>
+
+<p>Open you ActionScript editor, and type in the following code in a file named PhidgetsHelloWorld.as. The code below is fully commented and explains what is going on.</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="cm">/*</span>
+<a name="line-2"></a><span class="cm">    The MIT License</span>
+<a name="line-3"></a>
+<a name="line-4"></a><span class="cm">    Copyright (c) 2010 Mike Chambers</span>
+<a name="line-5"></a>
+<a name="line-6"></a><span class="cm">    Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<a name="line-7"></a><span class="cm">    of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<a name="line-8"></a><span class="cm">    in the Software without restriction, including without limitation the rights</span>
+<a name="line-9"></a><span class="cm">    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<a name="line-10"></a><span class="cm">    copies of the Software, and to permit persons to whom the Software is</span>
+<a name="line-11"></a><span class="cm">    furnished to do so, subject to the following conditions:</span>
+<a name="line-12"></a>
+<a name="line-13"></a><span class="cm">    The above copyright notice and this permission notice shall be included in</span>
+<a name="line-14"></a><span class="cm">    all copies or substantial portions of the Software.</span>
+<a name="line-15"></a>
+<a name="line-16"></a><span class="cm">    THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<a name="line-17"></a><span class="cm">    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<a name="line-18"></a><span class="cm">    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<a name="line-19"></a><span class="cm">    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<a name="line-20"></a><span class="cm">    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<a name="line-21"></a><span class="cm">    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
+<a name="line-22"></a><span class="cm">    THE SOFTWARE.</span>
+<a name="line-23"></a><span class="cm">*/</span>
+<a name="line-24"></a>
+<a name="line-25"></a><span class="kd">package</span>
+<a name="line-26"></a><span class="p">{</span>
+<a name="line-27"></a>    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Sprite</span><span class="o">;</span>
+<a name="line-28"></a>    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">Event</span><span class="o">;</span>
+<a name="line-29"></a>
+<a name="line-30"></a>    <span class="c1">//import the Phidget classes we need for this example</span>
+<a name="line-31"></a>    <span class="c1">//from the Phidget&#39;s library / SWC</span>
+<a name="line-32"></a>    <span class="kd">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">phidgets</span><span class="p">.</span><span class="nx">Phidget</span><span class="o">;</span>
+<a name="line-33"></a>    <span class="kd">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">phidgets</span><span class="p">.</span><span class="nx">PhidgetInterfaceKit</span><span class="o">;</span>
+<a name="line-34"></a>    <span class="kd">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">phidgets</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">PhidgetEvent</span><span class="o">;</span>    
+<a name="line-35"></a>
+<a name="line-36"></a>    <span class="kd">public</span> <span class="kd">class</span> <span class="nx">PhidgetsHelloWorld</span> <span class="kd">extends</span> <span class="nb">Sprite</span>
+<a name="line-37"></a>    <span class="p">{</span>       
+<a name="line-38"></a>
+<a name="line-39"></a>        <span class="c1">//reference to the Phidget Interface Kit we are connecting to</span>
+<a name="line-40"></a>        <span class="kd">private</span> <span class="k">var</span> <span class="nx">interfaceKit</span><span class="o">:</span><span class="nx">PhidgetInterfaceKit</span><span class="o">;</span>
+<a name="line-41"></a>
+<a name="line-42"></a>        <span class="c1">//constructor</span>
+<a name="line-43"></a>        <span class="kd">public</span> <span class="kd">function</span> <span class="nx">PhidgetsHelloWorld</span><span class="p">()</span>
+<a name="line-44"></a>        <span class="p">{</span>
+<a name="line-45"></a>            <span class="c1">//listen for when we are added to the stage</span>
+<a name="line-46"></a>            <span class="nx">addEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ADDED_TO_STAGE</span><span class="o">,</span> <span class="nx">onAddedToStage</span><span class="p">);</span>
+<a name="line-47"></a>        <span class="p">}</span>
+<a name="line-48"></a>
+<a name="line-49"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onAddedToStage</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-50"></a>        <span class="p">{</span>
+<a name="line-51"></a>            <span class="nx">removeEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ADDED_TO_STAGE</span><span class="o">,</span> <span class="nx">onAddedToStage</span><span class="p">);</span>
+<a name="line-52"></a>
+<a name="line-53"></a>            <span class="c1">//create instance of PhidgetInterfaceKit</span>
+<a name="line-54"></a>            <span class="nx">interfaceKit</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhidgetInterfaceKit</span><span class="p">();</span>
+<a name="line-55"></a>
+<a name="line-56"></a>            <span class="c1">//listen for event that we need for this example</span>
+<a name="line-57"></a>
+<a name="line-58"></a>            <span class="c1">//connected to proxy</span>
+<a name="line-59"></a>            <span class="nx">interfaceKit</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">PhidgetEvent</span><span class="p">.</span><span class="nx">CONNECT</span><span class="o">,</span> <span class="nx">onConnect</span><span class="p">);</span>
+<a name="line-60"></a>
+<a name="line-61"></a>            <span class="c1">//device attached</span>
+<a name="line-62"></a>            <span class="nx">interfaceKit</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">PhidgetEvent</span><span class="p">.</span><span class="nx">ATTACH</span><span class="o">,</span>  <span class="nx">onAttach</span><span class="p">);</span>
+<a name="line-63"></a>
+<a name="line-64"></a>            <span class="c1">//device detached</span>
+<a name="line-65"></a>            <span class="nx">interfaceKit</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">PhidgetEvent</span><span class="p">.</span><span class="nx">DETACH</span><span class="o">,</span>  <span class="nx">onDetach</span><span class="p">);</span>
+<a name="line-66"></a>
+<a name="line-67"></a>            <span class="c1">//disconnected from proxy</span>
+<a name="line-68"></a>            <span class="nx">interfaceKit</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">PhidgetEvent</span><span class="p">.</span><span class="nx">DISCONNECT</span><span class="o">,</span> <span class="nx">onDisconnect</span><span class="p">);</span>
+<a name="line-69"></a>
+<a name="line-70"></a>            <span class="c1">//proxy address. Usually localhost / 127.0.0.1, but can be any server</span>
+<a name="line-71"></a>            <span class="c1">//on any computer. The proxy returns proper security policy file</span>
+<a name="line-72"></a>            <span class="k">var</span> <span class="nx">serverAddress</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="o">;</span>
+<a name="line-73"></a>
+<a name="line-74"></a>            <span class="c1">//port the proxy is listening on</span>
+<a name="line-75"></a>            <span class="k">var</span> <span class="nx">serverPort</span><span class="o">:</span><span class="nb">uint</span> <span class="o">=</span> <span class="mi">5001</span><span class="o">;</span>
+<a name="line-76"></a>
+<a name="line-77"></a>            <span class="c1">//connect to the proxy and device</span>
+<a name="line-78"></a>            <span class="nx">interfaceKit</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="o">,</span> <span class="mi">5001</span><span class="p">);</span>
+<a name="line-79"></a>        <span class="p">}</span>
+<a name="line-80"></a>
+<a name="line-81"></a>        <span class="c1">//called when we connect to the proxy server</span>
+<a name="line-82"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onConnect</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="nx">PhidgetEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-83"></a>        <span class="p">{</span>
+<a name="line-84"></a>            <span class="c1">//note, we cannot access any devices here yet, since</span>
+<a name="line-85"></a>            <span class="c1">//we have not connected to them. You have to wait for the</span>
+<a name="line-86"></a>            <span class="c1">//onAttach event</span>
+<a name="line-87"></a>            <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;-------onConnect------- &quot;</span><span class="p">);</span>
+<a name="line-88"></a>        <span class="p">}</span>
+<a name="line-89"></a>
+<a name="line-90"></a>        <span class="c1">//called when we attach / connect to the actual Phidget</span>
+<a name="line-91"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onAttach</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="nx">PhidgetEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-92"></a>        <span class="p">{</span>
+<a name="line-93"></a>            <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;-------onAttach------- &quot;</span><span class="p">);</span>
+<a name="line-94"></a>
+<a name="line-95"></a>            <span class="c1">//get a reference to the device we connected to</span>
+<a name="line-96"></a>            <span class="k">var</span> <span class="nx">device</span><span class="o">:</span><span class="nx">Phidget</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">Device</span><span class="o">;</span>
+<a name="line-97"></a>
+<a name="line-98"></a>            <span class="c1">//print out a bunch of information about it</span>
+<a name="line-99"></a>            <span class="nf">trace</span><span class="p">(</span><span class="nx">device</span><span class="p">.</span><span class="nx">Name</span> <span class="o">+</span> <span class="s2">&quot; : &quot;</span> <span class="o">+</span> <span class="nx">device</span><span class="p">.</span><span class="nx">Label</span><span class="p">);</span>
+<a name="line-100"></a>            <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;Version : &quot;</span> <span class="o">+</span> <span class="nx">device</span><span class="p">.</span><span class="nx">Version</span><span class="p">);</span>
+<a name="line-101"></a>            <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;Serial : &quot;</span> <span class="o">+</span> <span class="nx">device</span><span class="p">.</span><span class="nx">serialNumber</span><span class="p">);</span>
+<a name="line-102"></a>
+<a name="line-103"></a>
+<a name="line-104"></a>            <span class="c1">//output number / pin that the LED is connected to</span>
+<a name="line-105"></a>            <span class="k">var</span> <span class="nx">outputPin</span><span class="o">:</span><span class="nb">uint</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<a name="line-106"></a>
+<a name="line-107"></a>            <span class="c1">//state to set the output pin. true = on, false = off</span>
+<a name="line-108"></a>            <span class="k">var</span> <span class="nx">state</span><span class="o">:</span><span class="nb">Boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<a name="line-109"></a>
+<a name="line-110"></a>            <span class="c1">//set the output state for pin 0 to true / on.</span>
+<a name="line-111"></a>            <span class="c1">//this will turn on the LED</span>
+<a name="line-112"></a>            <span class="nx">interfaceKit</span><span class="p">.</span><span class="nx">setOutputState</span><span class="p">(</span><span class="nx">outputPin</span><span class="o">,</span> <span class="nx">state</span><span class="p">);</span>
+<a name="line-113"></a>
+<a name="line-114"></a>            <span class="c1">//note, you have to explicitly turn it off, or else</span>
+<a name="line-115"></a>            <span class="c1">//it will stay on, even after the program has stopped running</span>
+<a name="line-116"></a>        <span class="p">}</span>
+<a name="line-117"></a>
+<a name="line-118"></a>        <span class="c1">//called when a device is detached. i.e. the USB cable is disconnected</span>
+<a name="line-119"></a>        <span class="c1">//while the program is running</span>
+<a name="line-120"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onDetach</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="nx">PhidgetEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-121"></a>        <span class="p">{</span>
+<a name="line-122"></a>            <span class="c1">//you cannot access the devices here.</span>
+<a name="line-123"></a>            <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;-------onDetach------- &quot;</span><span class="p">);</span>
+<a name="line-124"></a>        <span class="p">}</span>       
+<a name="line-125"></a>
+<a name="line-126"></a>        <span class="c1">//called once the connection to the proxy server is closed.</span>
+<a name="line-127"></a>        <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onDisconnect</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="nx">PhidgetEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-128"></a>        <span class="p">{</span>
+<a name="line-129"></a>            <span class="c1">//you cannot access the devices here</span>
+<a name="line-130"></a>            <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;-------onAttach------- &quot;</span><span class="p">);</span>
+<a name="line-131"></a>        <span class="p">}</span>
+<a name="line-132"></a>    <span class="p">}</span>
+<a name="line-133"></a><span class="p">}</span>
+</code></pre></div>
+<p>I am going to run this via ADL (Adobe AIR) included in the Flex SDK, and thus also need the following PhidgetHelloWorld-app.xml file:</p>
+<div class="highlight"><pre><code class="xml"><a name="line-1"></a><span class="cp">&lt;?xml version =&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<a name="line-2"></a><span class="nt">&lt;application</span> <span class="na">xmlns=</span><span class="s">&quot;http://ns.adobe.com/air/application/2.0&quot;</span><span class="nt">&gt;</span>
+<a name="line-3"></a>    <span class="nt">&lt;id&gt;</span>PhidgetsHelloWorld<span class="nt">&lt;/id&gt;</span>
+<a name="line-4"></a>    <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+<a name="line-5"></a>    <span class="nt">&lt;filename&gt;</span>PhidgetsHelloWorld<span class="nt">&lt;/filename&gt;</span>
+<a name="line-6"></a>    <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
+<a name="line-7"></a>    <span class="nt">&lt;name&gt;</span>PhidgetsHelloWorld<span class="nt">&lt;/name&gt;</span>
+<a name="line-8"></a>    <span class="nt">&lt;copyright&gt;&lt;/copyright&gt;</span>
+<a name="line-9"></a>    <span class="nt">&lt;initialWindow&gt;</span>
+<a name="line-10"></a>        <span class="nt">&lt;content&gt;</span>PhidgetsHelloWorld.swf<span class="nt">&lt;/content&gt;</span>
+<a name="line-11"></a>        <span class="nt">&lt;systemChrome&gt;</span>standard<span class="nt">&lt;/systemChrome&gt;</span>
+<a name="line-12"></a>        <span class="nt">&lt;transparent&gt;</span>false<span class="nt">&lt;/transparent&gt;</span>
+<a name="line-13"></a>        <span class="nt">&lt;visible&gt;</span>true<span class="nt">&lt;/visible&gt;</span>
+<a name="line-14"></a>        <span class="nt">&lt;fullScreen&gt;</span>false<span class="nt">&lt;/fullScreen&gt;</span>
+<a name="line-15"></a>        <span class="nt">&lt;autoOrients&gt;</span>false<span class="nt">&lt;/autoOrients&gt;</span>
+<a name="line-16"></a>        <span class="nt">&lt;aspectRatio&gt;</span>portrait<span class="nt">&lt;/aspectRatio&gt;</span>
+<a name="line-17"></a>        <span class="nt">&lt;renderMode&gt;</span>auto<span class="nt">&lt;/renderMode&gt;</span>
+<a name="line-18"></a>    <span class="nt">&lt;/initialWindow&gt;</span>
+<a name="line-19"></a>    <span class="nt">&lt;customUpdateUI&gt;</span>false<span class="nt">&lt;/customUpdateUI&gt;</span>
+<a name="line-20"></a>    <span class="nt">&lt;allowBrowserInvocation&gt;</span>false<span class="nt">&lt;/allowBrowserInvocation&gt;</span>
+<a name="line-21"></a>    <span class="nt">&lt;icon&gt;</span>
+<a name="line-22"></a>    <span class="nt">&lt;/icon&gt;</span>
+<a name="line-23"></a><span class="nt">&lt;/application&gt;</span>
+</code></pre></div>
+<p>I am running it via ADL / Adobe AIR as it will easily allow me to see the trace output on the command line.</p>
+
+<p>Here is the command to compile the program using MXMLC:</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>mxmlc -library-path+=Phidget21Library.swc PhidgetHelloWorld.as
+<a name="line-2"></a>foo
+</code></pre></div>
+<p>You may receive a warning about runtime shared libraries. You can safely ignore this.</p>
+
+<p>If you get an error that mxmlc cant be found, then make sure you have added the <em>FLEXSDK/bin</em> directory to your system&#39;s path.</p>
+
+<p>If you receive any errors, make sure you are linking in the Phidget library correctly. Once it compiles, you can test it on the command line with the following command:</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>adl PhidgetHelloWorld-app.xml
+</code></pre></div>
+<p>When I run this on my machine the LED turns on on the Phidget, and I get the following output on the command line:</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>-------onConnect------- 
+<a name="line-2"></a>-------onAttach------- 
+<a name="line-3"></a>Phidget InterfaceKit 8/8/8 : 
+<a name="line-4"></a>Version : 900
+<a name="line-5"></a>Serial : 116799
+</code></pre></div>
+<p>If you run the SWF in the player, then you should see the LED turn on. If you run in Flash Authoring (FLA included) or FlashBuilder, then you should also see the trace output in the output panel.</p>
+
+<p>Notice that once you close the program, the LED is still on. You have to explicitly turn off the LED. You can do this by modifying the code to turn it off, and then run it again.</p>
+
+<p>This is an important point. The device may maintain its state even after the program has stopped running. Because of this, you should always set the device to a known state when your application starts up, and make sure it is in the correct state when you shut down your program.</p>
+
+<p>Once you are at this point, it is just a matter of hooking up additional sensors, motors and outputs. The Phidgets ActionScript library is very well written, and makes it easy to work with additional Phidgets.</p>
+
+<p>Make sure to check out all of the Phidgets and ActionScript related <a href="http://www.phidgets.com/programming_resources.php">docs</a> on the Phidgets site, as well as the <a href="http://www.phidgets.com/phorum/viewforum.php?f=10">Phidgets ActionScript forum</a>.</p>
+
+<p>If you find any errors, or have any questions or suggestions, then please leave them in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

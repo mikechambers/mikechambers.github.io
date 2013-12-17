@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Detecting Canvas.toDataURL Support in Browsers</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Detecting Canvas.toDataURL Support in Browsers</h2>
+<p class="meta">Tuesday, February 1, 2011</p>
+
+<div class="post">
+<p>I am wrapping up a code example that uses the <a href="http://www.w3.org/TR/html5/the-canvas-element.html">Canvas.toDataURL</a> API to save canvas data to an image. I am almost done, and was doing a final round of browser testing when I noticed that my example wasnt working on my Android based Google Nexus One Device (2.2.2). After some debugging, and then Googling, I discovered that the Canvas.toDataURL API is not implemented on Android (you can view the bug report <a href="http://code.google.com/p/android/issues/detail?id=7901">here</a>).</p>
+
+<p>Well, after some cursing, I put together a simple method for detecting whether the API is supported on any particular device. I wanted to share it in case anyone else might run into a need for it. So, here it is:<br>
+&lt;!--more--&gt;</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="kd">function</span> <span class="nx">supportsToDataURL</span><span class="p">()</span>
+<a name="line-2"></a><span class="p">{</span>
+<a name="line-3"></a>    <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;canvas&quot;</span><span class="p">);</span>
+<a name="line-4"></a>    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s2">&quot;image/png&quot;</span><span class="p">);</span>
+<a name="line-5"></a>    <span class="k">return</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;data:image/png&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>The code assumes that you are already checking for Canvas support.</p>
+
+<p>Here is the script in action:</p>
+
+<div><strong><script>function supports_canvas(){return!!document.createElement("canvas").getContext}function supportsToDataURL(){if(!supports_canvas())return false;var c=document.createElement("canvas");var data=c.toDataURL("image/png");return data.indexOf("data:image/png")==0}var results="";if(supportsToDataURL())results="You browser is cool and supports Canvas.toDataURL();";else results="You browser is lame and does NOT support Canvas.toDataURL();";document.write(results);</script></strong></div>
+
+<p>and the code:</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="kd">function</span> <span class="nx">supports_canvas</span><span class="p">()</span>
+<a name="line-2"></a><span class="p">{</span>
+<a name="line-3"></a>    <span class="k">return</span> <span class="o">!!</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">).</span><span class="nx">getContext</span><span class="p">;</span>
+<a name="line-4"></a><span class="p">}</span>
+<a name="line-5"></a>
+<a name="line-6"></a><span class="kd">function</span> <span class="nx">supportsToDataURL</span><span class="p">()</span>
+<a name="line-7"></a><span class="p">{</span>
+<a name="line-8"></a>    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">supports_canvas</span><span class="p">())</span>
+<a name="line-9"></a>    <span class="p">{</span>
+<a name="line-10"></a>        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<a name="line-11"></a>    <span class="p">}</span>
+<a name="line-12"></a>
+<a name="line-13"></a>    <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;canvas&quot;</span><span class="p">);</span>
+<a name="line-14"></a>    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s2">&quot;image/png&quot;</span><span class="p">);</span>
+<a name="line-15"></a>    <span class="k">return</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;data:image/png&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-16"></a><span class="p">}</span>
+<a name="line-17"></a>
+<a name="line-18"></a><span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<a name="line-19"></a>
+<a name="line-20"></a><span class="k">if</span><span class="p">(</span><span class="nx">supportsToDataURL</span><span class="p">())</span>
+<a name="line-21"></a><span class="p">{</span>
+<a name="line-22"></a>    <span class="nx">results</span><span class="o">=</span><span class="s2">&quot;You browser is cool and supports Canvas.toDataURL();&quot;</span>
+<a name="line-23"></a><span class="p">}</span>
+<a name="line-24"></a><span class="k">else</span>
+<a name="line-25"></a><span class="p">{</span>
+<a name="line-26"></a>    <span class="nx">results</span><span class="o">=</span><span class="s2">&quot;You browser is lame and does NOT support Canvas.toDataURL();&quot;</span>
+<a name="line-27"></a><span class="p">}</span>
+<a name="line-28"></a><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">results</span><span class="p">);</span>
+</code></pre></div>
+<p>If you have any fixes or suggestions for the detection, post them in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

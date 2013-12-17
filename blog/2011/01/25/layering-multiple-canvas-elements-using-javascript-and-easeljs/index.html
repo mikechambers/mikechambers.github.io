@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Layering Multiple Canvas Elements using JavaScript and EaselJS</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Layering Multiple Canvas Elements using JavaScript and EaselJS</h2>
+<p class="meta">Tuesday, January 25, 2011</p>
+
+<div class="post">
+<p>If you run my <a href="http://www.mikechambers.com/blog/2011/01/24/easeljs-example-follow-drone/">EaselJS Drone Follow example from yesterday</a> on any non-Android / iOS computer / device, you may notice that a graphic is drawn between the mouse touch point and the current position of the drone. This is done by managing and drawing to two canvas elements and is provided to help make it clear what the drone is following (your mouse) and which direction it is currently heading.</p>
+
+<p>Why use two canvas elements, instead of just drawing to one? Well, there are two primary reasons I architected the example like this.<br>
+&lt;!--more--&gt;</p>
+
+<p>First, the main drawing canvas is persistent and is not cleared between renders. This allows me to have a single drone instance in memory (position, render, repeat) and minimize the region of the canvas that has to be rendered on any given pass. It makes it very simple to create trails of graphics, without having to instantiate and manage each individual graphic in the trail. Thus, any graphics drawn to the main canvas is permanent, and not appropriate for something like a UI overlay which needs to move, but not persist.</p>
+
+<p>Second, and perhaps more importantly, by drawing the overlay ui on its own canvas, I can minimize the bounds of the region of each canvas that needs to be drawn on any given frame. Given that drawing to the canvas can be CPU intensive, and that the larger the drawing area, the more CPU is required, it is important to try and minimize the amount that is drawn as well as the size that is updated on any given render pass.</p>
+
+<p>Separating the drawing canvas from the overlay canvas allows me to do this. Otherwise, I would not only have to manage the graphics for the entire canvas (in order to re-render them), but I would have to redraw all graphics on the canvas as opposed to just updating what had changed. This would lead to more complex code, higher memory requirements, as well as (sometimes) significantly higher CPU usage.</p>
+
+<p>On the basic level, doing this in EaselJS is pretty simple. Just create two Canvas elements in your HTML document, and then create two <a href="http://easeljs.com/docs/symbols/Stage.html">Stage</a> instances that wrap them. Indeed, EaselJS adds some interesting possibilities by allowing you to easily reparent and / or clone DisplayObjects across multiple stages. However, while EaselJS made working with multiple stages pretty easy, trying to leverage two canvas elements overlaid on top each other did present some issues, which I will discuss in this post.</p>
+
+<p><a href="http://www.mikechambers.com/blog/2011/01/24/easeljs-example-follow-drone/">View Example</a><br>
+<a href="https://github.com/mikechambers/ExamplesByMesh/tree/master/HTML5/EaselJS/follow">Download and View Code</a> (MIT License)</p>
+
+<p>My original goal was to have the example work on both the desktop with Mouse input, as well as on iOS and Android 2.2 based touch devices. </p>
+
+<p>In initial testing prior to adding the overlay, performance on Android and iOS devices lagged behind that on the desktop, but was still acceptable. However, as soon as I added the second canvas, performance took a huge drop on Android and iOS devices. Because of this, I had to branch my code, and only show the overlay on browsers that had a mouse based input (with an assumption that those would be regular computers with better performance).</p>
+
+<p>Lets look at the code. First, here is the HTML markup for the example:</p>
+<div class="highlight"><pre><code class="html"><a name="line-1"></a><span class="nt">&lt;body&gt;</span>
+<a name="line-2"></a>    <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;mainCanvas&quot;</span> <span class="na">width=</span><span class="s">&quot;600&quot;</span> <span class="na">height=</span><span class="s">&quot;400&quot;</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+<a name="line-3"></a><span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+<p>Notice that there is only a single canvas element. At runtime, we detect the environment in which we are running, and then then dynamically add the second canvas only if it is needed (Note that the content uses <a href="http://jquery.com/">jQuery</a>).</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="k">if</span><span class="p">((</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPad/i</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="o">||</span>
+<a name="line-2"></a>    <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPhone/i</span><span class="p">))</span> <span class="o">||</span> 
+<a name="line-3"></a>    <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPod/i</span><span class="p">))</span> <span class="o">||</span>
+<a name="line-4"></a>    <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/Android/i</span><span class="p">))</span>
+<a name="line-5"></a>    <span class="p">)</span>
+<a name="line-6"></a><span class="p">{</span>   
+<a name="line-7"></a>    <span class="c1">//...</span>
+<a name="line-8"></a><span class="p">}</span>
+<a name="line-9"></a><span class="k">else</span>
+<a name="line-10"></a><span class="p">{</span>
+<a name="line-11"></a>    <span class="c1">//assume we are on a device with a mouse / pointer</span>
+<a name="line-12"></a>
+<a name="line-13"></a>    <span class="c1">//we have to dynamically add the overlay canvas, because if we do it</span>
+<a name="line-14"></a>    <span class="c1">//in HTML, and then remove it for mobile devices, it causes all of</span>
+<a name="line-15"></a>    <span class="c1">//the drawing on the mobile devices to no be anti-aliased</span>
+<a name="line-16"></a>
+<a name="line-17"></a>    <span class="c1">//create the overlayCanvas, and add it to the DOM after the main</span>
+<a name="line-18"></a>    <span class="c1">//canvas (which is specified in the HTML)</span>
+<a name="line-19"></a>    <span class="c1">//canvasWrapper is a jQUery object that wraps the main canvas element</span>
+<a name="line-20"></a>     <span class="nx">canvasWrapper</span><span class="p">.</span><span class="nx">after</span><span class="p">(</span>
+<a name="line-21"></a>        <span class="s1">&#39;&lt;canvas id=&quot;overlayCanvas&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;&lt;/canvas&gt;&#39;</span>
+<a name="line-22"></a>        <span class="p">);</span>
+<a name="line-23"></a>
+<a name="line-24"></a>    <span class="c1">//overlay canvas used to draw target and line</span>
+<a name="line-25"></a>    <span class="nx">canvasOverlayWrapper</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#overlayCanvas&quot;</span><span class="p">);</span>
+<a name="line-26"></a>
+<a name="line-27"></a>    <span class="c1">//...</span>
+<a name="line-28"></a>
+<a name="line-29"></a>    <span class="c1">//stage to manage the overlay canvas. Need to get the actual</span>
+<a name="line-30"></a>    <span class="c1">//element from the JQuery object.</span>
+<a name="line-31"></a>    <span class="nx">overlayStage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stage</span><span class="p">(</span><span class="nx">canvasOverlayWrapper</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>      
+<a name="line-32"></a>
+<a name="line-33"></a>    <span class="c1">//..</span>
+<a name="line-34"></a><span class="p">}</span>
+</code></pre></div>
+<p>Note, that I am testing for specific devices instead of general capabilities, as in general I am branching based on known CPU performance. However, a more robust solution would probably be to quickly profile the performance of the current environment and then use the overlay only in environments that met a certain performance threshold.</p>
+
+<p>In the code above, I detect whether I am running on an Android or iOS device and if not, I dynamically create and add the overlay canvas element to the HTML DOM. I am dynamically adding the overlay canvas as opposed to dynamically removing it, as that puts the burden of the extra work on the environment that I am more confident has better performance (the non-device environment). Further, having the overlay Canvas element in the HTML, and then removing it would require a number of additional (and unnecessary) page reflows when running on Android and iOS (which again could negatively affect performance).</p>
+
+<p>At this point, when running on a non-Android / iOS device, I have two Canvas elements wrapped by two EaselJS Stage instances. Since I am drawing graphics on the overlay canvas based on the position of the mouse as well as a graphic on the main stage, I need to do two things:</p>
+
+<ol>
+<li> Align the two stages and ensure they stay aligned so they will share the same coordinate space.</li>
+<li> Ensure that the canvas sizes remain the same when the window is resized (so graphics are not clipped in one or both stages).</li>
+</ol>
+
+<p>First, I had to add a simple CSS rule to overlay the overlay canvas on top of the main canvas, and position it at 0,0 in the document:</p>
+<div class="highlight"><pre><code class="css"><a name="line-1"></a><span class="nf">#overlayCanvas</span>
+<a name="line-2"></a><span class="p">{</span>
+<a name="line-3"></a>    <span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span>
+<a name="line-4"></a>    <span class="k">left</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
+<a name="line-5"></a>    <span class="k">top</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
+<a name="line-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>As far as sizing, I already had code to handle resizing the main canvas based on the window resizing, so I only had to add code to also resize the overlay canvas.</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="c1">//called when the browser window is resized</span>
+<a name="line-2"></a><span class="kd">function</span> <span class="nx">onWindowResize</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+<a name="line-3"></a><span class="p">{</span>
+<a name="line-4"></a>    <span class="c1">//..</span>
+<a name="line-5"></a>
+<a name="line-6"></a>    <span class="c1">//update the canvas dimensions since the window</span>
+<a name="line-7"></a>    <span class="c1">//has resized. Note that changing canvas dimensions, </span>
+<a name="line-8"></a>    <span class="c1">//will cause it to be cleared</span>
+<a name="line-9"></a>    <span class="nx">updateCanvasDimensions</span><span class="p">();</span>
+<a name="line-10"></a>
+<a name="line-11"></a>    <span class="c1">//..</span>
+<a name="line-12"></a><span class="p">}</span>
+<a name="line-13"></a>
+<a name="line-14"></a><span class="c1">//function that updates the size of the canvas based on the window size</span>
+<a name="line-15"></a><span class="kd">function</span> <span class="nx">updateCanvasDimensions</span><span class="p">()</span>
+<a name="line-16"></a><span class="p">{</span>
+<a name="line-17"></a>    <span class="c1">//note that changing the canvas dimensions clears the canvas.</span>
+<a name="line-18"></a>    <span class="nx">canvasWrapper</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">height</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
+<a name="line-19"></a>    <span class="nx">canvasWrapper</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">width</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
+<a name="line-20"></a>
+<a name="line-21"></a>    <span class="c1">//save the canvas offset</span>
+<a name="line-22"></a>    <span class="nx">canvasOffset</span> <span class="o">=</span> <span class="nx">canvasWrapper</span><span class="p">.</span><span class="nx">offset</span><span class="p">();</span>  
+<a name="line-23"></a>
+<a name="line-24"></a>    <span class="c1">//if we have an overlay canvas</span>
+<a name="line-25"></a>    <span class="k">if</span><span class="p">(</span><span class="nx">canvasOverlayWrapper</span><span class="p">)</span>
+<a name="line-26"></a>    <span class="p">{</span>
+<a name="line-27"></a>        <span class="c1">//resize it</span>
+<a name="line-28"></a>        <span class="nx">canvasOverlayWrapper</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">height</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
+<a name="line-29"></a>        <span class="nx">canvasOverlayWrapper</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">width</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
+<a name="line-30"></a>        <span class="nx">canvasOverlayOffset</span> <span class="o">=</span> <span class="nx">canvasOverlayWrapper</span><span class="p">.</span><span class="nx">offset</span><span class="p">();</span>
+<a name="line-31"></a>    <span class="p">}</span>   
+<a name="line-32"></a><span class="p">}</span>
+</code></pre></div>
+<p>So, now both canvases are aligned, and when the window is resized they are both resized to the same dimensions.</p>
+
+<p>Again, the importance of this is that it means that both canvases same the same coordinate space. I can use x,y coordinates from one in the other, and ensure they will be on the same spot of the screen.</p>
+
+<p>Once I got this setup, I ran into an issue. The overlay canvas was preventing the main canvas from receiving mouse events which it needed to position the drone. This was an issue because both canvases needed to access data from the mouse events.</p>
+
+<p>Luckily, both canvases are in the same coordinate space, so I can just listen for the mouse events on one canvas and used them on both.</p>
+
+<p>The main change this required was changing which canvas listened for the events based on whether there was an overlay canvas or not. If there is an overlay canvas, then the overlay canvas will capture the mouse events (since it is at a higher z-order). If there is no overlay, then the main canvas will capture the mouse events.</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="k">if</span><span class="p">(</span> <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPad/i</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="o">||</span>
+<a name="line-2"></a>    <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPhone/i</span><span class="p">))</span> <span class="o">||</span> 
+<a name="line-3"></a>    <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPod/i</span><span class="p">))</span> <span class="o">||</span>
+<a name="line-4"></a>    <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/Android/i</span><span class="p">))</span>
+<a name="line-5"></a>    <span class="p">)</span>
+<a name="line-6"></a><span class="p">{</span>   
+<a name="line-7"></a>    <span class="nx">mainCanvas</span><span class="p">.</span><span class="nx">ontouchstart</span> <span class="o">=</span> <span class="nx">onTouchStart</span><span class="p">;</span>
+<a name="line-8"></a>    <span class="nx">mainCanvas</span><span class="p">.</span><span class="nx">ontouchend</span> <span class="o">=</span> <span class="nx">onTouchEnd</span><span class="p">;</span>
+<a name="line-9"></a>    <span class="c1">//...</span>
+<a name="line-10"></a><span class="p">}</span>
+<a name="line-11"></a><span class="k">else</span>
+<a name="line-12"></a><span class="p">{</span>
+<a name="line-13"></a>    <span class="c1">//..</span>
+<a name="line-14"></a>
+<a name="line-15"></a>    <span class="c1">//listen for when the mouse moves</span>
+<a name="line-16"></a>    <span class="nx">canvasOverlayWrapper</span><span class="p">.</span><span class="nx">mousemove</span><span class="p">(</span><span class="nx">onMouseMove</span><span class="p">);</span>
+<a name="line-17"></a>
+<a name="line-18"></a>    <span class="c1">//listen for a click event</span>
+<a name="line-19"></a>    <span class="nx">canvasOverlayWrapper</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">onMouseClick</span><span class="p">);</span>
+<a name="line-20"></a>
+<a name="line-21"></a>    <span class="c1">//..</span>
+<a name="line-22"></a><span class="p">}</span>
+</code></pre></div>
+<p>At this point, both canvases are aligned and in the same coordinate space, and I am receiving the relevant mouse events that I need. All I need to do now is listen for the relevant mouse events, and re-draw both canvases when the mouse position changes.</p>
+
+<p>First, I listen for when the mouse moves:</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="kd">function</span> <span class="nx">onMouseMove</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+<a name="line-2"></a><span class="p">{</span>
+<a name="line-3"></a>    <span class="c1">//update the Mouse position coordinates</span>
+<a name="line-4"></a>    <span class="nx">updateMouseCoordinates</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+<a name="line-5"></a><span class="p">}</span>
+<a name="line-6"></a>
+<a name="line-7"></a><span class="c1">//update the mouse coordinates</span>
+<a name="line-8"></a><span class="kd">function</span> <span class="nx">updateMouseCoordinates</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+<a name="line-9"></a><span class="p">{</span>
+<a name="line-10"></a>    <span class="c1">//we store these in a global object so they can be easily accessed</span>
+<a name="line-11"></a>    <span class="c1">//from anywhere (other classes)</span>
+<a name="line-12"></a>    <span class="nx">Mouse</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageX</span> <span class="o">-</span> <span class="nx">canvasOffset</span><span class="p">.</span><span class="nx">left</span><span class="p">;</span>
+<a name="line-13"></a>    <span class="nx">Mouse</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageY</span> <span class="o">-</span> <span class="nx">canvasOffset</span><span class="p">.</span><span class="nx">top</span><span class="p">;</span>
+<a name="line-14"></a><span class="p">}</span>
+</code></pre></div>
+<p>When the mouse moves, I copy the canvas relative mouse cursor coordinates into a global object. Given that hundreds of mouse events can fire a second, I try to minimize code being executed here, and don&#8217;t do any rendering updates.</p>
+
+<p>The rendering updates occur when the EaselJS tick event is called (which in my case occurs at a target 24 frames per second).</p>
+
+<p>Here is the tick listener for the main page:</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="c1">//called at each time interval. This is essentially the listener</span>
+<a name="line-2"></a><span class="c1">//for Tick.addListener</span>
+<a name="line-3"></a><span class="kd">function</span> <span class="nx">tick</span><span class="p">()</span>
+<a name="line-4"></a><span class="p">{</span>
+<a name="line-5"></a>    <span class="c1">//update the main stage / canvas</span>
+<a name="line-6"></a>    <span class="nx">stage</span><span class="p">.</span><span class="nx">tick</span><span class="p">();</span>
+<a name="line-7"></a>
+<a name="line-8"></a>    <span class="c1">//check if we have an overlay stage</span>
+<a name="line-9"></a>    <span class="k">if</span><span class="p">(</span><span class="nx">overlayStage</span><span class="p">)</span>
+<a name="line-10"></a>    <span class="p">{</span>
+<a name="line-11"></a>        <span class="c1">//update the overlay line</span>
+<a name="line-12"></a>        <span class="nx">updateLine</span><span class="p">();</span>
+<a name="line-13"></a>
+<a name="line-14"></a>        <span class="c1">//re-render the overlay stage / canvas</span>
+<a name="line-15"></a>        <span class="nx">overlayStage</span><span class="p">.</span><span class="nx">tick</span><span class="p">();</span>
+<a name="line-16"></a>    <span class="p">}</span>
+<a name="line-17"></a><span class="p">}</span>
+</code></pre></div>
+<p>Note that the order of the stage.tick() calls is important. We need to update / tick the main stage first, as the overlay stage relies on properties from DisplayObjects on the main stage (and we want to make sure they have been updated before we render the overlay stage).</p>
+
+<p>Basically, it renders the main canvas (with the new position of the drone shape), and if there is an overlayStage, re-renders the ui:</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="c1">//redraws the overlay line based on Mouse and Drone position</span>
+<a name="line-2"></a><span class="kd">function</span> <span class="nx">updateLine</span><span class="p">()</span>
+<a name="line-3"></a><span class="p">{</span>
+<a name="line-4"></a>    <span class="c1">//clear previous line</span>
+<a name="line-5"></a>    <span class="nx">lineGraphics</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+<a name="line-6"></a>
+<a name="line-7"></a>    <span class="c1">//stroke style</span>
+<a name="line-8"></a>    <span class="nx">lineGraphics</span><span class="p">.</span><span class="nx">setStrokeStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<a name="line-9"></a>
+<a name="line-10"></a>    <span class="c1">//stroke color</span>
+<a name="line-11"></a>    <span class="nx">lineGraphics</span><span class="p">.</span><span class="nx">beginStroke</span><span class="p">(</span><span class="nx">targetColor</span><span class="p">);</span>
+<a name="line-12"></a>
+<a name="line-13"></a>    <span class="c1">//draw line from Mouse position to Drone position</span>
+<a name="line-14"></a>    <span class="nx">lineGraphics</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">Mouse</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+<a name="line-15"></a>    <span class="nx">lineGraphics</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">drone</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">drone</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+<a name="line-16"></a><span class="p">}</span>
+</code></pre></div>
+<p>lineGraphics is a EaselJS <a href="http://easeljs.com/docs/symbols/Graphics.html">Graphics</a> instance attached to a Shape instance on the overlay stage. </p>
+
+<p>The <a href="https://github.com/mikechambers/ExamplesByMesh/blob/master/HTML5/EaselJS/follow/scripts/Drone.js">Drone</a> instance on the main stage is also re-rendering itself on the tick event (as is the <a href="https://github.com/mikechambers/ExamplesByMesh/blob/master/HTML5/EaselJS/follow/scripts/Target.js">Target</a> instance which tracks the mouse point).</p>
+
+<p>Here we can see how nice it is to be able to share coordinates between canvases. First, we move the drawing point on the overlay canvas to the current mouse position. We then draw a line from that point, to the coordinates for the drone, which is attached the the main canvas.</p>
+
+<p>You may be thinking that using multiple canvases and stages like this would be any easy way to manage the z-order between graphics rendered to the canvas. You can do this, but keep in mind that changing the z-order of the canvas elements in the DOM may cause page reflows, and thus could potentially be expensive. EaselJS allows you to manage the z-order of your display list using stage.addChildAt and stage.addChild (the same as in ActionScript 3). Which technique you should use will depend on your particular project, and how often individual &quot;layers&quot; need to be updated.</p>
+
+<p>Of course, this is a simple example. Where this could really shine is in games with complex layers of graphics, where each layer may need to be updated at differing intervals.</p>
+
+<p>Post any questions or comments below.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

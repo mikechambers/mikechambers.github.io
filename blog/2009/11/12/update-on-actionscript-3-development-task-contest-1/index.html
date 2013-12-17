@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Update on ActionScript 3 Development Task Contest #1</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Update on ActionScript 3 Development Task Contest #1</h2>
+<p class="meta">Thursday, November 12, 2009</p>
+
+<div class="post">
+<p>Well, there is just a little over a day before the deadline for entries to the <a href="/blog/2009/11/10/actionscript-3-development-task-contest-1/">ActionScript Development Task Contes</a>t (AS3DTC) are due. I wanted to make a quick post with a couple of reminders to ensure everyone has their correctly working submissions in on time.</p>
+
+<p>First, a couple items:<br>
+&lt;!--more--&gt;</p>
+
+<ol>
+<li> Make sure to include your name for the copyright in the ProximityManager.as file (replace my name at the top). This is really important, as you have the copyright, and it makez it easier for me to know who the submission is from.</li>
+<li> Run your submissions again against the latest test files. There have been some minor changes to the test, so make sure they dont affect your results.</li>
+<li> Test that you are returning valid results. See below for tips about how to do this.</li>
+<li> Read through the <a href="http://www.mikechambers.com/blog/2009/11/10/actionscript-3-development-task-contest-1/#comments">comments</a> in the original contest post, especially the comments that I made. There are some rule clarifications that are important.</li>
+<li> Make sure you are using testing with <a href="http://github.com/mikechambers/ActionScript-3-Development-Task-Contests/tree/master/AS3DTC_1/p">the latest contest files</a>. TestRunner.as has had some updates.</li>
+</ol>
+
+<p>Regarding #4, here are some of the rule clarifications:</p>
+
+<ul>
+<li>  For the purposes of the contest, you should use the x, y coordinates of the display objects to determine which cell they are contained within (i.e. you don&#39;t have to worry about a display object straddling two cells).</li>
+<li>  Basically, the only information your class has access to is that which is passed to its constructors and methods. Your code cannot make assumptions based on information in the test which is not passed to the ProximityManager class (i.e., how many items there are on the stage, or the fact that the items are not moving, etc…). If I change the parameters of the test that your code does not know about, then your class should still work correctly.</li>
+<li>  The bounds argument is now required in ProximityManager constructor. This specifies the bounds of the collision detection / grid area.</li>
+<li>  If the positions of the DisplayObjects change, update will be called again. Thus, when update is called, the code should treat it as new data.</li>
+<li>  You must return a new Vector from getNeighbors. (You can&#39;t re-use the same Vector instance).</li>
+</ul>
+
+<p>If you have any additional questions about the rules, then please post them on the original post.</p>
+
+<p><strong>Validating Results</strong></p>
+
+<p>Inside of TestRunner.as, there is a checkResults method, which you can use to validate your results.</p>
+
+<p>To run it, uncomment the runTests() method in onStageAdded, and and the add this code:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="kd">private</span> <span class="kd">function</span> <span class="nx">onStageAdded</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-2"></a><span class="p">{</span>
+<a name="line-3"></a>    <span class="p">...</span>
+<a name="line-4"></a>
+<a name="line-5"></a>    <span class="c1">//runTests();</span>
+<a name="line-6"></a>
+<a name="line-7"></a>    <span class="nx">proximityManager</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">items</span><span class="p">);</span>
+<a name="line-8"></a>    <span class="nx">checkResults</span><span class="p">(</span><span class="nx">checkSprite_3</span><span class="o">,</span> <span class="nx">proximityManager</span><span class="p">.</span><span class="nx">getNeighbors</span><span class="p">(</span><span class="nx">checkSprite_3</span><span class="p">));</span>
+<a name="line-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>This will return something that should similar to this:</p>
+
+<p><img src="blog/files/as3dtc/test_results_example.png" alt="title"></p>
+
+<p>This test ensures that you are not missing any DisplayObjects which you should return.</p>
+
+<p>To ensure you are not including any DisplayObjects which you should not be, change the for each loop in checkResults to:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkResults</span><span class="p">(</span><span class="nx">checkSprite</span><span class="o">:</span><span class="nb">Sprite</span><span class="o">,</span> <span class="nx">items</span><span class="o">:</span><span class="nx">Vector</span><span class="p">.</span><span class="o">&lt;</span><span class="nb">DisplayObject</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span><span class="nb">Boolean</span>
+<a name="line-2"></a><span class="p">{</span>
+<a name="line-3"></a>    <span class="p">...</span>
+<a name="line-4"></a>
+<a name="line-5"></a>    <span class="k">for</span> <span class="k">each</span><span class="p">(</span><span class="k">var</span> <span class="nx">disp</span><span class="o">:</span><span class="nb">Sprite</span> <span class="k">in</span> <span class="nx">items</span><span class="p">)</span>
+<a name="line-6"></a>    <span class="p">{</span>
+<a name="line-7"></a>        <span class="nx">disp</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">beginFill</span><span class="p">(</span> <span class="mh">0x0000</span><span class="nx">FF</span> <span class="o">,</span> <span class="mi">1</span> <span class="p">);</span>
+<a name="line-8"></a>        <span class="nx">disp</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">drawCircle</span><span class="p">(</span> <span class="mi">5</span> <span class="o">,</span> <span class="mi">5</span> <span class="o">,</span> <span class="mi">5</span> <span class="p">);</span>
+<a name="line-9"></a>        <span class="nx">disp</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">endFill</span><span class="p">();</span>
+<a name="line-10"></a>        <span class="nx">disp</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<a name="line-11"></a>    <span class="p">}</span>
+<a name="line-12"></a>
+<a name="line-13"></a>    <span class="p">...</span>
+<a name="line-14"></a><span class="p">}</span>
+</code></pre></div>
+<p>You should not see any dark spots appear.</p>
+
+<p>I have gone through and done an initial validation all of the submissions thus far. There were a couple of entries which were not returning the correct results, and I have emailed those developers. I also did a quick test run on my Mac Book Pro (2.4 Ghz Intel Core 2 Duo), and in general, right now, the bar to reach is an average of 2 &#8211; 3 ms per test run. Most submissions use take the same basic approach, but some have some interesting twists. I think there is still a opportunity for someone to take a novel approach and maybe jump ahead.</p>
+
+<p>Remember, contest entries have to be received by me (mesh@adobe.com) by 12 Noon, PST, Friday, November 13.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

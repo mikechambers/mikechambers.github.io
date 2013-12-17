@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Example : Creating spiral designs with Canvas, JavaScript and EaselJS</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Example : Creating spiral designs with Canvas, JavaScript and EaselJS</h2>
+<p class="meta">Wednesday, February 9, 2011</p>
+
+<div class="post">
+<p>I have been having fun playing around with JavaScript, the HTML5 Canvas element and <a href="http://www.easeljs.com">EaselJS</a> lately, and have been building a lot of small experiments. I wanted to share a simple one I created, which creates spiral designs.</p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/5429181578/"><img src="http://farm6.static.flickr.com/5299/5429181578_ce3395c4e2_m.jpg" alt="title"></a></p>
+
+<p>The example was pretty simple to put together, but is fun to play with, and can make some pretty nice patterns / spirals. I have uploaded a couple of images that I have created using the example:<br>
+&lt;!--more--&gt;</p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/5428579683/"><img src="http://farm6.static.flickr.com/5258/5428579683_82a6c9c317_m.jpg" alt="title"></a></p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/5428784263/"><img src="http://farm6.static.flickr.com/5098/5428784263_a6b3eafced_m.jpg" alt="title"></a></p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/5429181324/"><img src="http://farm6.static.flickr.com/5098/5429181324_5eac51ae97_m.jpg" alt="title"></a></p>
+
+<p>and put together a time lapse video showing a spiral being created:</p>
+
+<div style="text-align:center;"><object type="application/x-shockwave-flash" width="400" height="225" data="http://www.flickr.com/apps/video/stewart.swf?v=71377" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"> <param name="flashvars" value="intl_lang=en-us&photo_secret=8e3c1c5b4c&photo_id=5430459320"></param> <param name="movie" value="http://www.flickr.com/apps/video/stewart.swf?v=71377"></param> <param name="bgcolor" value="#000000"></param> <param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/video/stewart.swf?v=71377" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=en-us&photo_secret=8e3c1c5b4c&photo_id=5430459320" height="225" width="400"></embed></object></div>
+
+<p>You can view the example at:<br>
+<a href="http://www.mikechambers.com/html5/easeljs/Spirals/index.html">http://www.mikechambers.com/html5/easeljs/Spirals/index.html</a></p>
+
+<p>I have also <a href="https://github.com/mikechambers/ExamplesByMesh/tree/master/HTML5/EaselJS/Spirals">posted all of the code in my GitHub Repository</a>.</p>
+
+<p>There is no UI to change settings, but you can tweak the designs you create by passing in some URL params, like so:</p>
+
+<p><a href="http://www.mikechambers.com/html5/easeljs/Spirals/index.html?minradius=10&amp;maxradius=3000&amp;strokealpha=0.2&amp;spread=.8">/index.html?minradius=10&amp;maxradius=3000&amp;strokealpha=0.2&amp;spread=.8</a></p>
+
+<p><strong>minradius</strong> : The minimum radius of the circle that will be drawn.<br>
+<strong>maxradius</strong> : The maximum radius of the circle that will be drawn.</p>
+
+<p>If minradius and maxradius are different, the circle radius will tween back and forth between the sizes.</p>
+
+<p><strong>strokealpha</strong> : A number between 0.0 and 1.0 that specifies the alpha of the stroke of the circle<br>
+<strong>spread</strong>: How quickly the spiral expands / opens up</p>
+
+<p>Click the screen to start / pause the drawing.</p>
+
+<p>Play around with different combinations of settings. If you create anything cool, or have any questions / suggestions, then post them below.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

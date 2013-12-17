@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Moving a git repository subdirectory to its own repository</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Moving a git repository subdirectory to its own repository</h2>
+<p class="meta">Wednesday, November 4, 2009</p>
+
+<div class="post">
+<p>I use <a href="http://git-scm.com/">Git</a> and <a href="http://www.github.com">GitHub</a> to manage all of my personal code projects. I have one large repository called projects, which is then broken into sub directories based on the main technology used for each project (i.e. Flash, JavaScript, iphone, etc...).</p>
+
+<p>I am currently working on a Flash based iphone game code-named &quot;pewpew&quot;, which is maintained within my projects repository. As I have begun to work on it more and more, I decided that I wanted to have pewpew in its own git repository. This will make it easier to track issues, as well as give me the option of open sourcing it and allow others to create and submit forks.<br>
+&lt;!--more--&gt;</p>
+
+<p>Initially it looked like the way to do this was to use <a href="http://www.kernel.org/pub/software/scm/git/docs/git-submodule.html">git submodules</a>. However that seemed to keep the code linked to the original repository, which I did not want. I could have simply copied the code over and then initialized it as a new repository, but I wanted to maintain the commit history. Finally, I came across an article at <a href="http://help.github.com/splitting-a-subpath-to-a-new-repo/">GitHub titled Splitting a subpath out into a new repo</a>. This does exactly what I needed (basically, create a new repository from a directory within an existing repository).</p>
+
+<p>After following the steps in the article, I had to do one additional step before I could push the new repository to GitHub. I had to change the origin from the old repository url, to the new one. You can do this by changing the <em>[remote &quot;origin&quot;]</em> url property in the .git/config file to point to the new repository.</p>
+
+<p>Anyways, this worked perfectly, and maintained the history. If anyone has any suggestions for other or better ways to accomplish this, please post it in the comments. Thanks for to everyone who had suggestions about this on twitter.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

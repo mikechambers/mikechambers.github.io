@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Example : ActionScript 3 ComputeSpectrum</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Example : ActionScript 3 ComputeSpectrum</h2>
+<p class="meta">Monday, April 24, 2006</p>
+
+<div class="post">
+<p>One of the cool new sound APIs in ActionScript 3, is the <a href="http://livedocs.macromedia.com/labs/1/flex/langref/flash/media/SoundMixer.html#computeSpectrum()">SoundMixer.computeSpectrum API</a>. This allows you to get information about sounds currently playing within the player.</p>
+
+<p>Andre Michelle put together <a href="http://blog.andre-michelle.com/2006/soundmixercomputespectrum/">a nice example</a> that shows a visualization of the playing sound within the player. I tried to figure out the API from Andre Michelle&#8217;s example (some of it was over my head), but with some help from <a href="http://www.gskinner.com">Grant Skinner</a> at <a href="http://www.fitc.ca/event_detail.cfm?festival_id=5&amp;display=introduction">FITC</a>, I finally figured it out and put together a simple example that shows how to use the API.<br>
+&lt;!--more--&gt;</p>
+
+<p><a href="http://weblogs.macromedia.com/mesh/files/blogposts/as3_spectrum/">View the computeSpectrum Example</a> (<a href="http://www.macromedia.com/go/labs_flex2_downloads">requires Flash Player 8.5 beta</a>).</p>
+
+<p>Here is the code with comments.</p>
+
+<p>`
+<pre>
+package
+{
+    import flash.display.Sprite;
+    import flash.media.Sound;
+    import flash.display.BitmapData;
+    import flash.util.ByteArray;
+    import flash.media.SoundMixer;
+    import flash.events.Event;
+    import flash.net.URLRequest;
+    import flash.system.ApplicationDomain;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>public class SpectrumTest extends Sprite
+<a name="line-2"></a>{
+<a name="line-3"></a>    private var bytes:ByteArray;
+<a name="line-4"></a>    private var CHANNEL_LENGTH:uint = 256;
+<a name="line-5"></a>
+<a name="line-6"></a>    public function SpectrumTest()
+<a name="line-7"></a>    {
+<a name="line-8"></a>        var s:Sound = new Sound(new URLRequest(&quot;Helicopter.mp3&quot;));
+<a name="line-9"></a>            s.play();
+<a name="line-10"></a>
+<a name="line-11"></a>        bytes = new ByteArray();
+<a name="line-12"></a>
+<a name="line-13"></a>        addEventListener( Event.ENTER_FRAME, onEnterFrame );
+<a name="line-14"></a>
+<a name="line-15"></a>    }
+<a name="line-16"></a>
+<a name="line-17"></a>    private function onEnterFrame( event: Event ): void
+<a name="line-18"></a>    {
+<a name="line-19"></a>        SoundMixer.computeSpectrum(bytes, true, 0);
+<a name="line-20"></a>
+<a name="line-21"></a>        var smooth:Number;
+<a name="line-22"></a>        var value:Number;
+<a name="line-23"></a>
+<a name="line-24"></a>        graphics.clear();
+<a name="line-25"></a>
+<a name="line-26"></a>        //place in middle of screen
+<a name="line-27"></a>        var xVal:Number = (stage.stageHeight / 2);
+<a name="line-28"></a>
+<a name="line-29"></a>        //evenly distribute
+<a name="line-30"></a>        var spacing:Number = (stage.stageWidth / CHANNEL_LENGTH);
+<a name="line-31"></a>
+<a name="line-32"></a>        var color:Number;
+<a name="line-33"></a>
+<a name="line-34"></a>        //first 256 is left channell, second 256 is right channell
+<a name="line-35"></a>        for(var i:int = 0; i &lt; CHANNEL_LENGTH; i++)
+<a name="line-36"></a>        {
+<a name="line-37"></a>            //get the next byte
+<a name="line-38"></a>            value = bytes.readFloat();
+<a name="line-39"></a>
+<a name="line-40"></a>
+<a name="line-41"></a>            //normalize it to be a value between 0 and 256
+<a name="line-42"></a>            value = (value * CHANNEL_LENGTH) &lt;&lt; 0;
+<a name="line-43"></a>
+<a name="line-44"></a>            //figure out the color based on the value
+<a name="line-45"></a>            color = 0xFF0000|(value &lt;&lt; 8);
+<a name="line-46"></a>
+<a name="line-47"></a>            graphics.lineStyle(1, color, 1);
+<a name="line-48"></a>
+<a name="line-49"></a>            graphics.beginFill(color);
+<a name="line-50"></a>
+<a name="line-51"></a>            //draw the circle, position based on width and spectrum position
+<a name="line-52"></a>            //radius scaled down to fit better
+<a name="line-53"></a>            graphics.drawCircle(i * spacing, xVal, value / 8);
+<a name="line-54"></a>
+<a name="line-55"></a>        }
+<a name="line-56"></a>    }
+<a name="line-57"></a>
+<a name="line-58"></a>}
+</code></pre></div>
+<p>}</p>
+
+<p></pre>
+<p>`</p>
+
+<p>Really cool stuff that opens up a ton of posibilities within Flash.</p>
+
+<p>Update : 05/08/06 : I have added the example to the labs subversion repository, so you can always find the most up-to-date version <a href="http://labs.adobe.com/svn/flashplatform/?/projects/actionscriptsamples/trunk/src/actionscript3/sound/ComputeSpectrum/">here</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

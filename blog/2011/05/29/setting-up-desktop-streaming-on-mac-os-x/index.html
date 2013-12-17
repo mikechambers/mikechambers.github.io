@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Streaming your Desktop on Mac OS X</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Streaming your Desktop on Mac OS X</h2>
+<p class="meta">Sunday, May 29, 2011</p>
+
+<div class="post">
+<p>I have been playing a lot of <a href="http://us.battle.net/sc2/en/">Starcaft 2</a> lately, and really getting into the entire <a href="http://www.reddit.com/r/starcraft">community</a>. One part of the community that I recently discovered has been live streams of games (some from pros) via sites like <a href="http://justin.tv">justin.tv</a> and <a href="http://www.ustream.tv/">ustream.com</a>. There are plenty of articles online talking about how to stream your desktop on Windows based machines, but virtually none on how to do it from a Mac. This article will show how to use Adobe Flash Media Live Encoder (and a couple of other tools) to live stream your desktop to justin.tv (although the setup would also work for other streaming sites).<br>
+&lt;!--more--&gt;</p>
+
+<p>I am going to divide the article up into a couple of sections. The first part will show how to get a basic desktop stream going, including system sound. The second section will show a more advanced sound setup that allows you to also broadcast your microphone, and audio from other apps such as skype.</p>
+
+<h2>Basic Desktop Streaming Setup</h2>
+
+<p>The basic setup will allow us to stream our desktop and system audio to justin.tv. This requires the following software:</p>
+
+<ul>
+<li>  <a href="http://www.adobe.com/products/flashmediaserver/flashmediaencoder/">Adobe Flash Media Live Encoder (FMLE) 3.2 for Mac</a> : Encodes and streams video and audio to justin.tv</li>
+<li>  <a href="http://allocinit.com/index.php?title=CamTwist">CamTwist</a> : Used to capture desktop as a video source</li>
+<li>  <a href="http://cycling74.com/products/soundflower/">Soundflower</a> : Utility used to capture and redirect system output</li>
+<li>  justin.tv config file : Only required if you are streaming to justin.tv (link provided below)</li>
+</ul>
+
+<p>The basic setup is pretty simple, and essentially requires setting up CamTwist to capture your desktop as a video source, and have Flash Media Live Encoder take that video source, combine it with the system audio, and stream it to the server (in this case justin.tv).</p>
+
+<h3>A Note on Performance</h3>
+
+<p>Keep in mind that encoding and broadcasting live video feeds can be very CPU intensive, and thus may require significant system resources. Depending on what you are streaming, this may affect other applications running on your system, or even the quality of the stream.</p>
+
+<h3>Configuring CamTwist</h3>
+
+<p>First, download and install CamTwist. Once it is installed, open it up, and under the Step 1 section, double click &quot;Desktop&quot; (not &quot;Desktop+&quot;). &quot;Desktop+&quot; allows you to select a specific window to broadcast, but since we are going to be broadcasting our entire desktop, we will just use the Desktop preset.</p>
+
+<p>You can save these settings by clicking the &quot;Save Setup&quot; button.</p>
+
+<p>Do not select any effects in Step 2.</p>
+
+<p>In Step 3 make sure that &quot;Desktop&quot; is included and checked. In the settings window, make sure that screen is set to &quot;Main Screen&quot;. This ensures that only the main screen will be broadcast (which only matters if you have multiple monitors). </p>
+
+<p>Also make sure that &quot;Full Screen&quot; and &quot;Show mouse pointer (simulated)&quot; are selected.</p>
+
+<p>Once you have set all of these settings, you can save them by clicking the &quot;Save Setup&quot; button.</p>
+
+<p><img src="/blog/images/mac_screen_broadcast/camtwist_main.png" alt="title"></p>
+
+<p>Now, open the preferences (<em>CamTwist &gt; Preferences</em>), and select the &quot;General Tab&quot;. Set the frame rate to the same frame rate you plan to encode at. I am using 24 FPS. The higher the FPS, the smoother the video, but the more bandwidth and CPU required to encode and transmit it.</p>
+
+<p>Set video size to &quot;Custom&quot; and set it to your desktop resolution. In my case, I have it set to 1920 x 1200, which is my native desktop resolution. Set it to the native resolution even if you are going to broadcast at a lower resolution. We will have Adobe Flash Media Live Encoder scale the video down, as my experience has been that it does it much more efficiently than CamTwist.</p>
+
+<p><img src="/blog/images/mac_screen_broadcast/camtwist_preferences.png" alt="title"></p>
+
+<p>Once you have set the preferences, close the window and restart CamTwist. Make sure the &quot;Desktop&quot; section is selected. You can test that everything is working by selecting <em>Tools &gt; Preview</em>, which will give you a small preview of the video being captured.</p>
+
+<h3>Configuring Audio with Soundflower</h3>
+
+<p>In order to capture audio, we need a way to capture the system&#8217;s audio output, and make it an input for Flash Media Live encoder. Mac OS X does not have native support for doing this, but the free Soundflower utility enabled this.</p>
+
+<p>Soundflower is a utility that can combine multiple audio outputs and redirect them into a single audio output. We can use this to capture system audio, and pass it on to FMLE to include the audio for our video stream.</p>
+
+<p>First, download and install <a href="http://cycling74.com/products/soundflower/">Soundflower</a>. Once it is installed, launch it. It won&#8217;t open an application window, but will add a small menu item icon (a flower) on the top right of the menu bar.</p>
+
+<p>We need to tell OS X to direct system audio output to Soundflower. Open Sound preferences (<em>System Preferences &gt; Sound &gt; Output</em>) and select &quot;Soundflower (2ch)&quot;.</p>
+
+<p><img src="/blog/images/mac_screen_broadcast/sound_settings_basic.png" alt="title"></p>
+
+<p>Basically, anything that you would hear through your speakers will now be directed first through Soundflower.</p>
+
+<p>Next, click the Soundflower icon on the menu bar, and for &quot;Soundflower (2ch)&quot; select what you would normally have set as your system output (such as headphone, or Line-Out). This will redirect the audio through Soundflower, and pass it through your normal output so you can still hear it. However, because it is first directed through Soundflower, we can now also use that as an input source in FMLE.</p>
+
+<p><img src="/blog/images/mac_screen_broadcast/soundflower_basic.png" alt="title"></p>
+
+<p>There is a lot more advanced stuff we can do with Soundflower, which we will cover later in the article.</p>
+
+<h3>Configuring Adobe Flash Media Live Encoder</h3>
+
+<p><a href="http://www.adobe.com/products/flashmediaserver/flashmediaencoder/">Adobe Flash Media Live Encoder</a> (FMLE) is a free tool provided by Adobe that can take a video and audio feed, and create either a VP6 or H.264 encoded video stream that can be streamed to servers and sites such as justin.tv. </p>
+
+<p>Download and install the latest version of FMLE (this article is using version 3.2). If CamTwist is not already running, go ahead and open it. Once FMLE is installed, open it up.</p>
+
+<p>Now, before we start changing settings, we need to first download a config file for our specific justin.tv account. This will include information specific to our account that justin.tv uses to determine which account the stream is associated with. If you are not using justin.tv, you may to skip this section, although you may need to look up docs on how to configure the stream for your specific server.</p>
+
+<p>Log into your justin.tv account, and then visit <a href="http://www.justin.tv/broadcast/adv_other">this page</a>. At the bottom of the page is section for &quot;Flash Media Encoder&quot;. Click the &quot;Config File&quot; button. This is the XML config file for FMLE specific for your justin.tv account. Click the button and download the file to your desktop.</p>
+
+<p><strong>Note</strong> : This file will allow anyone who has it to stream to your justin.tv account, so be careful to protect it.</p>
+
+<p>Once you have downloaded the file, we are ready to import it into FMLE. Switch to FMLE and select <em>File &gt; Open Profile</em>. You may get a warning that some tags are not support, and defaults are being used. Just ignore this.</p>
+
+<p>If you look in the output panel on the right side of FMLE, you should see the FMS URL set to something like: <em>rtmp://live.justin.tv/app</em>, and the stream attribute have a value similar to: <em>live<em>12345678</em>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</em>.</p>
+
+<p>Again, this second string is specific to your account, and will allow anyone to stream to your justin.tv account. You can hide the panel it is shown in (so it wont be displayed on your stream), by selecting &quot;Panel Options&quot; and setting it to &quot;Meta Data&quot; (so the panel wont be displayed). Note that you may need to do this each time your start FMLE.</p>
+
+<p>We are now ready to set up the encoding options for FMLE. First, we will setup the video encoding settings. Some of the settings may vary depending on your system, but I will point out where and why you might want to tweak them.</p>
+
+<h4>FMLE : Video Settings</h4>
+
+<p>First, in the video panel, make sure that &quot;Video&quot; is checked. For &quot;Device&quot;, select &quot;CamTwist&quot;. If &quot;CamTwist&quot; does not appear as an option, make sure that CamTwist is running and is set to broadcast the desktop. If it isn&#8217;t, start it, and then restart FMLE.</p>
+
+<p>Once you have selected CamTwist, you can confirm that it is working by making sure &quot;Input Video&quot; is selected in the &quot;Preview&quot; panel at the top. With this selected, you should see the video feed preview of your desktop.</p>
+
+<p>Next, we need to set the video codec we will be encoding to as well as its options. There is a choice between H.264 and VP6. I am not going to go into a discussion about which is better. In general though H.264 offers higher quality at lower bitrates, with slightly higher CPU usage, while VP6 offers lower quality, with higher bitrates and slightly lower CPU usage. For this article, I will be using H.264 to stream to the server.</p>
+
+<p>Select “H.264” as the Format, and click the little wrench icon. This will open a panel where we can set additional setting specific to the codec.</p>
+
+<p>Set the profile to &quot;Main&quot;.</p>
+
+<p>The &quot;Level&quot; value will vary depending on the resolution you will be encoding at. In our case, I will be encoding at 720p (1280 x 720) at 24 FPS, so I need to set the level to &quot;3.1&quot;. You can find a list of levels and resolutions / FPS in the <a href="http://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels">H.264 wikipedia article</a>.</p>
+
+<p>Finally, we need to set the Keyframe Frequency. This determines how frequently keyframes (complete captures of the image) are inserted into the stream. We will use the default of &quot;5&quot;.</p>
+
+<p><img src="/blog/images/mac_screen_broadcast/advanced_encoder_settings.png" alt="title"></p>
+
+<p>Once you have set the codec settings, click the &quot;OK&quot; button.</p>
+
+<p>Back in FMLE, set the Frame Rate to &quot;24.00&quot; fps. Higher framerates provide smoother video, but require more CPU and bandwidth. Lower framerates provide choppier video, but require less CPU and bandwidth. I think that 24 FPS is a good middle ground, but feel free to experiment. Just remember that if you change this, you should also change it in the CamTwist preferences, so they are the same.</p>
+
+<p>Set &quot;Input Size&quot; to the size that you will be broadcasting / encoding at. We do this, even though the input received from CamTwist is a higher resolution. FMLE will scale the video to the appropriate size. It has been my experience that this uses less CPU that having CamTwist do the scaling.</p>
+
+<p>We could set input size to the full resolution of the input stream, and then have the output size as a scaled down stream. However, in my case, i have a 16:10 stream resolution which FMLE currently doesn’t support, which would result in part of the stream being chopped at the top and bottom. By having the scaling done at the Input Size, I was able to get the content scaled correctly, without having any part of the stream cropped. (If anyone has more feedback on this, please post it in the comments.).</p>
+
+<p>Make sure that &quot;Maintain Aspect Ratio&quot; is also checked for &quot;Input Size&quot;. This prevents the video from being skewed when it is scaled.</p>
+
+<p>Now, FMLE can encode and output multiple streams and sizes (which I believe justin.tv supports), however, we will just be broadcasting one stream.</p>
+
+<p>Make sure the first stream is checked, and set the &quot;Bit Rate&quot; to &quot;1000&#8243; kbps. This setting basically specifies how much data is included in the stream. The higher the value, the clearer the image (less compression) and the more bandwidth required. The main thing to consider when setting this is how much upstream bandwidth you have available. You can get a general idea by doing a <a href="http://www.speedtest.net">speed test</a> and looking at the upload results. On the right of the stream section in FMLE, will be an estimate of the total bandwidth required to stream at the current setting. You want to make sure that you have some buffer between what you are sending, and what your upstream bandwidth is. Otherwise, viewers of your stream may see frequent drops and stutters.</p>
+
+<p>To start with, I would set it at 1000, test, and then move the value up (in increments of 500) until you find a good balance between bandwidth usage and video quality.</p>
+
+<p>Set the &quot;Output Size&quot; to the output size you want to stream at. For this article, we will be streaming at 720p (&quot;1280 x 720&#8243;), which is a standard HD resolution, and I feel provides a good tradeoff for providing high quality stream for the bandwidth required. Again, adjusting the resolution will affect the amount of bandwidth required for the stream.</p>
+
+<p>You can leave both &quot;Deinterlace&quot; (since we are running at 720p) and &quot;Timecode&quot; unchecked.</p>
+
+<h4>FMLE : Audio Settings</h4>
+
+<p>Audio settings are a bit less involved than video settings, and mostly requires finding a balance between quality and bandwidth required.</p>
+
+<p>Make sure that &quot;Audio&quot; is checked at the top of the Audio section.</p>
+
+<p>For &quot;Device&quot;, select &quot;Soundflower (2ch)&quot;. If this does not appear, make sure Soundflower is running. If it is not, start it and restart FMLE.</p>
+
+<p>Once it is set, you can test that is is working by checking &quot;Audio&quot; in the preview panel and thenm play an audio source on your system. You should see the audio levels reflected in the preview panel (on the right). You should also be able to hear the audio through your headphones / speakers. If you dont, make sure that you have set the output correctly in Soundflower (see above).</p>
+
+<p>For Format, select &quot;Mp3&#8243;, and set &quot;Channels&quot; to &quot;Stereo&quot; and &quot;Sample Rate&quot; to &quot;44100&#8243;.</p>
+
+<p>The &quot;Bit Rate&quot; setting determines how much data is used to encode the audio. Higher values mean clearer audio / less compression but require more bandwidth. Unless you are streaming high quality audio / music, then 128 Kbps should be fine, and depending on your bandwidth, you may want to set it slightly lower.</p>
+
+<p>Turn the volume all the way up.</p>
+
+<p><img src="/blog/images/mac_screen_broadcast/flme_settings.png" alt="title"></p>
+
+<p>At this point, look at the bandwidth required estimate under the Volume setting. Make sure this is not too high in relation to your upstream bandwidth. You want to ensure there is some padding for data spikes, or if your available bandwidth goes down a bit. If the bandwidth required is too high, then go through and tweak the settings (see above) until you get the bandwidth to an acceptable level. You may need to do some live testing to find the best compromise between audio / video quality and required bandwidth.</p>
+
+<p>Now that we have entered all of the settings, we want to save our FMLE profile, so we can easily use it again. Select <em>File &gt; Save Profile</em> and save the profile onto your system. By default, FMLE will open with the last settings used, but you can also open the saved profile by going to <em>File &gt; Open Profile</em>.</p>
+
+<p>All that is left to do, is to start the stream, and make sure everything is working with justin.tv. Click the green &quot;Start&quot; button and switch over to your justin.tv channel. You should see your desktop and audio being streamed on your channel (there may be some delay between your desktop and the playback on the stream).</p>
+
+<p>Make sure audio and video quality are good. If they are not, then stop the stream, tweak the settings and try again.</p>
+
+<p>If you run into any errors, just check the &quot;Encoding Log&quot; panel in FMLE (which will open when you start the stream). You can also get general statistics on your stream in the Encoding pane which can be useful for trying to track down issues.</p>
+
+<h3>General Trouble Shooting</h3>
+
+<h4>Audio Not working</h4>
+
+<p>If audio is not working, make sure:</p>
+
+<ul>
+<li>  Soundflower is running</li>
+<li>  Soundflower was launched before FMLE was opened</li>
+<li>  Soundflower is set correctly as the Output in system Sound preferences</li>
+<li>  Try stopping and starting the stream in FMLE</li>
+</ul>
+
+<p>If audio is working on stream, but not locally, make sure that:</p>
+
+<ul>
+<li>  Correct output is set in Soundflower</li>
+</ul>
+
+<h4>Video not working</h4>
+
+<p>If the video stream is not working:</p>
+
+<ul>
+<li>  Make sure that CamTwist is running, and is configured to output the desktop</li>
+<li>  Make sure that CamTwist was started before FMLE was started</li>
+<li>  Make sure that Video is selected in FMLE</li>
+<li>  Make sure you you downloaded and loaded the justin.tv config file</li>
+<li>  Try stopping and starting the stream in FMLE</li>
+</ul>
+
+<p>If video is choppy on justin.tv</p>
+
+<ul>
+<li>  Adjust audio and video settings in FMLE 
+
+<ul>
+<li>  Video output resolution</li>
+<li>  Video output Bit Rate</li>
+<li>  Audio output Bit Rate</li>
+<li>  Increase Keyframe interval for H.264</li>
+</ul></li>
+<li>  Check system resources (view in Activity Monitor) and make sure your system has enough resources to encode and stream audio in real time</li>
+<li>  Close any applications not necessary to streaming</li>
+<li>  Turn off &quot;Video Input&quot;, &quot;Video Output&quot;, and &quot;Audio&quot; previews in FMLE. </ul> </li>
+</ul>
+
+<h2>Advanced Configuration for Streaming your desktop on Mac OS X</h2>
+
+<p>The information above is all you need if you just want to stream your desktop and system audio to a remote server (such as justin.tv). However, if you want be able to also stream your microphone input or entire skype calls / conversations, then there are a couple of more steps you need to take.</p>
+
+<p>For this section, we will be using all of the software above, along with:</p>
+
+<ul>
+<li>  <a href="http://www.rogueamoeba.com/freebies/">LineIn</a> : Allows you to redirect system audio inputs to audio outputs.</li>
+</ul>
+
+<p>By using LineIn, in conjunction with the applications above, you can have very advanced control over how you mix your audio on the desktop, including which audio outputs are included in your stream, and on your desktop.</p>
+
+<p>For this example, we will be setting up our system so that:</p>
+
+<ul>
+<li>  Microphone input is included in the stream, but not included in the local system output</li>
+<li>  Skype conversations (both local and remote) are included in the stream</li>
+</ul>
+
+<p>First, download <a href="http://www.rogueamoeba.com/freebies/">LineIn</a>, and copy it to your applications folder. We are going to need to use two instances of LineIn, and since Mac OS X will only allow us to launch one instance of an app at a time, we need to make a copy of the app and rename it. So, copy the LineIn application, and rename the copy to LineIn2.</p>
+
+<p>Launch both LineIn and LineIn2 (their windows may overlap when they launch).</p>
+
+<p>One feature of Soundflower which we did not discuss above, it that it creates two separate output channel (one with 2 channels, and one with 16 channels). We can use this, in conjunction with LineIn, to provide different audio feeds for the desktop and the stream.</p>
+
+<p>In the first LineIn window, set the &quot;Input from&quot; to your local microphone input. Then, set the &quot;Output to&quot; &quot;Soundflower (2ch)&quot;. This basically takes the input from your microphone, and redirects it to the Soundflower (2ch) output (being used by FMLE).</p>
+
+<p>Next, click the &quot;Pass Thru&quot; button to enable the changes we just made.</p>
+
+<p><img src="/blog/images/mac_screen_broadcast/linein1.png" alt="title"></p>
+
+<p>At this point, if you have configured your streaming according the the instructions above, your microphone input will now be included in the audio for your stream. However, if you test this, you will also notice that the microphone input is also output to your system audio (since system Sound output is set to Soundflower (2ch)). Hearing yourself in your speakers / headphone as you speak can be very confusing and distracting (not to mention annoying), so we need to configure things so microphone input is not output locally.</p>
+
+<p>This is where the second instance of LineIn comes in. If you havent already, launch LineIn2. Set the &quot;Input from&quot; to &quot;Soundflower (16ch)&quot; and set the &quot;Output to&quot; to &quot;Soundflower (2ch)&quot;. Once you have done this, click the &quot;Pass Thru&quot; button to enable the changes.</p>
+
+<p><img src="/blog/images/mac_screen_broadcast/linein2.png" alt="title"></p>
+
+<p>Next, we need to set all system audio output to go to &quot;Soundflower (16ch)&quot;. Open system Sound Output settings (<em>System Preferences &gt; Sound &gt; Output</em>) and set output to &quot;Soundflower (16ch)&quot;. Now, all system audio output will go to &quot;Soundflower (16ch)&quot;, which is then being redirected (by LineIn) to &quot;Sunflower (2ch)&quot;.</p>
+
+<p><img src="/blog/images/mac_screen_broadcast/sound_settings_advanced.png" alt="title"></p>
+
+<p>At this point, we now have two separate Soundflower channels. One (&quot;Soundflower (2ch)&quot;) includes both system audio and microphone input, and one (&quot;Soundflower 16ch&quot;) includes all system audio, minus the microphone input.</p>
+
+<p>We don’t need to change anything in FMLE, since it is already set to use Soundflower (2ch) as its audio input. However, in order to hear the correct audio locally, we need to change the Soundflower local output. Click the Soundflower icon on the menu bar. Set &quot;Soundflower (2ch)&quot; to &quot;None (Off)&quot;, and set &quot;Soundflower (16ch)&quot; to the local output you want to use (which ever output your speakers / headphone is connected to).</p>
+
+<p><img src="/blog/images/mac_screen_broadcast/soundflower_advanced.png" alt="title"></p>
+
+<p>You should now be able to hear all system audio locally without hearing the microphone. However, the stream includes the audio from both the local system and microphone.</p>
+
+<p>At this point, anything you output to &quot;Soundflower (16ch)&quot; will be included in the stream (and played locally). This means you can set other applications, such as Skype, to also output to Soundflower (16ch) in order to include them in the stream.</p>
+
+<p>Configuring this in <a href="http://www.skype.com">Skype</a> is easy. Just open Skype, and launch the Audio / Video preferences (<em>Skype &gt; Preferences &gt; Audio / Video</em>). Set the &quot;Speakers&quot; to &quot;Soundflower (16ch)&quot; and close the preferences. Now any audio that comes through Skype, will be included in the stream.</p>
+
+<p><img src="/blog/images/mac_screen_broadcast/skype_settings.png" alt="title"></p>
+
+<p>You can do this with any application that allows you to specify sound output. You just need to keep in mind that you only have 16 channels total (which should be plenty).</p>
+
+<p>With this setup, you can stream your desktop, system audio, local microphone and skype conversations all of the same time (useful, for example, if you are streaming multiple player games while playing / chatting with friends).</p>
+
+<h2>Conclusion</h2>
+
+<p>While setting up desktop streaming on Mac OS X can seem a bit daunting at first, it is not too difficult. Once you do get it setup with the configuration describe in this article, you have a lot of flexibility in how things are broadcast, including which audio sources are included / excluded.</p>
+
+<h2>Additional Resources</h2>
+
+<h3>Applications</h3>
+
+<ul>
+<li>  <a href="http://www.adobe.com/products/flashmediaserver/flashmediaencoder/">Adobe Flash Media Encoder 3.2</a></li>
+<li>  <a href="http://allocinit.com/index.php?title=CamTwist">CamTwist</a></li>
+<li>  <a href="http://cycling74.com/products/soundflower/">Soundflower</a></li>
+<li>  <a href="http://www.rogueamoeba.com/freebies/">LineIn</a></li>
+</ul>
+
+<h3>Articles / Resources</h3>
+
+<ul>
+<li>  <a href="http://root-destiny.com/newbies-guide-to-streaming/">Beginners Guide to Desktop Streaming</a> : Great walkthrough for streaming your desktop from Windows</li>
+<li>  <a href="http://www.justin.tv/p/camtwist">Using CamTwist with Justin.tv</a></li>
+<li>  <a href="http://help.adobe.com/en_US/FlashMediaLiveEncoder/3.0/Using/">Adobe Flash Media Live Encoder Documentation</a></li>
+<li>  <a href="http://www.pcworld.com/article/213034/screencast_live_how_to_make_your_own_web_tv_show.html">How To Make Your Own Web TV Show</a> : Great video series by Sean &quot;Day<a href="http://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels">9</a>&quot; Plott.</li>
+<li>  <a href="http://community.justin.tv/forums/">Justin.tv forums</a></li>
+<li>  <a href="http://forums.adobe.com/community/flash/flash_media_live_encoder">Adobe Flash Media Live Encoder Forums</a></li>
+<li>  <a href="http://www.teamliquid.net/forum/viewmessage.php?topic_id=220584">TeamLiquid Forums Stream Quality Guide</a></li>
+</ul>
+
+<p>If you have any questions or suggestions, then post them in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

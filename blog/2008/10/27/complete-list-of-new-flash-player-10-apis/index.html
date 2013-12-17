@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Complete List of new Flash Player 10 APIs</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Complete List of new Flash Player 10 APIs</h2>
+<p class="meta">Monday, October 27, 2008</p>
+
+<div class="post">
+<p>I am working on updating the <a href="http://www.mikechambers.com/blog/2008/03/17/actionscript-3-ria-reference-guide/">ActionScript RIA Reference Guide</a>. As part of that, I have to figure add all of the new APIs added to Flash Player 10.</p>
+
+<p>Below is a list of such APIs generated and parsed from the APIs docs. I figured I would post it here as a reference, and also a sanity check (if you see anything wrong or missing, please post in the comments).<br>
+&lt;!--more--&gt;</p>
+
+<p>Update : I just updated the list and added a bunch of missing APIs. Thanks for all of the input.</p>
+
+<p>`
+<pre>--------------------------------Flash Player------------------------
+--------------------------------Flash Player------------------------
+--------------------------------Flash Player------------------------
+Vector
+p:Top Level
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    length:uint</p>
+
+<h2>    fixed:Boolean</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>concat():Vector.&lt;T&gt;
+<a name="line-2"></a>every():Boolean
+<a name="line-3"></a>filter():Vector.&lt;T&gt;
+<a name="line-4"></a>forEach():void
+<a name="line-5"></a>indexOf():int
+<a name="line-6"></a>join():String
+<a name="line-7"></a>lastIndexOf():int
+<a name="line-8"></a>map():Vector.&lt;T&gt;
+<a name="line-9"></a>pop():T
+<a name="line-10"></a>push():uint
+<a name="line-11"></a>reverse():Vector.&lt;T&gt;
+<a name="line-12"></a>shift():T
+<a name="line-13"></a>slice():Vector.&lt;T&gt;
+<a name="line-14"></a>some():Boolean
+<a name="line-15"></a>sort():Vector.&lt;T&gt;
+<a name="line-16"></a>splice():Vector.&lt;T&gt;
+<a name="line-17"></a>toString():String
+<a name="line-18"></a>toLocaleString():String
+<a name="line-19"></a>unshift():uint
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>NetStreamPlayOptions
+p:flash.net
+-&gt;EventDispatcher
+Implements:</p>
+
+<h2>Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>len:Number
+<a name="line-2"></a>oldStreamName:String
+<a name="line-3"></a>start:Number
+<a name="line-4"></a>streamName:String
+<a name="line-5"></a>transition:String
+</code></pre></div>
+<p>Static Fields</p>
+
+<hr>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>BlendMode
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>SHADER:String
+</code></pre></div>
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>Event
+p:flash.events
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>CLEAR:String
+<a name="line-2"></a>COPY:String
+<a name="line-3"></a>CUT:String
+<a name="line-4"></a>PASTE:String
+<a name="line-5"></a>SELECT_ALL:String
+</code></pre></div>
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>FontType
+p:flash.text
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>EMBEDDED_CFF:String;
+</code></pre></div>
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ApplicationDomain
+p:flash.system
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>domainMemory:ByteArray
+</code></pre></div>
+<h2>Static Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>MIN_DOMAIN_MEMORY_LENGTH:uint
+</code></pre></div>
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>DisplayObject
+p:flash.system
+-&gt;EventDispatcher
+Implements:
+IBitmapDrawable</p>
+
+<h2>Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>blendShader:void
+<a name="line-2"></a>rotationX:Number
+<a name="line-3"></a>rotationY:Number
+<a name="line-4"></a>rotationZ:Number
+<a name="line-5"></a>scaleZ:Number
+<a name="line-6"></a>z:Number
+</code></pre></div>
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>globalToLocal3D():Vector3D
+<a name="line-2"></a>local3DToGlobal():Point
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>Microphone
+p:flash.media
+-&gt;EventDispatcher
+Implements:</p>
+
+<h2>Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>codec:String
+<a name="line-2"></a>encodeQuality:int
+<a name="line-3"></a>framesPerPacket:int
+</code></pre></div>
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>MovieClip
+p:flash.display
+-&gt;Sprite
+Implements:</p>
+
+<h2>Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>currentFrameLabel:String
+</code></pre></div>
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>NetConnection
+p:flash.net
+-&gt;EventDispatcher
+Implements:</p>
+
+<h2>Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>farID:String
+<a name="line-2"></a>farNonce:String
+<a name="line-3"></a>maxPeerConnections:uint
+<a name="line-4"></a>nearID:String
+<a name="line-5"></a>nearNonce:String
+<a name="line-6"></a>protocol:String
+<a name="line-7"></a>unconnectedPeerStreams:Array
+</code></pre></div>
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ShaderParameter
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>index:int
+<a name="line-2"></a>type:String
+<a name="line-3"></a>value:Array
+</code></pre></div>
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>Sound
+p:flash.media
+-&gt;EventDispatcher
+Implements:</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>extract():Number
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>Mouse
+p:flash.ui
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>cursor:String
+</code></pre></div>
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>NetStream
+p:flash.net
+-&gt;EventDispatcher
+Implements:</p>
+
+<h2>Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>farID:String
+<a name="line-2"></a>info:NetStreamInfo
+<a name="line-3"></a>nearNonce:String
+<a name="line-4"></a>farNonce:String
+<a name="line-5"></a>peerStreams:Array
+</code></pre></div>
+<h2>Static Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>DIRECT_CONNECTIONS:String;
+<a name="line-2"></a>CONNECT_TO_FMS:String
+</code></pre></div>
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>onPeerConnect():Boolean
+<a name="line-2"></a>play2():void
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>NetStreamInfo
+p:flash.net
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>audioBufferByteLength:Number
+<a name="line-2"></a>audioBufferLength:Number
+<a name="line-3"></a>audioByteCount:Number
+<a name="line-4"></a>audioBytesPerSecond:Number
+<a name="line-5"></a>audioLossRate:Number
+<a name="line-6"></a>byteCount:Number
+<a name="line-7"></a>currentBytesPerSecond:Number
+<a name="line-8"></a>dataBufferByteLength:Number
+<a name="line-9"></a>dataBufferLength:Number
+<a name="line-10"></a>dataByteCount:Number
+<a name="line-11"></a>dataBytesPerSecond:Number
+<a name="line-12"></a>droppedFrames:Number
+<a name="line-13"></a>maxBytesPerSecond:Number
+<a name="line-14"></a>playbackBytesPerSecond:Number
+<a name="line-15"></a>SRTT:Number
+<a name="line-16"></a>videoBufferByteLength:Number
+<a name="line-17"></a>videoBufferLength:Number
+<a name="line-18"></a>videoByteCount:Number
+<a name="line-19"></a>videoBytesPerSecond:Number
+</code></pre></div>
+<h2>Static Fields</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>EMBEDDED_CFF:String;
+</code></pre></div>
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>toString():String
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>DigitCase
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    DEFAULT:String
+    LINING:String</p>
+
+<h2>    OLD_STYLE:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>FontWeight
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    NORMAL:String</p>
+
+<h2>    BOLD:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>Kerning
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    ON:String
+    OFF:String</p>
+
+<h2>    AUTO:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>FontDescription
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    renderingMode:String
+    fontLookup:String
+    fontName:String
+    fontPosture:String
+    fontWeight:String
+    cffHinting:String</p>
+
+<h2>    locked:Boolean</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>isFontCompatible():Boolean
+</code></pre></div>
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>FontDescription()
+<a name="line-2"></a>clone():FontDescription
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>LigatureLevel
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    NONE:String
+    MINIMUM:String
+    COMMON:String
+    UNCOMMON:String</p>
+
+<h2>    EXOTIC:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>RenderingMode
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    NORMAL:String</p>
+
+<h2>    CFF:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>TextElement
+p:flash.text.engine
+-&gt;ContentElement
+Implements:</p>
+
+<p>Fields</p>
+
+<h2>    text:String</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>replaceText():void
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>FontPosture
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    NORMAL:String</p>
+
+<h2>    ITALIC:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>TextLineValidity
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    VALID:String
+    POSSIBLY_INVALID:String
+    INVALID:String</p>
+
+<h2>    STATIC:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>TextLineCreationResult
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    SUCCESS:String
+    EMERGENCY:String
+    COMPLETE:String</p>
+
+<h2>    INSUFFICIENT_WIDTH:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>BreakOpportunity
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    AUTO:String
+    ANY:String
+    NONE:String</p>
+
+<h2>    ALL:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ContentElement
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    userData:*
+    textBlock:TextBlock
+    textBlockBeginIndex:int
+    elementFormat:ElementFormat
+    eventMirror:EventDispatcher
+    groupElement:GroupElement
+    rawText:String
+    text:String</p>
+
+<h2>    textRotation:String</h2>
+
+<p>Static Fields</p>
+
+<h2>    GRAPHIC_ELEMENT:uint</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>ContentElement()
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>TabStop
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    alignment:String
+    position:Number</p>
+
+<h2>    decimalAlignmentToken:String</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>TabAlignment
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    START:String
+    CENTER:String
+    END:String</p>
+
+<h2>    DECIMAL:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>JustificationStyle
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    PUSH<em>IN</em>KINSOKU:String
+    PUSH<em>OUT</em>ONLY:String</p>
+
+<h2>    PRIORITIZE<em>LEAST</em>ADJUSTMENT:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>FontMetrics
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    emBox:Rectangle
+    strikethroughOffset:Number
+    strikethroughThickness:Number
+    underlineOffset:Number
+    underlineThickness:Number
+    subscriptOffset:Number
+    subscriptScale:Number
+    superscriptOffset:Number</p>
+
+<h2>    superscriptScale:Number</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>FontMetrics()
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>TextLineMirrorRegion
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    textLine:TextLine
+    nextRegion:TextLineMirrorRegion
+    previousRegion:TextLineMirrorRegion
+    mirror:EventDispatcher
+    element:ContentElement</p>
+
+<h2>    bounds:Rectangle</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>TextLine
+p:flash.text.engine
+-&gt;DisplayObjectContainer
+Implements:</p>
+
+<p>Fields
+    userData:*
+    textBlock:TextBlock
+    hasGraphicElement:Boolean
+    nextLine:TextLine
+    previousLine:TextLine
+    ascent:Number
+    descent:Number
+    textHeight:Number
+    textWidth:Number
+    textBlockBeginIndex:int
+    rawTextLength:int
+    specifiedWidth:Number
+    unjustifiedTextWidth:Number
+    validity:String
+    atomCount:int</p>
+
+<h2>    mirrorRegions:Vector.<TextLineMirrorRegion></h2>
+
+<p>Static Fields</p>
+
+<h2>    MAX<em>LINE</em>WIDTH:int</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>getMirrorRegion():TextLineMirrorRegion
+<a name="line-2"></a>flushAtomData():void
+<a name="line-3"></a>getAtomIndexAtPoint():int
+<a name="line-4"></a>getAtomIndexAtCharIndex():int
+<a name="line-5"></a>getAtomBounds():Rectangle
+<a name="line-6"></a>getAtomBidiLevel():int
+<a name="line-7"></a>getAtomTextRotation():String
+<a name="line-8"></a>getAtomTextBlockBeginIndex():int
+<a name="line-9"></a>getAtomTextBlockEndIndex():int
+<a name="line-10"></a>getAtomCenter():Number
+<a name="line-11"></a>getAtomWordBoundaryOnLeft():Boolean
+<a name="line-12"></a>getAtomGraphic():DisplayObject
+<a name="line-13"></a>getBaselinePosition():Number
+<a name="line-14"></a>dump():String
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>CFFHinting
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    NONE:String</p>
+
+<h2>    HORIZONTAL_STEM:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ElementFormat
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    alignmentBaseline:String
+    alpha:Number
+    baselineShift:Number
+    breakOpportunity:String
+    color:uint
+    dominantBaseline:String
+    fontDescription:FontDescription
+    digitCase:String
+    digitWidth:String
+    ligatureLevel:String
+    fontSize:Number
+    kerning:String
+    locale:String
+    textRotation:String
+    trackingRight:Number
+    trackingLeft:Number
+    typographicCase:String</p>
+
+<h2>    locked:Boolean</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>ElementFormat()
+<a name="line-2"></a>getFontMetrics():FontMetrics
+<a name="line-3"></a>clone():ElementFormat
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>GraphicElement
+p:flash.text.engine
+-&gt;ContentElement
+Implements:</p>
+
+<p>Fields
+    graphic:DisplayObject
+    elementHeight:Number</p>
+
+<h2>    elementWidth:Number</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>GraphicElement()
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>DigitWidth
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    DEFAULT:String
+    PROPORTIONAL:String</p>
+
+<h2>    TABULAR:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>TextJustifier
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    locale:String</p>
+
+<h2>    lineJustification:String</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>getJustifierForLocale():TextJustifier
+</code></pre></div>
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>clone():TextJustifier
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>TextBlock
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    userData:*
+    applyNonLinearFontScaling:Boolean
+    baselineFontDescription:FontDescription
+    baselineFontSize:Number
+    baselineZero:String
+    content:ContentElement
+    bidiLevel:int
+    firstInvalidLine:TextLine
+    firstLine:TextLine
+    lastLine:TextLine
+    textJustifier:TextJustifier
+    textLineCreationResult:String
+    lineRotation:String</p>
+
+<h2>    tabStops:Vector.<TabStop></h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>findNextAtomBoundary():int
+<a name="line-2"></a>findPreviousAtomBoundary():int
+<a name="line-3"></a>findNextWordBoundary():int
+<a name="line-4"></a>findPreviousWordBoundary():int
+<a name="line-5"></a>getTextLineAtCharIndex():TextLine
+<a name="line-6"></a>createTextLine():TextLine
+<a name="line-7"></a>releaseLines():void
+<a name="line-8"></a>dump():String
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>GroupElement
+p:flash.text.engine
+-&gt;ContentElement
+Implements:</p>
+
+<p>Fields</p>
+
+<h2>    elementCount:int</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>getElementAt():ContentElement
+<a name="line-2"></a>setElements():void
+<a name="line-3"></a>groupElements():GroupElement
+<a name="line-4"></a>ungroupElements():void
+<a name="line-5"></a>mergeTextElements():TextElement
+<a name="line-6"></a>splitTextElement():TextElement
+<a name="line-7"></a>replaceElements():Vector.&lt;ContentElement&gt;
+<a name="line-8"></a>getElementAtCharIndex():ContentElement
+<a name="line-9"></a>getElementIndex():int
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>TypographicCase
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    DEFAULT:String
+    TITLE:String
+    CAPS:String
+    SMALL_CAPS:String
+    UPPERCASE:String
+    LOWERCASE:String</p>
+
+<h2>    CAPS<em>AND</em>SMALL_CAPS:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>EastAsianJustifier
+p:flash.text.engine
+-&gt;TextJustifier
+Implements:</p>
+
+<p>Fields</p>
+
+<h2>    justificationStyle:String</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>clone():TextJustifier
+<a name="line-2"></a>EastAsianJustifier()
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>LineJustification
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    UNJUSTIFIED:String
+    ALL<em>BUT</em>LAST:String</p>
+
+<h2>    ALL<em>INCLUDING</em>LAST:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>SpaceJustifier
+p:flash.text.engine
+-&gt;TextJustifier
+Implements:</p>
+
+<p>Fields</p>
+
+<h2>    letterSpacing:Boolean</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>clone():TextJustifier
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>FontLookup
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    DEVICE:String</p>
+
+<h2>    EMBEDDED_CFF:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>TextRotation
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    ROTATE<em>0:String
+    ROTATE</em>90:String
+    ROTATE<em>180:String
+    ROTATE</em>270:String</p>
+
+<h2>    AUTO:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>TextBaseline
+p:flash.text.engine
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    ROMAN:String
+    ASCENT:String
+    DESCENT:String
+    IDEOGRAPHIC<em>TOP:String
+    IDEOGRAPHIC</em>CENTER:String
+    IDEOGRAPHIC_BOTTOM:String</p>
+
+<h2>    USE<em>DOMINANT</em>BASELINE:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>TriangleCulling
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ShaderData
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>GraphicsEndFill
+p:flash.display
+-&gt;Object
+Implements:
+    IGraphicsFill
+    IGraphicsData</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>GraphicsEndFill()
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>ColorCorrectionSupport
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    UNSUPPORTED:String
+    DEFAULT_ON:String</p>
+
+<h2>    DEFAULT_OFF:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ShaderInput
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    input:Object
+    width:int
+    height:int
+    channels:int</p>
+
+<h2>    index:int</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>GraphicsGradientFill
+p:flash.display
+-&gt;Object
+Implements:
+    IGraphicsFill
+    IGraphicsData</p>
+
+<p>Fields
+    colors:Array
+    alphas:Array
+    ratios:Array
+    matrix:Matrix
+    focalPointRatio:Number
+    type:String
+    spreadMethod:String</p>
+
+<h2>    interpolationMethod:String</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>GraphicsPathWinding
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    EVEN_ODD:String</p>
+
+<h2>    NON_ZERO:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>GraphicsStroke
+p:flash.display
+-&gt;Object
+Implements:
+    IGraphicsStroke
+    IGraphicsData</p>
+
+<p>Fields
+    thickness:Number
+    pixelHinting:Boolean
+    miterLimit:Number
+    fill:IGraphicsFill
+    caps:String
+    joints:String</p>
+
+<h2>    scaleMode:String</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ShaderParameterType
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    FLOAT:String
+    FLOAT2:String
+    FLOAT3:String
+    FLOAT4:String
+    INT:String
+    INT2:String
+    INT3:String
+    INT4:String
+    BOOL:String
+    BOOL2:String
+    BOOL3:String
+    BOOL4:String
+    MATRIX2X2:String
+    MATRIX3X3:String</p>
+
+<h2>    MATRIX4X4:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>IGraphicsStroke
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ShaderJob
+p:flash.display
+-&gt;EventDispatcher
+Implements:</p>
+
+<p>Fields
+    shader:Shader
+    target:Object
+    width:int
+    height:int</p>
+
+<h2>    progress:Number</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>start():void
+<a name="line-2"></a>cancel():void
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>GraphicsBitmapFill
+p:flash.display
+-&gt;Object
+Implements:
+    IGraphicsFill
+    IGraphicsData</p>
+
+<p>Fields
+    bitmapData:BitmapData
+    matrix:Matrix
+    repeat:Boolean</p>
+
+<h2>    smooth:Boolean</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>GraphicsBitmapFill()
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>IGraphicsData
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>Shader
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    byteCode:ByteArray
+    data:ShaderData</p>
+
+<h2>    precisionHint:String</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>GraphicsPath
+p:flash.display
+-&gt;Object
+Implements:
+    IGraphicsPath
+    IGraphicsData</p>
+
+<p>Fields
+    commands:Vector.<int>
+    data:Vector.<Number></p>
+
+<h2>    winding:String</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>moveTo():void
+<a name="line-2"></a>lineTo():void
+<a name="line-3"></a>curveTo():void
+<a name="line-4"></a>wideLineTo():void
+<a name="line-5"></a>wideMoveTo():void
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>IGraphicsFill
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>GraphicsShaderFill
+p:flash.display
+-&gt;Object
+Implements:
+    IGraphicsFill
+    IGraphicsData</p>
+
+<p>Fields
+    shader:Shader</p>
+
+<h2>    matrix:Matrix</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ShaderPrecision
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    FULL:String</p>
+
+<h2>    FAST:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>IDrawCommand
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>GraphicsTrianglePath
+p:flash.display
+-&gt;Object
+Implements:
+    IGraphicsPath
+    IGraphicsData</p>
+
+<p>Fields
+    indices:Vector.<int>
+    vertices:Vector.<Number>
+    uvtData:Vector.<Number></p>
+
+<h2>    culling:String</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ColorCorrection
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    DEFAULT:String
+    ON:String</p>
+
+<h2>    OFF:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>GraphicsPathCommand
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    NO<em>OP:int
+    MOVE</em>TO:int
+    LINE<em>TO:int
+    CURVE</em>TO:int
+    WIDE<em>MOVE</em>TO:int</p>
+
+<h2>    WIDE<em>LINE</em>TO:int</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>IGraphicsPath
+p:flash.display
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>GraphicsSolidFill
+p:flash.display
+-&gt;Object
+Implements:
+    IGraphicsFill
+    IGraphicsData</p>
+
+<p>Fields
+    color:uint</p>
+
+<h2>    alpha:Number</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ShaderFilter
+p:flash.filters
+-&gt;BitmapFilter
+Implements:</p>
+
+<p>Fields
+    shader:Shader
+    leftExtension:int
+    topExtension:int
+    rightExtension:int</p>
+
+<h2>    bottomExtension:int</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>NetStreamPlayTransitions
+p:flash.net
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    APPEND:
+    RESET:
+    SWITCH:
+    SWAP:</p>
+
+<h2>    STOP:</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>SoundCodec
+p:flash.media
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    NELLYMOSER:String</p>
+
+<h2>    SPEEX:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ContextMenuClipboardItems
+p:flash.ui
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    cut:Boolean
+    copy:Boolean
+    paste:Boolean
+    clear:Boolean</p>
+
+<h2>    selectAll:Boolean</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>MouseCursor
+p:flash.ui
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    AUTO:String
+    ARROW:String
+    BUTTON:String
+    HAND:String</p>
+
+<h2>    IBEAM:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ClipboardTransferMode
+p:flash.desktop
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    ORIGINAL<em>PREFERRED:String
+    ORIGINAL</em>ONLY:String
+    CLONE_PREFERRED:String</p>
+
+<h2>    CLONE_ONLY:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>Clipboard
+p:flash.desktop
+-&gt;Object
+Implements:</p>
+
+<p>Fields</p>
+
+<h2>    formats:Array</h2>
+
+<p>Static Fields</p>
+
+<h2>    generalClipboard:Clipboard</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>clear():void
+<a name="line-2"></a>clearData():void
+<a name="line-3"></a>setData():Boolean
+<a name="line-4"></a>setDataHandler():Boolean
+<a name="line-5"></a>getData():Object
+<a name="line-6"></a>hasFormat():Boolean
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>ClipboardFormats
+p:flash.desktop
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    TEXT<em>FORMAT:String
+    HTML</em>FORMAT:String</p>
+
+<h2>    RICH<em>TEXT</em>FORMAT:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>ShaderEvent
+p:flash.events
+-&gt;Event
+Implements:</p>
+
+<p>Fields
+    bitmapData:BitmapData
+    byteArray:ByteArray</p>
+
+<h2>    vector:Vector.<Number></h2>
+
+<p>Static Fields</p>
+
+<h2>    COMPLETE:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>clone():Event
+<a name="line-2"></a>toString():String
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>SampleDataEvent
+p:flash.events
+-&gt;Event
+Implements:</p>
+
+<p>Fields
+    position:Number</p>
+
+<h2>    data:ByteArray</h2>
+
+<p>Static Fields</p>
+
+<h2>    SAMPLE_DATA:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>clone():Event
+<a name="line-2"></a>toString():String
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>Vector3D
+p:flash.geom
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    x:Number
+    y:Number
+    z:Number
+    w:Number
+    length:Number</p>
+
+<h2>    lengthSquared:Number</h2>
+
+<p>Static Fields
+    X<em>AXIS:Vector3D
+    Y</em>AXIS:Vector3D</p>
+
+<h2>    Z_AXIS:Vector3D</h2>
+
+<h2>Static Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>angleBetween():Number
+<a name="line-2"></a>distance():Number
+</code></pre></div>
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>clone():Vector3D
+<a name="line-2"></a>dotProduct():Number
+<a name="line-3"></a>crossProduct():Vector3D
+<a name="line-4"></a>normalize():Number
+<a name="line-5"></a>scaleBy():void
+<a name="line-6"></a>incrementBy():void
+<a name="line-7"></a>decrementBy():void
+<a name="line-8"></a>add():Vector3D
+<a name="line-9"></a>subtract():Vector3D
+<a name="line-10"></a>negate():void
+<a name="line-11"></a>equals():Boolean
+<a name="line-12"></a>nearEquals():Boolean
+<a name="line-13"></a>project():void
+<a name="line-14"></a>toString():String
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>Orientation3D
+p:flash.geom
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<p>Static Fields
+    EULER<em>ANGLES:String
+    AXIS</em>ANGLE:String</p>
+
+<h2>    QUATERNION:String</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>PerspectiveProjection
+p:flash.geom
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    fieldOfView:Number
+    projectionCenter:Point</p>
+
+<h2>    focalLength:Number</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>toMatrix3D():Matrix3D
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>Matrix3D
+p:flash.geom
+-&gt;Object
+Implements:</p>
+
+<p>Fields
+    rawData:Vector.<Number>
+    position:Vector3D</p>
+
+<h2>    determinant:Number</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>interpolate():Matrix3D
+</code></pre></div>
+<h2>Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>clone():Matrix3D
+<a name="line-2"></a>append():void
+<a name="line-3"></a>prepend():void
+<a name="line-4"></a>invert():Boolean
+<a name="line-5"></a>identity():void
+<a name="line-6"></a>decompose():Vector.&lt;Vector3D&gt;
+<a name="line-7"></a>recompose():Boolean
+<a name="line-8"></a>appendTranslation():void
+<a name="line-9"></a>appendRotation():void
+<a name="line-10"></a>appendScale():void
+<a name="line-11"></a>prependTranslation():void
+<a name="line-12"></a>prependRotation():void
+<a name="line-13"></a>prependScale():void
+<a name="line-14"></a>transformVector():Vector3D
+<a name="line-15"></a>deltaTransformVector():Vector3D
+<a name="line-16"></a>transformVectors():void
+<a name="line-17"></a>transpose():void
+<a name="line-18"></a>pointAt():void
+<a name="line-19"></a>interpolateTo():void
+</code></pre></div>
+<hr>
+
+<hr>
+
+<p>Utils3D
+p:flash.geom
+-&gt;Object
+Implements:</p>
+
+<h2>Fields</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>projectVector():Vector3D
+<a name="line-2"></a>projectVectors():void
+<a name="line-3"></a>pointTowards():Matrix3D
+</code></pre></div>
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p>JPEGLoaderContext
+p:flash.system
+-&gt;LoaderContext
+Implements:</p>
+
+<p>Fields</p>
+
+<h2>    deblockingFilter:Number</h2>
+
+<h2>Static Fields</h2>
+
+<h2>Static Methods</h2>
+
+<h2>Methods</h2>
+
+<hr>
+
+<hr>
+
+<p></pre>
+<p>`</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

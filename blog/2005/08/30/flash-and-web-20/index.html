@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Flash and Web 2.0</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Flash and Web 2.0</h2>
+<p class="meta">Tuesday, August 30, 2005</p>
+
+<div class="post">
+<p>I have been following the discussions on Web 2.0 over the past couple of months, and have been intrigued with the attempts to come up with an agreed upon definition of what exactly Web 2.0 is. One of the interesting things has been watching individuals / groups jockey to define Web 2.0 in a way that explicitly includes their technologies, and implicitly excludes others.<br>
+&lt;!--more--&gt;</p>
+
+<p>Jonathon Boutelle highlights the attempt by some in the Ajax community to <a href="http://www.jonathanboutelle.com/mt/archives/2005/07/Ajax_web_20.html">equate Ajax with Web 2.0</a>. Indeed, if you look through the history of the <a href="http://en.wikipedia.org/w/index.php?title=Web_2.0&amp;oldid=19071980">Wikipedia entry on Web 2.0</a>, you can see attempts to define Web 2.0 to include:</p>
+
+<blockquote>
+<p>Unobtrusive Ajax Techniques</p>
+</blockquote>
+
+<p>and to exclude</p>
+
+<blockquote>
+<p>Non-standard browser plug-ins and enhancements are generally eschewed.</p>
+</blockquote>
+
+<p>The neutrality of the entry is disputed, but it gives an example of how groups are trying to steer the direction of the discussion to benefit one technology over another (in this case Ajax over Flash). I saw similar attempts during Web 2.0 conversations at <a href="http://wiki.oreillynet.com/foocamp05/index.cgi">O&#8217;Reilly&#8217;s Foo camp</a> a couple of weeks ago (although in those cases it seemed to be driven more by a lack of knowledge about Flash, verses an evangelism for Ajax).</p>
+
+<p>For the sake of this post, I am going to define Web 2.0 as &#8220;the web as a platform&#8221;. i.e. Web 1.0 (Today&#8217;s web) primarily consists of closed APIs and services whose use is defined by the creator. Web 2.0 consists of documented APIs and open services (HTML, RSS, REST, Web Services, etc...), whose use is determined by the users and / or third party developers.</p>
+
+<p>Jason Kottke has an <a href="LINK:http://www.kottke.org/05/08/googleos-webos">excellent write up on his thoughts on Web 2.0</a> and what he terms the WebOS, which he defines as an &#8220;Operating System based on the web&#8221;. This describes the types of applications that will be built on top of Web 2.0 and how they will be constructed.</p>
+
+<p>As Kottke notes, one of the primary advantages of such a WebOS is that it is largely platform agnostic:</p>
+
+<blockquote>
+<p>Aside from the browser and the Web server, applications will be written for the WebOS and won&#8217;t be specific to Windows, OS X, or Linux.</p>
+</blockquote>
+
+<p>and</p>
+
+<blockquote>
+<p>For application developers, the main advantage is that instead of writing two or more programs for multiple platforms (one for the Web, one for Windows, etc.), they can write one app that will run on any machine with the WebOS using the same code base.</p>
+</blockquote>
+
+<p>This brings me back to the attempt to define Ajax as an integral part of Web 2.0. Ajax applications often appear to be cross browser / platform to the end user, but developers often have to do a significant amount of work to make those applications work cross-platform / browser. Indeed, the initial release of Google&#8217;s gmail did not include support for Safari on the Mac. Is a technology really cross-platform if you have to do a significant amount of extra work to make it that way? (that is not a rhetorical question).</p>
+
+<p>I do not mean to suggest that Ajax applications cannot be used to develop Web 2.0 applications, but I do believe that there can be significant disadvantages to doing so.</p>
+
+<p>It is this cross browser development complexity, along with the inherent limitations of developing applications based on a model originally designed for document centric display, that can and often does limit the robustness of browser based apps.</p>
+
+<p>Kottke seems to acknowledge this when he notes that WebOS clients may not be as robust as traditional desktop applications, but that they might be good enough:</p>
+
+<blockquote>
+<p>There are also disadvantages to WebOS applications, not the least of which is that HTTP+JavaScript+XHTML+CSS+Flash is not as robust in providing functionality and user interaction as true desktop applications written in Cocoa or Visual Basic. But as Paul Graham points out, Web applications may be good enough.</p>
+</blockquote>
+
+<p>Kottke seems to be resigned to a WebOS with applications that are just &#8220;good enough&#8221;. However, I disagree with his lumping Flash with the other technologies when it comes to how robust they are for these types of apps, as while Flash applications are not always as robust as desktop applications, in many cases they are, and in other areas are quickly closing the gap.</p>
+
+<p>Indeed, Flash is uniquely positioned as a client interface to Web 2.0 / WebOS applications. It is capable of providing a robust and rich application experience, while loading data across domains (essential to Web 2.0?) with true cross platform development and deployment capabilities.</p>
+
+<p>One of the primary issues in the past with Flash application development has been that is was missing a robust and consistent programming model, and has not had a developer centric IDE. This has made it difficult for developers to view Flash as an application development platform (Flash&#8217;s origins as an animation platform hasn&#8217;t helped either). However, the Flex framework (an XML based application framework) along with ActionScript (which, like JavaScript, is an ECMA based language) provides a complete programming model with a full component set (we are <a href="http://weblogs.macromedia.com/mesh/archives/2005/08/will_zorn_requi.cfm">working</a> to ensure that any developer who wants to leverage the Flex Framework will be able to). Furthermore, our work on <a href="http://www.macromedia.com/software/flex/zorn/">Zorn</a> (an IDE built on top of Eclipse), as well as current efforts in the <a href="http://www.osflash.org">Open Source community</a> to bring Flash development to Eclipse, are removing the IDE limitations.</p>
+
+<p>Web 2.0 gets really interesting when one can build clients that composite not just multiple data sources, but multiple rich data types, and start to build applications that really leverage the web as a platform in a much richer way with things like streaming media, VOIP, messaging and real-time data.</p>
+
+<p>I think that the biggest secret on the web today is that Flash is a application platform with a virtual machine and a robust programming model and application development framework.</p>
+
+<p>This brings us back to the title of the post. While web 2.0 applications will not be limited to any single technology (including Flash), I think that the Flash Platform is uniquely suited to create next generation applications based on distributed APIs and effective user interfaces, all in a way that does not require end users to settle for a sub-optimal user experience.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

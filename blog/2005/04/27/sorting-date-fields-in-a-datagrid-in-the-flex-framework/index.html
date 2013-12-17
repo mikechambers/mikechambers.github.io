@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Sorting Date fields in a DataGrid in the Flex Framework</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Sorting Date fields in a DataGrid in the Flex Framework</h2>
+<p class="meta">Wednesday, April 27, 2005</p>
+
+<div class="post">
+<p>I was working on some new mini chart apps over the weekend for the <a href="http://weblogs.macromedia.com/mxna/reports/">MXNA reports section</a>, and had a DataGrid that contained dates. I wanted to allow the user to sort the datagrid by the DateField, but by default the DataGrid sorts dates with a string compare (calling toString on the Date instance).</p>
+
+<p>I tried to set up a custom sort function for the DataGridColumn instance that contained the dates, but because I was using a custom label format function for the column, Flex passed the labels to me, and not the data items (which would allow me to get access to the Date instance). Because of this, I couldn&#8217;t sort on the date.</p>
+
+<!--more-->
+
+<p>There is an <a href="http://www.macromedia.com/support/documentation/en/flex/1_5/releasenotes.html#latenews">example on Macromedia.com</a> that shows how to sort by dates, but it requires that you override and implement all sorting for the DataGrid (something which seemed unecessary and overkill to me). Peter Ent also <a href="/pent/archives/006686.cfm">posted an example</a>, but it required massaging the data on the server first, something which was not an option for me since I was using a public web service API.</p>
+
+<p>So, after much trial and error, and help from <a href="/mchotin/">Matt Chotin</a>, I finally got it working, and figured I would post it here.</p>
+
+<p>Basically, I listen for the headerRelease event for the DataGrid. If it is in response to the date column being clicked, then I sort the dataprovider that the DataGrid is hooked up to (otherwise, I do nothing, and let the DataGrid do the sorting).</p>
+
+<p>Here is an example:</p>
+
+<p>Here is the Code:</p>
+
+<p>&#8212;&#8212;&#8212;-DateSortExample.mxml&#8212;&#8212;&#8212;-</p>
+
+<p>`
+<pre>&lt;?xml version=&quot;1.0&quot;?&gt;</p>
+
+<p><mx:Application xmlns:mx="http://www.macromedia.com/2003/mxml" initialize="initTag()"
+    backgroundColor="0xFFFFFF" marginTop="0" marginLeft="0" marginRight="0" marginBottom="0">       </p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>&lt;mx:Script source=&quot;DateSortExample.as&quot; /&gt;   
+<a name="line-2"></a>
+<a name="line-3"></a>&lt;mx:Panel title=&quot;DataGrid Date sorting example&quot; width=&quot;475&quot; height=&quot;350&quot;&gt;
+<a name="line-4"></a>
+<a name="line-5"></a>    &lt;mx:DataGrid id=&quot;dg&quot; height=&quot;100%&quot; width=&quot;100%&quot;&gt;
+<a name="line-6"></a>            &lt;mx:columns&gt;
+<a name="line-7"></a>            &lt;mx:Array&gt;
+<a name="line-8"></a>                    &lt;mx:DataGridColumn headerText=&quot;Letters&quot; width=&quot;50&quot; columnName=&quot;letter&quot; /&gt;
+<a name="line-9"></a>                    &lt;mx:DataGridColumn headerText=&quot;Numbers&quot; width=&quot;50&quot; columnName=&quot;number&quot; /&gt;
+<a name="line-10"></a>                    &lt;mx:DataGridColumn headerText=&quot;Dates&quot; columnName=&quot;date&quot; /&gt;
+<a name="line-11"></a>               &lt;/mx:Array&gt;
+<a name="line-12"></a>            &lt;/mx:columns&gt;
+<a name="line-13"></a>    &lt;/mx:DataGrid&gt;
+<a name="line-14"></a>
+<a name="line-15"></a>&lt;/mx:Panel&gt;
+</code></pre></div>
+<p><a href="/mx:Application">/mx:Application</a></pre>
+<p>`</p>
+
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</p>
+
+<p>&#8212;&#8212;&#8212;-DateSortExample.as&#8212;&#8212;&#8212;-</p>
+
+<p>`
+<pre></p>
+
+<p>private var dp:Array;
+private var sortOrder:Number = 1;</p>
+
+<p>private  function initTag():Void
+{
+    //listend for the headerRelease event on the datagrid, which is broadcast
+    //when any of the column headers are clicked.
+    dg.addEventListener(&quot;headerRelease&quot;,
+        mx.utils.Delegate.create(this, onDateHeaderRelease));</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>dp = new Array();
+<a name="line-2"></a>
+<a name="line-3"></a>//pupulate the date grid with some data.
+<a name="line-4"></a>var item:Object;
+<a name="line-5"></a>var randomDay:Number;
+<a name="line-6"></a>var randomMonth:Number;
+<a name="line-7"></a>for(var i:Number = 0; i &lt; 15; i++)
+<a name="line-8"></a>{
+<a name="line-9"></a>    randomDay = Math.floor(Math.random() * 30);
+<a name="line-10"></a>    randomMonth = Math.floor(Math.random() * 12);
+<a name="line-11"></a>
+<a name="line-12"></a>    item = new Object();
+<a name="line-13"></a>    item.date = new Date(2005, randomMonth, randomDay);
+<a name="line-14"></a>    item.letter = String.fromCharCode(i + 65);
+<a name="line-15"></a>    item.number = i;
+<a name="line-16"></a>
+<a name="line-17"></a>    dp.push(item);
+<a name="line-18"></a>}
+<a name="line-19"></a>
+<a name="line-20"></a>//set the dataProvider for the datagrid
+<a name="line-21"></a>dg.dataProvider = dp;
+</code></pre></div>
+<p>}</p>
+
+<p>//Note, this should be in a DateUtils class
+/*
+    returns
+    -1 : first date is larger than the second
+     1 : first date is smaller than the second
+     0 : Both dates are the same
+*/
+private static function compareDates(d1:Date, d2:Date):Number
+{
+    var d1ms:Number = d1.getTime();
+    var d2ms:Number = d2.getTime();</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>if(d1ms &gt; d2ms)
+<a name="line-2"></a>{
+<a name="line-3"></a>    return -1;
+<a name="line-4"></a>}
+<a name="line-5"></a>else if(d1ms &lt; d2ms)
+<a name="line-6"></a>{
+<a name="line-7"></a>    return 1;
+<a name="line-8"></a>}
+<a name="line-9"></a>else
+<a name="line-10"></a>{
+<a name="line-11"></a>    return 0;
+<a name="line-12"></a>}
+</code></pre></div>
+<p>}</p>
+
+<p>//compares the dates
+private function dateFieldCompare(item1:Object, item2:Object, bit:Number):Number
+{
+    //determine which way the column should be sorted (ASC or DESC
+    var toggle:Number = (bit == Array.DESCENDING)? 1 : -1;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//call compare date function, and then toggle the sort direction
+<a name="line-2"></a>return toggle * compareDates(item1.date,item2.date);
+</code></pre></div>
+<p>}</p>
+
+<p>//called when any of the datagrids column headings are clicked
+private function onDateHeaderRelease(eventObj:Object):Void
+{<br>
+    //Only sort if the Date column head was clicked
+    if(eventObj.columnIndex == 2)
+    {
+        //sort the dataProvider directly, passing the function to do the sort
+        //and a bit indicating whether to sort ascending or descending
+        dp.sortItems(dateFieldCompare, ((sortOrder == 1)? 0: Array.DESCENDING));</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>    //reverse the sort order so the next time the column is clicked, it is
+<a name="line-2"></a>    //sorted in the reverse order
+<a name="line-3"></a>    sortOrder *= -1;
+<a name="line-4"></a>}
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</p>
+
+<p>You can download the source from <a href="/mesh/files/DateSortExample/DateSortExample.zip">here</a> (or right click on the example).</p>
+
+<!-- Creative Commons License -->
+
+<p><a rel="license" href="http://creativecommons.org/licenses/by/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a></p>
+
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.0/">Creative Commons License</a>.<br>
+&lt;!-- /Creative Commons License --&gt;</p>
+
+<p>&lt;!--</p></p>
+
+<p><rdf:RDF xmlns="http://web.resource.org/cc/"  
+xmlns:dc="http://purl.org/dc/elements/1.1/"  
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><br>
+<Work rdf:about=""><license rdf:resource="http://creativecommons.org/licenses/by/2.0/" /> </Work></p>
+
+<p><License rdf:about="http://creativecommons.org/licenses/by/2.0/"><permits rdf:resource="http://web.resource.org/cc/Reproduction" /> <permits rdf:resource="http://web.resource.org/cc/Distribution" /> <requires rdf:resource="http://web.resource.org/cc/Notice" /></p>
+
+<p><requires rdf:resource="http://web.resource.org/cc/Attribution" /></p> <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" /> </License></p> 
+<a href="/rdf:RDF">/rdf:RDF</a><br>
+&#8211;&gt;</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

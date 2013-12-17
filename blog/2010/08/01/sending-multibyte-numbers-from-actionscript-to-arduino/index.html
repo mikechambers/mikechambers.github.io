@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Sending Multibyte Numbers from ActionScript to Arduino</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Sending Multibyte Numbers from ActionScript to Arduino</h2>
+<p class="meta">Sunday, August 1, 2010</p>
+
+<div class="post">
+<p>If you follow me on twitter, then you have probably noticed that I have been learning about Flash, physical computing and electronics lately. I started out working with <a href="http://www.mikechambers.com/blog/2010/07/26/getting-started-with-phidgets-and-actionscript/">Phidgets</a>, and have recently begun working with the <a href="http://Arduino.cc/">Arduino</a> (Ill write up Flash / Arduino getting started tutorial shortly). I am currently working on a project where I need to send data from Flash to the Arduino, and quickly discovered that it is not as easy as I thought it would be. In this post, I will show an example of how to send multibyte Numbers from ActionScript to Arduino.<br>
+&lt;!--more--&gt;</p>
+
+<p>When you send data to Arduino over the Serial port, Arduino reads that data byte by byte. Thus, if you want to send a string to the Arduino, you have to read the string byte by byte and reconstruct it which is a bit of a hassle, but nothing too difficult. However, what if you want to send a number? If you just need to send a small whole number (up to 127), then you can simply write the number to the socket:</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="nx">socket</span><span class="p">.</span><span class="nx">writeByte</span><span class="p">(</span><span class="mi">127</span><span class="p">);</span>
+</code></pre></div>
+<p>and then read the same number in Arduino by reading the byte:</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="nx">value</span> <span class="o">=</span> <span class="nx">Serial</span><span class="p">.</span><span class="nx">read</span><span class="p">();</span>
+<a name="line-2"></a><span class="nx">Serial</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">DEC</span><span class="p">);</span> <span class="c1">//will send 127</span>
+</code></pre></div>
+<p>However, if you need to send a number larger than 127, then things get a bit tricky. This is because numbers larger than 127 require multiple bytes to send, which means that you cannot simply read in the number on the Arduino side (since you have to read byte by byte). One solution (suggested to my by <a href="http://bytearray.org/">Thibault Imbert</a>) is to multiply the number by some ratio. This would allow you to represent numbers larger than 127, but at the price of accuracy.</p>
+
+<p>So, after much searching, I found a <a href="">post</a> on the Arduino forums that shows how to build a float from a byte array using a union. With that code as a guide, I was able to figure out how to send a float from ActionScript to Arduino.</p>
+
+<p>I have uploaded a <a href="http://github.com/mikechambers/ExamplesByMesh/tree/master/Arduino/MultibyteNumbersFromFlash">simple example</a> into my github example code repository. The Flash part of the example is done in Flex and ActionScript, but the ActionScript code is the same regardless of what you are using to build your Flash content.</p>
+
+<p>Note, all of the code in the examples is released under an <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.</p>
+
+<p>First, lets look at the Arduino sketch:</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="c1">//union that we will use</span>
+<a name="line-2"></a><span class="c1">//the construct the float</span>
+<a name="line-3"></a><span class="c1">//from the individual bytes</span>
+<a name="line-4"></a><span class="c1">//sent from Flash / ActionScript</span>
+<a name="line-5"></a><span class="nx">union</span> <span class="nx">u_tag</span> <span class="p">{</span>
+<a name="line-6"></a>    <span class="kr">byte</span> <span class="nx">b</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<a name="line-7"></a>    <span class="kr">float</span> <span class="nx">ival</span><span class="p">;</span>
+<a name="line-8"></a><span class="p">}</span> <span class="nx">u</span><span class="p">;</span>
+<a name="line-9"></a>
+<a name="line-10"></a><span class="kr">float</span> <span class="nx">value</span><span class="p">;</span>
+<a name="line-11"></a>
+<a name="line-12"></a><span class="k">void</span> <span class="nx">setup</span><span class="p">()</span>
+<a name="line-13"></a><span class="p">{</span>
+<a name="line-14"></a>  <span class="nx">Serial</span><span class="p">.</span><span class="nx">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<a name="line-15"></a><span class="p">}</span>
+<a name="line-16"></a>
+<a name="line-17"></a><span class="k">void</span> <span class="nx">loop</span><span class="p">()</span>
+<a name="line-18"></a><span class="p">{</span>  
+<a name="line-19"></a>
+<a name="line-20"></a>  <span class="c1">//this example assumes only floats / Numbers</span>
+<a name="line-21"></a>  <span class="c1">//are being sent. So we just look for data in 4 byte</span>
+<a name="line-22"></a>  <span class="c1">//increments</span>
+<a name="line-23"></a>  <span class="k">if</span><span class="p">(</span><span class="nx">Serial</span><span class="p">.</span><span class="nx">available</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
+<a name="line-24"></a>  <span class="p">{</span>
+<a name="line-25"></a>
+<a name="line-26"></a>    <span class="c1">//read the 4 bytes into the union</span>
+<a name="line-27"></a>    <span class="nx">u</span><span class="p">.</span><span class="nx">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Serial</span><span class="p">.</span><span class="nx">read</span><span class="p">();</span>
+<a name="line-28"></a>    <span class="nx">u</span><span class="p">.</span><span class="nx">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Serial</span><span class="p">.</span><span class="nx">read</span><span class="p">();</span>
+<a name="line-29"></a>    <span class="nx">u</span><span class="p">.</span><span class="nx">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Serial</span><span class="p">.</span><span class="nx">read</span><span class="p">();</span>
+<a name="line-30"></a>    <span class="nx">u</span><span class="p">.</span><span class="nx">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Serial</span><span class="p">.</span><span class="nx">read</span><span class="p">();</span>
+<a name="line-31"></a>
+<a name="line-32"></a>    <span class="c1">//retrieve the float value of the union</span>
+<a name="line-33"></a>    <span class="c1">//(based on the bytes passed in)</span>
+<a name="line-34"></a>    <span class="nx">value</span> <span class="o">=</span> <span class="nx">u</span><span class="p">.</span><span class="nx">ival</span><span class="p">;</span>
+<a name="line-35"></a>
+<a name="line-36"></a>    <span class="c1">//send the reconstructed float back to the Serial</span>
+<a name="line-37"></a>    <span class="c1">//flash</span>
+<a name="line-38"></a>    <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">DEC</span><span class="p">);</span>
+<a name="line-39"></a>
+<a name="line-40"></a>    <span class="c1">//write out a null byte, (the Flash Socket</span>
+<a name="line-41"></a>    <span class="c1">//class looks for this)</span>
+<a name="line-42"></a>    <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">BYTE</span><span class="p">);</span>
+<a name="line-43"></a>  <span class="p">}</span>
+<a name="line-44"></a>
+<a name="line-45"></a><span class="p">}</span>
+</code></pre></div>
+<p>Now, lets look at how we send the Number from ActionScript:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="kd">private</span> <span class="kd">function</span> <span class="nx">onApplicationComplete</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-2"></a><span class="p">{</span>
+<a name="line-3"></a>    <span class="c1">//only allow numbers, period and minus sign</span>
+<a name="line-4"></a>    <span class="nx">numberInput</span><span class="p">.</span><span class="nx">restrict</span> <span class="o">=</span> <span class="s2">&quot;.0-9\\-&quot;</span><span class="o">;</span>
+<a name="line-5"></a>
+<a name="line-6"></a>    <span class="nx">socket</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Socket</span><span class="p">()</span>
+<a name="line-7"></a>    <span class="nx">socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">CONNECT</span><span class="o">,</span> <span class="nx">onConnect</span><span class="p">);</span>
+<a name="line-8"></a>    <span class="nx">socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">CLOSE</span><span class="o">,</span> <span class="nx">onClose</span><span class="p">);</span>
+<a name="line-9"></a>    <span class="nx">socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">IOErrorEvent</span><span class="p">.</span><span class="nx">IO_ERROR</span><span class="o">,</span> <span class="nx">onIOError</span> <span class="p">);</span>
+<a name="line-10"></a>    <span class="nx">socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">SecurityErrorEvent</span><span class="p">.</span><span class="nx">SECURITY_ERROR</span><span class="o">,</span> <span class="nx">onSecurityError</span> <span class="p">);</span>
+<a name="line-11"></a>    <span class="nx">socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">ProgressEvent</span><span class="p">.</span><span class="nx">SOCKET_DATA</span><span class="o">,</span> <span class="nx">onSocketData</span> <span class="p">);</span>
+<a name="line-12"></a>
+<a name="line-13"></a>    <span class="c1">//disable until we connect</span>
+<a name="line-14"></a>    <span class="k">this</span><span class="p">.</span><span class="nx">enabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<a name="line-15"></a>
+<a name="line-16"></a>    <span class="c1">//this is important! If you dont set this to</span>
+<a name="line-17"></a>    <span class="c1">//little endian, then Arduino wont understand</span>
+<a name="line-18"></a>    <span class="c1">//the bytes</span>
+<a name="line-19"></a>    <span class="nx">socket</span><span class="p">.</span><span class="nx">endian</span> <span class="o">=</span> <span class="nb">Endian</span><span class="p">.</span><span class="nx">LITTLE_ENDIAN</span><span class="o">;</span>
+<a name="line-20"></a>
+<a name="line-21"></a>    <span class="nx">socket</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">SERVER_ADDRESS</span><span class="o">,</span> <span class="nx">PORT</span><span class="p">);</span>
+<a name="line-22"></a><span class="p">}</span>
+<a name="line-23"></a>
+<a name="line-24"></a><span class="kd">private</span> <span class="kd">function</span> <span class="nx">onSendClick</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-25"></a><span class="p">{</span>
+<a name="line-26"></a>    <span class="c1">//get the number that the user input</span>
+<a name="line-27"></a>    <span class="k">var</span> <span class="nx">out</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">numberInput</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<a name="line-28"></a>
+<a name="line-29"></a>    <span class="c1">//write it as a float to the server.</span>
+<a name="line-30"></a>    <span class="c1">//this is important.</span>
+<a name="line-31"></a>    <span class="nx">socket</span><span class="p">.</span><span class="nx">writeFloat</span><span class="p">(</span><span class="nx">out</span><span class="p">);</span>
+<a name="line-32"></a>
+<a name="line-33"></a>    <span class="c1">//if number is too big, then it will overflow on</span>
+<a name="line-34"></a>    <span class="c1">//the Arduino, and probably come back as 0.00000</span>
+<a name="line-35"></a><span class="p">}</span>
+</code></pre></div>
+<p>Again, you can <a href="http://github.com/mikechambers/ExamplesByMesh/tree/master/Arduino/MultibyteNumbersFromFlash">download the complete example from my GitHub repository</a>.</p>
+
+<p>A couple of things to take note of. Notice that we set the Endianness of the socket to LITTLE_ENDIAN. This is necessary for Arduino to be able to understand the number we are sending.</p>
+
+<p>Second, notice that we send the number by calling <em>socket.writeFloat</em>. I initially tried <em>writeInt</em>, but ActionScript ints are 4 bytes, where the Arduino int is 2. Thibault suggested I send the number using <em>writeShort</em>, but that also did not work.</p>
+
+<p>Basically, the only way I was able to get it to work, was to use <em>writeFloat</em>. In practice this should not matter, but it is something you should keep in mind.</p>
+
+<p>Now, I am pretty sure it is possible to send other ActionScript multibyte number types using <em>writeInt</em>, <em>writeUnsignedInt</em> and <em>writeShort</em>, since we are just sending raw bytes over the socket. However, I have not figured out how to reconstruct them on the Arduino side yet. If anyone gets additional types working, then post a note in the comments.</p>
+
+<p>UPDATE : I have <a href="http://github.com/mikechambers/ExamplesByMesh/tree/master/Arduino/MultibyteIntFromFlash/">posted another example</a> that shows how to send ints / shorts from ActionScript to Arduino. You can view the code <a href="http://github.com/mikechambers/ExamplesByMesh/tree/master/Arduino/MultibyteIntFromFlash/">here</a>.</p>
+
+<p>Being able to easily send multibyte numbers make communication significantly easier, because, now, among other things, we can easily send packets of complex data. Ill leave that for another post though.</p>
+
+<p>If you have any suggestions or corrections, then leave them in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

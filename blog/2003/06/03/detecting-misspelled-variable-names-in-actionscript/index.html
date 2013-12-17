@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Detecting misspelled variable names in ActionScript</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Detecting misspelled variable names in ActionScript</h2>
+<p class="meta">Tuesday, June 3, 2003</p>
+
+<div class="post">
+<p>One of the big hassles of developing with ActionScript is that when trying to access properties and functions that do not exist, the Flash IDE does not throw an error. This can make it very difficult to debug code that is not working due to something as simple as a misspelled variable name.</p>
+
+<p>Below is some simple code that shows how to trace errors when your code tries to access properties / functions that do not exist.</p>
+
+<!--more-->
+
+<p>`
+<pre>function Foo()
+{
+}</p>
+
+<p>Foo.prototype.__resolve = function(name)
+{
+    trace(&quot;[&quot; + name + &quot;] property / function does not exist&quot;);
+}</p>
+
+<p>var f = new Foo();</p>
+
+<p>f.barProp;
+f.barFunc();</pre>
+<p>`</p>
+
+<p>In order to use this, just add the __resolve function to the class / object / timeline that you want to watch.</p>
+
+<p>It would also be very simple to write some code that loops through your code and attaches the function to all of the objects in your movie. Then when you are done developing, you just remove that code. Of course, you would have to watch out for objects that already use __resolve:</p>
+
+<p><code class="inline-code">
+<pre>if((obj["__resolve"] == undefined))
+{
+    //ok to add function
+}</pre>
+<p></code></p>
+
+<p>Post any improvements or suggestions in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

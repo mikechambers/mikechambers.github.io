@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Finding more info on the CF object in ServerSide ActionScript</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Finding more info on the CF object in ServerSide ActionScript</h2>
+<p class="meta">Friday, May 10, 2002</p>
+
+<div class="post">
+<p><a href="http://www.person13.com">Joey Lott</a> sent the following information to me.<br>
+When using <a href="http://radio.weblogs.com/0106797/2002/04/30.html#a28">ServerSide ActionScript</a> there is an object available called CF with includes methods to make database <a href="http://radio.weblogs.com/0106797/categories/examples/2002/04/30.html#a27">queries</a> and <a href="http://radio.weblogs.com/0106797/2002/05/07.html#a63">http</a> requests. However, it also contains a number of other properties and methods which are undocumented, but could prove to be useful. Remember though, use undocumented features at your own risk as they may be changed or removed in future versions of the product.<br>
+Below is some code that shows how to find all of the properties and methods of the CF object on the server.<br>
+First create a file called Names.asr in the <cfinstall>/wwwroot/com/test directory and add the following code:
+<PRE>function getCF()<BR />{<BR />&nbsp;var cfStuff = &#8220;&#8221;;<BR />&nbsp;for(i in CF)<BR />&nbsp;{<BR />&nbsp;&nbsp;cfStuff += i + &#8220;\n&#8221;;<BR />&nbsp;}<BR />&nbsp;return cfStuff;<BR />}</PRE></p>
+
+<p>Next, create a new Flash movie and add the following code:
+<PRE>#include &#8220;NetServices.as&#8221;</PRE></p>
+
+<PRE>var o = new Object();<BR />o.onResult = function(data)<BR />{<BR />&nbsp;trace(data);<BR />}</PRE>
+
+<PRE>var gwURL = &#8220;<A href="http://localhost:8500/flashservices/gateway">http://localhost:8500/flashservices/gateway</A>&#8220;;<BR />var gw = NetServices.createGatewayConnection(gwURL);<BR />var names = gw.getService(&#8220;com.test.Names&#8221;, this);<BR />names.getCF();</PRE>
+
+<p>Test your movie, and you should see the following output in your Output window:
+<PRE>removeAttribute<BR />include<BR />getSession<BR />servletContext<BR />page<BR />setAttribute<BR />request<BR />response<BR />toString<BR />initialize<BR />wait<BR />getClass<BR />exception<BR />http<BR />hashCode<BR />popBody<BR />getAttributeNamesInScope<BR />pushBody<BR />getException<BR />class<BR />notify<BR />getRequest<BR />getAttributesScope<BR />release<BR />equals<BR />getPage<BR />getOut<BR />session<BR />getAttribute<BR />getServletConfig<BR />forward<BR />servletConfig<BR />out<BR />findAttribute<BR />notifyAll<BR />handlePageException<BR />getServletContext<BR />query<BR />getResponse</PRE></p>
+
+<p>Pretty cool, heh? If you find some good uses for some of the properties, post them in the comments. Thanks again to <a href="http://www.person13.com">Joey Lott</a> who figured this out.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

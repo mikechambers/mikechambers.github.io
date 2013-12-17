@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Retrieving Values for 3D Bar Chart Component</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Retrieving Values for 3D Bar Chart Component</h2>
+<p class="meta">Monday, August 11, 2003</p>
+
+<div class="post">
+<p>A question was posted to my weblog asking how to retrieve the data for the individual bar chart section selected in the 3D Bar chart included as part of the Flash Charting Components Set 2 on DRK 4.</p>
+
+<p>If you are using a listener to capture the select / press event, it is very simple as all of the data is passed to the listener method.</p>
+
+<p>Here is an example:</p>
+
+<!--more-->
+
+<p>`
+<pre>var dp = new DataProviderClass();
+dp.addItem( { data: [1,2,3,4,5,6,7], color: 0xFF0000, label: &quot;red co.&quot; } );
+dp.addItem( { data: [3,4,5,6,7,8,9], color: 0x00FF00, label: &quot;green co.&quot; } );
+dp.addItem( { data: [4,9,8,7,6,5,4], color: 0x0000FF, label: &quot;blue co.&quot; } );</p>
+
+<p>myBarChart_abc.setDataProvider ( dp );</p>
+
+<p>// define listener object and events
+var listener = {};</p>
+
+<p>listener.onSelect = function ( chart<em>component, groupIndex, itemIndex )
+{
+trace(&quot;data : &quot; + chart</em>component.getItemAt(groupIndex).data[itemIndex])
+}</p>
+
+<p>// add the listener to the chart
+myBarChart_abc.addListener ( listener );</pre>
+<p>`</p>
+
+<p>You can find more information on the Charting Component Set 2 and DRK 4 <a href="http://www.macromedia.com/go/drk4/">here</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

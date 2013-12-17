@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Updated Eval Technote</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Updated Eval Technote</h2>
+<p class="meta">Tuesday, May 14, 2002</p>
+
+<div class="post">
+<p>The <a href="http://www.macromedia.com/support/flash/ts/documents/assignment_area.htm">tech note </a>describing using eval on the left side of an operator has been updated to take note of an issue that has arisen.&lt;!--StartFragment --&gt;</p>
+
+<PRE>eval(&#8220;TextField&#8221; + &#8220;One&#8221;) = &#8220;string1&#8243;<BR />trace(&#8220;TextFieldOne&#8221;)</PRE>
+
+<p>Will return &#8220;undefined&#8221; in Test Movie and the eval() will fail in Macromedia Flash Player 6.<br>
+To correct the problem enclose the string concatenation in an extra set of parentheses:<code class="inline-code"><BR></code>
+<PRE>eval((&#8220;TextField&#8221; + &#8220;One&#8221;)) = &#8220;string1&#8243;;</PRE></p>
+
+<p>``<br>
+You can find more info on eval in this <a href="http://radio.weblogs.com/0106797/2002/05/09.html#a68">post</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

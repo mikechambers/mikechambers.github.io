@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>DRK : Week View Example 2</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>DRK : Week View Example 2</h2>
+<p class="meta">Monday, April 28, 2003</p>
+
+<div class="post">
+<p>I have posted another example of the Week View component from the <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/flashmx.html">Flash UI Component Set 5</a> on <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/">DRK 3</a>. This example creates a simple TV listings browser, and uses the Week View component to navigate through the days.</p>
+
+<!--more-->
+
+<p><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" WIDTH="300" HEIGHT="400" id="WeekView_Example2" ALIGN="">
+  <PARAM NAME=movie VALUE="/mesh/drk/WeekView_Example2.swf"> <PARAM NAME=quality VALUE=high> <PARAM NAME=bgcolor VALUE=#FFFFFF> <EMBED src="/mesh/drk/WeekView_Example2.swf" quality=high bgcolor=#FFFFFF WIDTH="300" HEIGHT="400" NAME="WeekView_Example2" ALIGN="" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+</OBJECT></p>
+
+<p>This example is included on the DRK (one of the 66 component sample files).</p>
+
+<p>You can view the on-line docs for the Week View component <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/drk3_docs/index.html">here</a>.</p>
+
+<p>You can find more information about the Flash UI Component Set 5 <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/flashmx.html">here</a>.</p>
+
+<p>You can find more information about DRK 3 <a href="http://www.macromedia.com/software/drk/">here</a>.</p>
+
+<p>Here is the code:</p>
+
+<p>`
+<pre>
+//random show titles
+showStrs = [&quot;Survivor&quot;, &quot;Road Rules&quot;, &quot;Simpsons&quot;, &quot;John Doe&quot;, &quot;24&quot;, &quot;American Chopper&quot;, 
+    &quot;Saturday Night Live&quot;, &quot;CNN News&quot;, &quot;The Late Show&quot;, &quot;X-Files&quot;, &quot;South Park&quot;, &quot;Man Show&quot;,
+    &quot;SmallVille&quot;, &quot;Charmed&quot;, &quot;Frasier&quot;, &quot;That 70&#39;s Show&quot;, &quot;Friends&quot;, &quot;American Idol&quot;, 
+    &quot;Star Search&quot;, &quot;Forensic Files&quot;, &quot;Unsolved Mysteries&quot;, &quot;Sliders&quot;
+];</p>
+
+<p>//use this to generate dates based when this is run
+var dateStub = new Date();
+//this dataprovider represents a week of tv programming
+var dp = new DataProviderClass();</p>
+
+<p>//a months worth or shows starting from today
+for(var i = 0; i &lt; 32; i++){
+    dp.addItem({dateObj: new Date(dateStub.getFullYear(), dateStub.getMonth(), dateStub.getDate()+i), data: generateShows()});
+}</p>
+
+<p>//set the dataprovider
+weekView_wkv.setDataProvider(dp);</p>
+
+<p>//for this exaxmple to save time
+//we will generate some fake programming 
+function generateShows(){
+    var shows = [];
+    for(var i = 0; i &lt; 23; i++){
+        var index = Math.floor(Math.random() * showStrs.length);
+        var name = showStrs[index];
+        var time;
+        //probably a better way
+        if(i == 0){
+            time = &quot;12AM&quot;;<br>
+        }else if(i==11){
+            time = &quot;12PM&quot;;
+        }else{
+            time = (i&gt;10) ? (i-11)+&quot;PM&quot; : (i+1)+&quot;AM&quot;;<br>
+        }
+        shows.push({time: time, name: name});
+    }
+    return shows;
+}</p>
+
+<p>function onDayChange(){
+    //get the selected date
+    var dt = weekView<em>wkv.getSelectedDate();
+    //get the first item in the cell data (we only set one)
+    var shows = weekView</em>wkv.getCellData(dt)[0];
+    //reset the text in the textfield
+    textfield_txf.text = &quot;&quot;;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//populate the guide
+<a name="line-2"></a>for(var i = 0; i &lt; shows.length; i++){
+<a name="line-3"></a>    textfield_txf.text += (shows[i].time+&quot;: &quot;+shows[i].name+&quot;\n&quot;);
+<a name="line-4"></a>}
+</code></pre></div>
+<p>}</p>
+
+<p>onDayChange();
+</pre>
+<p>`</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

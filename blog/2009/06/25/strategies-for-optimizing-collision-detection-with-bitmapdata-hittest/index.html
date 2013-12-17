@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Strategies for optimizing collision detection with BitmapData.hitTest</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Strategies for optimizing collision detection with BitmapData.hitTest</h2>
+<p class="meta">Thursday, June 25, 2009</p>
+
+<div class="post">
+<p>Yesterday I blogged about how you can use the <a href="/blog/2009/06/24/using-bitmapdata-hittest-for-collision-detection/">BitmapData.hitTest API to do collision detection</a> between the visible parts of multiple DisplayObject instances. This works very well, but as some of the BitmapData apis can be cpu intensive (particularly new BitmapData and BitmapData.draw) you have to take care to make sure that performance does not get out of hand.</p>
+
+<p>This post will discuss a number of approaches for optimizing collision detection when using BitmapData.hitTest.<br>
+&lt;!--more--&gt;</p>
+
+<p><strong>Check boundary boxes first</strong></p>
+
+<p>The first thing to do is to check whether you need to check for visible collision detection in the first place. You can do this by checking whether the bounding boxes of the two DisplayObjects overlap, and only if they do, then use <a href="http://livedocs.adobe.com/flex/3/langref/flash/display/BitmapData.html#hitTest()">BitmapData.hitTest</a> to see if their visible areas also overlap.</p>
+
+<p>To do this, just use the DisplayObject.hitTestObject API like so:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="k">if</span><span class="p">(</span><span class="nx">displayObject1</span><span class="p">.</span><span class="nx">hitTestObject</span><span class="p">(</span><span class="nx">displayObject2</span><span class="p">))</span>
+<a name="line-2"></a><span class="p">{</span>
+<a name="line-3"></a>    <span class="c1">//do check with BitmapData.hitTest</span>
+<a name="line-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>When checking collisions against many items, this can dramatically improve performance, as it can remove most of the BitmapData api calls and comparisons.</p>
+
+<p><strong>Cache BitmapData</strong></p>
+
+<p>If one or more of your display objects will not have any transformations applied to them (such as rotation), then you can generate the BitmapData once, and cache it for future comparisons. Basically, you are trading improved CPU performance, for higher memory usage (since you keep the BitmapData in memory).</p>
+
+<p>Here is a simple example:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="kd">private</span> <span class="k">var</span> <span class="nx">bmpData</span><span class="o">:</span><span class="nb">BitmapData</span><span class="o">;</span>
+<a name="line-2"></a>
+<a name="line-3"></a><span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkCollisions</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-4"></a><span class="p">{</span>
+<a name="line-5"></a>    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">bmpData</span><span class="p">)</span>
+<a name="line-6"></a>    <span class="p">{</span>
+<a name="line-7"></a>        <span class="k">var</span> <span class="nx">blueRect</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="nx">blueClip</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-8"></a>        <span class="nx">bmpData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">blueRect</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> <span class="nx">blueRect</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="p">);</span>
+<a name="line-9"></a>        <span class="nx">bmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">blueClip</span><span class="p">)</span>
+<a name="line-10"></a>    <span class="p">}</span>
+<a name="line-11"></a>
+<a name="line-12"></a>    <span class="c1">//use bmpData.hitTest to check collisions</span>
+<a name="line-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>Furthermore, if you use multiple instances of a DisplayObject, then you can store the BitmapData for one instance, and use it for all instances of the DisplayObject. One thing I do, is the store it by the class type, which allows me to easily cache and retrieve BitmapData for multiple DisplayObject classes (I have custom classes that extend DisplayObject).</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="kd">private</span> <span class="k">var</span> <span class="nx">bmpDataLookup</span><span class="o">:</span><span class="nb">Dictionary</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Dictionary</span><span class="p">();</span>
+<a name="line-2"></a>
+<a name="line-3"></a><span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkCollisions</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-4"></a><span class="p">{</span>
+<a name="line-5"></a>        <span class="k">var</span> <span class="nx">classRef</span><span class="o">:</span><span class="nb">Class</span> <span class="o">=</span> <span class="nx">blueClip</span><span class="p">[</span><span class="s2">&quot;constructor&quot;</span><span class="p">]</span> <span class="nx">as</span> <span class="nb">Class</span><span class="o">;</span>
+<a name="line-6"></a>
+<a name="line-7"></a>        <span class="nx">bmpData</span> <span class="o">=</span> <span class="nx">bmpDataLookup</span><span class="p">[</span><span class="nx">classRef</span><span class="p">];</span>
+<a name="line-8"></a>
+<a name="line-9"></a>        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">bmpData</span><span class="p">)</span>
+<a name="line-10"></a>        <span class="p">{</span>
+<a name="line-11"></a>            <span class="c1">//run once per lifetime of app per DisplayObject subclass</span>
+<a name="line-12"></a>            <span class="k">var</span> <span class="nx">blueRect</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="nx">blueClip</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-13"></a>            <span class="nx">bmpData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">blueRect</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> <span class="nx">blueRect</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-14"></a>            <span class="nx">bmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">blueClip</span><span class="p">)</span>
+<a name="line-15"></a>        <span class="p">}</span>
+<a name="line-16"></a>
+<a name="line-17"></a>        <span class="c1">//use bmpData.hitTest to check collisions</span>
+<a name="line-18"></a><span class="p">}</span>
+</code></pre></div>
+<p>This example caches the BitmapData once for each Class type. i.e. if you have a lot of instances of a UFOClass (which extends DisplayObject), you would only have to cache one instance of BitmapData regardless of the number of instances of the UFOClass you had.</p>
+
+<p>Again though, this only really works if your DisplayObjects will not have any transformations applied to them (since otherwise, their bounding boxes may change).</p>
+
+<p><strong>Set Thresholds for Caching</strong></p>
+
+<p>Even if your DisplayObjects will have transformations applied to them, you can still improve performance by only updating the BitmapData if the transformation has changed more than some threshold. Essentially, you can trade some hit detection accuracy, for better performance.</p>
+
+<p>For example, in a game I am working on right now, I have a Ship that rotates based on the user input. I need to check if the ship collides with any enemies. Since the ship may rotate, I can&#39;t use the technique above to cache the BitmapData. However, after some testing and profiling, I realized that I could cache the BitmapData and only update it if the rotation changes by more than 5. This means that the hit detection is slightly less accurate, but I can use cached BitmapData for many of the checks. In my case, I was able to remove 2/3rds of the BitmapData calls (basically use cached data 2/3rds of the time), without any noticeable change in ht detection accuracy.</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="kd">private</span> <span class="k">var</span> <span class="nx">shipBmpData</span><span class="o">:</span><span class="nb">BitmapData</span><span class="o">;</span>
+<a name="line-2"></a><span class="kd">private</span> <span class="k">var</span> <span class="nx">oldShipHash</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<a name="line-3"></a>
+<a name="line-4"></a><span class="kd">private</span> <span class="kd">function</span> <span class="nx">checkCollisions</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-5"></a><span class="p">{</span>
+<a name="line-6"></a>
+<a name="line-7"></a>    <span class="k">var</span> <span class="nx">shipBounds</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>    
+<a name="line-8"></a>
+<a name="line-9"></a>    <span class="k">var</span> <span class="nx">shipBoundsHash</span><span class="o">:</span><span class="nb">int</span> <span class="o">=</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">rotation</span><span class="o">;</span>
+<a name="line-10"></a>
+<a name="line-11"></a>    <span class="c1">//basically, we check the rotation to see if it has changed much</span>
+<a name="line-12"></a>    <span class="c1">//if it hasnt, we just use the bitmapdata from earlier frame(s)</span>
+<a name="line-13"></a>    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">shipBmpData</span> <span class="o">||</span> 
+<a name="line-14"></a>        <span class="nx">shipBoundsHash</span> <span class="o">&lt;</span> <span class="nx">oldShipHash</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">||</span> 
+<a name="line-15"></a>        <span class="nx">shipBoundsHash</span> <span class="o">&gt;</span> <span class="nx">oldShipHash</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+<a name="line-16"></a>    <span class="p">{</span>   
+<a name="line-17"></a>        <span class="nx">shipBmpData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">shipBounds</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> <span class="nx">shipBounds</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-18"></a>
+<a name="line-19"></a>        <span class="c1">//this shouldnt work in some cases because of the x/y changes</span>
+<a name="line-20"></a>        <span class="c1">//but collision detection seems to be working ok</span>
+<a name="line-21"></a>        <span class="k">var</span> <span class="nx">shipOffset</span><span class="o">:</span><span class="nb">Matrix</span> <span class="o">=</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">transform</span><span class="p">.</span><span class="nx">matrix</span><span class="o">;</span>
+<a name="line-22"></a>        <span class="nx">shipOffset</span><span class="p">.</span><span class="nx">tx</span> <span class="o">=</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">shipBounds</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-23"></a>        <span class="nx">shipOffset</span><span class="p">.</span><span class="nx">ty</span> <span class="o">=</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">shipBounds</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>          
+<a name="line-24"></a>
+<a name="line-25"></a>        <span class="nx">shipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">ship</span><span class="o">,</span> <span class="nx">shipOffset</span><span class="p">);</span>
+<a name="line-26"></a>    <span class="p">}</span>
+<a name="line-27"></a>
+<a name="line-28"></a>    <span class="nx">oldShipHash</span> <span class="o">=</span> <span class="nx">shipBoundsHash</span><span class="o">;</span>
+<a name="line-29"></a>
+<a name="line-30"></a>    <span class="c1">//do collision detection with BitmapData.hitTest</span>
+<a name="line-31"></a>
+<a name="line-32"></a><span class="p">}</span>
+</code></pre></div>
+<p>Depending on the accuracy needed, this can provide large performance improvements.</p>
+
+<p><strong>Reuse Bitmap Data Instances</strong></p>
+
+<p>Another option is to reuse BitmapData instances, and use fillRect to reinitialize them before drawing new data in them. This removes the need to create a completely new BitmapData instance, but only works if the dimensions of your bonding box wont change. I wont go into detail on this technique (you can find a good description here), but in most cases where this could be useful, its probably better to just cache the BitmapData as discussed above.</p>
+
+<p><strong>Choose the right collision detection technique / API</strong></p>
+
+<p>Finally, make sure you are choosing the correct collision detection technique. For example, do you really need pixel perfect collision detection? Could you get away with just checking distances between items, or using some of the other existing APIs?</p>
+
+<p>For example, if the visible area of your DisplayObjects fill most of there bounding boxes, then you could probably get away with just using DisplayObject.hitTestObject. Again, you trade some accurate for performance, but in a lot of cases, the user will not notice.</p>
+
+<p>Is the visible areas of your DisplayObject mostly round? If so, you maybe be able to just check the distances between objects to test for collision.</p>
+
+<p>The main point is that maybe BitmapData.hitTest is overkill for your needs.</p>
+
+<p><strong>Look at other collision detection optimizations</strong></p>
+
+<p>There are a lot of other general techniques for optimizing collision detection, many of which focus on reducing the number of tests needed. For example, you can divide your stage into a grid, and only check items that are in adjacent grids.</p>
+
+<p>Many of these more general optimization techniques also apply when using BitmapData.hitTest, and you should explore them when optimizing your content.</p>
+
+<p>Please post any other optimization techniques or suggestions in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

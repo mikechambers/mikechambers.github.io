@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Data Binding with FXG in Flex 4</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Data Binding with FXG in Flex 4</h2>
+<p class="meta">Friday, August 29, 2008</p>
+
+<div class="post">
+<p>One of the cool things about <a href="http://opensource.adobe.com/wiki/display/flexsdk/FXG+1.0+Specification">FXG</a> is that it works with Flex data-binding just as your would expect it to.</p>
+
+<p>Below is a simple example (which requires <a href="http://labs.adobe.com/technologies/flashplayer10/">Flash Player 10 RC</a>), followed the code, that shows data-binding with FXG and <a href="http://www.mikechambers.com/blog/2008/08/27/everything-there-is-to-know-about-flex-4-gumbo/">Flex 4</a>:<br>
+&lt;!--more--&gt;</p>
+
+<p>As you can see, there are still some bugs in the rendering, but that is to be expected as these are very early Flex 4 builds.</p>
+
+<p>Source</p>
+
+<div class="highlight">
+  <pre><span style="color: #BC7A00">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;mx:Application</span> 
+    <span style="color: #7D9029">xmlns:mx=</span><span style="color: #BA2121">"library:adobe/flex/halo"</span>
+    <span style="color: #7D9029">xmlns=</span><span style="color: #BA2121">"http://ns.adobe.com/mxml/2009"</span>
+    <span style="color: #7D9029">xmlns:gumbo=</span><span style="color: #BA2121">"library:adobe/flex/gumbo"</span> 
+    <span style="color: #7D9029">verticalCenter=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">horizontalCenter=</span><span style="color: #BA2121">"0"</span>
+    <span style="color: #7D9029">layout=</span><span style="color: #BA2121">"vertical"</span><span style="color: #008000; font-weight: bold">&gt;</span>
+
+    <span style="color: #008000; font-weight: bold">&lt;gumbo:Group</span> <span style="color: #7D9029">verticalCenter=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">horizontalCenter=</span><span style="color: #BA2121">"0"</span><span style="color: #008000; font-weight: bold">&gt;</span>
+        <span style="color: #008000; font-weight: bold">&lt;Rect</span> <span style="color: #7D9029">width=</span><span style="color: #BA2121">"300"</span> <span style="color: #7D9029">height=</span><span style="color: #BA2121">"200"</span> <span style="color: #7D9029">radiusX=</span><span style="color: #BA2121">"{radiusSlider.value}"</span> 
+            <span style="color: #7D9029">radiusY=</span><span style="color: #BA2121">"{radiusSlider.value}"</span><span style="color: #008000; font-weight: bold">&gt;</span>
+            <span style="color: #008000; font-weight: bold">&lt;fill&gt;</span>
+                <span style="color: #008000; font-weight: bold">&lt;SolidColor</span> <span style="color: #7D9029">color=</span><span style="color: #BA2121">"{fillColor.selectedColor}"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+            <span style="color: #008000; font-weight: bold">&lt;/fill&gt;</span>
+            <span style="color: #008000; font-weight: bold">&lt;stroke&gt;</span>
+                <span style="color: #008000; font-weight: bold">&lt;SolidColorStroke</span> <span style="color: #7D9029">weight=</span><span style="color: #BA2121">"{strokeSlider.value}"</span> 
+                    <span style="color: #7D9029">color=</span><span style="color: #BA2121">"{strokeColor.selectedColor}"</span> <span style="color: #7D9029">alpha=</span><span style="color: #BA2121">"1"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+            <span style="color: #008000; font-weight: bold">&lt;/stroke&gt;</span>
+        <span style="color: #008000; font-weight: bold">&lt;/Rect&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;/gumbo:Group&gt;</span>
+    
+    <span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Corner Radius"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:HSlider</span> <span style="color: #7D9029">minimum=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">maximum=</span><span style="color: #BA2121">"100"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"radiusSlider"</span> <span style="color: #7D9029">liveDragging=</span><span style="color: #BA2121">"true"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Stroke Weight"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:HSlider</span> <span style="color: #7D9029">minimum=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">maximum=</span><span style="color: #BA2121">"20"</span> <span style="color: #7D9029">value=</span><span style="color: #BA2121">"5"</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"strokeSlider"</span> <span style="color: #7D9029">liveDragging=</span><span style="color: #BA2121">"true"</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Stroke Color"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:ColorPicker</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"strokeColor"</span> <span style="color: #7D9029">selectedColor=</span><span style="color: #BA2121">"0x333333"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:Label</span> <span style="color: #7D9029">text=</span><span style="color: #BA2121">"Fill Color"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:ColorPicker</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">"fillColor"</span> <span style="color: #7D9029">selectedColor=</span><span style="color: #BA2121">"0x999999"</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+
+<span style="color: #008000; font-weight: bold">&lt;/mx:Application&gt;</span>
+</pre>
+</div>
+
+<p>You can of course, read more details on this in the <a href="http://opensource.adobe.com/wiki/display/flexsdk/FXG+1.0+Specification">FXG 1.0 Specification</a>.</p>
+
+<p>I also have a post on how to <a href="http://www.mikechambers.com/blog/2008/08/28/getting-started-with-flex-4-fxg-and-flex-builder-3/">get started with Flex 4 FXG in Flex Builder 3</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Using a Pre-processor with ActionScript to define constants</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Using a Pre-processor with ActionScript to define constants</h2>
+<p class="meta">Thursday, March 31, 2005</p>
+
+<div class="post">
+<p>Yesterday I posted some simple info on <a href="http://www.markme.com/mesh/archives/007367.cfm">how to use the cpp pre-processor to pre-process ActionScript files</a>. I <a href="http://www.markme.com/mesh/archives/007367.cfm">showed</a> how you can use the #ifdef directive to conditionally add / remove stuff from the final ActionScript file. However, cpp can do a lot more than just conditional section includes.</p>
+
+<p>You can use the <a href="http://gcc.gnu.org/onlinedocs/cpp/Object_002dlike-Macros.html#Object_002dlike-Macros">#define</a> directive to define constants within your ActionScript file / class.</p>
+
+<p>For example, lets look at a simple example:</p>
+
+<!--more-->
+
+<p>`
+<pre>class ObjectCreator
+{
+    var DEFAULTWIDTH:Number = 5;
+    var DEFAULTHEIGHT:Number = 5;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>function ObjectCreator()
+<a name="line-2"></a>{
+<a name="line-3"></a>}
+<a name="line-4"></a>
+<a name="line-5"></a>function createObjects(Void):Void
+<a name="line-6"></a>{
+<a name="line-7"></a>    for(var i:Number = 0; i &lt; 10000; i++)
+<a name="line-8"></a>    {
+<a name="line-9"></a>        var o = new Object();
+<a name="line-10"></a>        o.width = this.DEFAULTWIDTH;
+<a name="line-11"></a>        o.height = this.DEFAULTHEIGHT;
+<a name="line-12"></a>    }
+<a name="line-13"></a>}   
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>In this case, we use a naming convention (all caps) to denote a variable that should be treated as a constant. However, it is not a true constant. This means that it can be changed at runtime, and that the player has to look up the value each time it is accessed. In certain circumstances, this can have an impact on performance.</p>
+
+<p>However, if you run the ActionScript file through the cpp processor then you can use the <a href="http://gcc.gnu.org/onlinedocs/cpp/Object_002dlike-Macros.html#Object_002dlike-Macros">#define</a> constant to essentially allow you to use constants in your code.</p>
+
+<p>Here is the same code using #define:</p>
+
+<p>`
+<pre>#define DEFAULTWIDTH 5</p>
+
+<h1>define DEFAULTHEIGHT 5</h1>
+
+<p>class ObjectCreator
+{
+    function ObjectCreator()
+    {
+    }</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>function createObjects(Void):Void
+<a name="line-2"></a>{
+<a name="line-3"></a>    for(var i:Number = 0; i &lt; 10000; i++)
+<a name="line-4"></a>    {
+<a name="line-5"></a>        var o = new Object();
+<a name="line-6"></a>        o.width = DEFAULTWIDTH;
+<a name="line-7"></a>        o.height = DEFAULTHEIGHT;
+<a name="line-8"></a>    }
+<a name="line-9"></a>}   
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>After running through the cpp pre-processor:</p>
+
+<p><em>cpp -P ObjectCreator.p ObjectCreator.as</em></p>
+
+<p>the following ActionScript file is created:</p>
+
+<p>`
+<pre>class ObjectCreator
+{
+    function ObjectCreator()
+    {
+    }</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>function createObjects(Void):Void
+<a name="line-2"></a>{
+<a name="line-3"></a>    for(var i:Number = 0; i &lt; 10000; i++)
+<a name="line-4"></a>    {
+<a name="line-5"></a>        var o = new Object();
+<a name="line-6"></a>        o.width = 5;
+<a name="line-7"></a>        o.height = 5;
+<a name="line-8"></a>    }
+<a name="line-9"></a>}   
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>Notice that DEFAULTWIDTH and DEFAULTHEIGHT have been replaced with their constant values of 5. Of course, in this case the constants are only being used in one place, but the more the constant is used, the more useful using #define becomes.</p>
+
+<p>Couple of notes. Pay attention to the syntax for #define:</p>
+
+<p><em>#define name value</em></p>
+
+<p>There is no = sign between the name and value. There is also no trailing semi-colon. If you add either, they will be treated as part of the macro and inserted into your code</p>
+
+<p>You can find more info about using the cpp preprocessor with ActionScript <a href="http://www.markme.com/mesh/archives/007367.cfm">here</a>. You can find more info about the #define directive <a href="http://gcc.gnu.org/onlinedocs/cpp/Object_002dlike-Macros.html#Object_002dlike-Macros">here</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

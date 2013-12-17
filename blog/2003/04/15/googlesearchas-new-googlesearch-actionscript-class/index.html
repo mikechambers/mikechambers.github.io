@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>GoogleSearch.as : new GoogleSearch ActionScript Class</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>GoogleSearch.as : new GoogleSearch ActionScript Class</h2>
+<p class="meta">Tuesday, April 15, 2003</p>
+
+<div class="post">
+<p>I have created two classes that wrap the <a href="http://www.google.ca/apis/">Google Search API / Webservice</a>. They use Flash Remoting to connect to the Google API and then return a GoogleSearchResults object which includes the results and other information about the query.</p>
+
+<p>It requires a valid google id key, which you can get for free from <a href="http://www.google.ca/apis/">google</a>. Also, if you download the developer&#8217;s kit from google, you can find information on what the search api returns.</p>
+
+<p>The code below isn&#8217;t documented (or extensively tested), but if people are interested I will clean it up, fully document it and release it.</p>
+
+<!--more-->
+
+<p>`
+<pre>
+/************************ Example usage ************************/</p>
+
+<h1>include &quot;NetServices.as&quot;</h1>
+
+<h1>include &quot;GoogleSearch.as&quot;</h1>
+
+<p>var gs = new GoogleSearch();
+gs.setGatewayURL(&quot;http://127.0.0.1:8500/flashservices/gateway&quot;);
+gs.setKey(&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;);</p>
+
+<p>var listener = new Object();</p>
+
+<p>listener.onSearchResult = function(gsr)
+{
+     //grid is an instance of the DataGrid
+     //component
+     grid.setDataProvider(gsr.getResults());
+}</p>
+
+<p>listener.onError = function(info)
+{
+     trace(&quot;Error : &quot; + info.description);
+}</p>
+
+<p>gs.addListener(listener);</p>
+
+<p>System.onStatus = listener.onError;</p>
+
+<p>gs.search(&quot;search term here&quot;);</p>
+
+<p>/************************ GoogleSearch.as ***********************<em>/
+/</em>
+    GoogleSearch.as</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>This is a ActionScript Class that uses Flash Remoting to provide
+<a name="line-2"></a>a simple API for accessing the Google search web service API.
+<a name="line-3"></a>
+<a name="line-4"></a>You can find information on the Google search web service API at:
+</code></pre></div>
+<p>http://www.google.ca/apis/</p>
+
+<p>http://www.google.ca/apis/reference.html</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>This class requires a valid google key in order to call the
+<a name="line-2"></a>google web services. You can get a google key from google at:
+</code></pre></div>
+<p>http://www.google.ca/apis/</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>Mike Chambers
+<a name="line-2"></a>mesh@macromedia.com
+</code></pre></div>
+<p>*/</p>
+
+<p>/* The GoogleSearchResponse.as file is required. */</p>
+
+<h1>include &quot;GoogleSearchResponse.as&quot;</h1>
+
+<p>/*
+    GoogleSearch Constructor
+*/
+<em>global.GoogleSearch = function()
+{
+    if(</em>global.NetServices == undefined)
+    {
+        trace(&quot;NetServices.as is required and must be included before GoogleSearch.as&quot;);
+    }</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>/*
+<a name="line-2"></a>    Use ASBroadcaster to add event support to the class.
+<a name="line-3"></a>
+<a name="line-4"></a>    This will add the following methods to the class instance:
+<a name="line-5"></a>
+<a name="line-6"></a>    -addListener
+<a name="line-7"></a>    -removeListener
+<a name="line-8"></a>    -broadcastMessage
+<a name="line-9"></a>*/
+<a name="line-10"></a>ASBroadcaster.initialize(this);
+<a name="line-11"></a>
+<a name="line-12"></a>/*
+<a name="line-13"></a>    Create an object to store the parameters for the google web service.
+<a name="line-14"></a>
+<a name="line-15"></a>    Note, we store these within an object instead of directly in the 
+<a name="line-16"></a>    class instance to avoid the overhead of copying them to another
+<a name="line-17"></a>    object whenever we make the google web service call.
+<a name="line-18"></a>*/
+<a name="line-19"></a>this.params = new Object();
+<a name="line-20"></a>
+<a name="line-21"></a>this.init();
+</code></pre></div>
+<p>}</p>
+
+<p>GoogleSearch.prototype.params = null;</p>
+
+<p>GoogleSearch.prototype.gatewayURL = &quot;/flashservices/gateway&quot;;
+GoogleSearch.prototype.wsdlURL = &quot;http://api.google.com/GoogleSearch.wsdl&quot;;</p>
+
+<p>/*
+    This method is used to copy the set the default values for
+    the properties of the class.</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>It is automatically called from the constructor, and can also be
+<a name="line-2"></a>used to reset the properties of the object.
+</code></pre></div>
+<p>*/
+GoogleSearch.prototype.init = function()
+{
+    this.params.key = null;
+    this.params.start = 0;
+    this.params.maxResults = 10;
+    this.params.filter = true;
+    this.params.restrict = &quot;&quot;;
+    this.params.safesearch = true;
+    this.params.lr = &quot;lang_en&quot;;
+    this.params.q = null;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>// Note, the next two properties have been deprecated
+<a name="line-2"></a>// by google and will be ignored by them. They are included
+<a name="line-3"></a>// here for backward compatibility with older versions of
+<a name="line-4"></a>// Flash Remoting.
+<a name="line-5"></a>this.params.ie = &quot;lating1&quot;;
+<a name="line-6"></a>this.params.oe = &quot;latin1&quot;;
+</code></pre></div>
+<p>}</p>
+
+<p>/* Sets the URL to the Flash Remoting adapter on the server */
+GoogleSearch.prototype.setGatewayURL = function(url)
+{
+    this.gatewayURL = url;
+}</p>
+
+<p>/*
+    Sets the URL to the Google Web Service WSDL file. </p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>The default value points to the WSDL file on Google&#39;s
+<a name="line-2"></a>website.
+</code></pre></div>
+<p>*/
+GoogleSearch.prototype.setGoogleWSDL = function(wsdlURL)
+{
+    this.wsdlURL = wsdlURL;
+}</p>
+
+<p>/*
+    Sets the Google key necessary to use the Google
+    web services.</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>This is required.
+<a name="line-2"></a>
+<a name="line-3"></a>You can get a google key from:
+</code></pre></div>
+<p>http://www.google.ca/apis/</p>
+
+<p>*/
+GoogleSearch.prototype.setKey = function(key)
+{
+    this.params.key = key;
+}</p>
+
+<p>/*
+    Sets the Number of results desired per query.
+    The maximum value per query is 10.
+*/
+GoogleSearch.prototype.setMaxResults = function(num)
+{
+    this.params.maxResults = num;
+}</p>
+
+<p>/* Sets the Zero-based index of the first desired result. */
+GoogleSearch.prototype.setStartIndex = function(startIndex)
+{
+    this.params.start = startIndex;
+}</p>
+
+<p>/*
+    Activates or deactivates automatic results filtering, which
+    hides very similar results and results that all come from
+    the same Web host. 
+*/
+GoogleSearch.prototype.setUseFilter = function(useFilter)
+{
+    this.params.filter = useFilter;
+}</p>
+
+<p>/*
+    Restricts the search to a subset of the Google Web index,
+    such as a country like &quot;Ukraine&quot; or a topic like &quot;Linux.&quot;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>See the google web service development kit for a complete
+<a name="line-2"></a>list of restrict terms:
+</code></pre></div>
+<p>http://www.google.ca/apis/reference.html#2_4</p>
+
+<p>*/
+GoogleSearch.prototype.setRestrict = function(restrictString)
+{
+    this.params.restrict = restrictString;
+}</p>
+
+<p>/*
+    Sets whether filtering of adult content in the search results
+    will be activated.</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>Takes a Boolean value.
+</code></pre></div>
+<p>*/
+GoogleSearch.prototype.setSafeSearch = function(useSafeSearch)
+{
+    this.params.safesearch = useSafeSearch;
+}</p>
+
+<p>/*
+    Restricts the search to documents within one or more languages.</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>See the google web service development kit for a complete
+<a name="line-2"></a>list of language abbreviations:
+</code></pre></div>
+<p>http://www.google.ca/apis/reference.html#2_4</p>
+
+<p>*/
+GoogleSearch.setLanguageRestrict = function(lr)
+{
+    this.params.lr = lr;
+}</p>
+
+<p>/*
+    Takes a string that specifies the search term, and then
+    calls the google web service to search for it.</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>See the google web service development kit for a complete
+<a name="line-2"></a>list of query terms:
+</code></pre></div>
+<p>http://www.google.ca/apis/reference.html#2_2</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>When the search is returned, a &quot;onSearchResult&quot; event will
+<a name="line-2"></a>be broadcast, with a GoogleSearchResponse object passed to 
+<a name="line-3"></a>any listeners.
+<a name="line-4"></a>
+<a name="line-5"></a>If an error occurs, an &quot;onError&quot; event will be broadcast
+<a name="line-6"></a>with an info object passed to any listeners.
+</code></pre></div>
+<p>*/
+GoogleSearch.prototype.search = function(searchString)
+{   </p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>if(searchString.length &lt; 1)
+<a name="line-2"></a>{
+<a name="line-3"></a>    this.onStatus({description:&quot;You must specify a search term.&quot;});
+<a name="line-4"></a>    return;
+<a name="line-5"></a>}
+<a name="line-6"></a>
+<a name="line-7"></a>
+<a name="line-8"></a>var server = NetServices.createGatewayConnection(this.gatewayURL);
+<a name="line-9"></a>var service = server.getService(this.wsdlURL, this);
+<a name="line-10"></a>
+<a name="line-11"></a>var searchParams = this._getParams();
+<a name="line-12"></a>searchParams.q = searchString;
+<a name="line-13"></a>
+<a name="line-14"></a>service.doGoogleSearch(searchParams);
+</code></pre></div>
+<p>}</p>
+
+<p>/*
+    Private method that receives the data from the server, and broadcasts
+    the &quot;onSearchResponse&quot; event.
+*/
+GoogleSearch.prototype.doGoogleSearch_Result = function(rawGoogleResponse)
+{
+    var gsr = new GoogleSearchResponse(rawGoogleResponse);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>this.broadcastMessage(&quot;onSearchResult&quot;, gsr);
+</code></pre></div>
+<p>}</p>
+
+<p>/*
+    Private method that gets called if an error occurs when calling the
+    google web service, and broadcasts the &quot;onError&quot; event.
+*/
+GoogleSearch.prototype.onStatus = function(info)
+{
+    this.broadcastMessage(&quot;onError&quot;, info);
+}</p>
+
+<p>/* private method that encapsulates access to the params property */
+GoogleSearch.prototype._getParams = function()
+{
+    return this.params;
+}</p>
+
+<p>/************************ GoogleSearchResponse.as ***********************<em>/
+/</em>
+    GoogleSearchResponse.as</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>This is a ActionScript Class that represents the response from google
+<a name="line-2"></a>when the doGoogleSearch web service is called.
+<a name="line-3"></a>
+<a name="line-4"></a>The class provides a simple API for access the data returned, and
+<a name="line-5"></a>makes the search results available as a RecordSet object.
+<a name="line-6"></a>
+<a name="line-7"></a>The original google response is also available.
+<a name="line-8"></a>
+<a name="line-9"></a>You can find information on the Google search web service API at:
+</code></pre></div>
+<p>http://www.google.ca/apis/</p>
+
+<p>http://www.google.ca/apis/reference.html</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>Mike Chambers
+<a name="line-2"></a>mesh@macromedia.com
+</code></pre></div>
+<p>*/</p>
+
+<p>_global.GoogleSearchResponse = function(rawGoogleResponse)
+{
+    if(RecordSet.prototype == undefined)
+    {
+        trace(&quot;RecordSet.as (included within NetServices.as) is required and must be included before GoogleSearchResponse.as&quot;);
+    }</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>this.setRawGoogleResponse(rawGoogleResponse);
+</code></pre></div>
+<p>}</p>
+
+<p>GoogleSearchResponse.prototype.documentFiltering = null;
+GoogleSearchResponse.prototype.searchComments = null;
+GoogleSearchResponse.prototype.estimatedTotalResultsCount = null;
+GoogleSearchResponse.prototype.estimateIsExact = null;
+GoogleSearchResponse.prototype.results = null;
+GoogleSearchResponse.prototype.searchQuery = null;
+GoogleSearchResponse.prototype.startIndex = null;
+GoogleSearchResponse.prototype.endIndex = null;
+GoogleSearchResponse.prototype.searchTips = null;
+GoogleSearchResponse.prototype.directoryCategories = null;
+GoogleSearchResponse.prototype.searchTime = null;</p>
+
+<p>// Stores the raw google result as returned from google.
+GoogleSearchResponse.prototype.rawGoogleResponse = null;</p>
+
+<p>/*
+    Private method that takes the raw response from google and copies
+    its values into the current instance of the class, as well as
+    transforms the search results into an ActionScript RecordSet
+    Object.
+*/
+GoogleSearchResponse.prototype.setRawGoogleResponse = function(rawGoogleResponse)
+{
+    //store the response from google
+    this.rawGoogleResponse = rawGoogleResponse;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//place the search results in a RecordSet
+<a name="line-2"></a>var rs = new RecordSet();
+<a name="line-3"></a>
+<a name="line-4"></a>var items = rawGoogleResponse.resultElements;
+<a name="line-5"></a>var len = items.length;
+<a name="line-6"></a>
+<a name="line-7"></a>var obj;
+<a name="line-8"></a>var item;
+<a name="line-9"></a>for(var i = 0; i &lt; len; i++)
+<a name="line-10"></a>{
+<a name="line-11"></a>    obj = new Object();
+<a name="line-12"></a>    item = items[i];
+<a name="line-13"></a>
+<a name="line-14"></a>    for(var x in item)
+<a name="line-15"></a>    {
+<a name="line-16"></a>        obj[x] = item[x];
+<a name="line-17"></a>    }
+<a name="line-18"></a>
+<a name="line-19"></a>    obj.catFullViewableName = item.directoryCategory.fullViewableName;
+<a name="line-20"></a>    obj.catSpecialEncoding = item.directoryCategory.specialEncoding;
+<a name="line-21"></a>
+<a name="line-22"></a>    delete obj.directoryCategory;
+<a name="line-23"></a>
+<a name="line-24"></a>    rs.addItem(obj);
+<a name="line-25"></a>}
+<a name="line-26"></a>
+<a name="line-27"></a>this.results = rs;
+<a name="line-28"></a>
+<a name="line-29"></a>//copy the other properties over.
+<a name="line-30"></a>this.documentFiltering = rawGoogleResponse.documentFiltering;
+<a name="line-31"></a>this.searchComments = rawGoogleResponse.searchComments;
+<a name="line-32"></a>this.estimatedTotalResultsCount = rawGoogleResponse.estimatedTotalResultsCount;
+<a name="line-33"></a>this.estimateIsExact = rawGoogleResponse.estimateIsExact;
+<a name="line-34"></a>this.searchQuery = rawGoogleResponse.searchQuery;
+<a name="line-35"></a>this.startIndex = rawGoogleResponse.startIndex;
+<a name="line-36"></a>this.endIndex = rawGoogleResponse.endIndex;
+<a name="line-37"></a>this.searchTips = rawGoogleResponse.searchTips;
+<a name="line-38"></a>this.directoryCategories = rawGoogleResponse.directoryCategories;
+<a name="line-39"></a>this.searchTime = rawGoogleResponse.searchTime;
+</code></pre></div>
+<p>}</p>
+
+<p>/* Returns the raw, umodified response returned from google */
+GoogleSearchResponse.prototype.getRawGoogleResponse = function()
+{
+    return this.rawGoogleResponse;
+}</p>
+
+<p>/*
+    Returns a Boolean value indicating whether filtering was performed
+    on the search results. This will be &quot;true&quot; only if (a) you
+    requested filtering and (b) filtering actually occurred.
+*/
+GoogleSearchResponse.prototype.getDocumentFiltering = function()
+{
+    return this.documentFiltering;
+}</p>
+
+<p>/*
+    Returns a text string intended for display to an end user. One of the most
+    common messages found here is a note that &quot;stop words&quot; were removed
+    from the search automatically. (This happens for very common words
+    such as &quot;and&quot; and &quot;as.&quot;)
+*/
+GoogleSearchResponse.prototype.getSearchComments = function()
+{
+    return this.searchComments;
+}</p>
+
+<p>/*
+    Returns the estimated total number of results that exist for the query. </p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>Note: The estimated number may be either higher or lower than the actual 
+<a name="line-2"></a>number of results that exist.
+</code></pre></div>
+<p>*/
+GoogleSearchResponse.prototype.getEstimatedTotalResultsCount = function()
+{
+    return this.estimatedTotalResultsCount;
+}</p>
+
+<p>/*
+    Returns a Boolean value indicating that the estimate is actually the
+    exact value.
+*/
+GoogleSearchResponse.prototype.getEstimateIsExact = function()
+{
+    return this.estimateIsExact;
+}</p>
+
+<p>/*
+    Returns an ActionScript RecordSet object containing the results 
+    of the search query.</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>The RecordSet will contain the following columns:
+<a name="line-2"></a>
+<a name="line-3"></a>summary : If the search result has a listing in the ODP directory,
+<a name="line-4"></a>    the ODP summary appears here as a text string.
+<a name="line-5"></a>
+<a name="line-6"></a>URL : The URL of the search result, returned as text, with an
+<a name="line-7"></a>    absolute URL path.
+<a name="line-8"></a>
+<a name="line-9"></a>snippet : A snippet which shows the query in context on the URL
+<a name="line-10"></a>    where it appears. This is formatted HTML and usually includes
+<a name="line-11"></a>    &lt;B&gt; tags within it. Note that the query term does not always
+<a name="line-12"></a>    appear in the snippet. Note: Query terms will be in highlighted
+<a name="line-13"></a>    in bold in the results, and line breaks will be included for
+<a name="line-14"></a>    proper text wrapping.
+<a name="line-15"></a>
+<a name="line-16"></a>title : The title of the search result, returned as HTML.
+<a name="line-17"></a>
+<a name="line-18"></a>cachedSize : Text (Integer + &quot;k&quot;). Indicates that a cached version of
+<a name="line-19"></a>    the &lt;URL&gt; is available; size is indicated in kilobytes.
+<a name="line-20"></a>
+<a name="line-21"></a>relatedInformationPresent : Boolean indicating that the &quot;related:&quot;
+<a name="line-22"></a>    query term is supported for this URL.
+<a name="line-23"></a>
+<a name="line-24"></a>hostName : When filtering occurs, a maximum of two results from any
+<a name="line-25"></a>    given host is returned. When this occurs, the second resultElement
+<a name="line-26"></a>    that comes from that host contains the host name in this parameter.
+<a name="line-27"></a>
+<a name="line-28"></a>directoryName : If the URL for this resultElement is contained in the ODP
+<a name="line-29"></a>    directory, the title that appears in the directory appears here as
+<a name="line-30"></a>    a text string. Note that the directoryTitle may be different from
+<a name="line-31"></a>    the URL&#39;s title.
+<a name="line-32"></a>
+<a name="line-33"></a>
+<a name="line-34"></a>catFullViewableName :  Text, containing the ODP directory name for the 
+<a name="line-35"></a>    current ODP category.
+<a name="line-36"></a>
+<a name="line-37"></a>catSpecialEncoding : Specifies the encoding scheme of the directory
+<a name="line-38"></a>    information.
+</code></pre></div>
+<p>*/
+GoogleSearchResponse.prototype.getResults = function()
+{
+    return this.results;
+}</p>
+
+<p>/*
+    Returns the query used to generate the response.
+*/
+GoogleSearchResponse.prototype.getSearchQuery = function()
+{
+    return this.searchQuery;
+}</p>
+
+<p>/*
+    Returns a number which indicates the index (1-based)
+    of the first search result in the results.
+*/
+GoogleSearchResponse.prototype.getStartIndex = function()
+{
+    return this.startIndex;
+}</p>
+
+<p>/*
+    Returns a number which indicates the index (1-based)
+    of the last search result in the results.
+*/
+GoogleSearchResponse.prototype.getEndIndex = function()
+{
+    return this.endIndex;
+}</p>
+
+<p>/*
+    Returns a text string intended for display to the
+    end user. It provides instructive suggestions on how
+    to use Google.
+*/
+GoogleSearchResponse.prototype.getSearchTips = function()
+{
+    return this.searchTips;
+}</p>
+
+<p>/*
+    Returns an array of directoryCategory objects. This corresponds
+    to the ODP directory matches for this search.
+*/
+GoogleSearchResponse.prototype.getDirectoryCategories = function()
+{
+    return this.directoryCategories;
+}</p>
+
+<p>/*
+    Returns text representing the floating-point number indicating
+    the total server time to return the search results, measured in seconds.
+*/
+GoogleSearchResponse.prototype.getSearchTime = function()
+{
+    return this.searchTime;
+}</p>
+
+<p>/*
+    Setter methods for all of the properties. I can&#39;t think of when
+    these would be useful, but I am adding them just in case.
+*/
+GoogleSearchResponse.prototype.setDocumentFiltering = function(df)
+{
+    this.documentFiltering = df;
+}</p>
+
+<p>GoogleSearchResponse.prototype.setSearchComments = function(sc)
+{
+    this.searchComments = sc;
+}</p>
+
+<p>GoogleSearchResponse.prototype.setEstimatedTotalResultsCount = function(etrc)
+{
+    this.estimatedTotalResultsCount = etrc;
+}</p>
+
+<p>GoogleSearchResponse.prototype.setEstimateIsExact = function(eis)
+{
+    this.estimateIsExact = eis;
+}</p>
+
+<p>GoogleSearchResponse.prototype.setResults = function(r)
+{
+    this.results = r;
+}</p>
+
+<p>GoogleSearchResponse.prototype.setSearchQuery = function(sq)
+{
+    this.searchQuery = sq;
+}</p>
+
+<p>GoogleSearchResponse.prototype.setStartIndex = function(si)
+{
+    this.startIndex = si;
+}</p>
+
+<p>GoogleSearchResponse.prototype.setEndIndex = function(ei)
+{
+    this.endIndex = ei;
+}</p>
+
+<p>GoogleSearchResponse.prototype.setSearchTips = function(st)
+{
+    this.searchTips = st;
+}</p>
+
+<p>GoogleSearchResponse.prototype.setDirectoryCategories = function(dc)
+{
+    this.directoryCategories = dc;
+}</p>
+
+<p>GoogleSearchResponse.prototype.setSearchTime = function(st)
+{
+    this.searchTime = st;
+}
+</pre>
+<p>`</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Encapsulating Custom Pixel Bender Filters in ActionScript 3</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Encapsulating Custom Pixel Bender Filters in ActionScript 3</h2>
+<p class="meta">Monday, September 8, 2008</p>
+
+<div class="post">
+<p>If you read my blog regularly (or just today) you should have noticed that I have been playing around with some Pixel Bender filters and ActionScript / Flex (all inspired by <a href="http://theflashblog.com/?p=435">Lee Brimelow&#8217;s video screencast on creating and using Pixel Bender filters in Flash Player 10</a>.)</p>
+
+<p>Previously, I posted some code showing <a href="http://www.mikechambers.com/blog/2008/09/08/embedding-pixel-bender-filters-within-a-swf/">how to embed a custom Pixel Bender filter within a SWF</a> and then apply the filter to an image. That works well, but the code is not that reusable since the filter loading code is mixed in with the main code.</p>
+
+<p>Below is a simple example that shows how to encapsulate a custom filter inside of an ActionScript 3 class, which you can then use and re-use like any other built in filter.<br>
+&lt;!--more--&gt;</p>
+
+<p><strong>Document Class : PBFilter.as</strong></p>
+
+<div class="highlight">
+  <pre>package
+{
+    <span style="color: #008000; font-weight: bold">import</span> flash.display.Bitmap<span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">import</span> flash.display.Sprite<span style="color: #666666">;</span>
+    
+    <span style="color: #408080; font-style: italic">// SWF Metadata</span>
+    [SWF(width<span style="color: #666666">=</span><span style="color: #BA2121">"600"</span><span style="color: #666666">,</span> height<span style="color: #666666">=</span><span style="color: #BA2121">"400"</span><span style="color: #666666">,</span> backgroundColor<span style="color: #666666">=</span><span style="color: #BA2121">"#000000"</span><span style="color: #666666">,</span> framerate<span style="color: #666666">=</span><span style="color: #BA2121">"30"</span>)]
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> PBFilter <span style="color: #008000; font-weight: bold">extends</span> Sprite
+    {       
+        <span style="color: #408080; font-style: italic">//The image to display the filter on</span>
+        [Embed(source<span style="color: #666666">=</span><span style="color: #BA2121">"image.jpg"</span>)]
+        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> image<span style="color: #666666">:</span>Class<span style="color: #666666">;</span>
+        
+        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> im<span style="color: #666666">:</span>Bitmap<span style="color: #666666">;</span>
+        
+        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> PBFilter()<span style="color: #666666">:</span>void
+        {
+            im <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> image() as Bitmap<span style="color: #666666">;</span>
+            addChild(im);
+
+            <span style="color: #008000; font-weight: bold">var</span> filter<span style="color: #666666">:</span>TestFilter <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> TestFilter();
+                filter.value <span style="color: #666666">=</span> <span style="color: #666666">30;</span>
+
+            <span style="color: #408080; font-style: italic">//add the filter to the image</span>
+            im.filters <span style="color: #666666">=</span> [filter];
+        }
+
+    }
+}
+</pre>
+</div>
+
+<p><strong>Filter Class : TestFilter.as</strong></p>
+
+<div class="highlight">
+  <pre>package
+{
+    <span style="color: #008000; font-weight: bold">import</span> flash.display.Shader<span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">import</span> flash.filters.ShaderFilter<span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">import</span> flash.utils.ByteArray<span style="color: #666666">;</span>
+        
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> TestFilter <span style="color: #008000; font-weight: bold">extends</span> ShaderFilter
+    {
+        <span style="color: #408080; font-style: italic">//the file that contains the binary bytes of the PixelBender filter</span>
+        [Embed(<span style="color: #BA2121">"testfilter.pbj"</span><span style="color: #666666">,</span> mimeType<span style="color: #666666">=</span><span style="color: #BA2121">"application/octet-stream"</span>)]
+        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> Filter<span style="color: #666666">:</span>Class<span style="color: #666666">;</span>     
+        
+        <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">var</span> _shader<span style="color: #666666">:</span>Shader<span style="color: #666666">;</span>
+        
+        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> TestFilter(value<span style="color: #666666">:</span><span style="color: #008000">Number</span> <span style="color: #666666">=</span> <span style="color: #666666">50</span>)
+        {
+            <span style="color: #408080; font-style: italic">//initialize the ShaderFilter with the PixelBender filter we</span>
+            <span style="color: #408080; font-style: italic">//embedded</span>
+            _shader <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Shader(<span style="color: #008000; font-weight: bold">new</span> Filter() as ByteArray);
+            
+            <span style="color: #408080; font-style: italic">//set the default value</span>
+            <span style="color: #008000; font-weight: bold">this</span>.value <span style="color: #666666">=</span> value<span style="color: #666666">;</span>
+            <span style="color: #008000; font-weight: bold">super</span>(_shader);
+        }
+        
+        
+        <span style="color: #408080; font-style: italic">//This filter only has one value, named value</span>
+        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> get value()<span style="color: #666666">:</span><span style="color: #008000">Number</span>
+        {
+            <span style="color: #008000; font-weight: bold">return</span> _shader.data.amount.value[<span style="color: #666666"></span>];  
+        }
+        
+        <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">function</span> set value(value<span style="color: #666666">:</span><span style="color: #008000">Number</span>)<span style="color: #666666">:</span>void
+        {
+            <span style="color: #408080; font-style: italic">//not that pixel bender filters take an array of values, even</span>
+            <span style="color: #408080; font-style: italic">//though we only have one in our example</span>
+            _shader.data.amount.value <span style="color: #666666">=</span> [value];
+        }       
+
+    }
+}
+</pre>
+</div>
+
+<p>Compiled using the <a href="http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+3">Flex 3.1.0.2710 SDK</a> (although it does not use the Flex Framework), and requires <a href="http://labs/technologies/flashplayer10/">Flash Player 10</a>.</p>
+
+<p>You would of course, have to add the appropriate getters and setters depending on the values your custom Pixel Bender filter accepts.</p>
+
+<p>Using this technique, you could then create a SWC (distributable ActionScript library) to package your custom filter(s) and re-use them in MXMLC, Flex Builder and / or Flash Authoring.</p>
+
+<p>You can see an example of the filter <a href="http://flickr.com/photos/mikechambers/2840691963/">here</a>.</p>
+
+<p>You can find more information on Pixel Bender <a href="www.adobe.com/go/pixelbender">here</a>.</p>
+
+<p>You can download the filter from <a href="http://www.gotoandlearn.com/player.php?id=84">here</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

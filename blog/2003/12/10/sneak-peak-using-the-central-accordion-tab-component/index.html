@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Sneak Peak : Using the Central Accordion Tab Component</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Sneak Peak : Using the Central Accordion Tab Component</h2>
+<p class="meta">Wednesday, December 10, 2003</p>
+
+<div class="post">
+<p>I just finished an article on using the Central Accordion Tab component. It will be on the Central DevNet Center in a week, but I thought I would go ahead and give a sneak peak.</p>
+
+<p>Below is an excerpt from the article that shows how to manage application views using the component. Note, that this has not been edited yet, so may contain typos, grammar mistakes or code errors. If you have any questions or run into any problems, post them in the comments.</p>
+
+<!--more-->
+
+<p><strong>Switching between views when the selected tab changes.</strong></p>
+
+<p>Because tabs provide an interface for multiple related items, tabbed controls lend themselves to applications that contain multiple views. The tabs can be used to manage the state and presentation of the views.</p>
+
+<p>This section will provide a simple example that shows:</p>
+
+<ol>
+<li> How to store references to a view / MovieClip within each tab.</li>
+<li> How to use the tab control to manage the state of the possible views.</li>
+</ol>
+
+<p>We will create a simple example that toggles the state of three simple movie clips. However, the example can easily be applied to managing more complex movie clips that have classes associated with them.</p>
+
+<p>First we will need to create the views / MovieClips whose state will be controlled by the Accordion Tab component. We will then write the ActionScript code necessary.</p>
+
+<p>The article assumes that you are starting with the file you created in the addItem section. If not, just create a new movie with two layers named Actions and accordion. Drag an instance of the Accordion Tab component onto the accordion layer, and give it an instance name of myTab.</p>
+
+<ol>
+<li> Create three MovieClips, and name them red, green and blue.</li>
+<li> Open each one and draw a 100 x 100 square. The color of the square should match the clips name (i.e. red, green or blue).</li>
+<li> Make sure that each square is at coordinate 0,0.</li>
+<li> Create three new layers on your timeline (above the accordion layer) and name them red, green and blue. If you like, you can place these within a folder to help organize them.</li>
+<li> Drag an instance of each clip onto its respective timeline.</li>
+<li> Give each clip an instance name that matches its symbol name (i.e. red, green, or blue).</li>
+<li> Finally, position each clip in the bottom left of the accordion tab and make sure that the x, y coordinates of each clip are exactly the same.</li>
+</ol>
+
+<p>Now we can add the ActionScript that manages the application. We will show all of the code, and then discuss the new sections.</p>
+
+<p>`
+<pre>function onActivate()
+{
+    green.<em>visible = false;
+    blue.</em>visible = false;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>myTab.addItem(&quot;red&quot;, red);
+<a name="line-2"></a>myTab.addItem(&quot;green&quot;, green);
+<a name="line-3"></a>myTab.addItem(&quot;blue&quot;, blue);
+<a name="line-4"></a>
+<a name="line-5"></a>selectedTab = red;
+<a name="line-6"></a>
+<a name="line-7"></a>myTab.setChangeHandler(&quot;onTabChange&quot;);
+</code></pre></div>
+<p>}</p>
+
+<p>function onTabChange()
+{
+    selectedTab._visible = false;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>var tab = myTab.getSelectedItem().data;
+<a name="line-2"></a>
+<a name="line-3"></a>tab._visible = true;
+<a name="line-4"></a>selectedTab = tab;
+</code></pre></div>
+<p>}</p>
+
+<p>Central.initApplication(this, this);</pre>
+<p>`</p>
+
+<p>Basically, we make all of the clips that are not selected invisible (_visible = false). We then store a reference to each clip in its respective tab, and when a tab is selected, we toggle the visibility of the clips.</p>
+
+<p>The default-selected item is the red clip. So we make the green and blue clips invisible:</p>
+
+<p><code class="inline-code">
+<pre>green._visible = false;
+    blue._visible = false;</pre>
+<p></code></p>
+
+<p>We then add the tabs to the component using the addItem method.</p>
+
+<p><code class="inline-code">
+<pre>myTab.addItem("red", red);
+    myTab.addItem("green", green);
+    myTab.addItem("blue", blue);</pre>
+<p></code></p>
+
+<p>Notice that the data stored with each tab (the second parameter) is actually a reference to the tabs respective clip.</p>
+
+<p>We could also use the setDataProvider method, in which case the reference to the clip would be stored in the data property.</p>
+
+<p>We then create a new property called selectedTab. This will store a reference to the currently selected (and thus visible tab).</p>
+
+<p><code class="inline-code">
+<pre>selectedTab = red;</pre>
+<p></code></p>
+
+<p>Finally, we set the change handler for the component to the onTabChange function.</p>
+
+<p>The onTabChange function gets the clip reference from the selected tab, and then based on that toggles the state of the clips.</p>
+
+<p>First, it sets the selectedTabs visibility to false.</p>
+
+<p><code class="inline-code">
+<pre>selectedTab._visible = false;</pre>
+<p></code></p>
+
+<p>Then, we get a reference to the clip from the newly selected tab. We make that clip visible, and then set it as the selected tab:</p>
+
+<p>`
+<pre>var tab = myTab.getSelectedItem().data;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>tab._visible = true;
+<a name="line-2"></a>selectedTab = tab;&lt;/pre&gt;
+</code></pre></div>
+<p><p>`</p>
+
+<p>If you publish the application into Central and test it, the visible clip will change based on the selected tab.</p>
+
+<p>Of course, in most cases the clips would be more complex and have classes associated with them. However, the code for switching between then would be the same.</p>
+
+<p>Instead of toggling the visibility, you could also dynamically attach and remove the MovieClips. The code would pretty much be the same, except instead of setting the visibility, you would attach the clip to be displayed, and remove the previously selected clip. The main advantage to this technique is that all of your clips do not have to be loaded into memory. For applications with many views, or views that encompass a lot of functionality, this can make a significant difference in performance and memory usage.</p>
+
+<p>Here are the pros and cons of each technique:</p>
+
+<p><strong>Switching Visibility</strong></p>
+
+<ul>
+<li><p>Pro</p>
+
+<ul>
+<li>  Switching between views is relatively fast.</li>
+<li>  Views automatically maintain state.</li>
+<li>  Can access all views via ActionScript even if they are not currently displayed.</li>
+<li>  View do not need to initialize when they are switched to.</li>
+</ul></li>
+<li><p>Cons</p>
+
+<ul>
+<li>  Requires that all clips be loaded into memory (thus requires more memory).</li>
+<li>  Initial initialization takes longer, since each view has to initialize on load / activate.</li>
+</ul></li>
+</ul>
+
+<p><strong>Dynamically Attaching / Removing</strong></p>
+
+<ul>
+<li><p>Pro</p>
+
+<ul>
+<li>  Uses less memory, as only active views are loaded at any one time.</li>
+<li>  Initial initialization is relatively faster, since only the selected item has to be initialized on load /activate.</li>
+</ul></li>
+<li><p>Cons</p>
+
+<ul>
+<li>  Switching between views is relatively slower, since the view must initialize itself.</li>
+<li>  Not as efficient, since views must be initialized every time they are loaded.
+Views do not automatically maintain their state. State must be explicitly managed via ActionScript.</li> </ul> </li> </ul> 
+You can use these pros and cons to help determine the technique best suited for your application.</li>
+</ul></li>
+</ul>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

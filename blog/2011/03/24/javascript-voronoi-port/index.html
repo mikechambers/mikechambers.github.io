@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>JavaScript Voronoi port</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>JavaScript Voronoi port</h2>
+<p class="meta">Thursday, March 24, 2011</p>
+
+<div class="post">
+<p>I have always been amazed by some of the <a href="http://www.flickr.com/photos/quasimondo/tags/voronoi/">digital art work</a> that <a href="http://www.quasimondo.com/">Mario Klingemann</a> (aka <a href="http://twitter.com/Quasimondo">@Quasimondo</a> has created using with <a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronois</a>. After doing some searching, I found an early <a href="http://www.quasimondo.com/archives/000110.php">ActionScript 1 Voronoi implementation</a> that Mario did, and I ported it to JavaScript.</p>
+
+<p>I wanted to share the results:<br>
+&lt;!--more--&gt;</p>
+
+<iframe src="http://mikechambers.com/html5/easeljs/Voronoi/" width="520" height="600"></iframe>
+
+<p>Here is a graphic I created by playing around with the code:</p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/5532232341/"><img src="http://farm6.static.flickr.com/5256/5532232341_6788f59d19.jpg" alt="title"></a></p>
+
+<p>The code is pretty much a straight up port, with some minor optimizations for JavaScript. I also replaced the rendering from the Flash display list API, to <a href="http://www.easeljs.com">EaselJS</a>. All of the credit really goes to Mario who wrote the original code.</p>
+
+<p>You can view all of the code on my <a href="https://github.com/mikechambers/ExamplesByMesh/tree/master/HTML5/EaselJS/Voronoi">GitHub repository</a>, and <a href="http://www.quasimondo.com/archives/000110.php">grab the original code from Mario&#39;s website</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

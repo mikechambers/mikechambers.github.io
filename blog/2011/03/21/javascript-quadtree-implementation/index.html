@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>JavaScript QuadTree Implementation</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>JavaScript QuadTree Implementation</h2>
+<p class="meta">Monday, March 21, 2011</p>
+
+<div class="post">
+<p>Last week I was playing around with a little <a href="http://www.easeljs.com">EaselJS</a> experiment which required me to do collision detection against all items on the screen. This worked fine with a small number of items, but of course, the more items I added, the slower everything became.</p>
+
+<p>I knew that I needed to optimize the code, and pare down the number of collision checks. I have done this before with a grid (even held a <a href="http://www.mikechambers.com/blog/tag/as3dtc1/">contest</a> for it) and was going to port that AS3 code to JavaScript. However, <a href="http://unitzeroone.com/blog/">Ralph Hauwert</a> suggested I look at implemented a QuadTree, which should be more efficient.<br>
+&lt;!--more--&gt;</p>
+
+<p>A <a href="http://en.wikipedia.org/wiki/Quadtree">QuadTree</a> is a data structure in which the coordinate space is broken up into regions / nodes that contain items. If too many items are added into a node, then that node is divided into 4 sub-nodes. This can provide very fast lookup of items based on the coordinates and coordinates and dimensions.</p>
+
+<p>There are a couple of implementations in both JavaScript and ActionScript (Michael Baczynski has a nice <a href="http://lab.polygonal.de/2007/09/09/quadtree-demonstration/">AS3 implementation</a>), but I decided that I wanted to learn a bit more and implement one from scratch.</p>
+
+<p>The result if a QuadTree implemented in JavaScript that works with both 2D coordinates (x,y) and well as regions / items with dimensions.</p>
+
+<p>I&#39;ve released all of the code under an MIT License, and you can <a href="https://github.com/mikechambers/ExamplesByMesh/tree/master/JavaScript/QuadTree">download it from my GitHub repository</a>.</p>
+
+<p>Here is an example of the tree in action:</p>
+
+<iframe src="/html5/javascript/QuadTree/examples/collision.html" width="520" height="600"></iframe>
+
+<p>This example shows how to use the QuadTree to pare down the number of items that need to be tested for collision detection.</p>
+
+<p>I have created a couple of other simple examples:</p>
+
+<ul>
+<li>  <a href="/html5/javascript/QuadTree/examples/collision.html">Collision Detection (shown above)</a></li>
+<li>  <a href="/html5/javascript/QuadTree/examples/insert.html">Inserting points</a></li>
+<li>  <a href="/html5/javascript/QuadTree/examples/insert_bounds.html">Inserting items with bounds</a></li>
+<li>  <a href="/html5/javascript/QuadTree/examples/retrieve.html">Retrieving points</a></li>
+<li>  <a href="/html5/javascript/QuadTree/examples/retrieve_bounds.html">Retrieving items with bounds</a></li>
+</ul>
+
+<p>The basic code is pretty simple. Here is an example showing using the QuadTree to store and retrieve points:</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="kd">var</span> <span class="nx">pointQuad</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<a name="line-2"></a><span class="kd">var</span> <span class="nx">bounds</span> <span class="o">=</span> <span class="p">{</span>
+<a name="line-3"></a>    <span class="nx">x</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+<a name="line-4"></a>    <span class="nx">y</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+<a name="line-5"></a>    <span class="nx">width</span><span class="o">:</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span>
+<a name="line-6"></a>    <span class="nx">height</span><span class="o">:</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span>
+<a name="line-7"></a><span class="p">}</span>
+<a name="line-8"></a>
+<a name="line-9"></a><span class="kd">var</span> <span class="nx">quad</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">QuadTree</span><span class="p">(</span><span class="nx">bounds</span><span class="p">,</span> <span class="nx">pointQuad</span><span class="p">);</span>
+<a name="line-10"></a>
+<a name="line-11"></a><span class="c1">//insert a random point</span>
+<a name="line-12"></a><span class="nx">quad</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span><span class="mi">12</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span><span class="mi">25</span><span class="p">});</span>
+<a name="line-13"></a>
+<a name="line-14"></a><span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">quad</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span><span class="mi">11</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span><span class="mi">20</span><span class="p">});</span>
+</code></pre></div>
+<p>And here is a simple example showing using the QuadTree to store and retrieve items with dimensions / bounds:</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="kd">var</span> <span class="nx">bounds</span> <span class="o">=</span> <span class="p">{</span>
+<a name="line-2"></a>    <span class="nx">x</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+<a name="line-3"></a>    <span class="nx">y</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+<a name="line-4"></a>    <span class="nx">width</span><span class="o">:</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span>
+<a name="line-5"></a>    <span class="nx">height</span><span class="o">:</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span>
+<a name="line-6"></a><span class="p">}</span>
+<a name="line-7"></a><span class="kd">var</span> <span class="nx">quad</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">QuadTree</span><span class="p">(</span><span class="nx">bounds</span><span class="p">);</span>
+<a name="line-8"></a>
+<a name="line-9"></a><span class="c1">//insert a random point</span>
+<a name="line-10"></a><span class="nx">quad</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span>
+<a name="line-11"></a>    <span class="nx">x</span><span class="o">:</span><span class="mi">12</span><span class="p">,</span> 
+<a name="line-12"></a>    <span class="nx">y</span><span class="o">:</span><span class="mi">25</span><span class="p">,</span>
+<a name="line-13"></a>    <span class="nx">height</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span>
+<a name="line-14"></a>    <span class="nx">width</span><span class="o">:</span><span class="mi">25</span>
+<a name="line-15"></a><span class="p">});</span>
+<a name="line-16"></a>
+<a name="line-17"></a><span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">quad</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span><span class="mi">11</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span><span class="mi">20</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span><span class="mi">20</span><span class="p">});</span>
+</code></pre></div>
+<p>Again, you can download all of the code from my <a href="https://github.com/mikechambers/ExamplesByMesh/tree/master/JavaScript/QuadTree">GitHub Repository</a>. It seems fairly solid at this point, but if you find any issues, or have any suggestions either fork the project, and submit the changes to me, or post them in the comments.</p>
+
+<p>There is still a lot of room for optimization and improvement in the implementation, such as pre-allocating the nodes, but Ill leave that for another day.</p>
+
+<p>Btw, big thanks to <a href="http://unitzeroone.com/blog/">Ralph Hauwert</a> for pointing me in the right direction for my project.</p>
+
+<p>Post any questions or suggestions in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

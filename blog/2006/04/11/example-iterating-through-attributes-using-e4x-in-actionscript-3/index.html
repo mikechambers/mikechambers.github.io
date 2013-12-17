@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Example : Iterating through Attributes using E4X in ActionScript 3</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Example : Iterating through Attributes using E4X in ActionScript 3</h2>
+<p class="meta">Tuesday, April 11, 2006</p>
+
+<div class="post">
+<p>Werner Sharp (one of the Flash Player engineers responsible for E4X in the player) posted an example on the <a href="http://groups.yahoo.com/group/flexcoders/">FlexCoders list</a> showing how to dynamically iterate over XML attributes and their values using E4X in ActionScript 3. I wanted to post it here as it is useful to know, and to store for future reference.<br>
+&lt;!--more--&gt;</p>
+
+<p>This code below actually shows two ways to do this. The first using a for each in loop, and the second using a for loop.</p>
+
+<p>`
+<pre>package
+{
+    import flash.display.Sprite;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>public class XMLAttributeExample extends Sprite
+<a name="line-2"></a>{
+<a name="line-3"></a>    public function XMLAttributeExample()
+<a name="line-4"></a>    {
+<a name="line-5"></a>        var xml1:XML = &lt;Node1 a=&#39;b&#39; c=&#39;d&#39; e=&#39;f&#39; g=&#39;h&#39;/&gt;
+<a name="line-6"></a>
+<a name="line-7"></a>
+<a name="line-8"></a>        trace(&quot;---Example 1 : for each in---&quot;);
+<a name="line-9"></a>        for each(var a:XML in xml1.@*) 
+<a name="line-10"></a>        {
+<a name="line-11"></a>            trace (a.name() + &quot; : &quot; + a.toXMLString());
+<a name="line-12"></a>        }       
+<a name="line-13"></a>
+<a name="line-14"></a>        trace(&quot;---Example 2 : for---&quot;);
+<a name="line-15"></a>        var atts:XMLList = xml1.attributes();
+<a name="line-16"></a>        for (var i:int = 0; i &lt; atts.length(); i++)
+<a name="line-17"></a>        {
+<a name="line-18"></a>            trace (String(atts[i].name()) + &quot; : &quot; + atts[i].toXMLString());
+<a name="line-19"></a>        }           
+<a name="line-20"></a>    }
+<a name="line-21"></a>}
+</code></pre></div>
+<p>}
+</pre>
+<p>`</p>
+
+<p>I have uploaded this example into our subversion repository. You can view it <a href="http://labs.macromedia.com/svn/flashplatform/?/projects/actionscriptsamples/trunk/src/actionscript3/e4x/AttributeLoopingExample/">here</a>.</p>
+
+<p>You can compile this using the mxmlc or Flex Builder 2 betas which you can grab from <a href="http://www.macromedia.com/go/labs_flex2_downloads">labs</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

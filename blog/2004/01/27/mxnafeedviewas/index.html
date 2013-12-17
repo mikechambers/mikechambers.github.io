@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>MXNAFeedView.as</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>MXNAFeedView.as</h2>
+<p class="meta">Tuesday, January 27, 2004</p>
+
+<div class="post">
+<p>Here is the next class from the <a href="http://www.markme.com/mesh/archives/004255.cfm">MXNA Web Service sample app</a>. This is the MXNAFeedView class, and is the main (and currently only) view class of the app.</p>
+
+<p>It contains most of the UI elements for selecting and displaying categories and feeds.</p>
+
+<p>You can also view the <a href="http://www.markme.com/mesh/archives/004267.cfm">MXNAAppController</a> class.</p>
+
+<p>I will post the rest of the classes as I comment and finish them.</p>
+
+<p>As usual, if you have any suggestions or questions, post them in the comments. </p>
+
+<!--more-->
+
+<p>`
+<pre>import mx.controls.ComboBox;
+import mx.controls.DataGrid
+import mx.controls.TextArea;</p>
+
+<p>import com.macromedia.mesh.events.EventProxy;
+import com.macromedia.mxna.app.MXNARankingCell;</p>
+
+<p>/*
+    This class is the main view application. It contains the primary
+    UI elements for displaying information to the user.
+<em>/
+class com.macromedia.mxna.app.MXNAFeedView extends MovieClip
+{
+    /</em> Declar functions that EventDispatcher adds */
+    private var dispatchEvent:Function;
+    public var addEventListener:Function;
+    public var removeEventListener:Function;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>/* Components used in class */
+<a name="line-2"></a>private var category_cb:ComboBox;
+<a name="line-3"></a>private var feedDG:DataGrid;
+<a name="line-4"></a>private var feedField:TextArea;
+<a name="line-5"></a>private var titleField:TextArea;
+<a name="line-6"></a>private var urlField:TextArea;
+<a name="line-7"></a>
+<a name="line-8"></a>/* used to load ranking stars into */
+<a name="line-9"></a>private var loadingClip:MovieClip;
+<a name="line-10"></a>
+<a name="line-11"></a>/* 
+<a name="line-12"></a>    These are proxies so we can direct the events to individual methods
+<a name="line-13"></a>    and so we can run them in the scope of this class
+<a name="line-14"></a>*/
+<a name="line-15"></a>private var categoryProxy:EventProxy;
+<a name="line-16"></a>private var feedGridProxy:EventProxy;
+<a name="line-17"></a>
+<a name="line-18"></a>/* The enabled state of the class */
+<a name="line-19"></a>private var isEnabled:Boolean;
+<a name="line-20"></a>
+<a name="line-21"></a>/* 
+<a name="line-22"></a>    We have to store the current direction of the ranking sort
+<a name="line-23"></a>    so we can manually sort it
+<a name="line-24"></a>*/
+<a name="line-25"></a>private var rankingSortASC:Boolean;
+<a name="line-26"></a>
+<a name="line-27"></a>/* Array of Months. This should really be in some */
+<a name="line-28"></a>private var MONTHS:Array = [&quot;January&quot;,
+<a name="line-29"></a>            &quot;February&quot;,
+<a name="line-30"></a>        &quot;March&quot;,
+<a name="line-31"></a>        &quot;Arpil&quot;,
+<a name="line-32"></a>        &quot;May&quot;,
+<a name="line-33"></a>        &quot;June&quot;,
+<a name="line-34"></a>        &quot;July&quot;,
+<a name="line-35"></a>        &quot;August&quot;,
+<a name="line-36"></a>        &quot;September&quot;,
+<a name="line-37"></a>        &quot;October&quot;,
+<a name="line-38"></a>        &quot;November&quot;,
+<a name="line-39"></a>        &quot;December&quot;];
+<a name="line-40"></a>
+<a name="line-41"></a>/* Constructor. Most initialization done in onLoad */
+<a name="line-42"></a>public function MXNAFeedView()
+<a name="line-43"></a>{
+<a name="line-44"></a>    /* initialize this class to broadclass events using EventDispatcher*/
+<a name="line-45"></a>    mx.events.EventDispatcher.initialize(this);
+<a name="line-46"></a>}
+<a name="line-47"></a>
+<a name="line-48"></a>/* 
+<a name="line-49"></a>    called when the class / symbol is loaded on stage. Most of the
+<a name="line-50"></a>    initialization is done here
+<a name="line-51"></a>*/
+<a name="line-52"></a>private function onLoad():Void
+<a name="line-53"></a>{
+<a name="line-54"></a>    isEnabled = true;
+<a name="line-55"></a>    rankingSortASC = true;
+<a name="line-56"></a>
+<a name="line-57"></a>    /* 
+<a name="line-58"></a>        Create a proxy so the change event from the category ComboBox
+<a name="line-59"></a>        can go to its own method, and be called in the scope of
+<a name="line-60"></a>        this class
+<a name="line-61"></a>    */
+<a name="line-62"></a>    categoryProxy = new EventProxy(this, &quot;onCategorySelect&quot;);
+<a name="line-63"></a>    category_cb.addEventListener(&quot;change&quot;, categoryProxy);
+<a name="line-64"></a>
+<a name="line-65"></a>    //show up to 10 items at a time in the combo box dropdown
+<a name="line-66"></a>    category_cb.rowCount = 10;
+<a name="line-67"></a>
+<a name="line-68"></a>    //only show the following columns in the datagrid
+<a name="line-69"></a>    feedDG.columnNames = [&quot;title&quot;, &quot;name&quot;, &quot;ranking&quot;];
+<a name="line-70"></a>
+<a name="line-71"></a>    //size the columns in the datagrid
+<a name="line-72"></a>    feedDG.getColumnAt(0).width = feedDG._width - 200;
+<a name="line-73"></a>    feedDG.getColumnAt(1).width = 105;
+<a name="line-74"></a>    feedDG.getColumnAt(2).width = 95;
+<a name="line-75"></a>
+<a name="line-76"></a>    //use a custom cell renderer for the ranking column.
+<a name="line-77"></a>    feedDG.getColumnAt(2).cellRenderer = &quot;MXNARankingCell&quot;;
+<a name="line-78"></a>    //don&#39;t sort ranking column automatically
+<a name="line-79"></a>    feedDG.getColumnAt(2).sortOnHeaderRelease = false;
+<a name="line-80"></a>
+<a name="line-81"></a>    //catch the headerRelease event so we can sort the ranking column manually
+<a name="line-82"></a>    feedDG.addEventListener(&quot;headerRelease&quot;, this);
+<a name="line-83"></a>
+<a name="line-84"></a>    /* 
+<a name="line-85"></a>        Create a proxy so the change event from the datagrid
+<a name="line-86"></a>        can go to its own method, and be called in the scope of
+<a name="line-87"></a>        this class
+<a name="line-88"></a>    */      
+<a name="line-89"></a>    feedGridProxy = new EventProxy(this, &quot;onFeedGridSelect&quot;);
+<a name="line-90"></a>    feedDG.addEventListener(&quot;change&quot;, feedGridProxy);
+<a name="line-91"></a>
+<a name="line-92"></a>    //initialize feed data TextArea
+<a name="line-93"></a>    feedField.html = true;
+<a name="line-94"></a>    feedField.editable = false;
+<a name="line-95"></a>
+<a name="line-96"></a>    //initialize feed title TextArea
+<a name="line-97"></a>    titleField.html = true;
+<a name="line-98"></a>    titleField.editable = false; 
+<a name="line-99"></a>    titleField.wordWrap = false;
+<a name="line-100"></a>    //no border
+<a name="line-101"></a>    titleField.setStyle(&quot;borderStyle&quot;, &quot;none&quot;);
+<a name="line-102"></a>
+<a name="line-103"></a>    //initialize feed url TextAre
+<a name="line-104"></a>    urlField.html = true;
+<a name="line-105"></a>    urlField.editable = false; 
+<a name="line-106"></a>    urlField.wordWrap = false;
+<a name="line-107"></a>    //no border
+<a name="line-108"></a>    urlField.setStyle(&quot;borderStyle&quot;, &quot;none&quot;);
+<a name="line-109"></a>}
+<a name="line-110"></a>
+<a name="line-111"></a>//setter for setting the enabled property
+<a name="line-112"></a>public function set enabled(enabled:Boolean)
+<a name="line-113"></a>{
+<a name="line-114"></a>    isEnabled = enabled;
+<a name="line-115"></a>
+<a name="line-116"></a>    category_cb.enabled = enabled;
+<a name="line-117"></a>    feedDG.enabled = enabled;
+<a name="line-118"></a>    feedField.enabled = enabled;   
+<a name="line-119"></a>    titleField.enabled = enabled;
+<a name="line-120"></a>    urlField.enabled = enabled;
+<a name="line-121"></a>}
+<a name="line-122"></a>
+<a name="line-123"></a>//getter for enabled property
+<a name="line-124"></a>public function get enabled():Boolean
+<a name="line-125"></a>{
+<a name="line-126"></a>    return isEnabled;
+<a name="line-127"></a>}
+<a name="line-128"></a>
+<a name="line-129"></a>//populates the ComboBox with categories
+<a name="line-130"></a>//Takes on optional second parameter that specifies which field the label
+<a name="line-131"></a>//is stored within
+<a name="line-132"></a>public function setCategories(categories:Array, labelField:String):Void
+<a name="line-133"></a>{
+<a name="line-134"></a>    if(labelField != undefined)
+<a name="line-135"></a>    {
+<a name="line-136"></a>        category_cb.labelField = labelField;
+<a name="line-137"></a>    }
+<a name="line-138"></a>
+<a name="line-139"></a>    category_cb.dataProvider = categories;
+<a name="line-140"></a>}
+<a name="line-141"></a>
+<a name="line-142"></a>//setter for the feeds to be displayed within the DataGrid
+<a name="line-143"></a>public function set dataProvider(dp:Array)
+<a name="line-144"></a>{
+<a name="line-145"></a>    //clear all TextArea fields
+<a name="line-146"></a>    clearFields();
+<a name="line-147"></a>
+<a name="line-148"></a>    //set the dataprovider for the DataGrid
+<a name="line-149"></a>    feedDG.dataProvider = dp;
+<a name="line-150"></a>
+<a name="line-151"></a>    //select the first row in the data grid
+<a name="line-152"></a>    feedDG.selectedIndex = 0;
+<a name="line-153"></a>
+<a name="line-154"></a>    //since the previous line does not trigger the change event, we need to
+<a name="line-155"></a>    //manually call the displayFeed method, to display the info on the first
+<a name="line-156"></a>    //row
+<a name="line-157"></a>    displayFeed(feedDG.selectedItem);
+<a name="line-158"></a>}
+<a name="line-159"></a>
+<a name="line-160"></a>//simple methods that clears the TextArea and ranking stars
+<a name="line-161"></a>private function clearFields(Void):Void
+<a name="line-162"></a>{
+<a name="line-163"></a>    titleField.text = &quot;&quot;;
+<a name="line-164"></a>    feedField.text = &quot;&quot;;
+<a name="line-165"></a>    urlField.text = &quot;&quot;;
+<a name="line-166"></a>    loadingClip.star.removeMovieClip();
+<a name="line-167"></a>}
+<a name="line-168"></a>
+<a name="line-169"></a>//simple method to format a Date object into the format we want to display
+<a name="line-170"></a>private function formatDate(d:Date):String
+<a name="line-171"></a>{
+<a name="line-172"></a>    //January 25, 2004Ã¯Â¿Â½Ã¯Â¿Â½11:30 AM
+<a name="line-173"></a>
+<a name="line-174"></a>    var hours:Number = d.getHours();
+<a name="line-175"></a>    var timeOfDay:String = &quot;AM&quot;;
+<a name="line-176"></a>
+<a name="line-177"></a>    if(hours &gt; 12)
+<a name="line-178"></a>    {
+<a name="line-179"></a>        timeOfDay = &quot;PM&quot;;
+<a name="line-180"></a>        hours = hours - 12;
+<a name="line-181"></a>    }
+<a name="line-182"></a>
+<a name="line-183"></a>    //note, this will only work up until 2010
+<a name="line-184"></a>    var year:Number = d.getYear() - 100;
+<a name="line-185"></a>
+<a name="line-186"></a>    //TODO: the minutes to be formatted when it is 1-9.
+<a name="line-187"></a>    var out:String = MONTHS[d.getMonth()] + &quot; &quot; + d.getDate() + &quot;, &quot; +
+<a name="line-188"></a>            &quot;200&quot; + year + &quot;  &quot; + hours + &quot;:&quot; + d.getMinutes() + 
+<a name="line-189"></a>        &quot; &quot; + timeOfDay + &quot; UTC&quot;;
+<a name="line-190"></a>    return out;
+<a name="line-191"></a>}
+<a name="line-192"></a>
+<a name="line-193"></a>//takes an item from the DataGrid, and display the specific information
+<a name="line-194"></a>private function displayFeed(feedItem:Object):Void
+<a name="line-195"></a>{
+<a name="line-196"></a>    /*
+<a name="line-197"></a>        feedItem contains the following properties:
+<a name="line-198"></a>            websiteUrl
+<a name="line-199"></a>            title
+<a name="line-200"></a>            link
+<a name="line-201"></a>            excerpt
+<a name="line-202"></a>            dateAggregated
+<a name="line-203"></a>            ranking
+<a name="line-204"></a>            clicks
+<a name="line-205"></a>            category
+<a name="line-206"></a>            name
+<a name="line-207"></a>            id
+<a name="line-208"></a>    */
+<a name="line-209"></a>
+<a name="line-210"></a>    //bail if undefined
+<a name="line-211"></a>    if(feedItem == undefined)
+<a name="line-212"></a>    {
+<a name="line-213"></a>        return;
+<a name="line-214"></a>    }
+<a name="line-215"></a>
+<a name="line-216"></a>    //title field
+<a name="line-217"></a>    titleField.text = &quot;&lt;b&gt;&quot; + createLink(feedItem.title, feedItem.link, true) + &quot;&lt;/b&gt; (&quot; + 
+<a name="line-218"></a>                createLink(feedItem.name, feedItem.websiteUrl, true) + &quot;)&quot;;
+<a name="line-219"></a>
+<a name="line-220"></a>    //feed field
+<a name="line-221"></a>    feedField.text =  &quot;&lt;i&gt;&quot; + formatDate(feedItem.dateAggregated) +  &quot;&lt;/i&gt;&lt;br&gt;&quot; +
+<a name="line-222"></a>                feedItem.excerpt + &quot;&lt;br&gt;&lt;br&gt;&quot; + createLink(&quot;Link...&quot;, feedItem.link, true, true);
+<a name="line-223"></a>
+<a name="line-224"></a>    //urlField
+<a name="line-225"></a>    urlField.text = createLink(feedItem.link, feedItem.link, true, true);       
+<a name="line-226"></a>
+<a name="line-227"></a>    //ranking is passed in as a string
+<a name="line-228"></a>    var star:Number = Number(feedItem.ranking);
+<a name="line-229"></a>
+<a name="line-230"></a>    //normally, we only rank items within the last 24 hours. Items older than
+<a name="line-231"></a>    //24 hours rank 0, and dont show any graphic. However, this was confusing
+<a name="line-232"></a>    //in the UI, so we will give items older than 24 hours 0 stars.
+<a name="line-233"></a>    //Note that this does not necessarily mean they have no clicks, but 
+<a name="line-234"></a>    //rather that they are older than 24 hours.
+<a name="line-235"></a>    //TODO : Fix this. Maybe a different graphic.
+<a name="line-236"></a>    if(star &lt; 1)
+<a name="line-237"></a>    {
+<a name="line-238"></a>        star = 1;
+<a name="line-239"></a>    }
+<a name="line-240"></a>
+<a name="line-241"></a>    //display the appropriate star symbol
+<a name="line-242"></a>    loadingClip.attachMovie(&quot;star&quot; + star, &quot;star&quot;, 998);
+<a name="line-243"></a>
+<a name="line-244"></a>}
+<a name="line-245"></a>
+<a name="line-246"></a>//simple method that generates HTML code for a link
+<a name="line-247"></a>//optionally takes two extra parameters that specify whether to
+<a name="line-248"></a>//color(highlight) and underline the link.
+<a name="line-249"></a>//
+<a name="line-250"></a>//TODO : Look into using style sheets
+<a name="line-251"></a>private function createLink(title:String, link:String, 
+<a name="line-252"></a>                highlight:Boolean, underline:Boolean):String
+<a name="line-253"></a>{
+<a name="line-254"></a>    //default highlight to false
+<a name="line-255"></a>    if(highlight == undefined)
+<a name="line-256"></a>    {
+<a name="line-257"></a>        highlight = false;
+<a name="line-258"></a>    }
+<a name="line-259"></a>
+<a name="line-260"></a>    //default underline to false
+<a name="line-261"></a>    if(underline == undefined)
+<a name="line-262"></a>    {
+<a name="line-263"></a>        underline = false;
+<a name="line-264"></a>    }
+<a name="line-265"></a>
+<a name="line-266"></a>    //create the link
+<a name="line-267"></a>    var out:String = &quot;&lt;a href=\&quot;&quot; + link +&quot;\&quot;&gt;&quot; + title + &quot;&lt;/a&gt;&quot;;
+<a name="line-268"></a>
+<a name="line-269"></a>    //see if we need to add a font tag
+<a name="line-270"></a>    if(highlight)
+<a name="line-271"></a>    {
+<a name="line-272"></a>        out = &quot;&lt;font color=\&quot;#003366\&quot;&gt;&quot; + out + &quot;&lt;/font&gt;&quot;;
+<a name="line-273"></a>    }
+<a name="line-274"></a>
+<a name="line-275"></a>    //see if we need to add underline tags
+<a name="line-276"></a>    if(underline)
+<a name="line-277"></a>    {
+<a name="line-278"></a>        out = &quot;&lt;u&gt;&quot; + out + &quot;&lt;/u&gt;&quot;;
+<a name="line-279"></a>    }
+<a name="line-280"></a>
+<a name="line-281"></a>    return out;
+<a name="line-282"></a>}
+<a name="line-283"></a>
+<a name="line-284"></a>/******** UI Event Handlers *********/
+<a name="line-285"></a>
+<a name="line-286"></a>//broadcast by ComboBox when user selects an item in the combo
+<a name="line-287"></a>private function onCategorySelect(eventObj:Object):Void
+<a name="line-288"></a>{        
+<a name="line-289"></a>    //get the selected category
+<a name="line-290"></a>    var category:String = category_cb.selectedItem[category_cb.labelField];  
+<a name="line-291"></a>
+<a name="line-292"></a>    //broadcast an event that a category has been selected
+<a name="line-293"></a>    dispatchEvent({type:&quot;onSelectCategory&quot;, category:category});
+<a name="line-294"></a>}
+<a name="line-295"></a>
+<a name="line-296"></a>//broadcast by the DataGrid when the user selects a row
+<a name="line-297"></a>private function onFeedGridSelect(eventObj:Object)
+<a name="line-298"></a>{
+<a name="line-299"></a>    //get and display the item from the selected row
+<a name="line-300"></a>    var item:Object = feedDG.selectedItem;
+<a name="line-301"></a>    displayFeed(item);
+<a name="line-302"></a>}
+<a name="line-303"></a>
+<a name="line-304"></a>//broadcast by the DataGrid when the user releases from click one of the
+<a name="line-305"></a>//column headers
+<a name="line-306"></a>private function headerRelease(eventObj:Object)
+<a name="line-307"></a>{
+<a name="line-308"></a>    //we only care if they clicked the ranking column, so ignore clicks
+<a name="line-309"></a>    //from other columsn
+<a name="line-310"></a>    //TODO : columnIndex should be put in a CONSTANT
+<a name="line-311"></a>    if(eventObj.columnIndex != 2)
+<a name="line-312"></a>    {
+<a name="line-313"></a>        return;
+<a name="line-314"></a>    }
+<a name="line-315"></a>
+<a name="line-316"></a>    //reverse the ranking
+<a name="line-317"></a>    rankingSortASC = !rankingSortASC;
+<a name="line-318"></a>
+<a name="line-319"></a>    //figure out which way to sort, and then call the appropriate function
+<a name="line-320"></a>    //TODO : figure out if there is a better way to do this
+<a name="line-321"></a>    var sortFunc = (rankingSortASC)? sortGridByRankingASC : sortGridByRankingDESC;
+<a name="line-322"></a>
+<a name="line-323"></a>    //sort the DG
+<a name="line-324"></a>    feedDG.sortItems(sortFunc);
+<a name="line-325"></a>}    
+<a name="line-326"></a>
+<a name="line-327"></a>//custom sorting functions for the ranking column
+<a name="line-328"></a>private function sortGridByRankingASC(a,b)
+<a name="line-329"></a>{
+<a name="line-330"></a>    return Number(a.ranking) &gt; Number(b.ranking);
+<a name="line-331"></a>}  
+<a name="line-332"></a>
+<a name="line-333"></a>private function sortGridByRankingDESC(a,b)
+<a name="line-334"></a>{
+<a name="line-335"></a>    return Number(a.ranking) &lt; Number(b.ranking);
+<a name="line-336"></a>}    
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

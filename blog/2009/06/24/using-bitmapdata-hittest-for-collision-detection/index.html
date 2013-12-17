@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Using BitmapData.hitTest for Collision Detection</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Using BitmapData.hitTest for Collision Detection</h2>
+<p class="meta">Wednesday, June 24, 2009</p>
+
+<div class="post">
+<p>The Flash Player contains a number of APIs for handling collision detection within Flash content. The <a href="http://livedocs.adobe.com/flex/3/langref/flash/display/DisplayObject.html">DisplayObject</a> class contains hitTest and hitTestPoint which can be useful if you need to detect bounding box collisions, or detect collisions between an individual point and bounding boxes or shapes.</p>
+
+<p>However, BitmapData also contains a <a href="http://livedocs.adobe.com/flex/3/langref/flash/display/BitmapData.html#hitTest()">hitTest</a> API, which can check collisions on BitmapData. Where the API really shines, is when you need to detect collisions between the visible areas of DisplayObjects (and not just of their bounding boxes). The API contains functionality for testing collisions between BitmapData and a Point, BitmapData and a Rectangle, and BitmapData and another BitmapData. It is the last item that I will focus on in this post.<br>
+&lt;!--more--&gt;</p>
+
+<p>Since you can get BitmapData from a DisplayObject the API can be used to detect very exact collisions between the visible areas of DisplayObjects, even if the DisplayObjects have irregular shapes.</p>
+
+<p>Here is a simple example that uses the API to detect collisions between the visible areas of two MovieClips using BitmapData.hitTest.</p>
+
+<p><span>
+<script type="text/javascript" src="/blog/scripts/swfobject/swfobject.js"></script>
+<script type="text/javascript">
+    var flashvars = {};
+    var params = {};
+    var attributes = {};
+    attributes.id = &quot;bitmaphittest<em>1&quot;;
+    swfobject.embedSWF(&quot;/blog/files/collisiondetection/bitmaphittest</em>1.swf&quot;, &quot;myAlternativeContent_1&quot;, &quot;550&quot;, &quot;400&quot;, &quot;9.0.0&quot;, &quot;expressInstall.swf&quot;, flashvars, params, attributes);
+</script></p>
+
+<p><div id="myAlternativeContent_1">
+    <a href="http://www.adobe.com/go/getflashplayer">
+        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+    </a>
+</div</span></p>
+
+<p>And here is the code</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="k">var</span> <span class="nx">redRect</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="nx">redClip</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-2"></a><span class="k">var</span> <span class="nx">redClipBmpData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">redRect</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> <span class="nx">redRect</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-3"></a><span class="nx">redClipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">redClip</span><span class="p">);</span>
+<a name="line-4"></a>
+<a name="line-5"></a><span class="k">var</span> <span class="nx">blueRect</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="nx">blueClip</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-6"></a><span class="k">var</span> <span class="nx">blueClipBmpData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">blueRect</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> <span class="nx">blueRect</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-7"></a><span class="nx">blueClipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">blueClip</span><span class="p">);</span>
+<a name="line-8"></a>
+<a name="line-9"></a><span class="nx">addEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="o">,</span> <span class="nx">enterFrame</span><span class="p">);</span>
+<a name="line-10"></a>
+<a name="line-11"></a><span class="kd">function</span> <span class="nx">enterFrame</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-12"></a><span class="p">{</span>
+<a name="line-13"></a>    <span class="nx">blueClip</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">mouseX</span><span class="o">;</span>
+<a name="line-14"></a>    <span class="nx">blueClip</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">mouseY</span><span class="o">;</span>
+<a name="line-15"></a>
+<a name="line-16"></a>    <span class="k">if</span><span class="p">(</span><span class="nx">redClipBmpData</span><span class="p">.</span><span class="nx">hitTest</span><span class="p">(</span><span class="k">new</span> <span class="nb">Point</span><span class="p">(</span><span class="nx">redClip</span><span class="p">.</span><span class="nx">x</span><span class="o">,</span> <span class="nx">redClip</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span><span class="o">,</span>
+<a name="line-17"></a>                                <span class="mi">255</span><span class="o">,</span>
+<a name="line-18"></a>                                <span class="nx">blueClipBmpData</span><span class="o">,</span>
+<a name="line-19"></a>                                <span class="k">new</span> <span class="nb">Point</span><span class="p">(</span><span class="nx">blueClip</span><span class="p">.</span><span class="nx">x</span><span class="o">,</span> <span class="nx">blueClip</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span><span class="o">,</span>
+<a name="line-20"></a>                                <span class="mi">255</span>
+<a name="line-21"></a>
+<a name="line-22"></a>                          <span class="p">))</span>
+<a name="line-23"></a>    <span class="p">{</span>
+<a name="line-24"></a>        <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;hit&quot;</span><span class="p">);</span>
+<a name="line-25"></a>        <span class="nx">redClip</span><span class="p">.</span><span class="nx">filters</span> <span class="o">=</span> <span class="p">[</span><span class="k">new</span> <span class="nb">GlowFilter</span><span class="p">()];</span>
+<a name="line-26"></a>    <span class="p">}</span>
+<a name="line-27"></a>    <span class="k">else</span>
+<a name="line-28"></a>    <span class="p">{</span>
+<a name="line-29"></a>        <span class="nx">redClip</span><span class="p">.</span><span class="nx">filters</span> <span class="o">=</span> <span class="p">[];</span>
+<a name="line-30"></a>    <span class="p">}</span>
+<a name="line-31"></a><span class="p">}</span>
+</code></pre></div>
+<p>Basically, the content contains two MovieClips on the timeline. We draw the graphics for each MovieClip into a BitmapData instance, and then use the BitmapData.hitTest API to see if the visible parts of the MovieClip (non-transparent) instances collide.</p>
+
+<p>Couple of notes on the example:</p>
+
+<ol>
+<li><p>The initial fill for the BitmapData is transparent pixels. This is necessary to detect just the visible areas of the DisplayObject.</p></li>
+<li><p>The Point instances passed to hitTest are used to align the BitmapData instances for the comparisons.</p></li>
+</ol>
+
+<p>This example works regardless of the contents or shape of the DisplayObjects. However, if either of the DisplayObjects have had any transformations applied to them (such as rotation), then the collision detection wont work correctly.</p>
+
+<p>In order to get it to work, you need to apply a Matrix when drawing the BitmapData to account for the transformation applied to one or both DisplayObjects. If you haven&#39;t worked with Matrices and DisplayObject transformations, this can be a little daunting at first (it was for me). If you are new to using Matrices, I suggest reading this <a href="http://www.senocular.com/flash/tutorials/transformmatrix/">excellent article on Matrices in Flash over at senocular.com</a>.</p>
+
+<p>Luckily for me, Trevor McCauley, who runs <a href="http://www.senocular.com/">senocular.com</a>, also happens to works for Adobe on the Flash Player team. He really helped me understand how how to get the hit detection to work when the DisplayObjects have had transformations applied to them.</p>
+
+<p>Here is the example:</p>
+
+<p><span>
+<script type="text/javascript">
+    var flashvars = {};
+    var params = {};
+    var attributes = {};
+    attributes.id = &quot;bitmaphittest<em>2&quot;;
+    swfobject.embedSWF(&quot;/blog/files/collisiondetection/bitmaphittest</em>2.swf&quot;, &quot;myAlternativeContent_2&quot;, &quot;550&quot;, &quot;400&quot;, &quot;9.0.0&quot;, &quot;expressInstall.swf&quot;, flashvars, params, attributes);
+</script></p>
+
+<p><div id="myAlternativeContent_2">
+    <a href="http://www.adobe.com/go/getflashplayer">
+        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+    </a>
+</div></span></p>
+
+<p>and the code:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="nx">addEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="o">,</span> <span class="nx">enterFrame</span><span class="p">);</span>
+<a name="line-2"></a>
+<a name="line-3"></a><span class="kd">function</span> <span class="nx">enterFrame</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-4"></a><span class="p">{</span>
+<a name="line-5"></a>    <span class="nx">blueClip</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">mouseX</span><span class="o">;</span>
+<a name="line-6"></a>    <span class="nx">blueClip</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">mouseY</span><span class="o">;</span>    
+<a name="line-7"></a>
+<a name="line-8"></a>    <span class="nx">redClip</span><span class="p">.</span><span class="nx">rotation</span><span class="o">++;</span>
+<a name="line-9"></a>
+<a name="line-10"></a>    <span class="k">var</span> <span class="nx">blueRect</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="nx">blueClip</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-11"></a>    <span class="k">var</span> <span class="nx">blueOffset</span><span class="o">:</span><span class="nb">Matrix</span> <span class="o">=</span> <span class="nx">blueClip</span><span class="p">.</span><span class="nx">transform</span><span class="p">.</span><span class="nx">matrix</span><span class="o">;</span>
+<a name="line-12"></a>    <span class="nx">blueOffset</span><span class="p">.</span><span class="nx">tx</span> <span class="o">=</span> <span class="nx">blueClip</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">blueRect</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-13"></a>    <span class="nx">blueOffset</span><span class="p">.</span><span class="nx">ty</span> <span class="o">=</span> <span class="nx">blueClip</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">blueRect</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>    
+<a name="line-14"></a>
+<a name="line-15"></a>    <span class="k">var</span> <span class="nx">blueClipBmpData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">blueRect</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> <span class="nx">blueRect</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-16"></a>    <span class="nx">blueClipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">blueClip</span><span class="o">,</span> <span class="nx">blueOffset</span><span class="p">);</span>     
+<a name="line-17"></a>
+<a name="line-18"></a>
+<a name="line-19"></a>    <span class="k">var</span> <span class="nx">redRect</span><span class="o">:</span><span class="nb">Rectangle</span> <span class="o">=</span> <span class="nx">redClip</span><span class="p">.</span><span class="nx">getBounds</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-20"></a>    <span class="k">var</span> <span class="nx">redClipBmpData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">redRect</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> <span class="nx">redRect</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-21"></a>
+<a name="line-22"></a>    <span class="k">var</span> <span class="nx">redOffset</span><span class="o">:</span><span class="nb">Matrix</span> <span class="o">=</span> <span class="nx">redClip</span><span class="p">.</span><span class="nx">transform</span><span class="p">.</span><span class="nx">matrix</span><span class="o">;</span>
+<a name="line-23"></a>    <span class="nx">redOffset</span><span class="p">.</span><span class="nx">tx</span> <span class="o">=</span> <span class="nx">redClip</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">redRect</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-24"></a>    <span class="nx">redOffset</span><span class="p">.</span><span class="nx">ty</span> <span class="o">=</span> <span class="nx">redClip</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">redRect</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>   
+<a name="line-25"></a>
+<a name="line-26"></a>    <span class="nx">redClipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">redClip</span><span class="o">,</span> <span class="nx">redOffset</span><span class="p">);</span>    
+<a name="line-27"></a>
+<a name="line-28"></a>    <span class="k">var</span> <span class="nx">rLoc</span><span class="o">:</span><span class="nb">Point</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Point</span><span class="p">(</span><span class="nx">redRect</span><span class="p">.</span><span class="nx">x</span><span class="o">,</span> <span class="nx">redRect</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+<a name="line-29"></a>    <span class="k">var</span> <span class="nx">bLoc</span><span class="o">:</span><span class="nb">Point</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Point</span><span class="p">(</span><span class="nx">blueRect</span><span class="p">.</span><span class="nx">x</span><span class="o">,</span> <span class="nx">blueRect</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span> 
+<a name="line-30"></a>
+<a name="line-31"></a>
+<a name="line-32"></a>    <span class="k">if</span><span class="p">(</span><span class="nx">redClipBmpData</span><span class="p">.</span><span class="nx">hitTest</span><span class="p">(</span><span class="nx">rLoc</span><span class="o">,</span>
+<a name="line-33"></a>                                    <span class="mi">255</span><span class="o">,</span>
+<a name="line-34"></a>                                    <span class="nx">blueClipBmpData</span><span class="o">,</span>
+<a name="line-35"></a>                                    <span class="nx">bLoc</span><span class="o">,</span>
+<a name="line-36"></a>                                    <span class="mi">255</span>
+<a name="line-37"></a>                                <span class="p">))</span>
+<a name="line-38"></a>    <span class="p">{</span>
+<a name="line-39"></a>        <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;hit&quot;</span><span class="p">);</span>
+<a name="line-40"></a>        <span class="nx">redClip</span><span class="p">.</span><span class="nx">filters</span> <span class="o">=</span> <span class="p">[</span><span class="k">new</span> <span class="nb">GlowFilter</span><span class="p">()];</span>
+<a name="line-41"></a>    <span class="p">}</span>
+<a name="line-42"></a>    <span class="k">else</span>
+<a name="line-43"></a>    <span class="p">{</span>
+<a name="line-44"></a>        <span class="nx">redClip</span><span class="p">.</span><span class="nx">filters</span> <span class="o">=</span> <span class="p">[];</span>
+<a name="line-45"></a>    <span class="p">}</span>
+<a name="line-46"></a>
+<a name="line-47"></a>    <span class="nx">blueClipBmpData</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>
+<a name="line-48"></a>    <span class="nx">redClipBmpData</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>
+<a name="line-49"></a><span class="p">}</span>
+</code></pre></div>
+<p>Note that we use the bounds of each DisplayObject to determine the BitmapData size and not the height / width of the DisplayObject. This is because the transformation will most likely modify the bounds, and we need to take this into account. In the first example, we could have just used the height and width of the DisplayObjects since they were the same as the bounds, but in general you should get in the habit of using the bounds. </p>
+
+<p>We also pass a Matrix to each BitmapData.draw call to account for any transformations that may have been applied to the DisplayObjects (in this case rotations). I could try and explain what the Matrix is doing, but to be honest, im still trying to get my head around it. Instead, Ill let Trevor explain it (from an email he sent to me):</p>
+
+<blockquote>
+<p>For this you need the transformation of the object as defined by DisplayObject.transform.matrix. Since everything is in the same container, we still won&#39;t have to worry about walking up hierarchies to get contcatenated/global matrices - we can just use that which is directly applied to the target object (transform.matrix). This gives you the full transform of that object. But for the purposes of capturing a bitmap, we only want the non-translation parts of that transform. This is because when a bitmap is captured, it&#39;s captured from the 0,0 location in the coordinate space of the captured object outward into positive space. The translation of the matrix of the desired object is its position in its parent coordinate space, not its own. HOWEVER, if that object&#39;s own 0,0 location is within the middle of its graphic elements, drawing it into a Bitmap directly from 0,0 could cause cropping. So in terms of that translation as it is to be used with BitmapData.draw(), it&#39;s still important to make sure everything in the target object is captured. And in doing that, it means shifting everything that would appear in negative coordinate space over into positive coordinate space.</p>
+
+<p>Luckily, using getBounds (again) this is quite simple. We can use getBounds to determine the bounds of an object in its parent coordinate space - this includes its transformations. We also know the location of 0,0 within the parent coordinate space because that is the same location it places the target object using its x and y properties. With that, we can get the needed bitmap translation by simply subtracting the bounds x,y from the object&#39;s own x,y. In code that essentially becomes </p>
+
+<p>var b = t.getBounds(t.parent);<br>
+var m = t.transform.matrix;<br>
+m.tx = t.x- b.x;<br>
+m.ty = t.y - b.y;<br>
+var bmp = new BitmapData(b.width, b.height, true, 0);<br>
+bmp.draw(t, m);</p>
+
+<p>where &#39;t&#39; is the target display object.</p>
+</blockquote>
+
+<p>Now, I will be the first to admit that I am still wrapping my head around some of this stuff, especially with the use of the Matrices to offset the transformation. However, the second example above is generic and robust enough to be used for general pixel perfect collision detection on visible portions of DisplayObjects.</p>
+
+<p>One note, is that the examples above assumes that the items being compared share the same parent. If they don&#39;t you need to make some additional adjustments (to take into consideration other transformations), but that is a post for another day.</p>
+
+<p>Btw, if you don&#39;t already, you need to read <a href="http://www.senocular.com/">senocular.com</a>. This is one of the best resources on understanding ActionScript 3 and the Flash Player.</p>
+
+<p><strong>Update</strong> : One optimzation which you can make is to first check if the bounding boxes of the DisplayObjects overlap (using <a href="http://livedocs.adobe.com/flex/3/langref/flash/display/DisplayObject.html#hitTestObject()">DisplayObject.hitTestObject</a>), and only if they do, use BitmapData.hitTest to see if their visible areas are touching.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

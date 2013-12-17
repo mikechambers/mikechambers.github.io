@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Getting the File URI of a File in an AIR app&#8217;s install directory</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Getting the File URI of a File in an AIR app&#8217;s install directory</h2>
+<p class="meta">Thursday, November 6, 2008</p>
+
+<div class="post">
+<p>I am currently working on some code that runs in Adobe AIR where I need to access the File URL (file:/) of a file located in the AIR app&#8217;s install directory.</p>
+
+<p>Normally, you could get the URI, by accessing the url property of the File object which will return a well formed, absolute file:/ URL. However, this doesn&#8217;t work for files located in the AIR app&#8217;s install directory.<br>
+&lt;!--more--&gt;</p>
+
+<div class="highlight">
+  <pre><span style="color: #008000; font-weight: bold">var</span> f<span style="color: #666666">:</span>File <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> File(<span style="color: #BA2121">"app:/icon.png"</span>);
+<span style="color: #0000FF">trace</span>(f.url); <span style="color: #408080; font-style: italic">//app:/icon.png</span>
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>While the app:/ URI will work within your AIR application, it will not work if you need to pass that URI to a non AIR application.</p>
+
+<p>Here is the workaround for how to get the File URL of a file in the application install directory:</p>
+
+<div class="highlight">
+  <pre><span style="color: #008000; font-weight: bold">var</span> fPath<span style="color: #666666">:</span><span style="color: #008000">String</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> File(<span style="color: #008000; font-weight: bold">new</span> File(<span style="color: #BA2121">"app:/icon.png"</span>).nativePath).url<span style="color: #666666">;</span>
+<span style="color: #0000FF">trace</span>(fPath);
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>This will give you an absolute file URI similar to:</p>
+
+<p><code class="inline-code">file:///Users/mesh/Documents/Flex%20Builder%203/AppName/bin-debug/icon.png</code></p>
+
+<p>&nbsp;</p>
+
+<p>Of course, this is a bit of a hack, and not that efficient (requires two File instances), but it works.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

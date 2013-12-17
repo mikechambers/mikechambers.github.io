@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Encapsulating Ajax Calls in an XHTML Friendly Way</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Encapsulating Ajax Calls in an XHTML Friendly Way</h2>
+<p class="meta">Tuesday, February 7, 2006</p>
+
+<div class="post">
+<p>In the comments for my post from the other day titled &#8220;<a href="http://weblogs.macromedia.com/mesh/archives/2006/01/encapsulating_a.cfm">Encapsulating Ajax XMLHTTPRequest Calls within JavaScript classes</a>&#8220;, Kevin F noted that using document.write was not allowed within an XHTML document.</p>
+
+<p>Now, this isn&#8217;t directly related to Encapsulating Ajax calls, as you could have a non-visual class that doesn&#8217;t need to write visual content out to the browser. However, I wanted to post an update to the original example that shows how to do this that would be valid within an XHTML document.<br>
+&lt;!--more--&gt;</p>
+
+<p>First, why is document.write not allowed within XHTML documents? Well, once you think about it is actually pretty easy to understand. Basically, XHTML is XML, and as such, if you are dynamically writing elements into the container, and by-passing the parser, then there is really no easy way for the XML engine to be sure that you are going to be writing valid XML. Because of this, you have to use the DOM APIs to manipulate / insert nodes into an XHTML document. This makes it more likely that valid XML is going to be created, and also ensures that the DOM / XML engine will know about the changes.</p>
+
+<p>The W3C has a good <a href="http://www.w3.org/MarkUp/2004/xhtml-faq#docwrite">FAQ item</a> that discusses this issue.</p>
+
+<p>In the previous example, we were dynamically using document.write from within the JavaScript class to write out the DIV / container that the content would be added to. The advantage to this is that it makes the class completely self contained, but the (big) disadvantage is that it won&#8217;t work when writing to an XHTML document.</p>
+
+<p>The work around is quite simple though, and just requires passing a reference to the XHTML node that will be written to into the class. This class will then use this node to dynamically generate its content.</p>
+
+<p>Here is the modified example. First, the HTML.</p>
+
+<p>`
+<pre>
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot;
+    &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</p>
+
+<p><html xmlns="http://www.w3.org/1999/xhtml" version="-//W3C//DTD XHTML 1.1//EN" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>&lt;link href=&quot;styles/MessageLoader.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+<a name="line-2"></a>&lt;script type=&quot;text/javascript&quot; src=&quot;scripts/MessageLoader.js&quot;&gt;&lt;/script&gt;
+<a name="line-3"></a>
+<a name="line-4"></a>&lt;title&gt;index&lt;/title&gt;
+</code></pre></div>
+<p></head></p>
+
+<p><body></p>
+
+<div id="container" style="width:100%">     
+    <script language="javascript" type="text/javascript">
+        var ml = new MessageLoader("container");
+            ml.load();
+    </script>
+</div>
+
+<p></body>
+</html>
+</pre>
+<p>`</p>
+
+<p>Two minor but significant changes here. First, we wrap the Script block that contains our class inside of a DIV. This is the DIV that the class will dynamically write its content to.</p>
+
+<p>Next, we pass the ID of the DIV into the constructor of the JavaScript class. This is how we tell the class where it can writes its info.</p>
+
+<p>Couple of notes. First, it is not necessary that the Script tags containing the class be nested within the DIV tag. I am doing it to make the code a little more organized and make it clear that these two elements are related.</p>
+
+<p>Second, you could either pass a String with the name of the ID for the DIV, or a reference to the actual div. I choose a string because it is a little easier for the user (requires one less line of code), and I wanted to abstract away some of that complexity. </p>
+
+<p>Now, lets look at the (slightly) modified JavaScript class.</p>
+
+<p>`
+<pre>
+/**
+*   @fileoverview Simple example that shows how to encapsulate 
+*   XMLHTTPRequestCalls
+*
+*   @author Mike Chambers (mesh@adobe.com)
+*/</p>
+
+<p>/**
+*   Constructor for the class.
+*
+*   @param {String} dataURL The path to the data that the class
+*   will load (OPTIONAL)
+*
+*   @constructor
+*/
+function MessageLoader(outerContainerID, dataURL)
+{
+    this._outerContainer = document.getElementById(outerContainerID);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>if(dataURL != undefined)
+<a name="line-2"></a>{
+<a name="line-3"></a>    this._dataURL = dataURL;
+<a name="line-4"></a>}
+<a name="line-5"></a>
+<a name="line-6"></a>this._writeContainer();
+</code></pre></div>
+<p>}</p>
+
+<p>//where to load the data from
+MessageLoader.prototype._dataURL = &quot;data.txt&quot;;</p>
+
+<p>//var to hold an instance of the XMLHTTPRequest object
+MessageLoader.prototype._request = undefined;</p>
+
+<p>MessageLoader.prototype._outerContainer = undefined;</p>
+
+<p>//ID for the html div we will create to display the data
+MessageLoader.prototype._containerID = &quot;innerContainer&quot;;</p>
+
+<p>//name of the css class for the HTML container
+MessageLoader.prototype.<em>containerClass = &quot;ml</em>container&quot;;</p>
+
+<p>/**************** Public APIs **********************/</p>
+
+<p>/**
+*   Tells the class to load its data and render the results.
+*/
+MessageLoader.prototype.load = function()
+{
+    //get a new XMLHTTPRequest and store it in an instance var.
+    this.<em>request = this.</em>getXMLHTTPRequest();</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//set the var so we can scope the callback
+<a name="line-2"></a>var _this = this;
+<a name="line-3"></a>
+<a name="line-4"></a>//callback will be an anonymous function that calls back into our class
+<a name="line-5"></a>//this allows the call back in which we handle the response (_onData())
+<a name="line-6"></a>// to have the correct scope.
+<a name="line-7"></a>this._request.onreadystatechange = function(){_this._onData()};
+<a name="line-8"></a>this._request.open(&quot;GET&quot;, this._generateDataUrl(), true);
+<a name="line-9"></a>this._request.send(null);
+</code></pre></div>
+<p>}</p>
+
+<p>/************<strong><em>Private Rendering APIs *</em></strong>****************/</p>
+
+<p>//writes the top level div for the class / widget
+MessageLoader.prototype.<em>writeContainer = function()
+{
+    //styles should be in external CSS
+    //document.write(&quot;&lt;div id=&#39;&quot;+this.</em>containerID+&quot;&#39; class=&#39;&quot;+this.<em>containerClass+&quot;&#39;&gt;</div>&quot;);
+    var innerContainer = document.createElement(&quot;div&quot;);
+        innerContainer.setAttribute(&quot;id&quot;, this.</em>containerID);
+        innerContainer.setAttribute(&quot;class&quot;, this._containerClass);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>    //need this for IE
+<a name="line-2"></a>    innerContainer.setAttribute(&quot;className&quot;, this._containerClass);
+<a name="line-3"></a>
+<a name="line-4"></a>this._outerContainer.appendChild(innerContainer);
+</code></pre></div>
+<p>}</p>
+
+<p>//renders the entire widget
+MessageLoader.prototype.<em>render = function(title)
+{
+    var content = document.getElementById(this.</em>containerID);
+        content.appendChild(document.createTextNode(title));
+}</p>
+
+<p>/************<strong><em>Private Data Loading Handlers</em></strong>****************/</p>
+
+<p>//return the URL from which the data will be loaded
+MessageLoader.prototype.<em>generateDataUrl = function()
+{
+    return this.</em>dataURL;
+}</p>
+
+<p>//callback for when the data is loaded from the server
+MessageLoader.prototype.<em>onData = function()
+{
+    if(this.</em>request.readyState == 4)
+    {
+        if(this.<em>request.status == &quot;200&quot;)
+        {
+            this.</em>render(this._request.responseText);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>        //if the onDraw callback has been defined
+<a name="line-2"></a>        //call it to let the listener know
+<a name="line-3"></a>        //that we are done creating the list
+<a name="line-4"></a>        if(this.onDraw != undefined)
+<a name="line-5"></a>        {
+<a name="line-6"></a>            this.onDraw();
+<a name="line-7"></a>        }
+<a name="line-8"></a>    }
+<a name="line-9"></a>    else
+<a name="line-10"></a>    {   
+<a name="line-11"></a>        //check if an error callback handler has been defined
+<a name="line-12"></a>        if(this.onError != undefined)
+<a name="line-13"></a>        {
+<a name="line-14"></a>            //pass an object to the callback handler with info
+<a name="line-15"></a>            //about the error
+<a name="line-16"></a>            this.onError({status:this_request.status, 
+<a name="line-17"></a>                    statusText:this._request.statusText});
+<a name="line-18"></a>        }
+<a name="line-19"></a>    }
+<a name="line-20"></a>
+<a name="line-21"></a>    //clean up
+<a name="line-22"></a>    delete this._request;
+<a name="line-23"></a>}
+</code></pre></div>
+<p>}</p>
+
+<p>/************<strong><em>Private Data Util Functions *</em></strong>****************/</p>
+
+<p>//returns an XMLHTTPRequest instance (based on browser)
+MessageLoader.prototype._getXMLHTTPRequest = function()
+{
+    var xmlHttp;
+    try
+    {
+        xmlHttp = new ActiveXObject(&quot;Msxml2.XMLHttp&quot;);
+    }
+    catch(e)
+    {
+        try
+        {
+            xmlHttp = new ActiveXObject(&quot;Microsoft.XMLHttp&quot;);
+        }
+        catch(e2)
+        {
+        }
+    }</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>if(xmlHttp == undefined &amp;#038;&amp;#038; (typeof XMLHttpRequest != &#39;undefined&#39;))
+<a name="line-2"></a>{
+<a name="line-3"></a>    xmlHttp = new XMLHttpRequest();
+<a name="line-4"></a>}
+<a name="line-5"></a>
+<a name="line-6"></a>return xmlHttp;
+</code></pre></div>
+<p>}
+</pre>
+<p>`</p>
+
+<p>There were really only two methods that have changes.</p>
+
+<p>First, the constructor:</p>
+
+<p>`
+<pre>
+function MessageLoader(outerContainerID, dataURL)
+{
+    this._outerContainer = document.getElementById(outerContainerID);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>if(dataURL != undefined)
+<a name="line-2"></a>{
+<a name="line-3"></a>    this._dataURL = dataURL;
+<a name="line-4"></a>}
+<a name="line-5"></a>
+<a name="line-6"></a>this._writeContainer();
+</code></pre></div>
+<p>}
+</pre>
+<p>`</p>
+
+<p>It has been modified to take the ID name of the DIV it will write to as its first argument. We then use that ID to get a reference to the actual div using document.getElementById.</p>
+
+<p>Next, the _writeContainer method has also been changed.</p>
+
+<p>`
+<pre>
+MessageLoader.prototype.<em>writeContainer = function()
+{
+    var innerContainer = document.createElement(&quot;div&quot;);
+        innerContainer.setAttribute(&quot;id&quot;, this.</em>containerID);
+        innerContainer.setAttribute(&quot;class&quot;, this._containerClass);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>    //need this for IE
+<a name="line-2"></a>    innerContainer.setAttribute(&quot;className&quot;, this._containerClass);
+<a name="line-3"></a>
+<a name="line-4"></a>this._outerContainer.appendChild(innerContainer);
+</code></pre></div>
+<p>}
+</pre>
+<p>`</p>
+
+<p>Instead of using document.write to create the DIV that we will write to, we now use the DOM APIs to create the DIV, appending them to the DIV passed into the class.</p>
+
+<p>Notice that I am actually appending an innerContainer div onto the one passed in. This is what the content will be built within, verses the container passed in. This is done so that we can completely encapsulate the class / code, and have complete control over the styling (i.e. we don&#8217;t have to have the outerContainer DIV implement specific CSS classes.</p>
+
+<p>Those are the only two changes that we need to make. The code / class works exactly the same, only now it is compatible with XHTML documents.</p>
+
+<p>Post any suggestions / corrections / improvements in the comments. In particular, does anyone know of a way to get access to the outer DIV in a DOM friendly way from within the JavaScript class without having the user pass in a reference to it?</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

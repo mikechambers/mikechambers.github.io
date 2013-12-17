@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Updated Flash Communication Server Components</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Updated Flash Communication Server Components</h2>
+<p class="meta">Wednesday, November 13, 2002</p>
+
+<div class="post">
+<p>We have released updated Flash Communication Server components. It includes a number of bugs fixes, as well as two new components:  </p>
+
+<ul>
+<li><p>VideoRecord</p></li>
+<li><p>VideoPlayback</p></li>
+</ul>
+
+<p>I think that these are the components that Jeremy used to create the DevCon <a href="http://bilbo.macromedia.com/devconblog/blogitems.cfm">video blog applicaiton</a>. Here is some info from the errata.txt file included with the components:<br>
+<strong>CLIENT-SIDE</strong>  </p>
+
+<ul>
+<li><p>The SimpleConnect component no longer has a memory leak on the client-side; previously, the memory leak occurred if you&nbsp;&nbsp;typed faster than 1 character every 10 milliseconds.</p></li>
+<li><p>The Presenter Shared Object property of the AVPresence component has been removed. Flash Communication Server now&nbsp; sets the value property of the property automatically. You can use multiple instances of the AVPresence component in one&nbsp; application without having to set this property for each instance.<br>
+&nbsp;</p></li>
+</ul>
+
+<p><strong>SERVER-SIDE</strong>  </p>
+
+<ul>
+<li><p>The application.asc and framework.asc files have been modified to allow garbage collection for applications using&nbsp; components.&nbsp;</p></li>
+<li><p>A new method, getClientID(client), has been added to the components framework. This method returns a unique ID for each client. The server-side scripts of the components provided have been updated to use this method.</p></li>
+</ul>
+
+<p>You can download the updated components from <a href="http://www.macromedia.com/software/flashcom/download/components/">here</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Redistributing the Adobe AIR Runtime Installer</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Redistributing the Adobe AIR Runtime Installer</h2>
+<p class="meta">Monday, April 7, 2008</p>
+
+<div class="post">
+<p>I am currently traveling through Europe as part of the <a href="http://onair.adobe.com">European leg of the on AIR Tour</a> (just wrapped up the Brussels event). The events have been great thus far, and the attendance and reactions have been very positive. One of the cool things about the event is that it gives me (and the other speakers) a chance to hang out and chat with developers. One of the questions that keep coming up, and which I wanted to answer on here really quickly, is whether it is possible re-distribute the Adobe AIR runtime installer, and if so how.</p>
+
+<p>The answer is yes, we provide a way to allow developers to redistribute the runtime installer. For the most part, end users download the AIR runtime directly, either from the Adobe website, or as part of the seamless badge install (both of which assume the user is online). However, for various reasons, developers may not want to rely on installing the runtime directly from Adobe (i.e. maybe the end user will not be online). Along with the 1.0 release, we also released a program to allow developers to license the right to redistribute the Adobe AIR installer, either on its own, or as part of a native installer.<br>
+&lt;!--more--&gt;</p>
+
+<p>In order to re-distribute the Adobe AIR installer, you must <a href="http://www.adobe.com/products/air/runtime_distribution1.html#license">first apply for, and receive permission from Adobe to redistribute it</a> (this requires accepting a license, and submitting a form). Once you do this, you can get all of the documentation for how to distribute the runtime and integrate it with your custom installer.</p>
+
+<p>We have a ton of information on this on the <a href="http://www.adobe.com/products/air/runtime_distribution1.html">website</a> (including a <a href="http://www.adobe.com/products/air/runtime_distribution_faq.html">FAQ</a>).</p>
+
+<p>In general, the license allows you to:</p>
+
+<ul>
+<li>  distribute the runtime installer on a closed intranet</li>
+<li>  distribute the runtime installer on fixed media, such as CD or DVD Roms.</li>
+<li>  distribute and launch the runtime installer as part of another native installer</li>
+</ul>
+
+<p>In general, the license does not allow you to:</p>
+
+<ul>
+<li>  modify the installer, or files to allow AIR application to run without having the runtime installed on the user&#8217;s system.</li>
+<li>  distribute DLL&#8217;s or other files from the runtime directly within an application</li>
+</ul>
+
+<p>For example, if you get a license, you could redistribute the runtime installer on a CD rom, next to your application&#8217;s AIR file. You could also bundle it in a native installer, that first installed the runtime, and then installed the AIR application.</p>
+
+<p>However, you could not, for example, extract files from the installer, installer files, or the installed AIR runtime, and include them in your application and redistribute those (i.e. maybe to try to get an AIR app to run without having the runtime installed).</p>
+
+<p>In general, this is simply a different way to redistribute the Adobe AIR installer. Running AIR applications always requires that the runtime be installed on the user&#8217;s system. You cannot modify the installer, or the installer or runtime files (as the website says &#8220;Licensee must distribute the Adobe AIR installers and files as-is without modification.&#8221;)</p>
+
+<p>Anyways, this is just a quick overview. To get the all of the information, including the license agreements, check out the <a href="http://www.adobe.com/products/air/runtime_distribution1.html">website</a> and the <a href="http://www.adobe.com/products/air/runtime_distribution_faq.htm">FAQ</a>. The team has been pretty quick about going through submissions, so if you need a license, it shouldn&#8217;t take too long.</p>
+
+<p>Post any questions in the comments (although I am in Europe right now, so it might take me a while to respond). If you have legal questions about the licese, then check out the <a href="http://www.adobe.com/products/air/runtime_agreement.html">license</a> and <a href="http://www.adobe.com/products/air/runtime_distribution_faq.html">FAQ</a> (Im not qualified to answer legal questions).</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

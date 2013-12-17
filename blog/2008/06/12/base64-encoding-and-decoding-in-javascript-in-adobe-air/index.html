@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Base64 Encoding and Decoding in JavaScript in Adobe AIR</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Base64 Encoding and Decoding in JavaScript in Adobe AIR</h2>
+<p class="meta">Thursday, June 12, 2008</p>
+
+<div class="post">
+<p>I have been working on a JavaScript AIR app for the past week or so while on the on AIR Tour in Europe, and ran into the need to Base64 encode some data. I knew that there were some JavaScript libraries that did this, and I could also create a SWF library that used the <a href="http://livedocs.adobe.com/flex/3/langref/mx/utils/Base64Encoder.html">Flex Base64Encoder class</a>. However, I didnt like either of these solutions as I was concerned about performance with using a JavaScript implementation, and didnt want to hassle with creating a SWF library to link into JavaScript.</p>
+
+<p>Well, after some searching on Google, I discovered that webkit has native Base64 encoding and decoding functions, respectively named <code class="inline-code">btoa</code> and <code class="inline-code">atob</code>.<br>
+&lt;!--more--&gt;</p>
+
+<p>Here is how you can use them from JavaScript:</p>
+
+<div class="highlight">
+  <pre><span style="color: #008000; font-weight: bold">var</span> s <span style="color: #666666">=</span> <span style="color: #BA2121">"foo"</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">var</span> encoded <span style="color: #666666">=</span> btoa(s);
+<span style="color: #008000; font-weight: bold">var</span> decoded <span style="color: #666666">=</span> atob(encoded);
+<span style="color: #008000">window</span>.runtime.trace(s);
+<span style="color: #008000">window</span>.runtime.trace(encoded);
+<span style="color: #008000">window</span>.runtime.trace(decoded);
+</pre>
+</div>
+
+<p>This outputs:</p>
+
+<pre>foo
+Zm9v
+foo
+</pre>
+
+<p>Among other things, this can come in handy if you need to create custom HTTP authentication headers.</p>
+
+<p>You can find more information on the apis <a href="http://javascript.royh.cn/global/atob-4-0-5-2-0-btoa-4-0-5-.html">here</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

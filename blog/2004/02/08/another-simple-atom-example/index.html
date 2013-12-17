@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Another Simple Atom Example</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Another Simple Atom Example</h2>
+<p class="meta">Sunday, February 8, 2004</p>
+
+<div class="post">
+<p>I am getting ready to release a beta of an <a href="/mesh/archives/004355.cfm">ActionScript class</a> to load, parse and manipulate <a href="http://www.atomenabled.com">Atom feeds</a>.</p>
+
+<p>Here is another simple example that I put together, to help test some of the APIs.</p>
+
+<!--more-->
+
+<p>Here is the code:</p>
+
+<p>`
+<pre>import com.macromedia.data.Atom;</p>
+
+<p>var a:Atom = new Atom();</p>
+
+<p>a.addEventListener(&quot;onAtomLoad&quot;, this);
+entryTree.addEventListener(&quot;change&quot;, this);</p>
+
+<p>entryField.html = true;
+titleField.setStyle(&quot;borderStyle&quot;, &quot;none&quot;);
+titleField.setStyle(&quot;fontSize&quot;, 20);
+descriptionField.setStyle(&quot;borderStyle&quot;, &quot;none&quot;);</p>
+
+<p>var entries:Array;</p>
+
+<p>//event broadcast once the Atom feed has been loaded
+function onAtomLoad(eventObj:Object):Void
+{<br>
+    titleField.text = a.getFeedTitle()[&quot;value&quot;];
+    descriptionField.text = a.getFeedTagline()[&quot;value&quot;];</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>entries = a.entries;
+<a name="line-2"></a>var len:Number = entries.length;
+<a name="line-3"></a>
+<a name="line-4"></a>//build the XML nodes for the Tree component
+<a name="line-5"></a>var treeXML:String = &quot;&lt;node label=\&quot;Entries\&quot;&gt;&quot;;
+<a name="line-6"></a>for(var i:Number = 0; i &lt; len; i++)
+<a name="line-7"></a>{
+<a name="line-8"></a>    treeXML += &quot;&lt;node label=\&quot;&quot;+entries[i].title.value+&quot;\&quot;  index=\&quot;&quot;+i+&quot;\&quot; isBranch=\&quot;true\&quot;/&gt;&quot;;
+<a name="line-9"></a>}
+<a name="line-10"></a>treeXML += &quot;&lt;/node&gt;&quot;;
+<a name="line-11"></a>
+<a name="line-12"></a>entryTree.dataProvider = treeXML;
+<a name="line-13"></a>entryTree.setIsOpen(entryTree.getTreeNodeAt(0), true);
+<a name="line-14"></a>
+<a name="line-15"></a>entryTree.selectedNode = entryTree.getTreeNodeAt(0).getTreeNodeAt(0);
+<a name="line-16"></a>change({target:entryTree, type:&quot;change&quot;});
+</code></pre></div>
+<p>}</p>
+
+<p>function change(eventObj:Object):Void
+{
+    var index:Number = Number(eventObj.target.selectedItem.attributes.index);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>entryField.text = entries[index].content.value;
+</code></pre></div>
+<p>}</p>
+
+<p>a.load(&quot;http://www.markme.com/mesh/atom.xml&quot;);</pre>
+<p>`</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

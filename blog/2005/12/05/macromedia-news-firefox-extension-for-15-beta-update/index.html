@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Macromedia News Firefox Extension for 1.5 Beta / Update</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Macromedia News Firefox Extension for 1.5 Beta / Update</h2>
+<p class="meta">Monday, December 5, 2005</p>
+
+<div class="post">
+<p>I have uploaded a beta version of the soon to be renamed Macromedia News Firefox extension that (kind of) works with Firefox 1.5.</p>
+
+<p>There are some significant known issues with this build, so I am not adding it to the main extension page. You can only download it from here.<br>
+&lt;!--more--&gt;</p>
+
+<p><a href="http://weblogs.macromedia.com/mesh/files/macromedianews/files/macromedianews_71a.xpi">Download Macromedia News Firefox Extension Beta</a></p>
+
+<p>I had hoped to fix all of the issues before posting it, but decided to post it for two reasons:</p>
+
+<ol>
+<li> Tons of people have been asking me to update it</li>
+<li> I am having trouble fixing one of the issues, and maybe by releasing it, someone might have an idea of what is going on</li>
+</ol>
+
+<p>Here is the main issue. Something in Firefox 1.5 changed, so that when I call <a href="http://www.xulplanet.com/references/elemref/ref_menupopup.html">MenuPopup.childNodes</a>, some of the nodes are now null, where as they used to contain the nodes of the menu. Because of this, the menu cannot clear itself (since I can&#8217;t remove the nodes that come through as null), before it is rebuilt. The odd thing is that the the childNodes length is correct, but that some of the node references within it are just null.</p>
+
+<p>You can reproduce this with the following steps:</p>
+
+<ol>
+<li> Install the extension, and restart Firefox</li>
+<li> Open the preferences, and change the &#8220;View Items&#8221; setting to &#8220;Chronologically&#8221;</li>
+<li> Save the settings</li>
+<li> View the menu</li>
+</ol>
+
+<p>Notice that the menu is all messed up. Basically, the clearMenu function was not able to remove some of the menu items because it could not get a reference to them.</p>
+
+<p>If you restart Firefox, then everything will draw correctly with the new preferences.</p>
+
+<p>If you are interested in looking at the code, simply rename the extension file to .zip and unzip it. The code is in:</p>
+
+<pre>chrome\macromedianews\content\macromedianews\macromediaNewsOverlay.js</pre>
+
+<p>You can also look at and modify the installed extension within the Firefox install by looking at </p>
+
+<pre>\Mozilla\Firefox\Profiles\ACTIVEPROFILE\extensions\{1d6fc8a9-d399-4629-ade8-c4013c2e5c0f}</pre>
+
+<p>which on Windows is found in the Application Settings directory. Changes to this code will be run once you restart Firefox. Finally, you can find info on developing and debugging Firefox extensions <a href="http://kb.mozillazine.org/Dev_:_Extensions">here</a>.</p>
+
+<p>The bug manifests itself in the clearMenu call, although that is not where it originates. Here is a modified clearMenu function that dumps / alerts the nodes and shows that some are null:</p>
+
+<p>`
+<pre>function clearMenu()
+{<br>
+    var cNodes = newsMenuPopup.childNodes;
+    var cLen = cNodes.length;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>var node;
+<a name="line-2"></a>
+<a name="line-3"></a>var val;    
+<a name="line-4"></a>
+<a name="line-5"></a>for(var i = 0; i &lt; cLen; i++)
+<a name="line-6"></a>{       
+<a name="line-7"></a>    node = cNodes[i];
+<a name="line-8"></a>    dump(&quot;Node : &quot; + i + &quot; : &quot; + node);
+<a name="line-9"></a>    alert(&quot;Node : &quot; + i + &quot; : &quot; + node);
+<a name="line-10"></a>
+<a name="line-11"></a>    if(node.getAttribute(&quot;isNewsItem&quot;) == &quot;true&quot;)
+<a name="line-12"></a>    {
+<a name="line-13"></a>        val = node.getAttribute(&quot;value&quot;);
+<a name="line-14"></a>
+<a name="line-15"></a>        if(val.length &gt; 0)
+<a name="line-16"></a>        {
+<a name="line-17"></a>            oldMenuHash[val] = (node.getAttribute(&quot;isNew&quot;) == &quot;true&quot;);
+<a name="line-18"></a>        }
+<a name="line-19"></a>
+<a name="line-20"></a>        newsMenuPopup.removeChild(node);
+<a name="line-21"></a>    }
+<a name="line-22"></a>    else if(node.getAttribute(&quot;isNewsItemHeader&quot;) == &quot;true&quot;)
+<a name="line-23"></a>    {
+<a name="line-24"></a>        newsMenuPopup.removeChild(node);
+<a name="line-25"></a>    }
+<a name="line-26"></a>    else if(node.getAttribute(&quot;isNewsItemSeperator&quot;) == &quot;true&quot;)
+<a name="line-27"></a>    {
+<a name="line-28"></a>        newsMenuPopup.removeChild(node);
+<a name="line-29"></a>    }
+<a name="line-30"></a>}   
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>I am going to keep working on it and try to figure out what is going on (or what changed in Firefox 1.5 that broke this). If anyone has any ideas / thoughts about what is going on, or questions about the code, then post them in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

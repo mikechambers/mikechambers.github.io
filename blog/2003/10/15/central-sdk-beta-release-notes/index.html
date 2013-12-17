@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Central SDK Beta Release Notes</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Central SDK Beta Release Notes</h2>
+<p class="meta">Wednesday, October 15, 2003</p>
+
+<div class="post">
+<p>The releases notes for the <a href="http://www.markme.com/mesh/archives/003544.cfm">Central SDK beta</a> are included within the SDK zip file. I am posting them here for easier reference.</p>
+
+<!--more-->
+
+<p>This document lists known issues that may arise when using the contents of the SDK.</p>
+
+<p>&nbsp; </p>
+
+<h5>Component and API Help documents for the Flash Authoring Environment</h5>
+
+<p>The SDK beta does not contain Central component and API documentation and code hinting for Flash MX or Flash MX 2004. The final version of the SDK will contain full documentation and code hinting for the authoring environments.</p>
+
+<p>&nbsp;</p>
+
+<h5>Sample Applications</h5>
+
+<p>Some of the sample applications have not been updated and thus may contain code or techniques that will not be necessary in the release version of Macromedia Central. The sample applications will be updated for the final release of the SDK.</p>
+
+<p>&nbsp;</p>
+
+<h5>Testing / Debugging Applications within Central</h5>
+
+<h6>Using Trace statements</h6>
+
+<p>The SDK contains a Central Debug panel that will print out trace statements from applications running within Macromedia Central. In order to enable trace support within your application, you must added the following line of code to your application:</p>
+
+<p><code class="inline-code">debug.enabled = true;</code></p>
+
+<p>This will allow Central to redirect all trace statements that it encounters to the Central Debug panel. This step will not be necessary in the final version of Central.</p>
+
+<h6>Capturing debug information within Central</h6>
+
+<p>We will be making a debug panel available that runs within the Central authoring environment. This is currently not available.</p>
+
+<p>&nbsp;</p>
+
+<h5>Installing Authoring Templates</h5>
+
+<p>The SDK includes authoring templates for both Flash MX and Flash 2004. However, if you have both versions of Flash installed on your system, the extension manager will only automatically install the extensions for the latest version of Flash. </p>
+
+<p>In order to install the authoring extensions for both version of Flash, you must follow the following steps:</p>
+
+<ol>
+<li> Open the Extension Manager</li>
+<li> Select the version of Flash that you want to install for from the product select drop down.</li>
+<li> Select File &gt; Install Extension and locate the appropriate extension.</li>
+<li> Follow the prompts.</li>
+</ol>
+
+<p>&nbsp;</p>
+
+<h5>Central Components</h5>
+
+<h6>MDialogBox Component</h6>
+
+<p>The Central Component documentation has documentation for the MDialogBox component. This is a component that creates advanced modal dialog boxes for applications. The component is not available within the SDK beta. It will be available in the final version of Central and the SDK.</p>
+
+<p>&nbsp;</p>
+
+<h6>Components do not appear when testing in Authoring Environment</h6>
+
+<p>The Central Components are implemented as Remote Shared Libraries. Because of an issue with how the Flash authoring environment handles remote shared libraries, they will not work in authoring mode. In order to test the components, you must test your application within Macromedia Central. See chapter 1 of the Developing Applications PDF on the SDK for more information on testing and debugging applications within Central. </p>
+
+<p>&nbsp; </div></p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

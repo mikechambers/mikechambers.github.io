@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>DRK 3 : TextField / DataValidation Example 1</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>DRK 3 : TextField / DataValidation Example 1</h2>
+<p class="meta">Wednesday, April 23, 2003</p>
+
+<div class="post">
+<p>I have been getting some requests for some examples of the components included on DRK 3, so I am going to try and post a bunch over the coming days.</p>
+
+<p>The first example is a simple one showing how to validate user input using the TextField component and Data Validation library.</p>
+
+<!--more-->
+
+<p><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" WIDTH="250" HEIGHT="175" id="text_validation" ALIGN="">
+  <PARAM NAME=movie VALUE="/mesh/drk/text_validation.swf"> <PARAM NAME=quality VALUE=high><PARAM NAME=bgcolor VALUE=#FFFFFF> <EMBED src="/mesh/drk/text_validation.swf" quality=high bgcolor=#FFFFFF WIDTH="250" HEIGHT="175" NAME="text_validation" ALIGN="" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+</OBJECT></p>
+
+<p>And here is the code:</p>
+
+<p>`
+<pre></p>
+
+<h1>include &quot;com/macromedia/validation/DataValidation.as&quot;</h1>
+
+<p>//set the function to be called when isValid is called.
+//in this case it is the isDigit function from the DataValidation library
+myTextField_txf.setValidationFunction(&quot;isDigit&quot;, DataValidation);</p>
+
+<p>//set the default textfield icon to error.
+myTextField<em>txf.setIcon(&quot;ftf</em>errorIcon&quot;);</p>
+
+<p>//this is called when the validate button is pressed
+validate<em>btn.onRelease = function()
+{
+    //call isValid to see if user input is valid.
+    if(!myTextField</em>txf.isValid())
+    {
+        //if it is not, give an error and show the error icon.
+        msgBox<em>txf.text = &quot;Invalid Input. Please enter a number.&quot;;
+        myTextField</em>txf.showIcon(true);
+    }
+    else
+    {
+        //if it is valid, make sure the icon is off.
+        msgBox<em>txf.text = &quot;The input is a valid number&quot;;
+        myTextField</em>txf.showIcon(false);
+    }
+}
+</pre>
+<p>`</p>
+
+<p>You can view the on-line docs for the TextField component <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/drk3_docs/index.html">here</a>.</p>
+
+<p>You can find more information about the Flash UI Component Set 5 (which includes the TextField component) <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/flashmx.html">here</a>.</p>
+
+<p>You can find more information about DRK 3 <a href="http://www.macromedia.com/software/drk/">here</a>.</p>
+
+<p>Post any requests for specific examples in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

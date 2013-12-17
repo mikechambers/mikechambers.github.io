@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Update on MXNA (or what the %@#! is going on!)</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Update on MXNA (or what the %@#! is going on!)</h2>
+<p class="meta">Tuesday, April 29, 2008</p>
+
+<div class="post">
+<p>Well, as you probably know, <a href="http://weblogs.macromedia.com">MXNA</a> (a feed aggregator for Adobe related communities and technologies) has had some stability issues for some time, and has recently been down for the past couple of days.</p>
+
+<p>Update : MXNA is back up at its new url : <a href="http://feeds.adobe.com">http://feeds.adobe.com</a></p>
+
+<p>I wanted to make a quick post giving an update on what is going on, and what we are doing to fix it.<br>
+&lt;!--more--&gt;</p>
+
+<p>First, what is going on?</p>
+
+<p>Sometime last week, our Java JRE on weblogs.macromedia.com became corrupted, which prevented ColdFusion (7) from running. Updating the JRE did not fix this issue. This has resulted in MXNA being offline, as well as any weblogs running on the server that rely on ColdFusion (which is just about all of them).</p>
+
+<p>At the same time, we have been in the process of updating and upgrading MXNA. This includes (but is not limited to) moving MXNA to new server cluster, updating the server to ColdFusion 8, and moving the aggregation engine to its own server. This should dramatically improve stability as well as improve performance. This process is going well, but still requires some work. We have been focusing our efforts on this in order to get MXNA live on the new infrastructure as soon as possible.</p>
+
+<p>In the meantime, we are now looking at making some temporary updates to the weblogs server to try and get it back up until we have the new infrastructure set up. You might see it go up and down while we work on this, but we don&#8217;t have a definitive ETA on it other than soon.</p>
+
+<p>Some quick background on MXNA. MXNA was a project that Christian Cantrell and I put together (Christian did almost all of the development) to provide a resource for following conversations around Macromedia (now Adobe) resources. It was <a href="http://www.mikechambers.com/blog/2003/05/28/macromedia-xml-rss-news-aggregator-mxna/">launched almost exactly 5 years ago</a> and originally focused on Flash and ColdFusion and aggregated around 50 weblogs. It was originally hosted on our own server (markme.com), and has since moved to a dedicated Adobe server (weblogs.macromedia) which was not part of the main Adobe cluster. Since then it has expanded way beyond its original scope, and now aggregates over 1800 weblogs across multiple communities and categories. The aggregation process itself takes nearly an hour.</p>
+
+<p>Clearly MXNA has outgrown its original architecture and server. We are working on rectifying both of those issues.</p>
+
+<p>I have uploaded opml files for all of the blogs in MXNA, in case you want to aggregate them yourselves until MXNA is back online. You can grab them from <a href="/blog/files/mxna/opml/">here</a>.</p>
+
+<p>I will update this weblog post whenever there is new information.</p>
+
+<p>If you have any questions, comments, words of encouragement, or you just want to rant, post them below.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

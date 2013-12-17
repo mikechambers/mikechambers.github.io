@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Poor Man&#8217;s Log File Parser</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Poor Man&#8217;s Log File Parser</h2>
+<p class="meta">Thursday, May 25, 2006</p>
+
+<div class="post">
+<p>I often have to manually parse through web logs to quickly get the number of times something has been downloaded.</p>
+
+<p>This is pretty simple on unix based OS&#8217;s (Linux, OS-X, etc...), except that I always forget the exact command (and always have to bug <a href="http://weblogs.macromedia.com/cantrell/">Christian</a> to remind me how to do it).</p>
+
+<p>So, I figured I would post the here in case anyone might find it useful (and so I can easily find them in the future):<br>
+&lt;!--more--&gt;</p>
+
+<p><code class="inline-code">
+<pre>cat access.log | grep "myfile.txt" | awk '{print $1}' | sort | uniq | wc -l</pre>
+<p></code></p>
+
+<p>Just replace access.log with your log file, and myfile.txt with the file / regular expression you are searching for.</p>
+
+<p>This will give you the number of unique downloads for the file.</p>
+
+<p>If you want to omit certain terms from the match, then just pipe it through grep -v, like so:</p>
+
+<p><code class="inline-code">
+<pre>cat access.log | grep "index.cfm" | grep -v "remove_this" | awk '{print $1}' | sort | uniq | wc -l</pre>
+<p></code></p>
+
+<p>If you don&#8217;t care about unique downloads, then it is even easier:</p>
+
+<p><code class="inline-code">
+<pre>cat access.log | grep "myfile.txt" | wc -l</pre>
+<p></code></p>
+
+<p>Tons more stuff you can do with this. Post variants, suggestions or questions in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

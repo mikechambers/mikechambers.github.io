@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Getting Started with the Canvas Element and EaselJS</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Getting Started with the Canvas Element and EaselJS</h2>
+<p class="meta">Wednesday, January 19, 2011</p>
+
+<div class="post">
+<p>One of the features of HTML5 that developers are most excited about is the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-element">Canvas</a> element. The Canvas element essentials provides a bitmap canvas for dynamically rendering shapes and bitmap graphics. It is very similar to the Flash Player&#8217;s <a href="http://help.adobe.com/en_US/FlashPlatform/beta/reference/actionscript/3/flash/display/Bitmap.html">Bitmap</a> and <a href="http://help.adobe.com/en_US/FlashPlatform/beta/reference/actionscript/3/flash/display/BitmapData.html">BitmapData</a> classes.</p>
+
+<p>However, working with the Canvas element can be difficult, especially if you need to manage, update and or / animate multiple shapes and bitmaps. Unlike the Flash Player, the Canvas element does not have a concept of a display list or individual items to render. Instead, it provides a single Canvas on which to draw, and it is up to the developer to determine what needs to be rendered and when.</p>
+
+<p><a href="http://gskinner.com/">Grant Skinner</a> has release a JavaScript library named <a href="http://www.easeljs.com">EaselJS</a>, which attempts to provide a Flash like DisplayList API in order to make it easier to work with the Canvas element. The library is just an alpha release, but is surprisingly full featured at this early stage. If you are interested in experimenting with the Canvas API, this is a great way to get started.
+&lt;!--more--&gt;</p>
+
+<p>In this post, I will show how to get started animating content in the Canvas element using the EaselJS JavaScript library.</p>
+
+<p>Here is a list of the main classes in the library:</p>
+
+<ul>
+<li><strong>DisplayObject</strong> : Abstract base class for all display elements in EaselJS. Exposes all of the display properties (ex. x, y, rotation, scaleX, scaleY, alpha, shadow, etc) that are common to all display objects.</li>
+<li><strong>Stage</strong> : The root level display container for display elements that wraps the Canvas element.</li>
+<li><strong>Container</strong> : A nestable display container, which lets you aggregate display objects and manipulate them as a group.</li>
+<li><strong>Text</strong> : Renders text in the context of the display list.</li>
+<li><strong>Bitmap</strong> : Draws an image, video or canvas to the canvas according to its display properties.</li>
+<li><strong>BitmapSequence</strong> : Displays animated or dynamic sprite sheets (images with multiple frames on a grid), and provides APIs for managing playback and sequencing.</li>
+<li><strong>Graphics</strong> : Provides a simple but powerful API for dynamically drawing vector graphics.</li>
+<li><strong>Shape</strong> : Renders vector art via the Graphics object within the context of the display list.</li>
+</ul>
+
+<p>You can view the complete api docs <a href="http://easeljs.com/docs/">here</a>.</p>
+
+<p>Now, before we get started, lets look at where you can actually use the Canvas element (and thus EaselJS). Canvas is part of the HTML5 specification, and is supported in the latest version of most current browsers, including:</p>
+
+<ul>
+<li>Safari</li>
+<li>Google Chrome</li>
+<li>Opera</li>
+<li>Firefox</li>
+</ul>
+
+<p>However, there is one exception, and it is a pretty big one. Internet Explorer does not currently support the Canvas element (although the next version of the Internet Explorer will). According to NetMarketShare, <a href="http://marketshare.hitslink.com/browser-market-share.aspx?qprid=2">Internet Explorer 6, 7 and 8 make up about 57% of the browser market</a>, which is a large segment of users. There is a project named <a href="http://excanvas.sourceforge.net/">ExplorerCanvas</a> that attempts to replicate Canvas support in Internet Explorer, but EaselJS has not been tested with it yet. Keep these points in mind when considering using the Canvas element.</p>
+
+<p>Now that we have a good idea of where and when we can use the Canvas element, lets look at a simple example. In this example, we will use EaselJS to dynamically draw a circle and animate it across the Canvas. This will show us how to set up the library, introduce us to some basic concepts when working with the library, and show how to animate a graphic.</p>
+
+<p>First, here is the working example:
+<div width="400" height="300" id="canvasWrapper">
+    <canvas width="400" height="300" id="stageCanvas"></canvas>
+</div>
+<link rel="stylesheet" href="/blog/post_files/getting-started-with-the-canvas-element-and-easeljs/styles.css">
+<script src="/scripts/easeljs.js"></script><br />
+<script src="/blog/post_files/getting-started-with-the-canvas-element-and-easeljs/Main.js"></script></p>
+
+<p>Now, lets look at the code, with comments:</p>
+<div class="highlight"><pre><code class="html"><a name="line-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a name="line-2"></a><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;&lt;head&gt;</span>
+<a name="line-3"></a>    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="nt">/&gt;</span>
+<a name="line-4"></a>
+<a name="line-5"></a>    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;author&quot;</span> <span class="na">content=</span><span class="s">&quot;Mike Chambers&quot;</span> <span class="nt">/&gt;</span> 
+<a name="line-6"></a>    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;keywords&quot;</span> <span class="na">content=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span> 
+<a name="line-7"></a>    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;description&quot;</span> <span class="na">content=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span> 
+<a name="line-8"></a>    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;copyright&quot;</span> <span class="na">content=</span><span class="s">&quot;Mike Chambers&quot;</span> <span class="nt">/&gt;</span> 
+<a name="line-9"></a>    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;robots&quot;</span> <span class="na">content=</span><span class="s">&quot;index,follow&quot;</span> <span class="nt">/&gt;</span>   
+<a name="line-10"></a>
+<a name="line-11"></a>    <span class="nt">&lt;title&gt;</span>TITLE<span class="nt">&lt;/title&gt;</span>
+<a name="line-12"></a>
+<a name="line-13"></a>    <span class="nt">&lt;style&gt;</span>
+<a name="line-14"></a>        <span class="nf">#stageCanvas</span>
+<a name="line-15"></a>        <span class="p">{</span>
+<a name="line-16"></a>            <span class="k">background-color</span><span class="o">:</span><span class="m">#333333</span><span class="p">;</span>
+<a name="line-17"></a>        <span class="p">}</span>
+<a name="line-18"></a>    <span class="nt">&lt;/style&gt;</span>
+<a name="line-19"></a>
+<a name="line-20"></a>    <span class="c">&lt;!-- import the Easel library. Downloaded from:</span>
+<a name="line-21"></a><span class="c">        http://easeljs.com/</span>
+<a name="line-22"></a><span class="c">    --&gt;</span>
+<a name="line-23"></a>    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;scripts/easel.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="line-24"></a>
+<a name="line-25"></a>    <span class="nt">&lt;script&gt;</span>
+<a name="line-26"></a>        <span class="c1">//EaselJS Stage instance that wraps the Canvas element</span>
+<a name="line-27"></a>        <span class="kd">var</span> <span class="nx">stage</span><span class="p">;</span>
+<a name="line-28"></a>
+<a name="line-29"></a>        <span class="c1">//EaselJS Shape instance that we will animate</span>
+<a name="line-30"></a>        <span class="kd">var</span> <span class="nx">circle</span><span class="p">;</span>
+<a name="line-31"></a>
+<a name="line-32"></a>        <span class="c1">//radius of the circle Graphics that we will draw.</span>
+<a name="line-33"></a>        <span class="kd">var</span> <span class="nx">CIRCLE_RADIUS</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<a name="line-34"></a>
+<a name="line-35"></a>        <span class="c1">//x position that we will reset Shape to when it goes off</span>
+<a name="line-36"></a>        <span class="c1">//screen</span>
+<a name="line-37"></a>        <span class="kd">var</span> <span class="nx">circleXReset</span><span class="p">;</span>
+<a name="line-38"></a>
+<a name="line-39"></a>        <span class="c1">//EaselJS Rectangle instance we will use to store the bounds</span>
+<a name="line-40"></a>        <span class="c1">//of the Canvas</span>
+<a name="line-41"></a>        <span class="kd">var</span> <span class="nx">bounds</span><span class="p">;</span>
+<a name="line-42"></a>
+<a name="line-43"></a>        <span class="c1">//initialize function, called when page loads.</span>
+<a name="line-44"></a>        <span class="kd">function</span> <span class="nx">init</span><span class="p">()</span>
+<a name="line-45"></a>        <span class="p">{</span>
+<a name="line-46"></a>            <span class="c1">//check and see if the canvas element is supported in</span>
+<a name="line-47"></a>            <span class="c1">//the current browser</span>
+<a name="line-48"></a>            <span class="c1">//http://diveintohtml5.org/detect.html#canvas</span>
+<a name="line-49"></a>            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="o">!!</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">).</span><span class="nx">getContext</span><span class="p">))</span>
+<a name="line-50"></a>            <span class="p">{</span>
+<a name="line-51"></a>                <span class="kd">var</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;canvasWrapper&quot;</span><span class="p">);</span>
+<a name="line-52"></a>                <span class="nx">wrapper</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Your browser does not appear to support &quot;</span> <span class="o">+</span>
+<a name="line-53"></a>                <span class="s2">&quot;the HTML5 Canvas element&quot;</span><span class="p">;</span>
+<a name="line-54"></a>                <span class="k">return</span><span class="p">;</span>
+<a name="line-55"></a>            <span class="p">}</span>
+<a name="line-56"></a>
+<a name="line-57"></a>            <span class="c1">//get a reference to the canvas element</span>
+<a name="line-58"></a>            <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;stageCanvas&quot;</span><span class="p">);</span>
+<a name="line-59"></a>
+<a name="line-60"></a>            <span class="c1">//copy the canvas bounds to the bounds instance.</span>
+<a name="line-61"></a>            <span class="c1">//Note, if we resize the canvas, we need to reset</span>
+<a name="line-62"></a>            <span class="c1">//these bounds.</span>
+<a name="line-63"></a>            <span class="nx">bounds</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">();</span>
+<a name="line-64"></a>            <span class="nx">bounds</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+<a name="line-65"></a>            <span class="nx">bounds</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+<a name="line-66"></a>
+<a name="line-67"></a>            <span class="c1">//pass the canvas element to the EaselJS Stage instance</span>
+<a name="line-68"></a>            <span class="c1">//The Stage class abstracts away the Canvas element and</span>
+<a name="line-69"></a>            <span class="c1">//is the root level display container for display elements.</span>
+<a name="line-70"></a>            <span class="nx">stage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stage</span><span class="p">(</span><span class="nx">canvas</span><span class="p">);</span>
+<a name="line-71"></a>
+<a name="line-72"></a>            <span class="c1">//Create an EaselJS Graphics element to create the</span>
+<a name="line-73"></a>            <span class="c1">//commands to draw a circle</span>
+<a name="line-74"></a>            <span class="kd">var</span> <span class="nx">g</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Graphics</span><span class="p">();</span>
+<a name="line-75"></a>
+<a name="line-76"></a>            <span class="c1">//stroke of 1 px</span>
+<a name="line-77"></a>            <span class="nx">g</span><span class="p">.</span><span class="nx">setStrokeStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<a name="line-78"></a>
+<a name="line-79"></a>            <span class="c1">//Set the stroke color, using the EaselJS </span>
+<a name="line-80"></a>            <span class="c1">//Graphics.getRGB static method.</span>
+<a name="line-81"></a>            <span class="c1">//This creates a white color, with an alpha</span>
+<a name="line-82"></a>            <span class="c1">//of .7</span>
+<a name="line-83"></a>            <span class="nx">g</span><span class="p">.</span><span class="nx">beginStroke</span><span class="p">(</span><span class="nx">Graphics</span><span class="p">.</span><span class="nx">getRGB</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,.</span><span class="mi">7</span><span class="p">));</span>
+<a name="line-84"></a>
+<a name="line-85"></a>            <span class="c1">//draw the circle</span>
+<a name="line-86"></a>            <span class="nx">g</span><span class="p">.</span><span class="nx">drawCircle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="nx">CIRCLE_RADIUS</span><span class="p">);</span>
+<a name="line-87"></a>
+<a name="line-88"></a>            <span class="c1">//note that the circle has not been drawn yet. </span>
+<a name="line-89"></a>            <span class="c1">//the Graphics instance just has the commands to</span>
+<a name="line-90"></a>            <span class="c1">//draw the circle.</span>
+<a name="line-91"></a>            <span class="c1">//It will be drawn when the stage needs to render it</span>
+<a name="line-92"></a>            <span class="c1">//which is usually when we call stage.tick()</span>
+<a name="line-93"></a>
+<a name="line-94"></a>            <span class="c1">//create a new Shape instance. This is a DisplayObject</span>
+<a name="line-95"></a>            <span class="c1">//which can be added directly to the stage (and rendered).</span>
+<a name="line-96"></a>            <span class="c1">//Pass in the Graphics instance that we created, and that</span>
+<a name="line-97"></a>            <span class="c1">//we want the Shape to draw.</span>
+<a name="line-98"></a>            <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Shape</span><span class="p">(</span><span class="nx">g</span><span class="p">);</span>
+<a name="line-99"></a>
+<a name="line-100"></a>            <span class="c1">//set the initial x position, and the reset position</span>
+<a name="line-101"></a>            <span class="nx">circle</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">circleXReset</span> <span class="o">=</span> <span class="o">-</span><span class="nx">CIRCLE_RADIUS</span><span class="p">;</span>
+<a name="line-102"></a>
+<a name="line-103"></a>            <span class="c1">//set the y position</span>
+<a name="line-104"></a>            <span class="nx">circle</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<a name="line-105"></a>
+<a name="line-106"></a>            <span class="c1">//add the circle to the stage.</span>
+<a name="line-107"></a>            <span class="nx">stage</span><span class="p">.</span><span class="nx">addChild</span><span class="p">(</span><span class="nx">circle</span><span class="p">);</span>
+<a name="line-108"></a>
+<a name="line-109"></a>            <span class="c1">//tell the stage to render to the canvas</span>
+<a name="line-110"></a>            <span class="nx">stage</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+<a name="line-111"></a>
+<a name="line-112"></a>            <span class="nx">Ticker</span><span class="p">.</span><span class="nx">setFPS</span><span class="p">(</span><span class="mi">24</span><span class="p">);</span>
+<a name="line-113"></a>
+<a name="line-114"></a>            <span class="c1">//Subscribe to the Tick class. This will call the tick</span>
+<a name="line-115"></a>            <span class="c1">//method at a set interval (similar to ENTER_FRAME with</span>
+<a name="line-116"></a>            <span class="c1">//the Flash Player)</span>
+<a name="line-117"></a>            <span class="nx">Ticker</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a name="line-118"></a>        <span class="p">}</span>
+<a name="line-119"></a>
+<a name="line-120"></a>        <span class="c1">//function called by the Tick instance at a set interval</span>
+<a name="line-121"></a>        <span class="kd">function</span> <span class="nx">tick</span><span class="p">()</span>
+<a name="line-122"></a>        <span class="p">{</span>
+<a name="line-123"></a>            <span class="c1">//check and see if the Shape has gone of the right</span>
+<a name="line-124"></a>            <span class="c1">//of the stage.</span>
+<a name="line-125"></a>            <span class="k">if</span><span class="p">(</span><span class="nx">circle</span><span class="p">.</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="nx">bounds</span><span class="p">.</span><span class="nx">width</span><span class="p">)</span>
+<a name="line-126"></a>            <span class="p">{</span>
+<a name="line-127"></a>                <span class="c1">//if it has, reset it.</span>
+<a name="line-128"></a>                <span class="nx">circle</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">circleXReset</span><span class="p">;</span>
+<a name="line-129"></a>            <span class="p">}</span>
+<a name="line-130"></a>
+<a name="line-131"></a>            <span class="c1">//move the circle over 10 pixels</span>
+<a name="line-132"></a>            <span class="nx">circle</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="mi">8</span><span class="p">;</span>
+<a name="line-133"></a>
+<a name="line-134"></a>            <span class="c1">//re-render the stage</span>
+<a name="line-135"></a>            <span class="nx">stage</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+<a name="line-136"></a>        <span class="p">}</span>
+<a name="line-137"></a>    <span class="nt">&lt;/script&gt;</span>
+<a name="line-138"></a>
+<a name="line-139"></a><span class="nt">&lt;/head&gt;</span>
+<a name="line-140"></a><span class="nt">&lt;body</span> <span class="na">onload=</span><span class="s">&quot;init()&quot;</span><span class="nt">&gt;</span>
+<a name="line-141"></a>    <span class="nt">&lt;div</span> <span class="na">width=</span><span class="s">&quot;400&quot;</span> <span class="na">height=</span><span class="s">&quot;300&quot;</span> <span class="na">id=</span><span class="s">&quot;canvasWrapper&quot;</span><span class="nt">&gt;</span>
+<a name="line-142"></a>        <span class="nt">&lt;canvas</span> <span class="na">width=</span><span class="s">&quot;400&quot;</span> <span class="na">height=</span><span class="s">&quot;300&quot;</span> <span class="na">id=</span><span class="s">&quot;stageCanvas&quot;</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+<a name="line-143"></a>    <span class="nt">&lt;/div&gt;</span>
+<a name="line-144"></a><span class="nt">&lt;/body&gt;</span>
+<a name="line-145"></a><span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<p>You can download the code for the example from <a href="https://github.com/mikechambers/ExamplesByMesh/tree/master/HTML5/EaselJS/HelloWorld">here</a>.</p>
+
+<p>As you can see, the code is pretty simple, and its structure is very similar to using the DisplayList API within the Flash Player.</p>
+
+<p>There are a couple of things that are important to point out. </p>
+
+<p>The EaselJS <a href="http://easeljs.com/docs/symbols/Stage.html">Stage</a> instance wraps the Canvas element, and handles when and how items are rendered. The stage is only rendered when you call <code class="inline-code">stage.update()</code>, and for performance reasons, you should only call this if something has changed and you need to update the canvas.</p>
+
+<p>The <a href="http://easeljs.com/docs/symbols/Ticker.html">Ticker</a> class handles time management. It will call a tick event on any object that has subscribed to be notified. This is analogous to the <code class="inline-code">ENTER_FRAME</code> event in ActionScript.</p>
+
+<p>If you resize the canvas, then its contents will be erased. However, using EaselJS, all you need to do is call <code class="inline-code">stage.update()</code> after resizing in order to re-render the graphics. </p>
+
+<p>Given the lack of Canvas support in Internet Explorer, it is important that you detect for Canvas support in the browser, and provide an appropriate fall back for the user. I have some simple code in the example above, or you can use the <a href="http://www.modernizr.com/">Modernizr JavaScript Library</a> which provides an API for detecting support for HTML5 features.</p>
+
+<p>Finally, this is an early release of the library, and thus APIs may (and probably will) change. In addition, some things which you might expect to work may not be supported yet. For example, there are currently no APIs to retrieve the height / width of a DisplayObject (you will have to figure it out yourself). However, in general, the library is very robust and has been used in some <a href="http://gskinner.com/blog/archives/2010/12/pirates-love-daisies-html5-game-launches.html">production projects</a>.</p>
+
+<p>Here are some resources which are useful if you want to start playing around with the Canvas element via EaselJS:</p>
+
+<ul>
+<li><a href="http://www.easeljs.com">EaselJS Homepage</a></li>
+<li><a href="http://easeljs.com/docs/">EaselJS API Docs</a></li>
+<li><a href="http://www.modernizr.com/">Modernizr JavaScript Library</a> (for detecting support for HTML5 features).</li>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-element">Canvas Element Draft Specification</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Canvas_element">Canvas Element</a> (Wikipedia)</li>
+<li><a href="http://diveintohtml5.org/canvas.html">Let&#39;s call it a draw(ing surface)</a> Good introduction to the low level Canvas API.</li>
+<li><a href="http://html5test.com/">HTML5 Browser Support Matrix</a></li>
+<li><a href="http://html5readiness.com/">HTML5 and CSS3 Readiness</a></li>
+<li><a href="http://www.findmebyip.com/#target-selector">HTML5 Support in your Browser</a></li>
+</ul>
+
+<p>UPDATED : (02/15/2010) : Updated to work with EaselJS 0.3.1 release.</p>
+
+<p>Post any questions / comments in the comments section below.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>flashcommand Flash command line compiler for OS X</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>flashcommand Flash command line compiler for OS X</h2>
+<p class="meta">Friday, February 20, 2004</p>
+
+<div class="post">
+<p>I have built an OS X version of my <a href="http://www.markme.com/mesh/archives/003656.cfm">FlashCommand</a> command line compiler for Flash MX 2004. This uses the Flash MX 2004 extensibility layer to allow you to compile Flash files (FLA) from the command line.</p>
+
+<p>It has a ton of options, and will also catch and redirect any ActionScript compile errors to stdout.</p>
+
+<p>Update : I have moved the source and downloads to its own Google Code project which can be found <a href="http://code.google.com/p/flashcommand/">here</a>.</p>
+
+<p>Here is the usage info:</p>
+
+<!--more-->
+
+<p>usage: flashcommand -e | -c | -p [-v] [-x] (-s <sourcefile>) ([-o] <exportpath>) ([-t] <timeout>)([-d] <tempdir>) [-j]</p>
+
+<p>Options and arguments:</p>
+
+<p>-a : Prints version and about information.<br>
+-c : Specifies save and compact action.<br>
+-d : Specifies temp directory that will be used for temporary files. Optional.<br>
+-e : Specifies export action.<br>
+-h : Prints usage information.<br>
+-j : Specifies that the generated JSFL file should be printed. If this option is specified, Flash will not be executed.<br>
+-o : Specifies the output file if -e flag is also set. Optional. If not specified, file will be output to same directory as source.<br>
+-p : Specifies publish action.<br>
+-s : Specifies source file. Required.<br>
+-t : Specifies timeout value. Optional.<br>
+-v : Specifies verbose mode. Optional.<br>
+-x : Specifies whether Flash should be closed after it is done processing. Optional.</p>
+
+<p>Requires that <a href="http://www.python.org">python</a> is installed on your system.</p>
+
+<p>To install, download the file and copy the flashcommand file to somewhere within your path. Make sure to make it executable by running the following command:</p>
+
+<p>chmod 755 flashcommand</p>
+
+<p>If you find any bugs, or have questions or suggestions, then post them log an issue on the <a href="http://code.google.com/p/flashcommand/issues/list">project page</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

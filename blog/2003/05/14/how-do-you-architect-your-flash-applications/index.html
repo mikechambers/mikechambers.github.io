@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>How do you Architect your Flash Applications?</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>How do you Architect your Flash Applications?</h2>
+<p class="meta">Wednesday, May 14, 2003</p>
+
+<div class="post">
+<p>I have once again been doing a lot of application development with Flash, and have begun to create some more advanced apps / functionality. Previously, I would follow a few simple rules to organize my applications:<br>
+&lt;!--more--&gt;</p>
+
+<ul>
+<li>  Use only one frame of main timeline.</li>
+<li>  All code on main timeline</li>
+<li>  Classes and function libraries moved to external ActionScript files</li>
+<li>  UI Event handlers included in FLA</li>
+</ul>
+
+<p>This actually worked well for applications which only had one state (such as the <a href="http://www.markme.com/mesh/archives/000775.cfm">Stock Services app</a>), but did not work well for more complex applications which had multiple states / screens.</p>
+
+<p>When I started working on the <a href="http://www.markme.com/mesh/archives/002351.cfm">GoogleSearch application</a> I knew that it would have multiple screens (one for search, one for settings, and one for about information). I looked at the <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/sample_apps.html">RSSify application</a> (created by <a href="http://www.gregburch.com">Greg Burch</a>) included on <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/">DRK 3</a> which has a similar structure (although much more complex functionality).</p>
+
+<p>I ended up doing the following:</p>
+
+<ul>
+<li>  Create a base class contained within a symbol. All events and data flow through this class.</li>
+<li>  Create Screen Classes and symbols for each screen. They communicate by broadcasting events.</li>
+<li>  Virtually everything is contained within a class, and thus all ActionScript is externalized in external ActionScript files.</li>
+<li>  There is no code on the main timeline.</li>
+<li>  There is code in multiple symbols</li>
+</ul>
+
+<p>This has actually worked out very well. I was worried that I would have trouble finding where the code was located, but I found that structuring my library made it even easier to work on and find the code:</p>
+
+<p><img alt="google_library.gif" src="/mesh/images/google_library.gif" width="267" height="449" border="0" /></p>
+
+<p>My library basically became an ActionScript class browser.</p>
+
+<p>All of my ActionScript classes are in external files (based on classes), so it is very easy for me to find and move between code.</p>
+
+<p><img alt="google_class.gif" src="/mesh/images/google_class.gif" width="514" height="286" border="0" /></p>
+
+<p>The main issue I ran into was loading order (init clip). I ran into a couple of problems where I would try to access code that was not loaded yet. I solved this by having my screens broadcast onLoad events, that the main app class would listen for.</p>
+
+<p>Anyways, how do you architect your movies? Have you run into limits with placing all of your code in one place? What do you think the <a href="http://www.macromedia.com/devnet/mx/flash/whitepapers/actionscript_standards.pdf">best practice</a> should be?</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

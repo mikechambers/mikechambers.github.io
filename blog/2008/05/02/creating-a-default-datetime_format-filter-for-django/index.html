@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Creating a default DATETIME_FORMAT filter for django</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Creating a default DATETIME_FORMAT filter for django</h2>
+<p class="meta">Friday, May 2, 2008</p>
+
+<div class="post">
+<p>Here is a simple <a href="http://www.djangoproject.com">django</a> <a href="http://www.djangoproject.com/documentation/templates/">template</a> <a href="http://www.djangoproject.com/documentation/templates/#built-in-filter-reference">filter</a> that will format a date according to the <a href="http://www.djangoproject.com/documentation/settings/#datetime-format">DATETIME_FORMAT</a> variable in the settings file.<br>
+&lt;!--more--&gt;</p>
+
+<div class="highlight">
+  <pre><code>&lt;span style="color: #008000; font-weight: bold">from&lt;/span> &lt;span style="color: #0000FF; font-weight: bold">django&lt;/span> &lt;span style="color: #008000; font-weight: bold">import&lt;/span> template
+&lt;span style="color: #008000; font-weight: bold">from&lt;/span> &lt;span style="color: #0000FF; font-weight: bold">settings&lt;/span> &lt;span style="color: #008000; font-weight: bold">import&lt;/span> DATETIME_FORMAT
+&lt;span style="color: #008000; font-weight: bold">from&lt;/span> &lt;span style="color: #0000FF; font-weight: bold">django.template.defaultfilters&lt;/span> &lt;span style="color: #008000; font-weight: bold">import&lt;/span> date
+
+register &lt;span style="color: #666666">=&lt;/span> template&lt;span style="color: #666666">.&lt;/span>Library()
+    
+&lt;span style="color: #AA22FF">@register&lt;/span>&lt;span style="color: #666666">.&lt;/span>filter
+&lt;span style="color: #008000; font-weight: bold">def&lt;/span> &lt;span style="color: #0000FF">default_datetime&lt;/span>(value):
+    &lt;span style="color: #008000; font-weight: bold">try&lt;/span>:
+        v &lt;span style="color: #666666">=&lt;/span> date(value, DATETIME_FORMAT)
+    &lt;span style="color: #008000; font-weight: bold">except&lt;/span>:
+        &lt;span style="color: #008000; font-weight: bold">return&lt;/span> value
+    
+    &lt;span style="color: #008000; font-weight: bold">return&lt;/span> v
+    
+&lt;/pre>
+&lt;p></code></div>
+
+<p>
+  Save this in a file named <em>default_date_filters.py</em> and place it in a directory called <em>templatetags</em> in your application directory (along with a file named <em>__init__.py</em>.
+</p>
+
+<p>
+  You can then use the filter in a template like so:
+</p>
+
+<pre><code>
+
+{% load default_date_filters  %}
+
+{% item.created_date|default_datetime%}
+
+</code></pre>
+
+<p>
+  &nbsp;
+</p>
+
+<p>
+  You can find more information and how to create and use custom template filters in django <a href="http://www.biais.org/blog/index.php/2007/01/11/11-django-custom-template-filters">here</a> and <a href="http://www.djangoproject.com/documentation/templates_python/#writing-custom-template-filters">here</a>. You can find information on django settings <a href="http://www.djangoproject.com/documentation/settings/#datetime-format">here</a>.
+</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>W3CDateTime ActionScript Class</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>W3CDateTime ActionScript Class</h2>
+<p class="meta">Friday, February 6, 2004</p>
+
+<div class="post">
+<p>As part of the ActionScript 2 <a href="http://www.markme.com/mesh/archives/004355.cfm">Atom class</a> that I am putting together, I have created an ActionScript class that represents a <a href="http://www.w3.org/TR/NOTE-datetime">W3CDateTime</a> string. This is the format that <a href="http://www.atomenabled.org">Atom</a> uses to represent dates.</p>
+
+<p>A beta of the class and simple usage example is included below. If you have any questions or suggestions (especially parsing optimizations), or find any bugs, please post them in the comments.</p>
+
+<!--more-->
+
+<p>Here is a simple example of the class in use:</p>
+
+<p>`
+<pre>import com.macromedia.date.W3CDateTime;</p>
+
+<p>var timeString:String = &quot;2004-02-05T16:36:35-05:00&quot;;</p>
+
+<p>trace(timeString);</p>
+
+<p>var d:W3CDateTime = new W3CDateTime(timeString);
+trace(d);
+trace(new Date(d.getTime()));</pre>
+<p>`</p>
+
+<p>Here is the entire class:</p>
+
+<p>`
+<pre>/*
+    W3CDateTime.as</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>Mike Chambers
+<a name="line-2"></a>mesh@macromedia.com
+<a name="line-3"></a>
+<a name="line-4"></a>Represents a date in the W3CDateTime format as described in
+</code></pre></div>
+<p>http://www.w3.org/TR/NOTE-datetime</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>version .60
+<a name="line-2"></a>
+<a name="line-3"></a>Known Issues:
+<a name="line-4"></a>    -The class does not support decimal seconds. Any decimal seconds
+<a name="line-5"></a>        specificed in a W3CDateTime string will be lost / removed.
+<a name="line-6"></a>
+<a name="line-7"></a>TODO:
+<a name="line-8"></a>    -Look at optimize parsing code
+<a name="line-9"></a>    -Extensive Testing
+<a name="line-10"></a>    -Look into supporting decimal seconds
+<a name="line-11"></a>
+<a name="line-12"></a>Thanks to:
+<a name="line-13"></a>    Tatsuo Kato, Peter Hall and Gary Grossman for help with determining the
+<a name="line-14"></a>    UTC offsets.
+</code></pre></div>
+<p>*/</p>
+
+<p>/<em>Extends the Date object</em>/
+class com.macromedia.date.W3CDateTime extends Date
+{</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>/*
+<a name="line-2"></a>    Constructor. Optionally takes a WC3DateTime string that the instance
+<a name="line-3"></a>    will represent.
+<a name="line-4"></a>
+<a name="line-5"></a>    Otherwise, it represents the time that the instance was created.
+<a name="line-6"></a>*/
+<a name="line-7"></a>public function W3CDateTime(dateString:String)
+<a name="line-8"></a>{
+<a name="line-9"></a>    if(dateString != undefined)
+<a name="line-10"></a>    {
+<a name="line-11"></a>        setDateTimeString(dateString);
+<a name="line-12"></a>    }
+<a name="line-13"></a>}
+<a name="line-14"></a>
+<a name="line-15"></a>/*
+<a name="line-16"></a>    Takes a W3CDateTime formatted string and sets the instance to represent
+<a name="line-17"></a>    the date and time represented in that string
+<a name="line-18"></a>*/
+<a name="line-19"></a>public function setDateTimeString(dateString:String):Void
+<a name="line-20"></a>{
+<a name="line-21"></a>        //this.dateString = dateString;
+<a name="line-22"></a>         setTime(W3CDateTime.parseString(dateString).getTime());        
+<a name="line-23"></a>}
+<a name="line-24"></a>
+<a name="line-25"></a>/*
+<a name="line-26"></a>    Returns a W3CDateTime formatted string that represents the date represented
+<a name="line-27"></a>    by the current instance.
+<a name="line-28"></a>
+<a name="line-29"></a>    Takes 4 optional arguments which specifies the format of the string:
+<a name="line-30"></a>
+<a name="line-31"></a>    incMonth : Whether the month should be included.
+<a name="line-32"></a>
+<a name="line-33"></a>    incDay : Whether the day of the month should be included. 
+<a name="line-34"></a>
+<a name="line-35"></a>    incHours : Whether the hours and minutes should be included.
+<a name="line-36"></a>
+<a name="line-37"></a>    incSeconds : Whether the seconds should be included.
+<a name="line-38"></a>
+<a name="line-39"></a>    Note, that all output will be a valid W3CDataTime item.
+<a name="line-40"></a>*/
+<a name="line-41"></a>public function getDateTimeString(incMonth:Boolean,
+<a name="line-42"></a>                                    incDay:Boolean,
+<a name="line-43"></a>                                    incHours:Boolean,
+<a name="line-44"></a>                                    incSeconds:Boolean):String
+<a name="line-45"></a>{
+<a name="line-46"></a>    return W3CDateTime.parseDate(this, incMonth, incDay, incHours, incSeconds);
+<a name="line-47"></a>}    
+<a name="line-48"></a>
+<a name="line-49"></a>/*
+<a name="line-50"></a>    Returns the full W3CDateTime string represented by the instance.
+<a name="line-51"></a>*/
+<a name="line-52"></a>public function toString(Void):String
+<a name="line-53"></a>{
+<a name="line-54"></a>    return getDateTimeString(true, true, true, true);       
+<a name="line-55"></a>}   
+<a name="line-56"></a>
+<a name="line-57"></a>/*
+<a name="line-58"></a>    Returns the Year the W3CDateTime represents in the following format:
+<a name="line-59"></a>    YYYY
+<a name="line-60"></a>*/
+<a name="line-61"></a>public function getW3CYear(Void):String
+<a name="line-62"></a>{
+<a name="line-63"></a>    return getFullYear().toString();
+<a name="line-64"></a>}
+<a name="line-65"></a>
+<a name="line-66"></a>/*
+<a name="line-67"></a>    Returns the Month the W3CDateTime represents in the following format:
+<a name="line-68"></a>    MM
+<a name="line-69"></a>
+<a name="line-70"></a>    where 1 = January
+<a name="line-71"></a>*/
+<a name="line-72"></a>public function getW3CMonth(Void):String
+<a name="line-73"></a>{
+<a name="line-74"></a>    return (getMonth() + 1).toString();
+<a name="line-75"></a>}
+<a name="line-76"></a>
+<a name="line-77"></a>/*
+<a name="line-78"></a>    Returns the day of the month the W3CDateTime represents in the
+<a name="line-79"></a>    following format:
+<a name="line-80"></a>    dd
+<a name="line-81"></a>*/  
+<a name="line-82"></a>public function getW3CDate(Void):String
+<a name="line-83"></a>{
+<a name="line-84"></a>    return getDate().toString();
+<a name="line-85"></a>}
+<a name="line-86"></a>
+<a name="line-87"></a>/*
+<a name="line-88"></a>    Returns the hour the W3CDateTime represents in the
+<a name="line-89"></a>    following format:
+<a name="line-90"></a>    hh      
+<a name="line-91"></a>*/
+<a name="line-92"></a>public function getW3CHours(Void):String
+<a name="line-93"></a>{
+<a name="line-94"></a>    //adjust for utc?
+<a name="line-95"></a>    return getHours().toString();
+<a name="line-96"></a>}   
+<a name="line-97"></a>
+<a name="line-98"></a>/*
+<a name="line-99"></a>    Returns the minutes the W3CDateTime represents in the
+<a name="line-100"></a>    following format:
+<a name="line-101"></a>    mm      
+<a name="line-102"></a>*/  
+<a name="line-103"></a>public function getW3CMinutes(Void):String
+<a name="line-104"></a>{
+<a name="line-105"></a>    return getMinutes().toString();
+<a name="line-106"></a>}   
+<a name="line-107"></a>
+<a name="line-108"></a>/*
+<a name="line-109"></a>    Returns the seconds the W3CDateTime represents in the
+<a name="line-110"></a>    following format:
+<a name="line-111"></a>    ss      
+<a name="line-112"></a>*/  
+<a name="line-113"></a>public function getW3CSeconds(Void):String
+<a name="line-114"></a>{
+<a name="line-115"></a>    return getMinutes().toString();
+<a name="line-116"></a>}   
+<a name="line-117"></a>
+<a name="line-118"></a>/*
+<a name="line-119"></a>    Returns the UTC offset the W3CDateTime represents in the
+<a name="line-120"></a>    following format:
+<a name="line-121"></a>    +/-hh:mm
+<a name="line-122"></a>
+<a name="line-123"></a>    Note, if there is no offset, it will return
+<a name="line-124"></a>    Z       
+<a name="line-125"></a>*/  
+<a name="line-126"></a>public function getW3CUTCOffset(Void):String
+<a name="line-127"></a>{
+<a name="line-128"></a>    return W3CDateTime.formatTimezoneOffset(this);
+<a name="line-129"></a>}   
+<a name="line-130"></a>
+<a name="line-131"></a>/*
+<a name="line-132"></a>    Static functions that takes a String representation of a number and adds
+<a name="line-133"></a>    a leading 0 if it is a single digit.
+<a name="line-134"></a>*/
+<a name="line-135"></a>public static function padDigit(digit:String):String
+<a name="line-136"></a>{
+<a name="line-137"></a>    if(digit.length &lt; 2)
+<a name="line-138"></a>    {
+<a name="line-139"></a>        return &quot;0&quot; + digit;
+<a name="line-140"></a>    }
+<a name="line-141"></a>
+<a name="line-142"></a>    return digit;
+<a name="line-143"></a>}
+<a name="line-144"></a>
+<a name="line-145"></a>/*
+<a name="line-146"></a>    Static function that takes an ActionScript Date object and returns
+<a name="line-147"></a>    a well formed W3CDateTime String that represents the specified date.
+<a name="line-148"></a>
+<a name="line-149"></a>    Takes 4 additional optional arguments which specifies the format of
+<a name="line-150"></a>    the string:
+<a name="line-151"></a>
+<a name="line-152"></a>    incMonth : Whether the month should be included.
+<a name="line-153"></a>
+<a name="line-154"></a>    incDay : Whether the day of the month should be included. 
+<a name="line-155"></a>
+<a name="line-156"></a>    incHours : Whether the hours and minutes should be included.
+<a name="line-157"></a>
+<a name="line-158"></a>    incSeconds : Whether the seconds should be included.
+<a name="line-159"></a>
+<a name="line-160"></a>    Note, that all output will be a valid W3CDataTime item.     
+<a name="line-161"></a>*/
+<a name="line-162"></a>public static function parseDate(inDate:Date, 
+<a name="line-163"></a>                                    incMonth:Boolean,
+<a name="line-164"></a>                                    incDay:Boolean,
+<a name="line-165"></a>                                    incHours:Boolean,
+<a name="line-166"></a>                                    incSeconds:Boolean):String
+<a name="line-167"></a>{
+<a name="line-168"></a>    if(inDate == undefined)
+<a name="line-169"></a>    {
+<a name="line-170"></a>        return undefined;
+<a name="line-171"></a>    }
+<a name="line-172"></a>
+<a name="line-173"></a>    if(incMonth == undefined)
+<a name="line-174"></a>    {
+<a name="line-175"></a>        incMonth = false;
+<a name="line-176"></a>    }
+<a name="line-177"></a>
+<a name="line-178"></a>    if(incDay == undefined)
+<a name="line-179"></a>    {
+<a name="line-180"></a>        incDay = false;
+<a name="line-181"></a>    }
+<a name="line-182"></a>
+<a name="line-183"></a>    if(incHours == undefined)
+<a name="line-184"></a>    {
+<a name="line-185"></a>        incHours = false;
+<a name="line-186"></a>    }       
+<a name="line-187"></a>
+<a name="line-188"></a>    if(incSeconds == undefined)
+<a name="line-189"></a>    {
+<a name="line-190"></a>        incSeconds = false;
+<a name="line-191"></a>    }       
+<a name="line-192"></a>
+<a name="line-193"></a>    var now:Date = new Date();
+<a name="line-194"></a>
+<a name="line-195"></a>    var w3cString:String = now.getFullYear().toString();
+<a name="line-196"></a>
+<a name="line-197"></a>    if(!incMonth)
+<a name="line-198"></a>    {
+<a name="line-199"></a>        return w3cString;
+<a name="line-200"></a>    }
+<a name="line-201"></a>
+<a name="line-202"></a>    w3cString += &quot;-&quot; + W3CDateTime.padDigit((now.getMonth() + 1).toString());
+<a name="line-203"></a>
+<a name="line-204"></a>    if(!incDay)
+<a name="line-205"></a>    {
+<a name="line-206"></a>        return w3cString;           
+<a name="line-207"></a>    }
+<a name="line-208"></a>
+<a name="line-209"></a>    w3cString += &quot;-&quot; + W3CDateTime.padDigit(now.getDate().toString());
+<a name="line-210"></a>
+<a name="line-211"></a>    if(!incHours)
+<a name="line-212"></a>    {
+<a name="line-213"></a>        return w3cString;           
+<a name="line-214"></a>    }
+<a name="line-215"></a>
+<a name="line-216"></a>    w3cString += &quot;T&quot; + W3CDateTime.padDigit(now.getHours().toString()) +
+<a name="line-217"></a>                        &quot;:&quot; + W3CDateTime.padDigit(now.getMinutes().toString());        
+<a name="line-218"></a>
+<a name="line-219"></a>    if(!incSeconds)
+<a name="line-220"></a>    {
+<a name="line-221"></a>        //need to format the timeset appropriately
+<a name="line-222"></a>        return w3cString + W3CDateTime.formatTimezoneOffset(now);           
+<a name="line-223"></a>    }
+<a name="line-224"></a>
+<a name="line-225"></a>    return w3cString + &quot;:&quot; + W3CDateTime.padDigit(now.getSeconds().toString()) +
+<a name="line-226"></a>                            W3CDateTime.formatTimezoneOffset(now);
+<a name="line-227"></a>}
+<a name="line-228"></a>
+<a name="line-229"></a>/*
+<a name="line-230"></a>    Static methods that takes an ActionScript date instance, and returns
+<a name="line-231"></a>    the UTC offset in the format used in a W3CDateTime string.
+<a name="line-232"></a>
+<a name="line-233"></a>    The format is:
+<a name="line-234"></a>
+<a name="line-235"></a>    +/-hh:mm
+<a name="line-236"></a>
+<a name="line-237"></a>    If the offset is 0, then method will return
+<a name="line-238"></a>    Z
+<a name="line-239"></a>*/
+<a name="line-240"></a>public static function formatTimezoneOffset(d:Date):String
+<a name="line-241"></a>{
+<a name="line-242"></a>    var timezoneOffset:Number = d.getTimezoneOffset();
+<a name="line-243"></a>
+<a name="line-244"></a>    if(timezoneOffset == 0)
+<a name="line-245"></a>    {
+<a name="line-246"></a>        return &quot;Z&quot;;
+<a name="line-247"></a>    }
+<a name="line-248"></a>
+<a name="line-249"></a>    var operator:String = (timezoneOffset &gt; -1)? &quot;+&quot; : &quot;-&quot;;
+<a name="line-250"></a>
+<a name="line-251"></a>    if(timezoneOffset &lt; 0)
+<a name="line-252"></a>    {
+<a name="line-253"></a>        timezoneOffset *= -1;
+<a name="line-254"></a>    }
+<a name="line-255"></a>
+<a name="line-256"></a>    //what if offset if 0 or less
+<a name="line-257"></a>    var hours:String = (timezoneOffset / 60).toString();
+<a name="line-258"></a>    var seconds:String = (timezoneOffset - (hours * 60)).toString();
+<a name="line-259"></a>
+<a name="line-260"></a>    return operator + W3CDateTime.padDigit(hours) +
+<a name="line-261"></a>                        &quot;:&quot; + W3CDateTime.padDigit(seconds);
+<a name="line-262"></a>}
+<a name="line-263"></a>
+<a name="line-264"></a>/*
+<a name="line-265"></a>    Static method that takes a W3CDateTime string and returns an
+<a name="line-266"></a>    ActionScript Date object that represents the string passed in.
+<a name="line-267"></a>*/
+<a name="line-268"></a>public static function parseString(dateString:String):Date
+<a name="line-269"></a>{
+<a name="line-270"></a>    if(dateString == undefined || dateString.length &lt; 1)
+<a name="line-271"></a>    {
+<a name="line-272"></a>        return undefined;
+<a name="line-273"></a>    }
+<a name="line-274"></a>
+<a name="line-275"></a>    var YYYY:String = dateString.substr(0, 4);
+<a name="line-276"></a>    var MM:String = dateString.substr(5, 2);
+<a name="line-277"></a>    var DD:String = dateString.substr(8, 2);
+<a name="line-278"></a>    var hh:String = dateString.substr(11, 2);
+<a name="line-279"></a>    var mm:String = dateString.substr(14, 2);
+<a name="line-280"></a>    var ss:String = dateString.substr(17, 2);
+<a name="line-281"></a>    var s:String = &quot;&quot;;
+<a name="line-282"></a>
+<a name="line-283"></a>    var offsetOperator:String;
+<a name="line-284"></a>    var offsetHours:String;
+<a name="line-285"></a>    var offsetMinutes:String;
+<a name="line-286"></a>
+<a name="line-287"></a>    var offset:Number = 0;      
+<a name="line-288"></a>    var operator:Number;
+<a name="line-289"></a>    var indexBump:Number = 0;
+<a name="line-290"></a>
+<a name="line-291"></a>    if(dateString.substr(19, 1) == &quot;.&quot;)
+<a name="line-292"></a>    {
+<a name="line-293"></a>        //they have a decimal second
+<a name="line-294"></a>        s = dateString.substr(20, 2);
+<a name="line-295"></a>
+<a name="line-296"></a>        indexBump = 3;          
+<a name="line-297"></a>    }
+<a name="line-298"></a>    else
+<a name="line-299"></a>    {
+<a name="line-300"></a>        indexBump = 0;
+<a name="line-301"></a>        //they dont have a decimal second
+<a name="line-302"></a>    }
+<a name="line-303"></a>
+<a name="line-304"></a>    offsetOperator = dateString.substr(19 + indexBump,1);
+<a name="line-305"></a>    offsetHours = dateString.substr(20 + indexBump,2);
+<a name="line-306"></a>    offsetMinutes = dateString.substr(23 + indexBump,2);
+<a name="line-307"></a>
+<a name="line-308"></a>    //this could be wrong if there is no operator
+<a name="line-309"></a>    operator = ((offsetOperator == &quot;-&quot;) || (offsetOperator == undefined))? 1 : -1; 
+<a name="line-310"></a>
+<a name="line-311"></a>    //this could be wrong if offsethours or offsetminutes is undefined
+<a name="line-312"></a>    offset = operator * (Number(offsetHours) * 60) + Number(offsetMinutes);
+<a name="line-313"></a>
+<a name="line-314"></a>    if(isNaN(offset))
+<a name="line-315"></a>    {
+<a name="line-316"></a>        offset = 0;
+<a name="line-317"></a>    }
+<a name="line-318"></a>
+<a name="line-319"></a>    var minutes:Number;
+<a name="line-320"></a>    if(mm != &quot;&quot;)
+<a name="line-321"></a>    {
+<a name="line-322"></a>        minutes = Number(mm) + offset;
+<a name="line-323"></a>    }
+<a name="line-324"></a>
+<a name="line-325"></a>    var month:Number;
+<a name="line-326"></a>    if(MM != &quot;&quot;)
+<a name="line-327"></a>    {
+<a name="line-328"></a>        month = Number(MM) - 1;
+<a name="line-329"></a>    }
+<a name="line-330"></a>
+<a name="line-331"></a>    var year:Number;
+<a name="line-332"></a>    if(YYYY != &quot;&quot;)
+<a name="line-333"></a>    {
+<a name="line-334"></a>        year = Number(YYYY);
+<a name="line-335"></a>    }
+<a name="line-336"></a>
+<a name="line-337"></a>    var day:Number;
+<a name="line-338"></a>    if(DD != &quot;&quot;)
+<a name="line-339"></a>    {           
+<a name="line-340"></a>        day = Number(DD);
+<a name="line-341"></a>    }
+<a name="line-342"></a>
+<a name="line-343"></a>    var hours:Number;
+<a name="line-344"></a>    if(hh != &quot;&quot;)
+<a name="line-345"></a>    {
+<a name="line-346"></a>        hours = Number(hh);
+<a name="line-347"></a>    }       
+<a name="line-348"></a>
+<a name="line-349"></a>    var seconds:Number;
+<a name="line-350"></a>    if(ss != &quot;&quot;)
+<a name="line-351"></a>    {
+<a name="line-352"></a>        seconds = Number(ss);
+<a name="line-353"></a>    }   
+<a name="line-354"></a>
+<a name="line-355"></a>    var utcTimeMS = Date.UTC(
+<a name="line-356"></a>            year,
+<a name="line-357"></a>            month, 
+<a name="line-358"></a>            day,
+<a name="line-359"></a>            hours, 
+<a name="line-360"></a>            minutes,
+<a name="line-361"></a>            seconds);
+<a name="line-362"></a>
+<a name="line-363"></a>    return new Date(utcTimeMS);;
+<a name="line-364"></a>}
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

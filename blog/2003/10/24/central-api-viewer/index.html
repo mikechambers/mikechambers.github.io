@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Central API Viewer</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Central API Viewer</h2>
+<p class="meta">Friday, October 24, 2003</p>
+
+<div class="post">
+<p>I was playing around with Flash MX Pro 2004 last night, and created this simple Central API viewer.</p>
+
+<!--more-->
+
+<p>How much code did this take?</p>
+
+<p>`
+<pre>
+var myTreeDP = new XML();
+myTreeDP.ignoreWhite = true;
+myTreeDP.load(&quot;central.xml&quot;);</p>
+
+<p>pBar.indeterminate = true;</p>
+
+<p>myTreeDP.onLoad = function()
+{ 
+  myTree.dataProvider = myTreeDP;
+    pBar.indeterminate = false;
+    pBar._visible = false;
+}</p>
+
+<p>handleTreeEvent = function(evt)
+{
+    var node = myTree.selectedNode;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>XML.prototype.ignoreWhite = true;
+<a name="line-2"></a>var x = new XML(&quot;&lt;xml&gt;&quot;+node.toString()+&quot;&lt;/xml&gt;&quot;);
+<a name="line-3"></a>var n = x.firstChild.firstChild.attributes;
+<a name="line-4"></a>
+<a name="line-5"></a>var des;
+<a name="line-6"></a>var fSig;
+<a name="line-7"></a>
+<a name="line-8"></a>if(n.isBranch == &quot;true&quot;)
+<a name="line-9"></a>{
+<a name="line-10"></a>    des = &quot;&quot;;
+<a name="line-11"></a>    fSig = &quot;&quot;;      
+<a name="line-12"></a>}
+<a name="line-13"></a>else
+<a name="line-14"></a>{
+<a name="line-15"></a>    des = n.tiptext;
+<a name="line-16"></a>    fSig = n.object + n.text;
+<a name="line-17"></a>}
+<a name="line-18"></a>
+<a name="line-19"></a>description.text = n.tiptext;
+<a name="line-20"></a>sig.text = n.object + n.text;
+</code></pre></div>
+<p>}
+myTree.addEventListener(&quot;change&quot;, handleTreeEvent);
+</pre>
+<p>`</p>
+
+<p>Pretty simple stuff.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

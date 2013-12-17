@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Getting started with Flex 4 FXG and Flex Builder 3</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Getting started with Flex 4 FXG and Flex Builder 3</h2>
+<p class="meta">Thursday, August 28, 2008</p>
+
+<div class="post">
+<p>As I <a href="http://www.mikechambers.com/blog/2008/08/27/everything-there-is-to-know-about-flex-4-gumbo/">mentioned the other day</a>, the Flex team has released <a href="http://www.mikechambers.com/blog/2008/08/27/everything-there-is-to-know-about-flex-4-gumbo/">a ton of information on Flex 4</a>. One of the new features which I am most excited about is the <a href="http://opensource.adobe.com/wiki/display/flexsdk/FXG+1.0+Specification">FXG graphic format</a> being developed.<br>
+&lt;!--more--&gt;</p>
+
+<p>What is FXG? From the <a href="http://opensource.adobe.com/wiki/display/flexsdk/FXG+1.0+Specification">spec</a>:</p>
+
+<blockquote>
+<p>FXG 1.0 describes an XML-based graphics interchange format for the Flash Platform. FXG contains high-level graphical and text primitives that can be used to create, group, transform and visually modify basic vector and bitmap shapes. The FXG rendering model follows very closely the Flash Player 10 rendering model and exposes all graphics capabilities of the Flash platform as well as offering expandable support to accommodate future capabilities of the Flash Player. The specification below dives into the technical details governing every element of FXG 1.0.</p>
+</blockquote>
+
+<p>One of the major benefits of FXG is that it will make it much easier to build visual tooling around working with and designing Flex applications (such as <a href="http://labs.adobe.com/wiki/index.php/Thermo">Thermo</a> and all of the Adobe CS tools).</p>
+
+<p>This post is not going to go over all of the elements within FXG as you can find all of that in the <a href="http://opensource.adobe.com/wiki/display/flexsdk/FXG+1.0+Specification">spec</a>. However, it is going to show how to start playing with FXG today using Flex Builder 3, and a nightly Flex 4 build.</p>
+
+<p>Update : James Polanco just posted much more <a href="http://blog.vivisectingmedia.com/2008/08/binding-source-for-flex-4-in-flex-builder-3/">detailed instructions on how to setup Flex 4 in Flex Builder</a>.</p>
+
+<p>First, you need to setup Flex Builder 3 to work with a <a href="http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+4">nightly Flex 4 SDK build</a> (im using the Flex 4 4.0.0.3009 build). Once you have downloaded and unzipped the SDK, following the instructions in the Flex Builder docs on how to <a href="http://livedocs.adobe.com/flex/3/html/help.html?content=build_6.html#162812">add a new Flex SDK to Flex Builder</a>.</p>
+
+<p>Once you do that, create a new Flex Project, making sure to set it to use the Flex 4 SDK which you just installed (Project &gt; Properties &gt; Flex Compiler &gt; Use a specific SDK &gt; Flex 4).</p>
+
+<p>On the same screen, make sure to also set the &#8220;Require Flash Player Version&#8221; to 10.0.0.</p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/2807183380/" title="Flex Builder Properties by mike.chambers, on Flickr"><img src="http://farm4.static.flickr.com/3013/2807183380_47bdc0463d.jpg" width="500" height="381" alt="Flex Builder Properties" border="0" /></a></p>
+
+<p>Once you have configured the project, add the following MXML and FXG:</p>
+
+<div class="highlight">
+  <pre><span style="color: #BC7A00">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;Application</span> 
+    <span style="color: #7D9029">xmlns:mx=</span><span style="color: #BA2121">"library:adobe/flex/halo"</span>
+    <span style="color: #7D9029">xmlns=</span><span style="color: #BA2121">"http://ns.adobe.com/mxml/2009"</span><span style="color: #008000; font-weight: bold">&gt;</span>
+
+    <span style="color: #408080; font-style: italic">&lt;!-- Flex 4 Hello World with FXG --&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;mx:Canvas</span> <span style="color: #7D9029">top=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">bottom=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">left=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">right=</span><span style="color: #BA2121">"0"</span><span style="color: #008000; font-weight: bold">&gt;</span>
+        <span style="color: #008000; font-weight: bold">&lt;Group</span> <span style="color: #7D9029">verticalCenter=</span><span style="color: #BA2121">"0"</span> <span style="color: #7D9029">horizontalCenter=</span><span style="color: #BA2121">"0"</span><span style="color: #008000; font-weight: bold">&gt;</span>
+            <span style="color: #008000; font-weight: bold">&lt;TextGraphic</span> <span style="color: #7D9029">fontFamily=</span><span style="color: #BA2121">"Verdana"</span> <span style="color: #7D9029">fontWeight=</span><span style="color: #BA2121">"bold"</span><span style="color: #008000; font-weight: bold">&gt;</span>
+                <span style="color: #008000; font-weight: bold">&lt;content&gt;</span>Hello, World<span style="color: #008000; font-weight: bold">&lt;/content&gt;</span>
+            <span style="color: #008000; font-weight: bold">&lt;/TextGraphic&gt;</span>
+        <span style="color: #008000; font-weight: bold">&lt;/Group&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;/mx:Canvas&gt;</span>
+    
+<span style="color: #008000; font-weight: bold">&lt;/Application&gt;</span>
+</pre>
+</div>
+
+<p>This will create a simple piece of content with Hello World centered on the screen.</p>
+
+<p>A couple of notes on the markup.</p>
+
+<p>First, notice the use of namespaces in the <code class="inline-code">Application</code> tag. <code class="inline-code">http://ns.adobe.com/mxml/2009</code> is the new namespace used for Flex 4 components and classes. In order to using existing component, we need to map the mx namespace to <code class="inline-code">library:adobe/flex/halo</code>. (You can read more on the new namespacing stuff in the <a href="http://opensource.adobe.com/wiki/display/flexsdk/MXML+2009">MXML 2009 Spec</a>.)</p>
+
+<p>Update : James Polanco <a href="http://blog.vivisectingmedia.com/2008/08/binding-source-for-flex-4-in-flex-builder-3/">points out</a> that if you use the <code class="inline-code">gumbo</code> namespace, instead of the default namespace, you will get code hinting for the <code class="inline-code">gumbo</code> elements (such as <code class="inline-code">Group</code>).</p>
+
+<p>Also, note that we placed the FXG code inside of a <code class="inline-code">Group</code> tag, and not directly inside of the <code class="inline-code">Canvas</code> element. This is because visual children of <code class="inline-code">Canvas</code> (and other containers) must implement <code class="inline-code">mx.core.IUIElement</code>, which the FXG elements (being a little lower level and focused on drawing) do not. The <code class="inline-code">Group</code> element does, and also allows FXG to be nested within it.</p>
+
+<p>At this stage, you are all set up to begin playing with and experimenting with the full range of FXG support.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

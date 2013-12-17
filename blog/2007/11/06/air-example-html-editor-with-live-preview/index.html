@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>AIR Example : HTML Editor with live preview</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>AIR Example : HTML Editor with live preview</h2>
+<p class="meta">Tuesday, November 6, 2007</p>
+
+<div class="post">
+<p>As part of my <a href="http://www.flashonthebeach.com/">Flash on the Beach</a> Intro to AIR Session, I built a simple HTML Editor with a live preview. I have added comments to the code, and uploaded it to the <a href="http://code.google.com/p/onairbustour/">on AIR tour google repository</a>.</p>
+
+<p>This example demonstrates:</p>
+
+<ul>
+<li>  Using the File API to write a string to a file</li>
+<li>  Using the HTML Control within an application to render a string of HTML</li>
+<li>  Using the File.browseForSave API to open a native save dialog.</li>
+</ul>
+
+<p>Here is the code if you just want to glance at it:<br>
+&lt;!--more--&gt;</p>
+
+<p>HTMLEditor.mxml<br>
+`
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<mx:WindowedApplication 
+    xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+     viewSourceURL="srcview/index.html">
+    &lt;!-- include the code for the main app class --&gt;
+    <mx:Script source="HTMLEditorClass.as" /></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>&lt;!-- TextArea used to type in HTML --&gt;
+<a name="line-2"></a>&lt;mx:TextArea height=&quot;172&quot; top=&quot;10&quot; left=&quot;10&quot; right=&quot;10&quot; 
+<a name="line-3"></a>    change=&quot;onTextChange()&quot;
+<a name="line-4"></a>    id=&quot;inputField&quot; /&gt;
+<a name="line-5"></a>
+<a name="line-6"></a>&lt;!-- HTML Control which we use for live preview of HTML --&gt;
+<a name="line-7"></a>&lt;mx:HTML top=&quot;190&quot; left=&quot;10&quot; right=&quot;10&quot; bottom=&quot;41&quot; id=&quot;htmlField&quot;/&gt;
+<a name="line-8"></a>
+<a name="line-9"></a>&lt;!-- Save button to save the HTML to a file --&gt;
+<a name="line-10"></a>&lt;mx:Button label=&quot;Save&quot; right=&quot;10&quot; bottom=&quot;10&quot; click=&quot;onSaveClick()&quot;/&gt;
+</code></pre></div>
+<p><a href="/mx:WindowedApplication">/mx:WindowedApplication</a></pre>
+<p>`</p>
+
+<p>HTMLEditorClass.as<br>
+`
+<pre>import flash.events.Event;
+import flash.filesystem.File;</p>
+
+<p>//called when the text / html is changed
+private function onTextChange():void
+{
+    htmlField.htmlText = inputField.text;
+}</p>
+
+<p>//Called when the user selects a file to save
+//html in.
+private function onBrowseForSave(e:Event):void
+{
+    //get a file reference to the file the user selected
+    var f:File = File(e.target);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//create a file stream to write to the file
+<a name="line-2"></a>var fs:FileStream = new FileStream();
+<a name="line-3"></a>
+<a name="line-4"></a>    //open the file for writing
+<a name="line-5"></a>    fs.open(f, FileMode.WRITE);
+<a name="line-6"></a>
+<a name="line-7"></a>    //write string of html to file
+<a name="line-8"></a>    fs.writeUTFBytes(inputField.text);
+<a name="line-9"></a>
+<a name="line-10"></a>    //close the file
+<a name="line-11"></a>    fs.close();  
+</code></pre></div>
+<p>}</p>
+
+<p>//called when user presses save button
+private function onSaveClick():void
+{
+    //get a reference to the desktop dir
+    //this will be used as the default dir that the dialog
+    //will open at
+    var f:File = File.desktopDirectory;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>    //listen for the select event for when the user selects
+<a name="line-2"></a>    //a file to save the html in
+<a name="line-3"></a>    f.addEventListener(Event.SELECT, onBrowseForSave);
+<a name="line-4"></a>
+<a name="line-5"></a>    //open the browse for save native dialog, and pass in a title
+<a name="line-6"></a>    //for the dialog
+<a name="line-7"></a>    f.browseForSave(&quot;Save HTML File&quot;);
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>You can grab the code from the <a href="http://onairbustour.googlecode.com/svn/trunk/projects/HTMLEditor/">on AIR Tour code repository</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

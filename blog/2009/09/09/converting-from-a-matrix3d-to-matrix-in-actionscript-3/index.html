@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Converting from Matrix3D to Matrix in ActionScript 3</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Converting from Matrix3D to Matrix in ActionScript 3</h2>
+<p class="meta">Wednesday, September 9, 2009</p>
+
+<div class="post">
+<p>For the past month or two, I have been spending time building a game (something I havent done since my Flash 4 days). This has really been a lot of fun, as it has allowed me to use some of the Flash Player APIs which I really haven&#39;t had a chance or need to use before. </p>
+
+<p>One thing which I have been (slowly) learning about are using Matrix transformations on DisplayObjects. I made a post earlier showing how (with much, much help from <a href="http://www.senocular.com/">Senocular</a>), I was able to <a href="http://www.mikechambers.com/blog/2009/06/24/using-bitmapdata-hittest-for-collision-detection/">use Matrix to do hit tests using BitmapData.hitTest on DisplayObjects</a> which have had transformations applied to them (in this case, rotation).</p>
+
+<p>Well, I recently had the need to convert some of my DisplayObjects to use the 2.5D APIs (by setting the z property to a value). Unfortunately, this ended up breaking a lot of my code, mostly because of how it changes how transformations are applied to a DisplayObject. Specifically, when you set the <code class="inline-code">DisplayObject.z</code> property to any value, <code class="inline-code">DisplayObject.transform.matrix</code> will return null, and you must use <code class="inline-code">DisplayObject.transform.matrix3D</code> instead. Where this causes problems is when you are using APIs that expect to use a <code class="inline-code">Matrix</code> instance, as opposed to <code class="inline-code">Matrix3D</code> instance, such as <code class="inline-code">BitmapData.draw</code>.<br>
+&lt;!--more--&gt;</p>
+
+<p>This is exactly the scenario I ran into, and this post will show one solution for how to convert from a Matrix3D to a Matrix instance, which can then be passed to the BitmapData.draw.</p>
+
+<p>First, lets look at my original code:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="nx">shipBmpData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">BitmapData</span><span class="p">(</span><span class="nx">shipBounds</span><span class="p">.</span><span class="nx">width</span><span class="o">,</span> 
+<a name="line-2"></a>                <span class="nx">shipBounds</span><span class="p">.</span><span class="nx">height</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+<a name="line-3"></a>
+<a name="line-4"></a><span class="k">var</span> <span class="nx">shipOffset</span><span class="o">:</span><span class="nb">Matrix</span> <span class="o">=</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">transform</span><span class="p">.</span><span class="nx">matrix</span><span class="o">;</span>
+<a name="line-5"></a><span class="nx">shipOffset</span><span class="p">.</span><span class="nx">tx</span> <span class="o">=</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">shipBounds</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-6"></a><span class="nx">shipOffset</span><span class="p">.</span><span class="nx">ty</span> <span class="o">=</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">shipBounds</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>          
+<a name="line-7"></a>
+<a name="line-8"></a><span class="nx">shipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">ship</span><span class="o">,</span> <span class="nx">shipOffset</span><span class="p">);</span>
+</code></pre></div>
+<p>Basically, this draws the bitmap data for my ship into a <code class="inline-code">BitmapData</code> instance, taking into account any transformations which have been applied to the ship (in this case rotation). In my code, this bitmap data is cached, and then later used with <code class="inline-code">BitmapData.hitTest</code> for collision detection (not shown here).</p>
+
+<p>However, as soon as I set the z property on the ship (which is a DisplayObject), this code will no longer work, as <code class="inline-code">ship.transform.matrix</code> will return null (since 3D transformations are now being used).</p>
+
+<p>At first, I figured I would just change my code to access the Matrix3D instance like so:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="k">var</span> <span class="nx">shipOffset</span><span class="o">:</span><span class="nx">Matrix3D</span> <span class="o">=</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">transform</span><span class="p">.</span><span class="nx">matrix3D</span><span class="o">;</span>
+</code></pre></div>
+<p>and then pass this to the <code class="inline-code">BitmapData.draw</code> API. However, I was quickly reminded (by the compiler) that <code class="inline-code">Matrix3D</code> does not inherit from <code class="inline-code">Matrix</code>, and thus cannot be passed to <code class="inline-code">BitmapData.draw</code>.</p>
+
+<p>Because of this I needed to convert from a <code class="inline-code">Matrix3D</code> to a <code class="inline-code">Matrix</code> instance, which could then be passed to <code class="inline-code">BitmapData.draw</code>. After some help from <a href="http://www.unitzeroone.com/blog/">Ralph Hauwert</a> (who tracked down a couple of bugs) I was able to get it working.</p>
+
+<p>Before I show the code, it will be useful to look at which values <code class="inline-code">Matrix</code> and <code class="inline-code">Matrix3D</code> contain. First, here are the values held by a <code class="inline-code">Matrix</code> instance:</p>
+
+<pre>
+a  c  tx
+b  d  ty
+u  v  w
+</pre>
+
+<p>You can find a description of the properties in the <a href="http://livedocs.adobe.com/flex/3/langref/flash/geom/Matrix.html#propertySummary">Matrix docs</a>.</p>
+
+<p>Here are the values held by a Matrix3D instance:</p>
+
+<pre>
+scaleX    0       0          tx
+0         scaleY  0          ty
+0         0       scaleZ     tz
+0         0       0          tw
+</pre>
+
+<p>From the <a href="http://help.adobe.com/en_US/AS3LCR/Flash_10.0/flash/geom/Matrix3D.html">Matrix3D docs</a>:</p>
+
+<blockquote>
+<p>The Matrix3D class uses a 4x4 square matrix: a table of four rows and columns of numbers that hold the data for the transformation. The first three rows of the matrix hold data for each 3D axis (x,y,z). The translation information is in the last column. The orientation and scaling data are in the first three columns. The scaling factors are the diagonal numbers in the first three columns</p>
+</blockquote>
+
+<p>Basically, in addition to holding values for x and y, the <code class="inline-code">Matrix3D</code> class also has slots for z properties. Because the <code class="inline-code">Matrix</code> is a 3x3 matrix, and the <code class="inline-code">Matrix3D</code> is a 4x4 matrix converting from <code class="inline-code">Matrix3d</code> to <code class="inline-code">Matrix</code> means that we will have to discard some information. Luckily, in my case, I didnt need the z information, so i was able to discard it and map the related x, y values to the <code class="inline-code">Matrix</code> instance. We can then pass this new <code class="inline-code">Matrix</code> instance to the <code class="inline-code">BitmapData.draw</code> class.</p>
+
+<p>For our purposes, the <code class="inline-code">Matrix3D</code> mapping to <code class="inline-code">Matrix</code> is:</p>
+
+<pre>
+a  c  0          tx
+b  d  0          ty
+0  0  scaleZ     tz
+0  0  0          tw
+</pre>
+
+<p>Here is the code that maps between the two:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="k">var</span> <span class="nx">shipOffset</span><span class="o">:</span><span class="nx">Matrix3D</span> <span class="o">=</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">transform</span><span class="p">.</span><span class="nx">matrix3D</span><span class="o">;</span>
+<a name="line-2"></a>
+<a name="line-3"></a><span class="k">var</span> <span class="nx">rawMatrixData</span><span class="o">:</span><span class="nx">Vector</span><span class="p">.</span><span class="o">&lt;</span><span class="nb">Number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">shipOffset</span><span class="p">.</span><span class="nx">rawData</span><span class="o">;</span>
+<a name="line-4"></a>
+<a name="line-5"></a><span class="k">var</span> <span class="nx">matrix</span><span class="o">:</span><span class="nb">Matrix</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Matrix</span><span class="p">();</span>
+<a name="line-6"></a><span class="nx">matrix</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">rawMatrixData</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<a name="line-7"></a><span class="nx">matrix</span><span class="p">.</span><span class="nx">c</span> <span class="o">=</span> <span class="nx">rawMatrixData</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<a name="line-8"></a><span class="nx">matrix</span><span class="p">.</span><span class="nx">tx</span> <span class="o">=</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">shipBounds</span><span class="p">.</span><span class="nx">x</span><span class="o">;</span>
+<a name="line-9"></a>
+<a name="line-10"></a><span class="nx">matrix</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">rawMatrixData</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<a name="line-11"></a><span class="nx">matrix</span><span class="p">.</span><span class="nx">d</span> <span class="o">=</span> <span class="nx">rawMatrixData</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<a name="line-12"></a><span class="nx">matrix</span><span class="p">.</span><span class="nx">ty</span> <span class="o">=</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">shipBounds</span><span class="p">.</span><span class="nx">y</span><span class="o">;</span>
+<a name="line-13"></a>
+<a name="line-14"></a><span class="nx">ship</span><span class="p">.</span><span class="nx">transform</span><span class="p">.</span><span class="nx">matrix3D</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<a name="line-15"></a><span class="nx">shipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">ship</span><span class="o">,</span> <span class="nx">matrix</span><span class="p">);</span>
+<a name="line-16"></a><span class="nx">ship</span><span class="p">.</span><span class="nx">transform</span><span class="p">.</span><span class="nx">matrix3D</span> <span class="o">=</span> <span class="nx">shipOffset</span><span class="o">;</span>
+</code></pre></div>
+<p>Basically, we get an instance of the <code class="inline-code">Matrix3D</code> class for the <code class="inline-code">DisplayObject</code>. We then access the raw data of the <code class="inline-code">Matrix3D</code> instance, and copy it into a new <code class="inline-code">Matrix</code> instance (ignoring and dropping the z values), and apply the transformation corrections in the process.</p>
+
+<p>We can then pass this new <code class="inline-code">Matrix</code> instance to the <code class="inline-code">BitmapData.draw</code> API. However, as you probably noticed in the code, I had to first do an additional step. Specifically:</strike ></p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="nx">ship</span><span class="p">.</span><span class="nx">transform</span><span class="p">.</span><span class="nx">matrix3D</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<a name="line-2"></a><span class="nx">shipBmpData</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">ship</span><span class="o">,</span> <span class="nx">matrix</span><span class="p">);</span>
+<a name="line-3"></a><span class="nx">ship</span><span class="p">.</span><span class="nx">transform</span><span class="p">.</span><span class="nx">matrix3D</span> <span class="o">=</span> <span class="nx">shipOffset</span><span class="o">;</span>
+</code></pre></div>
+<p>Before we draw the data to the <code class="inline-code">BitmapData</code> instance, we have to clear out the existing <code class="inline-code">Matrix3D</code> applied to the <code class="inline-code">DisplayObject</code>. This is to work around a bug discovered by <a href="http://www.unitzeroone.com/blog/">Ralph Hauwert</a>. When passing a <code class="inline-code">DisplayObject</code> which does not have a <code class="inline-code">Matrix3D</code> transformation (as in our first example) to <code class="inline-code">BitmapData.draw</code>, any transformations on the <code class="inline-code">DisplayObject</code> ARE NOT taken into account when drawing. However, when the the <code class="inline-code">DisplayObject</code> does have a <code class="inline-code">Matrix3D</code> transformation applied to it (such as when the z property has been set to a value), then any transformations ARE applied when drawing to <code class="inline-code">BitmapData.draw</code>. Because of this, we have to first store the <code class="inline-code">Matrix3D</code> associated with the DisplayObject, set it to null, draw the <code class="inline-code">DisplayObject</code> to the <code class="inline-code">BitmapData</code> instance, and then reapply the <code class="inline-code">Matrix3D</code> to the <code class="inline-code">DisplayObject</code>.</p>
+
+<p><strike><strong>Update</strong>: as <a href="http://www.mikechambers.com/blog/2009/09/09/converting-from-a-matrix3d-to-matrix-in-actionscript-3/#comment-16700">Ben Garney points out in the comments</a>, since the transformation is applied to <code class="inline-code">BitmapData.draw</code> when <code class="inline-code">Matrix3D</code> is set, all we need to do is pass in either an identiy matrix, or null to the second argument of the API. So, in my case, this solves my problems, and removes the need to convert bewteen the matrix types.</strike></p>
+
+<p><strike>The updated code is simply:</strike>
+<code class="inline-code">actionscript
+shipBmpData = new BitmapData(shipBounds.width, 
+                shipBounds.height, true, 0);
+shipBmpData.draw(ship, null);
+</code></p>
+
+<p><strike>which turns out to be much less complex than when you use the 2D APIs. However, the technique above for converting between matrix types is still valid.</strike></p>
+
+<p><strong>Update 2</strong>: It turns out passing in null or an identity matrix to <code class="inline-code">BitmapData.draw</code>. does not work correctly.</p>
+
+<p>Of course, this is not always necessary when converting from a <code class="inline-code">Matrix</code> instance to a <code class="inline-code">Matrix3D</code> instance, but in my case it was. As you can imagine, this can have some significant performance implications, both because of memory allocation and deallocation, as well as the fact that removing the <code class="inline-code">Matrix3D</code>, even temporarily, changes how the <code class="inline-code">DisplayObject</code> is rendered.</p>
+
+<p>Right now, this trade off is ok in my case, although I am not sure if it will be for the long term. Again, in my case, I may need to look at some re-architecting so I don&#39;t have to work around this issue (such as nesting clips and cacheing the parent <code class="inline-code">BitmapData</code>, so I don&#39;t have to apply the transformations).</p>
+
+<p>Anyways, I am just learning the implications of using the 2.5D APIs in the Flash Player. This is an area where there is not currently a lot of information or documentation, especially information on the implications of moving from 2D to 2.5D APIs. Hopefully this will be useful.</p>
+
+<p>Here are a couple of other resources which I found useful:</p>
+
+<p><a href="http://adobe.com/go/AS3LR">API docs for Matrix, Matrix3D, Transformation and DisplayObject</a>.</p>
+
+<p><a href="http://www.bytearray.org/wp-content/projects/fp10-session/">Thibault Imbert&#39;s Flash Player 10 Presentation</a>, which has some good info on the 2.5D APIS.</p>
+
+<p><a href="http://help.adobe.com/en_US/ActionScript/3.0_ProgrammingAS3/WSF24A5A75-38D6-4a44-BDC6-927A2B123E90.html">Flash CS4 Docs : Working in three dimensions</a></p>
+
+<p>As I mentioned above, I am still getting my head around some of this stuff, so if you have any clarifications or corrections, post them in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

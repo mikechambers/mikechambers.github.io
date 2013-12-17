@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Monitoring System Volume changes with Adobe AIR</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Monitoring System Volume changes with Adobe AIR</h2>
+<p class="meta">Tuesday, February 24, 2009</p>
+
+<div class="post">
+<p>I am at FITC Amsterdam this week, where I had a talk on Desktop Development with Adobe AIR. One of the things I showed was how to get notifications when new volumes / drives are added / removed to a machine. This could be useful if for example, you application needs to know when a new CD Rom or USB drive has been added or removed to the user&#39;s system.<br>
+&lt;!--more--&gt;</p>
+
+<p>Anyways, I create a reusable class called <a href="http://code.google.com/p/as3corelib/source/browse/trunk/src/com/adobe/air/filesystem/VolumeMonitor.as">VolumeMonitor</a> that makes it very easy to monitor volume changes. I have checked in the code into the <a href="http://code.google.com/p/as3corelib/">as3corelib library</a> under the AIR package. Its not in the build yet, but once I write some docs and unit tests, and check for some bugs, Ill add it to the next build.</p>
+
+<p>Here is an example of the code in use:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="kd">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">adobe</span><span class="p">.</span><span class="nx">air</span><span class="p">.</span><span class="nx">filesystem</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">FileMonitorEvent</span><span class="o">;</span>
+<a name="line-2"></a><span class="kd">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">adobe</span><span class="p">.</span><span class="nx">air</span><span class="p">.</span><span class="nx">filesystem</span><span class="p">.</span><span class="nx">VolumeMonitor</span><span class="o">;</span>
+<a name="line-3"></a>
+<a name="line-4"></a><span class="kd">private</span> <span class="k">var</span> <span class="nx">monitor</span><span class="o">:</span><span class="nx">com</span><span class="p">.</span><span class="nx">adobe</span><span class="p">.</span><span class="nx">air</span><span class="p">.</span><span class="nx">filesystem</span><span class="p">.</span><span class="nx">VolumeMonitor</span><span class="o">;</span>
+<a name="line-5"></a>
+<a name="line-6"></a><span class="kd">private</span> <span class="kd">function</span> <span class="nx">onApplicationComplete</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-7"></a><span class="p">{</span>
+<a name="line-8"></a>    <span class="nx">monitor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">com</span><span class="p">.</span><span class="nx">adobe</span><span class="p">.</span><span class="nx">air</span><span class="p">.</span><span class="nx">filesystem</span><span class="p">.</span><span class="nx">VolumeMonitor</span><span class="p">();</span>
+<a name="line-9"></a>    <span class="nx">monitor</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">FileMonitorEvent</span><span class="p">.</span><span class="nx">ADD_VOLUME</span><span class="o">,</span> <span class="nx">onAddVolume</span><span class="p">);</span>
+<a name="line-10"></a>    <span class="nx">monitor</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">FileMonitorEvent</span><span class="p">.</span><span class="nx">REMOVE_VOLUME</span><span class="o">,</span> <span class="nx">onRemoveVolume</span><span class="p">);</span>
+<a name="line-11"></a>    <span class="nx">monitor</span><span class="p">.</span><span class="nx">watch</span><span class="p">();</span>
+<a name="line-12"></a>    <span class="p">}</span>
+<a name="line-13"></a>
+<a name="line-14"></a><span class="kd">private</span> <span class="kd">function</span> <span class="nx">onAddVolume</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="nx">FileMonitorEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-15"></a><span class="p">{</span>
+<a name="line-16"></a>    <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;Volume added : &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+<a name="line-17"></a><span class="p">}</span>
+<a name="line-18"></a>
+<a name="line-19"></a><span class="kd">private</span> <span class="kd">function</span> <span class="nx">onRemoveVolume</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="nx">FileMonitorEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-20"></a><span class="p">{</span>
+<a name="line-21"></a>    <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;Volume removed : &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+<a name="line-22"></a><span class="p">}</span>
+</code></pre></div>
+<p>You can check out the class by grabbing the <a href="http://code.google.com/p/as3corelib/source/checkout">as3corelib source</a>. If you poke around you will notice some other classes that I have added to the air package, but Ill post about those later.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

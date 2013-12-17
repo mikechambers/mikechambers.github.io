@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Example : Using ANT with COMPC to compile SWCs</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Example : Using ANT with COMPC to compile SWCs</h2>
+<p class="meta">Friday, May 19, 2006</p>
+
+<div class="post">
+<p>Following up on my previous post on <a href="http://weblogs.macromedia.com/mesh/archives/2006/05/quick_example_u.html">how to use compc to compile SWCs</a>, here is an <a href="http://ant.apache.org">ANT</a> build file that calls compc to compile a SWC:<br>
+&lt;!--more--&gt;</p>
+
+<p>`
+<pre>&lt;?xml version=&quot;1.0&quot; ?&gt;
+<project default="main">
+    <property name="base" value="../" />
+    <property name="componentName" value="MyWindow" />
+    <property name="swcFile" value="${componentName}.swc" />
+    <property name="manifest" value="${base}manifest.xml" />
+    <property name="namespace" value="http://www.adobe.com/2006/foo" /></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>&lt;available property=&quot;swc.exists&quot; file=&quot;${swcFile}&quot;/&gt;
+<a name="line-2"></a>
+<a name="line-3"></a>&lt;target name=&quot;main&quot; depends=&quot;init, compile&quot;&gt;
+<a name="line-4"></a>&lt;/target&gt;
+<a name="line-5"></a>
+<a name="line-6"></a>&lt;target name=&quot;init&quot; if=&quot;swc.exists&quot;&gt;
+<a name="line-7"></a>    &lt;delete file=&quot;${swcFile}&quot; /&gt;
+<a name="line-8"></a>&lt;/target&gt;
+<a name="line-9"></a>
+<a name="line-10"></a>&lt;target name=&quot;compile&quot; description=&quot;Compile SWC.&quot;&gt;
+<a name="line-11"></a>    &lt;echo&gt;Building ${swcFile}&lt;/echo&gt;
+<a name="line-12"></a>    &lt;exec dir=&quot;.&quot; executable=&quot;cmd&quot; failonerror=&quot;true&quot;&gt;
+<a name="line-13"></a>        &lt;arg line=&quot;/c compc -namespace ${namespace} ${manifest} 
+<a name="line-14"></a>            -source-path ${base}
+<a name="line-15"></a>            -include-namespaces ${namespace} -include-classes mx.containers.MyWindow
+<a name="line-16"></a>            -include-file MyWindow.png ${base}mx/containers/MyWindow.png 
+<a name="line-17"></a>            -output=&#39;${swcFile}&#39;&quot;/&gt;
+<a name="line-18"></a>    &lt;/exec&gt;        
+<a name="line-19"></a>&lt;/target&gt;
+</code></pre></div>
+<p></project></pre>
+<p>`</p>
+
+<p>Put this in a file called build.xml, and run <a href="http://ant.apache.org">ant</a> in the same directory.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

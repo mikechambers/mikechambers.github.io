@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Getting Started with Flash and Arduino</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Getting Started with Flash and Arduino</h2>
+<p class="meta">Wednesday, August 4, 2010</p>
+
+<div class="post">
+<p>In this post, I will show how to setup your development environment and started developing Flash projects that integrate with the <a href="http://www.arduino.cc">Arduino</a> electronic platform.</p>
+
+<p>So, what is Arduino? From the website:<br>
+&lt;!--more--&gt;</p>
+
+<blockquote>
+<p>Arduino is an open-source electronics prototyping platform based on flexible, easy-to-use hardware and software. It&#39;s intended for artists, designers, hobbyists, and anyone interested in creating interactive objects or environments.</p>
+</blockquote>
+
+<p>Basically, the Arduino can be a bridge from the computer to the physical world, allowing developers and artist to both read input from sensors, as well as output from the computer to the physical world. </p>
+
+<p>The design of the Arduino board is open source, which among other things, means that there are a lot of options for both the main board, as well as add-ons. Take a look at the Arduino sections at <a href="http://www.adafruit.com/index.php?main_page=index&amp;cPath=17_21">Adafruit</a> and <a href="http://www.sparkfun.com/commerce/categories.php?c=103">SparkFun.com</a> to get an idea of the type of add-ons / shields that have already been created.</p>
+
+<p>For this tutorial, we will cover how to:</p>
+
+<ol>
+<li> Set up Arduino and make sure it is connected correctly.</li>
+<li> Install and configure a proxy program so Flash can communicate with the Arduino.</li>
+<li> Build a simple Flash application that blinks an LED on the Arduino.</li>
+</ol>
+
+<p>Once we are finished with the tutorial, you will be all setup to begin working on real world Flash / Arduino projects.</p>
+
+<p><strong>What you will need</strong></p>
+
+<ol>
+<li> An Arduino Main Board: These are pretty cheap ($20 - $30) and you can pick them up tons of places (I recommend <a href="http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=17&amp;products_id=50">AdaFruit</a> and <a href="http://www.sparkfun.com/commerce/product_info.php?products_id=666">Sparkfun</a>). If you are just getting started with basic electronics, you may want to consider picking up a starter kit (<a href="http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=17&amp;products_id=68">AdaFruit</a>, <a href="http://www.sparkfun.com/commerce/product_info.php?products_id=9284">SparkFun</a>). The most current version is the <a href="http://arduino.cc/en/Main/ArduinoBoardDuemilanove">Arduino Duemilanove with Atmega328</a> which I will be using. Make sure that you get the appropriate USB cable if it is not included with your Arduino.</li>
+<li> Arduino software and drivers for your platform: You can grab these from the <a href="http://arduino.cc/en/Main/Software">Arduino downloads page</a>. I will be using the Arduino 0018 download on Mac.</li>
+<li> TinkerProxy. <a href="http://code.google.com/p/tinkerit/wiki/TinkerProxy">TinkerProxy</a> is a small local proxy that acts as a bridge between the serial port and Flash (via a socket server). This allows Flash to communicate with the Arduino.</li>
+<li> Editor for writing ActionScript code. You can use any editor such as Flash Authoring, Flash Builder, FDT, etc...</li>
+<li> Flash / ActionScript compiler. Finally, you will need a way to compile your ActionScript. Again, this could be anything that can compile ActionScript 3, such as Flash Builder, Flash Authoring, etc... I will be using the MXMLC command line compiler from the open source Flex 4 SDK.</li>
+</ol>
+
+<p>You can download and view all of the code from this article from <a href="http://github.com/mikechambers/ExamplesByMesh/tree/master/Arduino/FlashArduinoGettingStarted/">my GitHub examples repository</a>.</p>
+
+<p><strong>Installing Arduino</strong></p>
+
+<p>First, we need to install the Arduino software and drivers. The Arduino site has very good <a href="http://arduino.cc/en/Guide/HomePage">platform specific getting started articles</a>, so I am not going to try and reproduce them here.</p>
+
+<p>Following the instructions for your specific platform, and once your Arduino is setup and working, come back here:</p>
+
+<ul>
+<li>  <a href="http://arduino.cc/en/Guide/Windows">Windows</a></li>
+<li>  <a href="http://arduino.cc/en/Guide/MacOSX">Mac OS X</a></li>
+<li>  <a href="http://www.arduino.cc/playground/Learning/Linux">Linux</a></li>
+</ul>
+
+<p>If you run into any issues, make sure that you check out the <a href="http://arduino.cc/en/Guide/Troubleshooting">troubleshooting document</a>.</p>
+
+<p><strong>Setting up TinkerProxy</strong></p>
+
+<p>Now that you have your Arduino set up and working, we are ready to install a local proxy application that will bridge the communication between Flash and the Arduino. There are a <a href="http://www.arduino.cc/playground/Interfacing/SerialNet">number of possible proxies</a> for this, but for this article, we will be using <a href="">TinkerProxy</a>. This is an open source port of <em>serproxy</em> and has good support for Flash.</p>
+
+<p>Download the most recent version of TinkerProxy from the project&#39;s <a href="http://code.google.com/p/tinkerit/downloads/list">download page</a>. I am using the 2.0 release from March 2009. </p>
+
+<p>Once you have downloaded it, unzip the file. This will create a directory named <em>tinkerproxy-2_0</em>. Move this directory to where you want to keep it. On my system, I put it at <em>~/bin/tinkerproxy</em>. If you like, you can add this directory to your system&#39;s path, which will allow you to start TinkerProxy from anywhere.</p>
+
+<p>Open up the tinkerproxy directory in your file manager. You should see 3 files:</p>
+
+<ul>
+<li>  serproxy.cfg : configuration file</li>
+<li>  serproxy.exe : windows executable</li>
+<li>  serproxy.osx : mac executable</li>
+</ul>
+
+<p>If you are on Mac, rename the <em>serproxy.cfg</em> file to <em>serproxy.osx.cfg</em>. (Im not sure if you need to rename it on Windows).</p>
+
+<p>Open the configuration file (<em>serproxy.osx.cfg</em>) in a text editor so we can make a couple of changes.</p>
+
+<p>First, find the line that looks like this:</p>
+
+<p><code class="inline-code">serial_device1=/dev/tty.usbserial-A6004osh</code></p>
+
+<p>You need to update this to the serial port that the Arduino is connected to. You can do this 2 ways.</p>
+
+<p>The easiest way is to open up the Arduino development environment (make sure the Arduino is connected), and find the entry in <em>Arduino &gt; Tools &gt; Serial Port</em>.</p>
+
+<p>You can also run the following command : <code class="inline-code">ls -l /dev/</code> and find the Arduino entry there (it will be the <em>usbserial</em> entry).</p>
+
+<p>Once you have found the correct serial port, update the configuration file with the information.</p>
+
+<p><code class="inline-code">serial_device1=/dev/cu.usbserial-A700dZgM</code></p>
+
+<p>Next, we need to specify which comm port the Arduino is associated with. (This is usually comm port 3 on Windows). For the mac, just change the comm_ports entry like so:</p>
+
+<p><code class="inline-code">comm_ports=1</code></p>
+
+<p>Next, change the <em>comm_baud</em> setting to 9600.</p>
+
+<p><code class="inline-code">comm_baud=9600</code></p>
+
+<p>This is the speed that Arduino and TinkerProxy communicate (9600 bytes a second). You can set this at a higher level but it is good to start out low in order to ensure that any issues are not due to the baud rate. </p>
+
+<p>Finally, we need to update the <em>net_port</em> setting. Comment out all of the net<em>port* entries, except for *net</em>port1*. For its value, set the port that you want the proxy to listen on.</p>
+
+<p><code class="inline-code">net_port1=5331</code></p>
+
+<p>Here is what my entire <em>serproxy.osx.cfg</em> proxy looks like:</p>
+<div class="highlight"><pre><code class="bash"><a name="line-1"></a><span class="c"># Config file for serproxy</span>
+<a name="line-2"></a><span class="c"># See serproxy&#39;s README file for documentation</span>
+<a name="line-3"></a>
+<a name="line-4"></a><span class="c"># Transform newlines coming from the serial port into nils</span>
+<a name="line-5"></a><span class="c"># true (e.g. if using Flash) or false</span>
+<a name="line-6"></a><span class="nv">newlines_to_nils</span><span class="o">=</span><span class="nb">false</span>
+<a name="line-7"></a>
+<a name="line-8"></a><span class="c"># on a mac you will need to add this</span>
+<a name="line-9"></a><span class="nv">serial_device1</span><span class="o">=</span>/dev/cu.usbserial-A700dZgM
+<a name="line-10"></a>
+<a name="line-11"></a><span class="c"># Comm ports used</span>
+<a name="line-12"></a><span class="nv">comm_ports</span><span class="o">=</span>1
+<a name="line-13"></a>
+<a name="line-14"></a><span class="c"># Default settings</span>
+<a name="line-15"></a><span class="nv">comm_baud</span><span class="o">=</span>9600
+<a name="line-16"></a><span class="nv">comm_databits</span><span class="o">=</span>8
+<a name="line-17"></a><span class="nv">comm_stopbits</span><span class="o">=</span>1
+<a name="line-18"></a><span class="nv">comm_parity</span><span class="o">=</span>none
+<a name="line-19"></a>
+<a name="line-20"></a><span class="c"># Idle time out in seconds</span>
+<a name="line-21"></a><span class="nv">timeout</span><span class="o">=</span>300
+<a name="line-22"></a>
+<a name="line-23"></a><span class="c"># Port 1 settings (ttyS0)</span>
+<a name="line-24"></a><span class="nv">net_port1</span><span class="o">=</span>5331
+<a name="line-25"></a>
+<a name="line-26"></a><span class="c"># Port 2 settings (ttyS1)</span>
+<a name="line-27"></a><span class="c">#net_port2=5332</span>
+<a name="line-28"></a>
+<a name="line-29"></a><span class="c"># Port 3 settings (ttyS2)</span>
+<a name="line-30"></a><span class="c">#net_port3=5333</span>
+<a name="line-31"></a>
+<a name="line-32"></a><span class="c"># Port 4 settings (ttyS3)</span>
+<a name="line-33"></a><span class="c">#net_port4=5334</span>
+</code></pre></div>
+<p>Once you have made the changes, save the file and close it.</p>
+
+<p>We are now ready to start TinkerProxy. Make sure that the Arduino is still connected to your computer.</p>
+
+<p>Open up the terminal, and change to the directory where TinkerProxy is installed. Run the following command:</p>
+
+<p><code class="inline-code">./serproxy.osx</code></p>
+
+<p>You should see the following output:</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>Serproxy 0.2.0 - Tinker.it 
+<a name="line-2"></a>Based on code by (C)1999 Stefano Busti, (C)2005 David A. Mellis
+<a name="line-3"></a>
+<a name="line-4"></a>Waiting for clients
+</code></pre></div>
+<p>If you see this, then you are all set. If you get an error, double check your configuration file, and make sure you are in the directory where <a href="">serproxy.osx</a> is located. </p>
+
+<p><strong>Code</strong></p>
+
+<p>We are finally ready to write some code. For this tutorial, we have Flash control an LED on the Arduino, and have the Arduino send status messages back to Flash. </p>
+
+<p>We need to write two pieces of code. First, we need to write code that will be loaded and run on the Arduino. This will control the hardware, and listen for and respond to messages from Flash. We then need to write some Flash / ActionScript code that will send and received commands to and from the Arduino.</p>
+
+<p><strong>Arduino Code</strong></p>
+
+<p>Lets write the Arduino code first.</p>
+
+<p>Open up the Arduino application, and create a new file called <em>FlashBlink.pde</em>. Type the code below into the editor:</p>
+<div class="highlight"><pre><code class="javascript"><a name="line-1"></a><span class="cm">/*</span>
+<a name="line-2"></a><span class="cm">    Simple example that controls the blinking of the LED</span>
+<a name="line-3"></a><span class="cm">    connected to digital PIN 13.</span>
+<a name="line-4"></a>
+<a name="line-5"></a><span class="cm">    Created by Mike Chambers</span>
+<a name="line-6"></a>
+<a name="line-7"></a><span class="cm">    http://www.mikechambers.com</span>
+<a name="line-8"></a>
+<a name="line-9"></a><span class="cm">    You can hook up an external LED by connecting an LED</span>
+<a name="line-10"></a><span class="cm">    to PIN 13 and GND (make sure that the anode (long leg) is</span>
+<a name="line-11"></a><span class="cm">    connected to PING 13 and the cathode (short leg) is connected</span>
+<a name="line-12"></a><span class="cm">    to GND.</span>
+<a name="line-13"></a>
+<a name="line-14"></a><span class="cm">    The on board LED is also connected to PIN 13, and will</span>
+<a name="line-15"></a><span class="cm">    be controlled by this program.</span>
+<a name="line-16"></a>
+<a name="line-17"></a><span class="cm">    Example is released under the following license:</span>
+<a name="line-18"></a>
+<a name="line-19"></a><span class="cm">    The MIT License</span>
+<a name="line-20"></a>
+<a name="line-21"></a><span class="cm">    Copyright (c) 2010 Mike Chambers</span>
+<a name="line-22"></a>
+<a name="line-23"></a><span class="cm">    Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<a name="line-24"></a><span class="cm">    of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<a name="line-25"></a><span class="cm">    in the Software without restriction, including without limitation the rights</span>
+<a name="line-26"></a><span class="cm">    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<a name="line-27"></a><span class="cm">    copies of the Software, and to permit persons to whom the Software is</span>
+<a name="line-28"></a><span class="cm">    furnished to do so, subject to the following conditions:</span>
+<a name="line-29"></a>
+<a name="line-30"></a><span class="cm">    The above copyright notice and this permission notice shall be included in</span>
+<a name="line-31"></a><span class="cm">    all copies or substantial portions of the Software.</span>
+<a name="line-32"></a>
+<a name="line-33"></a><span class="cm">    THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<a name="line-34"></a><span class="cm">    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<a name="line-35"></a><span class="cm">    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<a name="line-36"></a><span class="cm">    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<a name="line-37"></a><span class="cm">    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<a name="line-38"></a><span class="cm">    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
+<a name="line-39"></a><span class="cm">    THE SOFTWARE.</span>
+<a name="line-40"></a><span class="cm">*/</span>
+<a name="line-41"></a>
+<a name="line-42"></a>
+<a name="line-43"></a><span class="c1">//The digital pin that the LED is connected to</span>
+<a name="line-44"></a><span class="err">#</span><span class="nx">define</span> <span class="nx">LED_PIN</span> <span class="mi">13</span>
+<a name="line-45"></a>
+<a name="line-46"></a><span class="c1">//incoming command to toggle LED blinking state</span>
+<a name="line-47"></a><span class="err">#</span><span class="nx">define</span> <span class="nx">TOGGLE_LED_STATE</span> <span class="s1">&#39;t&#39;</span>
+<a name="line-48"></a>
+<a name="line-49"></a><span class="err">#</span><span class="nx">define</span> <span class="nx">EOL_DELIMITER</span> <span class="s2">&quot;\n&quot;</span>
+<a name="line-50"></a>
+<a name="line-51"></a><span class="c1">//int to hold incoming byte when we read it</span>
+<a name="line-52"></a><span class="kr">int</span> <span class="nx">incoming</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<a name="line-53"></a>
+<a name="line-54"></a><span class="c1">//whether the led should blink</span>
+<a name="line-55"></a><span class="kr">boolean</span> <span class="nx">shouldBlinkLED</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<a name="line-56"></a>
+<a name="line-57"></a><span class="c1">//setup function. called when the program first runs</span>
+<a name="line-58"></a><span class="k">void</span> <span class="nx">setup</span><span class="p">()</span>
+<a name="line-59"></a><span class="p">{</span>
+<a name="line-60"></a>    <span class="c1">//start listening for incoming messages on the serial port</span>
+<a name="line-61"></a>    <span class="c1">//at 9600 baud</span>
+<a name="line-62"></a>    <span class="nx">Serial</span><span class="p">.</span><span class="nx">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<a name="line-63"></a>
+<a name="line-64"></a>    <span class="c1">//Send a message out that the program is initializing</span>
+<a name="line-65"></a>    <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;INITIALIZING&quot;</span><span class="p">);</span>
+<a name="line-66"></a>
+<a name="line-67"></a>    <span class="c1">//Flash looks for this to know when the message is done</span>
+<a name="line-68"></a>    <span class="c1">//See the comments in the Flash file for more info.</span>
+<a name="line-69"></a>    <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">EOL_DELIMITER</span><span class="p">);</span>
+<a name="line-70"></a>
+<a name="line-71"></a>    <span class="c1">//set the pin more for the digital ping that</span>
+<a name="line-72"></a>    <span class="c1">//the LED is connected to (can be INPUT or OUTPUT)</span>
+<a name="line-73"></a>    <span class="nx">pinMode</span><span class="p">(</span><span class="nx">LED_PIN</span><span class="p">,</span> <span class="nx">OUTPUT</span><span class="p">);</span>
+<a name="line-74"></a>
+<a name="line-75"></a>    <span class="c1">//blink the LED 5 times so we can visually see that the</span>
+<a name="line-76"></a>    <span class="c1">//program is running</span>
+<a name="line-77"></a>    <span class="nx">blinkLED</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<a name="line-78"></a>
+<a name="line-79"></a>    <span class="c1">//Send out a message that initialization is complete.</span>
+<a name="line-80"></a>    <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;READY&quot;</span><span class="p">);</span>
+<a name="line-81"></a>    <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">EOL_DELIMITER</span><span class="p">);</span>
+<a name="line-82"></a><span class="p">}</span>
+<a name="line-83"></a>
+<a name="line-84"></a><span class="c1">//program loop. Called each timer tick (really fast)</span>
+<a name="line-85"></a><span class="k">void</span> <span class="nx">loop</span><span class="p">()</span>
+<a name="line-86"></a><span class="p">{</span>
+<a name="line-87"></a>    <span class="c1">//check if we should blink the LED</span>
+<a name="line-88"></a>    <span class="k">if</span><span class="p">(</span><span class="nx">shouldBlinkLED</span><span class="p">)</span>
+<a name="line-89"></a>    <span class="p">{</span>
+<a name="line-90"></a>        <span class="c1">//if so, blink the LED</span>
+<a name="line-91"></a>        <span class="nx">blinkLED</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<a name="line-92"></a>    <span class="p">}</span>
+<a name="line-93"></a>
+<a name="line-94"></a>    <span class="c1">//check if there are any bytes available</span>
+<a name="line-95"></a>    <span class="c1">//on the Serial port</span>
+<a name="line-96"></a>    <span class="k">if</span><span class="p">(</span><span class="nx">Serial</span><span class="p">.</span><span class="nx">available</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<a name="line-97"></a>    <span class="p">{</span>
+<a name="line-98"></a>        <span class="c1">//read a single byte.</span>
+<a name="line-99"></a>        <span class="nx">incoming</span> <span class="o">=</span> <span class="nx">Serial</span><span class="p">.</span><span class="nx">read</span><span class="p">();</span>
+<a name="line-100"></a>
+<a name="line-101"></a>
+<a name="line-102"></a>        <span class="c1">//Calling Serial.read() remove the byte from the Serial</span>
+<a name="line-103"></a>        <span class="c1">//buffer. In this case, if there are multiple bytes that</span>
+<a name="line-104"></a>        <span class="c1">//were sent, the next one will be handled on the next loop.</span>
+<a name="line-105"></a>        <span class="c1">//You could also grab it by calling Serial.read() again</span>
+<a name="line-106"></a>
+<a name="line-107"></a>        <span class="c1">//check if the incoming byte was a command to toggle</span>
+<a name="line-108"></a>        <span class="c1">//the state of the LED blinking</span>
+<a name="line-109"></a>        <span class="k">if</span><span class="p">(</span><span class="nx">incoming</span> <span class="o">==</span> <span class="nx">TOGGLE_LED_STATE</span><span class="p">)</span>
+<a name="line-110"></a>        <span class="p">{</span>
+<a name="line-111"></a>            <span class="c1">//it was a command</span>
+<a name="line-112"></a>
+<a name="line-113"></a>            <span class="c1">//toggle the state of the LED Blinking</span>
+<a name="line-114"></a>            <span class="nx">shouldBlinkLED</span> <span class="o">=</span> <span class="o">!</span><span class="nx">shouldBlinkLED</span><span class="p">;</span>
+<a name="line-115"></a>
+<a name="line-116"></a>            <span class="c1">//send a message to the Serial port with the </span>
+<a name="line-117"></a>            <span class="c1">//new LED Blink state</span>
+<a name="line-118"></a>
+<a name="line-119"></a>            <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;LED BLINK STATE: &quot;</span><span class="p">);</span> 
+<a name="line-120"></a>            <span class="k">if</span><span class="p">(</span><span class="nx">shouldBlinkLED</span><span class="p">)</span>
+<a name="line-121"></a>            <span class="p">{</span>
+<a name="line-122"></a>                <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;ON&quot;</span><span class="p">);</span>
+<a name="line-123"></a>            <span class="p">}</span>
+<a name="line-124"></a>            <span class="k">else</span>
+<a name="line-125"></a>            <span class="p">{</span>
+<a name="line-126"></a>                <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;OFF&quot;</span><span class="p">);</span>
+<a name="line-127"></a>            <span class="p">}</span>
+<a name="line-128"></a>
+<a name="line-129"></a>            <span class="nx">Serial</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">EOL_DELIMITER</span><span class="p">);</span>
+<a name="line-130"></a>
+<a name="line-131"></a>            <span class="c1">//note, if you are using XMLSocket in Flash to read</span>
+<a name="line-132"></a>            <span class="c1">//the string data over the socket then we also have to send </span>
+<a name="line-133"></a>            <span class="c1">//a null byte with the following command:</span>
+<a name="line-134"></a>            <span class="c1">//</span>
+<a name="line-135"></a>            <span class="c1">//Serial.print(0, BYTE);</span>
+<a name="line-136"></a>            <span class="c1">//</span>
+<a name="line-137"></a>            <span class="c1">//However, in general, it is going to be easier, and more flexible</span>
+<a name="line-138"></a>            <span class="c1">//to use the Socket class (and not the XMLSocket class).</span>
+<a name="line-139"></a>        <span class="p">}</span>
+<a name="line-140"></a>    <span class="p">}</span>
+<a name="line-141"></a><span class="p">}</span>
+<a name="line-142"></a>
+<a name="line-143"></a><span class="c1">//function to blink the LED</span>
+<a name="line-144"></a><span class="k">void</span> <span class="nx">blinkLED</span><span class="p">(</span><span class="kr">int</span> <span class="nx">count</span><span class="p">)</span>
+<a name="line-145"></a><span class="p">{</span>
+<a name="line-146"></a>    <span class="c1">//loop through</span>
+<a name="line-147"></a>    <span class="k">for</span><span class="p">(</span><span class="kr">int</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<a name="line-148"></a>    <span class="p">{</span>
+<a name="line-149"></a>        <span class="c1">//turn LED on</span>
+<a name="line-150"></a>        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">LED_PIN</span><span class="p">,</span> <span class="nx">HIGH</span><span class="p">);</span>
+<a name="line-151"></a>
+<a name="line-152"></a>        <span class="c1">//wait 500 ms</span>
+<a name="line-153"></a>        <span class="nx">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a name="line-154"></a>
+<a name="line-155"></a>        <span class="c1">//turn LED off</span>
+<a name="line-156"></a>        <span class="nx">digitalWrite</span><span class="p">(</span><span class="nx">LED_PIN</span><span class="p">,</span> <span class="nx">LOW</span><span class="p">);</span>
+<a name="line-157"></a>
+<a name="line-158"></a>        <span class="c1">//wait 500 ms</span>
+<a name="line-159"></a>        <span class="nx">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a name="line-160"></a>    <span class="p">}</span>
+<a name="line-161"></a><span class="p">}</span>
+</code></pre></div>
+<p>The code is extensively commented and explains what is going on. Make sure that you read through them.</p>
+
+<p>Basically, the code just listens for a single character (&quot;t&quot;) to be sent over the Serial port. When it receives a &quot;t&quot; then it toggles the blinking of the LED (from ON to OFF or vice versa). When the LED is toggled, the Arduino will send a message back to Flash with the current LED state. Finally, the code blinks the LED 5 times when it starts so you can see that it is loaded and is running correctly.</p>
+
+<p>Once you have the code typed in, press the &quot;Verify&quot; button (looks like a Play button) (<em>Sketch &gt; Verify / Compile</em>) in order to ensure that you don&#39;t have any compilation errors. Once it compiles, then we are ready to upload it to the Arduino.</p>
+
+<p>Make sure that the Arduino is connected, and then press the &quot;Upload&quot; button in the Arduino editor (<em>File &gt; Upload to I/O Board</em>). This will upload the code to the Arduino. Note that even if you disconnect the Arduino, the code will still be on there, and begin running when the Arduino is connected (you don&#39;t have to re-upload it every time).</p>
+
+<p>Before we write the ActionScript code, lets test the Arduino code we just wrote to ensure everything is working. We can do this by opening the Arduino Serial Monitor and send a message.</p>
+
+<p>Open the Serial Monitor (<em>Tools &gt; Serial Monitor</em>) and make sure that the baud rate is set to 9600 (in the bottom right of the window). Wait until you see the &quot;INITIALIZING&quot; and &quot;READY&quot; messages printed from the Arduino (we send these from our code). At the top, type in the letter &quot;t&quot; and click &quot;Send&quot;. This sends the message to the Arduino. You should see the LED blinking toggle state, and also see a message in the console from the Arduino with the LED blink status.</p>
+
+<p>If something doesn&#39;t work, then go back and check your code. Make sure you have set the baud rate correctly in your code and in the Serial Monitor. Once everything is working, then we are ready to move on to the final step, which is to write some Flash code to control and communicate with the Arduino.</p>
+
+<p><strong>Flash / ActionScript Code</strong></p>
+
+<p>From the Flash side of things, integrating with the Arduino is pretty much the same as regular client / server development with Flash. Indeed, we will use the <a href="http://help.adobe.com/en_US/FlashPlatform/beta/reference/actionscript/3/flash/net/Socket.html?allClasses=1">Socket</a> class to send and receive messages to the Arduino via TinkerProxy.</p>
+
+<p>Here is our ActionScript code for interacting with the Arduino:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="cm">/*</span>
+<a name="line-2"></a><span class="cm">Simple Example that connects to an Arduino (via TinkerProxy) and controls</span>
+<a name="line-3"></a><span class="cm">the blinking of an LED.</span>
+<a name="line-4"></a>
+<a name="line-5"></a><span class="cm">Created by Mike Chambers</span>
+<a name="line-6"></a>
+<a name="line-7"></a><span class="cm">http://www.mikechambers.com</span>
+<a name="line-8"></a>
+<a name="line-9"></a><span class="cm">The MIT License</span>
+<a name="line-10"></a>
+<a name="line-11"></a><span class="cm">Copyright (c) 2010 Mike Chambers</span>
+<a name="line-12"></a>
+<a name="line-13"></a><span class="cm">Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<a name="line-14"></a><span class="cm">of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<a name="line-15"></a><span class="cm">in the Software without restriction, including without limitation the rights</span>
+<a name="line-16"></a><span class="cm">to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<a name="line-17"></a><span class="cm">copies of the Software, and to permit persons to whom the Software is</span>
+<a name="line-18"></a><span class="cm">furnished to do so, subject to the following conditions:</span>
+<a name="line-19"></a>
+<a name="line-20"></a><span class="cm">The above copyright notice and this permission notice shall be included in</span>
+<a name="line-21"></a><span class="cm">all copies or substantial portions of the Software.</span>
+<a name="line-22"></a>
+<a name="line-23"></a><span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<a name="line-24"></a><span class="cm">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<a name="line-25"></a><span class="cm">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<a name="line-26"></a><span class="cm">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<a name="line-27"></a><span class="cm">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<a name="line-28"></a><span class="cm">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
+<a name="line-29"></a><span class="cm">THE SOFTWARE.</span>
+<a name="line-30"></a><span class="cm">*/</span>
+<a name="line-31"></a>
+<a name="line-32"></a><span class="kd">package</span>
+<a name="line-33"></a><span class="p">{</span>
+<a name="line-34"></a><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">Event</span><span class="o">;</span>
+<a name="line-35"></a><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Sprite</span><span class="o">;</span>
+<a name="line-36"></a><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nb">Socket</span><span class="o">;</span>
+<a name="line-37"></a><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">IOErrorEvent</span><span class="o">;</span>
+<a name="line-38"></a><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">ProgressEvent</span><span class="o">;</span>
+<a name="line-39"></a><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">SecurityErrorEvent</span><span class="o">;</span>
+<a name="line-40"></a><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nb">Endian</span><span class="o">;</span>
+<a name="line-41"></a><span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">MouseEvent</span><span class="o">;</span>
+<a name="line-42"></a>
+<a name="line-43"></a><span class="kd">public</span> <span class="kd">class</span> <span class="nx">FlashBlink</span> <span class="kd">extends</span> <span class="nb">Sprite</span>
+<a name="line-44"></a><span class="p">{</span>
+<a name="line-45"></a>
+<a name="line-46"></a>    <span class="c1">//command sent to the Arduino to toggle LED blinking state</span>
+<a name="line-47"></a>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">const</span> <span class="nx">TOGGLE_LED_STATE</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;t&quot;</span><span class="o">;</span>
+<a name="line-48"></a>
+<a name="line-49"></a>    <span class="c1">//Character that delineates the end of a message received</span>
+<a name="line-50"></a>    <span class="c1">//from the Arduino</span>
+<a name="line-51"></a>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">const</span> <span class="nx">EOL_DELIMITER</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;\n&quot;</span><span class="o">;</span>
+<a name="line-52"></a>
+<a name="line-53"></a>    <span class="c1">//socket we will use to connect to TinkerProxy</span>
+<a name="line-54"></a>    <span class="kd">private</span> <span class="k">var</span> <span class="nx">_socket</span><span class="o">:</span><span class="nb">Socket</span><span class="o">;</span>
+<a name="line-55"></a>
+<a name="line-56"></a>    <span class="c1">//Address where TinkerProxy is located. Will usually be</span>
+<a name="line-57"></a>    <span class="c1">//localhost / 127.0.0.1</span>
+<a name="line-58"></a>    <span class="kd">private</span> <span class="k">var</span> <span class="nx">_proxyAddress</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="o">;</span>
+<a name="line-59"></a>
+<a name="line-60"></a>    <span class="c1">//port TinkerProxy is listening on</span>
+<a name="line-61"></a>    <span class="kd">private</span> <span class="k">var</span> <span class="nx">_proxyPort</span><span class="o">:</span><span class="nb">uint</span> <span class="o">=</span> <span class="mi">5331</span><span class="o">;</span>
+<a name="line-62"></a>
+<a name="line-63"></a>    <span class="c1">//constructor</span>
+<a name="line-64"></a>    <span class="kd">public</span> <span class="kd">function</span> <span class="nx">FlashBlink</span><span class="p">()</span>
+<a name="line-65"></a>    <span class="p">{</span>
+<a name="line-66"></a>        <span class="c1">//listen for when we are added to the stage</span>
+<a name="line-67"></a>        <span class="nx">addEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ADDED_TO_STAGE</span><span class="o">,</span> <span class="nx">onAddedToStage</span><span class="p">);</span>
+<a name="line-68"></a>    <span class="p">}</span>
+<a name="line-69"></a>
+<a name="line-70"></a>    <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onAddedToStage</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-71"></a>    <span class="p">{</span>
+<a name="line-72"></a>        <span class="nx">removeEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ADDED_TO_STAGE</span><span class="o">,</span> <span class="nx">onAddedToStage</span><span class="p">);</span>
+<a name="line-73"></a>
+<a name="line-74"></a>        <span class="c1">//create a Sprite to add to the stage.</span>
+<a name="line-75"></a>        <span class="c1">//This will be a simple button</span>
+<a name="line-76"></a>        <span class="k">var</span> <span class="nx">s</span><span class="o">:</span><span class="nb">Sprite</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Sprite</span><span class="p">();</span>
+<a name="line-77"></a>
+<a name="line-78"></a>        <span class="c1">//draw a green square in the Sprite</span>
+<a name="line-79"></a>        <span class="nx">s</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">beginFill</span><span class="p">(</span><span class="mh">0x00</span><span class="nx">FF00</span><span class="p">);</span>
+<a name="line-80"></a>        <span class="nx">s</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">drawRect</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span> <span class="mi">200</span><span class="o">,</span><span class="mi">100</span><span class="p">);</span>
+<a name="line-81"></a>        <span class="nx">s</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">endFill</span><span class="p">();</span>
+<a name="line-82"></a>
+<a name="line-83"></a>        <span class="c1">//Add Sprite to the display list</span>
+<a name="line-84"></a>        <span class="nx">addChild</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+<a name="line-85"></a>
+<a name="line-86"></a>        <span class="c1">//position it</span>
+<a name="line-87"></a>        <span class="nx">s</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
+<a name="line-88"></a>        <span class="nx">s</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
+<a name="line-89"></a>
+<a name="line-90"></a>        <span class="c1">//listen for when the user clicks the Sprite</span>
+<a name="line-91"></a>        <span class="nx">s</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nb">MouseEvent</span><span class="p">.</span><span class="nx">CLICK</span><span class="o">,</span> <span class="nx">onClick</span><span class="p">);</span>
+<a name="line-92"></a>
+<a name="line-93"></a>        <span class="nx">_socket</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Socket</span><span class="p">();</span>
+<a name="line-94"></a>
+<a name="line-95"></a>        <span class="c1">//Register for socket events</span>
+<a name="line-96"></a>
+<a name="line-97"></a>        <span class="c1">//socket connected</span>
+<a name="line-98"></a>        <span class="nx">_socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">Event</span><span class="p">.</span><span class="nx">CONNECT</span><span class="o">,</span> <span class="nx">onConnect</span> <span class="p">);</span>           
+<a name="line-99"></a>
+<a name="line-100"></a>        <span class="c1">//socket closed</span>
+<a name="line-101"></a>        <span class="nx">_socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">Event</span><span class="p">.</span><span class="nx">CLOSE</span><span class="o">,</span> <span class="nx">onClose</span> <span class="p">);</span>           
+<a name="line-102"></a>
+<a name="line-103"></a>        <span class="c1">//data received from socket</span>
+<a name="line-104"></a>        <span class="nx">_socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">ProgressEvent</span><span class="p">.</span><span class="nx">SOCKET_DATA</span><span class="o">,</span> <span class="nx">onSocketData</span> <span class="p">);</span>
+<a name="line-105"></a>
+<a name="line-106"></a>        <span class="c1">//Error connecting</span>
+<a name="line-107"></a>        <span class="nx">_socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">IOErrorEvent</span><span class="p">.</span><span class="nx">IO_ERROR</span><span class="o">,</span> <span class="nx">onIOError</span> <span class="p">);</span>
+<a name="line-108"></a>
+<a name="line-109"></a>        <span class="c1">//Security Error</span>
+<a name="line-110"></a>        <span class="nx">_socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span> <span class="nb">SecurityErrorEvent</span><span class="p">.</span><span class="nx">SECURITY_ERROR</span><span class="o">,</span> <span class="nx">onSecurityError</span> <span class="p">);</span>
+<a name="line-111"></a>
+<a name="line-112"></a>        <span class="c1">//need to set Endianness for Socket. THIS IS IMPORTANT</span>
+<a name="line-113"></a>        <span class="c1">//If this is set incorrectly, the Arduino will not be able to understand</span>
+<a name="line-114"></a>        <span class="c1">//all of the data sent from Flash. </span>
+<a name="line-115"></a>        <span class="c1">//</span>
+<a name="line-116"></a>        <span class="c1">//See:</span>
+<a name="line-117"></a>        <span class="c1">//http://www.mikechambers.com/blog/2010/08/01/sending-multibyte-numbers-from-actionscript-to-arduino/</span>
+<a name="line-118"></a>        <span class="nx">_socket</span><span class="p">.</span><span class="nx">endian</span> <span class="o">=</span> <span class="nb">Endian</span><span class="p">.</span><span class="nx">LITTLE_ENDIAN</span><span class="o">;</span>
+<a name="line-119"></a>
+<a name="line-120"></a>        <span class="c1">//connect</span>
+<a name="line-121"></a>        <span class="nx">_socket</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">_proxyAddress</span><span class="o">,</span> <span class="nx">_proxyPort</span><span class="p">);</span>
+<a name="line-122"></a>    <span class="p">}</span>
+<a name="line-123"></a>
+<a name="line-124"></a>    <span class="c1">//called when we connect to the proxy server</span>
+<a name="line-125"></a>    <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onConnect</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-126"></a>    <span class="p">{</span>
+<a name="line-127"></a>        <span class="cm">/*</span>
+<a name="line-128"></a><span class="cm">            note, you cannot reliably write data to the socket here.</span>
+<a name="line-129"></a>
+<a name="line-130"></a><span class="cm">            Im not sure if this is a Flash player issue, or a timing issue</span>
+<a name="line-131"></a><span class="cm">            with the proxy.</span>
+<a name="line-132"></a><span class="cm">        */</span>
+<a name="line-133"></a>        <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;Socket Connected&quot;</span><span class="p">);</span>
+<a name="line-134"></a>    <span class="p">}</span>
+<a name="line-135"></a>
+<a name="line-136"></a>    <span class="cm">/*</span>
+<a name="line-137"></a><span class="cm">        This function / event handler is called when data is received</span>
+<a name="line-138"></a><span class="cm">        on the socket. </span>
+<a name="line-139"></a>
+<a name="line-140"></a><span class="cm">        However, it is important to remember that the event is called as</span>
+<a name="line-141"></a><span class="cm">        data is received, which means that not all of the data may be available</span>
+<a name="line-142"></a><span class="cm">        when it is called.</span>
+<a name="line-143"></a>
+<a name="line-144"></a><span class="cm">        For example, if you sent the string &quot;Hello World&quot; from Arduino,</span>
+<a name="line-145"></a><span class="cm">        then the event handler might be called twice. Once with &quot;Hello Wo&quot; and</span>
+<a name="line-146"></a><span class="cm">        a second time with &quot;rld&quot;.</span>
+<a name="line-147"></a>
+<a name="line-148"></a><span class="cm">        &quot;Because of this, in most cases, you need to buffer the data, and parse</span>
+<a name="line-149"></a><span class="cm">        out messages, looking for a character (that you specify) that delineates the</span>
+<a name="line-150"></a><span class="cm">        end of a message.</span>
+<a name="line-151"></a>
+<a name="line-152"></a><span class="cm">        If you just want to send a single character back from Arduino, then this</span>
+<a name="line-153"></a><span class="cm">        is not necessary. However, the handler below is generic, and already does all</span>
+<a name="line-154"></a><span class="cm">        of the buffering, so you can just use it.</span>
+<a name="line-155"></a><span class="cm">    */</span>
+<a name="line-156"></a>
+<a name="line-157"></a>    <span class="c1">//string to hold data as it comes in.</span>
+<a name="line-158"></a>    <span class="kd">private</span> <span class="k">var</span> <span class="nx">buffer</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">;</span>
+<a name="line-159"></a>
+<a name="line-160"></a>    <span class="c1">//event called when data arrives on the socket from the</span>
+<a name="line-161"></a>    <span class="c1">//arduino</span>
+<a name="line-162"></a>    <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onSocketData</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">ProgressEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-163"></a>    <span class="p">{</span>
+<a name="line-164"></a>        <span class="c1">//get the string sent from the Arduino. This could be any binary data</span>
+<a name="line-165"></a>        <span class="c1">//but in our case, we are sending strings.</span>
+<a name="line-166"></a>        <span class="c1">//In general, it is much easier to just always send strings from </span>
+<a name="line-167"></a>        <span class="c1">//Arduino, and then parse then in ActionScript</span>
+<a name="line-168"></a>        <span class="k">var</span> <span class="nx">data</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="nx">_socket</span><span class="p">.</span><span class="nx">readUTFBytes</span><span class="p">(</span> <span class="nx">_socket</span><span class="p">.</span><span class="nx">bytesAvailable</span> <span class="p">);</span>
+<a name="line-169"></a>
+<a name="line-170"></a>        <span class="c1">//copy the newly arrived data into the buffer string.</span>
+<a name="line-171"></a>        <span class="nx">buffer</span> <span class="o">+=</span> <span class="nx">data</span><span class="o">;</span>
+<a name="line-172"></a>
+<a name="line-173"></a>        <span class="c1">//completed message from the server</span>
+<a name="line-174"></a>        <span class="k">var</span> <span class="nx">msg</span><span class="o">:</span><span class="nb">String</span><span class="o">;</span>
+<a name="line-175"></a>        <span class="k">var</span> <span class="nx">index</span><span class="o">:</span><span class="nb">int</span><span class="o">;</span>
+<a name="line-176"></a>
+<a name="line-177"></a>        <span class="c1">//loop through the buffer until it contains no more</span>
+<a name="line-178"></a>        <span class="c1">//end of message delimiter</span>
+<a name="line-179"></a>        <span class="k">while</span><span class="p">((</span><span class="nx">index</span> <span class="o">=</span> <span class="nx">buffer</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">EOL_DELIMITER</span><span class="p">))</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a name="line-180"></a>        <span class="p">{</span>
+<a name="line-181"></a>            <span class="c1">//extract the message from the beginning to where the delimiter is</span>
+<a name="line-182"></a>            <span class="c1">//we don&#39;t include the delimiter</span>
+<a name="line-183"></a>            <span class="nx">msg</span> <span class="o">=</span> <span class="nx">buffer</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="nx">index</span><span class="p">);</span>
+<a name="line-184"></a>
+<a name="line-185"></a>            <span class="c1">//remove the message from the buffer</span>
+<a name="line-186"></a>            <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">buffer</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+<a name="line-187"></a>
+<a name="line-188"></a>            <span class="c1">//trace out the message (or do whatever you want with it)</span>
+<a name="line-189"></a>            <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;Message Received from Arduino : &quot;</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">);</span>
+<a name="line-190"></a>        <span class="p">}</span>               
+<a name="line-191"></a>
+<a name="line-192"></a>    <span class="p">}</span>
+<a name="line-193"></a>
+<a name="line-194"></a>    <span class="c1">//called when the user clicks the button on stage</span>
+<a name="line-195"></a>    <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onClick</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">MouseEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-196"></a>    <span class="p">{</span>
+<a name="line-197"></a>        <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;onClick&quot;</span><span class="p">);</span>
+<a name="line-198"></a>
+<a name="line-199"></a>        <span class="c1">//make sure we are connected to the socket</span>
+<a name="line-200"></a>        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">_socket</span><span class="p">.</span><span class="nx">connected</span><span class="p">)</span>
+<a name="line-201"></a>        <span class="p">{</span>
+<a name="line-202"></a>            <span class="c1">//if not, don&#39;t do anything</span>
+<a name="line-203"></a>            <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;You must be connected to send a command to the Arduino.&quot;</span><span class="p">);</span>
+<a name="line-204"></a>            <span class="k">return</span><span class="o">;</span>
+<a name="line-205"></a>        <span class="p">}</span>
+<a name="line-206"></a>
+<a name="line-207"></a>        <span class="c1">//write the command to the server</span>
+<a name="line-208"></a>        <span class="nx">_socket</span><span class="p">.</span><span class="nx">writeUTFBytes</span><span class="p">(</span><span class="nx">TOGGLE_LED_STATE</span><span class="p">);</span>
+<a name="line-209"></a>
+<a name="line-210"></a>        <span class="c1">//flush the socket. Not really necessary, but here for forward compatibility.</span>
+<a name="line-211"></a>        <span class="nx">_socket</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+<a name="line-212"></a>    <span class="p">}</span>
+<a name="line-213"></a>
+<a name="line-214"></a>    <span class="c1">//called when the socket is closed</span>
+<a name="line-215"></a>    <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-216"></a>    <span class="p">{</span>
+<a name="line-217"></a>        <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;Socket Closed&quot;</span><span class="p">);</span>
+<a name="line-218"></a>    <span class="p">}</span>
+<a name="line-219"></a>
+<a name="line-220"></a>    <span class="c1">//called if an error occurs while connecting to the socket.</span>
+<a name="line-221"></a>    <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onIOError</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">IOErrorEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-222"></a>    <span class="p">{</span>
+<a name="line-223"></a>        <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;IOErrorEvent : &quot;</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<a name="line-224"></a>    <span class="p">}</span>
+<a name="line-225"></a>
+<a name="line-226"></a>    <span class="c1">//called when there is a security error. Usually if you try to connect to a socket</span>
+<a name="line-227"></a>    <span class="c1">//when the SWF doesn&#39;t have permission. </span>
+<a name="line-228"></a>    <span class="c1">//See:</span>
+<a name="line-229"></a>    <span class="c1">//http://www.adobe.com/devnet/flashplayer/articles/fplayer9_security_04.html</span>
+<a name="line-230"></a>    <span class="c1">//In most cases, when testing locally, this will not be an issue.</span>
+<a name="line-231"></a>    <span class="kd">private</span> <span class="kd">function</span> <span class="nx">onSecurityError</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">SecurityErrorEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+<a name="line-232"></a>    <span class="p">{</span>
+<a name="line-233"></a>        <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;SecurityErrorEvent : &quot;</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<a name="line-234"></a>    <span class="p">}</span>
+<a name="line-235"></a><span class="p">}</span>
+<a name="line-236"></a><span class="p">}</span>
+</code></pre></div>
+<p>Now, that looks like a lot of code for a simple example, but remember that it is mostly comments.</p>
+
+<p>Basically, when the SWF starts running, we connect to the TinkerProxy server. When the button / square on the stage is clicked, then we send a message to the Arduino, telling it toggle the blink state. If you watch the Arduino closely, you can see when it is receiving information as the RX LED button will blink. Also notice how the blinking of the LED is turned on / off each time you click the button in the SWF.</p>
+
+<p>The code also listens for the Arduino to send messages back. In this case, it is just a simple string specifying whether the LED is in blinking mode. Pay particular attention to the code and comments where we get the message from the Arduino. We have to buffer the code coming from the Arduino, since the entire message may not always arrive in one piece. The function is pretty generic can be reused in any project. All of the messages from the Arduino are traced out.</p>
+
+<p>Also, notice that we specifying the Endianness for the socket server: </p>
+
+<p><code class="inline-code">_socket.endian = Endian.LITTLE_ENDIAN;</code></p>
+
+<p>This is necessary to ensure that the Arduino can understand all of the data sent from Flash.</p>
+
+<p>Make sure that the Arduino has initialized before you send any messages to it, or else the messages will be dropped. Normally this is not an issue, since the setup runs instantly, but in our case, we are blinking the LEDs first, so it takes a couple of moments for the setup to run.</p>
+
+<p>I have uploaded a short video showing the Arduino running the code (click through the view the HD version).</p>
+
+<p><object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/QtpuxLu4WmU&amp;hl=en_US&amp;fs=1?rel=0&amp;hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/QtpuxLu4WmU&amp;hl=en_US&amp;fs=1?rel=0&amp;hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object></p>
+
+<p>At this point, you should have your system setup for Flash / Arduino development, and have a basic understanding of how to send and receive data between Flash content and the Arduino. Of course, the real fun comes when you begin to hook up sensors and motors and real world data. Check out some of the pre-made shields created for the Arduino at <a href="http://www.adafruit.com/index.php?main_page=index&amp;cPath=17_21">Adafruit</a> and <a href="http://www.sparkfun.com/commerce/categories.php?c=103">SparkFun.com</a> to get an idea of what is out there.</p>
+
+<p><strong>Addition Resources</strong></p>
+
+<ul>
+<li>  <a href="http://www.amazon.com/Getting-Started-Arduino-Make-Projects/dp/0596155514">Getting Started with Arduino Book</a> (Highly Recommended)</li>
+<li>  <a href="http://arduino.cc/en/Tutorial/HomePage">Arduino Examples</a></li>
+<li>  <a href="http://arduino.cc/en/Reference/HomePage">Arduino Reference</a></li>
+<li>  <a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?board=interfacing">Arduino / Flash Forum</a></li>
+<li>  <a href="http://www.arduino.cc/playground/Interfacing/Flash">Arduino / Flash Playground</a></li>
+<li>  <a href="http://blog.kevinhoyt.org/?cat=29">Kevin Hoyt&#39;s Blog Posts on Flash / Arduino</a> (Really great resource)</li>
+<li>  <a href="http://www.amazon.com/Getting-Started-Electronics-Forrest-Mims/dp/0945053282/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1280982691&amp;sr=8-1">Getting Started in Electronics</a> (Classic book, very approachable)</li>
+<li>  <a href="http://www.amazon.com/MAKE-Electronics-Learning-Through-Discovery/dp/0596153740/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1280982679&amp;sr=8-1">MAKE: Electronics: Learning Through Discovery</a></li>
+</ul>
+
+<p>Again, you can download all of the code from this tutorial <a href="http://github.com/mikechambers/ExamplesByMesh/tree/master/Arduino/FlashArduinoGettingStarted/">here</a>.</p>
+
+<p>If you find any errors in the post, or run into any issues trying to get stuff to work, then post in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

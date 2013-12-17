@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Dynamic Drawing with Flash MX : Robert Penner</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Dynamic Drawing with Flash MX : Robert Penner</h2>
+<p class="meta">Thursday, July 11, 2002</p>
+
+<div class="post">
+<p>The slides for this presentation are <a href="http://www.robertpenner.com/presentations">online</a>.<br>
+Robert started off by showing off some of the Flash drawing experiments that have been done by the flash community (all to the tune of &#8220;Christmas on acid&#8221;).<br>
+(btw, the room is packed).<br>
+Shape Drawing API<br>
+Every shape that you draw will be within a movie clip.<br>
+MovieClip.lineTo() : draws a line. initially it is invisble, so you need to use lineStyle to give it a color. starts at 0,0 coordinate of movie clip that it is contained within.<br>
+MovieClip.moveTo : moves the drawing point to a new position. does not do anything visible.<br>
+MovieClip.curveTo : draws curves. takes 4 numbers, two for each curve. control and anchors. anhors are where they end up, and control influences the curve. curves toward control points, but doesn&#8217;t touch it.<br>
+MovieClip.beginFill : for creating solid shapes.<br>
+MovieClip.endFill :<br>
+If you are not at the starting point, then the final side will automatically be drawn to the starting point. you can then remove the line style (leave it empty), and it will remove the last line.<br>
+MovieClip.beginGradientFill : for dynamically creating gradient fills.<br>
+MovieClip.clear : will clear all drawings within movieclip. it resets drawing properties (such as linestyle).<br>
+framebased, use onEnterFrame event. First step is clear graphics from previous frame, and then draw. repeat. (try putting a lot of values set by random()).<br>
+showing more cool drawing api examples. (a bunch of 3d wireframe worlds by glenn thomas, a cad like drawing program, sam wan&#8217;s mysterons, ).<br>
+extending drawing API.<br>
+MovieClip.drawLine() (see robert&#8217;s site for notes / example code). takes a starting and ending corrdinate and draws a line.<br>
+showing a bunch of other custom drawing functions (triangles).<br>
+note, i had to leave early (halfway though).</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

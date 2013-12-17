@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Capturing Command Line Arguments in an Apollo Application</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Capturing Command Line Arguments in an Apollo Application</h2>
+<p class="meta">Sunday, May 13, 2007</p>
+
+<div class="post">
+<p>Here is a simple example that shows how to capture command line arguments passed to a Flex based Apollo application.<br>
+&lt;!--more--&gt;</p>
+
+<p>`
+<pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+    creationComplete="onCreationComplete()"></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>&lt;mx:Script&gt;
+<a name="line-2"></a>    &lt;![CDATA[
+<a name="line-3"></a>        private function onCreationComplete():void
+<a name="line-4"></a>        {
+<a name="line-5"></a>            //register for the Invoke Event, called whenever
+<a name="line-6"></a>            //the app is launched or called from the command line
+<a name="line-7"></a>            Shell.shell.addEventListener(InvokeEvent.INVOKE, onInvoke);
+<a name="line-8"></a>        }
+<a name="line-9"></a>
+<a name="line-10"></a>        private function onInvoke(event:InvokeEvent):void
+<a name="line-11"></a>        {
+<a name="line-12"></a>            //arguments passed to app are stored as array in event.arguments
+<a name="line-13"></a>            outputField.text += &quot;Invoke : &quot; + event.arguments + &quot;\n&quot;;
+<a name="line-14"></a>        }
+<a name="line-15"></a>    ]]&gt;
+<a name="line-16"></a>&lt;/mx:Script&gt;
+<a name="line-17"></a>
+<a name="line-18"></a>&lt;mx:TextArea right=&quot;10&quot; left=&quot;10&quot; top=&quot;10&quot; bottom=&quot;10&quot; id=&quot;outputField&quot;/&gt;
+</code></pre></div>
+<p><a href="/mx:Application">/mx:Application</a>
+</pre>
+<p>`</p>
+
+<p>Basically, an InvokeEvent is broadcast whenever the app is launched, either by clicking the icon, or calling it from the command line. Any arguments passed on the command line will be contained as an array of strings in event.arguments.</p>
+
+<p>Note, in Flex Builder 2.0.1, there is no way to test passing command line arguments (there will be in the next version of Flex Builder). You have to use adl to launch the application, passing arguments to it like so:</p>
+
+<p><code class="inline-code">
+<pre>adl InvokeExample-app.xml -- foo bar "bim bam"</pre>
+<p></code></p>
+
+<p>Basically, everything after &#8220;&#8211;&#8221; will be passed to the application as command line arguments.</p>
+
+<p>Another thing to remember, is that you can only have one instance of an Apollo application running at a time. If you need to have multiple instances of the application running, then listen for the InvokeEvent, and when it is fired, you can open a new NativeWindow with you main application UI in it. This may require you to rethink a little how your application is structured, but will essentially allow you to present multiple app UIs to the user. Ill post more on this later.</p>
+
+<p>Finally, you can also listen for InvokeEvents from an HTML based application. I had hoped to post an example here, but ran into what looks like a bug. Ill post more info in another post once I figure out what is going on.</p>
+
+<p>You can find more information on this in the <a href="http://labs.adobe.com/wiki/index.php/Apollo:Documentation:Capturing_command-line_arguments">docs</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

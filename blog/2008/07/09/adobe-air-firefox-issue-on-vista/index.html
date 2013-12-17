@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Adobe AIR / Firefox issue on Vista</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Adobe AIR / Firefox issue on Vista</h2>
+<p class="meta">Wednesday, July 9, 2008</p>
+
+<div class="post">
+<p>One of the issue mentioned in our the Adobe AIR 1.1 release notes is an issue where <a href="http://kb.adobe.com/selfservice/viewContent.do?externalId=kb403978&amp;sliceId=1#E4">Firefox is not used as the default web browser on Vista</a>. From the technote:<br>
+&lt;!--more--&gt;</p>
+
+<blockquote>
+<p>On Windows Vista, web pages opened from AIR applications (this is done by calling the navigateToURL() method) may not open the default browser; it always opens Internet Explorer. To workaround this problem, go to Start &gt; Default Programs &gt; Set Program Access and Computer Defaults. Expand the Custom section, select the option next to the application you want to set as the system-wide default browser (for example, Mozilla Firefox), and then click OK.</p>
+</blockquote>
+
+<p>As the note mentions, this is an issue on Vista. We are working on narrowing down the issue, and it looks like it has something to do with some changes around registry settings in Vista.</p>
+
+<p>If you have run into the issue, could you take a second and answer the following questions in the comments:</p>
+
+<ol>
+<li> Are you running on Vista?</li>
+<li> Are you running with admin privledges?</li>
+<li> Do you have UAC (Universal Access control) enabled?</li>
+<li> Is Firefox set as your default browser?</li>
+<li> If you go to a command prompt and type &#8220;start http://www.google.com&#8221;, which browser opens?</li>
+<li> Are you running on Firefox 3</li>
+</ol>
+
+<p>This will help us confirm what we think the issue is (as well as whether it is an AIR, Mozilla and / or Vista issue).</p>
+
+<p>Ill update the post as I get more info. Also, please keep the comments on topic for this post.</p>
+
+<p>Update (September 3, 2008) : If you are running into this issue, please try the <a href="http://blog.dotsmart.net/2008/09/03/setting-google-chrome-as-the-default-browser-for-adobe-air-apps/">fix mentioned in this blog post</a> (substituting you default browser for Google Chrome), and leave a comment indicating whether it fixed the issue.</p>
+
+<p>Update (September 3, 2008): There is another potential fix <a href="http://agoln.net/archives/148">here</a>.</p>
+
+<p>Update (November 17, 2008) : These issues have now bee fixed in <a href="http://get.adobe.com/air/">Adobe AIR 1.5</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Debugging Applications running within Central</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Debugging Applications running within Central</h2>
+<p class="meta">Wednesday, October 22, 2003</p>
+
+<div class="post">
+<p>Because applications running within Central use the Central API and because those APIs are not available within the Flash Authoring environment, you have to test and debug your applications within Central itself. This is actually pretty simple, and you can use the trace() statement like your normally would.</p>
+
+<!--more-->
+
+<p>There are two main steps to testing and debugging within the Central environment. The first is publishing a new SWF directly into Central. This is possible once you have installed your application into Central. The second is viewing runtime debug / trace information from the application.</p>
+
+<p><strong>Publishing directly into the Central Environment:</strong></p>
+
+<ol>
+<li> Find the location where you application files were installed by Central. On Windows this will<br>
+be similar to: <em>C:\Documents and Settings\USERNAME\Application<br>
+Data\Macromedia\Central\DOMAINNAME\APPNAME</em> . On Mac, this will be similar to:<br>
+<em>Hard Drive/Users/USERNAME/Library/Application Support/Macromedia/Central/<br>
+DOMAINNAME/APPNAME/</em></li>
+<li> Open your application within the Flash Authoring Environment.</li>
+<li> Open the Publish Settings Dialog (File &gt; Publish Settings).</li>
+<li> Set the file to Publish into the directory located above. Make sure that the file is published with<br>
+the same file name that was installed by Central.</li>
+<li> Save the settings, by clicking OK.</li>
+</ol>
+
+<p>To test your application, you must publish it (File &gt; Publish). This will compile the SWF into its<br>
+application directory within Central. You can then view the updated application file by switching<br>
+to Central and reloading the application by switching to another application within Central and<br>
+then switching back. If you are testing a Pod, you must close the pod and reopen it. If you are<br>
+testing an Agent, you must restart Central.</p>
+
+<p>Once the application is running within the Central environment, you can use the Central Debug<br>
+Panel to view runtime debug information from the application. The Central Debug Panel runs<br>
+within the Flash Authoring environment, and can be installed from the SDK.</p>
+
+<p><strong>To install the Central Debug Panel:</strong></p>
+
+<ol>
+<li> Make sure you have the Macromedia Extension Manager installed. You can download the<br>
+Extension Manager from <a href="http://www.macromedia.com/exchange/em_download">here</a>.</li>
+<li> Locate the CentralDebug.mxp file in the Utilities\DebugPanel subdirectory under the SDK<br>
+directory.</li>
+<li> Open the CentralDebug.mxp file in the Macromedia Exchange Manager to install the panel<br>
+automatically in the Macromedia Flash authoring tool.</li>
+</ol>
+
+<p><strong>Using the Debug Panel:</strong></p>
+
+<ol>
+<li> Open the debug panel in the Flash Authoring Environment. In Flash MX it is located in the<br>
+Windows &gt; Central Debug Panel menu. In Flash MX 2004 it can be located in the Windows<br>
+&gt; Other Panels &gt; Central Debug Panel.</li>
+<li> Make sure that Ã¯Â¿Â½Omit trace actionsÃ¯Â¿Â½ is not checked in the public settings (File &gt; Publish Settings<br>
+&gt; Flash).</li>
+<li> Add <code class="inline-code">debug.enabled = true;</code> to your application. This will enabled debugging.</li>
+<li> Add trace statements to your application. You can pass in various data types including strings,<br>
+objects and arrays.</li>
+<li> Test your application within Central. Any trace statements encounter during the applicationÃ¯Â¿Â½s<br>
+runtime will be printed out into the Debug Panel within the Flash Authoring Environment.</li>
+</ol>
+
+<p>Here is an example onActivate method:</p>
+
+<p>`
+<pre>
+onActivate = function(shell, appId, shellId, baseTabIndex, initialData)
+{
+    debug.enabled = true;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>trace(&quot;onActivate&quot;);
+<a name="line-2"></a>trace(&quot;baseTabIndex : &quot; + baseTabIndex);
+</code></pre></div>
+<p>}
+</pre>
+<p>`</p>
+
+<p>Here is what gets printed to the debug panel:</p>
+
+<p><img alt="debug_panel.gif" src="/mesh/files/debug_panel.gif" width="534" height="424" border="0" /></p>
+
+<p>Note, the Central Debug Panel on the SDK is a beta version. If it doesn&#8217;t appear to be working, you may have to close and then reopen it.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

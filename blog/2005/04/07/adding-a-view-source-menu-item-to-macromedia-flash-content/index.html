@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Adding a View Source Menu item to Macromedia Flash Content</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Adding a View Source Menu item to Macromedia Flash Content</h2>
+<p class="meta">Thursday, April 7, 2005</p>
+
+<div class="post">
+<p>Yesterday <a href="http://www.lessig.org/blog/">Lawrence Lessig</a> gave a talk at the FlashForward conference titled <em><a href="http://www.flashforwardconference.com/default.asp?Location=15,120,673,849&amp;ItemID=422&amp;SessionID=%7B8E315B32-F643-4AE6-A921-FC012688B9AF%7D">The Cost of Copyright</a></em>. In it, he stressed the importance and necessity of a culture of sharing. Of course, the Flash community has grown up on this culture (i.e. <a href="http://www.flashkit.com">FlashKit</a>, <a href="http://proto.layer51.com/default.aspx">layer 51</a>). However, all of the sharing usually goes on on a developer to developer level, as you cannot easily get the source from Flash content.</p>
+
+<p>So, during the FlashForward keynote this morning, I put together a simple library that allows you to add a view source Menu item to your Flash content. This makes it easy to allow other developers and designers to view the source for your content (if you want them to be able to).</p>
+
+<p>Updated : I have updated the code and examples to allow allow you to specify a link to the license for the Flash content.</p>
+
+<p>Here is an example:<br>
+&lt;!--more--&gt;</p>
+
+<p>Just right click on the Flash movie and select the View Source Menu item. This will allow you to download the source code.</p>
+
+<p>In this case I have Zipped up all of the files including the FLA, but I could also link directly to an ActionScript text file, or another HTML page that links to the source.</p>
+
+<p>Usage :</p>
+
+<p>Place the viewFlashSource.as file in the same directory as your Flash source file (FLA), and add the following line to the main timeline of your source file:</p>
+
+<p><code class="inline-code">
+<pre>#include viewFlashSource.as</pre>
+<p></code></p>
+
+<p>You can then specify the source URL through the flashParams<br>
+HTML tag / attribute.<br>
+There are two values you can specify:</p>
+
+<p>flashSource : Points to a URL to download the source for the contnet.<br>
+contentLicense : Points to the distribution / re-use license for the content.</p>
+
+<p><code class="inline-code">
+<pre><embed src="example.swf"
+    quality="high"
+    bgcolor="#ffffff"
+    width="550" 
+    height="400" 
+    name="example" 
+    align="middle" 
+    allowScriptAccess="sameDomain"
+    type="application/x-shockwave-flash" 
+    pluginspage="http://www.macromedia.com/go/getflashplayer"
+    flashVars="flashSource=example%2Efla&#038;contentLicense=http%3A%2F%2Fcreativecommons%2Eorg%2Flicenses%2Fby%2F2%2E0%2F"/></pre>
+<p></code></p>
+
+<p>You can download the source and example <a href="/mesh/files/viewflashsource/viewFlashSource.zip">here</a>.</p>
+
+<p>I put this together pretty quckly so I am sure there are tons of ways it can be improved. I am sure that the Flash Community will be able to make this a lot better, so I am releasing this under a <a href="http://www.creativecommons.org">creative commons</a> license.</p>
+
+<p>I know that the CC licenses are normally not code oriented, but they are so clear and easy to understand, I decided to use it anyways.</p>
+
+<!-- Creative Commons License -->
+
+<p><a rel="license" href="http://creativecommons.org/licenses/by/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a><br>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.0/">Creative Commons License</a>.<br>
+&lt;!-- /Creative Commons License --&gt;</p>
+
+<p>&lt;!--</p></p>
+
+<p><rdf:RDF xmlns="http://web.resource.org/cc/"  
+xmlns:dc="http://purl.org/dc/elements/1.1/"  
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><br>
+<Work rdf:about=""><license rdf:resource="http://creativecommons.org/licenses/by/2.0/" /> </Work></p>
+
+<p><License rdf:about="http://creativecommons.org/licenses/by/2.0/"><permits rdf:resource="http://web.resource.org/cc/Reproduction" /> <permits rdf:resource="http://web.resource.org/cc/Distribution" /> <requires rdf:resource="http://web.resource.org/cc/Notice" /></p>
+
+<p><requires rdf:resource="http://web.resource.org/cc/Attribution" /></p> <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" /> </License></p> 
+<a href="/rdf:RDF">/rdf:RDF</a></p>
+
+<p>&#8211;&gt;</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

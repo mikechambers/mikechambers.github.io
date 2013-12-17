@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>DRK 3 : Tab Component Example 1</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>DRK 3 : Tab Component Example 1</h2>
+<p class="meta">Wednesday, April 23, 2003</p>
+
+<div class="post">
+<p>Here is another example of one of the <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/">DevNet Resource Kit (DRK) 3</a> components. This one is an advanced usage of the Tab component, which shows how to specify custom tabs (in this case to add icons to the tabs). It also uses the TextField Component.</p>
+
+<!--more-->
+
+<p>Basically, each tab represents the type of input for its associated text field. Icons will appear indicating the status of its text field. This example is included on the DRK (one of the 66 total component sample files).</p>
+
+<p><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" WIDTH="325" HEIGHT="125" id="tab_Example2" ALIGN="">
+  <PARAM NAME=movie VALUE="/mesh/drk/tab_Example2.swf"> <PARAM NAME=quality VALUE=high> <PARAM NAME=bgcolor VALUE=#FFFFFF> <EMBED src="/mesh/drk/tab_Example2.swf" quality=high bgcolor=#FFFFFF WIDTH="325" HEIGHT="125" NAME="tab_Example2" ALIGN="" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+</OBJECT></p>
+
+<p>You can view the online docs for the TextField component <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/drk3_docs/index.html">here</a>.</p>
+
+<p>You can find more information about the Flash UI Component Set 5 (which includes the TextField and Tab components) <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/flashmx.html">here</a>.</p>
+
+<p>You can find more information about DRK 3 <a href="http://www.macromedia.com/software/drk/">here</a>.</p>
+
+<p>Here is the code:</p>
+
+<p>`
+<pre>
+/*
+This example requires the ActionScript DataValidation Library which is included
+on DRK 3 (The same DRK that theTab View component is included).
+*/</p>
+
+<h1>include &quot;com/macromedia/validation/DataValidation.as&quot;</h1>
+
+<p>tab_tbv.removeAll();</p>
+
+<p>//sets our custom tab symbol
+tab_tbv.setItemSymbol(&quot;MyCustomTabSymbol&quot;);</p>
+
+<p>//sets the listener for changed tabs
+tab_tbv.addListener(this);</p>
+
+<p>//hide the initial screens
+date<em>mc.</em>visible = false;</p>
+
+<p>//styles
+tab<em>tbv.setStyleProperty(&quot;activeHighlight3d&quot;,0xEEEEE6);
+tab</em>tbv.setStyleProperty(&quot;highlight3d&quot;,0xCECDBF);
+tab<em>tbv.setStyleProperty(&quot;activeDarkShadow&quot;,0xFFFFFF);
+tab</em>tbv.setStyleProperty(&quot;darkShadow&quot;,0x888878);
+tab_tbv.setStyleProperty(&quot;seperator&quot;,0xFFFFFF);</p>
+
+<p>//our custom tab uses the icon field in the data object.
+//we also pass in pane<em>mc in the data object so we can easily
+//control the visibility of the correct panes.
+tab</em>tbv.addItem(&quot;Numbers&quot;,{icon: &quot;warningIcon&quot;, pane<em>mc: number</em>mc});
+tab<em>tbv.addItem(&quot;Letters&quot;,{icon: &quot;warningIcon&quot;, pane</em>mc: letter<em>mc});
+tab</em>tbv.addItem(&quot;Date&quot;,{icon: &quot;warningIcon&quot;, pane<em>mc: date</em>mc});</p>
+
+<p>//below are all the callbacks that are called when the text changes
+number<em>mc.onChanged = function(){
+    var item = tab</em>tbv.getItemAt(0);
+    if(this.text == &quot;&quot;){
+        item.data.icon = &quot;warningIcon&quot;;
+    }else if(isNaN(this.text)){
+        item.data.icon = &quot;errorIcon&quot;;
+    }else{
+        delete item.data.icon;
+    }</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>tab_tbv.replaceItemAt(0, item);
+</code></pre></div>
+<p>}</p>
+
+<p>date_mc.setValidationFunction(&quot;isDate&quot;, DataValidation);</p>
+
+<p>date<em>mc.onChanged = function(){
+    var item = tab</em>tbv.getItemAt(2);
+    var  valid = this.isValid();</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>if(this.text == &quot;&quot;){
+<a name="line-2"></a>    item.data.icon = &quot;warningIcon&quot;;
+<a name="line-3"></a>}else if(!valid){
+<a name="line-4"></a>    item.data.icon = &quot;errorIcon&quot;;       
+<a name="line-5"></a>}else{
+<a name="line-6"></a>    delete item.data.icon;
+<a name="line-7"></a>}
+<a name="line-8"></a>
+<a name="line-9"></a>tab_tbv.replaceItemAt(2, item);
+</code></pre></div>
+<p>}</p>
+
+<p>letter<em>mc.onChanged = function(){
+    var item = tab</em>tbv.getItemAt(1);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>if(this.text == &quot;&quot;){
+<a name="line-2"></a>    item.data.icon = &quot;warningIcon&quot;;
+<a name="line-3"></a>}else if(!DataValidation.hasValidChars(this.text, &quot;abcdefghijklmnopqrstuvwxyz&quot;)){
+<a name="line-4"></a>    item.data.icon = &quot;errorIcon&quot;;       
+<a name="line-5"></a>}else{
+<a name="line-6"></a>    delete item.data.icon;
+<a name="line-7"></a>}
+<a name="line-8"></a>
+<a name="line-9"></a>tab_tbv.replaceItemAt(1, item);
+</code></pre></div>
+<p>}</p>
+
+<p>//tab event
+function onSelect(oldIndex, newIndex){
+    tab<em>tbv.getItemAt(oldIndex).data.pane</em>mc.<em>visible = false;
+    tab</em>tbv.getItemAt(newIndex).data.pane<em>mc.</em>visible = true;<br>
+}
+</pre>
+<p>`</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

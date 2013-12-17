@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Pixel Bender TV Scanline Filter</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Pixel Bender TV Scanline Filter</h2>
+<p class="meta">Wednesday, September 17, 2008</p>
+
+<div class="post">
+<p>After seeing all of the <a href="http://pixelero.wordpress.com/">cool stuff people have been doing with Pixel Bender,</a> I finally decided to spend a little time and start learning how to build them myself.</p>
+
+<p>The learning curve isn&#8217;t too difficult, although you do have to learn some new concepts, and deal with some limitations (at least when creating filters for Flash). The most difficult part for me thus far, is just understanding color and pixel math and manipulation (something I need to read up on more).</p>
+
+<p>Anyways, below if one of my first filters. I wanted to post it as it is a pretty simple example, while still potentially being useful. Basically, it creates a TV scanline effect by making every other row of pixels black.<br>
+&lt;!--more--&gt;</p>
+
+<p>Here is a before an after example (you need to click to view the full size in order to see the effect well).</p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/2867328548/" title="Scanline FIlter by mike.chambers, on Flickr"><img src="http://farm3.static.flickr.com/2217/2867328548_a35f316ee5.jpg" width="500" height="190" alt="Scanline FIlter" /></a></p>
+
+<p>Here is the code for the filter:</p>
+
+<div class="highlight">
+  <pre><span style="color: #666666">&lt;</span>languageVersion <span style="color: #666666">:</span> <span style="color: #666666">1.0;&gt;</span>
+
+kernel ScanLines
+<span style="color: #666666">&lt;</span>   namespace <span style="color: #666666">:</span> <span style="color: #BA2121">"mesh"</span><span style="color: #666666">;</span>
+    vendor <span style="color: #666666">:</span> <span style="color: #BA2121">"Mike Chambers"</span><span style="color: #666666">;</span>
+    version <span style="color: #666666">:</span> <span style="color: #666666">1;</span>
+    description <span style="color: #666666">:</span> <span style="color: #BA2121">"Generates a TV Scanline effect"</span><span style="color: #666666">;</span>
+<span style="color: #666666">&gt;</span>
+{
+    input image4 src<span style="color: #666666">;</span>
+    output pixel4 dst<span style="color: #666666">;</span>
+
+    void
+    evaluatePixel()
+    {
+        <span style="color: #408080; font-style: italic">//get the current pixel</span>
+        dst <span style="color: #666666">=</span> sampleNearest(src<span style="color: #666666">,</span> outCoord());
+        
+        <span style="color: #408080; font-style: italic">//find out the vertical pixel size. In Flash this will always be 1</span>
+        float pixelVSize <span style="color: #666666">=</span> pixelSize(src).y<span style="color: #666666">;</span>
+        
+        <span style="color: #408080; font-style: italic">//pixelVSize / 2.0 - outCoord() gives center of pixel, so we have to adjust to find</span>
+        <span style="color: #408080; font-style: italic">//center of our pixel</span>
+        <span style="color: #008000; font-weight: bold">if</span>( int(mod(((pixelVSize <span style="color: #666666">*</span> outCoord().y) <span style="color: #666666">-</span> pixelVSize <span style="color: #666666">/</span> <span style="color: #666666">2.0</span>)<span style="color: #666666">,</span> <span style="color: #666666">2.0</span> )) <span style="color: #666666">==</span> <span style="color: #666666"></span>)
+        {
+            <span style="color: #408080; font-style: italic">//if on an even row, set the pixel to blackt</span>
+            dst.r <span style="color: #666666">=</span> <span style="color: #666666">0.0;</span>
+            dst.b <span style="color: #666666">=</span> <span style="color: #666666">0.0;</span>
+            dst.g <span style="color: #666666">=</span> <span style="color: #666666">0.0;</span>
+            
+            <span style="color: #408080; font-style: italic">//can also do</span>
+            <span style="color: #408080; font-style: italic">////dst = float4(0.0,0.0,0.0, 1.0);</span>
+        }          
+    }
+}
+</pre>
+</div>
+
+<p>Thanks to <a href="http://blogs.adobe.com/kevin.goldsmith/">Kevin Goldsmith</a> from the Pixel Bender team for helping me out.</p>
+
+<p>The comments in the code explain what is going on.</p>
+
+<p>You can load this into <a href="http://labs.adobe.com/wiki/index.php/Pixel_Bender_Toolkit">Pixel Bender</a> to play around with it, and compile it for use in Flash Player 10.</p>
+
+<p>I wanted to add a parameter to allow the line size to be set. It doesn&#8217;t look like I can store variables in between calls to evaluatePixel(). Im trying to figure out an algorithm to figure it out in one pass, but im not sure that my math skills are up to the task at the moment. </p>
+
+<p>You can find all of my other posts on Pixel Bender <a href="http://www.mikechambers.com/blog/tag/pixelbender/">here</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

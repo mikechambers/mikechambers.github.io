@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Flash Remoting with Flash MX and ColdFusion MX : Christian Cantrell</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Flash Remoting with Flash MX and ColdFusion MX : Christian Cantrell</h2>
+<p class="meta">Thursday, July 11, 2002</p>
+
+<div class="post">
+<p>Christian Cantrell : <a href="mailto:qantrell@yahoo.com">qantrell@yahoo.com</a>&nbsp;: note all code examples, and slides (very nice) will be included online.<br>
+Flash Remoting is a server-side technology which allows for the intergration of Flash applications with existing application server logic.<br>
+Exposes remote services through a simple ActionScript API.<br>
+Uses AMF (Action Messaging Format) to communicate with player / server. Very efficient binary format made specifically for ActionScript.<br>
+Getting started : need  </p>
+
+<ul>
+<li><p>Flash MX  </p>
+
+<ul>
+<li><p>Flash Remoting Components (avaliable from macromedia.com)  </p>
+
+<ul>
+<li>  A server that has the Flash Remoting Adaptor installed.</UL></li>
+</ul>
+
+<p>Flash Remoting ActionScript objects:<br>
+*   NetServices.as : core ActionScript logic of Flash Remoting. Provides functionality to connect to Flash Remoting adaptor on server.<br>
+    *   RecordSet : Object representing a set of data records, usually returned from a database.<br>
+        *   DataGlue : Utility object for mapping columns in a RecordSet to proerties of UI components.<br>
+            *   NetDebug : Utlity object for helping to debug&nbsp;client/server interactions (using NetConnectoin Debugger Panel).</UL></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>        Creating packages for Flash Remoting Services  
+<a name="line-2"></a>        A package is implimented as a logical directory structure where the files that contain Flash Remoting services are kept. (start from the document root).  
+<a name="line-3"></a>        Uses domain name in reverse (com/domainname) to prevent namespace collisions (i.e. two services with the same name). by placing them in a directory structure like this, you dont have to worry about other peoples files overwriting yours (just like java packages).  
+<a name="line-4"></a>        In actionscript, you use dots, instead of slashes to refer to directory structure (com.domainname) (*note, i think you can do it either way-mc*).  
+<a name="line-5"></a>        Creating Flash Remoting Services with ColdFusion pages (.cfm)  
+<a name="line-6"></a>        ColdFusion pahes that are called through Flash Remoting have access to the &amp;#8220;flash&amp;#8221; variable scope, which contains all of the data sent from Flash.  
+<a name="line-7"></a>        The directory containing the page is considered the service, and the page name is treated like the function name.  
+<a name="line-8"></a>        simple flash remoting service in CFML
+<a name="line-9"></a>        &lt;PRE&gt;&amp;lt;!&amp;#8212;package com.macromedia.flashforward&amp;#8212;&amp;gt;&lt;/PRE&gt;
+<a name="line-10"></a>
+<a name="line-11"></a>        &lt;PRE&gt;&amp;lt;cfset str = #flash.params[1]# /&amp;gt;&lt;/PRE&gt;
+<a name="line-12"></a>
+<a name="line-13"></a>        &lt;PRE&gt;&amp;lt;cfset flash.result = Reverse(#str#) /&amp;gt;&lt;/PRE&gt;
+<a name="line-14"></a>
+<a name="line-15"></a>        This is a ColdFusion service that takes a string, and returns it in reverse. The params array is an array that contains all of the aruguments and data passed in from the Flash applicaiton (via Flash Remoting).  
+<a name="line-16"></a>        ActionScript:  
+<a name="line-17"></a>        NetServices.setGatewayURL(url); this tells Flash where the server is located.  
+<a name="line-18"></a>        var con = NetServices.createGatewayConnection(); //this returns a reference to the server.  
+<a name="line-19"></a>        var pageService = con.getService(&amp;#8220;com.macromedia.flashforward&amp;#8221;, this); //this gets a reference to the remote service. the second parameter, specifies where the functions that will handle the data sent back from the server will be (in this case on the same timeline as the ActionScript code).  
+<a name="line-20"></a>        (note : christian is running his presentation from a powerbook with OSX. He is running ColdFusion MX on OSX.).  
+<a name="line-21"></a>        Creating services for Flash using ColdFusion Components  
+<a name="line-22"></a>        A single ColdFusion Component can provide multiple services (implimented as functions). These can also be called directly from ColdFusion pages, or as web services.  
+<a name="line-23"></a>        note : code will be avaliable online.  
+<a name="line-24"></a>        ActionScript  
+<a name="line-25"></a>        Instead of specifying callback functions that receive the data from the server, on the main timeline, you should attach them to an object, so you keep the functions within their own scope / namespace.
+<a name="line-26"></a>        &lt;PRE&gt;var result = new Object();&lt;/PRE&gt;
+<a name="line-27"></a>
+<a name="line-28"></a>        &lt;PRE&gt;result.onResult = function(data){//stuff here};&lt;/PRE&gt;
+<a name="line-29"></a>
+<a name="line-30"></a>        christian named his buttons the same as his remote service, that way he can use the button labels to decide which function to call:
+<a name="line-31"></a>        &lt;PRE&gt;function clickHandler(button){urlService[button.getLabel()](input.text);};&lt;/PRE&gt;
+<a name="line-32"></a>
+<a name="line-33"></a>        performing a databse query using a ColdFusion Component (CFCs)  
+<a name="line-34"></a>        The entire ColdFusion Query object can be returned directly to Flash. it will be converted to an ActionScript RecordSet object.  
+<a name="line-35"></a>        You can set a pagesize which determines the number of rows the server wil lreturn to the client until the client asks for more (i.e. only initially send first 10 rows of 1000). Server will then send the rest of the rows on demand (without going back to the database, only to Flash Remoting Adaptor).  
+<a name="line-36"></a>        Just use a regular CFQUERY tag to get a Query object. You can then return it directly to Flash using CFRETURN.  
+<a name="line-37"></a>        ActionScript  
+<a name="line-38"></a>        function that receives data from server:
+<a name="line-39"></a>        &lt;PRE&gt;function onResult(result)&lt;/PRE&gt;
+<a name="line-40"></a>
+<a name="line-41"></a>        &lt;PRE&gt;{&lt;/PRE&gt;
+<a name="line-42"></a>
+<a name="line-43"></a>        &lt;PRE&gt;//dataConsumer, dataProvider, labelString, dataString&lt;/PRE&gt;
+<a name="line-44"></a>
+<a name="line-45"></a>        &lt;PRE&gt;DataGlue.bindFormatStrings(name, result, &amp;#8220;#LastName#, #FirstName#&amp;#8221;,&amp;#8221; #EmployeeID#&amp;#8221;)&lt;/PRE&gt;
+<a name="line-46"></a>
+<a name="line-47"></a>        &lt;PRE&gt;}&lt;/PRE&gt;
+<a name="line-48"></a>
+<a name="line-49"></a>        note, my battery is running low.  
+<a name="line-50"></a>        ServerSide ActionScript  
+<a name="line-51"></a>        SSAS allows Flash Developers and designers access to server-side programming with almost no learning code.  
+<a name="line-52"></a>        simple SSAS service:
+<a name="line-53"></a>        &lt;PRE&gt;function sayHello()&lt;/PRE&gt;
+<a name="line-54"></a>
+<a name="line-55"></a>        &lt;PRE&gt;{&lt;/PRE&gt;
+<a name="line-56"></a>
+<a name="line-57"></a>        &lt;PRE&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; return &amp;#8220;Hello World&amp;#8221;;&lt;/PRE&gt;
+<a name="line-58"></a>
+<a name="line-59"></a>        &lt;PRE&gt;}&lt;/PRE&gt;
+<a name="line-60"></a>
+<a name="line-61"></a>        called the same way from Flash as you would call ColdFusion services.  
+<a name="line-62"></a>        my battery died. Christian showed some server side actionscript examples, and (connecting to DB and loading files).  
+<a name="line-63"></a>        he then showed an Flash App that used Flash Remoting to play mp3s off of his iPod. pretty sweet.  
+<a name="line-64"></a>        end of session.&lt;/p&gt;
+</code></pre></div></li>
+</ul></li>
+</ul>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

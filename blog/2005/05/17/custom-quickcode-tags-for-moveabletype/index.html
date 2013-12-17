@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Custom Quickcode Tags for MoveableType</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Custom Quickcode Tags for MoveableType</h2>
+<p class="meta">Tuesday, May 17, 2005</p>
+
+<div class="post">
+<p>One of the new plugins we installed on the new weblog server is the <a href="http://mt-stuff.fanworks.net/plugin/quick_code_version_10.phtml">Quickcode plugin</a> for <a href="http://www.moveabletype.org">Moveabletype</a> This is a simple plugin that uses bracketed tags to make it easy to mark up posts.<br>
+&lt;!--more--&gt;</p>
+
+<p>Instead of typing:</p>
+
+<p><code class="inline-code"></code></p>
+
+<pre>&lt;a href="mailto:mesh@macromedia.com"&gt;mesh@macromedia.com&lt;/a&gt;</pre>
+
+<p>I can type:</p>
+
+<pre>[email]mesh@macromedia.com[/email]</pre>
+
+<p>The syntax is easy to use, which is the main reason I installed it.</p>
+
+<p>Once I began using it, I realized it would be useful to create a number of other tags, so I opened up the plugin file (written in Perl) and hacked around until I got some new tags working. I wanted to post them here in case anyone else found them useful.</p>
+
+<p>Here are the new tags:</p>
+
+<pre>[mxna]TERM[/mxna] - Links the term for a search at the Macromedia XML News Aggregator (MXNA)
+
+[google]TERM[/google] - Links the term for a search at Google
+
+[wikipedia]TERM[/wikipedia] - Links the term for a search / link at wikipedia
+
+[url2]TERM[/url2] - Links the included URL, with the URL as the link.</pre>
+
+<p>Here are some examples:</p>
+
+<p>This searches for [mxna]mesh[/mxna] at MXNA.<br>
+This searches for [google]Mike Chambers[/google] at Google.<br>
+This search for [wikipedia]Macromedia Flash[/wikipedia] at wikipedia.org.<br>
+This creates a link to my new weblog at [url2]http://weblogs.macromedia.com/mesh/[/url2]</p>
+
+<p>To install these, [url=http://mt-stuff.fanworks.net/plugin/quick_code_version_10.phtml]download and install[/url] the quickcode.pl file. Open the file in a text editor, and search for the following lines inside of the maincode sub:</p>
+
+<p><code class="inline-code"></code></p>
+
+<pre>$s =~ s![email](.*?)[/email]!&lt;a href="mailto:$1"&gt;$1&lt;/a&gt;!gis;</pre>
+
+<p>Insert the following lines after the line above:</p>
+
+<p><code class="inline-code"></code></p>
+
+<pre>$s =~ s![mxna](.*?)[/mxna]!&lt;a href="http://weblogs.macromedia.com/mxna/index.cfm?searchterms=$1"&gt;$1&lt;/a&gt;!gis;
+
+$s =~ s![google](.*?)[/google]!&lt;a href="http://www.google.com/search?q=$1"&gt;$1&lt;/a&gt;!gis;
+
+$s =~ s![wikipedia](.*?)[/wikipedia]!&lt;a href="http://en.wikipedia.org/wiki/Special:Search?search=$1"&gt;$1&lt;/a&gt;!gis;
+
+$s =~ s![url2](.*?)[/url2]!&lt;a href="$1"&gt;$1&lt;/a&gt;!gis;</pre>
+
+<p>Save the file. Now when you make a post using Quickcode formatting, you can use the new tags.</p>
+
+<p>If you can think of any useful tags to create, post them in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

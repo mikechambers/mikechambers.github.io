@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Example Code for 360Flex Apollo Session</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Example Code for 360Flex Apollo Session</h2>
+<p class="meta">Friday, March 9, 2007</p>
+
+<div class="post">
+<p>During my <a href="http://www.adobe.com/go/apollo">Apollo</a> overview session at <a href="http://360flex.org/">360Flex</a>, I built a simple HTML editor that provided live preview and allowed the HTML to save to the desktop. It is a pretty simple app, but it shows an example of using both the File API in Apollo as well as HTML.</p>
+
+<p>I mentioned in the session that I would post it online, so here it is:</p>
+
+<!--more-->
+
+<STYLE>
+  PRE {font : normal normal normal 12 &#8220;Courier New&#8221;, Courier, Arial;;}
+</STYLE>
+
+<pre>&lt;?xml <font color="#000087">version</font>="<font color='blue'>1.0</font>" encoding="<font color='blue'>utf-8</font>"?&gt;
+&lt;mx:Application xmlns:mx="<font color='blue'>http://www.adobe.com/2006/mxml</font>" layout="<font color='blue'>absolute</font>"&gt;
+
+&lt;mx:Script&gt;
+&lt;![CDATA[
+import flash.filesystem.FileMode;
+import flash.filesystem.FileStream;
+import flash.filesystem.File;
+
+<font color='#878787'>/* Called when the user wants to save the file */</font>
+private <font color="#993300">function</font> onSave():<font color="#993300">void</font>
+{
+        <font color='#878787'>//Get a reference to the desktop
+</font>        <font color="#993300">var</font> desktop:File = File.desktopDirectory;
+        
+        <font color='#878787'>//create a reference to the file on the desktop in which we will save html
+</font>        <font color="#993300">var</font> saveFile:File = desktop.resolve(fileName.<font color="#000087">text</font>);
+        
+        <font color='#878787'>//create a FileStream instance to write to the file
+</font>        <font color="#993300">var</font> fs:FileStream = <font color="#993300">new</font> FileStream();
+        
+        <font color='#878787'>//open file in WRITE mode
+</font>        fs.open(saveFile, FileMode.WRITE);
+        
+        <font color='#878787'>//write the string to the file
+</font>        fs.writeUTFBytes(input.<font color="#000087">text</font>);
+        
+        <font color='#878787'>//close the file / file stream
+</font>        fs.<font color="#000087">close</font>();
+}
+
+<font color='#878787'>/* called when text in the TextArea changes */</font>
+private <font color="#993300">function</font> onTextChange():<font color="#993300">void</font>
+{
+        <font color='#878787'>//pretty simple. Copy text from TextArea into HTML control as HTML
+</font>        <font color="#000087">html</font>.<font color="#000087">htmlText</font> = input.<font color="#000087">text</font>;
+}
+]]&gt;
+&lt;/mx:Script&gt;
+
+&lt;!-- Used to enter HTML --&gt;
+&lt;mx:TextArea right="<font color='blue'></font>" left="<font color='blue'></font>" id="<font color='blue'>input</font>" top="<font color='blue'></font>" <font color="#000087">height</font>="<font color='blue'>139</font>" textInput="<font color='blue'>onTextChange()</font>"/&gt;
+
+&lt;!-- Save Button --&gt;
+&lt;mx:Button label="<font color='blue'>Save</font>" id="<font color='blue'>saveButton</font>" bottom="<font color='blue'>10</font>" right="<font color='blue'>10</font>" click="<font color='blue'>onSave()</font>"/&gt;
+
+&lt;!-- File Name <font color="#000087">on</font> Desktop to save HTML <font color="#993300">in</font> --&gt;
+&lt;mx:TextInput id="<font color='blue'>fileName</font>" right="<font color='blue'>72</font>" bottom="<font color='blue'>10</font>" <font color="#000087">text</font>="<font color='blue'>test.html</font>" /&gt;
+
+&lt;!-- HTML field to <font color="#993300">do</font> live preview of HTML --&gt;
+&lt;mx:HTML right="<font color='blue'></font>" left="<font color='blue'></font>" top="<font color='blue'>147</font>" bottom="<font color='blue'>40</font>" id="<font color='blue'>html</font>"/&gt;
+&lt;/mx:Application&gt;
+
+</pre>
+
+<p>Post any questions in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>New Version of Central Info</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>New Version of Central Info</h2>
+<p class="meta">Wednesday, November 19, 2003</p>
+
+<div class="post">
+<p>A couple of people have noticed that there is a new version of <a href="http://www.macromedia.com/go/central/">Central</a> available, but have run into some issues with it.</p>
+
+<p>Well, here are the solutions:</p>
+
+<p>-<strong>DevChat won&#8217;t install</strong>. Beta product ids will not work in the final version of Central. The current version of DevChat has a beta product id, which is why it won&#8217;t install in the new version.</p>
+
+<p>You can install it with a different product.xml file that works by:</p>
+
+<ol>
+<li>Open Central<br></li>
+<li>File &gt; Install from URL<br></li>
+<li>Enter this URL : <a href="http://nbo02.macromedia.com/devchat/product2.xml">http://nbo02.macromedia.com/devchat/product2.xml</a></li>
+</ol>
+
+<p>We will have a new version of the chat in the next couple of days that will fix this issue. If you have an existing app that has a beta product id, you can get a new product id from:</p>
+
+<p><a href="http://www.macromedia.com/go/central_productid">http://www.macromedia.com/go/central_productid</a></p>
+
+<p>You can find a complete technote on this issue <a href="http://www.macromedia.com/support/central/ts/documents/beta_id.htm">here</a>.</p>
+
+<p>-<strong>Blog Reader is not installed in the update</strong>. When Central updates itself, it cannot install new applications. Since the beta did not contain the blog reader application, it is not installed when Central does an auto-update.</p>
+
+<p>There are two solutions. Uninstall Central, and then reinstall it. Or, wait a couple of hours, and you will be able to install the blog reader from the app finder.</p>
+
+<p>-<strong>Central is not prompting to update</strong>. That is the expected behavior. Central checks for updates periodically (I think it is every couple of days), and thus everyone won&#8217;t be prompted to update. You can manually get Central to check for updates by:</p>
+
+<ol>
+<li>Opening Central<br></li>
+<li>View &gt; Preferences<br></li>
+<li>General Tab<br></li>
+<li>Click the Check Now Button.</li>
+</ol>
+
+<p>Sorry for the confusion. I meant to post this information before the new version was out, but a combination of factors prevented that. I will be posting a lot more information shortly.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

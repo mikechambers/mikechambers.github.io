@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Why Apollo?</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Why Apollo?</h2>
+<p class="meta">Wednesday, March 28, 2007</p>
+
+<div class="post">
+<p>There has been a lot of excitement, interest and discussion around Apollo, especially since we released the <a href="http://www.adobe.com/go/apollo">public alpha on labs last week</a>. One thing that has come up a couple of times, is confusion over what Apollo is as well as what value it provides. A lot of the discussion has focused on uncertainty about why would you want to move web applications outside of the browser. </p>
+
+<p>A lot of times when this question gets answered, the answer focuses on specific Apollo features (file I/O API, working offline). While these are things that Apollo can do today, that are difficult if not impossible to do consistently in the browser, a feature based discussion doesn&#8217;t address the fundamental question of why would you want to move applications out of the browser.</p>
+
+<p>I had been planning to write up my thoughts on this, and realized that I already had as part of the <a href="http://www.adobe.com/go/apolloflexpocketguide">Apollo Pocket Guide for Flex Developers</a>. Below is chapter one from that book, which explains what Apollo is, and what problems it is trying to solve. (You can download the entire book from <a href="http://www.adobe.com/go/apolloflexpocketguide">here</a>).</p>
+
+<p>Note that the excerpt does contain a discussion of features, but one of the primary advantages of Apollo, which isn&#8217;t a specific feature, is that it allows applications to run outside of the browser. This is not a ding on browsers, or web technologies, and as I point out, the browser has some strong advantages that often outweigh its disadvantages.</p>
+
+<p>Ultimately though, because browser based and Apollo based applications are built using the same technologies, it is possible to deploy to both platforms, taking advantages of the strengths of each. Because of this, Apollo applications compliment web applications. They do not replace them.</p>
+
+<!--more-->
+
+<p><span style="font-weight: bold;">What is Apollo?</span></p>
+
+<p>Apollo is a new cross-platform desktop runtime being developed by Adobe<br>
+that allows web developers to use web technologies to build and deploy<br>
+Rich Internet Applications and web applications to the desktop. </p>
+
+<p>In order to better understand what Apollo enables, and which problems<br>
+it tries to address, it is useful to first take a quick look over at<br>
+the (relatively short) history of web applications. </p>
+
+<p><span style="font-weight: bold;">A Short History of Web<br /> Applications </span></p>
+
+<p>Over the past couple of years, there has been an accelerating trend of<br>
+applications moving from the desktop to the web browser. This has been<br>
+driven by a number of factors, which include: </p>
+
+<ul>
+<li>  The growth of the Internet as a communication medium </li>
+<li>  The relative ease of deployment of web applications </li>
+<li>  The ability to target multiple operating systems via the<br>
+browser </li>
+<li>  The maturity of higher-level client technologies, such the<br>
+browser and the Flash Player runtime </li>
+</ul>
+
+<p>Early web applications were built primarily with HTML and JavaScript,<br>
+which, for the most part, heavily relied on client/server interactions<br>
+and page refreshes. This page refresh model was consistent with the<br>
+document-based metaphor for which the browser was originally designed,<br>
+but provided a relatively poor user experience when displaying<br>
+applications. </p>
+
+<p>However, with the maturation of the Flash Player runtime, and more<br>
+recently Ajax-type functionality in the browser, it became possible for<br>
+developers to begin breaking away from page-based application flows. In<br>
+short, developers began to be able to offer richer application<br>
+experiences via the browser. In a whitepaper from March 2002,<br>
+Macromedia coined the term Rich Internet Application (RIA), to describe<br>
+these new types of applications in browsers, which &ldquo;blend<br>
+content, application logic and communications&hellip;to make the<br>
+Internet more usable and enjoyable.&rdquo; These applications<br>
+provided richer, more desktop-like experiences, while still retaining<br>
+the core cross-platform nature of the Web: </p>
+
+<p>Internet applications are all about reach. The promise of the web is<br>
+one of content and applications anywhere, regardless of the platform or<br>
+device. Rich clients must embrace and support all popular desktop<br>
+operating systems, as well as the broadest range of emerging device<br>
+platforms such as smart phones, PDAs, set-top boxes, game consoles, and<br>
+Internet appliances. </p>
+
+<p>You can find the complete whitepaper and more information on RIAs <a  
+href="http://download.macromedia.com/pub/flash/whitepapers/richclient.pdf">here</a>.</p>
+
+<p>The paper goes on to list some features that define RIAs: </p>
+
+<ul>
+<li>  Provide an efficient, high performance runtime for<br>
+executing code, content, and communications. </li>
+<li>  Integrate content, communications, and application<br>
+interfaces into a common environment. </li>
+<li>  Provide powerful and extensible object models for<br>
+interactivity. </li>
+<li>  Enable rapid application development through components and<br>
+re-use. </li>
+<li>  Enable the use of web and data services provided by<br>
+application servers. </li>
+<li>  Embrace connected and disconnected clients. </li>
+<li>  Enable easy deployment on multiple platforms and devices. </li>
+</ul>
+
+<p>This movement toward providing richer, more desktop-like application<br>
+experiences in the browser (enabled by the Flash Player runtime, and<br>
+more recently by Ajax techniques) has led to an explosion of web<br>
+applications. </p>
+
+<p>Today the web has firmly established itself as an application<br>
+deployment platform that offers benefits to both developers and end<br>
+users. These benefits include the ability to:</p>
+
+<ul>
+<li>  Target multiple platforms and operating systems. </li>
+<li>  Develop with relatively high-level programming and layout<br>
+languages. </li>
+<li>  Allow end users to access their applications and data from<br>
+virtually any Internet-connected computer. </li>
+</ul>
+
+<p>The growth of web applications can be seen in both the Web 2.0<br>
+movement, which consists almost entirely of web based applications and<br>
+APIs, as well as the adoption of web applications as a core business<br>
+model of major companies and organizations. </p>
+
+<p><span style="font-weight: bold;">Problems with Delivering<br /> Applications via the Browser </span></p>
+
+<p>As web applications have become more complex, they have begun to push<br>
+the boundaries of both the capabilities of the browser and the<br>
+usability of the application. As their popularity grows, these issues<br>
+become more apparent and important and highlight that there are still a<br>
+number of significant issues for both developers and end users when<br>
+deploying applications via the browser. </p>
+
+<p>The web browser was original designed to deliver and display HTML-based<br>
+documents. Indeed, the basic design of the browser has not<br>
+significantly shifted from this purpose. This fundamental conflict<br>
+between document-and application-focused functionality creates a number<br>
+of problems when deploying applications via the browser. </p>
+
+<p><span style="font-weight: bold;">Conflicting UI</span><br>
+&nbsp;<br>
+Applications deployed via the browser have their own user interface,<br>
+which often conflicts with the user interface of the browser. This<br>
+application within an application model often results in user<br>
+interfaces that conflict with and contradict each other. This can lead<br>
+to user confusion in the best cases, and application failure in the<br>
+worst cases. The classic example of this is the browser&rsquo;s<br>
+Back button. The Back button makes sense when browsing documents, but<br>
+it does not always make sense in the context of an application.<br>
+Although there are a number of solutions that attempt to solve this<br>
+problem, they are applied to applications inconsistently; users may not<br>
+know whether a specific application supports the Back button, or<br>
+whether it will force their application to unload, causing it to lose<br>
+its state and data. </p>
+
+<p><span style="font-weight: bold;">Distance from the Desktop</span></p>
+
+<p>Due in part to the web security model (which restricts access to the<br>
+users machine), applications that run in the browser often do not<br>
+support the type of user interactions with the operating system that<br>
+users expect from applications. For example, you cannot drag a file<br>
+into a browser-based application and have the application act on that<br>
+file. Nor can the web application interact with other applications on<br>
+the user&rsquo;s computer. </p>
+
+<p>RIAs have tried to improve on this by making richer, more desktop-like<br>
+interfaces possible in the browser, but they have not been able to<br>
+overcome the fundamental limitations and separation of the browser from<br>
+the desktop. </p>
+
+<p><span style="font-weight: bold;">Primarily Online<br /> Experience</span> </p>
+
+<p>Because web applications are delivered from a server and do not reside<br>
+on the users machine, web applications are a primarily online<br>
+experience. While there are attempts underway to make offline web-based<br>
+applications possible, they do not provide a consistent development<br>
+model, they fail to work across different browsers, and they often<br>
+require the user to interact with and manage their application and<br>
+browser in complex and unexpected ways. </p>
+
+<p><span style="font-weight: bold;">Lowest Common Denominator</span></p>
+
+<p>Finally, as applications become richer and more complex and begin to<br>
+push the boundaries of JavaScript and DHTML, developers are<br>
+increasingly faced with differences in browser functionality and APIs.<br>
+While these issues can often be overcome with browser-specific code, it<br>
+leads to code that is more difficult to maintain and scale, and takes<br>
+time away from function-driven development. </p>
+
+<p>While JavaScript frameworks are a popular way to help address these<br>
+issues, they can offer only the functionality provided by the browser,<br>
+and often resort to the lowest common denominator of features between<br>
+browsers to ease the development model. While this issue<br>
+doesn&rsquo;t affect Flash-based RIAs, the end result for<br>
+JavaScript-or DHTML-based applications is a lowest common denominator<br>
+user experience and interaction model, as well as increased<br>
+development, testing, and deployment costs for the developer. </p>
+
+<p>The fact that web applications have flourished despite these drawbacks<br>
+is a testament to the attractiveness of having a platform with a good<br>
+development model that has the ability to deliver applications to<br>
+multiple operating systems. A platform that offered the reach and<br>
+development model of the browser, while providing the functionality and<br>
+richness of a desktop application, would provide the best of both<br>
+worlds. This is what Apollo aims to do. </p>
+
+<p><span style="font-weight: bold;">Introducing the Apollo<br /> Runtime</span> </p>
+
+<p>So, what is Apollo, and how can it make web application development and<br>
+deployment better? </p>
+
+<p>Apollo is the code name for a new cross-operating system runtime being<br>
+developed by Adobe that allows web developers to leverage their<br>
+existing web development skills (such as Flash, Flex, HTML, JavaScript,<br>
+and PDF) to build and deploy Rich Internet Applications and content to<br>
+the desktop.<br>
+In essence, it provides a platform in between the desktop and the<br>
+browser, which combines the reach and ease of development of the web<br>
+model with the functionality and richness of the desktop model. </p>
+
+<p>It is important to step back for a second and point out what Apollo is<br>
+not. Apollo is not a general desktop runtime meant to compete with<br>
+lower-level application runtimes. This means that you probably<br>
+wouldn&rsquo;t want to build Photoshop on top of Apollo.<br>
+Apollo&rsquo;s primary use case is enabling Rich Internet and web<br>
+applications to be deployed to the desktop. This is a very important<br>
+but subtle distinction, as enabling RIAs on the desktop is the primary<br>
+use case driving the Apollo 1.0 feature set. </p>
+
+<p>Apollo is also not a browser. While it does allow developers to use web<br>
+technologies such as HTML, and Flash to build applications, it does not<br>
+provide any default UI to the user for browsing web pages. It is<br>
+possible to build a browser on top of Apollo, but at a basic level,<br>
+Apollo is a runtime that enables developers to build end user<br>
+applications, and is not an end user application itself.</p>
+
+<p>At its core, Apollo is built on top of web technologies, which allow<br>
+web developers to develop for and deploy to the desktop using the same<br>
+technologies and development models that they use today when deploying<br>
+applications on the Web. </p>
+
+<p><span style="font-weight: bold;">Primary Apollo<br /> Technologies </span></p>
+
+<p>There are three primary technologies included within Apollo, which fall<br>
+into two distinct categories: application technologies and document<br>
+technologies. </p>
+
+<p><br style="font-weight: bold;" /><br>
+<span style="font-weight: bold;">Primary Application<br /> Technologies </span></p>
+
+<p>Application technologies are technologies that can be used as the basis<br>
+of an application within Apollo. Apollo contains two primary<br>
+application technologies, Flash and HTML, both of which can be used on<br>
+their own to build and deploy Apollo applications. </p>
+
+<p><span style="font-weight: bold;">Flash</span> </p>
+
+<p>One of the core technologies Apollo is built on is the Flash Player.<br>
+Specifically, Apollo is built on top of Flash Player 9, which includes<br>
+the ECMAScript-based ActionScript 3 as well as the open source Tamarin<br>
+virtual machine (which will be used to interpret JavaScript in future<br>
+versions of Firefox). </p>
+
+<p>You can find more information on the open source Tamarin project at on<br>
+the Mozilla website site at http://www.mozilla.org/projects/tamarin/. </p>
+
+<p>Not only are all of the existing Flash Player APIs available within<br>
+Apollo, but some of those APIs have also been expanded and/or enhanced.<br>
+Some of the functionality that the Flash Player provides to Apollo<br>
+includes: </p>
+
+<ul>
+<li>  Just-in-time Interpreted ActionScript engine for speedy<br>
+application performance </li>
+<li>  Full networking stack, including HTTP and RTMP, as well as<br>
+Binary and XML sockets </li>
+<li>  Complete vector-based rendering engine and drawing APIs </li>
+<li>  Extensive multimedia support including bitmaps, vectors,<br>
+audio, and video </li>
+</ul>
+
+<p>Of course, the Flex 2 framework is built on top of ActionScript 3,<br>
+which means that you can also take advantage of all of the features and<br>
+functionality that Flex offers in order to build Apollo applications. </p>
+
+<p><span style="font-weight: bold;">HTML</span> </p>
+
+<p>The second application technology within Apollo is HTML. This is a full<br>
+HTML ren&bull;dering engine, which includes support for: </p>
+
+<ul>
+<li>  HTML </li>
+<li>  JavaScript </li>
+<li>  CSS </li>
+<li>  XHTML </li>
+<li>  Document Object Model (DOM) </li>
+</ul>
+
+<p>Yes, you read that right. You don&rsquo;t have to use Flash to<br>
+build Apollo applications. You can build a full-featured application<br>
+using just HTML and JavaScript. This usually surprises some developers<br>
+who expect Apollo to focus only on Flash. However, at its core, Apollo<br>
+is a runtime targeted at web developers using web<br>
+technologies&mdash; and what is more of a web technology than HTML<br>
+and JavaScript? </p>
+
+<p>The HTML engine used within Apollo is the <a  
+href="http://www.webkit.org">open source WebKit engine</a>.<br>
+This is the engine behind a number of browsers, including KHTML on KDE<br>
+and Safari on Mac OS X. </p>
+
+<p><span style="font-weight: bold;">Why WebKit? </span></p>
+
+<p>Adobe spent a considerable amount of time researching which HTML engine<br>
+to use within Apollo and used a number of criteria that ultimately led<br>
+them to settle on WebKit. </p>
+
+<p><span style="font-weight: bold;">Open project</span>.<br>
+Adobe knew from the very beginning that it did not want to create and<br>
+maintain its own HTML rendering engine. Not only would this be an<br>
+immense amount of work, but it would also make it difficult for<br>
+developers, who would then have to become familiar with all of the<br>
+quirks of yet another HTML engine. </p>
+
+<p>WebKit provides Apollo with a full-featured HTML engine that is under<br>
+continuous development by a robust development community that includes<br>
+individual developers as well as large companies such as Nokia and<br>
+Apple. This allows Adobe to focus on bug fixes and features, and also<br>
+means that Adobe can actively contribute back to WebKit, while also<br>
+taking advantage of the contributions made by other members of the<br>
+WebKit project. </p>
+
+<p><span style="font-weight: bold;">Proven technology that<br /> web developers know</span>. As discussed earlier, one of the<br>
+biggest problems with complex web development is ensuring that content<br>
+works consis&bull;tently across browsers. While something may work<br>
+perfectly in Firefox on the Mac, it may completely fail in Internet<br>
+Explorer on Windows. Because of this, testing and debugging<br>
+browser-based content can be a nightmare for developers. </p>
+
+<p>Adobe wanted to ensure that developers were already familiar with the<br>
+HTML engine used within Apollo, and that they did not have to learn new<br>
+all of the quirks and bugs of a new engine. Since Safari (which is<br>
+built on top of WebKit) is the default browser for Mac OS X, developers<br>
+should be familiar with developing for it. </p>
+
+<p><span style="font-weight: bold;">Minimum effect on Apollo<br /> runtime size</span>. The target size for Apollo is between 5 and<br>
+9 MB. The WebKit code base was well-written and organized and had a<br>
+minimal impact on the final Apollo runtime size. Indeed, the current<br>
+runtime size with both Flash and HTML is just a little over 5 MB. </p>
+
+<p><span style="font-weight: bold;">Proven ability to run on<br /> mobile devices</span>. While the first release of Apollo runs<br>
+only on personal computers, the long-term vision is to extend the<br>
+Apollo runtime from the desktop to cell phones and other devices.<br>
+WebKit has a proven ability to run on such devices and has been ported<br>
+to cell phones by both Nokia and Apple. </p>
+
+<p><span style="font-weight: bold;">Primary Document<br /> Technology </span></p>
+
+<p>Document technologies within Apollo refer to technologies whose primary<br>
+purpose is for the rendering and interaction with electronic documents.</p>
+
+<p>PDF and HTML are the primary document technologies available within<br>
+Apollo. </p>
+
+<p><span style="font-weight: bold;">PDF</span> </p>
+
+<p>PDF functionality is not included in Alpha 1 of Apollo, so we cannot go<br>
+into too much detail of how it is implemented. However, in general<br>
+Apollo applications, both Flash- and HTML-based, will be able to<br>
+leverage and interact with PDF content. </p>
+
+<p><span style="font-weight: bold;">HTML</span> </p>
+
+<p>HTML was originally designed as a document technology, and today it<br>
+provides rich and robust control over content and text layout and<br>
+styling. HTML can be used as a document technology within<br>
+Apollo&mdash;both within an existing HTML application as well as<br>
+within a Flash-based application. </p>
+
+<p><span style="font-weight: bold;">What Does An Apollo<br /> Application Contain?</span> </p>
+
+<p>Now that we know what technologies are available to applications<br>
+running on top of the Apollo runtime (see Figure 1-1), let&rsquo;s<br>
+look at how those technologies can be combined to build an Apollo<br>
+application. </p>
+
+<p>Applications can consist of the following combinations of technologies:  </p>
+
+<ul>
+<li>  Flash only (including Flex) </li>
+<li>  Flash-based with HTML content </li>
+<li>  HTML/JavaScript only </li>
+<li>  HTML/JavaScript-based with Flash content </li>
+</ul>
+
+<p>All combinations can also leverage PDF content </p>
+
+<p><span style="font-weight: bold;">Technology Integration<br /> and Script Bridging </span></p>
+
+<p>Because WebKit and the Flash Player are both included within the<br>
+runtime, they are integrated together on a very low level. For example,<br>
+when HTML is included within Flash content, it is actually rendered via<br>
+the Flash display pipeline, which, among other things, means that<br>
+anything that you can do to a bitmap within Flash (blur, rotate,<br>
+transform, etc.) can also be done to HTML. </p>
+
+<p>This low-level integration also applies to the script engines within<br>
+Apollo (that run ActionScript and JavaScript). Apollo provides script<br>
+bridging between the two languages and environments, which makes the<br>
+following possible: </p>
+
+<ul>
+<li>  JavaScript code to call ActionScript APIs </li>
+<li>  ActionScript code to call JavaScript APIs </li>
+<li>  ActionScript code to directly manipulate the HTML DOM </li>
+<li>  Event registration both ways between JavaScript and<br>
+ActionScript </li>
+</ul>
+
+<p>Note that the script bridging is &ldquo;pass by<br>
+reference.&rdquo; So when passing an object instance from<br>
+ActionScript to JavaScript (or vice versa), changes to that instance in<br>
+one environment will affect the instance in the other environment.<br>
+Among other things, this makes it possible to maintain a reference to<br>
+HTML nodes from within ActionScript and modify them, or to register and<br>
+listen for events. </p>
+
+<p>This low-level script bridging between the two environments makes it<br>
+very easy for developers to create applications that are a combination<br>
+of both HTML and Flash. </p>
+
+<p>The end result of all of this is that if you are a web developer, then<br>
+you already have all of the skills necessary to build an Apollo<br>
+application. </p>
+
+<p><span style="font-weight: bold;">Apollo Functionality </span></p>
+
+<p>Apollo provides a rich set of programming APIs, as well as close<br>
+integration with the desktop that allows developers to build<br>
+applications that take advantage of the fact that they&rsquo;re<br>
+running on the user&rsquo;s desktop. </p>
+
+<p><span style="font-weight: bold;">Apollo Programming APIs </span></p>
+
+<p>In addition to all of the functionality and APIs already offered by the<br>
+Flash Player and WebKit engine, Apollo provides additional<br>
+functionality and APIs. </p>
+
+<p>Apollo APIs will be exposed to both ActionScript and JavaScript.<br>
+Some of the new functionality includes, but is not limited to: </p>
+
+<ul>
+<li>  Complete file I/O API </li>
+<li>  Complete native windowing API </li>
+<li>  Complete native menuing API </li>
+<li>  Online/Offline APIs to detect when network connectivity has<br>
+changed </li>
+<li>  Data Caching and Syncing APIs to make it easier to develop<br>
+applications that work on- and offline. </li>
+<li>  Complete control over application chrome </li>
+<li>  Local storage/settings APIs </li>
+<li>  System notification APIs (that tie into OS-specific<br>
+notification mechanisms) </li>
+<li>  Application update APIs </li>
+</ul>
+
+<p>Note that functionality may be implemented directly within the Apollo<br>
+runtime or on the framework layer (in Flex and JavaScript), or by using<br>
+a combination of both. </p>
+
+<p><span style="font-weight: bold;">Apollo Desktop Integration</span></p>
+
+<p>As discussed earlier, applications deployed via the browser cannot<br>
+always support the same user interactions as desktop applications. This<br>
+leads to applications that can be cumbersome for the user to interact<br>
+with, as they do not allow the type of application interactions with<br>
+which users are familiar. </p>
+
+<p>Because an Apollo application is a desktop application, it is able to<br>
+provide the type of application interactions and experience that users<br>
+expect from an application. This functionality includes, but is not<br>
+limited to: </p>
+
+<ul>
+<li>  Appropriate install/uninstall rituals </li>
+<li>  Desktop install touchpoints (i.e., shortcuts, etc.) </li>
+<li>  Rich drag-and-drop support: </li>
+<li>  Between operating system and Apollo applications </li>
+<li><p>Between Apollo applications </p></li>
+<li><p>Between native applications and Apollo applications </p></li>
+<li><p>Rich clipboard support </p></li>
+<li><p>System notifications </p></li>
+<li><p>Native Icons </p></li>
+<li><p>Ability for applications to run in the background </p></li>
+</ul>
+
+<p>Once installed, an Apollo application is just another native<br>
+application, which means that the operating system and users can<br>
+interact with it as it does with any other application. For example,<br>
+things such as OS-level application pre-fetching and switching work the<br>
+same with Apollo applications as they do with native applications. </p>
+
+<p>The goal is that the end user doesn&rsquo;t need to know they are<br>
+running an application that leverages Apollo. They should be able to<br>
+interact with an Apollo application in the same way that they interact<br>
+with any other application running on his desktop. </p>
+
+<p><span style="font-weight: bold;">Apollo Development<br /> Toolset </span></p>
+
+<p>One of the reasons web applications have been successful is that they<br>
+allow developers to easily deploy applications that users can run<br>
+regardless of which OS they are on. Whether Mac, Windows, Linux,<br>
+Solaris, or cell phones, web applications provide reach.<br>
+&nbsp;<br>
+However, success is based not only on cross-platform deployment, but<br>
+also on the cross-platform nature of the development environment. This<br>
+ensures that any developer can develop for&mdash;and<br>
+leverage&mdash;the technology. Neither the runtime nor the<br>
+development tools are tied to a specific OS. </p>
+
+<p>The same is true of Apollo. Not only does Apollo provide the<br>
+cross-platform reach of web applications, but, just as importantly,<br>
+Apollo applications can be developed and packaged on virtually any<br>
+operating system. </p>
+
+<p>In fact, Apollo itself does not have a compiler or specialized IDE.<br>
+Apollo applications just consist of web content, such as Flash and<br>
+HTML. Any tool that can edit an HTML or JavaScript file can also be<br>
+used to create an Apollo application. </p>
+
+<p>A beta version of Flex Builder with Apollo support is included with the<br>
+Apollo Alpha. Because Apollo applications are built with existing web<br>
+technologies such as HTML and Flash, you can use the same tools that<br>
+you use to create browser-based content to create Apollo applications.<br>
+The Apollo SDK provides a number of free command-line tools that make<br>
+it possible to test, debug, and package Apollo applications with<br>
+virtually any web development and design tool. </p>
+
+<p>The included command line tools are:</p>
+
+<p><span style="font-weight: bold;">ADL</span> &#8211; Allows<br>
+Apollo applications to be run without having to first install them<br>
+<span style="font-weight: bold;">ADT</span> -<br>
+Packages Apollo applications into distributable installation packages </p>
+
+<p>While Adobe will be adding support to its own web development and<br>
+design tools for authoring Apollo content, they are not required. Using<br>
+the Apollo command-line tools, you can create an Apollo application<br>
+with any web development tool. You can use the same web development and<br>
+design tools that you are already using today. </p>
+
+<p><span style="font-weight: bold;">Is Apollo the End of Web<br /> Applications in the Browser? </span></p>
+
+<p>So, by this point, you may be saying to yourself, &ldquo;Gee,<br>
+Apollo sure sounds great! Why would anyone ever want to deploy an<br>
+application to the browser again? Is Apollo the end of web applications<br>
+within the browser?&rdquo; </p>
+
+<p>No. </p>
+
+<p>Let me repeat that again: no. </p>
+
+<p>Apollo solves most of the problems with deploying web applications via<br>
+the browser. However, there are still advantages to deploying<br>
+applications via the browser. The fact that there are so many web<br>
+applications despite the disadvantages discussed earlier is a testament<br>
+to the advantages of running within the browser. When those advantages<br>
+outweigh the disadvantages, developers will still deploy their<br>
+applications via the web browser. </p>
+
+<p>But is it not necessarily an either/or question. Because Apollo<br>
+applications are built using web technologies, the application that you<br>
+deploy via the web browser can be quickly turned into an Apollo<br>
+application. You can have a web-based version that provides the<br>
+browser-based functionality, and then also have an Apollo-based version<br>
+that takes advantage of running on the desktop. Both versions could<br>
+leverage the same technologies, languages, and code base. </p>
+
+<p>Apollo applications complement web applications in the browser. They do<br>
+not replace them. &nbsp;</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

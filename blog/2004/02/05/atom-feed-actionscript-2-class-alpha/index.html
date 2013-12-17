@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Atom Feed ActionScript 2 Class Alpha</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Atom Feed ActionScript 2 Class Alpha</h2>
+<p class="meta">Thursday, February 5, 2004</p>
+
+<div class="post">
+<p>I am putting together an ActionScript 2 class to represent and parse <a href="http://www.atomenabled.org">Atom feeds</a>. I have put together an early alpha version of the class, but wanted to get some feedback on it before I continue work on it.</p>
+
+<!--more-->
+
+<p>Alpha .22: (Feb.12 2004)</p>
+
+<ul>
+<li>  Refactored to make it easier to extend and add support for custom namespaces</li>
+<li>  User cannot add nodes</li>
+<li>  tag attributes are now placed in attributes object for element.</li>
+<li>  TODO: check case sensitivity in switch statements</li>
+<li>  TODO: check if namespace is added tags : atom:element</li>
+<li>  TODO: optimize parse functions</li>
+<li>  TODO: document api</li>
+<li>  TODO: wrap in MXP file for distribution</li>
+</ul>
+
+<p>Alpha .20:</p>
+
+<ul>
+<li>  Should parse all elements and attributes described in the Atom .03 spec.</li>
+<li>  Does not currently support non-atom namespaces.</li>
+<li>  Utilizes the <a href="/mesh/archives/004376.cfm">W3CDateTime class</a></li>
+</ul>
+
+<p>Alpha .10:</p>
+
+<ul>
+<li>  Does not parse all Atom elements.</li>
+<li>  Only parses elements included in default Movable Type atom feed. Specifically, <a href="http://www.markme.com/mesh/atom.xml">my Atom feed</a>.</li>
+<li>  Cannot yet add nodes</li>
+<li>  Dates are not supported yet. Need to make a date class for the date types used by Atom</li>
+<li>  This is a super early version, and the code will probably drastically change.</li>
+</ul>
+
+<p>Before I finish up adding support for all of Atom, I wanted to get some input on the class, and how I make the Atom dom avaliable. Please post any suggestions in the comments.</p>
+
+<p>One quick comment (and my personal opinion), thus far, Atom has been a pure joy to work with. It is so nice have a structured format to work with. I love what RSS enables, but with all of the <a href="http://diveintomark.org/archives/2004/02/04/incompatible-rss">different versions, and permutations</a>, it is a huge hassle to work with.</p>
+
+<p>Anyways, here is the class (v .20):</p>
+
+<p>`
+<pre>/*
+    Atom.as</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>Mike Chambers
+<a name="line-2"></a>mesh@macromedia.com
+<a name="line-3"></a>
+<a name="line-4"></a>Class that represents an Atom XML document.
+<a name="line-5"></a>
+<a name="line-6"></a>You can find more information on Atom at:
+</code></pre></div>
+<p>http://www.atomenabled.org</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>Version Alpha .22   
+<a name="line-2"></a>    -user cannot yet add nodes
+<a name="line-3"></a>    -check case sensitivity in switch statements
+<a name="line-4"></a>    -check if namespace is added tags : atom:element
+<a name="line-5"></a>    -optimize parse functions   
+</code></pre></div>
+<p>*/</p>
+
+<p>import mx.events.EventDispatcher;
+import com.macromedia.date.W3CDateTime;</p>
+
+<p>class com.macromedia.data.Atom extends XML
+{
+    private var dispatchEvent:Function;
+    public var addEventListener:Function;
+    public var removeEventListener:Function;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>private var feed:Object;
+<a name="line-2"></a>private var entriesArray:Array;
+<a name="line-3"></a>
+<a name="line-4"></a>private var ignoreWhite:Boolean = true;
+<a name="line-5"></a>
+<a name="line-6"></a>public function Atom(xmlSource:String)
+<a name="line-7"></a>{   
+<a name="line-8"></a>    super(xmlSource);
+<a name="line-9"></a>
+<a name="line-10"></a>    mx.events.EventDispatcher.initialize(this);
+<a name="line-11"></a>}
+<a name="line-12"></a>
+<a name="line-13"></a>private function onLoad(success:Boolean):Void
+<a name="line-14"></a>{
+<a name="line-15"></a>    if(!success)
+<a name="line-16"></a>    {
+<a name="line-17"></a>        //throw error
+<a name="line-18"></a>        trace(&quot;xml did not load&quot;);
+<a name="line-19"></a>        return;
+<a name="line-20"></a>    }
+<a name="line-21"></a>    parseFeedTags();
+<a name="line-22"></a>
+<a name="line-23"></a>    dispatchEvent({type:&quot;onAtomLoad&quot;, target:this});
+<a name="line-24"></a>}   
+<a name="line-25"></a>
+<a name="line-26"></a>//need a way to reparse if user manually adds nodes
+<a name="line-27"></a>private function parseFeedTags(Void):Void
+<a name="line-28"></a>{   
+<a name="line-29"></a>    feed = parseFeedElement();
+<a name="line-30"></a>
+<a name="line-31"></a>    //should this be in info, or in feed        
+<a name="line-32"></a>    //feed.info = parseFeedElement();
+<a name="line-33"></a>
+<a name="line-34"></a>    var nodes:Array = firstChild.childNodes;
+<a name="line-35"></a>
+<a name="line-36"></a>    var len:Number = nodes.length;
+<a name="line-37"></a>
+<a name="line-38"></a>    var node:XMLNode;
+<a name="line-39"></a>    for(var i:Number = 0; i&lt; len; i++)
+<a name="line-40"></a>    {
+<a name="line-41"></a>        node = nodes[i];
+<a name="line-42"></a>
+<a name="line-43"></a>        //do we need to worry about case sensitivity?
+<a name="line-44"></a>        switch(node.nodeName)
+<a name="line-45"></a>        {
+<a name="line-46"></a>            case &quot;entry&quot;:
+<a name="line-47"></a>            {
+<a name="line-48"></a>                break;
+<a name="line-49"></a>            }
+<a name="line-50"></a>            case &quot;title&quot;:
+<a name="line-51"></a>            {
+<a name="line-52"></a>                feed.title = parseFeedTitle(node);
+<a name="line-53"></a>                break;
+<a name="line-54"></a>            }
+<a name="line-55"></a>            case &quot;author&quot;:
+<a name="line-56"></a>            {
+<a name="line-57"></a>                feed.author = parseFeedAuthor(node);
+<a name="line-58"></a>                break;
+<a name="line-59"></a>            }   
+<a name="line-60"></a>            case &quot;contributor&quot;:
+<a name="line-61"></a>            {
+<a name="line-62"></a>                feed.contributor = parseFeedContributor(node);
+<a name="line-63"></a>                break;
+<a name="line-64"></a>            }                   
+<a name="line-65"></a>            case &quot;tagline&quot;:
+<a name="line-66"></a>            {
+<a name="line-67"></a>                feed.tagline = parseFeedTagline(node);
+<a name="line-68"></a>                break;
+<a name="line-69"></a>            }       
+<a name="line-70"></a>            case &quot;copyright&quot;:
+<a name="line-71"></a>            {
+<a name="line-72"></a>                feed.copyright = parseFeedCopyright(node);
+<a name="line-73"></a>                break;
+<a name="line-74"></a>            }   
+<a name="line-75"></a>            case &quot;generator&quot;:
+<a name="line-76"></a>            {
+<a name="line-77"></a>
+<a name="line-78"></a>                feed.generator = parseFeedGenerator(node);
+<a name="line-79"></a>
+<a name="line-80"></a>                break;
+<a name="line-81"></a>            }   
+<a name="line-82"></a>            case &quot;info&quot;:
+<a name="line-83"></a>            {
+<a name="line-84"></a>                feed.info = parseFeedInfo(node);
+<a name="line-85"></a>                break;
+<a name="line-86"></a>            }               
+<a name="line-87"></a>            case &quot;id&quot;:
+<a name="line-88"></a>            {
+<a name="line-89"></a>                feed.id = parseFeedId(node);
+<a name="line-90"></a>                break;
+<a name="line-91"></a>            }   
+<a name="line-92"></a>            case &quot;link&quot;:
+<a name="line-93"></a>            {                   
+<a name="line-94"></a>                feed.link = parseFeedLink(node);
+<a name="line-95"></a>
+<a name="line-96"></a>                break;
+<a name="line-97"></a>            }                   
+<a name="line-98"></a>            case &quot;modified&quot;:
+<a name="line-99"></a>            {
+<a name="line-100"></a>                feed.modified = parseFeedModified(node);
+<a name="line-101"></a>                break;
+<a name="line-102"></a>            }   
+<a name="line-103"></a>            default:
+<a name="line-104"></a>            {
+<a name="line-105"></a>                parseFeedDefault(node);
+<a name="line-106"></a>                break;
+<a name="line-107"></a>            }
+<a name="line-108"></a>        }   
+<a name="line-109"></a>    }
+<a name="line-110"></a>}
+<a name="line-111"></a>
+<a name="line-112"></a>
+<a name="line-113"></a>private function parseFeedTitle(node:XMLNode):Object
+<a name="line-114"></a>{
+<a name="line-115"></a>    var obj:Object = new Object();
+<a name="line-116"></a>        obj.value = node.firstChild.nodeValue;
+<a name="line-117"></a>
+<a name="line-118"></a>    return obj;
+<a name="line-119"></a>}
+<a name="line-120"></a>
+<a name="line-121"></a>private function parseFeedAuthor(node:XMLNode):Object
+<a name="line-122"></a>{
+<a name="line-123"></a>    var obj:Object = parsePersonConstruct(node);
+<a name="line-124"></a>
+<a name="line-125"></a>    return obj;
+<a name="line-126"></a>}
+<a name="line-127"></a>
+<a name="line-128"></a>private function parseFeedContributor(node:XMLNode):Object
+<a name="line-129"></a>{
+<a name="line-130"></a>    var obj:Object = parsePersonConstruct(node);
+<a name="line-131"></a>
+<a name="line-132"></a>    return obj;
+<a name="line-133"></a>}
+<a name="line-134"></a>
+<a name="line-135"></a>private function parseFeedTagline(node:XMLNode):Object
+<a name="line-136"></a>{
+<a name="line-137"></a>    var obj:Object = new Object();
+<a name="line-138"></a>        obj.value = node.firstChild.nodeValue;
+<a name="line-139"></a>
+<a name="line-140"></a>    return obj;
+<a name="line-141"></a>}
+<a name="line-142"></a>
+<a name="line-143"></a>private function parseFeedCopyright(node:XMLNode):Object
+<a name="line-144"></a>{
+<a name="line-145"></a>    var obj:Object = new Object();
+<a name="line-146"></a>        obj.value = node.firstChild.nodeValue;
+<a name="line-147"></a>
+<a name="line-148"></a>    return;     
+<a name="line-149"></a>}
+<a name="line-150"></a>
+<a name="line-151"></a>private function parseFeedGenerator(node:XMLNode):Object
+<a name="line-152"></a>{
+<a name="line-153"></a>    var obj:Object = new Object();
+<a name="line-154"></a>        obj.value = node.firstChild.nodeValue;
+<a name="line-155"></a>
+<a name="line-156"></a>        var genAtts:Object = node.attributes;
+<a name="line-157"></a>
+<a name="line-158"></a>        obj.url = genAtts.url;
+<a name="line-159"></a>        obj.version = genAtts.version;
+<a name="line-160"></a>
+<a name="line-161"></a>    return obj;
+<a name="line-162"></a>}
+<a name="line-163"></a>
+<a name="line-164"></a>private function parseFeedInfo(node:XMLNode):Object
+<a name="line-165"></a>{
+<a name="line-166"></a>    var obj:Object = new Object();
+<a name="line-167"></a>        obj.value = node.firstChild.nodeValue;
+<a name="line-168"></a>
+<a name="line-169"></a>        return obj;
+<a name="line-170"></a>}
+<a name="line-171"></a>
+<a name="line-172"></a>private function parseFeedId(node:XMLNode):Object
+<a name="line-173"></a>{
+<a name="line-174"></a>    var obj:Object = new Object();
+<a name="line-175"></a>        obj.value = node.firstChild.nodeValue;
+<a name="line-176"></a>
+<a name="line-177"></a>    return;
+<a name="line-178"></a>}
+<a name="line-179"></a>
+<a name="line-180"></a>private function parseFeedLink(node:XMLNode):Object
+<a name="line-181"></a>{
+<a name="line-182"></a>    var obj:Object = parseLinkConstruct(node);
+<a name="line-183"></a>
+<a name="line-184"></a>    return obj;
+<a name="line-185"></a>}
+<a name="line-186"></a>
+<a name="line-187"></a>private function parseFeedModified(node:XMLNode):Object
+<a name="line-188"></a>{
+<a name="line-189"></a>    var obj:Object = new Object();
+<a name="line-190"></a>        obj.value = W3CDateTime.parseString(node.firstChild.nodeValue);
+<a name="line-191"></a>
+<a name="line-192"></a>    return obj;
+<a name="line-193"></a>}
+<a name="line-194"></a>
+<a name="line-195"></a>private function parseFeedDefault(node:XMLNode):Object
+<a name="line-196"></a>{
+<a name="line-197"></a>    return undefined;
+<a name="line-198"></a>}   
+<a name="line-199"></a>
+<a name="line-200"></a>private function parseLinkConstruct(node:XMLNode):Object
+<a name="line-201"></a>{
+<a name="line-202"></a>    var feedAtts:Object = node.attributes;
+<a name="line-203"></a>    var link:Object = new Object();
+<a name="line-204"></a>        link.attributes = new Object();
+<a name="line-205"></a>
+<a name="line-206"></a>    link.attributes.rel = feedAtts.rel;
+<a name="line-207"></a>    link.attributes.type = feedAtts.type;
+<a name="line-208"></a>    link.attributes.href = feedAtts.href;
+<a name="line-209"></a>    link.attributes.title = feedAtts.title;
+<a name="line-210"></a>
+<a name="line-211"></a>    return link;        
+<a name="line-212"></a>}
+<a name="line-213"></a>
+<a name="line-214"></a>private function parseFeedElement(Void):Object
+<a name="line-215"></a>{
+<a name="line-216"></a>    var feedInfo:Object = new Object();
+<a name="line-217"></a>        feedInfo.attributes = new Object();
+<a name="line-218"></a>
+<a name="line-219"></a>    var feedAttributes:Object = firstChild.attributes;
+<a name="line-220"></a>
+<a name="line-221"></a>    feedInfo.attributes.version = feedAttributes.version;
+<a name="line-222"></a>    feedInfo.attributes[&quot;xml:lang&quot;] = feedAttributes[&quot;xml:lang&quot;];
+<a name="line-223"></a>
+<a name="line-224"></a>    return feedInfo;
+<a name="line-225"></a>}   
+<a name="line-226"></a>
+<a name="line-227"></a>//need a way to reparse if user manually adds nodes
+<a name="line-228"></a>private function parseEntries(Void):Void
+<a name="line-229"></a>{               
+<a name="line-230"></a>    entriesArray = new Array();
+<a name="line-231"></a>
+<a name="line-232"></a>    var nodes:Array = firstChild.childNodes;
+<a name="line-233"></a>
+<a name="line-234"></a>    var len:Number = nodes.length;
+<a name="line-235"></a>
+<a name="line-236"></a>    var node:XMLNode;
+<a name="line-237"></a>    var tempEntry:Object;
+<a name="line-238"></a>
+<a name="line-239"></a>    for(var i:Number = 0; i&lt; len; i++)
+<a name="line-240"></a>    {
+<a name="line-241"></a>        node = nodes[i];
+<a name="line-242"></a>
+<a name="line-243"></a>        if(node.nodeName == &quot;entry&quot;)
+<a name="line-244"></a>        {
+<a name="line-245"></a>            tempEntry = parseEntry(node);
+<a name="line-246"></a>            entriesArray.push(tempEntry);
+<a name="line-247"></a>        }
+<a name="line-248"></a>    }
+<a name="line-249"></a>}   
+<a name="line-250"></a>
+<a name="line-251"></a>private function parseEntry(node:XMLNode):Object
+<a name="line-252"></a>{
+<a name="line-253"></a>    if(node == undefined)
+<a name="line-254"></a>    {
+<a name="line-255"></a>        return;
+<a name="line-256"></a>    }
+<a name="line-257"></a>
+<a name="line-258"></a>    var entryElements:Array = node.childNodes;
+<a name="line-259"></a>    var elementLen:Number = entryElements.length;
+<a name="line-260"></a>
+<a name="line-261"></a>    var entry:Object = new Object();
+<a name="line-262"></a>    var entryElement:XMLNode;
+<a name="line-263"></a>
+<a name="line-264"></a>    for(var k:Number = 0; k &lt; elementLen; k++)
+<a name="line-265"></a>    {
+<a name="line-266"></a>        entryElement = entryElements[k];        
+<a name="line-267"></a>
+<a name="line-268"></a>        switch(entryElement.nodeName)
+<a name="line-269"></a>        {
+<a name="line-270"></a>            case &quot;title&quot;:
+<a name="line-271"></a>            {       
+<a name="line-272"></a>                entry.title = parseEntryTitle(entryElement);
+<a name="line-273"></a>                break;
+<a name="line-274"></a>            }
+<a name="line-275"></a>            case &quot;link&quot;:
+<a name="line-276"></a>            {
+<a name="line-277"></a>                entry.link = parseEntryLink(entryElement);
+<a name="line-278"></a>                break;
+<a name="line-279"></a>            }
+<a name="line-280"></a>            case &quot;modified&quot;:
+<a name="line-281"></a>            {
+<a name="line-282"></a>                entry.modified = parseEntryModified(entryElement);                      
+<a name="line-283"></a>                break;
+<a name="line-284"></a>            }
+<a name="line-285"></a>            case &quot;issued&quot;:
+<a name="line-286"></a>            {
+<a name="line-287"></a>                entry.issued = parseEntryIssued(entryElement);                          
+<a name="line-288"></a>                break;
+<a name="line-289"></a>            }
+<a name="line-290"></a>            case &quot;id&quot;:
+<a name="line-291"></a>            {
+<a name="line-292"></a>                entry.id = parseEntryId(entryElement);                      
+<a name="line-293"></a>                break;
+<a name="line-294"></a>            }   
+<a name="line-295"></a>            case &quot;created&quot;:
+<a name="line-296"></a>            {
+<a name="line-297"></a>                entry.created = parseEntryCreated(entryElement);                        
+<a name="line-298"></a>                break;
+<a name="line-299"></a>            }
+<a name="line-300"></a>            case &quot;summary&quot;:
+<a name="line-301"></a>            {
+<a name="line-302"></a>                entry.summary = parseEntrySummary(entryElement);                
+<a name="line-303"></a>                break;
+<a name="line-304"></a>            }
+<a name="line-305"></a>            case &quot;author&quot;:
+<a name="line-306"></a>            {
+<a name="line-307"></a>                entry.author = parseEntryAuthor(entryElement);
+<a name="line-308"></a>                break;
+<a name="line-309"></a>            }
+<a name="line-310"></a>            case &quot;contributor&quot;:
+<a name="line-311"></a>            {
+<a name="line-312"></a>                entry.contributor = parseEntryContributor(entryElement);
+<a name="line-313"></a>                break;
+<a name="line-314"></a>            }                       
+<a name="line-315"></a>            case &quot;content&quot;:
+<a name="line-316"></a>            {
+<a name="line-317"></a>
+<a name="line-318"></a>                entry.content = parseEntryContent(entryElement);
+<a name="line-319"></a>                break;
+<a name="line-320"></a>            }   
+<a name="line-321"></a>            default:
+<a name="line-322"></a>            {
+<a name="line-323"></a>                //pass this to a parse default function
+<a name="line-324"></a>                break;
+<a name="line-325"></a>            }               
+<a name="line-326"></a>        }
+<a name="line-327"></a>    }   
+<a name="line-328"></a>    return entry;
+<a name="line-329"></a>}
+<a name="line-330"></a>
+<a name="line-331"></a>
+<a name="line-332"></a>private function parseEntryTitle(node:XMLNode):Object
+<a name="line-333"></a>{
+<a name="line-334"></a>    var obj:Object = new Object();
+<a name="line-335"></a>        obj.value = node.firstChild.nodeValue;
+<a name="line-336"></a>
+<a name="line-337"></a>    return obj;
+<a name="line-338"></a>}
+<a name="line-339"></a>
+<a name="line-340"></a>private function parseEntryLink(node:XMLNode):Object
+<a name="line-341"></a>{
+<a name="line-342"></a>    var obj:Object = parseLinkConstruct(node);
+<a name="line-343"></a>    return obj;
+<a name="line-344"></a>}
+<a name="line-345"></a>
+<a name="line-346"></a>private function parseEntryModified(node:XMLNode):Object
+<a name="line-347"></a>{
+<a name="line-348"></a>    var obj:Object = new Object();
+<a name="line-349"></a>        obj.value = W3CDateTime.parseString(node.firstChild.nodeValue);
+<a name="line-350"></a>
+<a name="line-351"></a>    return obj;
+<a name="line-352"></a>}
+<a name="line-353"></a>
+<a name="line-354"></a>private function parseEntryIssued(node:XMLNode):Object
+<a name="line-355"></a>{   
+<a name="line-356"></a>    var obj:Object = new Object();
+<a name="line-357"></a>        obj.value = W3CDateTime.parseString(node.firstChild.nodeValue);
+<a name="line-358"></a>
+<a name="line-359"></a>    return obj;     
+<a name="line-360"></a>}
+<a name="line-361"></a>
+<a name="line-362"></a>private function parseEntryId(node:XMLNode):Object
+<a name="line-363"></a>{
+<a name="line-364"></a>    var obj:Object = new Object();
+<a name="line-365"></a>        obj.value = node.firstChild.nodeValue;
+<a name="line-366"></a>
+<a name="line-367"></a>    return obj;         
+<a name="line-368"></a>}
+<a name="line-369"></a>
+<a name="line-370"></a>private function parseEntryCreated(node:XMLNode):Object
+<a name="line-371"></a>{
+<a name="line-372"></a>    var obj:Object = new Object();
+<a name="line-373"></a>        obj.value = W3CDateTime.parseString(node.firstChild.nodeValue);
+<a name="line-374"></a>
+<a name="line-375"></a>    return obj;         
+<a name="line-376"></a>}
+<a name="line-377"></a>
+<a name="line-378"></a>private function parseEntrySummary(node:XMLNode):Object
+<a name="line-379"></a>{
+<a name="line-380"></a>    var obj:Object = new Object();      
+<a name="line-381"></a>
+<a name="line-382"></a>    obj.value = node.firstChild.nodeValue;
+<a name="line-383"></a>    obj.type = node.attributes.type;    
+<a name="line-384"></a>
+<a name="line-385"></a>    var childNodes:Array = node.childNodes;
+<a name="line-386"></a>    var childNodesLen:Number = childNodes.length;
+<a name="line-387"></a>
+<a name="line-388"></a>    var childNode:XMLNode;
+</code></pre></div>
+<p>//TODO: test this with a summary tag<br>
+        //find out if there is a created node
+        for(var z:Number = 0; z &lt; childNodesLen; z++)
+        {
+            childNode = childNodes[z];</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>        if(childNode.nodeName == &quot;created&quot;)
+<a name="line-2"></a>        {
+<a name="line-3"></a>            obj.created = new Object();
+<a name="line-4"></a>            obj.created.value = 
+<a name="line-5"></a>                    W3CDateTime.parseString(childNode.firstChild.nodeValue);    
+<a name="line-6"></a>
+<a name="line-7"></a>            break;
+<a name="line-8"></a>        }                               
+<a name="line-9"></a>    }   
+<a name="line-10"></a>
+<a name="line-11"></a>    return obj;
+<a name="line-12"></a>}
+<a name="line-13"></a>
+<a name="line-14"></a>
+<a name="line-15"></a>private function parseEntryAuthor(node:XMLNode):Object
+<a name="line-16"></a>{
+<a name="line-17"></a>    var obj:Object = parsePersonConstruct(node);
+<a name="line-18"></a>    return obj;
+<a name="line-19"></a>}
+<a name="line-20"></a>
+<a name="line-21"></a>
+<a name="line-22"></a>private function parseEntryContributor(node:XMLNode):Object
+<a name="line-23"></a>{
+<a name="line-24"></a>    var obj:Object = parsePersonConstruct(node);
+<a name="line-25"></a>    return obj;
+<a name="line-26"></a>}
+<a name="line-27"></a>
+<a name="line-28"></a>private function parseEntryContent(node:XMLNode):Object
+<a name="line-29"></a>{
+<a name="line-30"></a>    var obj:Object = new Object();
+<a name="line-31"></a>        obj.attributes = new Object();
+<a name="line-32"></a>
+<a name="line-33"></a>    var atts:Object = node.attributes;
+<a name="line-34"></a>
+<a name="line-35"></a>    obj.attributes.mode = atts.mode;
+<a name="line-36"></a>    obj.attributes.type = atts.type;
+<a name="line-37"></a>    obj.value = node.firstChild.nodeValue;
+<a name="line-38"></a>
+<a name="line-39"></a>    return obj;
+<a name="line-40"></a>}       
+<a name="line-41"></a>
+<a name="line-42"></a>private function parsePersonConstruct(node:XMLNode):Object
+<a name="line-43"></a>{   
+<a name="line-44"></a>    var author:Object = new Object();
+<a name="line-45"></a>
+<a name="line-46"></a>    var children:Array = node.childNodes;
+<a name="line-47"></a>    var len:Number = children.length;
+<a name="line-48"></a>
+<a name="line-49"></a>    var tempNode:Object;
+<a name="line-50"></a>    var tempName:String;
+<a name="line-51"></a>
+<a name="line-52"></a>    for(var i:Number = 0; i &lt; len; i++)
+<a name="line-53"></a>    {
+<a name="line-54"></a>        tempNode = children[i];
+<a name="line-55"></a>        tempName = tempNode.nodeName;
+<a name="line-56"></a>
+<a name="line-57"></a>        switch(tempName)
+<a name="line-58"></a>        {
+<a name="line-59"></a>            case &quot;name&quot;:
+<a name="line-60"></a>            {
+<a name="line-61"></a>                //fall through
+<a name="line-62"></a>            }
+<a name="line-63"></a>            case &quot;url&quot;:
+<a name="line-64"></a>            {
+<a name="line-65"></a>                //fall through
+<a name="line-66"></a>            }
+<a name="line-67"></a>            case &quot;email&quot;:
+<a name="line-68"></a>            {
+<a name="line-69"></a>                author[tempName] = new Object();
+<a name="line-70"></a>                author[tempName].value = tempNode.firstChild.nodeValue;
+<a name="line-71"></a>                break;
+<a name="line-72"></a>            }
+<a name="line-73"></a>        }
+<a name="line-74"></a>
+<a name="line-75"></a>    }
+<a name="line-76"></a>
+<a name="line-77"></a>    return author;
+<a name="line-78"></a>}
+<a name="line-79"></a>
+<a name="line-80"></a>/**************** Public API / Getters *******************/
+</code></pre></div>
+<p>//TODO: make sure we have getters for all of the top level feed elements</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>public function getFeedTitle(Void):String
+<a name="line-2"></a>{
+<a name="line-3"></a>    return feed.title.value;
+<a name="line-4"></a>}
+<a name="line-5"></a>
+<a name="line-6"></a>public function getFeedModified(Void):Date
+<a name="line-7"></a>{
+<a name="line-8"></a>    return feed.modified.value;
+<a name="line-9"></a>}   
+<a name="line-10"></a>
+<a name="line-11"></a>public function getFeedLink(Void):Object
+<a name="line-12"></a>{
+<a name="line-13"></a>    return feed.link;
+<a name="line-14"></a>}
+<a name="line-15"></a>
+<a name="line-16"></a>public function getFeedId(Void):String
+<a name="line-17"></a>{
+<a name="line-18"></a>    return feed.id.value;
+<a name="line-19"></a>}
+<a name="line-20"></a>
+<a name="line-21"></a>public function getFeedGenerator(Void):String
+<a name="line-22"></a>{
+<a name="line-23"></a>    return feed.generator.value;
+<a name="line-24"></a>}
+<a name="line-25"></a>
+<a name="line-26"></a>public function getFeedCopyright(Void):String
+<a name="line-27"></a>{
+<a name="line-28"></a>    return feed.copyright.value;
+<a name="line-29"></a>}
+<a name="line-30"></a>
+<a name="line-31"></a>public function getFeedTagline(Void):String
+<a name="line-32"></a>{   
+<a name="line-33"></a>    return feed.tagline.value;
+<a name="line-34"></a>}   
+<a name="line-35"></a>
+<a name="line-36"></a>//TODO : should this be a property?
+<a name="line-37"></a>public function getFeed(Void):Object
+<a name="line-38"></a>{
+<a name="line-39"></a>    return feed;
+<a name="line-40"></a>}
+<a name="line-41"></a>
+<a name="line-42"></a>public function get entries ():Array
+<a name="line-43"></a>{
+<a name="line-44"></a>    if(entriesArray == undefined)
+<a name="line-45"></a>    {
+<a name="line-46"></a>        parseEntries();
+<a name="line-47"></a>    }
+<a name="line-48"></a>
+<a name="line-49"></a>    return entriesArray;
+<a name="line-50"></a>}
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

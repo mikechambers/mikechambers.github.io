@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Detecting whether an AIR application has run before</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Detecting whether an AIR application has run before</h2>
+<p class="meta">Wednesday, November 7, 2007</p>
+
+<div class="post">
+<p>One of the things that you might need to do when building your application is detecting whether your application has run before. This can be useful if you need to initialize settings, or perhaps prompt the user with some information.</p>
+
+<p>Below is a simple example that shows how to detect whether the application has run before. Basically, it checks for the existence of a file. If it doesn&#8217;t exist, then the app hasn&#8217;t run before, if it does exist, then it means that app has run.<br>
+&lt;!--more--&gt;</p>
+
+<p>`
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<mx:WindowedApplication 
+    xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+        creationComplete="onCreationComplete()"></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>&lt;mx:Script&gt;
+<a name="line-2"></a>    &lt;![CDATA[
+<a name="line-3"></a>        private const FIRST_RUN_TOKEN_FILE:File = 
+<a name="line-4"></a>                File.applicationStorageDirectory.resolvePath(&quot;firstrun&quot;);
+<a name="line-5"></a>
+<a name="line-6"></a>        private function onCreationComplete():void
+<a name="line-7"></a>        {
+<a name="line-8"></a>            if(FIRST_RUN_TOKEN_FILE.exists)
+<a name="line-9"></a>            {
+<a name="line-10"></a>                outputField.text = &quot;This application HAS been run before&quot;;
+<a name="line-11"></a>            }
+<a name="line-12"></a>            else
+<a name="line-13"></a>            {
+<a name="line-14"></a>                var fs:FileStream = new FileStream();
+<a name="line-15"></a>                    fs.open(FIRST_RUN_TOKEN_FILE, FileMode.WRITE);
+<a name="line-16"></a>                    fs.close();
+<a name="line-17"></a>
+<a name="line-18"></a>                    outputField.text = &quot;This application HAS NOT been run before&quot;;
+<a name="line-19"></a>            }
+<a name="line-20"></a>        }
+<a name="line-21"></a>
+<a name="line-22"></a>        private function onResetClick():void
+<a name="line-23"></a>        {
+<a name="line-24"></a>            if(FIRST_RUN_TOKEN_FILE.exists)
+<a name="line-25"></a>            {
+<a name="line-26"></a>                FIRST_RUN_TOKEN_FILE.deleteFile();
+<a name="line-27"></a>            }
+<a name="line-28"></a>        }
+<a name="line-29"></a>    ]]&gt;
+<a name="line-30"></a>&lt;/mx:Script&gt;
+<a name="line-31"></a>&lt;mx:Text top=&quot;10&quot; left=&quot;10&quot; right=&quot;10&quot; id=&quot;outputField&quot; 
+<a name="line-32"></a>                textAlign=&quot;center&quot; fontSize=&quot;20&quot;/&gt;
+<a name="line-33"></a>&lt;mx:Button label=&quot;Reset First Run Status&quot; 
+<a name="line-34"></a>        id=&quot;resetButton&quot; click=&quot;onResetClick()&quot; 
+<a name="line-35"></a>            horizontalCenter=&quot;0&quot; width=&quot;153&quot; bottom=&quot;10&quot;/&gt;
+</code></pre></div>
+<p><a href="/mx:WindowedApplication">/mx:WindowedApplication</a></pre>
+<p>`</p>
+
+<p>If you need to know how many times the app has been run, then you could just write a number to the file and then increment it every-time the app runs.</p>
+
+<p>One thing to keep in mind is that this is not 100% fool proof, as the user could manually delete the file. Thus you should not use this for security, serialization or trial tracking purposes.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>DRK : Week View Example 1</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>DRK : Week View Example 1</h2>
+<p class="meta">Friday, April 25, 2003</p>
+
+<div class="post">
+<p>I have uploaded another component example from Flash UI Component Set 5 on <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/flashmx.html">DRK 3</a>. This one uses the Week View component (DRK 3) as well as the Advanced Calendar Component from <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume2/">DRK 2</a>.</p>
+
+<!--more-->
+
+<p><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" WIDTH="250" HEIGHT="300" id="week_getSelectedDate" ALIGN="">
+  <PARAM NAME=movie VALUE="/mesh/drk/week_getSelectedDate.swf"> <PARAM NAME=quality VALUE=high> <PARAM NAME=bgcolor VALUE=#FFFFFF> <EMBED src="/mesh/drk/week_getSelectedDate.swf" quality=high bgcolor=#FFFFFF WIDTH="250" HEIGHT="300" NAME="week_getSelectedDate" ALIGN="" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+</OBJECT></p>
+
+<p>This example is included on the DRK (one of the 66 component sample files).</p>
+
+<p>You can view the on-line docs for the Week View component<a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/drk3_docs/index.html">here</a>.</p>
+
+<p>You can find more information about the Flash UI Component Set 5 (which includes the Week View component) <a href="http://www.macromedia.com/software/drk/productinfo/product_overview/volume3/flashmx.html">here</a>.</p>
+
+<p>You can find more information about DRK 3 <a href="http://www.macromedia.com/software/drk/">here</a>.</p>
+
+<p>Here is the code:</p>
+
+<p>`
+<pre>
+//Set up the arrays of French day and month abbreviations.
+var days<em>fr = [&quot;Dim&quot;, &quot;Lun&quot;, &quot;Mar&quot;, &quot;Mer&quot;, &quot;Jeu&quot;, &quot;Ven&quot;, &quot;Sam&quot;];
+var months</em>fr = [&quot;Jan&quot;, &quot;Fev&quot;, &quot;Mar&quot;, &quot;Avr&quot;, &quot;Mai&quot;, &quot;Jui&quot;, &quot;Jui&quot;,
+                 &quot;Aou&quot;, &quot;Sep&quot;, &quot;Oct&quot;, &quot;Nov&quot;, &quot;Dec&quot;];</p>
+
+<p>//store the english day and month abbreviations
+var days<em>en = myWeekView</em>wkv.getDayArray();
+var months<em>en = myWeekView</em>wkv.getMonthArray();</p>
+
+<p>//this function sets the new languages for the components.
+function setLanguage(lan)
+{
+    myWeekView<em>wkv.setDayArray(this[&quot;days</em>&quot; + lan]);
+    myWeekView<em>wkv.setMonthArray(this[&quot;months</em>&quot; + lan]);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>myCalendar.setMonthNames(this[&quot;months_&quot; + lan]);
+</code></pre></div>
+<p>}</p>
+
+<p>//make sure the initial value matches the combo box.
+setLanguage(language_cb.getValue());</p>
+
+<p>//change handler for combo box
+function onLanguageChange()
+{
+    var lan = language_cb.getValue();
+    setLanguage(lan);
+}</p>
+
+<p>language_cb.setChangeHandler(&quot;onLanguageChange&quot;);</p>
+
+<p>//change handler for week view component
+function onWeekChange()
+{
+    var selectedDate = myWeekView_wkv.getSelectedDate();
+    myCalendar.setSelectedItem(selectedDate);
+    myCalendar.setDisplayedMonth(selectedDate);
+}</p>
+
+<p>//change handler for calendar component
+function onCalendarChange()
+{
+    var selectedDate = myCalendar.getSelectedItem();
+    myWeekView_wkv.setSelectedDate(selectedDate);</p>
+
+<p>}</p>
+
+<p>myCalendar.setChangeHandler(&quot;onCalendarChange&quot;);
+myWeekView_wkv.setChangeHandler(&quot;onWeekChange&quot;);</p>
+
+<p>//make sure both calendar components are synced up.
+onWeekChange();
+</pre>
+<p>`</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

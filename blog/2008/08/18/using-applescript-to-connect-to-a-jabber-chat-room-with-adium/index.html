@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Using AppleScript to connect to a Jabber Chat Room with Adium</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Using AppleScript to connect to a Jabber Chat Room with Adium</h2>
+<p class="meta">Monday, August 18, 2008</p>
+
+<div class="post">
+<p>I have been having a lot of fun hanging out in the <a href="http://www.mikechambers.com/blog/2008/08/14/flash-platform-community-chat-xmpp-jabber-server/">Flash Platform Chat room</a> I set up last week. However, it can be a little bit of a hassle to connect to the room depending on which Jabber / XMPP client you are using. I am working on an AIR app for the chat that will make it super simple, but until then you will have to use your own client.</p>
+
+<p>I use <a href="http://www.adiumx.com/">Adium</a> on Mac OS X to connect and it works really well, except that it can be a bit of a hassle to connect to the room every time. The latest <a href="http://www.adiumx.com/beta/">beta</a> allows you to bookmark the room to make it easier to connect (Contact &gt; Add Group Chat Bookmark), but at least for me works inconsistently.</p>
+
+<p>So, I put together a simple AppleScript that you can save that will open the chat room in Adium.<br>
+&lt;!--more--&gt;</p>
+
+<p>First, type the following script in Script Editor on OS X:</p>
+
+<p><code class="inline-code">
+<pre>tell application "Adium"
+    set rn to (current date) - (date "Friday, January 1, 1904 12:00:00 AM")
+    GetURL ("xmpp:flashplatform_chat@conference.mikechambers.com?join&#038;" &#038; rn)
+end tell</pre>
+<p></code></p>
+
+<p>Update : Added random name / value pair to fix problem with script only working once per Adium instance (thanks to Nicolas Noben who suggested the fix).</p>
+
+<p>You can test it from within the Script editor by pressing the run button. </p>
+
+<p>Note that it will use the first Jabber account it finds in your account list (File &gt; Preference &gt; Accounts), so make sure to move the one you want to use to the top.</p>
+
+<p>Right now, it looks like you have to have Adium running in order for it to work (I think this has something to do with the certificate dialog warnings that come up). Anyways, I suspect once the next release of Adium is out, you wont need this, but until then, it might prove useful.</p>
+
+<p>In order to save it to make it reusable, just select File &gt; Save As, set the File type to &#8220;Application Bundle&#8221; and then save the file to the directory of your choice. </p>
+
+<p>To use it, launch Adium, and the run the Script by double clicking it (or any other way you launch an application).</p>
+
+<p><strike>The script seems to still have some issues, and will only work the first time you try to use it. After that, you have to restart Adium.</strike> If anyone know what is going on (Im an AppleScript noob), or has any suggestions, just post them in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

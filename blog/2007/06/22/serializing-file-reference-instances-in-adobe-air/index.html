@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Serializing File Reference Instances in Adobe AIR</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Serializing File Reference Instances in Adobe AIR</h2>
+<p class="meta">Friday, June 22, 2007</p>
+
+<div class="post">
+<p>In one of the projects I am working one with the <a href="http://onair.adobe.com">Adobe AIR bus tour</a>, I had a need to serialize instance of File class to the file system. Normally you can do this with File.writeObject(), but as the player serializer / de-serializer does not know about the File class, this would not work for me.</p>
+
+<p>I came up with a simple solution that I wanted to share. Basically, you need to extend the File class and provide the meta data for it to tell the player how to serialize and de-serialize the class. This will then allow it to be serialized to the file system.</p>
+
+<p>Here is the code:<br>
+&lt;!--more--&gt;</p>
+
+<p>`
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>&lt;mx:Script&gt;
+<a name="line-2"></a>    &lt;![CDATA[
+<a name="line-3"></a>        import flash.filesystem.FileMode;
+<a name="line-4"></a>        import flash.filesystem.FileStream;
+<a name="line-5"></a>        import flash.filesystem.File;
+<a name="line-6"></a>        private function onSerialize():void
+<a name="line-7"></a>        {
+<a name="line-8"></a>            //file reference to serialize
+<a name="line-9"></a>            var f:MyFile = new MyFile(&quot;app-resource:/foo.txt&quot;);
+<a name="line-10"></a>
+<a name="line-11"></a>            //file that we will write serialized object to
+<a name="line-12"></a>            var ser:File = new File(&quot;app-storage:/store.db&quot;);
+<a name="line-13"></a>            var fs:FileStream = new FileStream();
+<a name="line-14"></a>                fs.open(ser, FileMode.WRITE);
+<a name="line-15"></a>                fs.writeObject(f);
+<a name="line-16"></a>                fs.close();
+<a name="line-17"></a>
+<a name="line-18"></a>        }
+<a name="line-19"></a>
+<a name="line-20"></a>        private function onDeSerialize():void
+<a name="line-21"></a>        {
+<a name="line-22"></a>            var ser:File = new File(&quot;app-storage:/store.db&quot;);
+<a name="line-23"></a>            var fs:FileStream = new FileStream();
+<a name="line-24"></a>                fs.open(ser, FileMode.READ);
+<a name="line-25"></a>            var f:MyFile = fs.readObject() as MyFile;
+<a name="line-26"></a>                fs.close();         
+<a name="line-27"></a>        }
+<a name="line-28"></a>
+<a name="line-29"></a>    ]]&gt;
+<a name="line-30"></a>&lt;/mx:Script&gt;
+<a name="line-31"></a>
+<a name="line-32"></a>&lt;mx:Button label=&quot;Serialize&quot; left=&quot;10&quot; top=&quot;10&quot; click=&quot;onSerialize()&quot;/&gt;
+<a name="line-33"></a>&lt;mx:Button label=&quot;De-Serialize&quot; left=&quot;92&quot; top=&quot;10&quot; click=&quot;onDeSerialize()&quot;/&gt;
+</code></pre></div>
+<p><a href="/mx:WindowedApplication">/mx:WindowedApplication</a>
+</pre>
+<p>`</p>
+
+<p>and the MyFile.as class:</p>
+
+<p>`
+<pre>package
+{
+    import flash.filesystem.File;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>[RemoteClass(alias=&quot;MyFile&quot;)]
+<a name="line-2"></a>public class MyFile extends File
+<a name="line-3"></a>{
+<a name="line-4"></a>    public function MyFile(path:String = null)
+<a name="line-5"></a>    {
+<a name="line-6"></a>        super(path);
+<a name="line-7"></a>    }
+<a name="line-8"></a>}
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>The key line is the <code class="inline-code">[RemoteClass(alias="MyFile")]</code> which tells the player how to serialize the class.</p>
+
+<p>Of course, this technique should work with any other built in class that you need to serialize.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

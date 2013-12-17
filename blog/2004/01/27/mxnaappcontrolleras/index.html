@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>MXNAAppController.as</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>MXNAAppController.as</h2>
+<p class="meta">Tuesday, January 27, 2004</p>
+
+<div class="post">
+<p>I am going to post the class files for the <a href="http://www.markme.com/mesh/archives/004255.cfm">MXNA WebService App</a> I put together over the weekend. I will post them as I add the comments.</p>
+
+<p>I will eventually post all of the source, but I want to work out all of the kinks first.</p>
+
+<p>The first class I am posting, MXNAAppController is the controller for the application. It handles all communication with the web services on the server, and contains a single view class, that contains most of the UI elements for the app.</p>
+
+<p>So, if you find any bugs, or have any suggestions, post them in the comments.</p>
+
+<!--more-->
+
+<p>`
+<pre>import mx.containers.Window;
+import com.macromedia.mxna.MXNAWebService;
+import com.macromedia.mxna.app.MXNAFeedView;
+import mx.controls.Alert;
+import mx.controls.ProgressBar;</p>
+
+<p>/* Associated with the main app controller clip <em>/
+class com.macromedia.mxna.app.MXNAAppController extends MovieClip
+{
+    /</em>Window Component for Background*/
+    private var bgWindow:Window; </p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>/*MXNA WebService Class to Load Data*/
+<a name="line-2"></a>private var ws:MXNAWebService;
+<a name="line-3"></a>/*Main App View*/
+<a name="line-4"></a>private var feedView:MXNAFeedView;
+<a name="line-5"></a>
+<a name="line-6"></a>/*clip to block window component interaction*/
+<a name="line-7"></a>private var blocker:MovieClip;
+<a name="line-8"></a>
+<a name="line-9"></a>/*Progress Bar Component*/
+<a name="line-10"></a>private var pBar:ProgressBar;
+<a name="line-11"></a>
+<a name="line-12"></a>/*Used to cache category data*/
+<a name="line-13"></a>private var feedCache:Object;
+<a name="line-14"></a>private var so:SharedObject;
+<a name="line-15"></a>
+<a name="line-16"></a>/*
+<a name="line-17"></a>    Constructor. We do everything in onLoad to be sure
+<a name="line-18"></a>    everything has initialized
+<a name="line-19"></a>*/
+<a name="line-20"></a>public function MXNAAppController()
+<a name="line-21"></a>{
+<a name="line-22"></a>}
+<a name="line-23"></a>
+<a name="line-24"></a>/*
+<a name="line-25"></a>    Called by Flash when the clip is laoded on stage. We do a bunch of
+<a name="line-26"></a>    initialization here.
+<a name="line-27"></a>*/
+<a name="line-28"></a>private function onLoad():Void
+<a name="line-29"></a>{
+<a name="line-30"></a>    feedCache = new Object();
+<a name="line-31"></a>
+<a name="line-32"></a>    //set the clip to catch mouse events to the Window Component title bar.
+<a name="line-33"></a>    //we jsut want to use it for the background
+<a name="line-34"></a>    blocker._alpha = 0;
+<a name="line-35"></a>    blocker.onRelease = function(){};
+<a name="line-36"></a>    blocker.useHandCursor = false;
+<a name="line-37"></a>
+<a name="line-38"></a>    bgWindow.title = &quot;MXNA WebService Example&quot;;
+<a name="line-39"></a>
+<a name="line-40"></a>    //braodcast when the user selects a category
+<a name="line-41"></a>    feedView.addEventListener(&quot;onSelectCategory&quot;, this);
+<a name="line-42"></a>
+<a name="line-43"></a>    //Custom class that provides an interface / API to the MXNA webservices
+<a name="line-44"></a>    ws = new MXNAWebService();
+<a name="line-45"></a>    //event when categories load from server
+<a name="line-46"></a>    ws.addEventListener(&quot;onGetCategories&quot;, this);
+<a name="line-47"></a>    //event when posts load from server
+<a name="line-48"></a>    ws.addEventListener(&quot;onGetPostsByCategory&quot;, this);
+<a name="line-49"></a>    //event when an error occurs
+<a name="line-50"></a>    ws.addEventListener(&quot;onFault&quot;, this);
+<a name="line-51"></a>
+<a name="line-52"></a>    //see if categories have been laoded before. If so, use them.
+<a name="line-53"></a>    so = SharedObject.getLocal(&quot;MXNAWebServiceExample&quot;);
+<a name="line-54"></a>    var categories = so.data.categories;
+<a name="line-55"></a>
+<a name="line-56"></a>    if(categories != undefined)
+<a name="line-57"></a>    {
+<a name="line-58"></a>        setCategories(categories);
+<a name="line-59"></a>    }
+<a name="line-60"></a>    else
+<a name="line-61"></a>    {
+<a name="line-62"></a>        enableProgress(true, &quot;Loading Categories...&quot;);
+<a name="line-63"></a>        //if categories not saved from before, then load them from the server.
+<a name="line-64"></a>        ws.getCategories();        
+<a name="line-65"></a>    }
+<a name="line-66"></a>}
+<a name="line-67"></a>
+<a name="line-68"></a>public function onActivate(Void):Void
+<a name="line-69"></a>{
+<a name="line-70"></a>}
+<a name="line-71"></a>
+<a name="line-72"></a>//utility methods that takes an array of categories and sets them in the UI
+<a name="line-73"></a>//passing them to the feedView
+<a name="line-74"></a>private function setCategories(categories:Array):Void
+<a name="line-75"></a>{
+<a name="line-76"></a>    feedView.setCategories(categories, &quot;CATEGORY&quot;);
+<a name="line-77"></a>
+<a name="line-78"></a>    //when the categories are loaded, lets go get the first batch of posts
+<a name="line-79"></a>    //so the user has something to look at.
+<a name="line-80"></a>    getPostsByCategory(&quot;All&quot;);
+<a name="line-81"></a>}
+<a name="line-82"></a>
+<a name="line-83"></a>//takes a category, and gets the posts for that category from the server
+<a name="line-84"></a>private function getPostsByCategory(category:String):Void
+<a name="line-85"></a>{
+<a name="line-86"></a>    enableProgress(true, &quot;Loading &quot; + category + &quot; Feeds...&quot;);
+<a name="line-87"></a>    ws.getPostsByCategory(category);
+<a name="line-88"></a>}
+<a name="line-89"></a>
+<a name="line-90"></a>//method to manage the progress bar.
+<a name="line-91"></a>//We are usign it in indetermindate mode, so, we need to turn it off when
+<a name="line-92"></a>//it is not being used (i.e. make it invisible).
+<a name="line-93"></a>private function enableProgress(enabled:Boolean, label:String):Void
+<a name="line-94"></a>{
+<a name="line-95"></a>    if(label == undefined)
+<a name="line-96"></a>    {
+<a name="line-97"></a>        label = &quot;&quot;;
+<a name="line-98"></a>    }
+<a name="line-99"></a>
+<a name="line-100"></a>    pBar.indeterminate = enabled;
+<a name="line-101"></a>    pBar.label = label;
+<a name="line-102"></a>    pBar.enabled = enabled;
+<a name="line-103"></a>    pBar._visible = enabled;      
+<a name="line-104"></a>
+<a name="line-105"></a>    //if something is being loaded, we need to disable the UI in order to
+<a name="line-106"></a>    //keep things in sync
+<a name="line-107"></a>    feedView.enabled = !enabled;
+<a name="line-108"></a>}
+<a name="line-109"></a>
+<a name="line-110"></a>//event listener method, called when categories are loaded from the server.
+<a name="line-111"></a>private function onGetCategories(eventObj:Object):Void
+<a name="line-112"></a>{
+<a name="line-113"></a>    enableProgress(false);
+<a name="line-114"></a>
+<a name="line-115"></a>    //contains an array of string category names
+<a name="line-116"></a>    var results:Array = eventObj.categories;
+<a name="line-117"></a>
+<a name="line-118"></a>    //we need to add the &quot;All&quot; option since this is not returned from
+<a name="line-119"></a>    //the server
+<a name="line-120"></a>    results.unshift({CATEGORY:&quot;All&quot;});
+<a name="line-121"></a>
+<a name="line-122"></a>    //lets save the categories in an SO, so we don&#39;t have to load them next
+<a name="line-123"></a>    //time
+<a name="line-124"></a>    so.data.categories = results;
+<a name="line-125"></a>    so.flush();
+<a name="line-126"></a>
+<a name="line-127"></a>    setCategories(results);               
+<a name="line-128"></a>}
+<a name="line-129"></a>
+<a name="line-130"></a>//event listener method, called when the user selects a category from the UI.
+<a name="line-131"></a>private function onSelectCategory(eventObj:Object):Void
+<a name="line-132"></a>{        
+<a name="line-133"></a>    //category name
+<a name="line-134"></a>    var category:String = eventObj.category;
+<a name="line-135"></a>
+<a name="line-136"></a>    //lets see if the feeds are in the cache
+<a name="line-137"></a>    if(feedCache[category] != undefined)
+<a name="line-138"></a>    {
+<a name="line-139"></a>        //if so, use it
+<a name="line-140"></a>        feedView.dataProvider = feedCache[category];
+<a name="line-141"></a>        return;
+<a name="line-142"></a>    }
+<a name="line-143"></a>
+<a name="line-144"></a>    //otherwise, go to the server to get the feeds for the category
+<a name="line-145"></a>    getPostsByCategory(category);
+<a name="line-146"></a>}
+<a name="line-147"></a>
+<a name="line-148"></a>//event listener method, called when posts are loade from the server
+<a name="line-149"></a>private function onGetPostsByCategory(eventObj:Object):Void
+<a name="line-150"></a>{
+<a name="line-151"></a>    enableProgress(false);   
+<a name="line-152"></a>
+<a name="line-153"></a>    //add them to the cache.
+<a name="line-154"></a>    feedCache[eventObj.category] = eventObj.feeds;
+<a name="line-155"></a>
+<a name="line-156"></a>    //send them to the feedView to be displayed
+<a name="line-157"></a>    feedView.dataProvider = eventObj.feeds;
+<a name="line-158"></a>}
+<a name="line-159"></a>
+<a name="line-160"></a>//called if an error occurs. only broadcast by MXNA class right now.
+<a name="line-161"></a>private function onFault(faultObj:Object):Void
+<a name="line-162"></a>{    
+<a name="line-163"></a>
+<a name="line-164"></a>    var info:Object = faultObj.fault;
+<a name="line-165"></a>
+<a name="line-166"></a>    //show an Alert box with some info
+<a name="line-167"></a>    Alert.show(info.detail, 
+<a name="line-168"></a>                info.faultstring, 
+<a name="line-169"></a>            Alert.OK,
+<a name="line-170"></a>            this, 
+<a name="line-171"></a>            null, 
+<a name="line-172"></a>            &quot;errorIcon&quot;,
+<a name="line-173"></a>            Alert.OK);
+<a name="line-174"></a>
+<a name="line-175"></a>    feedView.enabled = false;
+<a name="line-176"></a>    enableProgress(false);
+<a name="line-177"></a>
+<a name="line-178"></a>}
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>Btw, <a href="http://www.hbo.com/alig/">big ups</a> to Sean Voisen for the <a href="http://voisen.org/archives/flash_mx/000328.php">AS 2 support</a> in his MovableType CodeBeautifier.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

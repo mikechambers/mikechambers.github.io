@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>CommandProxy : .NET / AIR Integration Proof of Concept</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>CommandProxy : .NET / AIR Integration Proof of Concept</h2>
+<p class="meta">Thursday, January 17, 2008</p>
+
+<div class="post">
+<p>Two of the most requested features for <a href="http://www.adobe.com/go/air">Adobe AIR</a> have been the ability to launch native executables from an AIR application, and the ability to integrate native libraries into an AIR application. Unfortunately, neither feature will be included in Adobe AIR 1.0.</p>
+
+<p>However, this does not mean that you cannot build an AIR application that has closer / tighter integration with the underlying operating system. This lower level of integration is possible, but it requires some work on your part. I have put together a proof of concept project, which shows how to integrate Adobe AIR applications with c# / .NET code on any operating system that Adobe AIR currently runs on (Mac and Windows). The project is called <a href="http://code.google.com/p/commandproxy/">CommandProxy</a>. It provides a communication proxy between an AIR application and the underlying operating system and could theoretically work with other web based desktop runtimes (such as <a href="http://wiki.mozilla.org/Prism">Mozilla Prism</a>).</p>
+
+<p>Update : I have posted some additional thoughts on this proof of concept <a href="http://www.mikechambers.com/blog/2008/01/22/commandproxy-its-cool-but-is-it-a-good-idea/">here</a>.<br>
+&lt;!--more--&gt;</p>
+
+<p>Note, this project is in no way supported by Adobe. This is a proof of concept project that I put together to help developers understand one possible way to extend AIR functionality beyond that that is provided by the runtime.</p>
+
+<p>The general concept behind the project is similar to the <strike>now defunct</strike> <a href="http://artemis.effectiveui.com/">Artemis project</a> (which is Java based). The AIR application communicates with the CommandProxy process to communicate and integrate with the underlying operating system. Currently the command proxy supports launching processes (and getting the output from the processes) as well as taking a screenshot of the user&#8217;s current screen. However, the framework is built in such a manner that it is possible to add new functionality to the proxy.</p>
+
+<p>Here is an overview of the life-cycle of an AIR application using the command proxy.</p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/2199401003/" title="CommandProxy / AIR Application Lifecycle by mike.chambers, on Flickr"><img src="http://farm3.static.flickr.com/2366/2199401003_55dd51c188.jpg" width="500" height="322" alt="CommandProxy / AIR Application Lifecycle" /></a></p>
+
+<ol>
+<li> Command Proxy process is launched by the user. The shortcut for the process passes in the path to the AIR application to launch (or this can be hard coded into the proxy)</li>
+<li> The Command Proxy process then launches the AIR application, passing in a communication key, as well as the socket port that the AIR application should use to communicate with the proxy.</li>
+<li> The AIR app may then at some point communicate with the proxy to execute a command. For example, it may tell the proxy to launch a specific process.</li>
+<li> The proxy executes the specified command.</li>
+<li> If appropriate, the proxy then returns any command output back to the AIR application.</li>
+<li> The command / response cycle can occur multiple times during the application life-cycle</li>
+<li> When the AIR application process is terminated (i.e. the user closes the application), then the proxy process automatically exits.</li>
+</ol>
+
+<p>Currently, the project is meant as a proof of concept, and not as a general use framework. This mainly means that there is not a lot of documentation (although the code is fully commented) and if you want to use it, you are going to have to compile the proxy yourself. If there is interest, then I am willing to expand the project to other contributors.</p>
+
+<p>If you wanted to use something like this in a production level application, then you would need to:</p>
+
+<ul>
+<li>  Compile the CommandProxy</li>
+<li>  Compile the AIR application</li>
+<li>  Create the AIR file to install the AIR application</li>
+<li>  Create a custom installer that first installs the AIR application, and then installs the short cut to the command proxy</li>
+</ul>
+
+<p>Instead of launching the AIR application directly, the user would launch the command proxy process, which would then launch the AIR application.</p>
+
+<p>The project is hosted on Google code, and includes the following:</p>
+
+<ul>
+<li>  Full C# / .NET code, compilable under <a href="http://www.microsoft.com/express/vcsharp/Default.aspx">Visual Studio</a> and <a href="http://www.mono-project.com/Main_Page">Mono</a>. (Screenshots do not work under Mono)</li>
+<li>  ActionScript 3 library for communicating with the proxy.</li>
+<li>  Some very basic documentation</li>
+</ul>
+
+<p>If you have questions, then post them in the comments and I will try and address them (and maybe create an FAQ on the project page). If there is interest, then I could also create a mail list on Google groups to discuss the project. If you find bugs with the code, then post them on the <a href="http://code.google.com/p/commandproxy/issues/list">project&#8217;s issues page</a>.</p>
+
+<p>I am also hoping to post some examples of AIR apps that use the proxy. <a href="http://www.theflashblog.com">Lee Brimelow</a> built a simple example of an AIR application that takes a screenshot, and then opens it in Photoshop for editing. You can see a demo of that example toward the end of the video posted <a href="http://theflashblog.com/?p=309">here</a> (it is about half way through the video).</p>
+
+<p>Update : The code is released under an <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.</p>
+
+<p>You can find more information on the <a href="http://code.google.com/p/commandproxy/">CommandProxy project page</a>.</p>
+
+<p>Update : I have posted some additional thoughts on the code <a href="http://www.mikechambers.com/blog/2008/01/22/commandproxy-its-cool-but-is-it-a-good-idea/">here</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

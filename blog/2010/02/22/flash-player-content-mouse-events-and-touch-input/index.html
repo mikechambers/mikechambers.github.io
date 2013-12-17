@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Flash Player content, Mouse Events, and Touch input</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Flash Player content, Mouse Events, and Touch input</h2>
+<p class="meta">Monday, February 22, 2010</p>
+
+<div class="post">
+<p>So, the Interwebs is all a buzz again around the latest <a href="http://www.roughlydrafted.com/2010/02/20/an-adobe-flash-developer-on-why-the-ipad-cant-use-flash/">article</a> that &quot;proves&quot; that Flash will not be useful on mobile devices (much less the iPad). From the article:</p>
+
+<blockquote>
+<p>Current Flash sites could never be made work well on any touchscreen device, and this cannot be solved by Apple, Adobe, or magical new hardware.</p>
+
+<p>That’s not because of slow mobile performance, battery drain or crashes. It’s because of the hover or mouseover problem.</p>
+</blockquote>
+
+<p>Basically, the writer is arguing that because some Flash content uses Mouse over / hover events (<em>MouseEvent.MOUSE_OVER</em>), and because there is no such event as a hover on a touch devices, then apparently, most Flash content just flat out wont work on touch devices.</p>
+
+<p>I wanted to make a quick post that corrects some of the false assumptions and conclusions presented in the article, which include:<br>
+&lt;!--more--&gt;</p>
+
+<ol>
+<li>Hover events do not work in Flash content on devices with touch screens. That is false, they do work.<br></li>
+<li>Any issue with hover or any other mouse events on a touch screen device, are specific to Flash. They are not. They affect HTML and any other web content as much as Flash.<br></li>
+<li>Most Flash content relies on hover events. Wrong. I don&#39;t have a scientific breakdown on how much Flash content RELIES on hover events, but at least in my experience with the Nexus one, almost all content I have come across has worked well with touch screen input, including those that use hover events. </li>
+</ol>
+
+<p>First, lets look at all of the Mouse events that Flash developers normally have access to.</p>
+
+<ul>
+<li>  MouseEvent.CLICK</li>
+<li>  MouseEvent.DOUBLE_CLICK</li>
+<li>  MouseEvent.MIDDLE_CLICK</li>
+<li>  MouseEvent.MIDDLE<em>MOUSE</em>DOWN</li>
+<li>  MouseEvent.MIDDLE<em>MOUSE</em>UP</li>
+<li>  MouseEvent.MOUSE_DOWN</li>
+<li>  MouseEvent.MOUSE_MOVE</li>
+<li>  MouseEvent.MOUSE_OUT</li>
+<li>  MouseEvent.MOUSE_OVER</li>
+<li>  MouseEvent.MOUSE_UP</li>
+<li>  MouseEvent.MOUSE_WHEEL</li>
+<li>  MouseEvent.RIGHT_CLICK</li>
+<li>  MouseEvent.RIGHT<em>CLICK</em>DOWN</li>
+<li>  MouseEvent.RIGHT<em>MOUSE</em>UP</li>
+<li>  MouseEvent.ROLL_OUT</li>
+<li>  MouseEvent.ROLL_OVER</li>
+</ul>
+
+<p>Now, lets look at a list of events that will not work on a device whose primary input is a touch screen:</p>
+
+<ul>
+<li>  MouseEvent.MIDDLE_CLICK</li>
+<li>  MouseEvent.MIDDLE<em>MOUSE</em>DOWN</li>
+<li>  MouseEvent.MIDDLE<em>MOUSE</em>UP</li>
+<li>  MouseEvent.MOUSE_WHEEL</li>
+<li>  MouseEvent.RIGHT_CLICK</li>
+<li>  MouseEvent.RIGHT<em>CLICK</em>DOWN</li>
+<li>  MouseEvent.RIGHT<em>MOUSE</em>UP</li>
+</ul>
+
+<p>As you can see that list doesn&#39;t include the <em>MOUSE_OVER</em> and <em>ROLL_OVER</em> events. It only includes middle and right mouse button events, as well as mouse wheel events, which in general, are used as a secondary means of user input / interaction.</p>
+
+<p>Basically, hover events do work in Flash content on touch screen devices. The main difference is that on a touch device, you will get also get a <em>MouseEvent.MOUSE_DOWN</em> event prior to the <em>MouseEvent.MOUSE_OVER</em> event, where as on a desktop machine, you MAY only get the <em>MouseEvent.MOUSE_OVER</em> event.</p>
+
+<p>I put together a very simple Flash example for the iphone, that shows all of the MouseEvents being generated. You can view the video here:</p>
+
+<p><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/tj1hiLnIp_g&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/tj1hiLnIp_g&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object></p>
+
+<p><a href="http://www.youtube.com/watch?v=tj1hiLnIp_g">View Video on YouTube</a></p>
+
+<p>Here is a list of the events which were generated in the video:</p>
+
+<ul>
+<li>  doubleClick</li>
+<li>  mouseUp</li>
+<li>  mouseDown</li>
+<li>  click</li>
+<li>  mouseUp</li>
+<li>  mouseOver</li>
+<li>  rollOver</li>
+<li>  mouseDown</li>
+<li>  rollOut</li>
+<li>  mouseOver</li>
+<li>  rollOver</li>
+<li>  rollOut</li>
+<li>  mouseOut</li>
+<li>  click</li>
+<li>  mouseUp</li>
+<li>  mouseOver</li>
+<li>  rollOver</li>
+</ul>
+
+<p>So, to summarize:</p>
+
+<ol>
+<li> Hover events do work in Flash content on touch devices.</li>
+<li> Any issues with mouse input on a touch device are not specific to Flash, but affect all content, including HTML based content.</li>
+<li> If your content RELIES on MIDDLE, RIGHT and / or SCROLL_WHEEL mouse events, then you will need to update your content IF you want users on touch devices to be able to use it. This applies just as much to HTML content as it does to Flash content.</li>
+</ol>
+
+<p>Now, this doesn&#39;t mean that all Flash content designed and developed for mouse input on a desktop computer will run well on a mobile device with touch input. Indeed, some content will not run well due to differences in input (such as keyboard input), user interface, or performance. However, again, those are all issues that affect HTML content as much as they affect Flash content.</p>
+
+<p>Again, any potential input issues apply as much to HTML as they do to Flash, and as browsing the web on the iPhone has demonstrated, these have not been a major barrier to consuming content on a touch device.</p>
+
+<p>As a content creator, you should focus on creating content that provides a good user experience across all platforms that you are targeting. However, even though most Flash content on the web today is not designed with mobile viewing and touch input in mind, my experience has been that existing content works surprisingly well when viewed on a mobile device with touch input.</p>
+
+<p>Here are some links to videos of existing Flash content running on mobile devices. A lot of this content is content never designed to be run on a device with touch input.</p>
+
+<ul>
+<li>  <a href="http://www.adobe.com/devnet/devices/demos/">Demos of Flash Player 10.1 on various mobile devices</a> (iPhone, Palm Pre, Nexus One, Droid, and more...)</li>
+<li>  <a href="http://vimeo.com/9596010">Flash Player content on Nexus One</a></li>
+<li>  <a href="http://theflashblog.com/?p=1781">Unofficial Nexus One Flash Demos</a></li>
+</ul>
+
+<p>Please keep comments constructive and on topic. Off topic comments will be moderated.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

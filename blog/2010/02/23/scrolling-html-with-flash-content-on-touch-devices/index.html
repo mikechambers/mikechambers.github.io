@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Scrolling HTML with Flash Content on Touch Devices</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Scrolling HTML with Flash Content on Touch Devices</h2>
+<p class="meta">Tuesday, February 23, 2010</p>
+
+<div class="post">
+<p>In response to my post on <a href="/blog/2010/02/22/flash-player-content-mouse-events-and-touch-input/">Mouse Events and hover in Flash Player</a> content on touch devices, <a href="daringfireball.net">John Gruber</a> <a href="http://www.mikechambers.com/blog/2010/02/22/flash-player-content-mouse-events-and-touch-input/">raises an issue</a>:</p>
+
+<blockquote>
+<p>The problem, though, for a hypothetic Flash plugin that renders pages within web pages (as on traditional desktop browsers), is how to tell whether a tap-and-drag within a Flash element is supposed to scroll the entire web page or be passed as a mouse movement event to the Flash element. It can’t do both, and it can’t read the user’s mind.</p>
+</blockquote>
+
+<p>This is a potential issue, and as John notes, is one not isolated to Flash content (scrolling textareas have similar issues on a touch device).</p>
+
+<p>Here is how the current pre-release builds of <a href="http://www.adobe.com/devnet/devices/demos/">Flash Player 10.1</a> handle this on the Nexus One (I havent had a chance to confirm for the other devices).<br>
+&lt;!--more--&gt;</p>
+
+<p>When the page is loaded the Flash content is embedded within the HTML and laid out as specified by that HTML. If all of the web page content cannot fit on the screen (i.e. you can scroll) and if the user swipes / drags their finger (including over the Flash content), it will scroll the page.</p>
+
+<p>However, if the user double taps the Flash content, it will go into a scaled full screen mode, and the swipe / drag gesture will then be passed to the Flash content. In the case of the Nexus One, the user presses the device back button, which takes the content out of fullscreen mode.</p>
+
+<p>If the scroll position is at the top of the page, and the user drags down on the Flash content, then the drag will be passed to the Flash content. This makes sense to me, but I am not sure if that is a feature or a bug at this point.</p>
+
+<p>In practice, this works very well, and at least among the people I have watched interact with the content, appears to be pretty intuitive.</p>
+
+<p>You can see a video of the interactions here:</p>
+
+<p><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/EeQDihKo5MU&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/EeQDihKo5MU&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object></p>
+
+<p>Now, this is all pre-release software, and could change. I would be interested in hearing any other suggestions on how this particular interaction could be made better (for Flash and HTML content). Again though, this is just as much a potential HTML issue, as it is a potential Flash issue, so think about solutions in that context.</p>
+
+<p>Please keep comments constructive and on topic. Off topic comments will be assassinated.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

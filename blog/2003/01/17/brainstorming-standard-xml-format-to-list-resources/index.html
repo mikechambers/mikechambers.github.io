@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Brainstorming : Standard XML format to list resources?</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Brainstorming : Standard XML format to list resources?</h2>
+<p class="meta">Friday, January 17, 2003</p>
+
+<div class="post">
+<p>I was thinking about easier ways that I might be able to keep my resource links up to date and fresh, and I realized that it might be useful to have them stored in a single place and in a standardized format. Kind of an RSS of resource links.</p>
+
+<p>So what do people think about coming up with an XML format that describes and lists online resources?<br>
+&lt;!--more--&gt;</p>
+
+<p>So, in the case of Flash Weblogs, there could be one XML source which listed all of the Flash Weblogs, and information about them (URL, description, language, xml feed url, etc...). </p>
+
+<p>Then you could write code that periodically checked the list and automatically generated the links for your weblog, or maybe you have a Flash based news feed reader that just reads the resource file and then loads the individual feeds to be read.</p>
+
+<p>The advantage is that there would be one place where this information could be stored and maintained, but anyone could use it.</p>
+
+<p>Just thinking out loud, the feed could look something like this:</p>
+
+<p><code class="inline-code">
+<pre><xml>
+    <resource name="mesh on mx">
+        <url>http://www.macromedia.com/go/blog_mchambers</url>
+        <xmlFeed type="RSS 1.0">http://www.markme.com/mesh/index.rdf</xmlFeed>
+        <description>News, resources, info and links on Macromedia MX,
+ with a focus on Macromedia Flash MX from the Macromedia Flash
+ Community Manager.</description>
+        <category name="Flash">
+        <category name="Cold Fusion">
+        <contact>
+            <name>Mike Chambers</name>
+            <email>mesh@macromedia.com</email>
+        </contact>
+    </resource>
+</xml>
+</pre>
+<p></code></p>
+
+<p>Of course, it could be generic enough to work with any type of resource.</p>
+
+<p>So would something like this be useful? Would people use it?</p>
+
+<p>Thoughts? comments? suggestions? post them in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

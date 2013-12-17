@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>SE|PY : Python : Editing ActionScript on OS X</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>SE|PY : Python : Editing ActionScript on OS X</h2>
+<p class="meta">Thursday, February 12, 2004</p>
+
+<div class="post">
+<p>I made the switch from Windows to OS X about 3 months ago. I have absolutely loved it and have not had any problems except for one thing. I have not been able to find a good editor to write ActionScript code.</p>
+
+<p>I had been using <a href="http://www.jedit.org">JEdit</a>, but it is a little to slow and a little too Java for my liking. The other night, I came across the <a href="http://www.sephiroth.it/python/sepy.php?column=0">SE|PY editor project</a>.</p>
+
+<!--more-->
+
+<p>This is an ActionScript editor written in <a href="http://www.python.org">Python</a> that has an impressive array of features specific to ActionScript. You can download the binaries for Windows, but as of yet there is no support for OS X.</p>
+
+<p>A couple of developers have worked to get it running on OS X, and have had some success. It appears that a lot of the issues simply have to do with path issues (due to differences between Windows and OS X).</p>
+
+<p>So, I downloaded the source, took a crash corse in Python, and began hacking away (all today). To my surprise, I actually got it to run and load an ActionScript file.</p>
+
+<div align="center">
+  <a href="/mesh/files/sepy_osx.gif"><img alt="sepy_osx_sm.gif" src="/mesh/files/sepy_osx_sm.gif" width="450" height="312" border="0" /></a><br /><a href="/mesh/files/sepy_osx.gif">View full size.</a>
+</div>
+
+<p>It is still not usable, but it has definitely raised my spirits. So, if you know Python, use a Mac, and want to help get the editor running, head over to the project&#8217;s site and sign up.</p>
+
+<p>Btw, here is the change I made to WindowsProjects.py to get it to run (added this else to the first if / else statement):</p>
+
+<pre>else:
+        ico = wxIcon(os.path.normpath('%s/icons/%s.ico' % (path, 'file')),wxBITMAP_TYPE_ICO,16,16)
+</pre>
+
+<p>You can find more info on SE|PY <a href="http://www.sephiroth.it/python/sepy.php?column=0">here</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Filtering Traces from Central with the Trace Panel</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Filtering Traces from Central with the Trace Panel</h2>
+<p class="meta">Friday, December 12, 2003</p>
+
+<div class="post">
+<p>If you have used the Central trace panel, you may have noticed the &#8220;App Name Filter&#8221; text field in the bottom left of the panel. This is used to filter trace messages coming from Central so you only see messages coming from your application.</p>
+
+<p>So, how do you use this? It is actually pretty simple.</p>
+
+<!--more-->
+
+<p>First, you need to set a global variable in your App / Agent / Pod that tells Central your application name. This is done using:</p>
+
+<p><code class="inline-code">
+<pre>Central.tracer.appName</pre>
+<p></code></p>
+
+<p>So, for all of my apps, I place :</p>
+
+<p><code class="inline-code">
+<pre>Central.tracer.appName = "mesh";</pre>
+<p></code></p>
+
+<p>at the root. This value will be passed by Central as the second argument to the trace panel.</p>
+
+<p>Then, in the trace panel, you enter the appName in the App Name Filter textfield. That is all there is to it.</p>
+
+<p>There are a couple of things to keep in mind:</p>
+
+<ul>
+<li>  Before releasing your application, you should publish it with Omit Trace Actions on.</li>
+<li>  Before releasing your application, you should comment out the Tracer.app name code.</li>
+<li>  If you have multiple Agents running from your domain, the last one laoded will set the Tracer.appName value.</li>
+</ul>
+
+<p>Also, you can set Tracer.appName to be any value (a string, array, etc...) and it will be passed to the Tracer panel. The panel from Macromedia only recognizes strings for the appName value, but the complete source code for the panel is included on the SDK, so you can modify it accept other data types.</p>
+
+<p>You can download the Central Trace panel as part of the <a href="http://www.macromedia.com/go/central_sdk">Central SDK</a>. You can also download standalone versions for <a href="/mesh/archives/003967.cfm">OS X</a> and <a href="/mesh/archives/003850.cfm">Win</a>.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

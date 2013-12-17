@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Error: Error #2037: Functions called in incorrect sequence, or earlier call was unsuccessful</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Error: Error #2037: Functions called in incorrect sequence, or earlier call was unsuccessful</h2>
+<p class="meta">Saturday, February 28, 2009</p>
+
+<div class="post">
+<p>I am doing some work on writing <a href="http://opensource.adobe.com/wiki/display/flexunit/FlexUnit">FlexUnit</a> test cases for the <a href="http://code.google.com/p/as3corelib/source/browse/trunk/src/com/adobe/air/filesystem/FileMonitor.as">FileMonitor</a> class which I have added to <a href="http://code.google.com/p/as3corelib/">as3corelib</a>. Once I wrote the test, I got the following error, which didnt make a lot of sense to me at first:<br>
+&lt;!--more--&gt;</p>
+
+<pre>[SWF] FileWatcher2.swf - 1,040,015 bytes after decompression
+Error: Error #2037: Functions called in incorrect sequence, or earlier  
+call was unsuccessful.
+    at flash.filesystem::File/_exists()
+    at flash.filesystem::File/get exists()
+    at com.adobe.air.filesystem::FileMonitor/set file()[/Users/mesh/src/ 
+as3corelib/src/com/adobe/air/filesystem/FileMonitor.as:138]
+    at com.adobe.air.filesystem::FileMonitor()[/Users/mesh/src/as3corelib/ 
+src/com/adobe/air/filesystem/FileMonitor.as:94]
+    at FileWatcher2/onFileSelect()[/Users/mesh/Documents/Flex Builder 3/ 
+FileWatcher2/src/FileWatcher2Class.as:32]&lt;/code></pre>
+
+<p>The error is thrown when trying to access a property of the File class (as well as FileReference) before the class has been initialized with a file path. Specifically, the File and FileReference classes must be initialized to reference a file path, before their properties can be accessed. </p>
+
+<p>For example, this will cause the error:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="k">var</span> <span class="nx">f</span><span class="o">:</span><span class="nx">File</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">File</span><span class="p">();</span>
+<a name="line-2"></a><span class="nf">trace</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">exists</span><span class="p">());</span>
+</code></pre></div>
+<p>This will not cause an error:</p>
+<div class="highlight"><pre><code class="actionscript"><a name="line-1"></a><span class="k">var</span> <span class="nx">f</span><span class="o">:</span><span class="nx">File</span> <span class="o">=</span> <span class="nx">File</span><span class="p">.</span><span class="nx">desktopDirectory</span><span class="o">;</span>
+<a name="line-2"></a><span class="nf">trace</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">exists</span><span class="p">());</span>
+</code></pre></div>
+<p>Anyway, just wanted to post it here in case anyone else runs into the issue.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

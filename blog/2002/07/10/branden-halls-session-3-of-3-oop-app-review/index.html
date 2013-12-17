@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Branden Hall&#8217;s Session : 3 of 3 : OOP App Review</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Branden Hall&#8217;s Session : 3 of 3 : OOP App Review</h2>
+<p class="meta">Wednesday, July 10, 2002</p>
+
+<div class="post">
+<p>Branden is going to disset his bibliofile application.<br>
+The app helps him keep trakc of all of his books.  </p>
+
+<ul>
+<li><p>Based on MVP  </p>
+
+<ul>
+<li><p>View is on main timline (different frames represent different application states).  </p>
+
+<ul>
+<li>  Presenter is very simplistic.</UL></li>
+</ul>
+
+<p>Uses Tab component, TreeView Component, push button component.<br>
+Application gets information from a remote web service via Flash Remoting. (branden uses a cue cat to scan in the books isbn into flash. flash then sends the isbn via flash remoting to a remote web service which returns information about the book. the book information is then stored locally. <em>cool stuff! &#8211; mc</em>).<br>
+Data is stored in Shared Objects.<br>
+Branden is using Object.register class to cast the object from the shared object to a specific class. (SharedObjects all you to basically serialize any object, but it strips of functions).<br>
+If symbol name is not in library it assumes class name.
+<PRE>Object.registerClass(&#8220;castToClassName&#8221;, objectToCast);</PRE></p>
+
+<p>Note, that using this, the object&#8217;s data is populated before the constructor is run, so you need to check in you constructor whether the data has been initialized yet.<br>
+Did you know? Branden&#8217;s wireless network at home goes down whenever his phone rings.<br>
+<em>note : i missed some of branden&#8217;s discussion of the different models he uses within his app. &#8211; mc.</em><br>
+BooksModel<br>
+based on associative array. easy search, creation and removal. Cannot directly sort, can have key collisions.<br>
+Categories Model<br>
+based on a tree structure. Easy to add items, searching is easy, holds hierachical data well. Difficult to code, spanning tree can be slow, can use a lot of memory.<br>
+categories is split into two objects. one represents a single node / item. the other provides access to the tree, (you dont access the first directly, simplar to how the XML and XMLNode object are related).<br>
+branden is going over the elements of the applications UI, and show the code that responds to UI events.<br>
+end of session.</p></p></li>
+</ul></li>
+</ul>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Flash Player Switching on Mac</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Flash Player Switching on Mac</h2>
+<p class="meta">Friday, January 6, 2006</p>
+
+<div class="post">
+<p>I have been doing most of my work recently using ActionScript 3 and the <a href="http://labs.macromedia.com">Flash Player 8.5 public alpha</a>. However, I recently had to do some Flash Player 8 / ActionScript 2 work, and ran into the issue of switching the Flash Player version installed on my machine. Of course, I could just install / reinstall players as I need them, but that it tedious, and doesn&#8217;t lend itself to quickly switching back and forth between player versions (especially during the same session). So, I put together a simple bash script that will quickly switch between player versions (for Firefox and Safari).<br>
+&lt;!--more--&gt;</p>
+
+<p>First, you need to install Flash Player 8 (I suggest installing the debug version which you can get from the Flash Authoring install / trial). Once it is installed, you can find the plugins in:</p>
+
+<pre>/Library/Internet Plug-Ins/</pre>
+
+<p>The plugin files are:</p>
+
+<pre>Flash Player Enabler.plugin
+Flash Player.plugin</pre>
+
+<p>Inside of this director, create two new directories called 8.0 and 8.5, so that you end up with the following paths:</p>
+
+<pre>/Library/Internet Plug-Ins/8.0/
+/Library/Internet Plug-Ins/8.5/</pre>
+
+<p>Copy the two Flash Player plugin files into the newly created 8.0 directory.</p>
+
+<p>Now, <a href="http://labs.macromedia.com/wiki/index.php/Flex_Framework:tutorials:mac_development">download and install Flash Player 8.5 for Mac</a>. This will overwrite the previous plugins, and now you can copy the</p>
+
+<pre>Flash Player Enabler.plugin
+Flash Player.plugin</pre>
+
+<p>files into the 8.5 directory.</p>
+
+<p>You probably noticed that the directory that contains the plugin has a space in its name. This normally isn&#8217;t a big deal, but it makes accessing the path in a shell script a bit of a pain. So, we are going to make things a little easier, by creating a soft-link to that directory that does not contain a space.</p>
+
+<p>Switch to the /Library directory and run the following command:</p>
+
+<pre>sudo ln -s Internet\ Plug-Ins/ plugins</pre>
+
+<p>Basically, this creates a link called plugins that points to /Library/Internet Plug-Ins. So, we can refer to the Flash Player 8.5 plugin directory like so:</p>
+
+<pre>/Library/plugins/8.5/</pre>
+
+<p>This will make writing our shell script a lot easier.</p>
+
+<p>Finally, we need to create a shell script that will allow us to easily switch between plugin versions. Below is a simple bash script that I put together called cfp (change Flash Player). Basically, you call it and pass to it the Flash Player version you want to run, and it will switch to the Player.</p>
+
+<p>Here is the script</p>
+
+<pre>#!/bin/bash
+
+plugin_dir='/Library/plugins'
+
+np_dir="$plugin_dir/$1"
+
+if [ ! -d $np_dir ]
+then
+        echo "$np_dir does not exist."
+        exit
+fi
+
+
+cp -rv $np_dir/* $plugin_dir/</pre>
+
+<p>You use it like so:</p>
+
+<p>To switch to Flash Player 8.0:</p>
+
+<pre>sudo cfp 8.0</pre>
+
+<p>and to switch to Flash Player 8.5</p>
+
+<pre>sudo cfp 8.5</pre>
+
+<p>You will be prompted for your password, since you need admin rights to move the plugin files around.</p>
+
+<p>Note that the Flash Player version passed in is just the name of the Player directories we created earlier. So you can easily add new player versions by just creating new directories and copying the correct plugin files into that directory.</p>
+
+<p>You can confirm that the correct player version is installed by visiting the <a href="http://www.macromedia.com/cfusion/knowledgebase/index.cfm?id=tn_15507">Flash Player Version Test page</a>. My experience has been that you can switch the players without having to restart the browser, however if you run into any weird issues, I would just try and restart the browser.</p>
+
+<p>Now, there are other plugin switchers, but one of the advantages to doing it via bash, is it makes it very easy to automate the plugin switching via a bash or ant script. For example, you could write a script that:</p>
+
+<ol>
+<li> Compiles your ActionScript using MXMLC (AS3) or MTASC (AS2)</li>
+<li> Switches the browser to use the correct plugin using this script.</li>
+<li> Launches the newly compiled file into the browser.</li>
+</ol>
+
+<p>The next step is to hook up the command line FDB debugger so that you can debug running SWFs on the Mac. Danny Dura and I got this working yesterday, and I will try and post some info on it next week.</p>
+
+<p>Post any comments / suggestions / questions in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

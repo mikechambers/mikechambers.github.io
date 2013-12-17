@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Pixel Bender Grayscale Filter</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Pixel Bender Grayscale Filter</h2>
+<p class="meta">Thursday, September 18, 2008</p>
+
+<div class="post">
+<p>Below is another simple <a href="http://labs.adobe.com/wiki/index.php/Pixel_Bender_Toolkit">Pixel Bender</a> filter that I created last night. This one basically, converts an image to gray scale, using the ITU-R Recommendation BT.709 algorithm described <a href="http://local.wasp.uwa.edu.au/%7Epbourke/texture_colour/imageprocess/">here</a>.</p>
+
+<p><a href="http://www.flickr.com/photos/mikechambers/2868222770/" title="Pixel Bender Grayscale Filter by mike.chambers, on Flickr"><img src="http://farm4.static.flickr.com/3057/2868222770_e537d4b918.jpg" width="500" height="192" alt="Pixel Bender Grayscale Filter" /></a><br>
+&lt;!--more--&gt;</p>
+
+<p>Here is the filter:</p>
+
+<div class="highlight">
+  <pre><span style="color: #666666">&lt;</span>languageVersion <span style="color: #666666">:</span> <span style="color: #666666">1.0;&gt;</span>
+
+kernel GrayScale
+<span style="color: #666666">&lt;</span>   namespace <span style="color: #666666">:</span> <span style="color: #BA2121">"mesh"</span><span style="color: #666666">;</span>
+    vendor <span style="color: #666666">:</span> <span style="color: #BA2121">"Mike Chambers"</span><span style="color: #666666">;</span>
+    version <span style="color: #666666">:</span> <span style="color: #666666">1;</span>
+    description <span style="color: #666666">:</span> <span style="color: #BA2121">"Gray scale filter"</span><span style="color: #666666">;</span>
+<span style="color: #666666">&gt;</span>
+{
+    input image4 src<span style="color: #666666">;</span>
+    output pixel4 dst<span style="color: #666666">;</span>
+
+    void
+    evaluatePixel()
+    {
+        dst <span style="color: #666666">=</span> sampleNearest(src<span style="color: #666666">,</span>outCoord());
+        
+        <span style="color: #408080; font-style: italic">//algorithm from ITU-R Recommendation BT.709</span>
+        <span style="color: #408080; font-style: italic">//http://local.wasp.uwa.edu.au/~pbourke/texture_colour/imageprocess/</span>
+        float avg <span style="color: #666666">=</span> <span style="color: #666666">0.2125</span> <span style="color: #666666">*</span> dst.r <span style="color: #666666">+</span> <span style="color: #666666">0.7154</span> <span style="color: #666666">*</span> dst.g <span style="color: #666666">+</span> <span style="color: #666666">0.0721</span> <span style="color: #666666">*</span> dst.b<span style="color: #666666">;</span>
+        dst <span style="color: #666666">=</span> float4(avg<span style="color: #666666">,</span> avg<span style="color: #666666">,</span> avg<span style="color: #666666">,</span> dst.a);
+
+    }
+}
+</pre>
+</div>
+
+<p>Again, its pretty simple, but I am trying to learn both Pixel Bender and image processing in general. The biggest thing I learned for this example is how to work with different vector sizes (which can be a little confusing). Im still wrapping my head around it, but once I get it down, Ill make a post on vectors in Pixel Bender.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

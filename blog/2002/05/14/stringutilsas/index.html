@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>stringUtils.as</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>stringUtils.as</h2>
+<p class="meta">Tuesday, May 14, 2002</p>
+
+<div class="post">
+<p>Simple library that adds useful methods to the String object. You can view the documentation <a href="/mesh/files/stringutils/">here</a>. This is provided as is, but please post any errors, corrections or suggestions in the comments below.
+<PRE>/*<BR />String Utility Component version 1.5</PRE></p>
+
+<PRE>Mike Chambers</PRE>
+
+<PRE>thanks to Branden Hall, Ben Glazer, Christian Cantrell, Nik Schramm<BR />*/</PRE>
+
+<PRE>/*<BR />&nbsp;This allows user to check from other include files whether or not the stringUtils<BR />&nbsp;library has been included.</PRE>
+
+<PRE>&nbsp;Example:</PRE>
+
+<PRE>&nbsp;if(!String.stringUtilsDefined)<BR />&nbsp;{<BR />&nbsp;&nbsp;trace(&#8220;stringUtils.as not found&#8221;);<BR />&nbsp;}<BR />*/<BR />String.prototype.constructor.stringUtilsDefined = true;<BR />String.prototype.constructor.stringUtilsVersion = 1.5;</PRE>
+
+<PRE>/**<BR />*&nbsp;This methods trims all of the white space from the left side of a String.<BR />*/<BR />String.prototype.ltrim = function()<BR />{</PRE>
+
+<PRE>&nbsp;var size = this.length;<BR />&nbsp;for(var i = 0; i &lt; size; i++)<BR />&nbsp;{<BR />&nbsp;&nbsp;if(this.charCodeAt(i) &gt; 32)<BR />&nbsp;&nbsp;{<BR />&nbsp;&nbsp;&nbsp;return this.substring(i);<BR />&nbsp;&nbsp;}<BR />&nbsp;}<BR />&nbsp;return &#8220;&#8221;;</PRE>
+
+<PRE>}</PRE>
+
+<PRE>/**<BR />*&nbsp;This methods trims all of the white space from the right side of a String.<BR />*/<BR />String.prototype.rtrim = function()<BR />{<BR />&nbsp;var size = this.length;<BR />&nbsp;for(var i = size; i &gt; 0; i&#8211;)<BR />&nbsp;{<BR />&nbsp;&nbsp;if(this.charCodeAt(i) &gt; 32)<BR />&nbsp;&nbsp;{<BR />&nbsp;&nbsp;&nbsp;return this.substring(0, i + 1);<BR />&nbsp;&nbsp;}<BR />&nbsp;}<BR />&nbsp;return &#8220;&#8221;;<BR />}</PRE>
+
+<PRE>/**<BR />*&nbsp;This methods trims all of the white space from both sides of a String.<BR />*/<BR />String.prototype.trim = function()<BR />{<BR />&nbsp;return this.rtrim().ltrim();<BR />}</PRE>
+
+<PRE>/**<BR />*&nbsp;This methods returns true if the String begins with the string passed into<BR />*&nbsp;the method. Otherwise, it returns false.<BR />*/</PRE>
+
+<PRE>String.prototype.beginsWith = function(s) {<BR />&nbsp;return (s == this.substring(0, s.length));<BR />};</PRE>
+
+<PRE>/**<BR />*&nbsp;This methods returns true if the String ends with the string passed into<BR />*&nbsp;the method. Otherwise, it returns false.<BR />*/<BR />String.prototype.endsWith = function(s) {<BR />&nbsp;return (s == this.substring(this.length &#8211; s.length));<BR />};</PRE>
+
+<PRE>&nbsp;</PRE>
+
+<PRE><BR />String.prototype.remove = function(remove)<BR />{<BR />&nbsp;return this.replace(remove, &#8220;&#8221;);<BR />}</PRE>
+
+<PRE>String.prototype.replace = function(replace, replaceWith)<BR />{<BR />&nbsp;sb = new String();<BR />&nbsp;&nbsp;found = false;<BR />&nbsp;for (var i = 0; i &lt; this.length; i++)<BR />&nbsp;&nbsp;&nbsp; {<BR />&nbsp;&nbsp;&nbsp; &nbsp;if(this.charAt(i) == replace.charAt(0))<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp;<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;found = true;<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(var j = 0; j &lt; replace.length; j++)<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;if(!(this.charAt(i + j) == replace.charAt(j)))<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;found = false;<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<BR />&nbsp;&nbsp;&nbsp;}<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(found)<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;sb += replaceWith;<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i = i + (replace.length &#8211; 1);<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue;<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<BR />&nbsp;&nbsp;}<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb += this.charAt(i);<BR />&nbsp;}<BR />&nbsp;&nbsp;&nbsp; return sb;<BR />}<BR /></PRE>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

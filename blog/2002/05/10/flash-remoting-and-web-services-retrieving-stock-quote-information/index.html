@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Flash Remoting and Web Services : Retrieving Stock Quote Information</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Flash Remoting and Web Services : Retrieving Stock Quote Information</h2>
+<p class="meta">Friday, May 10, 2002</p>
+
+<div class="post">
+<p>This is a simple Flash example that calls a Stock quote web service via Flash Remoting. You can find more info on the web service being used below at <a href="http://www.xmethods.com/ve2/ViewListing.po;jsessionid=lRlMD1-IEsCVGBCh9jUloy3f(QhxieSRM)?serviceid=47221">xmethods.net</a>.<br>
+1. Download and install the ColdFusion MX <a href="http://www.macromedia.com/software/trial_download/">preview release</a>.<br>
+2. Download and install the <a href="http://www.macromedia.com/software/flash/flashremoting/#200">Flash Remoting add-ons</a> for Flash MX.<br>
+3. Create a new Flash movie and enter the the following code in the first frame of the movie.
+<PRE>#include &#8220;NetServices.as&#8221;</PRE></p>
+
+<PRE>var params = new Object();</PRE>
+
+<PRE>\//this is always 0, and is specific to the web service.<BR />params.LicenseKey = &#8220;0&#8243;;</PRE>
+
+<PRE>\//stock symbol we want information about<BR />params.StockSymbol = &#8220;macr&#8221;;</PRE>
+
+<PRE>\//create an object to catch the response from the web service<BR />var result = new Object();</PRE>
+
+<PRE>\//data is an object which contains properties with information about the stock.<BR />result.onResult = function(data)<BR />{<BR />&nbsp;\//loop through all of the properties and print them out<BR />&nbsp;for(var x in data)<BR />&nbsp;{<BR />&nbsp;&nbsp;trace(x + &#8221; : &#8221; + data[x]);<BR />&nbsp;}<BR />}<BR />&nbsp;<BR />\//this gets called if an error occurs.<BR />result.onStatus = function(error)<BR />{<BR />&nbsp;\//print out the error<BR />&nbsp;trace(&#8220;Error : &#8221; + error.description);<BR />}</PRE>
+
+<PRE>\//the path to the web service&#8217;s WSDL file.<BR />var webServiceWSDL = &#8220;<A href="http://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx?wsdl">http://ws.cdyne.com/delayedstockquote/delayedstockquote.asmx?wsdl</A>&#8220;;<BR />var gw = NetServices.createGatewayConnection(&#8220;<A href="http://localhost:8500/flashservices/gateway/">http://localhost:8500/flashservices/gateway/</A>&#8220;);<BR />var service = gw.GetService(webServiceWSDL, result);</PRE>
+
+<PRE>\//call a method on the web service, passing params.<BR />service.GetQuote(params);</PRE>
+
+<PRE>Test the movie. You should see the data from the web service print in the Output window. </PRE>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

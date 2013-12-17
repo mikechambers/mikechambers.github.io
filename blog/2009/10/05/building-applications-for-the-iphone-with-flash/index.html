@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Building Applications for the iPhone with Flash</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Building Applications for the iPhone with Flash</h2>
+<p class="meta">Monday, October 5, 2009</p>
+
+<div class="post">
+<p>This morning during the day 1 keynote at <a href="http://max.adobe.com/">Adobe Max 2009</a>, Adobe announced that the next version of Adobe Flash (Flash Professional CS5) will include support for creating stand-alone applications for the Apple iPhone and iPod Touch. As you can imagine, this is something that we are really excited about, and we expect there to be a lot of questions. This post should address some of those questions, and point to additional resources with more information.</p>
+
+<p>So, what exactly did we announce?<br>
+&lt;!--more--&gt;</p>
+
+<p>The next version of Flash Authoring will enable developers to create stand-alone iPhone applications using Flash technologies (including ActionScript 3). These applications are just like any other iPhone application and can be distributed via the Apple iTunes Application store. Indeed, there are already a <a href="http://labs.adobe.com/wiki/index.php/Applications_for_iPhone:Developer_FAQ#Are_there_currently_any_applications_on_the_iTunes_App_Store_created_with_Flash.3F">number of applications</a> created with Flash on the store today.</p>
+
+<p>One thing I want to stress is that this is for standalone applications, and is not the Flash Player for mobile Safari (which is something we continue to work on). The end result is a native iPhone application, and not a SWF that runs in the browser. We compile the SWF to a native application using <a href="http://www.adobe.com/devnet/logged_in/abansod_iphone.html">LLVM</a>. There is no requirement for the Flash Player / Adobe AIR Runtime to be installed on the device or included in the application. The end result is a native iPhone application.</p>
+
+<p>Currently, this project is in private beta, and we plan to release a public beta of Flash CS5 with support for building iPhone applications before the end of this year. We are not accepting any new people for the private beta, but you can <a href="http://www.adobe.com/go/flashprobetanotify">sign up to be notified</a> when the public beta is available.</p>
+
+<p>We have posted a <a href="http://labs.adobe.com/wiki/index.php/Applications_for_iPhone:Developer_FAQ">developer FAQ</a> on labs, which addresses a lot of the questions we expect you will have (we will continue to update this as necessary). The FAQ also includes some information that will be helpful if you want to start working on some content in anticipation of the public beta.</p>
+
+<p>One thing that I really want to stress though, is that developing for the iPhone is mobile / device development. The iPhone has a significantly slower processor and less memory than what can be found in a typical desktop computer. As such, existing content may need to be optimized for performance, and / or user interactions (given the smaller screen and different UI metaphors). So, design and develop content with these limitations and differences in mind. Fortunately, we have done some things in the compiler, including enabling support for hardware accelerated rendering, to help with performance. Expect more information on this, and other optimization strategies once the public beta is available.</p>
+
+<p>I am sure there are a lot of questions. As I mentioned above, we have created a <a href="http://labs.adobe.com/wiki/index.php/Applications_for_iPhone:Developer_FAQ">developer FAQ</a> that should address a lot of the most common questions. We have also created a <a href="http://forums.adobe.com/community/labs/flashcs5/appsfor_iphone">forum</a> for discussion of the announcements and technologies. Please feel free to also post any questions in the comments here.</p>
+
+<p>Here are some additional resources:</p>
+
+<ul>
+<li>  <a href="http://labs.adobe.com/technologies/flashcs5/appsfor_iphone/">Flash Applications for iPhone on Labs</a></li>
+<li>  <a href="http://www.adobe.com/devnet/logged_in/abansod_iphone.html">Developing for the Apple iPhone using Flash</a></li>
+<li>  <a href="http://labs.adobe.com/wiki/index.php/Applications_for_iPhone:Developer_FAQ">Developer FAQ</a></li>
+<li>  <a href="http://forums.adobe.com/community/labs/flashcs5/appsfor_iphone">iPhone forum</a></li>
+</ul>
+
+<p>Finally, if you are attending Max, we have a number of sessions which will cover building iPhone applications using Flash. I will make another post with information on those shortly (my session will be a general Q &amp; A session on building iPhone applications with Flash).</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

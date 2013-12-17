@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Encapsulating Ajax XMLHTTPRequest Calls within JavaScript classes</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Encapsulating Ajax XMLHTTPRequest Calls within JavaScript classes</h2>
+<p class="meta">Tuesday, January 31, 2006</p>
+
+<div class="post">
+<p>The guys over at Fold <a href="http://foldblog.blogspot.com/2006/01/ajax-handling-multiple-xmlhttprequests.html">posted</a> an article on how to use multiple XMLHTTPRequest (XHR) calls within a single page. This is something that I have had to tackle in my own work, and though I would write up how I solve this issue.</p>
+
+<p>This post describes a simple technique for encapsulating XMLHTTPRequest calls within JavaScript classes. In general, this makes code more maintainable, allows for the creation of easier to use APIs, and makes it much easier to create components / widgets that load data from the server.<br>
+&lt;!--more--&gt;</p>
+
+<p>Basically, the technique associates and encapsulates XMLHTTPRequest instances within individual JavaScript class instances.</p>
+
+<p>For this post, we will create a simple widget that uses XHR and Ajax techniques to dynamically load some data from the server, and then render it in the page. Nothing super exciting, but it provides enough to get an idea of how everything works.</p>
+
+<p>First, the examples contains the following files:</p>
+
+<ul>
+<li>  <strong>index.html :</strong> The main HTML page for the example.</li>
+<li>  <strong>scripts/MessageLoader.js :</strong> A JavaScript file that includes the JavaScript class used in the example.</li>
+<li>  <strong>styles/MessageLoader.css :</strong> A Simple Cascading StyleSheet that tries to make the end result look pretty.</li>
+<li>  <strong>data.txt :</strong> The data that will be loaded by the JavaScript class. It just contains raw text that will be displayed in the page.</li>
+</ul>
+
+<p>You can download all of the files from <a href="/mesh/files/XHREncapsulation.zip">here</a>.</p>
+
+<p>First, lets look at what the final HTML file will look like:</p>
+
+<p>`
+<pre>
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot;
+    &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</p>
+
+<p><html xmlns="http://www.w3.org/1999/xhtml" version="-//W3C//DTD XHTML 1.1//EN" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>&lt;link href=&quot;styles/MessageLoader.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+<a name="line-2"></a>&lt;script type=&quot;text/javascript&quot; src=&quot;scripts/MessageLoader.js&quot;&gt;&lt;/script&gt;
+<a name="line-3"></a>
+<a name="line-4"></a>&lt;title&gt;index&lt;/title&gt;
+</code></pre></div>
+<p></head></p>
+
+<p><body></p>
+
+<script language="javascript" type="text/javascript">
+    var ml = new MessageLoader();
+        ml.load();
+</script>
+
+<p></body>
+</html>
+</pre>
+<p>`</p>
+
+<p>Pretty simple. We link to the style sheet and MessageLoader.js file in the head tag. Then, we just have a simple script block in the body that will render the content.</p>
+
+<p>The main work goes on in the scripts/MessageLoader.js file.</p>
+
+<p>`
+<pre>/**
+*   @fileoverview Simple example that shows how to encapsulate 
+*   XMLHTTPRequestCalls
+*
+*   @author Mike Chambers (mesh@adobe.com)
+*/</p>
+
+<p>/**
+*   Constructor for the class.
+*
+*   @param {String} dataURL The path to the data that the class
+*   will load (OPTIONAL)
+*
+*   @constructor
+*/
+function MessageLoader(dataURL)
+{
+    if(dataURL != undefined)
+    {
+        this._dataURL = dataURL;
+    }</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>this._writeContainer();
+</code></pre></div>
+<p>}</p>
+
+<p>//where to load the data from
+MessageLoader.prototype._dataURL = &quot;data.txt&quot;;</p>
+
+<p>//var to hold an instance of the XMLHTTPRequest object
+MessageLoader.prototype._request = undefined;</p>
+
+<p>//ID for the html div we will create to display the data
+MessageLoader.prototype._containerID = &quot;container&quot;;</p>
+
+<p>//name of the css class for the HTML container
+MessageLoader.prototype.<em>containerClass = &quot;ml</em>container&quot;;</p>
+
+<p>/**************** Public APIs **********************/</p>
+
+<p>/**
+*   Tells the class to load its data and render the results.
+*/
+MessageLoader.prototype.load = function()
+{
+    //get a new XMLHTTPRequest and store it in an instance var.
+    this.<em>request = this.</em>getXMLHTTPRequest();</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//set the var so we can scope the callback
+<a name="line-2"></a>var _this = this;
+<a name="line-3"></a>
+<a name="line-4"></a>//callback will be an anonymous function that calls back into our class
+<a name="line-5"></a>//this allows the call back in which we handle the response (_onData())
+<a name="line-6"></a>// to have the correct scope.
+<a name="line-7"></a>this._request.onreadystatechange = function(){_this._onData()};
+<a name="line-8"></a>this._request.open(&quot;GET&quot;, this._generateDataUrl(), true);
+<a name="line-9"></a>this._request.send(null);
+</code></pre></div>
+<p>}</p>
+
+<p>/************<strong><em>Private Rendering APIs *</em></strong>****************/</p>
+
+<p>//writes the top level div for the class / widget
+MessageLoader.prototype.<em>writeContainer = function()
+{
+    //styles should be in external CSS
+    document.write(&quot;&lt;div id=&#39;&quot;+this.</em>containerID+&quot;&#39; class=&#39;&quot;+this._containerClass+&quot;&#39;&gt;</div>&quot;);
+}</p>
+
+<p>//renders the entire widget
+MessageLoader.prototype.<em>render = function(title)
+{
+    var content = document.getElementById(this.</em>containerID);
+        content.appendChild(document.createTextNode(title));
+}</p>
+
+<p>/************<strong><em>Private Data Loading Handlers</em></strong>****************/</p>
+
+<p>//return the URL from which the data will be loaded
+MessageLoader.prototype.<em>generateDataUrl = function()
+{
+    return this.</em>dataURL;
+}</p>
+
+<p>//callback for when the data is loaded from the server
+MessageLoader.prototype.<em>onData = function()
+{
+    if(this.</em>request.readyState == 4)
+    {
+        if(this.<em>request.status == &quot;200&quot;)
+        {
+            this.</em>render(this._request.responseText);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>        //if the onDraw callback has been defined
+<a name="line-2"></a>        //call it to let the listener know
+<a name="line-3"></a>        //that we are done creating the list
+<a name="line-4"></a>        if(this.onDraw != undefined)
+<a name="line-5"></a>        {
+<a name="line-6"></a>            this.onDraw();
+<a name="line-7"></a>        }
+<a name="line-8"></a>    }
+<a name="line-9"></a>    else
+<a name="line-10"></a>    {   
+<a name="line-11"></a>        //check if an error callback handler has been defined
+<a name="line-12"></a>        if(this.onError != undefined)
+<a name="line-13"></a>        {
+<a name="line-14"></a>            //pass an object to the callback handler with info
+<a name="line-15"></a>            //about the error
+<a name="line-16"></a>            this.onError({status:this_request.status, 
+<a name="line-17"></a>                    statusText:this._request.statusText});
+<a name="line-18"></a>        }
+<a name="line-19"></a>    }
+<a name="line-20"></a>
+<a name="line-21"></a>    //clean up
+<a name="line-22"></a>    delete this._request;
+<a name="line-23"></a>}
+</code></pre></div>
+<p>}</p>
+
+<p>/************<strong><em>Private Data Util Functions *</em></strong>****************/</p>
+
+<p>//returns an XMLHTTPRequest instance (based on browser)
+MessageLoader.prototype._getXMLHTTPRequest = function()
+{
+    var xmlHttp;
+    try
+    {
+        xmlHttp = new ActiveXObject(&quot;Msxml2.XMLHttp&quot;);
+    }
+    catch(e)
+    {
+        try
+        {
+            xmlHttp = new ActiveXObject(&quot;Microsoft.XMLHttp&quot;);
+        }
+        catch(e2)
+        {
+        }
+    }</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>if(xmlHttp == undefined &amp;#038;&amp;#038; (typeof XMLHttpRequest != &#39;undefined&#39;))
+<a name="line-2"></a>{
+<a name="line-3"></a>    xmlHttp = new XMLHttpRequest();
+<a name="line-4"></a>}
+<a name="line-5"></a>
+<a name="line-6"></a>return xmlHttp;
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>I have tried to comment the code to make it self documenting, but lets do a quick overview of what it going on.</p>
+
+<p>First, the class constructor does two main things:</p>
+
+<p>`
+<pre>function MessageLoader(dataURL)
+{
+    if(dataURL != undefined)
+    {
+        this._dataURL = dataURL;
+    }</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>this._writeContainer();
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>It allows the developer to optionally specify the path to the data to be loaded, and it calls the this._writeContainer(); method. All this method does is write a small piece of content into the HTML page into which the dynamic data that will be loaded will be attached to.</p>
+
+<p>Everything is set in motion when the load() method is called.</p>
+
+<p>`
+<pre>/**
+*   Tells the class to load its data and render the results.
+*/
+MessageLoader.prototype.load = function()
+{
+    //get a new XMLHTTPRequest and store it in an isntance var.
+    this.<em>request = this.</em>getXMLHTTPRequest();</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//set the var so we can scope the callback
+<a name="line-2"></a>var _this = this;
+<a name="line-3"></a>
+<a name="line-4"></a>//callback will be an anonymous function that calls back into our class
+<a name="line-5"></a>//this allows the call back in which we handle the response (_onData())
+<a name="line-6"></a>// to have the correct scope.
+<a name="line-7"></a>this._request.onreadystatechange = function(){_this._onData()};
+<a name="line-8"></a>this._request.open(&quot;GET&quot;, this._generateDataUrl(), true);
+<a name="line-9"></a>this._request.send(null);
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>This is pretty standard XHR code, but there are two things worth calling out.</p>
+
+<p>First, we store the XHR object within a local variable named _request. This will allow it to be accessed later within the class instance.</p>
+
+<p><code class="inline-code">
+<pre>this._request = this._getXMLHTTPRequest();</pre>
+<p></code></p>
+
+<p>Second, we create a local variable named _this that points to the class instance, and then create an anonymouse function to use as the onreadystatechange callback handler.</p>
+
+<p>`
+<pre>   //set the var so we can scope the callback
+    var _this = this;</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>//callback will be an anonymous function that calls back into our class
+<a name="line-2"></a>//this allows the call back in which we handle the response (_onData())
+<a name="line-3"></a>// to have the correct scope.
+<a name="line-4"></a>this._request.onreadystatechange = function(){_this._onData()};
+</code></pre></div>
+<p></pre>
+<p>`</p>
+
+<p>This is necessary because of how scoping works within JavaScript. Basically, any functions created contain references to variables within their scope. Thus, when we define the anonymouse function here:</p>
+
+<p><code class="inline-code">
+<pre>this._request.onreadystatechange = function(){_this._onData()};</pre>
+<p></code></p>
+
+<p>The _this variable is copied into the function. This allows us to essentially proxy the data handler call to data handler that is called within the scope of our class instance.</p>
+
+<p>This makes it much, much easier to encapsulate the XHR call, as if we did not do this, then &#8220;this&#8221; within the callback would refer to the browser&#8217;s global window object, and NOT to our class instances. </p>
+
+<p>You can see this in the data handler which is called when the data is loaded from the server:</p>
+
+<p>`
+<pre>MessageLoader.prototype.<em>onData = function()
+{
+    if(this.</em>request.readyState == 4)
+    {
+        if(this.<em>request.status == &quot;200&quot;)
+        {
+            this.</em>render(this._request.responseText);</p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>        //if the onDraw callback has been defined
+<a name="line-2"></a>        //call it to let the listener know
+<a name="line-3"></a>        //that we are done creating the list
+<a name="line-4"></a>        if(this.onDraw != undefined)
+<a name="line-5"></a>        {
+<a name="line-6"></a>            this.onDraw();
+<a name="line-7"></a>        }
+<a name="line-8"></a>    }
+<a name="line-9"></a>    else
+<a name="line-10"></a>    {   
+<a name="line-11"></a>        //check if an error callback handler has been defined
+<a name="line-12"></a>        if(this.onError != undefined)
+<a name="line-13"></a>        {
+<a name="line-14"></a>            //pass an object to the callback handler with info
+<a name="line-15"></a>            //about the error
+<a name="line-16"></a>            this.onError({status:this_request.status, 
+<a name="line-17"></a>                    statusText:this._request.statusText});
+<a name="line-18"></a>        }
+<a name="line-19"></a>    }
+<a name="line-20"></a>
+<a name="line-21"></a>    //clean up
+<a name="line-22"></a>    delete this._request;
+<a name="line-23"></a>}
+</code></pre></div>
+<p>}</pre>
+<p>`</p>
+
+<p>This handler is called within the scope of our class instance. This allows us to get a reference to the XHR instance through this._request, and to call isntance methods directly.</p>
+
+<p>All this code does is check to make sure the data has completed loading. If it has, then it calls the _render method, which renders the content in the page. If an error occurs, then we throw an error event that the developer can listen for.</p>
+
+<p>Once we have retrieved the data we no longer need the XHR instance hanging around within our class instance, so we delete it.</p>
+
+<p>That is pretty much all there is to it. You could now instantiate multiple instances of the class, and each would contain its own XHR isntance. Furthermore, you can completely abstract away the XHR object, and provide a simple API specific to whatever you code / widget does.</p>
+
+<p>Now, in this example, you can only really crete one instance of the widget in a page, since we don&#8217;t do anything to create unique IDs for the dynamically generated DIVs / HTML content. However, that is easy enough to solve, and I will update this example to do this in the next day or two.</p>
+
+<p>Post any questions / corrections or suggestions in the comments.</p>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>

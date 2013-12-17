@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Branden Hall Session 2 of 3 : Creating applications in Flash MX</title>
+        <meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript" src="//use.typekit.net/gib0bhv.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/blog/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/blog/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/blog/">mike chambers</a> | <a href="">about</a></h1>
+          </div>
+
+          <h2>Branden Hall Session 2 of 3 : Creating applications in Flash MX</h2>
+<p class="meta">Wednesday, July 10, 2002</p>
+
+<div class="post">
+<p><strong>Components</strong>  </p>
+
+<ul>
+<li><p>Self encapsultated widgets  </p>
+
+<ul>
+<li><p>at the core, they are just movie clips  </p>
+
+<ul>
+<li><p>usually drag and drop (i.e scrollbar)  </p>
+
+<ul>
+<li>  Full API</UL></li>
+</ul>
+
+<p>UI Component Set 2 From Macromedia. Avaliable from <a href="http://www.macromedia.com/exchange/flash/">Flash Exchange</a>.<br>
+Most components support handlers, which is the name of the function that you want to be called when an event happens. By default the function is on the same timeline as the components. You can set them via the API to use functions on any object.<br>
+Components are similar to components in MS visual studio, or Swing.<br>
+Component API : Extensive, full featured API. Components can be treated like class instances.<br>
+Data Providers<br>
+*   interface for a way to access sets of data.<br>
+    *   can set via setDataProvider methods (in supported components). accepts DataProviderClass, RecordSet, arrays of objects.<br>
+        *   DataProviderClass, included with some of the components (look in the components assets in the library).<br>
+            *   Using data provider means that data will always be in sync, so if data in dataprovider changes, any components using that dataprovider class will update themselves with the changes.</UL></p>
+<div class="highlight"><pre><code class="text"><a name="line-1"></a>        Data Glue  
+<a name="line-2"></a>
+<a name="line-3"></a>        *   Used to &amp;#8220;auto-mungh&amp;#8221; dataproviders to work with some components. it maps the properties to those required by listbox, and combo box components (and some others).  
+<a name="line-4"></a>            *   Simple built in formatter.  
+<a name="line-5"></a>                *   Included with Flash Remoting Components (avaliable from macromedia).  
+<a name="line-6"></a>                    *   Branden will put up an example at his website, [waxpraxis.org][2].&lt;/UL&gt;
+<a name="line-7"></a>
+<a name="line-8"></a>                    Skinning Components  
+<a name="line-9"></a>                    Can do with code using FStyleFormat class. Created a new syle format object, and then you can set all of its properties (look in reference panel for complete list).
+<a name="line-10"></a>                    &lt;PRE&gt;sf = new FStyleFormat();&lt;/PRE&gt;
+<a name="line-11"></a>
+<a name="line-12"></a>                    &lt;PRE&gt;sf.face = 0x00ff00;&lt;/PRE&gt;
+<a name="line-13"></a>
+<a name="line-14"></a>                    &lt;PRE&gt;sf.addListener(componentName);&lt;/PRE&gt;
+<a name="line-15"></a>
+<a name="line-16"></a>                    &lt;PRE&gt;sf.applyChanges();&lt;/PRE&gt;
+<a name="line-17"></a>
+<a name="line-18"></a>                    you can also set individual properties through setStyleProperty on the component.
+<a name="line-19"></a>                    &lt;PRE&gt;componentName.setStyleProperty(&amp;#8220;face&amp;#8221;, 0x00ff00);&lt;/PRE&gt;
+<a name="line-20"></a>
+<a name="line-21"></a>                    Can set globally using GlobalStyleFormat class.  
+<a name="line-22"></a>                    Can also skin in the library, by actually editing graphics. Library &gt; Flash UI Components &gt; Component Skins.  
+<a name="line-23"></a>                    Skins are broken into very small pieces. if you are making you own skins, you dont have to make them into so many small peices. it is done this way in the flash components to work with stye objects.  
+<a name="line-24"></a>                    Customizing Components  
+<a name="line-25"></a>                    Can extend and customize components. Extending Listbox.  
+<a name="line-26"></a>
+<a name="line-27"></a>                    *   Create symbol that will be used for the item, and associate a class with it.  
+<a name="line-28"></a>                        *   The class has certain methods that will draw internals of listbox.  
+<a name="line-29"></a>                            *   Need to register the new symbol with the component.  
+<a name="line-30"></a>                                *   Couple of articles on [Flash Application Developer Center][3] on this. (one by branden, one by nigel pegg, one by greg burch).&lt;/UL&gt;
+<a name="line-31"></a>
+<a name="line-32"></a>                                Creating Components  
+<a name="line-33"></a>
+<a name="line-34"></a>                                *   can be difficult.  
+<a name="line-35"></a>                                    *   one off components, and robust, generic components. the latter can take a long time, but are usually more useful in more situations.&lt;/UL&gt;
+<a name="line-36"></a>
+<a name="line-37"></a>                                    main pieces  
+<a name="line-38"></a>
+<a name="line-39"></a>                                    *   main code, displays item, drawing  
+<a name="line-40"></a>                                        *   API code, runtime manipulation  
+<a name="line-41"></a>                                            *   Parameter, customer UI (PI)  
+<a name="line-42"></a>                                                *   Live Preview (can become complex).&lt;/UL&gt;
+<a name="line-43"></a>
+<a name="line-44"></a>                                                branden is showing the TabBar component that he built, showing how the live preview automatically updates when properties in the property inspector is updated. Nigel Pegg is going to have a lot more info on this during his session.  
+<a name="line-45"></a>                                                Dont name a parameter &amp;#8220;horizontal&amp;#8221;, if it gets set to true, it will rotate component.  
+<a name="line-46"></a>                                                Flash Remoting  
+<a name="line-47"></a>                                                Branden really likes it.  
+<a name="line-48"></a>
+<a name="line-49"></a>                                                *   &amp;#8220;Best way to connect flash to servers. period. end of story.&amp;#8221;  
+<a name="line-50"></a>                                                    *   Can send and receive native Flash / Data types. don&amp;#8217;t have to do any data serialization / de-serialization.  
+<a name="line-51"></a>                                                        *   Can directly call remote services from flash (java, .net, cfmx, web services, etc...).  
+<a name="line-52"></a>                                                            *   Authoring Components are free from macromedia.com. Gateway is included with jrun4, and cfmx. will be avaliable for .net and java servers.&lt;/UL&gt;
+<a name="line-53"></a>
+<a name="line-54"></a>                                                            XML is a very verbose way to serialize data. Flash Player communicates with Flash Remoting Adaptor via AMF, a binary format created specifically to serialize ActionScript data types. very efficient and lightweight.  
+<a name="line-55"></a>                                                            branden is showing his book app again.&amp;nbsp;&amp;nbsp;when specifying URL for remote web service, you point to the web services WSDL file (in this case, he is calling a remote web service creating in ASP.NET).  
+<a name="line-56"></a>                                                            branden is passing the responder object as the first parameter to the remote method. onResult method is automatically called when data is returned from remote service.  
+<a name="line-57"></a>                                                            NetDebug.as, include this and you can use the NetConnection Debuger Panel (Window &gt; NetConnection Debugger), and it will show all of the communication bewtween flash and the server.  
+<a name="line-58"></a>                                                            end of session.&lt;/p&gt;
+</code></pre></div></li>
+</ul></li>
+</ul></li>
+</ul>
+
+</div>
+
+
+          <div class="footer">
+			<p>Copyright 2013 - Mike Chambers</p>
+        </div>
+		
+		<div id="social">
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/twitter.png" width="50" height="50" alt="twitter" /></a>
+			<a href="https://github.com/mikechambers/"><image src="/blog/images/social/github.png" width="50" height="50" alt="github" /></a>
+			<a href="http://www.flickr.com/photos/mikechambers/"><image src="/blog/images/social/flickr.png" width="50" height="50" alt="flickr" /></a>
+			<a href="http://www.behance.net/mikechambers"><image src="/blog/images/social/behance.png" width="50" height="50" alt="behance" /></a>
+			<a href="http://www.twitter.com/mesh/"><image src="/blog/images/social/rss.png" width="50" height="50" alt="rss" /></a>
+		</div>
+
+    </body>
+</html>
