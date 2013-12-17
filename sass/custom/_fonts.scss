@@ -2,11 +2,15 @@
 // To give it a try, uncomment some of the lines below rebuild your blog, and see how it works. your sites's.
 // If you love to use Web Fonts, you also need to add some lines to source/_includes/custom/head.html
 
-//$sans: "Optima", sans-serif;
+$sans: "freight-sans-pro", sans-serif;
 $serif: "chaparral-pro", serif;
-$mono: "source-code-pro", monospace;
-$heading-font-family: $serif;
-$header-title-font-family: "ltc-bodoni-175", $serif;
+$mono: monospace;
+$heading-font-family: $sans, serif;
+
+//title
+$header-title-font-family: "skolar", serif;
+
+//subtitle
 $header-subtitle-font-family: $serif;
 
 //$heading-font-family
