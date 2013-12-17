@@ -2,15 +2,23 @@
 
 ## Todo
 
-* optimize pngs
+* compress pngs
 * run page through tidy
 * continue to update blogs
-* next / previous posts
+* next / previous posts : [info](http://stackoverflow.com/questions/2026023/having-difficulties-with-jekyll-liquid)
 * Figure out what to do with : <!--more-->
 * set up rss
 * give credit for icons
-* add continous scroll to main page
+* add continuos scroll to main page
 * push content through tidy
+* filter files that are moved to web server
+
+### Page
+
+* Create about page
+* Link email in footer?
+* impliment smart loading
+* add comments
 
 ## Requirements
 
@@ -77,3 +85,11 @@ excerpt_separator: <!--more-->
 which is the separator used by wordpress (which is where my posts were exported from)
 
 I have not confirmed if it works.
+
+# General Tips
+
+Command to list installed Gems
+
+``` bash
+gem query --local
+```
